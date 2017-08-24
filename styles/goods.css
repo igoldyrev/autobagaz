@@ -32,8 +32,17 @@ div.button {
 }
 
 .buy_button {
-	background: linear-gradient(#F5A9A9, #B40404, #F5A9A9);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5A9A9', endColorstr='#B40404');
+	background: linear-gradient(#04B404, #088A08, #04B404);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#04B404', endColorstr='#088A08');
+	margin: 3px;
+	padding: 3px 7px;
+	border-radius: 5px;
+	border: 1px solid #A4A4A4;
+}
+
+.prokat_button {
+	background: linear-gradient(#A4A4A4, #BDBDBD, #A4A4A4);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#A4A4A4', endColorstr='#BDBDBD');
 	margin: 3px;
 	padding: 3px 7px;
 	border-radius: 5px;
