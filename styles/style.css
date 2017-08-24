@@ -1,0 +1,136 @@
+html, boby {
+	height: 100%;
+}
+/* Блок изображений */
+img {
+	max-width: 100%;
+	height: auto; 
+} 
+.img_div {
+	text-align: center;
+}
+.img_main {
+	max-width: 100%;
+	height: auto;
+	cursor:pointer;
+	padding: 10px;
+}
+
+/* Шрифты */
+/* font-family: "HelveticaRegular" */
+@font-face {
+    font-family: "HelveticaRegular";
+    src: url("../fonts/HelveticaRegular/HelveticaRegular.eot");  /* IE 5-8 */
+    src: url("../fonts/HelveticaRegular/HelveticaRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/HelveticaRegular/HelveticaRegular.woff") format("woff"), /* FF 3.6, Chrome 5, IE9 */
+    url("../fonts/HelveticaRegular/HelveticaRegular.ttf") format("truetype"),  /* Opera, Safari */
+	url("../fonts/HelveticaRegular/HelveticaNeue.svg#font") format("svg"); /* iOS */
+    font-style: normal;
+    font-weight: 400;
+}
+/* font-family: "HelveticaBold" */
+@font-face {
+    font-family: "HelveticaBold";
+    src: url("../fonts/HelveticaBold/HelveticaBold.eot");  /* IE 5-8 */
+    src: url("../fonts/HelveticaBold/HelveticaBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/HelveticaBold/HelveticaBold.woff") format("woff"), /* FF 3.6, Chrome 5, IE9 */
+    url("../fonts/HelveticaBold/HelveticaBold.ttf") format("truetype"); /* Opera, Safari */
+	url("../fonts/HelveticaBold/HelveticaNeue-Bold.svg#font") format("svg"); /* iOS */
+    font-style: normal;
+    font-weight: 700;
+}
+/* font-family: "HelveticaMedium" */
+@font-face {
+    font-family: "HelveticaMedium";
+    src: url("../fonts/HelveticaMedium/HelveticaMedium.eot");  /* IE 5-8 */
+    src: url("../fonts/HelveticaMedium/HelveticaMedium.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/HelveticaMedium/HelveticaMedium.woff") format("woff"), /* FF 3.6, Chrome 5, IE9 */
+    url("../fonts/HelveticaMedium/HelveticaMedium.ttf") format("truetype"); /* Opera, Safari */
+	url("../fonts/HelveticaMedium/HelveticaNeue-Medium.svg#font") format("svg"); /* iOS */
+    font-style: normal;
+    font-weight: 500;
+}
+/* font-family: "HelveticaLight" */
+@font-face {
+    font-family: "HelveticaLight";
+    src: url("../fonts/HelveticaLight/HelveticaLight.eot");  /* IE 5-8 */
+    src: url("../fonts/HelveticaLight/HelveticaLight.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/HelveticaLight/HelveticaLight.woff") format("woff"), /* FF 3.6, Chrome 5, IE9 */
+    url("../fonts/HelveticaLight/HelveticaLight.ttf") format("truetype"); /* Opera, Safari */
+	url("../fonts/HelveticaLight/HelveticaNeue-Light.svg#font") format("svg"); /* iOS */
+    font-style: normal;
+    font-weight: 300;
+}
+/* font-family: "HelveticaThin" */
+@font-face {
+    font-family: "HelveticaThin";
+    src: url("../fonts/HelveticaThin/HelveticaThin.eot");  /* IE 5-8 */
+    src: url("../fonts/HelveticaThin/HelveticaThin.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/HelveticaThin/HelveticaThin.woff") format("woff"), /* FF 3.6, Chrome 5, IE9 */
+    url("../fonts/HelveticaThin/HelveticaThin.ttf") format("truetype"); /* Opera, Safari */
+	url("../fonts/HelveticaLight/HelveticaNeue-Thin.svg#font") format("svg"); /* iOS */
+    font-style: normal;
+    font-weight: 200;
+}
+
+/* Текстовые блоки */
+h1 {
+	font-family: HelveticaBold;
+	font-size: 22px;
+	text-align: center;
+}
+h2 {
+	font-family: HelveticaBold;
+	font-size: 20px;
+	text-align: center;
+}
+h3 {
+	font-family: HelveticaBold;
+	font-size: 16px;
+	line-height: 1;
+	text-align: center;
+}
+h4 {
+	font-family: HelveticaBold;
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+}
+p {
+	font-family: HelveticaRegular;
+	font-size: medium;
+	font-weight: 400;
+	line-height:1;
+}
+li {
+	font-family: HelveticaRegular;
+	font-size: medium;
+	font-weight: 400;
+	line-height:1;
+}
+a {
+	font-family: HelveticaMedium;
+	font-size: large;
+	font-weight: 400;
+	color: #000000;
+}
+nav a {
+	font-size: medium;
+	font-family: HelveticaThin;
+	font-weight: 100;
+}
+
+/* Оформление таблиц */
+.producttable {
+	font-family: HelveticaRegular;
+	padding: 10px;
+}
+td.producttable {
+	border-bottom: 1px solid #013ADF;
+}
+td.producttablecaption {
+	font-family: HelveticaBold;
+	border-bottom: 1px solid #013ADF;
+	border-top: 1px solid #E6E6E6;
+	padding: 10px;
+}
