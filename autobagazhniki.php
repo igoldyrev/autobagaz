@@ -5,6 +5,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 	echo "<meta name='description' content='"; echo $keywords[7][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[7][keywords]; echo "'/>";
 
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobagazhniki_1.php");
 $_SESSION['autobagazhniki'] = $autobagazhniki;
 
