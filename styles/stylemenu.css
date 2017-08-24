@@ -1,0 +1,138 @@
+/* Clearfix */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+/* Адаптивное меню */
+nav {
+	height: 40px;
+	width: 100%;
+	background: #0a2a0a;
+	font-size: medium;
+	font-family: HelveticaThin;
+	font-weight: 100;
+	letter-spacing: 0.05em;
+	position: relative;
+	border-bottom: 2px solid #A4A4A4;
+	margin-top: 5px;
+}
+nav ul {
+	padding: 0;
+	margin: 0 auto;
+	width: 980px;
+	height: 40px;
+}
+nav li {
+	display: inline;
+	float: left;
+}
+nav a {
+	color: #fff;
+	display: inline-block;
+	width: 140px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 40px;
+	text-shadow: 1px 1px 0px #283744;
+}
+nav li a {
+	border-right: 1px solid #A4A4A4;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+nav li:last-child a {
+	border-right: 0;
+}
+nav a:hover, nav a:active {
+	background-color: #367347;
+}
+nav a#pull {
+	display: none;
+}
+.dmenu {
+	position: sticky;
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+    position: -o-sticky;
+	top: 3;
+	z-index: 2;
+}
+
+@media only screen and (min-width : 769px) {
+	.mmenu {
+		display: none;
+	}
+}
+
+/*Стили для экранов 515px и меньше*/
+@media only screen and (max-width : 768px) {
+	nav {
+		height: auto;
+		border-bottom: 0;
+		margin-top: 0px;
+	}
+	nav ul {
+		display: none;
+		height: auto;
+		width: 100%;
+	}
+	nav li {
+  		width: 50%;
+  		float: left;
+  		position: relative;
+  	}
+	nav li a {
+		border-bottom: 1px solid #A4A4A4;
+		border-right: 1px solid #A4A4A4;
+	}
+	nav a {
+	  	text-align: left;
+	  	width: 100%;
+	  	text-indent: 25px;
+  	}
+	nav a#pull {
+		display: block;
+		background-color: #367347;
+		width: 100%;
+		position: relative;
+	}
+	nav a#pull:after {
+		content:"";
+		background: url('/images/nav-icon.png') no-repeat;
+		width: 30px;
+		height: 30px;
+		display: inline-block;
+		position: absolute;
+		right: 15px;
+		top: 10px;
+	}
+	.dmenu {
+	display: none;
+	}
+	.mmenu {
+		display: table;
+		width: 100%;
+	}
+}
+
+/* Смартфоны */
+@media only screen and (max-width : 320px) {
+	nav li {
+		display: block;
+		float: none;
+		width: 100%;
+	}
+	nav li a {
+		border-bottom: 1px solid #A4A4A4;
+	}
+}
