@@ -34,4 +34,5 @@ foreach ($autobagazhniki as $item): ?>
 	</div>
 	<?php endforeach; 
 	echo "<p>Если вы являетесь гордым обладателем японского, корейского или китайского автомобиля, остальные продавцы разводят руками в подборе оборудования-не отчаивайтесь, наш богатый опыт поможет вам решить данный вопрос быстро и из наличия!</p>"; 
-	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php"); ?>
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php"); 
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html"); ?>
