@@ -31,4 +31,6 @@ if (!isset($page)) {
 
 	echo "Это страница проката оборудования";
 	}
+
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");	
 ?>
