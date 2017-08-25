@@ -3,6 +3,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/frames/keywords.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 	echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>";
+
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html");
 	
 $id = $_GET['id'];
 
@@ -40,7 +42,7 @@ if (!isset($id)) {
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 }
-$_SESSION['tovar'] = $tovar; 
+$_SESSION['tovar'] = $tovar; ?>
 <p>Чтобы <b>воспользоваться</b> услугами аренды необходимо сделать несколько простых шагов:</p> 
 <ol>
 	<li>Забронируйте багажник, бокс, или любой необходимый аксессуар по телефону, или оставив заявку на сайте (для нас важно, чтобы ваше путешествие ничто не омрачило-выбранное багажное оборудование 100% будет Вас ждать точно в срок)</li> 
