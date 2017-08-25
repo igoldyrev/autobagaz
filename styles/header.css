@@ -1,93 +1,46 @@
 /* Шапка сайта */
 .header {
 	display: grid;
-	grid-template-columns: 1fr 250px 250px;
-	grid-template-rows: auto auto;
+	grid-template-columns: 1fr 300px;
+	grid-template-rows: auto;
 	grid-row-gap: 0px;
 	grid-column-gap: 0px;
-	grid-template-areas: "logo address phones"
-						"headred headred headred";
 	}
 .header li {
 	list-style-type: none;
 }
-.logo {
-	grid-area: logo;
-}
 .address {
-	grid-area: address;
+	font-size: 1em;
+	font-family: HelveticaRegular;
+	font-weight: 300;
+	text-align: right;
 }
-.phone {
+li.phone {
 	font-size: 1.5em;
 	font-family: HelveticaRegular;
 	font-weight: 300;
 }
-.phones {
-	grid-area: phones;
-}
-.phones + .phones_manager ul {
-	margin: 0px;
-	padding: 0px;
-}
-.phones_manager {
-	grid-area: phones_manager;
-}
-.time {
-	grid-area: time;
-}
+
 .headred {
-		grid-area: headred;
        color: #DF0101;
-	   margin-bottom: 10px;
+	   font-size: 1.3em;
+	   font-family: HelveticaMedium;
+	   text-align: center;
+	   margin-bottom: 5px;
    }
-p.headred {
-		font-size: x-large;
+.note {
+		font-size: 0.7em;
 		font-family: HelveticaMedium;
 	}
-note.headred {
-		font-size: small;
-		font-family: HelveticaMedium;
-	}
-@media (max-width: 768px) {
-	.headred {
-		margin-top: 5px;
-	}
-	p.headred {
-		font-size: large;
-	}
-}
-@media (max-width: 480px) {
-	header{
-		margin-top: 5px;
-		flex-direction: column;
-		align-items: flex-center;
-		justify-content: space-between;
-	}
-	.header-left img {
-		width: 100%;
-		height: auto;
-	}
-	.info {
-	height: 40px;
+
+@media screen and (max-width: 480px) {
+.header{
+	grid-template-columns: auto;
+	grid-template-rows: 1fr auto;
+	height: auto;
 	width: 100%;
-	font-size: medium;
-	margin-top: 5px;
-}
-.info ul {
-	width: 100%;
-}
-.info li {
-	display: block;
-	float: left;
-	width: 50%;
-	text-align: left;
-	text-decoration: none;
-	line-height: 20px;
-}
+	}
 .headred {
-	margin-top: 0px;
+	font-size: 1.1em;
 }
-	p.headred {
-		font-size: medium;
-	}
 }
