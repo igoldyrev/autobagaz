@@ -30,6 +30,7 @@
 <link href="/styles/goods.css" rel="stylesheet">
 <link href="/styles/form.css" rel="stylesheet">
 <link href="/styles/header.css" rel="stylesheet">
+<link href="/styles/footer.css" rel="stylesheet">
 <link href="/styles/modalcall.css" rel="stylesheet">
 <link href="/styles/stylemenu.css" rel="stylesheet">
 
