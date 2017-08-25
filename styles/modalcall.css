@@ -41,12 +41,16 @@
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5A9A9', endColorstr='#B40404');
 	margin: 3px;
 	padding: 3px 7px;
-	border-radius: 5px;
+	border-radius: 30px;
 	border: 1px solid #A4A4A4;
+	position: fixed;
+	left: 5%;
+	bottom: 5%;
+	z-index: 10;
 }
 
 .modal__link {
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 }
 .modal__header {
