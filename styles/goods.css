@@ -29,6 +29,7 @@ div.price {
 
 div.button {
 	margin: 10px;
+	text-align: right;
 }
 
 .buy_button {
