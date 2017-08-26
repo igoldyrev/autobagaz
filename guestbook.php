@@ -51,7 +51,7 @@ $start_from = ($current_page - 1) * $on_page;
 $query = "SELECT `name`, `phone`, `rewiew` FROM `guestbook` ORDER BY `id` DESC LIMIT $start_from, $on_page";
 $res = mysql_query($query); ?>
 
-<form action="/scripts/prokatsend.php" method="post">
+<form action="/scripts/rewiew.php" method="post">
 <span class="label_top">Ваше имя:</span>
 <div class="better-placeholder">
   <input type="text" name="name" required="required" pattern="[А-Яа-яЁё]{2,}" class="better-placeholder__input" placeholder="Введите Ваше имя">
@@ -62,12 +62,12 @@ $res = mysql_query($query); ?>
   <input type="text" name="phone" class="better-placeholder__input" required="required" pattern="[0-9]{10,11}" placeholder="Введите номер телефона. Номер телефона НЕ публикуется">
   <label for="phone" class="better-placeholder__label">Введите номер телефона. Номер телефона НЕ публикуется</label>
 </div><br>
-
 <span class="label_top">Ваш отзыв</span>
 <div class="better-placeholder">
-<textarea name="text" class="better-placeholder__input" pattern="^[A-Za-zА-Яа-яЁё0-9\s]+$" placeholder="Введите Ваш отзыв о нас"></textarea>
-  <label for="text" class="better-placeholder__label">Введите Ваш отзыв о нас</label>
+<textarea name="rewiew" class="better-placeholder__input" pattern="^[A-Za-zА-Яа-яЁё0-9\s]+$" placeholder="Введите Ваш отзыв о нас"></textarea>
+  <label for="rewiew" class="better-placeholder__label">Введите Ваш отзыв о нас</label>
 </div><br>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/captcha_frame.php"); ?>
 <div align="center">
 <input class="input__button" type="submit" value="Оставить отзыв">
 </div>
