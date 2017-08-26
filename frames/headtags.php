@@ -33,6 +33,7 @@
 <link href="/styles/footer.css" rel="stylesheet">
 <link href="/styles/modalcall.css" rel="stylesheet">
 <link href="/styles/stylemenu.css" rel="stylesheet">
+<link href="/styles/rewiew.css" rel="stylesheet">
 
 <!-- Таблица стилей для font-awesome -->
 <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
