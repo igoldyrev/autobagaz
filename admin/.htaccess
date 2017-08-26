@@ -1,0 +1,4 @@
+AuthName "Administrators page!"
+AuthType Basic
+AuthUserFile 	/home/users/9/9082410193/domains/9082410193.myjino.ru/admin/.htpasswd
+require valid-user
