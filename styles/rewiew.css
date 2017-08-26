@@ -1,0 +1,29 @@
+div.rewiew {
+	margin: 5px 2px;
+	height: auto;
+	width: 98%;
+	display: block;
+}
+
+span.rewiew {
+	font-family: HelveticaRegular;
+	font-size: 1em;
+	font-weight: 300;
+	line-height:1;
+}
+
+p.rewiew {
+	font-family: HelveticaRegular;
+	font-size: 1em;
+	font-weight: 300;
+	padding: 5px;
+}
+
+div.name {
+	width: 100%;
+	background: #367347;
+	text-align: center;
+	color: #fff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
