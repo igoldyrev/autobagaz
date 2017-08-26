@@ -1,5 +1,6 @@
 <?php
 session_start();
+if (isset($_POST['captcha']) && $_POST['captcha'] == $_SESSION['keystring']){
 // Соединение с БД MySQL
 //$sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
 //mysql_select_db('9082410193_zakaz', $sql);
@@ -70,6 +71,10 @@ else {
 }}
 else {
 	echo "<center>Вы не заполнили одно или несколько из обязательных полей формы, вернитесь, пожалуйста, и заполните его<br><a href='/prokat'>Вернуться назад</a>";
+}
+}
+else{
+    echo "<center>Вы неправильно ввели числа с картинки, вернитесь, пожалуйста, и введите их правильно<br><br><a href='/prokat.php'>Вернуться назад</a>";
 }
 unset($_SESSION['tovar']);
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html");?>
