@@ -7,6 +7,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html");
 
+echo "<h1>Страница отзывов</h1>";
+echo "<p>На данной странице Вы можете оставить отзыв о нашей проделанной работе, либо написать нам какие-либо пожелания. А также посмотреть другие отзывы о нас.</p>";
+
 // Соединение с БД MySQL
 $sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
 mysql_select_db('9082410193_zakaz', $sql);
