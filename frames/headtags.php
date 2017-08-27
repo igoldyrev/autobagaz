@@ -17,13 +17,14 @@
 <meta property="og:site_name" content="Автобагаж"/>
 
 <!-- Иконка -->
-
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
 <!-- Основная таблица стилей -->   
 <link href="/styles/style.css" rel="stylesheet">
 
 <!-- Таблицы стилей для различных экранов --> 
 <link href="/styles/style768.css" rel="stylesheet" media="screen and (min-width:768px) and (max-width:1679px)">
+<link href="/styles/style320.css" rel="stylesheet" media="screen and (min-width:320px) and (max-width:767px) and (-webkit-min-device-pixel-ratio: 1)">
 
 
 <!-- Таблицы стилей для блоков сайта -->
@@ -36,6 +37,7 @@
 <link href="/styles/goods.css" rel="stylesheet">
 <link href="/styles/rewiew.css" rel="stylesheet">
 <link href="/styles/popup.css" rel="stylesheet">
+<link href="/styles/index.css" rel="stylesheet">
 
 
 <!-- Таблица стилей для font-awesome -->
