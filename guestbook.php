@@ -5,8 +5,13 @@ include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 	echo "<meta name='description' content='"; echo $keywords[24][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>";
 
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); ?>
+<div id="leftmenu">
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/leftmenu.html"); ?>
+</div>
+<div id="content">
 
+<?php
 echo "<h1>Страница отзывов</h1>";
 echo "<p>На данной странице Вы можете оставить отзыв о нашей проделанной работе, либо написать нам какие-либо пожелания. А также посмотреть другие отзывы о нас.</p>";
 
@@ -108,5 +113,5 @@ for ($page = 1; $page <= $num_pages; $page++)
     }
 } }
 echo '</p>'; ?>
-
+</div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");?>
