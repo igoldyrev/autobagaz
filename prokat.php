@@ -4,8 +4,12 @@ include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 	echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>";
 
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html");
-	
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); ?>
+<div id="leftmenu">
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/leftmenu.html"); ?>
+</div>
+<div id="content">
+<?php 	
 $id = $_GET['id'];
 
 if (!isset($id)) { 
@@ -60,5 +64,5 @@ $_SESSION['tovar'] = $tovar; ?>
 <tr><td class="producttable" align="center">От 21 дня</td><td class="producttable" align="center">90 рублей/день</td><td class="producttable" align="center">210 рублей/день</td></tr>
 </table>
 <p>Обращаем ваше внимание, что время проката считается календарными днями. Монтаж/демонтаж багажных систем осуществляется полностью силами арендатора, либо оплачивается отдельно.</p>
-<p>С общими правилами пользования багажным оборудованием можно ознакомиться <a href="/docs/Правила эксплуатации автобоксов.doc">здесь</a>.</p>
+<p>С общими правилами пользования багажным оборудованием можно ознакомиться <a href="/docs/Правила эксплуатации автобоксов.doc">здесь</a>.</p></div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html"); ?>
