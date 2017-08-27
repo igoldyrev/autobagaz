@@ -119,6 +119,14 @@ nav a {
 	font-family: HelveticaThin;
 	font-weight: 100;
 }
+/* Зачеркнутый текст */
+.strike {
+	text-decoration: line-through;
+	color: red;
+}
+.text {
+	color: #000;
+}
 
 /* Оформление таблиц */
 .producttable {
