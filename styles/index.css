@@ -18,12 +18,13 @@ div.catalog {
 }
 
 .item_image {
-	margin-top: 10px;
-	margin-bottom: 10px;
+	top: 5%;
+	left: 0%;
 }
 
-.item_link {
-	margin-top: 80px;
+.item_link  {
+	position: relative;
+	bottom:20%;
 }
 
 .menu_item a {
