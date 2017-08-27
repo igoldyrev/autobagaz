@@ -7,8 +7,13 @@ include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobagazhniki_1.php");
-$_SESSION['autobagazhniki'] = $autobagazhniki;
+$_SESSION['autobagazhniki'] = $autobagazhniki; ?>
 
+<div id="leftmenu">
+	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/leftmenu.html"); ?>
+</div>
+<div id="content">
+<?php
 echo "<h1>Автомобильные багажники</h1>";
 echo "<p>Проблема перевозки крупногабаритных вещей периодически возникает у каждого автомобилиста. Длинномерные грузы, громоздкие коробки и поклажу неравномерной формы редко удается разместить в стандартном багажнике автомобиля, и они начинают скапливаться в салоне, занимая собой личное пространство пассажиров и водителя. Было создано множество средств для решения этой проблемы, но, пожалуй, самыми известными и привычными из них для нас являются <b>багажники на крышу автомобиля</b></p>";
 echo "<p>Каждый день в нашем магазине есть 3-10 вариантов различных багажников на любой автомобиль. И для Вашего удобства мы разбили их на категории с обозначением минимальной цены.</p>";
@@ -34,5 +39,6 @@ foreach ($autobagazhniki as $item): ?>
 	</div>
 	<?php endforeach; 
 	echo "<p>Если вы являетесь гордым обладателем японского, корейского или китайского автомобиля, остальные продавцы разводят руками в подборе оборудования-не отчаивайтесь, наш богатый опыт поможет вам решить данный вопрос быстро и из наличия!</p>"; 
-	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php"); 
-	include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html"); ?>
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php"); ?>
+	</div>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html"); ?>
