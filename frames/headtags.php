@@ -23,17 +23,32 @@
 <link href="/styles/style.css" rel="stylesheet">
 
 <!-- Таблицы стилей для различных экранов --> 
-
+<link href="/styles/style768.css" rel="stylesheet" media="screen and (min-width:768px) and (max-width:1679px)">
 
 
 <!-- Таблицы стилей для блоков сайта -->
-<link href="/styles/goods.css" rel="stylesheet">
-<link href="/styles/form.css" rel="stylesheet">
 <link href="/styles/header.css" rel="stylesheet">
 <link href="/styles/footer.css" rel="stylesheet">
-<link href="/styles/modalcall.css" rel="stylesheet">
+<link href="/styles/leftmenu.css" rel="stylesheet">
+<link href="/styles/form.css" rel="stylesheet">
 <link href="/styles/stylemenu.css" rel="stylesheet">
+<link href="/styles/modalcall.css" rel="stylesheet">
+<link href="/styles/goods.css" rel="stylesheet">
 <link href="/styles/rewiew.css" rel="stylesheet">
+<link href="/styles/popup.css" rel="stylesheet">
+
 
 <!-- Таблица стилей для font-awesome -->
 <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+<!-- Scripts -->
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?139"></script>
+<script type="text/javascript">
+  VK.init({apiId: 5866168, onlyWidgets: true});
+</script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="/js/nav-menu.js"></script>  
+<script src="/js/popup.js"></script>
