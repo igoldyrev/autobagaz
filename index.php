@@ -2,7 +2,12 @@
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/keywords.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); ?>
+<div id="leftmenu">
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/leftmenu.html"); ?>
+</div>
+<div id="content">
+<?php
 $page = $_GET['page'];
 
 if (!isset($page)) {
@@ -31,6 +36,7 @@ if (!isset($page)) {
 
 	echo "Это страница проката оборудования";
 	}
-
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");	
+?>
+</div>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");	
 ?>
