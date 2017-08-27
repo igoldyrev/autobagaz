@@ -84,4 +84,5 @@ $_SESSION['tovar'] = $tovar; ?>
 <input class="input__button" type="submit" value="Отправить заказ">
 </div>
 </form></div>
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html"); ?>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html"); 
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html"); ?>
