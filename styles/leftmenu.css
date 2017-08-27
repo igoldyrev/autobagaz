@@ -1,0 +1,29 @@
+	/* Левое меню */
+ .menu {
+        font-size: medium;
+        font-family: HelveticaRegular;
+        font-weight: 400;
+        color: #ffffff;
+        table-layout: auto;
+        border-collapse: separate;
+    }
+    table.menu {
+        height: 50px;
+		width: 200px;
+    }
+    td.menu {
+        text-decoration: none;
+        color:#000000;
+        background: #367347;
+        padding: 3px;
+        width: 100%;
+    }
+    a.menu {
+        color: #ffffff;
+        font-weight: 400;
+        text-decoration: none;
+    }
+	a.menu:hover {
+	color: #ffffff;
+	text-decoration: underline;
+	}
