@@ -23,6 +23,7 @@
 <link href="/styles/style.css" rel="stylesheet">
 
 <!-- Таблицы стилей для различных экранов --> 
+<link href="/styles/style1680.css" rel="stylesheet" media="screen and (min-width:1680px)">
 <link href="/styles/style768.css" rel="stylesheet" media="screen and (min-width:768px) and (max-width:1679px)">
 <link href="/styles/style320.css" rel="stylesheet" media="screen and (min-width:320px) and (max-width:767px) and (-webkit-min-device-pixel-ratio: 1)">
 
