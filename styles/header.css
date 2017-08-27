@@ -9,6 +9,9 @@
 .header li {
 	list-style-type: none;
 }
+.logo {
+	margin: auto 0;
+}
 .address {
 	font-size: 1em;
 	font-family: HelveticaRegular;
