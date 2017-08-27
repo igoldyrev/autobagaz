@@ -7,8 +7,9 @@
 	width: 100%;
 	background: #0a2a0a;
 	position: relative;
-	z-index: 3;
+	z-index: 1;
 	margin-top: 30px;
+	margin-bottom: 10px;
 	}
 
 .footer a {
