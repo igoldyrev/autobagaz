@@ -273,4 +273,5 @@ echo '</p>';
 	</div> <?php
 } ?>
 </div>
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");?>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html"); ?>
