@@ -65,4 +65,5 @@ $_SESSION['tovar'] = $tovar; ?>
 </table>
 <p>Обращаем ваше внимание, что время проката считается календарными днями. Монтаж/демонтаж багажных систем осуществляется полностью силами арендатора, либо оплачивается отдельно.</p>
 <p>С общими правилами пользования багажным оборудованием можно ознакомиться <a href="/docs/Правила эксплуатации автобоксов.doc">здесь</a>.</p></div>
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html"); ?>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html"); 
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html"); ?>
