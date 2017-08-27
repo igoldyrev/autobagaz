@@ -1,0 +1,34 @@
+
+.catalog {
+	display: grid;
+	grid-template-rows: 260px 260px;
+	grid-template-columns: 190px 190px 190px 190px;
+	grid-row-gap: 0px;
+}
+
+div.catalog {
+	text-align: center;
+}
+
+.menu_item {
+	border: 2px solid #D8D8D8;
+	margin: 0 10px 0 10px;
+	height: 250px;
+	width: 180px;
+}
+
+.item_image {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.item_link {
+	margin-top: 80px;
+}
+
+.menu_item a {
+	text-decoration: none;
+}
+.menu_item a:hover {
+	text-decoration: underline;
+}
