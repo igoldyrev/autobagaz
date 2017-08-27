@@ -39,7 +39,7 @@ $phone = $_REQUEST['phone'];
 
 if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")){
 
-if (mail("goldirev12@yandex.ru", "Заказ с сайта", 
+if (mail("goldirev12@yandex.ru", "Человек не может определиться с оборудованием!", 
 "Страница с которой пришло письмо ".$_SESSION['url'].";
 Имя:".$name.";
 Телефон: ".$phone.";
@@ -49,14 +49,13 @@ if (mail("goldirev12@yandex.ru", "Заказ с сайта",
 ip-адрес:" .$_SERVER['REMOTE_ADDR'].";
 Ссылка на скрипт, с которого пришло письмо:" .$_SERVER['REQUEST_URI'] ,
 "From: goldirev12@yandex.ru \r\n"))
- {     	echo "<center><b>Ваш заказ успешно отправлен!</b><br><br><center>Через 3 секунды Вы будете перенаправлены на предыдущую страницу<br><br>Если этого не произошло, то нажмите на ссылку:<br><a href='zayavka'>Вернуться назад</a>"; 
-//header('Refresh: 3; URL=/autobagazhniki.php');
+ {     	echo "<center><b>Мы Вам обязательно перезвоним!</b><br><br><center>Нажмите на ссылку ниже, чтобы вернуться на предыдущую страницу<br><br><a href='"; echo $_SESSION['url']; echo"'>Вернуться назад</a>"; 
 } 
 else { 
-    echo "<center>При отправке заказа возникли проблемы :(<br><a href='/zayavka'>Вернуться назад</a>";
+    echo "<center>При отправке данных возникли проблемы :(<br><a href='"; echo $_SESSION['url']; echo "'>Вернуться назад</a>";
 }}
 else {
-	echo "<center>Вы не заполнили одно из обязательных полей формы, вернитесь, пожалуйста, и заполните его<br><a href='/zayavka'>Вернуться назад</a>";
+	echo "<center>Вы не заполнили одно из обязательных полей формы, вернитесь, пожалуйста, и заполните его<br><a href='"; echo $_SESSION['url']; echo "'>Вернуться назад</a>";
 }
 unset($_SESSION['url']);
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html");?>
