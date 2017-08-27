@@ -1,6 +1,7 @@
 <?php echo "<title>Выбор отзыва для удаления</title>";
 echo "<h1>Выбор отзыва для удаления</h1>";
 
+include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/admin/connect.php"); ?>
 <form action="/admin/guestbook/delete/delete.php" method="post">
 <?php
