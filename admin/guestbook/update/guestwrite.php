@@ -1,5 +1,7 @@
 <?php echo "<title>Внесение изменений в элемент</title>";
+echo "<h1>Внесение изменений в элемент</h1>";
 
+include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/admin/connect.php");
 $id = $_REQUEST['rewiew'];
 $select_sql = "SELECT * FROM guestbook WHERE id = $id";
