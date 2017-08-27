@@ -13,7 +13,7 @@ body {
 		position: -ms-sticky;
 		position: -o-sticky;
 		top: 45;
-		z-index: 1;
+		z-index: 2;
 		background: #ffffff; 
 		float: left; 
 		width: 200px;
