@@ -1,0 +1,11 @@
+/* Разрешения экранов от 320px до 768px обе ориентации */
+@media only screen and (min-device-width:320px) and (max-device-width:767px) and (-webkit-min-device-pixel-ratio: 1) {
+	body {
+		width: 98%;
+		margin: 0 auto;
+	}
+/* Скрытые элементы */
+	#leftmenu {
+		display: none;
+	}
+}
