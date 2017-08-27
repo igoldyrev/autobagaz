@@ -14,7 +14,7 @@ if (!isset($page)) {
 	echo "<title> $titleconst"; echo $keywords[0][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[0][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>";
-	echo "Тут позже будут новости"; ?>
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/newslist.php"); ?>
 	
 	<div class="catalog">
 		<div class="menu_item">
