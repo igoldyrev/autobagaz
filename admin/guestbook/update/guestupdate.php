@@ -1,4 +1,6 @@
 <?php 
+include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html");
+
 echo "<title>Выбор элемента для редактирования</title>";
 echo "<h1>Выбор отзыва для редактирования</h1>";
 
