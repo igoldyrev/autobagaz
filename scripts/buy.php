@@ -2,7 +2,12 @@
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/keywords.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); ?>
+<div id="leftmenu">
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/leftmenu.html"); ?>
+</div>
+<div id="content">
+<?php
 
 $id = $_GET['id'];
 
@@ -78,5 +83,5 @@ $_SESSION['tovar'] = $tovar; ?>
 <div align="center">
 <input class="input__button" type="submit" value="Отправить заказ">
 </div>
-</form>
+</form></div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html"); ?>
