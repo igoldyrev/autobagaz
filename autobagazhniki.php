@@ -32,8 +32,8 @@ foreach ($autobagazhniki as $item): ?>
 			<p><?php echo $item['price']; ?></p>
 			</div>
 			<div class="button">
-			<button class="buy_button"><a href="/scripts/buy.php?id=<?php echo $item['id']; ?>">Заказать</a></button>
-			<button class="prokat_button"><a href="/prokat.php?id=<?php echo $item['id']; ?>">Взять в прокат</a></button>
+			<button class="buy_button"><a href="/buy/<?php echo $item['id']; ?>">Заказать</a></button>
+			<button class="prokat_button"><a href="/prokat/<?php echo $item['id']; ?>">Взять в прокат</a></button>
 			</div>
 		</div>
 	</div>
