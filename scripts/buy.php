@@ -16,32 +16,43 @@ if (!isset($id)) {
 	<div class="good_message">
 	<?php echo "<p>Вы  не выбрали ничего для заказа. Вернитесь в каталог и выберите из него что-нибудь. А затем заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
-} elseif ($id == '1') {
+} elseif ($id == 'ab1') {
 	$tovar = $_SESSION['autobagazhniki'][0][name];
 	echo "<title>Заказ товара "; echo $_SESSION['autobagazhniki'][0][name]; echo "</title>";?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
-} elseif ($id == '2') {
+} elseif ($id == 'ab2') {
 	$tovar = $_SESSION['autobagazhniki'][1][name];
 	echo "<title>Заказ товара "; echo $_SESSION['autobagazhniki'][1][name]; echo "</title>";?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
-} elseif ($id == '3') {
+} elseif ($id == 'ab3') {
 	$tovar = $_SESSION['autobagazhniki'][2][name];
 	echo "<title>Заказ товара "; echo $_SESSION['autobagazhniki'][2][name]; echo "</title>";?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
-} elseif ($id == '4') {
+} elseif ($id == 'ab4') {
 	$tovar = $_SESSION['autobagazhniki'][3][name];
 	echo "<title>Заказ товара "; echo $_SESSION['autobagazhniki'][3][name]; echo "</title>";?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
+} elseif ($id == 's1') { 
+	$tovar = $_SESSION['sales'][0][name];
+	echo "<title>Заказ товара "; echo $_SESSION['sales'][0][name]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 's2') { 
+	$tovar = $_SESSION['sales'][1][name];
+	echo "<title>Заказ товара "; echo $_SESSION['sales'][1][name]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
 }
-
 $_SESSION['tovar'] = $tovar; ?>
 
 <form action="/scripts/zakaz.php" method="post">
