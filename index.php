@@ -73,9 +73,10 @@ if (!isset($page)) {
 			<a href="/farkops">Фаркопы</a>
 			</div>
 		</div></div>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/sales.php"); 
 
 
-<?php
+
 	} elseif ($page == 'contacts') {
 	echo "<title> $titleconst"; echo $keywords[6][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[6][description]; echo "'/>";
