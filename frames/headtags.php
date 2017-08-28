@@ -39,6 +39,7 @@
 <link href="/styles/rewiew.css" rel="stylesheet">
 <link href="/styles/popup.css" rel="stylesheet">
 <link href="/styles/index.css" rel="stylesheet">
+<link href="/styles/sales.css" rel="stylesheet">
 
 
 <!-- Таблица стилей для font-awesome -->
