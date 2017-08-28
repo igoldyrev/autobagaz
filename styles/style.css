@@ -142,3 +142,14 @@ td.producttablecaption {
 	border-top: 1px solid #E6E6E6;
 	padding: 10px;
 }
+
+/* Бренды на главной странице */
+.brands {
+	width: 100%;
+}
+p.brands {
+	font-family: HelveticaLight;
+	font-size: medium;
+	font-weight: 100;
+	color: #848484;
+}
