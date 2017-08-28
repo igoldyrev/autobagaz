@@ -67,15 +67,12 @@ if (!isset($page)) {
 		</div>
 		<div class="menu_item">
 		<div class="item_image">
-			<a href="/autobagazhniki"><img src="/images/index/8_farkops.jpg" alt="farkops" width="175px"></a>
+			<a href="/autobagazhniki"><img src="/images/index/8_farkops.jpg" alt="farkops" width="125px"></a>
 			</div>
 			<div class="item_link">
 			<a href="/farkops">Фаркопы</a>
 			</div>
-		</div>
-		
-	</div>
-
+		</div></div>
 
 
 <?php
