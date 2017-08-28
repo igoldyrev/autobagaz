@@ -6,6 +6,9 @@
 }
 
 div.menu_item {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 	border: 2px solid #D8D8D8;
 	margin: 10px 10px 10px 10px;
 	height: 250px;
@@ -13,12 +16,10 @@ div.menu_item {
 }
 
 div.item_image {
-	margin-top: 10px;
 	text-align: center;
 }
 
 div.item_link  {
-	margin-top: 90px;
 	text-align: center;
 }
 
