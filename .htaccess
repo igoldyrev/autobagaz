@@ -1,0 +1,38 @@
+#Страницы ошибок
+ErrorDocument 403 /403.php
+ErrorDocument 404 /404.php
+
+RewriteEngine On  # Если этой строки нет выше
+#RewriteCond %{HTTP:X-Forwarded-Protocol} !=https
+#RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+AddType application/x-httpd-php .html .htm
+
+#Правила для удаления расширений имен файлов в ссылках
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+
+#Правила для переадресации страниц
+#Автобагажники
+RewriteRule ^buy/ab1 scripts/buy.php?id=ab1
+RewriteRule ^buy/ab2 scripts/buy.php?id=ab2
+RewriteRule ^buy/ab3 scripts/buy.php?id=ab3
+RewriteRule ^buy/ab4 scripts/buy.php?id=ab4
+RewriteRule ^prokat/ab1 prokat.php?id=ab1
+RewriteRule ^prokat/ab2 prokat.php?id=ab2
+RewriteRule ^prokat/ab3 prokat.php?id=ab3
+RewriteRule ^prokat/ab4 prokat.php?id=ab4
+#Скидки
+RewriteRule ^buy/s1 scripts/buy.php?id=s1
+RewriteRule ^buy/s2 scripts/buy.php?id=s2
+
+
+
+
+
+
+RewriteRule ^contacts index.php?page=contacts [L]
