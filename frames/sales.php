@@ -28,7 +28,7 @@ echo "<h2>Скидки в нашем магазине!</h2>"; ?>
   </div>
   <div class="sale_button">
     <form action="scripts/sale.php" method="post">
-	<button><a href="scripts/buy.php?id=<?php echo $sale['id']; ?>">Заказать</a></button>
+	<button><a href="/buy/<?php echo $sale['id']; ?>">Заказать</a></button>
 	</form>
 	</div>
   </div>
