@@ -17,28 +17,28 @@ if (!isset($id)) {
 	echo "<p>Случается так, что багажник, автобокс(бокс на крышу),велокрепление, лыжное крепление и иные бывают нужны разово, или время от времени.</p>";
 	echo "<p>В этом случае удобно воспользоваться арендой багажного оборудования-быстро и надежно закрепить лесенку, длинномерные грузы, выехать к месту отдыха с боксом, уехать с велосипедом покорять парки Перми и Пермский край в целом или поставить лыжное крепление и с комфортом перевезти горные/охотничьи лыжи к курорту, отдохнуть и избавить салон своего авто от неминуемых пятен от растаявшего снега с лыж/бордов. Отдыхать активно теперь не только приятно, но еще и удобно!</p>";
 	echo "<p>В случае сложных дорожных условий в путешествии или плохой погоды во время охоты/рыбалки-воспользуйтесь прокатом браслетов или цепей противоскольжения и самые сложные дороги станут легко проходимыми даже для самых маленьких и легких машин.</p>"; 
-} elseif ($id == '1') {
+} elseif ($id == 'ab1') {
 	$tovar = $_SESSION['autobagazhniki'][0][name];
 	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][0][name]; echo "</title>";?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div>
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
-} elseif ($id == '2') {
+} elseif ($id == 'ab2') {
 	$tovar = $_SESSION['autobagazhniki'][1][name];
 	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][1][name]; echo "</title>";?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
-} elseif ($id == '3') {
+} elseif ($id == 'ab3') {
 	$tovar = $_SESSION['autobagazhniki'][2][name];
 	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][2][name]; echo "</title>";?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
-} elseif ($id == '4') {
+} elseif ($id == 'ab4') {
 	$tovar = $_SESSION['autobagazhniki'][3][name];
 	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][3][name]; echo "</title>";?>
 	<div class="good_message">
