@@ -29,16 +29,24 @@
 
 
 <!-- Таблицы стилей для блоков сайта -->
+<!-- Шапка и подвал -->
 <link href="/styles/header.css" rel="stylesheet">
 <link href="/styles/footer.css" rel="stylesheet">
-<link href="/styles/leftmenu.css" rel="stylesheet">
-<link href="/styles/form.css" rel="stylesheet">
+<!-- Меню слева и горизонтальное меню-->
 <link href="/styles/stylemenu.css" rel="stylesheet">
+<link href="/styles/leftmenu.css" rel="stylesheet">
+<!-- Стили всех форм и окна заказа звонка -->
+<link href="/styles/form.css" rel="stylesheet">
 <link href="/styles/modalcall.css" rel="stylesheet">
+<!-- Карточки всех товаров -->
 <link href="/styles/goods.css" rel="stylesheet">
+<!-- Стили отзывов на странице с отзывами -->
 <link href="/styles/rewiew.css" rel="stylesheet">
+<!-- Стили всплывающих окон при раскрытии картинок -->
 <link href="/styles/popup.css" rel="stylesheet">
+<!-- Квадраты на главной странице -->
 <link href="/styles/index.css" rel="stylesheet">
+<!-- Раздел скидок на главной странице -->
 <link href="/styles/sales.css" rel="stylesheet">
 
 
