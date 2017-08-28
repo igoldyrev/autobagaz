@@ -29,6 +29,20 @@ RewriteRule ^prokat/ab4 prokat.php?id=ab4
 #Скидки
 RewriteRule ^buy/s1 scripts/buy.php?id=s1
 RewriteRule ^buy/s2 scripts/buy.php?id=s2
+#Новости
+RewriteRule ^news/postuplenya_amos news.php?newspage=postuplenya_amos
+RewriteRule ^news/reelings_xray news.php?newspage=reelings_xray
+RewriteRule ^news/mayskie_prazdniki news.php?newspage=mayskie_prazdniki
+RewriteRule ^news/rozygryzh_bagazhnika news.php?newspage=rozygryzh_bagazhnika
+RewriteRule ^news/braslety news.php?newspage=braslety
+RewriteRule ^news/itogi_rozygryzha news.php?newspage=itogi_rozygryzha
+RewriteRule ^news/postuplenya_avtoboksov news.php?newspage=postuplenya_avtoboksov
+RewriteRule ^news/rozygryzh_velokreplenya news.php?newspage=rozygryzh_velokreplenya
+RewriteRule ^news/akcia_na_boksy news.php?newspage=akcia_na_boksy
+RewriteRule ^news/12_june news.php?newspage=12_june
+RewriteRule ^news/cenopad news.php?newspage=cenopad
+
+
 
 
 
