@@ -1,5 +1,6 @@
 <?php
 session_start();
+$url = $_SESSION['url']; 
 if (isset($_POST['captcha']) && $_POST['captcha'] == $_SESSION['keystring']){
 // Соединение с БД MySQL
 //$sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
@@ -51,8 +52,6 @@ $text = $_REQUEST['text'];
 //"VALUES('{$name}', '{$phone}');";
 //mysql_query($sql_users);
 
-
-
 if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['auto'])&&$_POST['auto']!="")&&(isset($_POST['kuzov'])&&$_POST['kuzov']!="")&&(isset($_POST['year'])&&$_POST['year']!="")&&(isset($_POST['text'])&&$_POST['text']!="")){
 
 if (mail("goldirev12@yandex.ru", "Заказ товара с сайта", 
@@ -69,18 +68,19 @@ if (mail("goldirev12@yandex.ru", "Заказ товара с сайта",
 ip-адрес:" .$_SERVER['REMOTE_ADDR'].";
 Ссылка на скрипт, с которого пришло письмо:" .$_SERVER['REQUEST_URI'] ,
 "From: goldirev12@yandex.ru \r\n"))
- {     	echo "<center><b>Ваш заказ успешно отправлен!</b><br><br><center>Через 3 секунды Вы будете перенаправлены на предыдущую страницу<br><br>Если этого не произошло, то нажмите на ссылку:<br><a href='zayavka'>Вернуться назад</a>"; 
-//header('Refresh: 3; URL=/autobagazhniki.php');
+ {     	echo "<center><b>Ваш заказ успешно отправлен!</b><br><br><center>Через 3 секунды Вы будете перенаправлены на предыдущую страницу<br><br>Если этого не произошло, то нажмите на ссылку:<br><a href='".$url; echo "'>Вернуться назад</a>"; 
+header('Refresh: 3; URL='.$url);
 } 
 else { 
-    echo "<center>При отправке заказа возникли проблемы :(<br><a href='/zayavka'>Вернуться назад</a>";
+    echo "<center>При отправке заказа возникли проблемы :(<br><a href='".$url; echo "'>Вернуться назад</a>";
 }}
 else {
-	echo "<center>Вы не заполнили одно из обязательных полей формы, вернитесь, пожалуйста, и заполните его<br><a href='/zayavka'>Вернуться назад</a>";
+	echo "<center>Вы не заполнили одно из обязательных полей формы, вернитесь, пожалуйста, и заполните его<br><a href='".$url; echo "'>Вернуться назад</a>";
 }
 }
 else{
-    echo "<center>Вы неправильно ввели числа с картинки, вернитесь, пожалуйста, и введите их правильно<br><br><a href='/guestbook.php'>Вернуться назад</a>";
+    echo "<center>Вы неправильно ввели числа с картинки, вернитесь, пожалуйста, и введите их правильно<br><br><a href='".$url; echo "'>Вернуться назад</a>";
 }
 unset($_SESSION['tovar']);
+unset($_SESSION['url']);
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html");?>
