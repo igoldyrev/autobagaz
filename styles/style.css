@@ -153,3 +153,11 @@ p.brands {
 	font-weight: 100;
 	color: #848484;
 }
+
+/* Документы в разделе проката */
+.docs {
+	border: 1px solid black;
+}
+.docs a, .docs i {
+	margin: 7px;
+}
