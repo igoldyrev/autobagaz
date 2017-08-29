@@ -112,19 +112,61 @@ if (!isset($page)) {
 	echo "<meta name='description' content='"; echo $keywords[6][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[6][keywords]; echo "'/>";
 
-	echo "Это страница с контактами";
-	} elseif ($page == 'feedback') {
-	echo "<title> $titleconst"; echo $keywords[4][title]; echo "</title>";
-	echo "<meta name='description' content='"; echo $keywords[4][description]; echo "'/>";
-	echo "<meta name='keywords' content='"; echo $keywords[4][keywords]; echo "'/>";
-
-	echo "Это страница обратной связи";
-	} elseif ($page == 'prokat') {
+	echo "<h1>Это будет страница с контактами</h1>";
+	} elseif ($page == 'gallery') {
 	echo "<title> $titleconst"; echo $keywords[3][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[3][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[3][keywords]; echo "'/>";
 
-	echo "Это страница проката оборудования";
+	echo "<h1>Здесь будет размещена галерея</h1>";
+	} elseif ($page == 'komissionka') {
+	echo "<title> $titleconst"; echo $keywords[5][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[5][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>";
+
+	echo "<h1>Это будет страница комиссионных товаров</h1>";
+	} elseif ($page == 'podbor') {
+	echo "<title> $titleconst"; echo $keywords[1][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[1][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[1][keywords]; echo "'/>";
+
+	echo "<h1>Это будет страница с каким-нибудь справочным материалом</h1>";
+	} elseif ($page == 'autobox') {
+	echo "<title> $titleconst"; echo $keywords[8][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[8][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[8][keywords]; echo "'/>";
+
+	echo "<h1>Это будет страница с автобоксами</h1>";
+	} elseif ($page == 'velokreplenya') {
+	echo "<title> $titleconst"; echo $keywords[16][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[16][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[16][keywords]; echo "'/>";
+
+	echo "<h1>Это будет страница с велокреплениями</h1>";
+	} elseif ($page == 'kreplenya-dlya-lyzh-shoubord') {
+	echo "<title> $titleconst"; echo $keywords[19][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[19][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[19][keywords]; echo "'/>";
+
+	echo "<h1>Это будет страница с лыжными креплениями</h1>";
+	} elseif ($page == 'reelings') {
+	echo "<title> $titleconst"; echo $keywords[20][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[20][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[20][keywords]; echo "'/>";
+
+	echo "<h1>Это будет страница с рейлингами</h1>";
+	} elseif ($page == 'braslets') {
+	echo "<title> $titleconst"; echo $keywords[21][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[21][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[21][keywords]; echo "'/>";
+
+	echo "<h1>Это будет страница с браслетами противоскольжения</h1>";
+	} elseif ($page == 'farkops') {
+	echo "<title> $titleconst"; echo $keywords[22][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[22][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[22][keywords]; echo "'/>";
+
+	echo "<h1>Это будет страница с фаркопами</h1>";
 	}
 ?>
 </div>
