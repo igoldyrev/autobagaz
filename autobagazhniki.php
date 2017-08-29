@@ -7,7 +7,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobagazhniki_1.php");
-$_SESSION['autobagazhniki'] = $autobagazhniki; ?>
+$_SESSION['autobagazhniki'] = $autobagazhniki; 
+$_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
 
 <div id="leftmenu">
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/leftmenu.html"); ?>
