@@ -1,7 +1,7 @@
-<?php $_SESSION['url'] = $_SERVER['REQUEST_URI']; 
+<?php 
 echo "<h3>Не можете определиться с выбором? Заполните форму ниже, мы Вам поможем с этим!</h3>"; ?>
 	
-	<form action="/scripts/help.php" method="post">
+	<form action="/help" method="post">
 	<span class="label_top">Ваше имя:</span>
 <div class="better-placeholder">
   <input type="text" name="name" required="required" pattern="[А-Яа-яЁё]{2,}" class="better-placeholder__input" placeholder="Введите Ваше имя">
