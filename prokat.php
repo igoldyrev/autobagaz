@@ -56,6 +56,10 @@ $_SESSION['tovar'] = $tovar; ?>
 	<li>В нашем магазине-прокате мы оформляем договор проката, квитанцию об оплате и выдаем Вам выбранное багажное оборудование.</li> 
 	<li>Чтобы сократить время визита в магазин-вы можете заполнить <a href ="/docs/Договор проката.doc">договор</a> и отправить нам его на электронный адрес <a href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
 </ol>
+<div class="docs">
+	<i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a href ="/docs/Договор проката.doc">Скачать договор проката</a><br>
+	<i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a href="/docs/Правила эксплуатации автобоксов.doc">Скачать правила эксплуатации автобоксов</a>
+</div>
 <p>Стоимость дня проката определяется исходя из времени пользования оборудованием:</p>
 <table cellspacing="0" align="center">
 <tr><td class="producttablecaption" align="center">Сроки проката</td><td class="producttablecaption" align="center">Прокат дуг багажника, крепления для велосипеда (на крышу), лыж, лодки, браслетов противоскольжения</td><td class="producttablecaption" align="center">Прокат автобокса, велокрепления на фаркоп/заднюю дверь, цепей противоскольжения</td></tr>
