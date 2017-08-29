@@ -59,7 +59,7 @@ $start_from = ($current_page - 1) * $on_page;
 $query = "SELECT `name`, `phone`, `rewiew` FROM `guestbook` ORDER BY `id` DESC LIMIT $start_from, $on_page";
 $res = mysql_query($query); ?>
 
-<form action="/scripts/rewiew.php" method="post">
+<form action="/rewiew" method="post">
 <span class="label_top">Ваше имя:</span>
 <div class="better-placeholder">
   <input type="text" name="name" required="required" pattern="[А-Яа-яЁё]{2,}" class="better-placeholder__input" placeholder="Введите Ваше имя">
