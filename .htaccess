@@ -47,8 +47,15 @@ RewriteRule ^vprokat scripts/prokatsend.php
 RewriteRule ^help scripts/help.php
 RewriteRule ^rewiew scripts/rewiew.php
 
-
-
-
-
+#Правила для разделов
+RewriteRule ^gallery index.php?page=gallery [L]
+RewriteRule ^komissionka index.php?page=komissionka [L]
+RewriteRule ^podbor index.php?page=podbor [L]
 RewriteRule ^contacts index.php?page=contacts [L]
+
+RewriteRule ^autobox index.php?page=autobox [L]
+RewriteRule ^velokreplenya index.php?page=velokreplenya [L]
+RewriteRule ^kreplenya-dlya-lyzh-shoubord index.php?page=kreplenya-dlya-lyzh-shoubord [L]
+RewriteRule ^reelings index.php?page=reelings [L]
+RewriteRule ^braslets index.php?page=braslets [L]
+RewriteRule ^farkops index.php?page=farkops [L]
