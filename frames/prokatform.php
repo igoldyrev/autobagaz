@@ -1,4 +1,4 @@
-<form action="/scripts/prokatsend.php" method="post">
+<form action="/vprokat" method="post">
 <span class="label_top">Ваше имя:</span>
 <div class="better-placeholder">
   <input type="text" name="name" required="required" pattern="[А-Яа-яЁё]{2,}" class="better-placeholder__input" placeholder="Введите Ваше имя">
