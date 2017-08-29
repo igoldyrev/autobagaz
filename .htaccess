@@ -41,9 +41,11 @@ RewriteRule ^news/rozygryzh_velokreplenya news.php?newspage=rozygryzh_velokreple
 RewriteRule ^news/akcia_na_boksy news.php?newspage=akcia_na_boksy
 RewriteRule ^news/12_june news.php?newspage=12_june
 RewriteRule ^news/cenopad news.php?newspage=cenopad
-
-
-
+#Страницы заказов
+RewriteRule ^zakaz scripts/zakaz.php
+RewriteRule ^vprokat scripts/prokatsend.php
+RewriteRule ^help scripts/help.php
+RewriteRule ^rewiew scripts/rewiew.php
 
 
 
