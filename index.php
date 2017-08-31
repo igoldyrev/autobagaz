@@ -131,12 +131,6 @@ if (!isset($page)) {
 	echo "<meta name='keywords' content='"; echo $keywords[1][keywords]; echo "'/>";
 
 	echo "<h1>Это будет страница с каким-нибудь справочным материалом</h1>";
-	} elseif ($page == 'autobox') {
-	echo "<title> $titleconst"; echo $keywords[8][title]; echo "</title>";
-	echo "<meta name='description' content='"; echo $keywords[8][description]; echo "'/>";
-	echo "<meta name='keywords' content='"; echo $keywords[8][keywords]; echo "'/>";
-
-	echo "<h1>Это будет страница с автобоксами</h1>";
 	} elseif ($page == 'velokreplenya') {
 	echo "<title> $titleconst"; echo $keywords[16][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[16][description]; echo "'/>";
