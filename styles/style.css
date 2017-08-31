@@ -143,13 +143,39 @@ td.producttablecaption {
 	padding: 10px;
 }
 
+/* Оформление таблицы новостей */
+td.newslist {
+	font-size: 1em;
+    font-family: HelveticaRegular;
+    font-weight: 400;
+}
+table.newslist {
+	font-size: 1em;
+    font-family: HelveticaRegular;
+    font-weight: 400;
+}
+
+/* Оформление таблиц каталога */
+table.links_catalog {
+	border: 2px solid #D8D8D8;
+	border-collapse: collapse;
+	width: 98%;
+}
+td.links_catalog {
+	border: 2px solid #D8D8D8;
+}
+.links_catalog a {
+	text-decoration: underline;
+	padding: 10px;
+}
+
 /* Бренды на главной странице */
 .brands {
 	width: 100%;
 }
 p.brands {
 	font-family: HelveticaLight;
-	font-size: medium;
+	font-size: 0.8em;
 	font-weight: 100;
 	color: #848484;
 }
