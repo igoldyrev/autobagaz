@@ -90,7 +90,7 @@ for ($page = 1; $page <= $num_pages; $page++)
     }
     else
     {
-        echo '<a href="news.php?page='.$page.'">'.$page.'</a> &nbsp;';
+        echo '<a href="/news/'.$page.'">'.$page.'</a> &nbsp;';
     }
 }
 echo '</p>';
