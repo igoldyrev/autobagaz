@@ -9,8 +9,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
 </div>
 <div id="content">
 <?php
-$page = $_GET['page'];
-if (!isset($page)) {
+$autobox = $_GET['autobox'];
+if (!isset($autobox)) {
 	echo "<title> $titleconst"; echo $keywords[8][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[8][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[8][keywords]; echo "'/>";
@@ -26,6 +26,37 @@ if (!isset($page)) {
 		<tr><td width="170px" class="links_catalog" align="center"><a href="/turino"><img src="/images/logos/turino.jpg" alt="turino" width="150px"></a></td><td class="links_catalog" align="center"><a href="/turino">Автобоксы Турино</a></td></tr>
 		<tr><td width="170px" class="links_catalog" align="center"><a href="/lux"><img src="/images/logos/lux.png" alt="lux" width="150px"></a></td><td class="links_catalog" align="center"><a href="/lux">Lux, Россия</a></td></tr>
 	</table> <?php
+} elseif ($autobox == 'yuago') {
+	echo "<title> $titleconst"; echo $keywords[13][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[13][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[13][keywords]; echo "'/>";
+	
+	$_SESSION['yuago'] = $yuago; 
+	$_SESSION['url'] = $_SERVER['REQUEST_URI'];
+	
+	echo "<h1>"; echo $yuago[name]; echo "</h1>";
+	echo "<p>Лучший выбор для лыжника! При длине бокса в 2180см перевозка лыж и сноубордов теперь становится легкой задачей, больше Вам не придется складывать сиденья, пачкать и царапать салон автомобиля.</p>";
+	echo "<p>Автобокс Cosmo изготовлен из АБС-пластика. Материал автобокса устойчив к большинству видов химических реагентов: кислотам, щелочам и жирам. Важным фактором при ежедневной эксплуатации является повышенная жесткостью конструкции и устойчивость поверхности к царапинам.</p>"; ?>
+	<table cellspacing="0" align="left">
+		<tr><td class="producttable" align="left">Габариты</td><td class="producttable" align="left"><?php echo $yuago[size]; ?></td></tr>
+		<tr><td class="producttable" align="left">Объем</td><td class="producttable" align="left"><?php echo $yuago[volume]; ?></td></tr>
+		<tr><td class="producttable" align="left">Материал</td><td class="producttable" align="left"><?php echo $yuago[material]; ?></td></tr>
+		<tr><td class="producttable" align="left">Цвета</td><td class="producttable" align="left"><?php echo $yuago[color]; ?></td></tr>
+		<tr><td class="producttable" align="left">Замок</td><td class="producttable" align="left"><?php echo $yuago[lock]; ?></td></tr>
+		<tr><td class="producttable" align="left">Погрузка багажа</td><td class="producttable" align="left"><?php echo $yuago[bagazh]; ?></td></tr>
+	</table> 
+	<div class="img_div"> <?php
+	echo $yuago[img1]; ?>
+	</div>
+	<div class="price_info">
+		<div class="price">
+	<?php echo "<p>Цена "; echo $yuago[price]; echo "</p>";	?>
+		</div>
+		<div class="button">
+		<button class="buy_button"><a href="/buy/<?php echo $yuago['id']; ?>">Заказать</a></button>		
+		</div>
+	</div> <?php
+	
 }
 
 
