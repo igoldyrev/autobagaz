@@ -55,7 +55,6 @@ RewriteRule ^komissionka index.php?page=komissionka [L]
 RewriteRule ^podbor index.php?page=podbor [L]
 RewriteRule ^contacts index.php?page=contacts [L]
 
-RewriteRule ^autobox index.php?page=autobox [L]
 RewriteRule ^velokreplenya index.php?page=velokreplenya [L]
 RewriteRule ^kreplenya-dlya-lyzh-shoubord index.php?page=kreplenya-dlya-lyzh-shoubord [L]
 RewriteRule ^reelings index.php?page=reelings [L]
