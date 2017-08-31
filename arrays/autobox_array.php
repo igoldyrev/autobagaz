@@ -2,6 +2,7 @@
 //Автобоксы Ветлан
 $vetlan = [
 	[
+	'id' => '400M',
 	'name' => 'Автобоксы серии 400M',
 	'img1' => '<img class="img_main" src="/images/vetlan/400/1.jpg" srcset="/images/vetlan/400/1.jpg 800w" alt="Vetlan 400M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 	'img2' => '<img class="img_main" src="/images/vetlan/400/2.jpg" srcset="/images/vetlan/400/2.jpg 800w" alt="Vetlan 400M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
@@ -19,6 +20,7 @@ $vetlan = [
 	'price_white' => '10 500 рублей',
 	],
 	[
+	'id' => '430M',
 	'name' => 'Автобоксы серии 430M',
 	'img1' => '<img class="img_main" src="/images/vetlan/430M/1.jpg" srcset="/images/vetlan/430M/1.jpg 800w" alt="Vetlan 430M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 	'img2' => '<img class="img_main" src="/images/vetlan/430M/2.jpg" srcset="/images/vetlan/430M/2.jpg 800w" alt="Vetlan 430M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
@@ -37,6 +39,7 @@ $vetlan = [
 	'price_white' => '12 500 рублей',
 	],
 	[
+	'id' => '550M',
 	'name' => 'Автобоксы серии 550M',
 	'img1' => '<img class="img_main" src="/images/vetlan/550M/1.jpg" srcset="/images/vetlan/550M/1.jpg 800w" alt="Vetlan 550M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 	'img2' => '<img class="img_main" src="/images/vetlan/550M/2.jpg" srcset="/images/vetlan/550M/2.jpg 800w" alt="Vetlan 550M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
@@ -58,6 +61,7 @@ $vetlan = [
 
 //Автобоксы Яго
 $yuago = [
+	'id' => 'yuago',
 	'name' => 'Аэродинамический Бокс-Багажник (Автобокс) на крышу автомобиля YUAGO(ЯГО) Cosmo 210 объемом 485 литров',
 	'img1' => '<img class="img_main" src="images/yuago/yuago.jpg" srcset="images/yuago/yuago.jpg 350w" alt="yuago" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 	'size' => '2180 х 730 х 300 мм',
@@ -71,6 +75,7 @@ $yuago = [
 
 //Автобоксы Турино
 $turino = [
+	'id' => 'turino',
 	'name' => 'Автобоксы Турино, производство Тольятти',
 	'desc1' => 'Пожалуй, самые сбалансированные боксы по параметрам: цена/качество, выполненные из высококачественного ABS пластика, снабженный современным 3-х точечным замком, надежно сохранит ваш груз.',
 	'desc2' => 'Цвет: серый, черный, белый - матовый, одностороннее открывание,3-х точечный замок Размер внешний 175 х 82 х 45 см, внутренний 169 х 76х40 см, объем 460 л.',
@@ -85,6 +90,7 @@ $turino = [
 
 //Автобоксы Атлант Discovery
 $discoveryclassic = [
+	'id' => 'dc',
 	'name1' => 'Бокс CLASSIC 320 (133*73*40 см.)',
 	'price1' => '14 000 руб.',
 	'name2' => 'Бокс CLASSIC 430 (171*73*36) черный',
@@ -93,18 +99,21 @@ $discoveryclassic = [
 	'price3' => '19 000 руб.',
 ];
 $discoverysport = [
-	'name1' = 'SPORT 431 (171*73*39) темно-серый',
+	'id' => 'ds',
+	'name1' => 'SPORT 431 (171*73*39) темно-серый',
 	'price1' => '22 000 руб.',
 	'name2' => 'SPORT 501 (216*73*38) темно-серый',
 	'price2' => '25 000 руб.',
 ];
 $dynamic = [
-	'name1' => 'DYNAMIC 434 (171*73*36 см.) серебристый металлик';
+	'id' => 'dynamic',
+	'name1' => 'DYNAMIC 434 (171*73*36 см.) серебристый металлик',
 	'price1' => '25 000 руб.',
 	'name2' => 'DYNAMIC 504 (216*73*38 см.) серебристый металлик',
 	'price2' => '28 000 руб.',
 ];
 $airtek = [
+	'id' => 'airtek',
 	'name1' => 'AIRTEK 435 (171*73*36 см.) чёрный металлик',
 	'price1' => '25 000 руб.',
 	'name2' => 'AIRTEK 505 (216*73*38 см.) чёрный металлик',
@@ -113,6 +122,7 @@ $airtek = [
 
 //Автобоксы LUX
 $lux = [
+	'id' => 'lux',
 	'name1' => 'Бокс LUX600 440L черный, серый металлик 1600х920х400 с двух стор. откр.',
 	'price1' => '19 000 рублей',
 	'name2' => 'Бокс LUX600 440L черный, серый матовый 1600х920х400 с друстор. откр.',
