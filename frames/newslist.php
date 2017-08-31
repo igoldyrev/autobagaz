@@ -29,5 +29,5 @@ while($row = mysql_fetch_array($result))
 			</tr>
 		</table>';// выводим данные
 }
-echo '<center><a href="news.php">Архив новостей</a></center>';
+echo '<center><a href="/news">Архив новостей</a></center>';
 ?>
