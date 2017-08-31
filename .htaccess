@@ -22,6 +22,7 @@ RewriteRule ^buy/ab1 scripts/buy.php?id=ab1
 RewriteRule ^buy/ab2 scripts/buy.php?id=ab2
 RewriteRule ^buy/ab3 scripts/buy.php?id=ab3
 RewriteRule ^buy/ab4 scripts/buy.php?id=ab4
+RewriteRule ^buy/yuago scripts/buy.php?id=yuago
 RewriteRule ^prokat/ab1 prokat.php?id=ab1
 RewriteRule ^prokat/ab2 prokat.php?id=ab2
 RewriteRule ^prokat/ab3 prokat.php?id=ab3
