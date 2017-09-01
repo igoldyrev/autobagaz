@@ -148,11 +148,36 @@ if (!isset($autobox)) {
 	<table align="center">
 		<tr><td class="producttable"><?php echo $airtek[name1]; ?></td><td class="producttable"><?php echo $airtek[price1]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $airtek['id1']; ?>">Заказать</a></button></td></tr>
 		<tr><td class="producttable"><?php echo $airtek[name2]; ?></td><td class="producttable"><?php echo $airtek[price2]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $airtek['id2']; ?>">Заказать</a></button></td></tr>
-	</table>
+	</table> <?php
+} elseif ($autobox == 'vetlan') {
+	echo "<title> $titleconst"; echo $keywords[9][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[9][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[9][keywords]; echo "'/>";
 
+	$_SESSION['vetlan'] = $vetlan; 
+	$_SESSION['url'] = $_SERVER['REQUEST_URI'];
 	
+	echo "<h1>Автомобильные боксы Vetlan (Пермь)</h1>";
+	echo "<p>Автобоксы «VetlaN» рассчитаны на эксплуатацию в условиях, где жаркое лето сменяет холодная зима. Эти боксы, надежные настолько, насколько требует эксплуатация подобного устройства на наших неровных дорогах. Это – ваша безопасность и спокойствие во время длительных путешествий.</p>";
+	echo "<p>Автобоксы изготовлены из качественного пластика – АБС (акрилонитрилбутадиенстирол). Материал отличается повышенной стойкостью к воздействию агрессивных веществ и не меняет цвета со временем. Эти автобагажники на крышу сделаны из пластика, которые выдержат практически любые дорожные нагрузки, сильный ветер и любую непогоду, включая дождь, град и снег. Автобоксы «VetlaN» обладают отличной аэродинамикой.</p>";
+	echo "<p>С боксом «VetlaN» Вы забудете о нехватке места в багажнике вашего авто. Теперь собираясь в дальнюю поездку у Вас не будет болеть голова о том, куда складывать детские игрушки, матрасы и подушки, все для пикника и т.п. «VetlaN» - это лучший выбор.</p>";
 	
-<?php
+	foreach ($vetlan as $box):
+		echo "<h2>"; echo $box['title']; echo "</h2"; ?>
+		
+		<table cellspacing="0" align="center">
+			<tr><td class="producttablecaption" align="left">Характеристики</td><td class="producttablecaption" align="center">Значение</td><td class="producttablecaption"></td></tr>
+			<tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $box['size']; ?></td></tr>
+			<tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $box['volume']; ?></td></tr>
+			<tr><td class="producttable" align="left">Материал</td><td class="producttable" align="center"><?php echo $box['material']; ?></td></tr>
+			<tr><td class="producttable" align="left">Крепление</td><td class="producttable" align="center"><?php echo $box['clamp']; ?></td></tr>
+			<tr><td class="producttable" align="left">Замок</td><td class="producttable" align="center"><?php echo $box['lock']; ?></td></tr>
+			<tr><td class="producttable" align="left">Варианты цветов</td><td class="producttable" align="center"><?php echo $box['color']; ?></td></tr>
+		</table> <?php 
+		echo $box['desc1'];
+		
+
+	endforeach;
 }
 ?>
 
