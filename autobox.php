@@ -103,16 +103,60 @@ if (!isset($autobox)) {
 		<tr><td class="producttable" align="left"><?php echo $lux[name4]; ?></td><td class="producttable" align="center"><?php echo $lux[price4]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $lux['id4']; ?>">Заказать</a></button></td></tr>
 		<tr><td class="producttable" align="left"><?php echo $lux[name5]; ?></td><td class="producttable" align="center"><?php echo $lux[price5]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $lux['id5']; ?>">Заказать</a></button></td></tr>
 		<tr><td class="producttable" align="left"><?php echo $lux[name6]; ?></td><td class="producttable" align="center"><?php echo $lux[price6]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $lux['id6']; ?>">Заказать</a></button></td></tr>
+	</table> <?php
+} elseif ($autobox == 'atlant') {
+	echo "<title> $titleconst"; echo $keywords[10][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[10][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[10][keywords]; echo "'/>";
+	
+	$_SESSION['discoveryclassic'] = $discoveryclassic; 
+	$_SESSION['discoverysport'] = $discoverysport; 
+	$_SESSION['dynamic'] = $dynamic; 
+	$_SESSION['airtek'] = $airtek; 
+	$_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+	echo "<h1>Автобоксы Атлант</h1>";
+	echo "<p>Производитель: ООО «Атлант»,Россия, Спб<br>Производство: совместное Италия-Спб</p>";
+	echo "<p>Давно зарекомендовавшая себя на рынке автобагажников в России компания Атлант представляет широкий спектр выбора боксов для вашего автомобиля по вашим потребностям!</p>";
+	echo "<h2>Серия DISCOVERY, открывание одностороннее</h2>"; ?>
+	<div class="img_div">
+		<img class="img_main" src="/images/discovery/discovery_1.jpg"  srcset="/images/discovery/discovery_1.jpg 150w" alt="discovery" sizes="(max-width: 2000px) 150px, 300px, 350px">
+	</div>
+	<table align="center">
+		<tr><td class="producttable"><?php echo $discoveryclassic[name1]; ?></td><td class="producttable"><?php echo $discoveryclassic[price1]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $discoveryclassic['id1']; ?>">Заказать</a></button></td></tr>
+		<tr><td class="producttable"><?php echo $discoveryclassic[name2]; ?></td><td class="producttable"><?php echo $discoveryclassic[price2]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $discoveryclassic['id2']; ?>">Заказать</a></button></td></tr>
+		<tr><td class="producttable"><?php echo $discoveryclassic[name3]; ?></td><td class="producttable"><?php echo $discoveryclassic[price3]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $discoveryclassic['id3']; ?>">Заказать</a></button></td></tr>
+	</table> 
+	<div class="img_div">
+		<img class="img_main" src="/images/discovery/discovery_2.jpg"  srcset="/images/discovery/discovery_2.jpg 150w" alt="discovery" sizes="(max-width: 2000px) 150px, 300px, 350px">
+	</div>
+	<table align="center">
+		<tr><td class="producttable"><?php echo $discoverysport[name1]; ?></td><td class="producttable"><?php echo $discoverysport[price1]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $discoverysport['id1']; ?>">Заказать</a></button></td></tr>
+		<tr><td class="producttable"><?php echo $discoverysport[name2]; ?></td><td class="producttable"><?php echo $discoverysport[price2]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $discoverysport['id2']; ?>">Заказать</a></button></td></tr>
+	</table> <?php
+	echo "<h2>Серия Атлант, двухстороннее открывание, цвет металлик</h2>"; ?>
+	<div class="img_div">
+		<img class="img_main" src="/images/atlant/atlant_1.jpg"  srcset="/images/atlant/atlant_1.jpg 150w" alt="atlant" sizes="(max-width: 2000px) 150px, 300px, 350px">
+	</div>
+	<table align="center">
+		<tr><td class="producttable"><?php echo $dynamic[name1]; ?></td><td class="producttable"><?php echo $dynamic[price1]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $dynamic['id1']; ?>">Заказать</a></button></td></tr>
+		<tr><td class="producttable"><?php echo $dynamic[name2]; ?></td><td class="producttable"><?php echo $dynamic[price2]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $dynamic['id2']; ?>">Заказать</a></button></td></tr>
+	</table> 
+	<div class="img_div">
+		<img class="img_main" src="/images/atlant/atlant_2.jpg"  srcset="/images/atlant/atlant_2.jpg 140w" alt="atlant" sizes="(max-width: 2000px) 150px, 300px, 350px">
+	</div>
+	<table align="center">
+		<tr><td class="producttable"><?php echo $airtek[name1]; ?></td><td class="producttable"><?php echo $airtek[price1]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $airtek['id1']; ?>">Заказать</a></button></td></tr>
+		<tr><td class="producttable"><?php echo $airtek[name2]; ?></td><td class="producttable"><?php echo $airtek[price2]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $airtek['id2']; ?>">Заказать</a></button></td></tr>
 	</table>
 
-
-	<?php
+	
+	
+<?php
 }
-
-
-
-
 ?>
+
+
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html"); ?>
