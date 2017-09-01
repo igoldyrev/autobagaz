@@ -23,6 +23,13 @@ RewriteRule ^buy/ab2 scripts/buy.php?id=ab2
 RewriteRule ^buy/ab3 scripts/buy.php?id=ab3
 RewriteRule ^buy/ab4 scripts/buy.php?id=ab4
 RewriteRule ^buy/yuago scripts/buy.php?id=yuago
+RewriteRule ^buy/turino scripts/buy.php?id=turino
+RewriteRule ^buy/lux600blackmetal scripts/buy.php?id=lux600blackmetal
+RewriteRule ^buy/lux600blackfrosted scripts/buy.php?id=lux600blackfrosted
+RewriteRule ^buy/lux600white scripts/buy.php?id=lux600white
+RewriteRule ^buy/lux960blackfrosted scripts/buy.php?id=lux960blackfrosted
+RewriteRule ^buy/lux960blackmetal scripts/buy.php?id=lux960blackmetal
+RewriteRule ^buy/lux960white scripts/buy.php?id=lux960white
 RewriteRule ^prokat/ab1 prokat.php?id=ab1
 RewriteRule ^prokat/ab2 prokat.php?id=ab2
 RewriteRule ^prokat/ab3 prokat.php?id=ab3
@@ -55,6 +62,10 @@ RewriteRule ^gallery index.php?page=gallery [L]
 RewriteRule ^komissionka index.php?page=komissionka [L]
 RewriteRule ^podbor index.php?page=podbor [L]
 RewriteRule ^contacts index.php?page=contacts [L]
+
+RewriteRule ^yuago autobox?autobox=yuago [L]
+RewriteRule ^turino autobox?autobox=turino [L]
+RewriteRule ^lux autobox?autobox=lux [L]
 
 RewriteRule ^velokreplenya index.php?page=velokreplenya [L]
 RewriteRule ^kreplenya-dlya-lyzh-shoubord index.php?page=kreplenya-dlya-lyzh-shoubord [L]
