@@ -58,6 +58,48 @@ if (!isset($id)) {
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
+} elseif ($id == 'turino') {
+	$tovar = $_SESSION['turino'][name];
+	echo "<title>Заказ товара "; echo $_SESSION['turino'][name]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'lux600blackmetal') {
+	$tovar = $_SESSION['lux'][name1];
+	echo "<title>Заказ товара "; echo $_SESSION['lux'][name1]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'lux600blackfrosted') {
+	$tovar = $_SESSION['lux'][name2];
+	echo "<title>Заказ товара "; echo $_SESSION['lux'][name2]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'lux600white') {
+	$tovar = $_SESSION['lux'][name3];
+	echo "<title>Заказ товара "; echo $_SESSION['lux'][name3]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'lux960blackfrosted') {
+	$tovar = $_SESSION['lux'][name4];
+	echo "<title>Заказ товара "; echo $_SESSION['lux'][name4]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'lux960blackmetal') {
+	$tovar = $_SESSION['lux'][name5];
+	echo "<title>Заказ товара "; echo $_SESSION['lux'][name5]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'lux960white') {
+	$tovar = $_SESSION['lux'][name6];
+	echo "<title>Заказ товара "; echo $_SESSION['lux'][name6]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
 }
 $_SESSION['tovar'] = $tovar; ?>
 
