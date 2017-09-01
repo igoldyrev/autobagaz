@@ -76,6 +76,7 @@ RewriteRule ^yuago autobox?autobox=yuago [L]
 RewriteRule ^turino autobox?autobox=turino [L]
 RewriteRule ^lux autobox?autobox=lux [L]
 RewriteRule ^atlant autobox?autobox=atlant [L]
+RewriteRule ^vetlan autobox?autobox=vetlan [L]
 
 RewriteRule ^velokreplenya index.php?page=velokreplenya [L]
 RewriteRule ^kreplenya-dlya-lyzh-shoubord index.php?page=kreplenya-dlya-lyzh-shoubord [L]
