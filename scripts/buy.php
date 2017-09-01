@@ -100,6 +100,60 @@ if (!isset($id)) {
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
+} elseif ($id == 'dc320') {
+	$tovar = $_SESSION['discoveryclassic'][name1];
+	echo "<title>Заказ товара "; echo $_SESSION['discoveryclassic'][name1]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'dc430') {
+	$tovar = $_SESSION['discoveryclassic'][name2];
+	echo "<title>Заказ товара "; echo $_SESSION['discoveryclassic'][name2]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'dc500') {
+	$tovar = $_SESSION['discoveryclassic'][name3];
+	echo "<title>Заказ товара "; echo $_SESSION['discoveryclassic'][name3]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'ds431') {
+	$tovar = $_SESSION['discoverysport'][name1];
+	echo "<title>Заказ товара "; echo $_SESSION['discoverysport'][name1]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'ds501') {
+	$tovar = $_SESSION['discoverysport'][name2];
+	echo "<title>Заказ товара "; echo $_SESSION['discoverysport'][name2]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'dynamic434') {
+	$tovar = $_SESSION['dynamic'][name1];
+	echo "<title>Заказ товара "; echo $_SESSION['dynamic'][name1]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'dynamic504') {
+	$tovar = $_SESSION['dynamic'][name2];
+	echo "<title>Заказ товара "; echo $_SESSION['dynamic'][name2]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'airtek435') {
+	$tovar = $_SESSION['airtek'][name1];
+	echo "<title>Заказ товара "; echo $_SESSION['airtek'][name1]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'airtek505') {
+	$tovar = $_SESSION['airtek'][name2];
+	echo "<title>Заказ товара "; echo $_SESSION['airtek'][name2]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
 }
 $_SESSION['tovar'] = $tovar; ?>
 
