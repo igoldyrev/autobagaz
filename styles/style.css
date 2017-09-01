@@ -8,6 +8,7 @@ img {
 } 
 .img_div {
 	text-align: center;
+	width: 98%;
 }
 .img_main {
 	max-width: 100%;
