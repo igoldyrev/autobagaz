@@ -55,7 +55,8 @@ if (!isset($autobox)) {
 		<div class="button">
 		<button class="buy_button"><a href="/buy/<?php echo $yuago['id']; ?>">Заказать</a></button>		
 		</div>
-	</div> <?php 	
+	</div> <?php
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php");
 } elseif ($autobox == 'turino') {
 	echo "<title> $titleconst"; echo $keywords[14][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[14][description]; echo "'/>";
@@ -78,6 +79,7 @@ if (!isset($autobox)) {
 		<button class="buy_button"><a href="/buy/<?php echo $turino['id']; ?>">Заказать</a></button>		
 		</div>
 	</div> <?php
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php");
 } elseif ($autobox == 'lux') {
 	echo "<title> $titleconst"; echo $keywords[15][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[15][description]; echo "'/>";
@@ -104,6 +106,7 @@ if (!isset($autobox)) {
 		<tr><td class="producttable" align="left"><?php echo $lux[name5]; ?></td><td class="producttable" align="center"><?php echo $lux[price5]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $lux['id5']; ?>">Заказать</a></button></td></tr>
 		<tr><td class="producttable" align="left"><?php echo $lux[name6]; ?></td><td class="producttable" align="center"><?php echo $lux[price6]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $lux['id6']; ?>">Заказать</a></button></td></tr>
 	</table> <?php
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php");
 } elseif ($autobox == 'atlant') {
 	echo "<title> $titleconst"; echo $keywords[10][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[10][description]; echo "'/>";
@@ -149,6 +152,7 @@ if (!isset($autobox)) {
 		<tr><td class="producttable"><?php echo $airtek[name1]; ?></td><td class="producttable"><?php echo $airtek[price1]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $airtek['id1']; ?>">Заказать</a></button></td></tr>
 		<tr><td class="producttable"><?php echo $airtek[name2]; ?></td><td class="producttable"><?php echo $airtek[price2]; ?></td><td class="producttable"><button class="buy_button"><a href="/buy/<?php echo $airtek['id2']; ?>">Заказать</a></button></td></tr>
 	</table> <?php
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php");
 } elseif ($autobox == 'vetlan') {
 	echo "<title> $titleconst"; echo $keywords[9][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[9][description]; echo "'/>";
@@ -239,6 +243,7 @@ if (!isset($autobox)) {
 				<tr><td class="producttable" align="left"><b><?php echo "Белый: "; echo $vetlan[2]['price_white']; ?></b></td><td class="producttable" align="center"><button class="buy_button"><a href="/buy/<?php echo $vetlan[2]['id3']; ?>">Заказать</a></button></td><td class="producttable" align="center"><button class="prokat_button"><a href="/prokat/<?php echo $vetlan[2]['id3']; ?>">Взять в прокат</a></button></td></tr>
 				</table>			
 			</div></div></div> <?php
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php");
 }
 ?> </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");
