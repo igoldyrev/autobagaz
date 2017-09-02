@@ -160,24 +160,34 @@ if (!isset($autobox)) {
 	echo "<h1>Автомобильные боксы Vetlan (Пермь)</h1>";
 	echo "<p>Автобоксы «VetlaN» рассчитаны на эксплуатацию в условиях, где жаркое лето сменяет холодная зима. Эти боксы, надежные настолько, насколько требует эксплуатация подобного устройства на наших неровных дорогах. Это – ваша безопасность и спокойствие во время длительных путешествий.</p>";
 	echo "<p>Автобоксы изготовлены из качественного пластика – АБС (акрилонитрилбутадиенстирол). Материал отличается повышенной стойкостью к воздействию агрессивных веществ и не меняет цвета со временем. Эти автобагажники на крышу сделаны из пластика, которые выдержат практически любые дорожные нагрузки, сильный ветер и любую непогоду, включая дождь, град и снег. Автобоксы «VetlaN» обладают отличной аэродинамикой.</p>";
-	echo "<p>С боксом «VetlaN» Вы забудете о нехватке места в багажнике вашего авто. Теперь собираясь в дальнюю поездку у Вас не будет болеть голова о том, куда складывать детские игрушки, матрасы и подушки, все для пикника и т.п. «VetlaN» - это лучший выбор.</p>";
+	echo "<p>С боксом «VetlaN» Вы забудете о нехватке места в багажнике вашего авто. Теперь собираясь в дальнюю поездку у Вас не будет болеть голова о том, куда складывать детские игрушки, матрасы и подушки, все для пикника и т.п. «VetlaN» - это лучший выбор.</p>"; ?>
 	
-	foreach ($vetlan as $box):
-		echo "<h2>"; echo $box['title']; echo "</h2"; ?>
-		
+	<div class="good" itemscope itemtype="http://schema.org/Product"> <?php
+	echo "<h2 itemprop='name'>"; echo $vetlan[0]['title']; echo "</h2>"; ?>
+	<div class="img_div" itemprop="image">
+		<?php echo $vetlan[0]['img1']; echo $vetlan[0]['img2']; echo $vetlan[0]['img3']; echo $vetlan[0]['img4']; ?>
+	</div>
 		<table cellspacing="0" align="center">
 			<tr><td class="producttablecaption" align="left">Характеристики</td><td class="producttablecaption" align="center">Значение</td><td class="producttablecaption"></td></tr>
-			<tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $box['size']; ?></td></tr>
-			<tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $box['volume']; ?></td></tr>
-			<tr><td class="producttable" align="left">Материал</td><td class="producttable" align="center"><?php echo $box['material']; ?></td></tr>
-			<tr><td class="producttable" align="left">Крепление</td><td class="producttable" align="center"><?php echo $box['clamp']; ?></td></tr>
-			<tr><td class="producttable" align="left">Замок</td><td class="producttable" align="center"><?php echo $box['lock']; ?></td></tr>
-			<tr><td class="producttable" align="left">Варианты цветов</td><td class="producttable" align="center"><?php echo $box['color']; ?></td></tr>
-		</table> <?php 
-		echo $box['desc1'];
+			<tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $vetlan[0]['size']; ?></td></tr>
+			<tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $vetlan[0]['volume']; ?></td></tr>
+			<tr><td class="producttable" align="left">Материал</td><td class="producttable" align="center"><?php echo $vetlan[0]['material']; ?></td></tr>
+			<tr><td class="producttable" align="left">Крепление</td><td class="producttable" align="center"><?php echo $vetlan[0]['clamp']; ?></td></tr>
+			<tr><td class="producttable" align="left">Замок</td><td class="producttable" align="center"><?php echo $vetlan[0]['lock']; ?></td></tr>
+			<tr><td class="producttable" align="left">Варианты цветов</td><td class="producttable" align="center"><?php echo $vetlan[0]['color']; ?></td></tr>
+		</table> 
+		<div class="good_desc"  itemprop="description"> <?php 
+	echo "<p>"; echo $vetlan[0]['desc1']; echo "</p>";
+	echo "<p>"; echo $vetlan[0]['desc2']; echo "</p>"; ?></div>
+	<div class="price_info" itemscope itemtype="http://schema.org/Offer">
+			<div class="price"  itemprop="price">
+				<table align="center">
+				<tr><td class="producttable" align="left"><b><?php echo "Черный: "; echo $vetlan[0]['price_black']; ?></b></td><td class="producttable" align="center"><button class="buy_button"><a href="/buy/<?php echo $vetlan[0]['id1']; ?>">Заказать</a></button></td><td class="producttable" align="center"><button class="prokat_button"><a href="/prokat/<?php echo $vetlan[0]['id1']; ?>">Взять в прокат</a></button></td></tr>
+				<tr><td class="producttable" align="left"><b><?php echo "Серый: "; echo $vetlan[0]['price_gray']; ?></b></td><td class="producttable" align="center"><button class="buy_button"><a href="/buy/<?php echo $vetlan[0]['id2']; ?>">Заказать</a></button></td><td class="producttable" align="center"><button class="prokat_button"><a href="/prokat/<?php echo $vetlan[0]['id2']; ?>">Взять в прокат</a></button></td></tr>
+				<tr><td class="producttable" align="left"><b><?php echo "Белый: "; echo $vetlan[0]['price_white']; ?></b></td><td class="producttable" align="center"><button class="buy_button"><a href="/buy/<?php echo $vetlan[0]['id3']; ?>">Заказать</a></button></td><td class="producttable" align="center"><button class="prokat_button"><a href="/prokat/<?php echo $vetlan[0]['id3']; ?>">Взять в прокат</a></button></td></tr>
+				</table>			
+			</div></div></div> <?php
 		
-
-	endforeach;
 }
 ?>
 
