@@ -154,6 +154,60 @@ if (!isset($id)) {
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
+} elseif ($id == '400Mblack') {
+	$tovar = $_SESSION['vetlan'][0][name1];
+	echo "<title>Заказ товара "; echo $_SESSION['vetlan'][0][name1]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == '400Mgray') {
+	$tovar = $_SESSION['vetlan'][0][name2];
+	echo "<title>Заказ товара "; echo $_SESSION['vetlan'][0][name2]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == '400Mwhite') {
+	$tovar = $_SESSION['vetlan'][0][name3];
+	echo "<title>Заказ товара "; echo $_SESSION['vetlan'][0][name3]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == '430Mblack') {
+	$tovar = $_SESSION['vetlan'][1][name1];
+	echo "<title>Заказ товара "; echo $_SESSION['vetlan'][1][name1]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == '430Mgray') {
+	$tovar = $_SESSION['vetlan'][1][name2];
+	echo "<title>Заказ товара "; echo $_SESSION['vetlan'][1][name2]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == '430Mwhite') {
+	$tovar = $_SESSION['vetlan'][1][name3];
+	echo "<title>Заказ товара "; echo $_SESSION['vetlan'][1][name3]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == '550Mblack') {
+	$tovar = $_SESSION['vetlan'][2][name1];
+	echo "<title>Заказ товара "; echo $_SESSION['vetlan'][2][name1]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == '550Mgray') {
+	$tovar = $_SESSION['vetlan'][2][name2];
+	echo "<title>Заказ товара "; echo $_SESSION['vetlan'][2][name2]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == '550Mwhite') {
+	$tovar = $_SESSION['vetlan'][2][name3];
+	echo "<title>Заказ товара "; echo $_SESSION['vetlan'][2][name3]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
 }
 $_SESSION['tovar'] = $tovar; ?>
 
