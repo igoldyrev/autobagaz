@@ -39,10 +39,30 @@ RewriteRule ^buy/dynamic434 scripts/buy.php?id=dynamic434
 RewriteRule ^buy/dynamic504 scripts/buy.php?id=dynamic504
 RewriteRule ^buy/airtek435 scripts/buy.php?id=airtek435
 RewriteRule ^buy/airtek505 scripts/buy.php?id=airtek505
+RewriteRule ^buy/400Mblack scripts/buy.php?id=400Mblack
+RewriteRule ^buy/400Mgray scripts/buy.php?id=400Mgray
+RewriteRule ^buy/400Mwhite scripts/buy.php?id=400Mwhite
+RewriteRule ^buy/430Mblack scripts/buy.php?id=430Mblack
+RewriteRule ^buy/430Mgray scripts/buy.php?id=430Mgray
+RewriteRule ^buy/430Mwhite scripts/buy.php?id=430Mwhite
+RewriteRule ^buy/550Mblack scripts/buy.php?id=550Mblack
+RewriteRule ^buy/550Mgray scripts/buy.php?id=550Mgray
+RewriteRule ^buy/550Mwhite scripts/buy.php?id=550Mwhite
+
 RewriteRule ^prokat/ab1 prokat.php?id=ab1
 RewriteRule ^prokat/ab2 prokat.php?id=ab2
 RewriteRule ^prokat/ab3 prokat.php?id=ab3
 RewriteRule ^prokat/ab4 prokat.php?id=ab4
+RewriteRule ^prokat/400Mblack prokat.php?id=400Mblack
+RewriteRule ^prokat/400Mgray prokat.php?id=400Mgray
+RewriteRule ^prokat/400Mwhite prokat.php?id=400Mwhite
+RewriteRule ^prokat/430Mblack prokat.php?id=430Mblack
+RewriteRule ^prokat/430Mgray prokat.php?id=430Mgray
+RewriteRule ^prokat/430Mwhite prokat.php?id=430Mwhite
+RewriteRule ^prokat/550Mblack prokat.php?id=550Mblack
+RewriteRule ^prokat/550Mgray prokat.php?id=550Mgray
+RewriteRule ^prokat/550Mwhite prokat.php?id=550Mwhite
+
 #Скидки
 RewriteRule ^buy/s1 scripts/buy.php?id=s1
 RewriteRule ^buy/s2 scripts/buy.php?id=s2
