@@ -52,6 +52,8 @@ RewriteRule ^buy/vk1 scripts/buy.php?id=vk1
 RewriteRule ^buy/vk2 scripts/buy.php?id=vk2
 RewriteRule ^buy/vk3 scripts/buy.php?id=vk3
 RewriteRule ^buy/vk4 scripts/buy.php?id=vk4
+RewriteRule ^buy/vf1 scripts/buy.php?id=vf1
+RewriteRule ^buy/vf2 scripts/buy.php?id=vf2
 
 RewriteRule ^prokat/ab1 prokat.php?id=ab1
 RewriteRule ^prokat/ab2 prokat.php?id=ab2
@@ -70,6 +72,8 @@ RewriteRule ^prokat/vk1 prokat.php?id=vk1
 RewriteRule ^prokat/vk2 prokat.php?id=vk2
 RewriteRule ^prokat/vk3 prokat.php?id=vk3
 RewriteRule ^prokat/vk4 prokat.php?id=vk4
+RewriteRule ^prokat/vf1 prokat.php?id=vf1
+RewriteRule ^prokat/vf2 prokat.php?id=vf2
 
 #Скидки
 RewriteRule ^buy/s1 scripts/buy.php?id=s1
@@ -107,6 +111,7 @@ RewriteRule ^atlant autobox?autobox=atlant [L]
 RewriteRule ^vetlan autobox?autobox=vetlan [L]
 
 RewriteRule ^velokreplenya_na_kryshy velokreplenya?velokreplenya=velokreplenya_na_kryshy [L]
+RewriteRule ^velokreplenya_na_farkop velokreplenya?velokreplenya=velokreplenya_na_farkop [L]
 
 RewriteRule ^kreplenya-dlya-lyzh-shoubord index.php?page=kreplenya-dlya-lyzh-shoubord [L]
 RewriteRule ^reelings index.php?page=reelings [L]
