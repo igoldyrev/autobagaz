@@ -232,6 +232,18 @@ if (!isset($id)) {
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
+} elseif ($id == 'vf1') {
+	$tovar = $_SESSION['velofarkop'][0][name];
+	echo "<title>Заказ товара "; echo $_SESSION['velofarkop'][0][name]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
+} elseif ($id == 'vf2') {
+	$tovar = $_SESSION['velofarkop'][1][name];
+	echo "<title>Заказ товара "; echo $_SESSION['velofarkop'][1][name]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> <?php
 }
 $_SESSION['tovar'] = $tovar; ?>
 
