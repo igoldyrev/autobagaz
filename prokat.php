@@ -136,6 +136,20 @@ if (!isset($id)) {
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
+} elseif ($id == 'vf1') {
+	$tovar = $_SESSION['velofarkop'][0][name];
+	echo "<title>Взятие в прокат "; echo $_SESSION['velofarkop'][0][name]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> 
+	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
+} elseif ($id == 'vf2') {
+	$tovar = $_SESSION['velofarkop'][1][name];
+	echo "<title>Взятие в прокат "; echo $_SESSION['velofarkop'][1][name]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> 
+	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 }
 $_SESSION['tovar'] = $tovar; ?>
 <p>Чтобы <b>воспользоваться</b> услугами аренды необходимо сделать несколько простых шагов:</p> 
