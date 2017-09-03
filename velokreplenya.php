@@ -158,13 +158,42 @@ if (!isset($velokreplenya)) {
 			</div>
 		</div>
 	</div>
-	
-	
-
-}
-
-
-?>
+	<div class="good"  itemscope itemtype="http://schema.org/Product">
+		<h2  itemprop="name"><?php echo $velofarkop[1]['name']; ?></h2>
+		<div class="description">
+		<div class="img_div"  itemprop="image">
+			<?php echo $velofarkop[1]['img1']; echo $velofarkop[1]['img2']; ?>
+		</div>
+		<div class="good_desc"  itemprop="description">
+			<p><?php echo $velofarkop[1]['desc']; ?></p>
+			<p>Технические характеристики:</p>
+				<ul>
+					<li>Грузоподъемность (велосипеды) - 2;</li>
+					<li>Грузоподъемность (кг) - 30 kg;</li>
+					<li>Соответствует размерам колеса - Все;</li>
+					<li>Макс. вес велосипеда - 15 kg;</li>
+					<li>Ширина (см) - 43 cm;</li>
+					<li>Вес (кг) - 4.3 kg;</li>
+					<li>Подходит для всех велосипедов, включая подростковые модели с колесами размером 20 дюймов;</li>
+					<li>Подходит для большинства велосипедов с дисковыми тормозами;</li>
+					<li>Необходим адаптер: Световая панель Thule 976;</li>
+					<li>Соответствует стандартам City Crash;</li>
+					<li>В комплект входит ремень для фиксации велосипедов;</li>
+					<li>Запираемое крепление для автомобилей с навесным замком.</li>
+				</ul>
+		</div></div>
+		<div class="price_info" itemscope itemtype="http://schema.org/Offer">
+			<div class="price"  itemprop="price">
+			<p><?php echo $velofarkop[1]['price']; ?></p>
+			</div>
+			<div class="button">
+			<button class="buy_button"><a href="/buy/<?php echo $velofarkop[1]['id']; ?>">Заказать</a></button>
+			<button class="prokat_button"><a href="/prokat/<?php echo $velofarkop[1]['id']; ?>">Взять в прокат</a></button>
+			</div>
+		</div>
+	</div> <?php
+	include ($_SERVER["DOCUMENT_ROOT"]."/frames/helpform.php");
+} ?>
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html"); ?>
