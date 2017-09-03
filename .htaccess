@@ -113,7 +113,6 @@ RewriteRule ^vetlan autobox?autobox=vetlan [L]
 RewriteRule ^velokreplenya_na_kryshy velokreplenya?velokreplenya=velokreplenya_na_kryshy [L]
 RewriteRule ^velokreplenya_na_farkop velokreplenya?velokreplenya=velokreplenya_na_farkop [L]
 
-RewriteRule ^kreplenya-dlya-lyzh-shoubord index.php?page=kreplenya-dlya-lyzh-shoubord [L]
 RewriteRule ^reelings index.php?page=reelings [L]
 RewriteRule ^braslets index.php?page=braslets [L]
 RewriteRule ^farkops index.php?page=farkops [L]
