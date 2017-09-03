@@ -54,6 +54,15 @@ RewriteRule ^buy/vk3 scripts/buy.php?id=vk3
 RewriteRule ^buy/vk4 scripts/buy.php?id=vk4
 RewriteRule ^buy/vf1 scripts/buy.php?id=vf1
 RewriteRule ^buy/vf2 scripts/buy.php?id=vf2
+RewriteRule ^buy/amos34 scripts/buy.php?id=amos34
+RewriteRule ^buy/amos56 scripts/buy.php?id=amos56
+RewriteRule ^buy/atlant34 scripts/buy.php?id=atlant34
+RewriteRule ^buy/atlant56 scripts/buy.php?id=atlant56
+RewriteRule ^buy/montblanc34 scripts/buy.php?id=montblanc34
+RewriteRule ^buy/montblanc56 scripts/buy.php?id=montblanc56
+RewriteRule ^buy/thule34 scripts/buy.php?id=thule34
+RewriteRule ^buy/thule56 scripts/buy.php?id=thule56
+RewriteRule ^buy/xtender scripts/buy.php?id=xtender
 
 RewriteRule ^prokat/ab1 prokat.php?id=ab1
 RewriteRule ^prokat/ab2 prokat.php?id=ab2
@@ -74,6 +83,15 @@ RewriteRule ^prokat/vk3 prokat.php?id=vk3
 RewriteRule ^prokat/vk4 prokat.php?id=vk4
 RewriteRule ^prokat/vf1 prokat.php?id=vf1
 RewriteRule ^prokat/vf2 prokat.php?id=vf2
+RewriteRule ^prokat/amos34 prokat.php?id=amos34
+RewriteRule ^prokat/amos56 prokat.php?id=amos56
+RewriteRule ^prokat/atlant34 prokat.php?id=atlant34
+RewriteRule ^prokat/atlant56 prokat.php?id=atlant56
+RewriteRule ^prokat/montblanc34 prokat.php?id=montblanc34
+RewriteRule ^prokat/montblanc56 prokat.php?id=montblanc56
+RewriteRule ^prokat/thule34 prokat.php?id=thule34
+RewriteRule ^prokat/thule56 prokat.php?id=thule56
+RewriteRule ^prokat/xtender prokat.php?id=xtender
 
 #Скидки
 RewriteRule ^buy/s1 scripts/buy.php?id=s1
