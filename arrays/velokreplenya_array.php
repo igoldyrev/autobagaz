@@ -61,7 +61,7 @@ $lyzhi = [
 		'id2' => 'amos56',
 		'name1' => 'Лыжное крепление Amos для 3-4 пар лыж',
 		'name2' => 'Лыжное крепление Amos для 5-6 пар лыж',
-		'title' => 'Лыжное крепление Amos'
+		'title' => 'Лыжное крепление Amos',
 		'desc' => 'Лыжное крепление закрывается на ключ. Материал сталь, порошковая окраска, пластик, резина. Цвет черный, серебро.',
 		'img' => '<img class="img_main" src="/images/lyzhi/amos.jpg" srcset="/images/lyzhi/amos.jpg 400w" alt="amos" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 		'desc34' => 'Вариант для 3-4-х пар лыж/2 сноуборда (40 см)',
@@ -74,7 +74,7 @@ $lyzhi = [
 		'id2' => 'atlant56',
 		'name1' => 'Лыжное крепление Атлант для 3-4 пар лыж',
 		'name2' => 'Лыжное крепление Атлант для 5-6 пар лыж',
-		'title' => 'Лыжное крепление Атлант'
+		'title' => 'Лыжное крепление Атлант',
 		'desc' => 'Атлант, СПб. Лыжное крепление закрывается на секретку. Материал Алюминий, пластик, резина.',
 		'img' => '<img class="img_main" src="/images/lyzhi/atlant.jpg" srcset="/images/lyzhi/atlant.jpg 300w" alt="atlant" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 		'desc34' => 'Вариант для 3-4-х пар лыж/2 сноуборда (40 см)',
@@ -87,7 +87,7 @@ $lyzhi = [
 		'id2' => 'montblanc56',
 		'name1' => 'Лыжное крепление Mont Blanc для 3-4 пар лыж',
 		'name2' => 'Лыжное крепление Mont Blanc для 5-6 пар лыж',
-		'title' => 'Лыжное крепление Mont Blanc'
+		'title' => 'Лыжное крепление Mont Blanc',
 		'desc' => 'Mont Blanc, Швеция. Материал Алюминий, сталь, порошковая окраска, пластик, резина.',
 		'img' => '<img class="img_main" src="/images/lyzhi/mont_blanc.jpg" srcset="/images/lyzhi/mont_blanc.jpg 300w" alt="mont blanc" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 		'desc34' => 'Вариант для 3-4-х пар лыж/2 сноуборда (40 см)',
@@ -100,7 +100,7 @@ $lyzhi = [
 		'id2' => 'thule56',
 		'name1' => 'Лыжное крепление Thule для 3-4 пар лыж',
 		'name2' => 'Лыжное крепление Thule для 5-6 пар лыж',
-		'title' => 'Лыжное крепление Thule'
+		'title' => 'Лыжное крепление Thule',
 		'desc' => 'Thule, Швеция. Материал алюминий, пластик, резина.',
 		'img' => '<img class="img_main" src="/images/lyzhi/thule.jpg" srcset="/images/lyzhi/thule.jpg 200w" alt="thule" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 		'desc34' => 'Модель 726: для 3-4-х пар лыж/2 сноуборда (40 см)',
