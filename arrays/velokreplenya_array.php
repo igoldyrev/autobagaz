@@ -53,4 +53,74 @@ $velofarkop = [
 		'img2' => '<img class="img_main" src="/images/velo/farkop/Thule_Xpress_970_2.jpg" srcset="/images/velo/farkop/Thule_Xpress_970_2.jpg 200w" alt="Thule Xpress 970" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 		'price' => 'Цена 6 500 рублей',
 		],
-]; ?>
+]; 
+//Лыжные крепления
+$lyzhi = [
+		[
+		'id1' => 'amos34',
+		'id2' => 'amos56',
+		'name1' => 'Лыжное крепление Amos для 3-4 пар лыж',
+		'name2' => 'Лыжное крепление Amos для 5-6 пар лыж',
+		'title' => 'Лыжное крепление Amos'
+		'desc' => 'Лыжное крепление закрывается на ключ. Материал сталь, порошковая окраска, пластик, резина. Цвет черный, серебро.',
+		'img' => '<img class="img_main" src="/images/lyzhi/amos.jpg" srcset="/images/lyzhi/amos.jpg 400w" alt="amos" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'desc34' => 'Вариант для 3-4-х пар лыж/2 сноуборда (40 см)',
+		'price34' => '2 700 рублей',
+		'desc56' => 'Вариант для 5-6 пар лыж/4 сноуборда (60 см)',
+		'price56' => '3 700 рублей',
+		],
+		[
+		'id1' => 'atlant34',
+		'id2' => 'atlant56',
+		'name1' => 'Лыжное крепление Атлант для 3-4 пар лыж',
+		'name2' => 'Лыжное крепление Атлант для 5-6 пар лыж',
+		'title' => 'Лыжное крепление Атлант'
+		'desc' => 'Атлант, СПб. Лыжное крепление закрывается на секретку. Материал Алюминий, пластик, резина.',
+		'img' => '<img class="img_main" src="/images/lyzhi/atlant.jpg" srcset="/images/lyzhi/atlant.jpg 300w" alt="atlant" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'desc34' => 'Вариант для 3-4-х пар лыж/2 сноуборда (40 см)',
+		'price34' => ' 4 200 рублей',
+		'desc56' => 'Вариант для 5-6 пар лыж/4 сноуборда (60 см)',
+		'price56' => ' 5 200 рублей',
+		],
+		[
+		'id1' => 'montblanc34',
+		'id2' => 'montblanc56',
+		'name1' => 'Лыжное крепление Mont Blanc для 3-4 пар лыж',
+		'name2' => 'Лыжное крепление Mont Blanc для 5-6 пар лыж',
+		'title' => 'Лыжное крепление Mont Blanc'
+		'desc' => 'Mont Blanc, Швеция. Материал Алюминий, сталь, порошковая окраска, пластик, резина.',
+		'img' => '<img class="img_main" src="/images/lyzhi/mont_blanc.jpg" srcset="/images/lyzhi/mont_blanc.jpg 300w" alt="mont blanc" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'desc34' => 'Вариант для 3-4-х пар лыж/2 сноуборда (40 см)',
+		'price34' => ' 7 000 рублей',
+		'desc56' => 'Вариант для 5-6 пар лыж/4 сноуборда (60 см)',
+		'price56' => ' 8 000 рублей',
+		],
+		[
+		'id1' => 'thule34',
+		'id2' => 'thule56',
+		'name1' => 'Лыжное крепление Thule для 3-4 пар лыж',
+		'name2' => 'Лыжное крепление Thule для 5-6 пар лыж',
+		'title' => 'Лыжное крепление Thule'
+		'desc' => 'Thule, Швеция. Материал алюминий, пластик, резина.',
+		'img' => '<img class="img_main" src="/images/lyzhi/thule.jpg" srcset="/images/lyzhi/thule.jpg 200w" alt="thule" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'desc34' => 'Модель 726: для 3-4-х пар лыж/2 сноуборда (40 см)',
+		'price34' => ' 7 000 рублей',
+		'desc56' => 'Модель 727: для 5-6 пар лыж/4 сноуборда (60 см)',
+		'price56' => ' 8 000 рублей',
+		],
+		[
+		'id' => 'xtender',
+		'name' => 'Thule XTENDER для перевозки 6-ти пар лыж',
+		'desc' => 'Производство Швеция. Выдвигается в сторону, позволяя загружать и разгружать лыжи и не тянуться при этом через автомобиль, пачкая одежду.',
+		'img1' => '<img class="img_main" src="/images/lyzhi/thule_xtender_1.jpg" srcset="/images/lyzhi/thule_xtender_1.jpg 150w" alt="Thule XTENDER" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'img2' => '<img class="img_main" src="/images/lyzhi/thule_xtender_2.jpg" srcset="/images/lyzhi/thule_xtender_2.jpg 150w" alt="Thule XTENDER" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'img3' => '<img class="img_main" src="/images/lyzhi/thule_xtender_3.jpg" srcset="/images/lyzhi/thule_xtender_3.jpg 150w" alt="Thule XTENDER" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'descprice' => 'Доступно в варианте для 5-6 пар лыж/4 сноуборда (60 см)',
+		'price' => ' 12 000 рублей',
+		],
+];
+
+
+
+
+?>
