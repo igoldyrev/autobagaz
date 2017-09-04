@@ -63,6 +63,9 @@ RewriteRule ^buy/montblanc56 scripts/buy.php?id=montblanc56
 RewriteRule ^buy/thule34 scripts/buy.php?id=thule34
 RewriteRule ^buy/thule56 scripts/buy.php?id=thule56
 RewriteRule ^buy/xtender scripts/buy.php?id=xtender
+RewriteRule ^buy/r12 scripts/buy.php?id=r12
+RewriteRule ^buy/r16 scripts/buy.php?id=r16
+RewriteRule ^buy/gazel scripts/buy.php?id=gazel
 
 RewriteRule ^prokat/ab1 prokat.php?id=ab1
 RewriteRule ^prokat/ab2 prokat.php?id=ab2
@@ -92,6 +95,9 @@ RewriteRule ^prokat/montblanc56 prokat.php?id=montblanc56
 RewriteRule ^prokat/thule34 prokat.php?id=thule34
 RewriteRule ^prokat/thule56 prokat.php?id=thule56
 RewriteRule ^prokat/xtender prokat.php?id=xtender
+RewriteRule ^prokat/r12 prokat.php?id=r12
+RewriteRule ^prokat/r16 prokat.php?id=r16
+RewriteRule ^prokat/gazel prokat.php?id=gazel
 
 #Скидки
 RewriteRule ^buy/s1 scripts/buy.php?id=s1
