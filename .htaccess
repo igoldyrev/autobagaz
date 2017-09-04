@@ -132,5 +132,4 @@ RewriteRule ^velokreplenya_na_kryshy velokreplenya?velokreplenya=velokreplenya_n
 RewriteRule ^velokreplenya_na_farkop velokreplenya?velokreplenya=velokreplenya_na_farkop [L]
 
 RewriteRule ^reelings index.php?page=reelings [L]
-RewriteRule ^braslets index.php?page=braslets [L]
 RewriteRule ^farkops index.php?page=farkops [L]
