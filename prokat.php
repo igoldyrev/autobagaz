@@ -213,6 +213,27 @@ if (!isset($id)) {
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
+} elseif ($id == 'r12') {
+	$tovar = $_SESSION['braslet'][name1];
+	echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name1]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> 
+	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
+} elseif ($id == 'r16') {
+	$tovar = $_SESSION['braslet'][name2];
+	echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name2]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> 
+	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
+} elseif ($id == 'gazel') {
+	$tovar = $_SESSION['braslet'][name3];
+	echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name3]; echo "</title>";?>
+	<div class="good_message">
+	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+	</div> 
+	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 }
 $_SESSION['tovar'] = $tovar; ?>
 <p>Чтобы <b>воспользоваться</b> услугами аренды необходимо сделать несколько простых шагов:</p> 
