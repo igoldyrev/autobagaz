@@ -2,8 +2,7 @@
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/keywords.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); 
-include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
+include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); ?>
 <div id="leftmenu">
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/leftmenu.html"); ?>
 </div>
