@@ -18,6 +18,7 @@ RewriteRule ^(.*)$ $1.html
 
 #Правила для переадресации страниц
 #Автобагажники
+RewriteRule ^buy scripts/buy.php
 RewriteRule ^buy/ab1 scripts/buy.php?id=ab1
 RewriteRule ^buy/ab2 scripts/buy.php?id=ab2
 RewriteRule ^buy/ab3 scripts/buy.php?id=ab3
