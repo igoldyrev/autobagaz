@@ -1,6 +1,7 @@
 #Страницы ошибок
-ErrorDocument 403 /403.php
-ErrorDocument 404 /404.php
+ErrorDocument 403 /errors/403.php
+ErrorDocument 404 /errors/404.php
+ErrorDocument 500 /errors/500.php
 
 RewriteEngine On  # Если этой строки нет выше
 #RewriteCond %{HTTP:X-Forwarded-Protocol} !=https
