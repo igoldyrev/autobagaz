@@ -27,7 +27,7 @@ if (!isset($page)) {
 		</div>
 		<div class="menu_item">
 			<div class="item_image">
-			<a href="/autobagazhniki"><img src="/images/index/2_autobox.jpg" alt="autobox" width="175px"></a>
+			<a href="/autobox"><img src="/images/index/2_autobox.jpg" alt="autobox" width="175px"></a>
 			</div>
 			<div class="item_link">
 			<a href="/autobox">Автомобильные боксы</a>
@@ -35,7 +35,7 @@ if (!isset($page)) {
 		</div>
 		<div class="menu_item">
 			<div class="item_image">
-			<a href="/autobagazhniki"><img src="/images/index/3_velokreplenya.jpg" alt="velokreplenya" width="175px"></a>
+			<a href="/velokreplenya"><img src="/images/index/3_velokreplenya.jpg" alt="velokreplenya" width="175px"></a>
 			</div>
 			<div class="item_link">
 			<a href="/velokreplenya">Велокрепления</a>
@@ -43,7 +43,7 @@ if (!isset($page)) {
 		</div>
 		<div class="menu_item">
 		<div class="item_image">
-			<a href="/autobagazhniki"><img src="/images/index/4_lyzh_kreplenya.jpg" alt="lyzhnye kreplenya" width="175px"></a>
+			<a href="/kreplenya-dlya-lyzh-shoubord"><img src="/images/index/4_lyzh_kreplenya.jpg" alt="lyzhnye kreplenya" width="175px"></a>
 			</div>
 			<div class="item_link">
 			<a href="/kreplenya-dlya-lyzh-shoubord">Крепления для лыж и сноубордов</a>
@@ -51,7 +51,7 @@ if (!isset($page)) {
 		</div>
 		<div class="menu_item">
 		<div class="item_image">
-			<a href="/autobagazhniki"><img src="/images/index/6_reelings.jpg" alt="reelings" width="175px"></a>
+			<a href="/reelings"><img src="/images/index/6_reelings.jpg" alt="reelings" width="175px"></a>
 			</div>
 			<div class="item_link">
 			<a href="/reelings">Рейлинги</a>
@@ -59,7 +59,7 @@ if (!isset($page)) {
 		</div>
 		<div class="menu_item">
 		<div class="item_image">
-			<a href="/autobagazhniki"><img src="/images/index/7_braslet.jpg" alt="braslet" width="175px"></a>
+			<a href="/braslets"><img src="/images/index/7_braslet.jpg" alt="braslet" width="175px"></a>
 			</div>
 			<div class="item_link">
 			<a href="/braslets">Браслеты противоскольжения</a>
@@ -67,7 +67,7 @@ if (!isset($page)) {
 		</div>
 		<div class="menu_item">
 		<div class="item_image">
-			<a href="/autobagazhniki"><img src="/images/index/8_farkops.jpg" alt="farkops" width="125px"></a>
+			<a href="/farkops"><img src="/images/index/8_farkops.jpg" alt="farkops" width="125px"></a>
 			</div>
 			<div class="item_link">
 			<a href="/farkops">Фаркопы</a>
