@@ -112,7 +112,28 @@ if (!isset($page)) {
 	echo "<meta name='description' content='"; echo $keywords[6][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[6][keywords]; echo "'/>";
 
-	echo "<h1>Это будет страница с контактами</h1>";
+	echo "<p>Компания <b>Автобагаж</b></p>";
+	echo "<p>Контакты для связи:</p>";
+	echo "<p style='padding: 5px;line-height:2'>+7 (342) 288 99 69<br>+7 912 489 79 39 Валентин Сарафанов<br>+7 965 572 26 28 Илья Голдырев<br>+7 909 100 40 06 Денис Зарубин (руководитель)</p>";
+	echo "<a href='mailto:autobagaz@yandex.ru'>autobagaz@yandex.ru</a>";
+	echo "<p align='center'><b>Режим работы:</b></p>";
+	echo "<p><b>Пн - Пт с 10:00 до 19:00</b></p>";
+	echo "<p><b>Сб - Вс с 10:00 до 18:00</b></p>";
+	echo "<p>Наш адрес: г.Пермь, Ул. Спешилова 102/29</p>";
+	echo "<p align='center'><b>Мы находимся здесь:</b></p>"; ?>
+	<div class="img_div">
+		<img class="img_main" src="/images/contacts/shop_autobagaz_poster.jpg" srcset="
+		/images/contacts/shop_autobagaz_poster.jpg 2100w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="autobagaz">
+		<img class="img_main" src="/images/contacts/shop_autobagaz_back.jpg" srcset="
+		/images/contacts/shop_autobagaz_back.jpg 2100w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="autobagaz">
+		<img class="img_main" src="/images/logo_circle.jpg" srcset="
+		/images/logo_circle.jpg 200w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="autobagaz">
+	</div>
+	<div><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=dPv1vaWzXDrNMJs9tlKwl_50qOYIqktt&amp;width=100%&amp;height=250&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script></div> <?php	
+	echo "<p>Индивидуальный предприниматель: Зарубин Денис Юрьевич<br>ИНН 590850700022 ОГРНИП 316595800158377<br>
+	р/с 40802810149770015620 в Пермском отделении №6984 ПАО Сбербанк России<br>
+	БИК 045773603 к/с № 30101810900000000603<br>
+	Свидетельство о регистрации 59 004723382 от 17.11.2016</p>";
 	} elseif ($page == 'gallery') {
 	echo "<title> $titleconst"; echo $keywords[3][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[3][description]; echo "'/>";
@@ -131,18 +152,6 @@ if (!isset($page)) {
 	echo "<meta name='keywords' content='"; echo $keywords[1][keywords]; echo "'/>";
 
 	echo "<h1>Это будет страница с каким-нибудь справочным материалом</h1>";
-	} elseif ($page == 'reelings') {
-	echo "<title> $titleconst"; echo $keywords[20][title]; echo "</title>";
-	echo "<meta name='description' content='"; echo $keywords[20][description]; echo "'/>";
-	echo "<meta name='keywords' content='"; echo $keywords[20][keywords]; echo "'/>";
-
-	echo "<h1>Это будет страница с рейлингами</h1>";
-	} elseif ($page == 'farkops') {
-	echo "<title> $titleconst"; echo $keywords[22][title]; echo "</title>";
-	echo "<meta name='description' content='"; echo $keywords[22][description]; echo "'/>";
-	echo "<meta name='keywords' content='"; echo $keywords[22][keywords]; echo "'/>";
-
-	echo "<h1>Это будет страница с фаркопами</h1>";
 	}
 ?>
 </div>
