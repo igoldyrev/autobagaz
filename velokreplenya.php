@@ -22,7 +22,7 @@ if (!isset($velokreplenya)) {
 	echo "<p>Условно, все велокрепления можно разделить на несколько типов по способу их установки на автомобиль:</p>"; ?>
 	<table class="links_catalog">
 		<tr><td width="170px" class="links_catalog" align="center"><a href="/velokreplenya_na_kryshy"><img src="/images/velo/krysha/amos_1.jpg" alt="Велокрепления на крышу" width="150px"></a></td><td align="center" class="links_catalog"><a class="links_catalog" href="/velokreplenya_na_kryshy">Велокрепления на крышу</a></td></tr>
-		<tr><td width="170px" class="links_catalog" align="center"><a href="/velokreplenya_na_farkop"><img src="/images/velo/farkop/amos_2.jpg" alt="Велокрепления на фаркоп" width="150px"></a></td><td class="links_catalog" align="center"><a class="links_catalog" href="/velokreplenya_na_farkop">Велокрепления на фаркоп</a></td></tr>
+		<tr><td width="170px" class="links_catalog" align="center"><a href="/velokreplenya_na_farkop"><img src="/images/velo/farkop/Thule_Xpress_970_1.jpg" alt="Велокрепления на фаркоп" width="150px"></a></td><td class="links_catalog" align="center"><a class="links_catalog" href="/velokreplenya_na_farkop">Велокрепления на фаркоп</a></td></tr>
 	</table> <?php
 } elseif ($velokreplenya == 'velokreplenya_na_kryshy') {
 	echo "<title> $titleconst"; echo $keywords[17][title]; echo "</title>";
