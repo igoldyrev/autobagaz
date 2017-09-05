@@ -134,24 +134,91 @@ if (!isset($page)) {
 	р/с 40802810149770015620 в Пермском отделении №6984 ПАО Сбербанк России<br>
 	БИК 045773603 к/с № 30101810900000000603<br>
 	Свидетельство о регистрации 59 004723382 от 17.11.2016</p>";
-	} elseif ($page == 'gallery') {
-	echo "<title> $titleconst"; echo $keywords[3][title]; echo "</title>";
-	echo "<meta name='description' content='"; echo $keywords[3][description]; echo "'/>";
-	echo "<meta name='keywords' content='"; echo $keywords[3][keywords]; echo "'/>";
-
-	echo "<h1>Здесь будет размещена галерея</h1>";
 	} elseif ($page == 'komissionka') {
 	echo "<title> $titleconst"; echo $keywords[5][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[5][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>";
+	
+	include ($_SERVER["DOCUMENT_ROOT"]."/arrays/komissionka.php");
 
-	echo "<h1>Это будет страница комиссионных товаров</h1>";
+	echo "<h1>Комиссионка</h1>";
+	echo "<p>В этом разделе мы продаем б/у багажники, автобоксы и аксессуары в рабочем состоянии. Часть багажников - использовались в прокате, часть - были оставлены на реализацию нашими клиентами. В течении 2-х недель вы можете вернуть багажник, если он вам не подойдет или окажется неисправен.</p>";
+	echo "<p>Если у вас есть ненужный багажник - мы его купим.</p>";
+	echo "<h2>Автомобильные багажники</h2>"; ?>
+	<p><?php echo $bagazhniki[0][name]; ?> </p>
+			<div class="img_div"> <?php
+				echo $bagazhniki[0][img1];
+				echo $bagazhniki[0][img2];
+				echo $bagazhniki[0][img3];
+				echo $bagazhniki[0][img4];
+				echo $bagazhniki[0][img5];
+				echo '</div>'; ?>
+			<p><b><?php echo $bagazhniki[0][price]; ?></b></p>
+	<p><?php echo $bagazhniki[1][name]; ?> </p>
+			<div class="img_div"> <?php
+				echo $bagazhniki[1][img1];
+				echo $bagazhniki[1][img2];
+				echo $bagazhniki[1][img3];
+				echo $bagazhniki[1][img4];
+				echo $bagazhniki[1][img5];
+				echo '</div>'; ?>
+			<p><b><?php echo $bagazhniki[1][price]; ?></b></p>
+	<p><?php echo $bagazhniki[2][name]; ?> </p>
+			<div class="img_div"> <?php
+				echo $bagazhniki[2][img1];
+				echo $bagazhniki[2][img2];
+				echo $bagazhniki[2][img3];
+				echo $bagazhniki[2][img4];
+				echo $bagazhniki[2][img5];
+				echo '</div>'; ?>
+			<p><b><?php echo $bagazhniki[2][price]; ?></b></p>
+	<p><?php echo $bagazhniki[3][name]; ?> </p>
+			<div class="img_div"> <?php
+				echo $bagazhniki[3][img1];
+				echo $bagazhniki[3][img2];
+				echo $bagazhniki[3][img3];
+				echo $bagazhniki[3][img4];
+				echo $bagazhniki[3][img5];
+				echo '</div>'; ?>
+			<p><b><?php echo $bagazhniki[3][price]; ?></b></p>
+	<p><?php echo $bagazhniki[4][name]; ?> </p>
+			<div class="img_div"> <?php
+				echo $bagazhniki[4][img1];
+				echo $bagazhniki[4][img2];
+				echo $bagazhniki[4][img3];
+				echo $bagazhniki[4][img4];
+				echo $bagazhniki[4][img5];
+				echo '</div>'; ?>
+			<p><b><?php echo $bagazhniki[4][price]; ?></b></p>
+	<?php echo "<h2>Фаркопы</h2>"; ?>
+	<p><?php echo $farkops[0][name];?> </p>
+			<div class="img_div"> <?php
+				echo $farkops[0][img1];
+				echo $farkops[0][img2];
+				echo $farkops[0][img3];
+				echo $farkops[0][img4];
+				echo '</div>'; ?>
+			<p><b><?php echo $farkops[0][price];?> </b></p>
+	<?php echo "<h2>Корзины</h2>"; ?>
+	<p><?php echo $korzins[0][name];?> </p>
+			<div class="img_div"> <?php
+				echo $korzins[0][img1];
+				echo $korzins[0][img2];
+				echo $korzins[0][img3];
+				echo '</div>'; ?>
+			<p><b><?php echo $korzins[0][price];?> </b></p> <?php
 	} elseif ($page == 'podbor') {
 	echo "<title> $titleconst"; echo $keywords[1][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[1][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[1][keywords]; echo "'/>";
 
 	echo "<h1>Это будет страница с каким-нибудь справочным материалом</h1>";
+	} elseif ($page == 'gallery') {
+	echo "<title> $titleconst"; echo $keywords[3][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $keywords[3][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[3][keywords]; echo "'/>";
+
+	echo "<h1>Здесь будет размещена галерея</h1>";
 	}
 ?>
 </div>
