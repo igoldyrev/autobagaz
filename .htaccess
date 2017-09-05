@@ -18,7 +18,6 @@ RewriteRule ^(.*)$ $1.html
 
 #Правила для переадресации страниц
 #Автобагажники
-RewriteRule ^buy scripts/buy.php
 RewriteRule ^buy/ab1 scripts/buy.php?id=ab1
 RewriteRule ^buy/ab2 scripts/buy.php?id=ab2
 RewriteRule ^buy/ab3 scripts/buy.php?id=ab3
@@ -137,5 +136,3 @@ RewriteRule ^vetlan autobox?autobox=vetlan [L]
 
 RewriteRule ^velokreplenya_na_kryshy velokreplenya?velokreplenya=velokreplenya_na_kryshy [L]
 RewriteRule ^velokreplenya_na_farkop velokreplenya?velokreplenya=velokreplenya_na_farkop [L]
-
-RewriteRule ^reelings index.php?page=reelings [L]
