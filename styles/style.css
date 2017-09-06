@@ -189,6 +189,21 @@ p.brands {
 	margin: 7px;
 }
 
+/* Оформление галереи */
+div.gallery {
+	border: 2px solid #D8D8D8;
+	margin: 2px 5px 2px 5px;
+	height: auto;
+	width: 200px;
+	display: inline-block;
+}
+.gallery a {
+	text-decoration: none;
+}
+.gallery a:hover {
+	text-decoration: underline;
+}
+
 /* Диалоги на странице выбора багажника */
 p.speechleft {
 	position: relative;
