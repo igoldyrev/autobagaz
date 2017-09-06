@@ -260,14 +260,7 @@ if (!isset($page)) {
 	Овальные аэродинамические – на них устанавливается 85% багажных боксов со своими креплениями. Для оставшихся 15% необходимо будет приобрести дополнительные переходники в Т-образный профиль.<br><br>
 	Крыло (Thule WingBar и Yakima Whispbar) - на них устанавливается 65% боксов на крышу, для остальных приобретаются переходники. Смею заметить, что такой профиль является третьим поколением багажников на крышу и представляет собой полностью бесшумный профиль, он наиболее комфортен, его преимущество в том, что вам нет необходимости снимать его с автомобиля. И ко всему он придает вашему средству передвижения эстетический вид. 
 	</p></div> <?php 
-	} elseif ($page == 'gallery') {
-	echo "<title> $titleconst"; echo $keywords[3][title]; echo "</title>";
-	echo "<meta name='description' content='"; echo $keywords[3][description]; echo "'/>";
-	echo "<meta name='keywords' content='"; echo $keywords[3][keywords]; echo "'/>";
-
-	echo "<h1>Здесь будет размещена галерея</h1>";
-	}
-?>
+	} ?>
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html"); ?>
