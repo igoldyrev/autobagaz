@@ -9,7 +9,7 @@
   <input type="text" name="phone" class="better-placeholder__input" required="required" pattern="[0-9]{10,11}" placeholder="Введите номер телефона">
   <label for="phone" class="better-placeholder__label">Введите номер телефона</label>
 </div><br>
-<span class="label_top">Тип оборудования:</span>
+<span class="label_top">Тип оборудования. Вы можете выбрать несколько видов:</span>
 <div class="better-placeholder">
   <p><input type="checkbox" name="bagazhnik" value="Багажник на крышу" <?php echo $checkedbagazh ?>>Багажник на крышу</p>
   <p><input type="checkbox" name="autobox" value="Автобокс" <?php echo $checkedbox ?>>Автобокс на крышу</p>
@@ -22,9 +22,9 @@
 <div class="better-placeholder">
   <select class="better-placeholder__select" size="1" name="time">
     <option selected="selected" value="none">Не указано</option>
-    <option value="0-14">От 0 до 14 дней</option>
-    <option value="15-21">От 15 до 21 дня</option>
-    <option value="21-">От 21 дня</option>
+    <option value="0-14 дней">От 0 до 14 дней</option>
+    <option value="15-21 дней">От 15 до 21 дня</option>
+    <option value="21+ дней">От 21 дня</option>
   </select>
 </div><br>
 <span class="label_top">Дополнительная информация</span>
