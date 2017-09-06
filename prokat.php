@@ -19,217 +19,248 @@ if (!isset($id)) {
 	echo "<p>В случае сложных дорожных условий в путешествии или плохой погоды во время охоты/рыбалки-воспользуйтесь прокатом браслетов или цепей противоскольжения и самые сложные дороги станут легко проходимыми даже для самых маленьких и легких машин.</p>"; 
 } elseif ($id == 'ab1') {
 	$tovar = $_SESSION['autobagazhniki'][0][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][0][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][0][name]; echo "</title>";
+	$checkedbagazh  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div>
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'ab2') {
 	$tovar = $_SESSION['autobagazhniki'][1][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][1][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][1][name]; echo "</title>";
+	$checkedbagazh  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'ab3') {
 	$tovar = $_SESSION['autobagazhniki'][2][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][2][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][2][name]; echo "</title>";
+	$checkedbagazh  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'ab4') {
 	$tovar = $_SESSION['autobagazhniki'][3][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][3][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][3][name]; echo "</title>";
+	$checkedbagazh  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == '400Mblack') {
 	$tovar = $_SESSION['vetlan'][0][name1];
-	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][0][name1]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][0][name1]; echo "</title>";
+	$checkedbox  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == '400Mgray') {
 	$tovar = $_SESSION['vetlan'][0][name2];
-	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][0][name2]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][0][name2]; echo "</title>";
+	$checkedbox  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == '400Mwhite') {
 	$tovar = $_SESSION['vetlan'][0][name3];
-	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][0][name3]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][0][name3]; echo "</title>";
+	$checkedbox  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == '430Mblack') {
 	$tovar = $_SESSION['vetlan'][1][name1];
-	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][1][name1]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][1][name1]; echo "</title>";
+	$checkedbox  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == '430Mgray') {
 	$tovar = $_SESSION['vetlan'][1][name2];
-	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][1][name2]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][1][name2]; echo "</title>";
+	$checkedbox  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == '430Mwhite') {
 	$tovar = $_SESSION['vetlan'][1][name3];
-	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][1][name3]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][1][name3]; echo "</title>";
+	$checkedbox  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == '550Mblack') {
 	$tovar = $_SESSION['vetlan'][2][name1];
-	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][2][name1]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][2][name1]; echo "</title>";
+	$checkedbox  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == '550Mgray') {
 	$tovar = $_SESSION['vetlan'][2][name2];
-	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][2][name2]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][2][name2]; echo "</title>";
+	$checkedbox  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == '550Mwhite') {
 	$tovar = $_SESSION['vetlan'][2][name3];
-	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][2][name3]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][2][name3]; echo "</title>";
+	$checkedbox  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'vk1') {
 	$tovar = $_SESSION['velokrysha'][0][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][0][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][0][name]; echo "</title>";
+	$checkedvelokrysha  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'vk2') {
 	$tovar = $_SESSION['velokrysha'][1][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][1][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][1][name]; echo "</title>";
+	$checkedvelokrysha  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'vk3') {
 	$tovar = $_SESSION['velokrysha'][2][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][2][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][2][name]; echo "</title>";
+	$checkedvelokrysha  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'vk4') {
 	$tovar = $_SESSION['velokrysha'][3][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][3][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][3][name]; echo "</title>";
+	$checkedvelokrysha  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'vf1') {
 	$tovar = $_SESSION['velofarkop'][0][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['velofarkop'][0][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['velofarkop'][0][name]; echo "</title>";
+	$checkedvelofarkop  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'vf2') {
 	$tovar = $_SESSION['velofarkop'][1][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['velofarkop'][1][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['velofarkop'][1][name]; echo "</title>";
+	$checkedvelofarkop  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'amos34') {
 	$tovar = $_SESSION['lyzhi'][0][name1];
-	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][0][name1]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][0][name1]; echo "</title>";
+	$checkedlyzhi  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'amos56') {
 	$tovar = $_SESSION['lyzhi'][0][name2];
-	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][0][name2]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][0][name2]; echo "</title>";
+	$checkedlyzhi  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'atlant34') {
 	$tovar = $_SESSION['lyzhi'][1][name1];
-	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][1][name1]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][1][name1]; echo "</title>";
+	$checkedlyzhi  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'atlant56') {
 	$tovar = $_SESSION['lyzhi'][1][name2];
-	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][1][name2]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][1][name2]; echo "</title>";
+	$checkedlyzhi  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'montblanc34') {
 	$tovar = $_SESSION['lyzhi'][2][name1];
-	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][2][name1]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][2][name1]; echo "</title>";
+	$checkedlyzhi  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'montblanc56') {
 	$tovar = $_SESSION['lyzhi'][2][name2];
-	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][2][name2]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][2][name2]; echo "</title>";
+	$checkedlyzhi  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'thule34') {
 	$tovar = $_SESSION['lyzhi'][3][name1];
-	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][3][name1]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][3][name1]; echo "</title>";
+	$checkedlyzhi  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'thule56') {
 	$tovar = $_SESSION['lyzhi'][3][name2];
-	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][3][name2]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][3][name2]; echo "</title>";
+	$checkedlyzhi  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'xtender') {
 	$tovar = $_SESSION['lyzhi'][4][name];
-	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][4][name]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][4][name]; echo "</title>";
+	$checkedlyzhi  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'r12') {
 	$tovar = $_SESSION['braslet'][name1];
-	echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name1]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name1]; echo "</title>";
+	$checkedbraslets  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'r16') {
 	$tovar = $_SESSION['braslet'][name2];
-	echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name2]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name2]; echo "</title>";
+	$checkedbraslets  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/prokatform.php");
 } elseif ($id == 'gazel') {
 	$tovar = $_SESSION['braslet'][name3];
-	echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name3]; echo "</title>";?>
+	echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name3]; echo "</title>";
+	$checkedbraslets  = "checked"; ?>
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
