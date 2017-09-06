@@ -11,11 +11,12 @@
 </div><br>
 <span class="label_top">Тип оборудования:</span>
 <div class="better-placeholder">
-  <select class="better-placeholder__select" size="1" name="equipment">
-    <option selected="selected" value="none">Не указано</option>
-    <option value="Багажные дуги/крепление для велосипеда на крышу">Багажные дуги/крепление для велосипеда на крышу</option>
-    <option value="Автобокс/велокрепление на фаркоп">Автобокс/велокрепление на фаркоп</option>
-  </select>
+  <p><input type="checkbox" name="bagazhnik" value="Багажник на крышу" <?php echo $checkedbagazh ?>>Багажник на крышу</p>
+  <p><input type="checkbox" name="autobox" value="Автобокс" <?php echo $checkedbox ?>>Автобокс на крышу</p>
+  <p><input type="checkbox" name="velokreplenie_krysha" value="Велокрепление на крышу" <?php echo $checkedvelokrysha ?>>Велокрепление на крышу</p>
+  <p><input type="checkbox" name="velokreplenie_farkop" value="Велокрепление на фаркоп" <?php echo $checkedvelofarkop ?>>Велокрепление на фаркоп</p>
+  <p><input type="checkbox" name="lyzhnoe_kreplenie" value="Лыжное крепление" <?php echo $checkedlyzhi ?>>Лыжное крепление</p>
+  <p><input type="checkbox" name="braslets" value="Браслеты противоскольжения" <?php echo $checkedbraslets ?>>Браслеты противоскольжения</p>
 </div><br>
 <span class="label_top">Срок проката:</span>
 <div class="better-placeholder">
