@@ -124,7 +124,6 @@ RewriteRule ^help scripts/help.php
 RewriteRule ^rewiew scripts/rewiew.php
 
 #Правила для разделов
-RewriteRule ^gallery index.php?page=gallery [L]
 RewriteRule ^komissionka index.php?page=komissionka [L]
 RewriteRule ^podbor index.php?page=podbor [L]
 RewriteRule ^contacts index.php?page=contacts [L]
