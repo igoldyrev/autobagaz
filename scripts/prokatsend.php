@@ -11,31 +11,55 @@ if (isset($_POST['captcha']) && $_POST['captcha'] == $_SESSION['keystring']){
 //В файле на первом этапе нужно принять данные из пост массива. Для этого создаем переменные
 $name = $_POST['name'];
 $phone = $_POST['phone'];
-$equipment = $_POST['equipment'];
+$bagazhnik = $_POST['bagazhnik'];
+$autobox = $_POST['autobox'];
+$velokreplenie_krysha = $_POST['velokreplenie_krysha'];
+$velokreplenie_farkop = $_POST['velokreplenie_farkop'];
+$lyzhnoe_kreplenie = $_POST['lyzhnoe_kreplenie'];
+$braslets = $_POST['braslets'];
 $time = $_POST['time'];
 $text = $_POST['text'];
 //Первая функция преобразует все символы, которые пользователь попытается добавить в форму
 $name = htmlspecialchars($name);
 $phone = htmlspecialchars($phone);
-$equipment = htmlspecialchars($equipment);
+$bagazhnik = htmlspecialchars($bagazhnik);
+$autobox = htmlspecialchars($autobox);
+$velokreplenie_krysha = htmlspecialchars($velokreplenie_krysha);
+$velokreplenie_farkop = htmlspecialchars($velokreplenie_farkop);
+$lyzhnoe_kreplenie = htmlspecialchars($lyzhnoe_kreplenie);
+$braslets = htmlspecialchars($braslets);
 $time = htmlspecialchars($time);
 $text = htmlspecialchars($text);
 //Вторая функция декодирует url, если пользователь попытается его добавить в форму
 $name = urldecode($name);
 $phone = urldecode($phone);
-$equipment = urldecode($equipment);
+$autobox = urldecode($autobox);
+$velokreplenie_krysha = urldecode($velokreplenie_krysha);
+$velokreplenie_farkop = urldecode($velokreplenie_farkop);
+$lyzhnoe_kreplenie = urldecode($lyzhnoe_kreplenie);
+$braslets = urldecode($braslets);
 $time = urldecode($time);
 $text = urldecode($text);
 //Третьей функцией мы удалим пробелы с начала и конца строки, если таковые имеются
 $name = trim($name);
 $phone = trim($phone);
-$equipment = trim($equipment);
+$bagazhnik = trim($bagazhnik);
+$autobox = trim($autobox);
+$velokreplenie_krysha = trim($velokreplenie_krysha);
+$velokreplenie_farkop = trim($velokreplenie_farkop);
+$lyzhnoe_kreplenie = trim($lyzhnoe_kreplenie);
+$braslets = trim($braslets);
 $time = trim($time);
 $text = trim($text);
 //Заносим данные из формы в переменные
 $name = $_REQUEST['name'];
 $phone = $_REQUEST['phone'];
-$equipment = $_REQUEST['equipment'];
+$bagazhnik = $_REQUEST['bagazhnik'];
+$autobox = $_REQUEST['autobox'];
+$velokreplenie_krysha = $_REQUEST['velokreplenie_krysha'];
+$velokreplenie_farkop = $_REQUEST['velokreplenie_farkop'];
+$lyzhnoe_kreplenie = $_REQUEST['lyzhnoe_kreplenie'];
+$braslets = $_REQUEST['braslets'];
 $time = $_REQUEST['time'];
 $text = $_REQUEST['text'];
 //Создаем запрос в базу данных
@@ -49,13 +73,13 @@ $text = $_REQUEST['text'];
 
 
 
-if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['equipment'])&&$_POST['equipment']!="")&&(isset($_POST['time'])&&$_POST['time']!="")&&(isset($_POST['text'])&&$_POST['text']!="")){
+if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['time'])&&$_POST['time']!="")&&(isset($_POST['text'])&&$_POST['text']!="")){
 
 if (mail("goldirev12@yandex.ru", "Заказ оборудования в прокат", 
 "Заказан товар ".$_SESSION['tovar'].";
 Имя:".$name.";
 Телефон: ".$phone.";
-Оборудование: ".$equipment.";
+Оборудование: ".$bagazhnik.", ".$autobox.", ".$velokreplenie_krysha.", ".$velokreplenie_farkop.", ".$lyzhnoe_kreplenie.", ".$braslets.";
 Срок: ".$time.";
 Дополнительная информация: ".$text.";
 
