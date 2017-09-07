@@ -3,10 +3,10 @@ session_start();
 $url = $_SESSION['url']; 
 if (isset($_POST['captcha']) && $_POST['captcha'] == $_SESSION['keystring']){
 // Соединение с БД MySQL
-//$sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
-//mysql_select_db('9082410193_zakaz', $sql);
-//mysql_query ("set_client='utf8'");//Следующие 2 строки решают проблему с кодировкой.
-//mysql_query ("SET NAMES utf8");
+$sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
+mysql_select_db('9082410193_zakaz', $sql);
+mysql_query ("set_client='utf8'");//Следующие 2 строки решают проблему с кодировкой.
+mysql_query ("SET NAMES utf8");
 
 //В файле на первом этапе нужно принять данные из пост массива. Для этого создаем переменные
 $name = $_POST['name'];
@@ -43,14 +43,11 @@ $auto = $_REQUEST['auto'];
 $kuzov = $_REQUEST['kuzov'];
 $year = $_REQUEST['year'];
 $text = $_REQUEST['text'];
-//Создаем запрос в базу данных
-//$sql_insert = "INSERT INTO zakaz (name, phone, auto, kuzov, year, text)" . 
-//"VALUES('{$name}', '{$phone}', '{$auto}', '{$kuzov}', '{$year}', '{$text}');";
-//mysql_query($sql_insert);
 
-//$sql_users = "INSERT INTO users (name, phone)" . 
-//"VALUES('{$name}', '{$phone}');";
-//mysql_query($sql_users);
+//Создаем запрос в базу данных
+$sql_users = "INSERT INTO users (name, phone)" . 
+"VALUES('{$name}', '{$phone}');";
+mysql_query($sql_users);
 
 if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['auto'])&&$_POST['auto']!="")&&(isset($_POST['kuzov'])&&$_POST['kuzov']!="")&&(isset($_POST['year'])&&$_POST['year']!="")&&(isset($_POST['text'])&&$_POST['text']!="")){
 
