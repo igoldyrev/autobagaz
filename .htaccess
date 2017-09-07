@@ -117,11 +117,13 @@ RewriteRule ^news/12_june news.php?newspage=12_june
 RewriteRule ^news/cenopad news.php?newspage=cenopad
 RewriteRule ^news/1 news.php?page=1
 RewriteRule ^news/2 news.php?page=2
+
 #Страницы заказов
 RewriteRule ^zakaz scripts/zakaz.php
 RewriteRule ^vprokat scripts/prokatsend.php
 RewriteRule ^help scripts/help.php
 RewriteRule ^rewiew scripts/rewiew.php
+RewriteRule ^call scripts/call.php
 
 #Правила для разделов
 RewriteRule ^komissionka index.php?page=komissionka [L]
