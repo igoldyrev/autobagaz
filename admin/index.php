@@ -14,4 +14,9 @@ echo "<h1>Админка сайта Автобагаж.ру!</h1>"; ?>
 <a href="/admin/news/newsdelete.php">Удалить новости</a>
 </div>
 
+<div class="good">
+<?php echo "<h3>Скачать данные сайта</h3>"; ?>
+<a href="/admin/files/keywords.zip">Скачать</a>
+</div>
+
 <a href="/">Вернуться на главную страницу сайта</a>
