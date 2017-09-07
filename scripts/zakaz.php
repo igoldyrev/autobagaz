@@ -54,7 +54,7 @@ $text = $_REQUEST['text'];
 
 if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['auto'])&&$_POST['auto']!="")&&(isset($_POST['kuzov'])&&$_POST['kuzov']!="")&&(isset($_POST['year'])&&$_POST['year']!="")&&(isset($_POST['text'])&&$_POST['text']!="")){
 
-if (mail("goldirev12@yandex.ru", "Заказ товара с сайта", 
+if (mail("autobagaz@yandex.ru", "Заказ товара с сайта", 
 "Заказан товар ".$_SESSION['tovar'].";
 Имя:".$name.";
 Телефон: ".$phone.";
@@ -67,7 +67,7 @@ if (mail("goldirev12@yandex.ru", "Заказ товара с сайта",
 Примерный user-agent: ".$_SERVER['HTTP_USER_AGENT'].";
 ip-адрес:" .$_SERVER['REMOTE_ADDR'].";
 Ссылка на скрипт, с которого пришло письмо:" .$_SERVER['REQUEST_URI'] ,
-"From: goldirev12@yandex.ru \r\n"))
+"From: autobagaz@yandex.ru \r\n"))
  {     	echo "<center><b>Ваш заказ успешно отправлен!</b><br><br><center>Через 3 секунды Вы будете перенаправлены на предыдущую страницу<br><br>Если этого не произошло, то нажмите на ссылку:<br><a href='".$url; echo "'>Вернуться назад</a>"; 
 header('Refresh: 3; URL='.$url);
 } 
