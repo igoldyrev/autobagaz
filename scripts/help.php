@@ -2,10 +2,10 @@
 session_start();
 $url = $_SESSION['url'];
 // Соединение с БД MySQL
-//$sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
-//mysql_select_db('9082410193_zakaz', $sql);
-//mysql_query ("set_client='utf8'");//Следующие 2 строки решают проблему с кодировкой.
-//mysql_query ("SET NAMES utf8");
+$sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
+mysql_select_db('9082410193_zakaz', $sql);
+mysql_query ("set_client='utf8'");//Следующие 2 строки решают проблему с кодировкой.
+mysql_query ("SET NAMES utf8");
 
 //В файле на первом этапе нужно принять данные из пост массива. Для этого создаем переменные
 $name = $_POST['name'];
@@ -33,14 +33,9 @@ $phone = $_REQUEST['phone'];
 $message = $_REQUEST['message'];
 
 //Создаем запрос в базу данных
-//$sql_insert = "INSERT INTO zakaz (name, phone, auto, kuzov, year, text)" . 
-//"VALUES('{$name}', '{$phone}', '{$auto}', '{$kuzov}', '{$year}', '{$text}');";
-//mysql_query($sql_insert);
-
-//$sql_users = "INSERT INTO users (name, phone)" . 
-//"VALUES('{$name}', '{$phone}');";
-//mysql_query($sql_users);
-
+$sql_users = "INSERT INTO users (name, phone)" . 
+"VALUES('{$name}', '{$phone}');";
+mysql_query($sql_users);
 
 
 if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['message'])&&$_POST['message']!="")){
