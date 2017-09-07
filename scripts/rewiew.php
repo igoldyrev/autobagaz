@@ -39,7 +39,7 @@ mysql_query($sql_users);
 
 if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['rewiew'])&&$_POST['rewiew']!="")){
 
-if (mail("goldirev12@yandex.ru", "Новый отзыв на сайте", 
+if (mail("autobagaz@yandex.ru", "Новый отзыв на сайте", 
 "Имя отправителя:".$name.";
 Телефон: ".$phone.";
 Текст отзыва: ".$rewiew.";
@@ -48,7 +48,7 @@ if (mail("goldirev12@yandex.ru", "Новый отзыв на сайте",
 Примерный user-agent: ".$_SERVER['HTTP_USER_AGENT'].";
 ip-адрес:" .$_SERVER['REMOTE_ADDR'].";
 Ссылка на скрипт, с которого пришло письмо:" .$_SERVER['REQUEST_URI'] ,
-"From: goldirev12@yandex.ru \r\n"))
+"From: autobagaz@yandex.ru \r\n"))
  {     	echo "<center><b>Ваш отзыв успешно размещен на сайте!</b><br><br><center>Через 3 секунды Вы будете перенаправлены на предыдущую страницу<br><br>Если этого не произошло, то нажмите на ссылку:<br><a href='/guestbook'>Вернуться назад</a>"; 
 header('Refresh: 3; URL=/guestbook');
 } 
