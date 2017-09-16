@@ -11,6 +11,8 @@ Disallow: /frames
 Disallow: /js
 Disallow: /scripts
 Disallow: /styles
+Disallow: /buy/
+Disallow: /prokat/
 Disallow: /google69be880a4c11a98c.html
 Disallow: /googlea56fc622b0027217.html
 Disallow: /LICENSE
