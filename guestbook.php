@@ -10,7 +10,6 @@ include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); ?>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/leftmenu.html"); ?>
 </div>
 <div id="content">
-
 <?php
 echo "<h1>Нам важно Ваше мнение!</h1>";
 echo "<p>На данной странице Вы можете оставить отзыв о нашей проделанной работе, либо написать нам какие-либо пожелания. А также посмотреть другие отзывы о нас.</p>";
@@ -59,28 +58,6 @@ $start_from = ($current_page - 1) * $on_page;
 $query = "SELECT `name`, `phone`, `rewiew` FROM `guestbook` ORDER BY `id` DESC LIMIT $start_from, $on_page";
 $res = mysql_query($query); ?>
 
-<form action="/rewiew" method="post">
-<span class="label_top">Ваше имя:</span>
-<div class="better-placeholder">
-  <input type="text" name="name" required="required" pattern="[А-Яа-яЁё]{2,}" class="better-placeholder__input" placeholder="Введите Ваше имя">
-  <label for="name" class="better-placeholder__label">Введите Ваше имя</label>
-</div><br>
-<span class="label_top">Ваш телефон:</span>
-<div class="better-placeholder">
-  <input type="text" name="phone" class="better-placeholder__input" required="required" pattern="[0-9]{10,11}" placeholder="Введите номер телефона. Номер телефона НЕ публикуется">
-  <label for="phone" class="better-placeholder__label">Введите номер телефона. Номер телефона НЕ публикуется</label>
-</div><br>
-<span class="label_top">Ваш отзыв</span>
-<div class="better-placeholder">
-<textarea name="rewiew" class="better-placeholder__input" pattern="^[A-Za-zА-Яа-яЁё0-9\s]+$" placeholder="Введите Ваш отзыв о нас"></textarea>
-  <label for="rewiew" class="better-placeholder__label">Введите Ваш отзыв о нас</label>
-</div><br>
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/captcha_frame.php"); ?>
-<div align="center">
-<input class="input__button" type="submit" value="Оставить отзыв">
-</div>
-</form>
-
 <?php 
 if ($count_records == 0) {
 	echo '<div class="good_message">';
@@ -113,6 +90,28 @@ for ($page = 1; $page <= $num_pages; $page++)
     }
 } }
 echo '</p>'; ?>
+<h2>Оставить свой отзыв о нас!</h2>
+<form action="/rewiew" method="post">
+<span class="label_top">Ваше имя:</span>
+<div class="better-placeholder">
+  <input type="text" name="name" required="required" pattern="[А-Яа-яЁё]{2,}" class="better-placeholder__input" placeholder="Введите Ваше имя">
+  <label for="name" class="better-placeholder__label">Введите Ваше имя</label>
+</div><br>
+<span class="label_top">Ваш телефон:</span>
+<div class="better-placeholder">
+  <input type="text" name="phone" class="better-placeholder__input" required="required" pattern="[0-9]{10,11}" placeholder="Введите номер телефона. Номер телефона НЕ публикуется">
+  <label for="phone" class="better-placeholder__label">Введите номер телефона. Номер телефона НЕ публикуется</label>
+</div><br>
+<span class="label_top">Ваш отзыв</span>
+<div class="better-placeholder">
+<textarea name="rewiew" class="better-placeholder__input" pattern="^[A-Za-zА-Яа-яЁё0-9\s]+$" placeholder="Введите Ваш отзыв о нас"></textarea>
+  <label for="rewiew" class="better-placeholder__label">Введите Ваш отзыв о нас</label>
+</div><br>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/captcha_frame.php"); ?>
+<div align="center">
+<input class="input__button" type="submit" value="Оставить отзыв">
+</div>
+</form>
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html"); ?>
