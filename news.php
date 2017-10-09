@@ -284,7 +284,7 @@ echo '</p>';
 	<p>Наш адрес: г. Пермь ул. Спешилова 102/29</p>
 	<p>Тел: 288-99-69</p>
 	<div class="img_div">
-		<img class="img_main" src="/images/news/120317/braslet.jpg" srcset="/images/news/120317/braslet.jpg 700w" alt="Браслеты противоскольжения" sizes="(max-width: 2000px) 150px, 300px, 350px">
+		<img class="img_main" src="/images/news/091017/akcia_braslet.jpg" srcset="/images/news/091017/akcia_braslet.jpg 300w" alt="Браслеты противоскольжения" sizes="(max-width: 2000px) 150px, 300px, 350px">
 	</div> <?php
 } ?>
 </div>
