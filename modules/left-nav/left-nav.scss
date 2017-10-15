@@ -1,0 +1,25 @@
+.left-nav {
+  font: {
+    family:HelveticaRegular sans-serif;
+    size: 1em;
+    weight: 400;
+  }
+  color: #ffffff;
+  table-layout: auto;
+  border-collapse: separate;
+    & table {
+      width: 200px;
+    }
+    & td  {
+      background: #367347; //todo Указать цвет в файле с переменными!!!
+      text-decoration: none;
+      padding:3px;
+    }
+    & a {
+      color: #ffffff;
+      text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+    }
+}
