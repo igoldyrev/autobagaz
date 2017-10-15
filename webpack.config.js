@@ -77,7 +77,7 @@ var config = {
         }),
         new ExtractTextPlugin(
         {
-            filename: 'css/[name].css',
+            filename: '[name].css',
             allChunks: true
         }),
 
