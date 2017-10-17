@@ -16,7 +16,7 @@ var config = {
     entry: [
         // vendor: ['jquery'],
       //  './js/main.js',
-        './sass/style.scss'
+        './modules/style.scss'
     ],
     output: {
         path: path.resolve(__dirname, 'build'),
