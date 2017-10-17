@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &__logo {
+    position: relative;
+  }
+  &__info {
+    text-align: right;
+  }
+  &__list {
+    list-style-type: none;
+  }
+  &__list-item {
+    font: {
+      family: HelveticaRegular, serif;
+      size: 1em;
+      weight: 400;
+    }
+    padding-bottom: 2px;
+  }
+  &__list-link {
+    font: {
+      family: HelveticaRegular, serif;
+      size: 1em;
+      weight: 400;
+    }
+    color: #000000;
+    text-decoration: none;
+    &--big {
+      font-size: 1.5em;
+    }
+  }
+}
+img.logo__img {
+  position: absolute;
+  width: 400px;
+  margin: auto;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+}
