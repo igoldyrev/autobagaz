@@ -10,6 +10,8 @@
   }
   &__list {
     list-style-type: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   &__list-item {
     font: {
@@ -41,3 +43,6 @@ img.logo__img {
   right:0;
   bottom:0;
 }
+
+
+//todo Сделать адаптивную верстку!!!
