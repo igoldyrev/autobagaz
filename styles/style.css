@@ -204,6 +204,12 @@ div.gallery {
 	text-decoration: underline;
 }
 
+/* Оформление партнеров */
+.partner {
+	border: 1px solid #0a2a0a;
+	padding: 0 5px;
+}
+
 /* Диалоги на странице выбора багажника */
 p.speechleft {
 	position: relative;
