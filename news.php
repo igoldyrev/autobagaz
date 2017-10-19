@@ -116,12 +116,12 @@ echo '</p>';
 	<p>Оригинальный дизайн, гармонично дополняющий облик автомобиля.</p> 
 	<p>Материалы и комплектующие высокого качества – упрочненный алюминиевый профиль с защитно-декоративным анодным покрытием, и АБС - пластик с защитным слоем, предотвращающим выгорание и обесцвечивание.</p>
 	<div class="img_div">
-		<img class="img_main" src="/images/news/260117/xray_1.jpg" srcset="
-		/images/news/260117/xray_1.jpg 350w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
-		<img class="img_main" src="/images/news/260117/xray_2.jpg" srcset="
-		/images/news/260117/xray_2.jpg 350w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
-		<img class="img_main" src="/images/news/260117/xray_3.jpg" srcset="
-		/images/news/260117/xray_3.jpg 350w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
+		<img class="img_main" src="/images/gallery/20170727_7_xray.jpg" srcset="
+		/images/gallery/20170727_7_xray.jpg 1550w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
+		<img class="img_main" src="/images/gallery/20170602_4_xray.jpg" srcset="
+		/images/gallery/20170602_4_xray.jpg 750w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
+		<img class="img_main" src="/images/gallery/20170303_4_xray.jpg" srcset="
+		/images/gallery/20170303_4_xray.jpg 550w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
 	</div> <?php
 } elseif ($newspage == 'rozygryzh_bagazhnika') {
 	echo "<title> $titleconst"; echo $news[3][title]; echo "</title>";
