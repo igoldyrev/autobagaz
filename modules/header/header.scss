@@ -44,5 +44,15 @@ img.logo__img {
   bottom:0;
 }
 
-
-//todo Сделать адаптивную верстку!!!
+@include adaptive(mobile) {
+  .header {
+    flex-direction: column;
+      &__logo {
+        width: auto;
+      }
+  }
+  img.logo__img {
+    position: static;
+    max-width: 100%;
+  }
+}
