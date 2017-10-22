@@ -2,7 +2,7 @@
   margin:0;
   padding:0;
 }
-//Шрифты
+//Шрифты для текста
 /* roboto-100 - cyrillic */
 @font-face {
   font-family: 'Roboto';
@@ -158,4 +158,57 @@
   url('../fonts/roboto-v18-cyrillic/roboto-v18-cyrillic-900italic.woff') format('woff'), /* Modern Browsers */
   url('../fonts/roboto-v18-cyrillic/roboto-v18-cyrillic-900italic.ttf') format('truetype'), /* Safari, Android, iOS */
   url('../fonts/roboto-v18-cyrillic/roboto-v18-cyrillic-900italic.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+//Шрифты для заголовков
+/* roboto-slab-100 - cyrillic */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-100.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Slab Thin'), local('RobotoSlab-Thin'),
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-100.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-100.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-100.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-100.svg#RobotoSlab') format('svg'); /* Legacy iOS */
+}
+/* roboto-slab-300 - cyrillic */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-300.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Slab Light'), local('RobotoSlab-Light'),
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-300.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-300.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-300.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-300.svg#RobotoSlab') format('svg'); /* Legacy iOS */
+}
+/* roboto-slab-regular - cyrillic */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'),
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-regular.svg#RobotoSlab') format('svg'); /* Legacy iOS */
+}
+/* roboto-slab-700 - cyrillic */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-700.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Slab Bold'), local('RobotoSlab-Bold'),
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-700.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-700.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-700.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/roboto-slab-v7-cyrillic/roboto-slab-v7-cyrillic-700.svg#RobotoSlab') format('svg'); /* Legacy iOS */
 }
