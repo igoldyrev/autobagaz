@@ -3,17 +3,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 0;
-  height: 90px;
   width: 100%;
   background: $primarycolor;
   z-index: 1;
   margin-top: 30px;
-  margin-bottom: 10px;
+  padding-bottom: 5px;
     &__link {
       font: {
-        family: HelveticaThin, sans-serif;
+        family: $font;
+        style: normal;
         size: 1em;
-        weight: 300;
+        weight: 100;
       }
       color: #ffffff;
       text-decoration: none;
@@ -36,8 +36,7 @@
     padding-right: 15px;
   }
 }
-
-@include adaptive(pad) {
+@include adaptive(mobile) {
   .footer {
     grid-template-columns: auto;
     grid-template-rows: 45px 1fr 55px;
@@ -45,6 +44,6 @@
     &__copyright + &__links + &__social {
       padding-bottom: 10px;
     }
+
   }
 }
-//todo Сверстать адаптив!!!
