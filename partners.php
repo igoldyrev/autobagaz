@@ -16,7 +16,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); ?>
             <p>Сайт: <a href="http://avtopricep59.ru/">AVTOPRICEP59</a></p>
             <p>Почта: <a href="mailto:PRI6EST@yandex.ru">PRI6EST@yandex.ru</a></p>
             <p>Телефон: <a href="tel:8-912-499-8777">8-912-499-8777</a></p>
-            <p>Адрес: Спешилова 81</p>
+            <p>Адрес: г. Пермь ул. Спешилова, 81</p>
         </div>
        </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");?>
