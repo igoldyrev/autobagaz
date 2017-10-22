@@ -1,13 +1,14 @@
 .left-nav {
   display: flex;
   flex-direction: column;
-  font: {
-    family:HelveticaRegular sans-serif;
-    size: 1em;
-    weight: 400;
-  }
   //width: 200px;
     &__link {
+      font: {
+        family: $font;
+        style: normal;
+        size: 1em;
+        weight: 400;
+      }
       text-align: center;
       width: 200px;
       color: $subcolor;
