@@ -23,7 +23,8 @@
   }
   &__list-link {
     font: {
-      family: HelveticaRegular, serif;
+      family: $font;
+      style: normal;
       size: 1em;
       weight: 400;
     }
