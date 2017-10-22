@@ -204,6 +204,12 @@ $prewiew = [
 		'pagename' => 'xray0902',
 		'img' => '<img class="img_main" src="/images/gallery/20170902_1_xray.jpg" alt="Lada Xray" width="180px">',
 		],
+		[
+		'id' => 33,
+		'name' => 'Opel Mokka',
+		'pagename' => 'mokka0908',
+		'img' => '<img class="img_main" src="/images/gallery/20170908_1_mokka.jpg" alt="Opel Mokka" width="180px">',
+		],
 ];
 $gallery = [
 		[
@@ -463,6 +469,14 @@ $gallery = [
 		'img3' => '<img class="img_main" src="/images/gallery/20170902_3_xray.jpg" srcset="/images/gallery/20170902_3_xray.jpg 1100w" alt="Lada Xray" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 		'img4' => '<img class="img_main" src="/images/gallery/20170902_4_xray.jpg" srcset="/images/gallery/20170902_4_xray.jpg 1100w" alt="Lada Xray" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 		'img5' => '<img class="img_main" src="/images/gallery/20170902_5_xray.jpg" srcset="/images/gallery/20170902_5_xray.jpg 1100w" alt="Lada Xray" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		],
+		[
+		'id' => 33,
+		'name' => 'Opel Mokka',
+		'img1' => '<img class="img_main" src="/images/gallery/20170908_1_mokka.jpg" srcset="/images/gallery/20170908_1_mokka.jpg 1300w" alt="Opel Mokka" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'img2' => '<img class="img_main" src="/images/gallery/20170908_2_mokka.jpg" srcset="/images/gallery/20170908_2_mokka.jpg 1300w" alt="Opel Mokka" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'img3' => '<img class="img_main" src="/images/gallery/20170908_3_mokka.jpg" srcset="/images/gallery/20170908_3_mokka.jpg 1300w" alt="Opel Mokka" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+		'img4' => '<img class="img_main" src="/images/gallery/20170908_4_mokka.jpg" srcset="/images/gallery/20170908_4_mokka.jpg 1300w" alt="Opel Mokka" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 		],
 ];
 
@@ -863,8 +877,20 @@ echo "<h1>Галерея работ</h1>";
 				echo $gallery[31][img4];  
 				echo $gallery[31][img5];  
 				echo $gallery[31][img6];  
-				echo $gallery[301][img7];
+				echo $gallery[31][img7];
 				echo $gallery[31][img8];
+				echo '</div>';
+	} elseif ($auto == 'mokka0908') {
+	?> <h3> <?php echo $gallery[32][name]; ?> </h3> 	
+	<div class="img_div"> <?php
+				echo $gallery[32][img1]; 
+				echo $gallery[32][img2];
+				echo $gallery[32][img3];  
+				echo $gallery[32][img4];  
+				echo $gallery[32][img5];  
+				echo $gallery[32][img6];  
+				echo $gallery[32][img7];
+				echo $gallery[32][img8];
 				echo '</div>';
 	}
 ?>	

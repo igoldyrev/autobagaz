@@ -115,6 +115,7 @@ RewriteRule ^news/rozygryzh_velokreplenya news.php?newspage=rozygryzh_velokreple
 RewriteRule ^news/akcia_na_boksy news.php?newspage=akcia_na_boksy
 RewriteRule ^news/12_june news.php?newspage=12_june
 RewriteRule ^news/cenopad news.php?newspage=cenopad
+RewriteRule ^news/akcia_na_braslets news.php?newspage=akcia_na_braslets
 RewriteRule ^news/1 news.php?page=1
 RewriteRule ^news/2 news.php?page=2
 

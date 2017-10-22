@@ -116,12 +116,12 @@ echo '</p>';
 	<p>Оригинальный дизайн, гармонично дополняющий облик автомобиля.</p> 
 	<p>Материалы и комплектующие высокого качества – упрочненный алюминиевый профиль с защитно-декоративным анодным покрытием, и АБС - пластик с защитным слоем, предотвращающим выгорание и обесцвечивание.</p>
 	<div class="img_div">
-		<img class="img_main" src="/images/news/260117/xray_1.jpg" srcset="
-		/images/news/260117/xray_1.jpg 350w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
-		<img class="img_main" src="/images/news/260117/xray_2.jpg" srcset="
-		/images/news/260117/xray_2.jpg 350w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
-		<img class="img_main" src="/images/news/260117/xray_3.jpg" srcset="
-		/images/news/260117/xray_3.jpg 350w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
+		<img class="img_main" src="/images/gallery/20170727_7_xray.jpg" srcset="
+		/images/gallery/20170727_7_xray.jpg 1550w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
+		<img class="img_main" src="/images/gallery/20170602_4_xray.jpg" srcset="
+		/images/gallery/20170602_4_xray.jpg 750w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
+		<img class="img_main" src="/images/gallery/20170303_4_xray.jpg" srcset="
+		/images/gallery/20170303_4_xray.jpg 550w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="x-ray">
 	</div> <?php
 } elseif ($newspage == 'rozygryzh_bagazhnika') {
 	echo "<title> $titleconst"; echo $news[3][title]; echo "</title>";
@@ -270,6 +270,21 @@ echo '</p>';
 	<div class="img_div">
 		<img class="img_main" src="/images/news/250717/farkop.jpg" srcset="/images/news/250717/farkop.jpg 700w" alt="Велокрепление на фаркоп" sizes="(max-width: 2000px) 150px, 300px, 350px">
 		<img class="img_main" src="/images/news/250717/krysha.jpg" srcset="/images/news/250717/krysha.jpg 700w" alt="Велокрепление на крышу" sizes="(max-width: 2000px) 150px, 300px, 350px">
+	</div> <?php
+} elseif ($newspage == 'akcia_na_braslets') {
+	echo "<title> $titleconst"; echo $news[12][title]; echo "</title>";
+	echo "<meta name='description' content='"; echo $news[12][description]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $news[12][keywords]; echo "'/>"; ?>
+	
+	<h1>Внимание!!! Акция в магазине "AutobagaZ"!!!</h1>
+	<p>Браслет противоскольжения R12-15 - <strong>Цена 500 рублей/шт.</strong></p>
+	<p>При покупке 3 штук - четвертый в <strong>ПОДАРОК!</strong></p>
+	<p>Браслет противоскольжения R16-22 - <strong>Цена 1000 рублей/шт.</strong></p>
+	<p>При покупке 3 штук - четвертый в <strong>ПОДАРОК!</strong></p>
+	<p>Наш адрес: г. Пермь ул. Спешилова 102/29</p>
+	<p>Тел: 288-99-69</p>
+	<div class="img_div">
+		<img class="img_main" src="/images/news/091017/akcia_braslet.jpg" srcset="/images/news/091017/akcia_braslet.jpg 300w" alt="Браслеты противоскольжения" sizes="(max-width: 2000px) 150px, 300px, 350px">
 	</div> <?php
 } ?>
 </div>
