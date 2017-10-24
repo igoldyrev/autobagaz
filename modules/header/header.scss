@@ -1,13 +1,12 @@
-.flex-header {
-  display: flex;
-  flex-direction: column;
-}
-
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   order: 1;
+  &-container {
+    display: flex;
+    flex-direction: column;
+  }
   &__logo {
     position: relative;
   }
@@ -41,6 +40,33 @@
       font-size: 1.5em;
     }
   }
+  &-top-proposition {
+    order: 2;
+    &__action {
+      font: {
+        family: $font;
+        size: 2em;
+        style: normal;
+        weight: 500;
+      }
+      text-align: center;
+      color: $redcolor;
+    }
+    &__footnote {
+      font: {
+        family: $font;
+        size: 1em;
+        style: normal;
+        weight: 300;
+      }
+      color: $redcolor;
+      text-align: center;
+    }
+  }
+}
+.proposion__star {
+  color: $redcolor;
+  vertical-align: super;
 }
 img.logo__img {
   position: absolute;
@@ -52,7 +78,7 @@ img.logo__img {
   bottom:0;
 }
 
-.top-nav {
+.header-top-nav {
   height: 40px;
   width: 100%;
   background: $primarycolor;
@@ -111,7 +137,7 @@ img.logo__img {
             text-decoration: none;
             &:after {
               content: '';
-              background: url('../images/nav-icon.png') no-repeat;
+              background: url('/img/nav-icon.png') no-repeat;
               position: absolute;
               top: 10px;
               right: 15px;
@@ -125,7 +151,7 @@ img.logo__img {
     }
 }
 @include adaptive(pad) {
-  .top-nav {
+  .header-top-nav {
     height: auto;
     position: relative;
       &__ul {
@@ -150,15 +176,27 @@ img.logo__img {
   .header {
     flex-direction: column;
     order: 3;
-      &__logo {
+     &__logo {
         width: auto;
       }
+    &-top-proposition {
+      &__action {
+        font: {
+          size: 1em;
+        }
+      }
+      &__footnote {
+        font: {
+          size: 0.9em;
+        }
+      }
+    }
   }
   img.logo__img {
     position: static;
     max-width: 100%;
   }
-  .top-nav {
+  .header-top-nav {
     height: auto;
     order: 1;
       &__ul {
