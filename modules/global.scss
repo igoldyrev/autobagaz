@@ -2,3 +2,32 @@
   margin:0;
   padding:0;
 }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 auto;
+  &-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+@include adaptive(pad) {
+  .wrapper {
+    width: 98%;
+    margin: 0 auto;
+    &-content {
+      flex-direction: column;
+    }
+  }
+}
+@include adaptive(mobile) {
+  .wrapper {
+    width: 100%;
+    &-content {
+      flex-direction: column;
+    }
+  }
+}
