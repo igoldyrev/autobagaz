@@ -1,8 +1,9 @@
 
 @import "sass/variables";
+@import "sass/mixins";
 @import "sass/fonts";
 @import "sass/global";
-@import "sass/mixins";
-@import "left-nav/left-nav";
+
 @import "header/header";
 @import "footer/footer";
+@import "left-nav/left-nav";
