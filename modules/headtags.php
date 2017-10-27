@@ -20,3 +20,5 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 <link rel="stylesheet" href="build/style.css">
+
+<scrypt async src="modules/header/js/nav-menu.js"></scrypt>
