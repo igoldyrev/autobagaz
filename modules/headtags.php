@@ -19,6 +19,6 @@
 <!-- Иконка -->
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-<link rel="stylesheet" href="build/autobagaz.css">.js"></script>
+<link rel="stylesheet" href="build/autobagaz.css">
 
 <script src="build/autobagaz.js"></script>
