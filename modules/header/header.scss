@@ -166,6 +166,7 @@ img.logo__img {
       &__link {
         width: 100%;
         border-bottom: 1px solid $nav-border-color;
+        line-height: 30px;
           &--mobile {
             display: none;
           }
@@ -175,11 +176,12 @@ img.logo__img {
 @include adaptive(mobile) {
   .header {
     flex-direction: column;
-    order: 3;
+    order: 2;
      &__logo {
         width: auto;
       }
     &-top-proposition {
+      order: 3;
       &__action {
         font: {
           size: 1em;
@@ -197,20 +199,8 @@ img.logo__img {
     max-width: 100%;
   }
   .header-top-nav {
-    height: auto;
-    order: 1;
-      &__ul {
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-      }
-      &__link {
-        width: auto;
-        border-bottom: 1px solid $nav-border-color;
-          &--mobile {
-            display: block;
-          }
-      }
+    display: none;
+
   }
 }
 
