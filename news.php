@@ -286,6 +286,42 @@ echo '</p>';
 	<div class="img_div">
 		<img class="img_main" src="/images/news/091017/akcia_braslet.jpg" srcset="/images/news/091017/akcia_braslet.jpg 300w" alt="Браслеты противоскольжения" sizes="(max-width: 2000px) 150px, 300px, 350px">
 	</div> <?php
+} elseif ($newspage == 'oxota_na_autobagaz') {
+    echo "<title> $titleconst"; echo $news[13][title]; echo "</title>";
+    echo "<meta name='description' content='"; echo $news[13][description]; echo "'/>";
+    echo "<meta name='keywords' content='"; echo $news[13][keywords]; echo "'/>"; ?>
+
+    <h1>Внимание!!! ОХОТА НА AUTOBAGAZ!</h1>
+    <p>Награда: 1000 рублей (Одна тысяча рублей) За поимку!</p>
+    <p align="center"><strong>Правила охоты:</strong></p>
+    <p>1) Надо поймать машину с отличительными знаками на заднем стекле.
+        (Поимка осуществляется с путем обгона машины, по наклейке на заднем стекле вашего автомобиля мы поймем что вы участник и остановимся)</p>
+    <p>2)Делаем фотографию на фоне вашей машины с призом.</p>
+    <p>3)Забираете приз и едете довольные по своим делам</p>
+    <p>4)Поймать можно 1 раз в неделю. (Для всех участников акции)</p>
+    <p>(Да может так случится, что вы поймали, а приза уже нет. В подтверждении того что приз выдан, ФОТО в группе, если фото нет то приз еще не выдан)</p>
+    <p>ЛОВИМ: Volkswagen Jetta (фото наклеек ниже)</p>
+    <p>Пример наклейки которая должна быть у вас на стекле (ПРИМЕР)</p>
+    <p align="center"><strong>Что для этого нужно?</strong></p>
+    <p>Быть участником группы в контакте <a href="https://vk.com/autobagaz" target="_blank">https://vk.com/autobagaz</a> (это нужно для того чтобы понимать, поймали на этой неделе машину или нет)</p>
+    <p>Взять наклейку в магазине "AutobagaZ" по адресу: г.Пермь ул.Спешилова 102/29</p>
+    <p>(Наклейку необходимо наклеить на заднее стекло вашего автомобиля)</p>
+    <p>Если все условия соблюдены, поздравляем вы участник ОХОТЫ!</p>
+    <p>Желаем удачи на дорогах! Как говорится, НИ гвоздя, НИ жезла.</p>
+    <p>Просим соблюдать правила дорожного движения во время ОХОТЫ (речь идет про обгон)</p>
+    <div class="img_div">
+        <img class="img_main" src="/images/news/121017/1.jpg" srcset="/images/news/121017/1.jpg 100w" alt="Охота на Autobagaz" sizes="(max-width: 2000px) 150px, 300px, 350px">
+        <img class="img_main" src="/images/news/121017/2.jpg" srcset="/images/news/121017/2.jpg 300w" alt="Охота на Autobagaz" sizes="(max-width: 2000px) 150px, 300px, 350px">
+        <img class="img_main" src="/images/news/121017/3.jpg" srcset="/images/news/121017/3.jpg 1000w" alt="Охота на Autobagaz" sizes="(max-width: 2000px) 150px, 300px, 350px">
+    </div>
+        <H2> Поздравляем первого победителя!</H2>
+        <p>Алексею удалось поймать наш автомобиль в районе парка культуры (Кировский район).</p>
+        <p>Продолжаем охоту господа!</p>
+    <div class="img_div">
+        <img class="img_main" src="/images/news/121017/4.jpg" srcset="/images/news/121017/4.jpg 500w" alt="Охота на Autobagaz" sizes="(max-width: 2000px) 150px, 300px, 350px">
+        <img class="img_main" src="/images/news/121017/5.jpg" srcset="/images/news/121017/5.jpg 500w" alt="Охота на Autobagaz" sizes="(max-width: 2000px) 150px, 300px, 350px">
+    </div>
+    <?php
 } ?>
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");
