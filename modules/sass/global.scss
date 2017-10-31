@@ -4,37 +4,42 @@
 }
 .wrapper {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 60%;
-  min-height: 100%;
+  width: 1220px;
+  height: 100%;
   margin: 0 auto;
   &-content {
-    position: absolute;
-    top: 280px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    margin-top: 15px;
   }
+}
+.content {
+  margin-left: 15px;
 }
 @include adaptive(pad) {
   .wrapper {
     width: 98%;
     margin: 0 auto;
     &-content {
-      position: absolute;
-      flex-direction: column-reverse;
-      top: 370px;
+      flex-direction: column;
+      padding: 0 10px;
     }
+  }
+  .content {
+    margin-left: 0px;
+    margin-top: 15px;
   }
 }
 @include adaptive(mobile) {
   .wrapper {
     width: 100%;
     &-content {
-      position: absolute;
       flex-direction: column-reverse;
+      padding: 0 10px;
     }
+  }
+  .content {
+    margin-left: 0px;
   }
 }
