@@ -177,6 +177,9 @@ img.logo__img {
   .header {
     flex-direction: column;
     order: 2;
+    &-container {
+      padding: 0 10px;
+    }
      &__logo {
         width: auto;
       }
