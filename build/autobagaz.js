@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(3);
 
 
 /***/ }),
@@ -80,11 +80,11 @@ module.exports = __webpack_require__(4);
 
 var _notification = __webpack_require__(2);
 
-var _navMenu = __webpack_require__(3);
-
 //notify('Here is my mesage');
 (0, _notification.log)('Это сайт компании Автобагаж');
 (0, _notification.log)('Сейчас сайт работает нормально');
+
+//import {topmenu} from './js/nav-menu.js';
 
 /***/ }),
 /* 2 */
@@ -108,35 +108,6 @@ function log(message) {
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.navmenu = navmenu;
-function navmenu() {
-	var pull = $('#pull');
-	menu = $('nav ul');
-	menuHeight = menu.height();
-
-	$(pull).on('click', function (e) {
-		e.preventDefault();
-		menu.slideToggle();
-	});
-
-	$(window).resize(function () {
-		var w = $(window).width();
-		if (w > 320 && menu.is(':hidden')) {
-			menu.removeAttr('style');
-		}
-	});
-};
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

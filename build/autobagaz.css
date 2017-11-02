@@ -243,7 +243,8 @@
       font-style: normal;
       font-weight: 300;
       color: #DF0101;
-      text-align: center; }
+      text-align: center;
+      margin-bottom: 10px; }
 
 .proposion__star {
   color: #DF0101;
@@ -365,14 +366,6 @@ img.logo__img {
       line-height: 40px;
       padding-left: 10px;
       text-decoration: none; }
-      .header-top-nav__link--mobile:after {
-        content: '';
-        background: url(images/nav-icon.png) no-repeat;
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        width: 30px;
-        height: 30px; }
     .header-top-nav__link:hover {
       background: #367347; }
 
@@ -381,6 +374,7 @@ img.logo__img {
     height: auto;
     position: relative; }
     .header-top-nav__ul {
+      display: block;
       flex-direction: row;
       flex-wrap: wrap;
       width: 100%;
@@ -396,7 +390,41 @@ img.logo__img {
 
 @media only screen and (max-width: 767px) {
   .header-top-nav {
-    display: none; } }
+    height: auto;
+    position: relative;
+    flex-direction: column;
+    order: 1; }
+    .header-top-nav__ul {
+      display: none;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto; }
+    .header-top-nav__li {
+      width: 50%; }
+    .header-top-nav__link {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      border-bottom: 1px solid #A4A4A4;
+      line-height: 30px; }
+      .header-top-nav__link--mobile {
+        display: block;
+        box-sizing: border-box; }
+        .header-top-nav__link--mobile::before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          top: -6px;
+          right: 7px;
+          width: 32px;
+          height: 9px;
+          box-shadow: 0 3px 0 #367347, 0 8px 0 #fff, 0 13px 0 #367347, 0 18px 0 #fff, 0 23px 0 #367347, 0 28px 0 #fff, 0 28px 0 #367347; }
+    .header-top-nav__block-link {
+      width: 100%;
+      height: auto;
+      position: relative;
+      margin: 0; } }
 
 .left-nav {
   display: flex;
