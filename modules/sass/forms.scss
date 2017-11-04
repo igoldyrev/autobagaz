@@ -1,0 +1,66 @@
+.form {
+  &__container {
+    width: 70%;
+    margin: 0 auto;
+  }
+  &__label {
+    font: {
+      family: $font;
+      size: 1em;
+      weight: 300;
+    }
+    padding-right: 15px;
+    line-height: 2;
+    &--shown {
+      position: absolute;
+      top: 4px;
+      left: 14px;
+      font-size: 14px;
+      color: $placeholders-color;
+    }
+  }
+  &__input-block {
+    position: relative;
+  }
+  &__input {
+    width: 500px;
+    font-size: 16px;
+    padding: 16px 10px 8px 10px;
+  }
+  &__select {
+    width: 500px;
+    font-size: 16px;
+    padding: 10px;
+  }
+  &__textarea {
+    width: 500px;
+    height: 120px;
+    font: {
+      family: $font;
+      size: 16px;
+      weight: 300;
+    }
+    line-height: 2;
+    padding: 10px;
+  }
+}
+.form__input:placeholder-shown + .form__label--shown {
+  display: none;
+}
+
+@include adaptive(mobile) {
+  .form {
+    &__container {
+      width: 90%;
+    }
+    &__input {
+      width: 280px;
+    }
+    &__select {
+      width: 280px;
+    }
+    &__textarea {
+      width: 280px;
+    }
+  }
+}
