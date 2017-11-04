@@ -22,3 +22,4 @@
 <link rel="stylesheet" href="build/autobagaz.css">
 
 <script src="build/autobagaz.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>

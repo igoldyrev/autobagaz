@@ -62,6 +62,9 @@
 .form__input:placeholder-shown + .form__label--shown {
   display: none;
 }
+.g-recaptcha {
+  margin-top: 15px;
+}
 
 @include adaptive(mobile) {
   .form {
