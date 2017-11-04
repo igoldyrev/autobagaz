@@ -1,0 +1,28 @@
+.button {
+  &__zakaz {
+    width: 500px;
+    height: 50px;
+    margin-top: 15px;
+    background-color: $subcolor;
+    border: none;
+    font: {
+      family: $font;
+      size: 18px;
+      weight: 500;
+    }
+    color: #ffffff;
+    border-radius: 7px;
+  }
+  &__prokat {
+
+  }
+  &__help {
+
+  }
+  &__call {
+
+  }
+  &__rewiew {
+
+  }
+}
