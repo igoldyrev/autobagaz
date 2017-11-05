@@ -12,9 +12,9 @@
     }
     color: #ffffff;
     border-radius: 7px;
-  }
-  &__prokat {
+    &--prokat {
 
+    }
   }
   &__help {
 
@@ -25,4 +25,23 @@
   &__rewiew {
 
   }
+  &__buy {
+    background-color: $subcolor;
+    width: 120px;
+    height: 40px;
+    margin: 3px;
+    padding: 3px 7px;
+    border-radius: 5px;
+    border: 1px solid $subcolor;
+    &--prokat {
+      background-color: #A4A4A4;
+      border: 1px solid #A4A4A4;
+    }
+    &-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+  }
 }
+
