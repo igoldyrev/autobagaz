@@ -1,0 +1,80 @@
+/* Текстовые блоки */
+.page {
+  &__title-h1 {
+    font: {
+      family: $font;
+      size: 24px;
+      weight: 700;
+    }
+    text-align: center;
+    line-height: 26px;
+  }
+  &__title-h2 {
+    font: {
+      family: $font;
+      size: 21px;
+      weight: 700;
+    }
+    text-align: center;
+    line-height: 22px;
+  }
+  &__title-h3 {
+    font: {
+      family: $font;
+      size: 18px;
+      weight: 700;
+    }
+    text-align: center;
+    line-height: 20px;
+  }
+  &__title-h4 {
+    font: {
+      family: $font;
+      size: 16px;
+      weight: 700;
+    }
+    text-align: center;
+    line-height: 18px;
+  }
+  &__text {
+    font: {
+      family: $font;
+      size: 1em;
+      weight: 300;
+    }
+    line-height: 20px;
+  }
+  &__list {
+    font: {
+      family: $font;
+      size: 14px;
+      weight: 300;
+    }
+    line-height: 15px;
+  }
+  &__link {
+    font: {
+      family: $font;
+      size: 16px;
+      weight: 400;
+    }
+    color: #000000;
+  }
+  /* Зачеркнутый текст */ //todo сделать псевдоэлементом
+}
+
+/* Блок изображений */
+img {
+  max-width: 100%;
+  height: auto;
+}
+.img_div {
+  text-align: center;
+  width: 98%;
+}
+.img_main {
+  max-width: 100%;
+  height: auto;
+  cursor:pointer;
+  padding: 10px;
+}
