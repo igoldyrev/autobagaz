@@ -9,6 +9,8 @@
   }
   &__logo {
     position: relative;
+    height: auto;
+    width: 400px;
   }
   &__info {
     text-align: right;
@@ -72,10 +74,8 @@
 img.logo__img {
   position: absolute;
   width: 400px;
-  margin: auto;
-  left:0;
+  margin: auto 0;
   top:0;
-  right:0;
   bottom:0;
 }
 @include adaptive(mobile) {
