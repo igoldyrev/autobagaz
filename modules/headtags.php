@@ -19,7 +19,12 @@
 <!-- Иконка -->
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-<link rel="stylesheet" href="build/autobagaz.css">
+<link rel="stylesheet" href="../build/autobagaz.css">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
 
-<script src="build/autobagaz.js"></script>
+<script src="../build/autobagaz.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?139"></script>
+<script type="text/javascript">
+    VK.init({apiId: 5866168, onlyWidgets: true});
+</script>
