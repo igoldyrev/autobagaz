@@ -40,17 +40,18 @@
     font: {
       family: $font;
       size: 1em;
-      weight: 300;
+      weight: 400;
     }
     line-height: 20px;
   }
   &__list {
     font: {
       family: $font;
-      size: 14px;
-      weight: 300;
+      size: 1em;
+      weight: 400;
     }
-    line-height: 15px;
+    line-height: 20px;
+    margin-left: 30px;
   }
   &__link {
     font: {
@@ -80,4 +81,18 @@ img {
 }
 .help-block {
   margin-top: 15px;
+}
+/* Оформление таблиц */
+.producttable {
+  font-family: $font;
+  padding: 10px;
+}
+td.producttable {
+  border-bottom: 1px solid #013ADF;
+}
+td.producttablecaption {
+  font-family: $font-title;
+  border-bottom: 1px solid #013ADF;
+  border-top: 1px solid #E6E6E6;
+  padding: 10px;
 }
