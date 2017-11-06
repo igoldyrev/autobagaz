@@ -1,5 +1,5 @@
 <?php
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/keywords.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/frames/keywords.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
 
 include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); 
