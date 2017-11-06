@@ -34,6 +34,7 @@
             <textarea name="text" class="form__input form__textarea" placeholder="Введите какую-либо дополнительную информацию"></textarea>
             <label for="text" class="form__label--shown">Введите какую-либо дополнительную информацию</label>
         </div>
-        <button class="button__zakaz">Отправить заказ</button>
+        <div class="g-recaptcha" data-sitekey="6LenJjcUAAAAALv0jIybM3O45CnsEYa4X58EZ1uH"></div>
+        <button class="button button__zakaz">Отправить заказ</button>
     </form>
 </div>
