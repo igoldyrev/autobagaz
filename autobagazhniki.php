@@ -43,6 +43,6 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php"); ?>
             </div>
     </div>
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");?>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
+    include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html"); ?>
 </div>
-//todo counters!!!
