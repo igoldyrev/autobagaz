@@ -1,5 +1,12 @@
 @mixin adaptive($media)
 {
+  @if $media == mobileL
+  {
+    @media only screen and (max-width: $mobileL)
+    {
+      @content
+    }
+  }
   @if $media == mobile
   {
     @media only screen and (max-width: $pad - 1)
