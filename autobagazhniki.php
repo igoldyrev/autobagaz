@@ -45,3 +45,4 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
     </div>
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");?>
 </div>
+//todo counters!!!
