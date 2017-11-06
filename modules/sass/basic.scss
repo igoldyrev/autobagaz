@@ -56,8 +56,8 @@
   &__link {
     font: {
       family: $font;
-      size: 16px;
-      weight: 400;
+      size: 1.1em;
+      weight: 500;
     }
     color: #000000;
   }
@@ -85,7 +85,7 @@ img {
 /* Оформление таблиц */
 .producttable {
   font-family: $font;
-  padding: 10px;
+  padding: 15px 0;
 }
 td.producttable {
   border-bottom: 1px solid #013ADF;
@@ -95,4 +95,14 @@ td.producttablecaption {
   border-bottom: 1px solid #013ADF;
   border-top: 1px solid #E6E6E6;
   padding: 10px;
+}
+/* Документы в разделе проката */
+.prokat-docs {
+  border: 1px solid black;
+  & a {
+    margin: 7px;
+  }
+  & i {
+    margin: 7px;
+  }
 }
