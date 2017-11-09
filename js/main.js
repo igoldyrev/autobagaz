@@ -4,4 +4,4 @@ import {log} from './notification';
 log('Это сайт компании Автобагаж');
 log('Сейчас сайт работает нормально');
 
-import {navmenu} from './nav-menu.js';
+//import {topmenu} from './js/nav-menu.js';
