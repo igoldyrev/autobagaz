@@ -1,96 +1,102 @@
 <?php
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/keywords.php");
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/headtags.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/modules/keywords.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php");
 	echo "<title> $titleconst"; echo $keywords[24][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[24][description]; echo "'/>";
-	echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>";
+	echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"; ?>
 
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/header.html"); ?>
-<div id="leftmenu">
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/leftmenu.html"); ?>
-</div>
-<div id="content">
-<?php
-echo "<h1>Нам важно Ваше мнение!</h1>";
-echo "<p>На данной странице Вы можете оставить отзыв о нашей проделанной работе, либо написать нам какие-либо пожелания. А также посмотреть другие отзывы о нас.</p>";
 
-// Соединение с БД MySQL
-$sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
-mysql_select_db('9082410193_zakaz', $sql);
+<div class="wrapper">
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/header/header.php"); ?>
+    <div class="wrapper-content">
+        <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/left-nav/left-nav.html"); ?>
+        <div class="content">
 
-mysql_query ("set_client='utf8'");//Следующие 2 строки решают проблему с кодировкой.
-mysql_query ("SET NAMES utf8");
+            <?php $guestbook = $_GET['guestbook']; ?>
 
-// Количество новостей на странице
-$on_page = 10;
+            <h1 class="page__title-h1">Нам важно Ваше мнение!</h1>
+            <p class="page__text">На данной странице Вы можете оставить отзыв о нашей проделанной работе, либо написать нам какие-либо пожелания. А также посмотреть другие отзывы о нас.</p>
 
-// Получаем количество записей таблицы
-$query = "SELECT COUNT(*) FROM `guestbook`";
-$res = mysql_query($query);
-$count_records = mysql_fetch_row($res);
-$count_records = $count_records[0];
+           <?php if (!isset($guestbook)) {
+            // Соединение с БД MySQL
+            $sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
+            mysql_select_db('9082410193_zakaz', $sql);
 
-// Получаем количество страниц
-// Делим количество всех записей на количество записей на странице
-// и округляем в большую сторону
-$num_pages = ceil($count_records / $on_page);
+            mysql_query ("set_client='utf8'");//Следующие 2 строки решают проблему с кодировкой.
+            mysql_query ("SET NAMES utf8");
 
-// Текущая страница из GET-параметра page
-// Если параметр не определен, то текущая страница равна 1
-$current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+           // Количество новостей на странице
+           $on_page = 10;
 
-// Если текущая страница меньше единицы, то страница равна 1
-if ($current_page < 1)
-{
-    $current_page = 1;
-}
+           // Получаем количество записей таблицы
+           $query = "SELECT COUNT(*) FROM `guestbook`";
+           $res = mysql_query($query);
+           $count_records = mysql_fetch_row($res);
+           $count_records = $count_records[0];
+
+           // Получаем количество страниц
+           // Делим количество всех записей на количество записей на странице
+           // и округляем в большую сторону
+           $num_pages = ceil($count_records / $on_page);
+
+           // Текущая страница из GET-параметра page
+           // Если параметр не определен, то текущая страница равна 1
+           $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+           // Если текущая страница меньше единицы, то страница равна 1
+           if ($current_page < 1)
+           {
+               $current_page = 1;
+           }
 // Если текущая страница больше общего количества страница, то
 // текущая страница равна количеству страниц
-elseif ($current_page > $num_pages)
-{
-    $current_page = $num_pages;
-}
+           elseif ($current_page > $num_pages)
+           {
+               $current_page = $num_pages;
+           }
 
-// Начать получение данных от числа (текущая страница - 1) * количество записей на странице
-$start_from = ($current_page - 1) * $on_page;
+           // Начать получение данных от числа (текущая страница - 1) * количество записей на странице
+           $start_from = ($current_page - 1) * $on_page;
 
-// Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
-$query = "SELECT `name`, `phone`, `rewiew` FROM `guestbook` ORDER BY `id` DESC LIMIT $start_from, $on_page";
-$res = mysql_query($query); ?>
+           // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
+           $query = "SELECT `name`, `phone`, `rewiew` FROM `guestbook` ORDER BY `id` DESC LIMIT $start_from, $on_page";
+           $res = mysql_query($query);
 
-<?php 
-if ($count_records == 0) {
-	echo '<div class="good_message">';
-	echo 'На сайте пока не оставлено ни одного отзыва :( Вы можете сделать это первым!';
-	echo '</div>';
-} elseif ($count_records <> 0){
+        if ($count_records == 0) {
+            echo '<div class="good_message">';
+            echo 'На сайте пока не оставлено ни одного отзыва :( Вы можете сделать это первым!';
+            echo '</div>';
+        } elseif ($count_records <> 0){
 
-// Вывод результатов
-while ($row = mysql_fetch_assoc($res))
-{
-	echo '<div class="rewiew">';
-		echo '<div class="name">';
-		echo '<span class="rewiew">'.$row['name'].'</span>';
-		echo '</div>';
-	echo '<p class="rewiew">'.$row['rewiew'].'</p>';	
-	echo "</div>";
-}
+            // Вывод результатов
+            while ($row = mysql_fetch_assoc($res))
+            {
+                echo '<div class="rewiew">';
+                echo '<div class="rewiew__name">';
+                echo '<span>'.$row['name'].'</span>';
+                echo '</div>';
+                echo '<div class="rewiew__text">';
+                echo '<p class="page__text">'.$row['rewiew'].'</p>';
+                echo '</div>';
+                echo '</div>';
+            }
 
-// Вывод списка страниц
-echo '<p>';
-for ($page = 1; $page <= $num_pages; $page++)
-{
-    if ($page == $current_page)
-    {
-        echo '<strong>'.$page.'</strong> &nbsp;';
-    }
-    else
-    {
-        echo '<a href="guestbook.php?page='.$page.'">'.$page.'</a> &nbsp;';
-    }
-} }
-echo '</p>'; ?>
-<h2>Оставить свой отзыв о нас!</h2>
+            // Вывод списка страниц
+            echo '<p class="page__text page__text--guestbook">';
+            for ($page = 1; $page <= $num_pages; $page++)
+            {
+                if ($page == $current_page)
+                {
+                    echo '<strong>'.$page.'</strong> &nbsp;';
+                }
+                else
+                {
+                    echo '<a class="page__link" href="guestbook.php?page='.$page.'">'.$page.'</a> &nbsp;';
+                }
+            } }
+           echo '</p>';
+           } elseif ($guestbook == 'add') { ?>
+           <h2>Оставить свой отзыв о нас!</h2>
 <form action="/rewiew" method="post">
 <span class="label_top">Ваше имя:</span>
 <div class="better-placeholder">
@@ -108,10 +114,16 @@ echo '</p>'; ?>
   <label for="rewiew" class="better-placeholder__label">Введите Ваш отзыв о нас</label>
 </div><br>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/captcha_frame.php"); ?>
-<div align="center">
-<input class="input__button" type="submit" value="Оставить отзыв">
+            <div align="center">
+                <input class="input__button" type="submit" value="Оставить отзыв">
+            </div>
+            </form>
+             <?php
+           }
+
+          ?>
+        </div>
+    </div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
+    include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html"); ?>
 </div>
-</form>
-</div>
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/footer.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html"); ?>
