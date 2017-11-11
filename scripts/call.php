@@ -54,4 +54,4 @@ else {
 	echo "<center>Вы не заполнили одно из обязательных полей формы, вернитесь, пожалуйста, и заполните его<br><a href='"; echo $_SESSION['url']; echo "'>Вернуться назад</a>";
 }
 unset($_SESSION['url']);
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html");?>
+include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html");?>

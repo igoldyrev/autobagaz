@@ -324,5 +324,5 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/buyform.php");
 ?>
 </div></div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html"); ?>
+include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html"); ?>
 </div>
