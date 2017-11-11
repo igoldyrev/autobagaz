@@ -108,4 +108,4 @@ else {
 
 unset($_SESSION['tovar']);
 unset($_SESSION['url']);
-include ($_SERVER["DOCUMENT_ROOT"]."/frames/counters.html");?>
+include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html");?>
