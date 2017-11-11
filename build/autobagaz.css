@@ -428,6 +428,8 @@ td.producttablecaption {
   .button__call {
     background-color: #DF0101;
     width: 450px; }
+  .button__rewiew {
+    background-color: #367347; }
   .button__buy {
     background-color: #367347;
     width: 130px;
@@ -752,6 +754,10 @@ img.logo__img {
     margin: 3px 3px;
     border: 1px solid #367347;
     border-radius: 5px; }
+    .left-nav__link--rewiew {
+      display: block;
+      padding: 15px 35px;
+      margin: 15px auto; }
     .left-nav__link:hover {
       border: 1px solid #367347;
       background: #367347;
@@ -766,6 +772,8 @@ img.logo__img {
       width: auto;
       padding: 0 3px;
       margin: 5px; }
+      .left-nav__link--rewiew {
+        padding: 10px 3px; }
   #vk_groups {
     display: none; } }
 
@@ -780,6 +788,9 @@ img.logo__img {
       padding: 3px;
       margin: 5px;
       width: auto; }
+      .left-nav__link--rewiew {
+        padding: 10px 3px;
+        text-align: center; }
   #vk_groups {
     display: none; } }
 
