@@ -93,35 +93,15 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php");
                 {
                     echo '<a class="page__link" href="guestbook.php?page='.$page.'">'.$page.'</a> &nbsp;';
                 }
-            } }
+            } ?>
+            <a href="/guestbook/add" class="left-nav__link left-nav__link--rewiew">Добавить отзыв на сайт</a>
+        <?php
+        }
            echo '</p>';
            } elseif ($guestbook == 'add') { ?>
-           <h2>Оставить свой отзыв о нас!</h2>
-<form action="/rewiew" method="post">
-<span class="label_top">Ваше имя:</span>
-<div class="better-placeholder">
-  <input type="text" name="name" required="required" pattern="[А-Яа-яЁё]{2,}" class="better-placeholder__input" placeholder="Введите Ваше имя">
-  <label for="name" class="better-placeholder__label">Введите Ваше имя</label>
-</div><br>
-<span class="label_top">Ваш телефон:</span>
-<div class="better-placeholder">
-  <input type="text" name="phone" class="better-placeholder__input" required="required" pattern="[0-9]{10,11}" placeholder="Введите номер телефона. Номер телефона НЕ публикуется">
-  <label for="phone" class="better-placeholder__label">Введите номер телефона. Номер телефона НЕ публикуется</label>
-</div><br>
-<span class="label_top">Ваш отзыв</span>
-<div class="better-placeholder">
-<textarea name="rewiew" class="better-placeholder__input" pattern="^[A-Za-zА-Яа-яЁё0-9\s]+$" placeholder="Введите Ваш отзыв о нас"></textarea>
-  <label for="rewiew" class="better-placeholder__label">Введите Ваш отзыв о нас</label>
-</div><br>
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/captcha_frame.php"); ?>
-            <div align="center">
-                <input class="input__button" type="submit" value="Оставить отзыв">
-            </div>
-            </form>
-             <?php
-           }
-
-          ?>
+           <h2 class="page__title-h2">Оставить свой отзыв о нас!</h2>
+           <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/rewiewform.php");
+           }  ?>
         </div>
     </div>
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
