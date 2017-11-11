@@ -503,6 +503,9 @@ td.producttablecaption {
     font-weight: 400;
     border-radius: 10px;
     margin-top: 60px; }
+  @media only screen and (max-width: 767px) {
+    .rewiew {
+      padding: 0px; } }
 
 .header {
   display: flex;
