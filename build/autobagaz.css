@@ -194,6 +194,20 @@
     .page__text--guestbook {
       margin-top: 20px;
       text-align: center; }
+    .page__text--rewiew {
+      position: relative;
+      background-color: #BDBDBD;
+      border-radius: 15px;
+      padding: 15px; }
+      .page__text--rewiew::before {
+        content: '';
+        position: absolute;
+        top: -49px;
+        left: 50px;
+        width: 0px;
+        height: 0px;
+        border-right: 50px solid transparent;
+        border-bottom: 50px solid #BDBDBD; }
   .page__list {
     font-family: Roboto, sans-serif;
     font-size: 1em;
@@ -488,7 +502,7 @@ td.producttablecaption {
     font-size: 1.2em;
     font-weight: 400;
     border-radius: 10px;
-    margin-top: 30px; }
+    margin-top: 60px; }
 
 .header {
   display: flex;

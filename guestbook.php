@@ -76,7 +76,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php");
                 echo '<span>'.$row['name'].'</span>';
                 echo '</div>';
                 echo '<div class="rewiew__text">';
-                echo '<p class="page__text">'.$row['rewiew'].'</p>';
+                echo '<p class="page__text page__text--rewiew">'.$row['rewiew'].'</p>';
                 echo '</div>';
                 echo '</div>';
             }
