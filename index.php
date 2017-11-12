@@ -14,65 +14,76 @@ if (!isset($page)) {
     echo "<title> $titleconst"; echo $keywords[0][title]; echo "</title>";
     echo "<meta name='description' content='"; echo $keywords[0][description]; echo "'/>";
     echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>";
-    include ($_SERVER["DOCUMENT_ROOT"]."/frames/newslist.php"); ?>
+    //include ($_SERVER["DOCUMENT_ROOT"]."/frames/newslist.php"); ?>
 
     <div class="catalog">
-        <div class="menu_item">
-            <div class="item_image">
-                <a href="/autobagazhniki"><img src="/images/index/1_autobagazniki.jpg" alt="autobagazhniki" width="175px"></a>
+        <div class="catalog__item">
+            <a href="/autobagazhniki" class="catalog__item-link"></a>
+            <div class="item__image">
+                <a href="/autobagazhniki"><img class="item__image-img" src="/images/index/1_autobagazniki.jpg" alt="autobagazhniki"></a>
             </div>
-            <div class="item_link">
+            <div class="item__link">
                 <a href="/autobagazhniki">Автобагажники</a>
             </div>
         </div>
-        <div class="menu_item">
-            <div class="item_image">
-                <a href="/autobox"><img src="/images/index/2_autobox.jpg" alt="autobox" width="175px"></a>
+        <div class="catalog__item">
+            <a href="/autobox" class="catalog__item-link"></a>
+            <div class="item__image">
+                <a href="/autobox"><img class="item__image-img" src="/images/index/2_autobox.jpg" alt="autobox"></a>
             </div>
-            <div class="item_link">
+            <div class="item__link">
                 <a href="/autobox">Автомобильные боксы</a>
             </div>
         </div>
-        <div class="menu_item">
-            <div class="item_image">
-                <a href="/velokreplenya"><img src="/images/index/3_velokreplenya.jpg" alt="velokreplenya" width="175px"></a>
+        <div class="catalog__item">
+            <a href="/velokreplenya" class="catalog__item-link"></a>
+            <div class="item__image">
+                <a href="/velokreplenya"><img class="item__image-img" src="/images/index/3_velokreplenya.jpg" alt="velokreplenya"></a>
             </div>
-            <div class="item_link">
+            <div class="item__link">
                 <a href="/velokreplenya">Велокрепления</a>
             </div>
         </div>
-        <div class="menu_item">
-            <div class="item_image">
-                <a href="/kreplenya-dlya-lyzh-shoubord"><img src="/images/index/4_lyzh_kreplenya.jpg" alt="lyzhnye kreplenya" width="175px"></a>
+        <div class="catalog__item">
+            <a href="/kreplenya-dlya-lyzh-shoubord" class="catalog__item-link"></a>
+            <div class="item__image">
+                <a href="/kreplenya-dlya-lyzh-shoubord"><img class="item__image-img" src="/images/index/4_lyzh_kreplenya.jpg" alt="lyzhnye kreplenya"></a>
             </div>
-            <div class="item_link">
+            <div class="item__link">
                 <a href="/kreplenya-dlya-lyzh-shoubord">Крепления для лыж и сноубордов</a>
             </div>
         </div>
-        <div class="menu_item">
-            <div class="item_image">
-                <a href="/reelings"><img src="/images/index/6_reelings.jpg" alt="reelings" width="175px"></a>
+        <div class="catalog__item">
+            <a href="/reelings" class="catalog__item-link"></a>
+            <div class="item__image">
+                <a href="/reelings"><img class="item__image-img" src="/images/index/6_reelings.jpg" alt="reelings"></a>
             </div>
-            <div class="item_link">
+            <div class="item__link">
                 <a href="/reelings">Рейлинги</a>
             </div>
         </div>
-        <div class="menu_item">
-            <div class="item_image">
-                <a href="/braslets"><img src="/images/index/7_braslet.jpg" alt="braslet" width="175px"></a>
+        <div class="catalog__item">
+            <a href="/braslets" class="catalog__item-link"></a>
+            <div class="item__image">
+                <a href="/braslets"><img class="item__image-img" src="/images/index/7_braslet.jpg" alt="braslet"></a>
             </div>
-            <div class="item_link">
+            <div class="item__link">
                 <a href="/braslets">Браслеты противоскольжения</a>
             </div>
         </div>
-        <div class="menu_item">
-            <div class="item_image">
-                <a href="/farkops"><img src="/images/index/8_farkops.jpg" alt="farkops" width="125px"></a>
+        <div class="catalog__item">
+            <a href="/farkops" class="catalog__item-link"></a>
+            <div class="item__image">
+                <a href="/farkops"><img class="item__image-img" src="/images/index/8_farkops.jpg" alt="farkops"></a>
             </div>
-            <div class="item_link">
+            <div class="item__link">
                 <a href="/farkops">Фаркопы</a>
             </div>
-        </div></div>
+        </div>
+    </div>
+
+
+
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/frames/sales.php"); ?>
 
     <h2>Наши бренды:</h2>
