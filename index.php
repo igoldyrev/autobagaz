@@ -147,11 +147,11 @@ if (!isset($page)) {
 
     include ($_SERVER["DOCUMENT_ROOT"]."/arrays/komissionka.php");
 
-    echo "<h1>Комиссионка</h1>";
-    echo "<p>В этом разделе мы продаем б/у багажники, автобоксы и аксессуары в рабочем состоянии. Часть багажников - использовались в прокате, часть - были оставлены на реализацию нашими клиентами. В течении 2-х недель вы можете вернуть багажник, если он вам не подойдет или окажется неисправен.</p>";
-    echo "<p>Если у вас есть ненужный багажник - мы его купим.</p>";
-    echo "<h2>Автомобильные багажники</h2>"; ?>
-    <p><?php echo $bagazhniki[0][name]; ?> </p>
+    echo "<h1 class='page__title-h1'>Комиссионка</h1>";
+    echo "<p class='page__text'>В этом разделе мы продаем б/у багажники, автобоксы и аксессуары в рабочем состоянии. Часть багажников - использовались в прокате, часть - были оставлены на реализацию нашими клиентами. В течении 2-х недель вы можете вернуть багажник, если он вам не подойдет или окажется неисправен.</p>";
+    echo "<p class='page__text'>Если у вас есть ненужный багажник - мы его купим.</p>";
+    echo "<h2 class='page__title-h2'>Автомобильные багажники</h2>"; ?>
+    <p class="page__text"><?php echo $bagazhniki[0][name]; ?> </p>
     <div class="img_div"> <?php
     echo $bagazhniki[0][img1];
     echo $bagazhniki[0][img2];
@@ -159,8 +159,8 @@ if (!isset($page)) {
     echo $bagazhniki[0][img4];
     echo $bagazhniki[0][img5];
     echo '</div>'; ?>
-    <p><b><?php echo $bagazhniki[0][price]; ?></b></p>
-    <p><?php echo $bagazhniki[1][name]; ?> </p>
+    <p class="page__text"><b><?php echo $bagazhniki[0][price]; ?></b></p>
+    <p class="page__text"><?php echo $bagazhniki[1][name]; ?> </p>
     <div class="img_div"> <?php
     echo $bagazhniki[1][img1];
     echo $bagazhniki[1][img2];
@@ -168,8 +168,8 @@ if (!isset($page)) {
     echo $bagazhniki[1][img4];
     echo $bagazhniki[1][img5];
     echo '</div>'; ?>
-    <p><b><?php echo $bagazhniki[1][price]; ?></b></p>
-    <p><?php echo $bagazhniki[2][name]; ?> </p>
+    <p class="page__text"><b><?php echo $bagazhniki[1][price]; ?></b></p>
+    <p class="page__text"><?php echo $bagazhniki[2][name]; ?> </p>
     <div class="img_div"> <?php
     echo $bagazhniki[2][img1];
     echo $bagazhniki[2][img2];
@@ -177,8 +177,8 @@ if (!isset($page)) {
     echo $bagazhniki[2][img4];
     echo $bagazhniki[2][img5];
     echo '</div>'; ?>
-    <p><b><?php echo $bagazhniki[2][price]; ?></b></p>
-    <p><?php echo $bagazhniki[3][name]; ?> </p>
+    <p class="page__text"><b><?php echo $bagazhniki[2][price]; ?></b></p>
+    <p class="page__text"><?php echo $bagazhniki[3][name]; ?> </p>
     <div class="img_div"> <?php
     echo $bagazhniki[3][img1];
     echo $bagazhniki[3][img2];
@@ -186,8 +186,8 @@ if (!isset($page)) {
     echo $bagazhniki[3][img4];
     echo $bagazhniki[3][img5];
     echo '</div>'; ?>
-    <p><b><?php echo $bagazhniki[3][price]; ?></b></p>
-    <p><?php echo $bagazhniki[4][name]; ?> </p>
+    <p class="page__text"><b><?php echo $bagazhniki[3][price]; ?></b></p>
+    <p class="page__text"><?php echo $bagazhniki[4][name]; ?> </p>
     <div class="img_div"> <?php
     echo $bagazhniki[4][img1];
     echo $bagazhniki[4][img2];
@@ -195,24 +195,24 @@ if (!isset($page)) {
     echo $bagazhniki[4][img4];
     echo $bagazhniki[4][img5];
     echo '</div>'; ?>
-    <p><b><?php echo $bagazhniki[4][price]; ?></b></p>
-    <?php echo "<h2>Фаркопы</h2>"; ?>
-    <p><?php echo $farkops[0][name];?> </p>
+    <p class="page__text"><b><?php echo $bagazhniki[4][price]; ?></b></p>
+    <?php echo "<h2 class='page__title-h2'>Фаркопы</h2>"; ?>
+    <p class="page__text"><?php echo $farkops[0][name];?> </p>
     <div class="img_div"> <?php
     echo $farkops[0][img1];
     echo $farkops[0][img2];
     echo $farkops[0][img3];
     echo $farkops[0][img4];
     echo '</div>'; ?>
-    <p><b><?php echo $farkops[0][price];?> </b></p>
-    <?php echo "<h2>Корзины</h2>"; ?>
-    <p><?php echo $korzins[0][name];?> </p>
+    <p class="page__text"><b><?php echo $farkops[0][price];?> </b></p>
+    <?php echo "<h2 class='page__title-h2'>Корзины</h2>"; ?>
+    <p class="page__text"><?php echo $korzins[0][name];?> </p>
     <div class="img_div"> <?php
     echo $korzins[0][img1];
     echo $korzins[0][img2];
     echo $korzins[0][img3];
     echo '</div>'; ?>
-    <p><b><?php echo $korzins[0][price];?> </b></p> <?php
+    <p class="page__text"><b><?php echo $korzins[0][price];?> </b></p> <?php
 } elseif ($page == 'podbor') {
     echo "<title> $titleconst"; echo $keywords[1][title]; echo "</title>";
     echo "<meta name='description' content='"; echo $keywords[1][description]; echo "'/>";
