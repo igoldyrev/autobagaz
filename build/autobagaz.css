@@ -262,6 +262,47 @@ td.producttablecaption {
   .prokat-docs i {
     margin: 7px; }
 
+/* Диалоги на странице Вопрос-ответ */
+.speech {
+  position: relative;
+  width: 97%;
+  font-family: Roboto, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  text-align: left;
+  line-height: 1.4;
+  border-radius: 30px;
+  box-shadow: 2px 2px 4px #888;
+  padding: 10px; }
+  .speech__left {
+    color: #fff;
+    background-color: #0a2a0a;
+    border: 1px solid #0a2a0a;
+    margin-bottom: 55px; }
+    .speech__left::before {
+      content: '';
+      position: absolute;
+      bottom: -49px;
+      left: 50px;
+      width: 0px;
+      height: 0px;
+      border-right: 50px solid transparent;
+      border-top: 50px solid #0a2a0a; }
+  .speech__right {
+    color: #000;
+    background-color: #82fa58;
+    border: 1px solid #82fa58;
+    margin-bottom: 60px; }
+    .speech__right::before {
+      content: '';
+      position: absolute;
+      bottom: -49px;
+      right: 50px;
+      width: 0px;
+      height: 0px;
+      border-left: 50px solid transparent;
+      border-top: 50px solid #82fa58; }
+
 * {
   margin: 0;
   padding: 0; }
