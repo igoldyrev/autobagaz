@@ -185,7 +185,8 @@
     font-size: 16px;
     font-weight: 700;
     text-align: center;
-    line-height: 18px; }
+    line-height: 18px;
+    clear: both; }
   .page__text {
     font-family: Roboto, sans-serif;
     font-size: 1em;
@@ -508,6 +509,34 @@ td.producttablecaption {
   @media only screen and (max-width: 767px) {
     .rewiew {
       padding: 0px; } }
+
+.contacts__link {
+  font-family: Roboto, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #000000;
+  text-decoration: none;
+  line-height: 2;
+  display: block;
+  cursor: pointer;
+  float: left;
+  clear: both; }
+
+.contacts__text {
+  font-family: Roboto, sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  display: block; }
+
+.contacts__address {
+  font-family: Roboto, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  display: block;
+  margin-top: 30px; }
+
+.contacts__inn {
+  margin-top: 30px; }
 
 .header {
   display: flex;
