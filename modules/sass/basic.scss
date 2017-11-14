@@ -99,6 +99,9 @@ img {
   height: auto;
   cursor:pointer;
   padding: 10px;
+  &--gallery {
+    padding: 0px;
+  }
 }
 .help-block {
   margin-top: 15px;
