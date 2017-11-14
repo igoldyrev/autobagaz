@@ -17,6 +17,9 @@
     }
     text-align: center;
     line-height: 22px;
+    &--sales {
+      margin: 30px 0;
+    }
   }
   &__title-h3 {
     font: {
@@ -82,7 +85,19 @@
     }
     color: #000000;
   }
-  /* Зачеркнутый текст */ //todo сделать псевдоэлементом
+  /* Зачеркнутый текст */ //
+  &__strike {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: '';
+      top: 10px;
+      width: 100%;
+      background-color: red;
+      height: 3px;
+      transform: rotate(-10deg);
+    }
+  }
 }
 
 /* Блок изображений */
