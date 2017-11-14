@@ -222,6 +222,16 @@
     font-size: 1.1em;
     font-weight: 500;
     color: #000000; }
+  .page__strike {
+    position: relative; }
+    .page__strike::before {
+      position: absolute;
+      content: '';
+      top: 10px;
+      width: 100%;
+      background-color: red;
+      height: 3px;
+      transform: rotate(-10deg); }
 
 /* Блок изображений */
 img {
