@@ -1,0 +1,50 @@
+.sales {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 220px;
+    margin: 0 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    &-price {
+      margin: 10px 0;
+    }
+    &-button {
+      width: 130px;
+      margin: 0 auto;
+    }
+  }
+  &__description {
+    margin-top: 10px;
+  }
+
+}
+.price {
+  font: {
+    family: $font;
+    size: 1em;
+    weight: 300;
+  }
+  color: #000000;
+  &__sale {
+    font-weight: 500;
+  }
+  &__strike {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: '';
+      top: 10px;
+      width: 100%;
+      background-color: red;
+      height: 3px;
+      transform: rotate(-10deg);
+    }
+  }
+}

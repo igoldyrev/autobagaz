@@ -174,6 +174,8 @@
     font-weight: 700;
     text-align: center;
     line-height: 22px; }
+    .page__title-h2--sales {
+      margin: 30px 0; }
   .page__title-h3 {
     font-family: Roboto, sans-serif;
     font-size: 18px;
@@ -481,10 +483,16 @@ td.producttablecaption {
     margin: 3px;
     padding: 3px 7px;
     border-radius: 5px;
-    border: 1px solid #367347; }
+    border: 1px solid #367347;
+    cursor: pointer; }
+    .button__buy:hover {
+      background-color: #0B610B; }
     .button__buy--prokat {
       background-color: #848484;
       border: 1px solid #848484; }
+      .button__buy--prokat:hover {
+        background-color: #A4A4A4;
+        border: 1px solid #A4A4A4; }
     .button__buy-link {
       color: #ffffff;
       text-decoration: none;
@@ -972,3 +980,43 @@ img.logo__img {
     margin-left: 0px; }
     .modal-call__header {
       height: 70px; } }
+
+.sales {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap; }
+  .sales__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 220px;
+    margin: 0 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #000000; }
+    .sales__item-price {
+      margin: 10px 0; }
+    .sales__item-button {
+      width: 130px;
+      margin: 0 auto; }
+  .sales__description {
+    margin-top: 10px; }
+
+.price {
+  font-family: Roboto, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  color: #000000; }
+  .price__sale {
+    font-weight: 500; }
+  .price__strike {
+    position: relative; }
+    .price__strike::before {
+      position: absolute;
+      content: '';
+      top: 10px;
+      width: 100%;
+      background-color: red;
+      height: 3px;
+      transform: rotate(-10deg); }
