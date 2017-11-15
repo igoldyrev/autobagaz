@@ -3,7 +3,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/modal-calls/modal-calls.html"); ?>
 <div class="header-container">
     <header class="header">
         <div class="header__logo">
-            <img src="../modules/header/img/logo.jpg" alt="logo" class="logo__img">
+            <a href="/"><img src="../modules/header/img/logo.jpg" alt="logo" class="logo__img"></a>
         </div>
         <div class="header__info">
             <ul class="header__list">
