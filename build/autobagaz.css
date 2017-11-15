@@ -174,8 +174,6 @@
     font-weight: 700;
     text-align: center;
     line-height: 22px; }
-    .page__title-h2--sales {
-      margin: 30px 0; }
   .page__title-h3 {
     font-family: Roboto, sans-serif;
     font-size: 18px;
@@ -187,30 +185,12 @@
     font-size: 16px;
     font-weight: 700;
     text-align: center;
-    line-height: 18px;
-    clear: both; }
+    line-height: 18px; }
   .page__text {
     font-family: Roboto, sans-serif;
     font-size: 1em;
     font-weight: 400;
     line-height: 20px; }
-    .page__text--guestbook {
-      margin-top: 20px;
-      text-align: center; }
-    .page__text--rewiew {
-      position: relative;
-      background-color: #BDBDBD;
-      border-radius: 15px;
-      padding: 15px; }
-      .page__text--rewiew::before {
-        content: '';
-        position: absolute;
-        top: -49px;
-        left: 50px;
-        width: 0px;
-        height: 0px;
-        border-right: 50px solid transparent;
-        border-bottom: 50px solid #BDBDBD; }
   .page__list {
     font-family: Roboto, sans-serif;
     font-size: 1em;
@@ -222,16 +202,6 @@
     font-size: 1.1em;
     font-weight: 500;
     color: #000000; }
-  .page__strike {
-    position: relative; }
-    .page__strike::before {
-      position: absolute;
-      content: '';
-      top: 10px;
-      width: 100%;
-      background-color: red;
-      height: 3px;
-      transform: rotate(-10deg); }
 
 /* Блок изображений */
 img {
@@ -247,8 +217,6 @@ img {
   height: auto;
   cursor: pointer;
   padding: 10px; }
-  .img_main--gallery {
-    padding: 0px; }
 
 .help-block {
   margin-top: 15px; }
@@ -275,47 +243,6 @@ td.producttablecaption {
     margin: 7px; }
   .prokat-docs i {
     margin: 7px; }
-
-/* Диалоги на странице Вопрос-ответ */
-.speech {
-  position: relative;
-  width: 97%;
-  font-family: Roboto, sans-serif;
-  font-size: 1em;
-  font-weight: 300;
-  text-align: left;
-  line-height: 1.4;
-  border-radius: 30px;
-  box-shadow: 2px 2px 4px #888;
-  padding: 10px; }
-  .speech__left {
-    color: #fff;
-    background-color: #0a2a0a;
-    border: 1px solid #0a2a0a;
-    margin-bottom: 55px; }
-    .speech__left::before {
-      content: '';
-      position: absolute;
-      bottom: -49px;
-      left: 50px;
-      width: 0px;
-      height: 0px;
-      border-right: 50px solid transparent;
-      border-top: 50px solid #0a2a0a; }
-  .speech__right {
-    color: #000;
-    background-color: #82fa58;
-    border: 1px solid #82fa58;
-    margin-bottom: 60px; }
-    .speech__right::before {
-      content: '';
-      position: absolute;
-      bottom: -49px;
-      right: 50px;
-      width: 0px;
-      height: 0px;
-      border-left: 50px solid transparent;
-      border-top: 50px solid #82fa58; }
 
 * {
   margin: 0;
@@ -484,8 +411,6 @@ td.producttablecaption {
   .button__call {
     background-color: #DF0101;
     width: 450px; }
-  .button__rewiew {
-    background-color: #367347; }
   .button__buy {
     background-color: #367347;
     width: 130px;
@@ -493,16 +418,10 @@ td.producttablecaption {
     margin: 3px;
     padding: 3px 7px;
     border-radius: 5px;
-    border: 1px solid #367347;
-    cursor: pointer; }
-    .button__buy:hover {
-      background-color: #0B610B; }
+    border: 1px solid #367347; }
     .button__buy--prokat {
       background-color: #848484;
       border: 1px solid #848484; }
-      .button__buy--prokat:hover {
-        background-color: #A4A4A4;
-        border: 1px solid #A4A4A4; }
     .button__buy-link {
       color: #ffffff;
       text-decoration: none;
@@ -543,135 +462,6 @@ td.producttablecaption {
     .popup_img {
       max-height: 80%;
       max-width: 80%; } }
-
-.rewiew {
-  position: relative;
-  display: block;
-  width: 98%;
-  margin: 20px auto 0px;
-  padding: 10px;
-  background-color: #F2F2F2;
-  border-radius: 10px; }
-  .rewiew__name {
-    font-family: Roboto, sans-serif;
-    font-size: 1.3em;
-    font-weight: 500;
-    color: #ffffff;
-    margin-bottom: 10px;
-    padding: 20px 30px 10px;
-    background-color: #367347;
-    border-radius: 10px; }
-  .rewiew__text {
-    font-family: Roboto, sans-serif;
-    font-size: 1.2em;
-    font-weight: 400;
-    border-radius: 10px;
-    margin-top: 60px; }
-  @media only screen and (max-width: 767px) {
-    .rewiew {
-      padding: 0px; } }
-
-.contacts__link {
-  font-family: Roboto, sans-serif;
-  font-size: 1em;
-  font-weight: 400;
-  color: #000000;
-  text-decoration: none;
-  line-height: 2;
-  display: block;
-  cursor: pointer;
-  float: left;
-  clear: both; }
-
-.contacts__text {
-  font-family: Roboto, sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  display: block; }
-
-.contacts__address {
-  font-family: Roboto, sans-serif;
-  font-size: 1em;
-  font-weight: 400;
-  display: block;
-  margin-top: 30px; }
-
-.contacts__inn {
-  margin-top: 30px; }
-
-.catalog {
-  position: relative;
-  display: flex;
-  align-content: stretch;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #F2F2F2; }
-  .catalog__item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 190px;
-    height: 250px;
-    background-color: #ffffff;
-    border: 2px solid #D8D8D8;
-    margin: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-    z-index: 1; }
-    .catalog__item-link {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2; }
-      .catalog__item-link:hover {
-        box-shadow: 0 0  10px 5px #A4A4A4; }
-    .catalog__item--velo {
-      height: 285px;
-      justify-content: space-between; }
-
-.item__image {
-  margin: 0 auto; }
-  .item__image-img {
-    text-align: center;
-    width: 175px; }
-
-.item__link {
-  text-align: center; }
-  .item__link a {
-    font-family: Roboto, sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    text-decoration: none;
-    color: #000000;
-    line-height: 16px; }
-
-@media only screen and (max-width: 767px) {
-  .catalog__item {
-    width: 180px;
-    padding: 0px; } }
-
-.partner {
-  position: relative;
-  display: block;
-  width: 98%;
-  padding: 10px;
-  background-color: #F2F2F2;
-  border-radius: 10px; }
-  .partner__text {
-    font-family: Roboto, sans-serif;
-    font-size: 1em;
-    font-weight: 400;
-    line-height: 30px; }
-  .partner__link {
-    color: #000000;
-    text-decoration: none;
-    font-weight: 500; }
-    .partner__link:hover {
-      color: #367347;
-      transition: 0.3s ease-in-out; }
 
 .header {
   display: flex;
@@ -918,10 +708,6 @@ img.logo__img {
     margin: 3px 3px;
     border: 1px solid #367347;
     border-radius: 5px; }
-    .left-nav__link--rewiew {
-      display: block;
-      padding: 15px 35px;
-      margin: 15px auto; }
     .left-nav__link:hover {
       border: 1px solid #367347;
       background: #367347;
@@ -936,8 +722,6 @@ img.logo__img {
       width: auto;
       padding: 0 3px;
       margin: 5px; }
-      .left-nav__link--rewiew {
-        padding: 10px 3px; }
   #vk_groups {
     display: none; } }
 
@@ -952,9 +736,6 @@ img.logo__img {
       padding: 3px;
       margin: 5px;
       width: auto; }
-      .left-nav__link--rewiew {
-        padding: 10px 3px;
-        text-align: center; }
   #vk_groups {
     display: none; } }
 
@@ -1013,43 +794,3 @@ img.logo__img {
     margin-left: 0px; }
     .modal-call__header {
       height: 70px; } }
-
-.sales {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap; }
-  .sales__item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 220px;
-    margin: 0 10px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #000000; }
-    .sales__item-price {
-      margin: 10px 0; }
-    .sales__item-button {
-      width: 130px;
-      margin: 0 auto; }
-  .sales__description {
-    margin-top: 10px; }
-
-.price {
-  font-family: Roboto, sans-serif;
-  font-size: 1em;
-  font-weight: 300;
-  color: #000000; }
-  .price__sale {
-    font-weight: 500; }
-  .price__strike {
-    position: relative; }
-    .price__strike::before {
-      position: absolute;
-      content: '';
-      top: 10px;
-      width: 100%;
-      background-color: red;
-      height: 3px;
-      transform: rotate(-10deg); }
