@@ -1,0 +1,26 @@
+.admin {
+  position: relative;
+  display: block;
+  width: 70%;
+  margin: 15px auto;
+  padding: 10px;
+  border: 1px solid #D8D8D8;
+  &__link {
+    display: block;
+    font: {
+      family: $font;
+      size: 1em;
+      weight: 500;
+    }
+    color: #000000;
+    line-height: 25px;
+    text-decoration: none;
+    &--back {
+      text-align: center;
+    }
+    &:hover {
+      color: $subcolor;
+      transition: 0.3s ease-in-out;
+    }
+  }
+}

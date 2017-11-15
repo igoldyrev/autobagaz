@@ -691,6 +691,27 @@ td.producttablecaption {
   .error {
     width: 320px; } }
 
+.admin {
+  position: relative;
+  display: block;
+  width: 70%;
+  margin: 15px auto;
+  padding: 10px;
+  border: 1px solid #D8D8D8; }
+  .admin__link {
+    display: block;
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    color: #000000;
+    line-height: 25px;
+    text-decoration: none; }
+    .admin__link--back {
+      text-align: center; }
+    .admin__link:hover {
+      color: #367347;
+      transition: 0.3s ease-in-out; }
+
 .header {
   display: flex;
   flex-direction: row;
