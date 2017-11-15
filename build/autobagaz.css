@@ -211,6 +211,8 @@
         height: 0px;
         border-right: 50px solid transparent;
         border-bottom: 50px solid #BDBDBD; }
+    .page__text--error {
+      line-height: 30px; }
   .page__list {
     font-family: Roboto, sans-serif;
     font-size: 1em;
@@ -672,6 +674,22 @@ td.producttablecaption {
     .partner__link:hover {
       color: #367347;
       transition: 0.3s ease-in-out; }
+
+.error {
+  width: 700px;
+  max-height: 100%;
+  margin: 50px auto; }
+  .error__img {
+    width: 400px; }
+  .error__text {
+    text-align: center;
+    margin-top: 50px; }
+  .error__link {
+    text-align: center; }
+
+@media only screen and (max-width: 767px) {
+  .error {
+    width: 320px; } }
 
 .header {
   display: flex;

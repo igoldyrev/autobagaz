@@ -67,6 +67,9 @@
           border-bottom: 50px solid #BDBDBD;
         }
     }
+    &--error {
+      line-height: 30px;
+    }
   }
   &__list {
     font: {
