@@ -1,0 +1,49 @@
+/* Подвал сайта */
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 0;
+  width: 100%;
+  background: $primarycolor;
+  z-index: 1;
+  margin-top: 30px;
+  padding-bottom: 5px;
+    &__link {
+      font: {
+        family: $font;
+        style: normal;
+        size: 1em;
+        weight: 100;
+      }
+      color: #ffffff;
+      text-decoration: none;
+    }
+  &__ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__li {
+    padding-top: 5px;
+    text-align: center;
+      &--links {
+        color: #fff;
+        text-decoration: none;
+      }
+  }
+  & i {
+    color: #fff;
+    padding-right: 15px;
+  }
+}
+@include adaptive(mobile) {
+  .footer {
+    grid-template-columns: auto;
+    grid-template-rows: 45px 1fr 55px;
+    height: auto;
+    &__copyright + &__links + &__social {
+      padding-bottom: 10px;
+    }
+
+  }
+}
