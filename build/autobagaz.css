@@ -224,6 +224,9 @@
     font-size: 1.1em;
     font-weight: 500;
     color: #000000; }
+    .page__link--sitemap:hover {
+      color: #367347;
+      transition: 0.5s ease-in-out; }
   .page__strike {
     position: relative; }
     .page__strike::before {
