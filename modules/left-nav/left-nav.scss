@@ -17,6 +17,11 @@
       margin: 3px 3px;
       border: 1px solid $subcolor;
       border-radius: 5px;
+        &--rewiew {
+          display: block;
+          padding: 15px 35px;
+          margin: 15px auto;
+        }
         &:hover {
           //text-decoration: underline;
           border: 1px solid $subcolor;
@@ -36,6 +41,9 @@
       width: auto;
       padding: 0 3px;
       margin: 5px;
+        &--rewiew {
+          padding: 10px 3px;
+        }
     }
   }
   #vk_groups {
@@ -55,6 +63,10 @@
       padding: 3px;
       margin: 5px;
       width: auto;
+        &--rewiew {
+          padding: 10px 3px;
+          text-align: center;
+        }
     }
   }
   #vk_groups {
