@@ -208,7 +208,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                 echo "<p class='page__text'>Автобоксы изготовлены из качественного пластика – АБС (акрилонитрилбутадиенстирол). Материал отличается повышенной стойкостью к воздействию агрессивных веществ и не меняет цвета со временем. Эти автобагажники на крышу сделаны из пластика, которые выдержат практически любые дорожные нагрузки, сильный ветер и любую непогоду, включая дождь, град и снег. Автобоксы «VetlaN» обладают отличной аэродинамикой.</p>";
                 echo "<p class='page__text'>С боксом «VetlaN» Вы забудете о нехватке места в багажнике вашего авто. Теперь собираясь в дальнюю поездку у Вас не будет болеть голова о том, куда складывать детские игрушки, матрасы и подушки, все для пикника и т.п. «VetlaN» - это лучший выбор.</p>"; ?>
 
-                <div class="good"> <?php
+               <div class="good"> <?php
                     echo "<h2 class='good__name'>"; echo $vetlan[0]['title']; echo "</h2>"; ?>
                     <div class="img_div">
                         <?php echo $vetlan[0]['img1']; echo $vetlan[0]['img2']; echo $vetlan[0]['img3']; echo $vetlan[0]['img4']; ?>
@@ -235,7 +235,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                         </div></div></div>
 
                 <div class="good"> <?php
-                    echo "<h2 class='good__name>"; echo $vetlan[1]['title']; echo "</h2>"; ?>
+                    echo "<h2 class='good__name'>"; echo $vetlan[1]['title']; echo "</h2>"; ?>
                     <div class="img_div">
                         <?php echo $vetlan[1]['img1']; echo $vetlan[1]['img2']; echo $vetlan[1]['img3']; echo $vetlan[1]['img4']; ?>
                     </div>
@@ -251,7 +251,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                     <div class="good__description"> <?php
                         echo "<p class='page__text'>"; echo $vetlan[1]['desc1']; echo "</p>";
                         echo "<p class='page__text'>"; echo $vetlan[1]['desc2']; echo "</p>"; ?></div>
-                    <div class="good__price" itemscope itemtype="http://schema.org/Offer">
+                    <div class="good__price">
                         <div class="good__price-info">
                             <table align="center">
                                 <tr><td class="producttable" align="left"><b><?php echo "Черный: "; echo $vetlan[1]['price_black']; ?></b></td><td class="producttable" align="center"><button class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $vetlan[1]['id1']; ?>">Заказать</a></button></td><td class="producttable" align="center"><button class="button__buy button__buy--prokat"><a class="button__buy-link" href="/prokat/<?php echo $vetlan[1]['id1']; ?>">Взять в прокат</a></button></td></tr>
