@@ -628,6 +628,9 @@ td.producttablecaption {
       z-index: 2; }
       .catalog__item-link:hover {
         box-shadow: 0 0  10px 5px #A4A4A4; }
+    .catalog__item--velo {
+      height: 285px;
+      justify-content: space-between; }
 
 .item__image {
   margin: 0 auto; }
