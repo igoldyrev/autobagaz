@@ -4,8 +4,8 @@ ErrorDocument 404 /errors/404.php
 ErrorDocument 500 /errors/500.php
 
 RewriteEngine On  # Если этой строки нет выше
-RewriteCond %{HTTP:X-Forwarded-Protocol} !=https
-RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+#RewriteCond %{HTTP:X-Forwarded-Protocol} !=https
+#RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 
 AddType application/x-httpd-php .html .htm
 
@@ -140,3 +140,5 @@ RewriteRule ^vetlan autobox?autobox=vetlan [L]
 
 RewriteRule ^velokreplenya_na_kryshy velokreplenya?velokreplenya=velokreplenya_na_kryshy [L]
 RewriteRule ^velokreplenya_na_farkop velokreplenya?velokreplenya=velokreplenya_na_farkop [L]
+
+RewriteRule ^guestbook/add guestbook.php?guestbook=add [L]
