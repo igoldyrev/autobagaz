@@ -48,3 +48,11 @@
     }
   }
 }
+@include adaptive(mobile) {
+  .sales {
+    &__item {
+      width: 98%;
+      margin: 5px;
+    }
+  }
+}

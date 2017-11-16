@@ -60,8 +60,9 @@
 @include adaptive(mobile) {
   .catalog {
     &__item {
-      width: 180px;
+      width: 140px;
       padding: 0px;
+      margin: 5px;
     }
   }
 }
