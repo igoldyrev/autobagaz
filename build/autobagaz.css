@@ -912,7 +912,8 @@ img.logo__img {
     height: auto;
     position: relative;
     flex-direction: column;
-    order: 1; }
+    order: 1;
+    margin-bottom: 10px; }
     .header-top-nav__ul {
       display: none;
       flex-direction: row;
@@ -1050,7 +1051,7 @@ img.logo__img {
 
 @media only screen and (max-width: 480px) {
   .modal-call {
-    width: 310px;
+    width: 98%;
     height: 370px;
     left: 1%;
     margin-left: 0px; }
