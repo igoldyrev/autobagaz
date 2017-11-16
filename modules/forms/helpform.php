@@ -17,6 +17,7 @@
                 <textarea name="text" class="form__input form__textarea" placeholder="Введите Ваше сообщение"></textarea>
                 <label for="text" class="form__label--shown">Введите Ваше сообщение</label>
             </div>
+            <div class="g-recaptcha" data-sitekey="6LenJjcUAAAAALv0jIybM3O45CnsEYa4X58EZ1uH"></div>
             <button class="button button__help">Помогите с выбором!</button>
         </form>
     </div>
