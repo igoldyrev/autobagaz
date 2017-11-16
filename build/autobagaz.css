@@ -425,11 +425,11 @@ td.producttablecaption {
   .form__container {
     width: 90%; }
   .form__input {
-    width: 280px; }
+    width: 100%; }
   .form__select {
-    width: 280px; }
+    width: 100%; }
   .form__textarea {
-    width: 280px; } }
+    width: 100%; } }
 
 .good {
   display: block;
