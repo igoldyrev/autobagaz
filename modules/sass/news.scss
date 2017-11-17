@@ -14,6 +14,13 @@
     background-color: #F2F2F2;
     border: 1px solid #F2F2F2;
     border-radius: 5px;
+    &--index {
+      width: 32%;
+      height: 200px;
+      &:nth-child(n+4) {
+        display: none;
+      }
+    }
   }
   &__info {
     display: flex;
@@ -53,5 +60,26 @@
     text-align: center;
     font-size: 1.2em;
     padding: 10px;
+  }
+}
+@include adaptive(pad) {
+  .news {
+    &__item {
+      &--index {
+        width: 49%;
+        &:nth-child(n+3) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@include adaptive(mobile) {
+  .news {
+    &__item {
+      &--index {
+        width: 100%;
+      }
+    }
   }
 }
