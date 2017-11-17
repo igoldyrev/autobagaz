@@ -322,6 +322,11 @@ td.producttablecaption {
       border-left: 50px solid transparent;
       border-top: 50px solid #82fa58; }
 
+.brands {
+  text-align: center; }
+  .brands-container {
+    margin-bottom: 20px; }
+
 * {
   margin: 0;
   padding: 0; }

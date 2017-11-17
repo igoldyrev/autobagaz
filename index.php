@@ -83,32 +83,37 @@ if (!isset($page)) {
     </div>
 
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php"); ?>
+
+    <h2 class="page__title-h2">Мы работаем со следующими брендами:</h2>
+    <div class="brands-container">
+        <div class="brands">
+            <img src="/images/logos/mont_blanc.jpg" alt="mont blanc" width="150px">
+            <img src="/images/logos/lux.png" alt="lux" width="150px">
+            <img src="/images/logos/atlant.png" alt="atlant" width="150px">
+            <img src="/images/logos/amos.jpg" alt="amos" width="150px">
+            <img src="/images/logos/yuago.png" alt="yuago" width="150px">
+        </div>
+        <div class="brands">
+            <img src="/images/logos/vetlan.png" alt="vetlan" width="150px">
+            <img src="/images/logos/turino.jpg" alt="turino" width="150px">
+            <img src="/images/logos/atera.png" alt="atera" width="150px">
+            <img src="/images/logos/menabo.jpg" alt="menabo" width="150px">
+            <img src="/images/logos/yakima.png" alt="yakima" width="150px">
+        </div>
+        <div class="brands">
+            <img src="/images/logos/myravei.png" alt="myravei" width="150px">
+            <img src="/images/logos/inno.jpg" alt="inno" width="150px">
+            <img src="/images/logos/whispbar.png" alt="whispbar" width="150px">
+        </div>
+    </div>
+
+
+
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/reviews.php"); ?>
 
-    <!--<h2>Наши бренды:</h2>
-    <div align="center" class="brands">
-        <img src="/images/logos/mont_blanc.jpg" alt="mont blanc" width="150px">
-        <img src="/images/logos/lux.png" alt="lux" width="150px">
-        <img src="/images/logos/atlant.png" alt="atlant" width="150px">
-        <img src="/images/logos/amos.jpg" alt="amos" width="150px">
-    </div>
-    <div align="center" class="brands">
-        <img src="/images/logos/yuago.png" alt="yuago" width="150px">
-        <img src="/images/logos/atera.png" alt="atera" width="150px">
-        <img src="/images/logos/menabo.jpg" alt="menabo" width="150px">
-        <img src="/images/logos/yakima.png" alt="yakima" width="150px">
-    </div>
-    <div align="center" class="brands">
-        <img src="/images/logos/vetlan.png" alt="vetlan" width="150px">
-        <img src="/images/logos/turino.jpg" alt="turino" width="150px">
-        <img src="/images/logos/inno.jpg" alt="inno" width="150px">
-        <img src="/images/logos/whispbar.png" alt="whispbar" width="150px">
-    </div>
-    <div align="center" class="brands">
-        <img src="/images/logos/myravei.png" alt="myravei" width="150px">
-    </div>
 
-    <p>Для многих современных людей автомобиль является не только свидетельством жизненного успеха, но и незаменимым помощником для перевозки грузов. Имея личное авто можно без проблем осуществить перевозку вещей в загородный дом или дачу или же снаряжения при занятиях активным отдыхом. Так, для осуществления грузоперевозок на легковом автомобиле существует багажник, устанавливаемый на крышу авто. Это может быт как простая и эстетичная конструкция, состоящая из двух дуг, так и более сложная, к примеру, автобокс или багажник для лодки. Наш магазин предлагает вашему вниманию автобагажники от известных мировых брендов. Если вам необходимо перевезти вещи или вы занимаетесь активным отдыхом – то вы попали по назначению. У нас вы сможете подобрать именно то, что вам нужно: автомобильные багажники, автомобильные боксы, которые станут незаменимыми помощниками при перевозке вещей и спортивного снаряжения. А для того, чтобы обеспечить вам комфорт и безопасность передвижения по зимней трассе, мы предлагаем вашему вниманию цепи противоскольжения от мировых производителей.</p>
+
+    <!--<p>Для многих современных людей автомобиль является не только свидетельством жизненного успеха, но и незаменимым помощником для перевозки грузов. Имея личное авто можно без проблем осуществить перевозку вещей в загородный дом или дачу или же снаряжения при занятиях активным отдыхом. Так, для осуществления грузоперевозок на легковом автомобиле существует багажник, устанавливаемый на крышу авто. Это может быт как простая и эстетичная конструкция, состоящая из двух дуг, так и более сложная, к примеру, автобокс или багажник для лодки. Наш магазин предлагает вашему вниманию автобагажники от известных мировых брендов. Если вам необходимо перевезти вещи или вы занимаетесь активным отдыхом – то вы попали по назначению. У нас вы сможете подобрать именно то, что вам нужно: автомобильные багажники, автомобильные боксы, которые станут незаменимыми помощниками при перевозке вещей и спортивного снаряжения. А для того, чтобы обеспечить вам комфорт и безопасность передвижения по зимней трассе, мы предлагаем вашему вниманию цепи противоскольжения от мировых производителей.</p>
     <h3>Универсальные багажники</h3>
     <p>В наиболее простом варианте такой автобагажник представляет собой две паралельные дуги. Благодаря простоте и функциональности, данная конструкция предназначена для перевозки любых грузов, позволяя надежно закрепить предметы. Кроме стандартных вариантов, существует также корзина для авто. Универсальные модели автобагажников в основном предназначаются для иномарок и современных российских авто. Потому, если вам нужно подобрать багажник для отечественного автомобиля, то придется буквально «примерять» различные модели, дабы подобрать наиболее удобную и подходящую.</p>
     <h3>Автобоксы</h3>
