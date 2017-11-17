@@ -138,9 +138,9 @@ if (!isset($page)) {
     <h4 class="page__title-h4">Мы находимся здесь:</h4>
     <div class="img_div">
         <img class="img_main" src="/images/contacts/shop_autobagaz_front.jpg" srcset="
-		/images/contacts/shop_autobagaz_front.jpg 650w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="autobagaz">
+		/images/contacts/shop_autobagaz_front.jpg 500w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="autobagaz">
         <img class="img_main" src="/images/contacts/shop_autobagaz_back.jpg" srcset="
-		/images/contacts/shop_autobagaz_back.jpg 650w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="autobagaz">
+		/images/contacts/shop_autobagaz_back.jpg 500w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="autobagaz">
         <img class="img_main" src="/images/logo_circle.jpg" srcset="
 		/images/logo_circle.jpg 200w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="autobagaz">
     </div>
