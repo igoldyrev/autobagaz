@@ -82,9 +82,8 @@ if (!isset($page)) {
         </div>
     </div>
 
-
-
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php"); ?>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/reviews.php"); ?>
 
     <!--<h2>Наши бренды:</h2>
     <div align="center" class="brands">
