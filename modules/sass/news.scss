@@ -77,6 +77,8 @@
 @include adaptive(mobile) {
   .news {
     &__item {
+      width: 100%;
+      height: 200px;
       &--index {
         width: 100%;
       }
