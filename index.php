@@ -82,7 +82,9 @@ if (!isset($page)) {
         </div>
     </div>
 
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php"); ?>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php");
+    include ($_SERVER["DOCUMENT_ROOT"]."/modules/newslist.php"); ?>
+
 
     <h2 class="page__title-h2">Мы работаем со следующими брендами:</h2>
     <div class="brands-container">

@@ -735,6 +735,11 @@ td.producttablecaption {
     background-color: #F2F2F2;
     border: 1px solid #F2F2F2;
     border-radius: 5px; }
+    .news__item--index {
+      width: 32%;
+      height: 200px; }
+      .news__item--index:nth-child(n+4) {
+        display: none; }
   .news__info {
     display: flex;
     justify-content: space-between; }
@@ -767,6 +772,16 @@ td.producttablecaption {
     text-align: center;
     font-size: 1.2em;
     padding: 10px; }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .news__item--index {
+    width: 49%; }
+    .news__item--index:nth-child(n+3) {
+      display: none; } }
+
+@media only screen and (max-width: 767px) {
+  .news__item--index {
+    width: 100%; } }
 
 .header {
   display: flex;
