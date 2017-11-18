@@ -39,7 +39,7 @@
 @include adaptive(mobile) {
   .footer {
     grid-template-columns: auto;
-    grid-template-rows: 45px 1fr 55px;
+    grid-template-rows: 0.5fr 1fr 0.5fr;
     height: auto;
     &__copyright + &__links + &__social {
       padding-bottom: 10px;

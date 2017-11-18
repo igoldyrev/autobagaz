@@ -603,7 +603,7 @@ td.producttablecaption {
 
 @media only screen and (max-width: 767px) {
   .catalog__item {
-    width: 140px;
+    width: 46%;
     padding: 0px;
     margin: 5px; } }
 
@@ -900,7 +900,7 @@ img.logo__img {
 @media only screen and (max-width: 767px) {
   .footer {
     grid-template-columns: auto;
-    grid-template-rows: 45px 1fr 55px;
+    grid-template-rows: 0.5fr 1fr 0.5fr;
     height: auto; }
     .footer__copyright + .footer__links + .footer__social {
       padding-bottom: 10px; } }
