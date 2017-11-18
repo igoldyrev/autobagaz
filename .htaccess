@@ -4,8 +4,8 @@ ErrorDocument 404 /errors/404.php
 ErrorDocument 500 /errors/500.php
 
 RewriteEngine On  # Если этой строки нет выше
-#RewriteCond %{HTTP:X-Forwarded-Protocol} !=https
-#RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP:X-Forwarded-Protocol} !=https
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 
 AddType application/x-httpd-php .html .htm
 
@@ -19,7 +19,7 @@ RewriteRule ^(.*)$ $1.html
 
 #Правила для переадресации страниц
 #Автобагажники
-RewriteRule ^buy scripts/buy.php
+#RewriteRule ^buy scripts/buy.php
 RewriteRule ^buy/ab1 scripts/buy.php?id=ab1
 RewriteRule ^buy/ab2 scripts/buy.php?id=ab2
 RewriteRule ^buy/ab3 scripts/buy.php?id=ab3
