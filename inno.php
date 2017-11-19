@@ -96,6 +96,32 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($inno == 'inno-boxes') {
+                echo "<title> $titleconst"; echo $keywords[32][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[32][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[32][keywords]; echo "'/>";
+
+                echo "<h1 class='page__title-h1'>Автомобильные боксы Inno</h1>"; ?>
+                <div class="catalog">
+                    <div class="catalog__item">
+                        <a href="inno/inno-boxes/new-shadow" class="catalog__item-link"></a>
+                        <div class="item__image">
+                            <a href="inno/inno-boxes/new-shadow"><img class="item__image-img" src="/images/inno/boxes/newshadow16/1.jpg" alt="New Shadow"></a>
+                        </div>
+                        <div class="item__link">
+                            <a href="inno/inno-boxes/new-shadow">Серия New shadow</a>
+                        </div>
+                    </div>
+                    <div class="catalog__item">
+                        <a href="inno/inno-boxes/roofbox" class="catalog__item-link"></a>
+                        <div class="item__image">
+                            <a href="inno/inno-boxes/roofbox"><img class="item__image-img" src="/images/inno/boxes/roofbox56/1.jpg" alt="Roofbox"></a>
+                        </div>
+                        <div class="item__link">
+                            <a href="inno/inno-boxes/roofbox">Серия Roofbox</a>
+                        </div>
+                    </div>
+                </div> <?php
             }
 
 
