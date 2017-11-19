@@ -146,3 +146,5 @@ RewriteRule ^guestbook/add guestbook.php?guestbook=add [L]
 
 RewriteRule ^inno/inno-basic inno.php?inno=inno-basic [L]
 RewriteRule ^inno/inno-boxes inno.php?inno=inno-boxes [L]
+RewriteRule ^inno/inno-boxes/new-shadow inno.php?inno=new-shadow [L]
+RewriteRule ^inno/inno-boxes/roofbox inno.php?inno=roofbox [L]
