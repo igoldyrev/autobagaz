@@ -252,4 +252,3 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
     include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html"); ?>
 </div>
-
