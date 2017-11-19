@@ -50,8 +50,11 @@ $inno_basic = [
         'img5' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_5.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_5.jpg 200w" alt="BASIC STAY SET - КРЕПЛЕНИЕ ДЛЯ КРЫШ С ВОДОСТОКАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'price' => 'xxx рублей',
     ],
+];
+
     //Аэродинамические багажники
     //AERO BASE STAY XS100 – КРЕПЛЕНИЕ ДЛЯ КРЫШ С РЕЙЛИНГАМИ
+$inno_aero =[
     [
         'id' => 'xs100',
         'name' => 'AERO BASE STAY XS100 – КРЕПЛЕНИЕ ДЛЯ КРЫШ С РЕЙЛИНГАМИ',
