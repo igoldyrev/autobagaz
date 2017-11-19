@@ -44,6 +44,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                 echo "<meta name='keywords' content='"; echo $keywords[31][keywords]; echo "'/>";
 
                 $_SESSION['inno'] = $inno_basic;
+                $_SESSION['inno'] = $inno_aero;
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
                 echo "<h1 class='page__title-h1'>Базовые багажники</h1>";
@@ -104,30 +105,148 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                 echo "<h1 class='page__title-h1'>Автомобильные боксы Inno</h1>"; ?>
                 <div class="catalog">
                     <div class="catalog__item">
-                        <a href="inno/inno-boxes/new-shadow" class="catalog__item-link"></a>
+                        <a href="/inno/new-shadow" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="inno/inno-boxes/new-shadow"><img class="item__image-img" src="/images/inno/boxes/newshadow16/1.jpg" alt="New Shadow"></a>
+                            <a href="/inno/new-shadow"><img class="item__image-img" src="/images/inno/boxes/newshadow16/1.jpg" alt="New Shadow"></a>
                         </div>
                         <div class="item__link">
-                            <a href="inno/inno-boxes/new-shadow">Серия New shadow</a>
+                            <a href="/inno/new-shadow">Серия New shadow</a>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="inno/inno-boxes/roofbox" class="catalog__item-link"></a>
+                        <a href="/inno/roofbox" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="inno/inno-boxes/roofbox"><img class="item__image-img" src="/images/inno/boxes/roofbox56/1.jpg" alt="Roofbox"></a>
+                            <a href="/inno/roofbox"><img class="item__image-img" src="/images/inno/boxes/roofbox56/1.jpg" alt="Roofbox"></a>
                         </div>
                         <div class="item__link">
-                            <a href="inno/inno-boxes/roofbox">Серия Roofbox</a>
+                            <a href="/inno/roofbox">Серия Roofbox</a>
                         </div>
                     </div>
                 </div> <?php
-            }
+            } elseif ($inno == 'new-shadow') {
+                echo "<title> $titleconst"; echo $keywords[33][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[33][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[33][keywords]; echo "'/>";
 
+                $_SESSION['inno'] = $inno_box;
+                $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
-            ?>
+                echo "<h1 class='page__title-h1'>Автобоксы New Shadow</h1>";?>
+                <div class="good"><?php
+                    echo "<h2 class='good__name'>"; echo $inno_box[0]['title']; echo "</h2>"; ?>
+                    <div class="img_div">
+                        <?php echo $inno_box[0]['img1']; echo $inno_box[0]['img2']; echo $inno_box[0]['img3']; echo $inno_box[0]['img4']; echo $inno_box[0]['img5']; ?>
+                    </div>
+                    <table cellspacing="0" align="center">
+                        <tr><td class="producttablecaption" align="left">Характеристики</td><td class="producttablecaption" align="center">Значение</td><td class="producttablecaption"></td></tr>
+                        <tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $inno_box[0]['size']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $inno_box[0]['volume']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Способ крепления</td><td class="producttable" align="center"><?php echo $inno_box[0]['clamp']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Способ открывания:</td><td class="producttable" align="center"><?php echo $inno_box[0]['open']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Способ запирания</td><td class="producttable" align="center"><?php echo $inno_box[0]['closed']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Защита</td><td class="producttable" align="center"><?php echo $inno_box[0]['material']; ?></td></tr>
+                    </table>
+                    <div class="good__description"> <?php
+                        echo "<p class='page__text'>"; echo $inno_box[0]['desc1']; echo "</p>";
+                        echo "<p class='page__text'>"; echo $inno_box[0]['desc2']; echo "</p>";
+                        echo "<p class='page__text'>"; echo $inno_box[0]['desc3']; echo "</p>"; ?></div>
+                    <div class="good__price">
+                        <div class="good__price-info">
+                            <table align="center">
+                                <tr><td class="producttable" align="left">Черный матовый</td><td class="producttable"><?php echo $inno_box[0]['price_black'];?></td><td class="producttable" align="center"><button class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[0]['id1']; ?>">Заказать</a></button></td></tr>
+                                <tr><td class="producttable" align="left">Серебристый матовый</td><td class="producttable"><?php echo $inno_box[0]['price_silver'];?></td><td class="producttable" align="center"><button class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[0]['id2']; ?>">Заказать</a></button></td></tr>
+                                <tr><td class="producttable" align="left">Белый глянец<td class="producttable"><?php echo $inno_box[0]['price_white'];?></td></td><td class="producttable" align="center"><button class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[0]['id3']; ?>">Заказать</a></button></td></tr>
+                            </table>
+                        </div></div>
+                </div>
+                <div class="good"><?php
+                    echo "<h2 class='good__name'>"; echo $inno_box[1]['title']; echo "</h2>"; ?>
+                    <div class="img_div">
+                        <?php echo $inno_box[1]['img1']; echo $inno_box[1]['img2']; echo $inno_box[1]['img3']; echo $inno_box[1]['img4']; echo $inno_box[1]['img5']; ?>
+                    </div>
+                    <table cellspacing="0" align="center">
+                        <tr><td class="producttablecaption" align="left">Характеристики</td><td class="producttablecaption" align="center">Значение</td><td class="producttablecaption"></td></tr>
+                        <tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $inno_box[1]['size']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $inno_box[1]['volume']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Способ крепления</td><td class="producttable" align="center"><?php echo $inno_box[1]['clamp']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Способ открывания:</td><td class="producttable" align="center"><?php echo $inno_box[1]['open']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Способ запирания</td><td class="producttable" align="center"><?php echo $inno_box[1]['closed']; ?></td></tr>
+                        <tr><td class="producttable" align="left">Защита</td><td class="producttable" align="center"><?php echo $inno_box[1]['material']; ?></td></tr>
+                    </table>
+                    <div class="good__description"> <?php
+                        echo "<p class='page__text'>"; echo $inno_box[1]['desc1']; echo "</p>";
+                        echo "<p class='page__text'>"; echo $inno_box[1]['desc2']; echo "</p>";
+                        echo "<p class='page__text'>"; echo $inno_box[1]['desc3']; echo "</p>"; ?></div>
+                    <div class="good__price">
+                        <div class="good__price-info">
+                            <table align="center">
+                                <tr><td class="producttable" align="left">Черный матовый</td><td class="producttable"><?php echo $inno_box[1]['price'];?></td><td class="producttable" align="center"><button class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[1]['id']; ?>">Заказать</a></button></td></tr>
+                            </table>
+                        </div></div>
+                </div>
+                <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($inno == 'roofbox') {
+            echo "<title> $titleconst"; echo $keywords[34][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $keywords[34][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $keywords[34][keywords]; echo "'/>";
 
+            $_SESSION['inno'] = $inno_box;
+            $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
+            echo "<h1 class='page__title-h1'>Автобоксы Roofbox</h1>";?>
+            <div class="good"><?php
+                echo "<h2 class='good__name'>"; echo $inno_box[2]['title']; echo "</h2>"; ?>
+                <div class="img_div">
+                    <?php echo $inno_box[2]['img1']; echo $inno_box[2]['img2']; echo $inno_box[2]['img3']; echo $inno_box[2]['img4']; echo $inno_box[2]['img5']; ?>
+                </div>
+                <table cellspacing="0" align="center">
+                    <tr><td class="producttablecaption" align="left">Характеристики</td><td class="producttablecaption" align="center">Значение</td><td class="producttablecaption"></td></tr>
+                    <tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $inno_box[2]['size']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $inno_box[2]['volume']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Способ крепления</td><td class="producttable" align="center"><?php echo $inno_box[2]['clamp']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Способ открывания:</td><td class="producttable" align="center"><?php echo $inno_box[2]['open']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Способ запирания</td><td class="producttable" align="center"><?php echo $inno_box[2]['closed']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Защита</td><td class="producttable" align="center"><?php echo $inno_box[2]['material']; ?></td></tr>
+                </table>
+                <div class="good__description"> <?php
+                    echo "<p class='page__text'>"; echo $inno_box[2]['desc1']; echo "</p>";
+                    echo "<p class='page__text'>"; echo $inno_box[2]['desc2']; echo "</p>";
+                    echo "<p class='page__text'>"; echo $inno_box[2]['desc3']; echo "</p>"; ?></div>
+                <div class="good__price">
+                    <div class="good__price-info">
+                        <table align="center">
+                            <tr><td class="producttable" align="left">Черный глянец</td><td class="producttable"><?php echo $inno_box[2]['price'];?></td><td class="producttable" align="center"><button class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[2]['id1']; ?>">Заказать</a></button></td></tr>
+                            <tr><td class="producttable" align="left">Серый глянец</td><td class="producttable"><?php echo $inno_box[2]['price'];?></td><td class="producttable" align="center"><button class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[2]['id2']; ?>">Заказать</a></button></td></tr>
+                        </table>
+                    </div></div>
+            </div>
+            <div class="good"><?php
+                echo "<h2 class='good__name'>"; echo $inno_box[3]['title']; echo "</h2>"; ?>
+                <div class="img_div">
+                    <?php echo $inno_box[3]['img1']; echo $inno_box[3]['img2']; echo $inno_box[3]['img3']; echo $inno_box[3]['img4']; echo $inno_box[3]['img5']; ?>
+                </div>
+                <table cellspacing="0" align="center">
+                    <tr><td class="producttablecaption" align="left">Характеристики</td><td class="producttablecaption" align="center">Значение</td><td class="producttablecaption"></td></tr>
+                    <tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $inno_box[3]['size']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $inno_box[3]['volume']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Способ крепления</td><td class="producttable" align="center"><?php echo $inno_box[3]['clamp']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Способ открывания:</td><td class="producttable" align="center"><?php echo $inno_box[3]['open']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Способ запирания</td><td class="producttable" align="center"><?php echo $inno_box[3]['closed']; ?></td></tr>
+                    <tr><td class="producttable" align="left">Защита</td><td class="producttable" align="center"><?php echo $inno_box[3]['material']; ?></td></tr>
+                </table>
+                <div class="good__description"> <?php
+                    echo "<p class='page__text'>"; echo $inno_box[3]['desc1']; echo "</p>";
+                    echo "<p class='page__text'>"; echo $inno_box[3]['desc2']; echo "</p>";
+                    echo "<p class='page__text'>"; echo $inno_box[3]['desc3']; echo "</p>"; ?></div>
+                <div class="good__price">
+                    <div class="good__price-info">
+                        <table align="center">
+                            <tr><td class="producttable" align="left">Белый глянец</td><td class="producttable"><?php echo $inno_box[3]['price'];?></td><td class="producttable" align="center"><button class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[3]['id']; ?>">Заказать</a></button></td></tr>
+                        </table>
+                    </div></div>
+            </div>
+                <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } ?>
         </div>
     </div>
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
