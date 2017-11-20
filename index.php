@@ -80,6 +80,15 @@ if (!isset($page)) {
                 <a href="/farkops">Фаркопы</a>
             </div>
         </div>
+        <div class="catalog__item">
+            <a href="/inno" class="catalog__item-link"></a>
+            <div class="item__image">
+                <a href="/inno"><img class="item__image-img" src="/images/inno/boxes/newshadow16/1.jpg" alt="inno"></a>
+            </div>
+            <div class="item__link">
+                <a href="/inno">Багажные системы Inno</a>
+            </div>
+        </div>
     </div>
 
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php");
