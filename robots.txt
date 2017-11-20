@@ -2,15 +2,13 @@ User-Agent: *
 Allow: /
 Disallow: /admin
 Disallow: /arrays
-Disallow: /captcha
 Disallow: /docs
 Disallow: /errors
 Disallow: /font-awesome
 Disallow: /fonts
-Disallow: /frames
 Disallow: /js
+Disallow: /modules
 Disallow: /scripts
-Disallow: /styles
 Disallow: /buy/
 Disallow: /prokat/
 Disallow: /google69be880a4c11a98c.html
