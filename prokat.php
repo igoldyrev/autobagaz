@@ -266,6 +266,70 @@ if (!isset($id)) {
 	<?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> 
 	<?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/prokatform.php");
+} elseif ($id == 'stay_set_su') {
+    $tovar = $_SESSION['inno_basic'][0][name];
+    echo "<title>Взятие в прокат "; echo $_SESSION['inno_basic'][0][name]; echo "</title>";
+    $checkedbagazh  = "checked"; ?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/prokatform.php");
+} elseif ($id == 'stay_set_fr') {
+    $tovar = $_SESSION['inno_basic'][1][name];
+    echo "<title>Взятие в прокат "; echo $_SESSION['inno_basic'][1][name]; echo "</title>";
+    $checkedbagazh  = "checked"; ?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/prokatform.php");
+} elseif ($id == 'stay_set_xr') {
+    $tovar = $_SESSION['inno_basic'][2][name];
+    echo "<title>Взятие в прокат "; echo $_SESSION['inno_basic'][2][name]; echo "</title>";
+    $checkedbagazh  = "checked"; ?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/prokatform.php");
+} elseif ($id == 'stay_set') {
+    $tovar = $_SESSION['inno_basic'][3][name];
+    echo "<title>Взятие в прокат "; echo $_SESSION['inno_basic'][3][name]; echo "</title>";
+    $checkedbagazh  = "checked"; ?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/prokatform.php");
+} elseif ($id == 'xs100') {
+    $tovar = $_SESSION['inno_aero'][0][name];
+    echo "<title>Взятие в прокат "; echo $_SESSION['inno_aero'][0][name]; echo "</title>";
+    $checkedbagazh  = "checked"; ?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/prokatform.php");
+} elseif ($id == 'xs200') {
+    $tovar = $_SESSION['inno_aero'][1][name];
+    echo "<title>Взятие в прокат "; echo $_SESSION['inno_aero'][1][name]; echo "</title>";
+    $checkedbagazh  = "checked"; ?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/prokatform.php");
+} elseif ($id == 'xs300') {
+    $tovar = $_SESSION['inno_aero'][2][name];
+    echo "<title>Взятие в прокат "; echo $_SESSION['inno_aero'][2][name]; echo "</title>";
+    $checkedbagazh  = "checked"; ?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/prokatform.php");
+} elseif ($id == 'xs400') {
+    $tovar = $_SESSION['inno_aero'][3][name];
+    echo "<title>Взятие в прокат "; echo $_SESSION['inno_aero'][3][name]; echo "</title>";
+    $checkedbagazh  = "checked"; ?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/prokatform.php");
 }
 $_SESSION['tovar'] = $tovar; ?>
 <p class='page__text'>Чтобы воспользоваться услугами аренды необходимо сделать несколько простых шагов:</p>
