@@ -11,7 +11,7 @@ $inno_basic = [
         'img1' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_SU_1.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_SU_1.jpg 700w" alt="BASIC STAY SET SU - КРЕПЛЕНИЕ ДЛЯ ПЛОСКОЙ КРЫШИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img2' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_SU_2.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_SU_2.jpg 700w" alt="BASIC STAY SET SU - КРЕПЛЕНИЕ ДЛЯ ПЛОСКОЙ КРЫШИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img3' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_SU_3.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_SU_3.jpg 700w" alt="BASIC STAY SET SU - КРЕПЛЕНИЕ ДЛЯ ПЛОСКОЙ КРЫШИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'price' => 'xxx рублей',
+        'price' => '<a class="page__link" href="tel:+73422889969">Уточнить цену по телефону</a>',
     ],
     //BASIC STAY SET FR - КРЕПЛЕНИЕ ДЛЯ КРЫШ С РЕЙЛИНГАМИ
     [
@@ -23,7 +23,7 @@ $inno_basic = [
         'img2' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_FR_2.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_FR_2.jpg 700w" alt="BASIC STAY SET FR - КРЕПЛЕНИЕ ДЛЯ КРЫШ С РЕЙЛИНГАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img3' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_FR_3.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_FR_3.jpg 700w" alt="BASIC STAY SET FR - КРЕПЛЕНИЕ ДЛЯ КРЫШ С РЕЙЛИНГАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img4' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_FR_4.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_FR_4.jpg 700w" alt="BASIC STAY SET FR - КРЕПЛЕНИЕ ДЛЯ КРЫШ С РЕЙЛИНГАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'price' => 'xxx рублей',
+        'price' => '<a class="page__link" href="tel:+73422889969">Уточнить цену по телефону</a>',
     ],
     //BASIC STAY SET XR - КРЕПЛЕНИЕ ДЛЯ КРЫШ СО СПЕЦИАЛЬНЫМИ ПОСАДОЧНЫМИ ГНЕЗДАМИ
     [
@@ -35,7 +35,7 @@ $inno_basic = [
         'img2' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_XR_2.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_XR_2.jpg 700w" alt="BASIC STAY SET XR - КРЕПЛЕНИЕ ДЛЯ КРЫШ СО СПЕЦИАЛЬНЫМИ ПОСАДОЧНЫМИ ГНЕЗДАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img3' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_XR_3.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_XR_3.jpg 700w" alt="BASIC STAY SET XR - КРЕПЛЕНИЕ ДЛЯ КРЫШ СО СПЕЦИАЛЬНЫМИ ПОСАДОЧНЫМИ ГНЕЗДАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img4' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_XR_4.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_XR_4.jpg 700w" alt="BASIC STAY SET XR - КРЕПЛЕНИЕ ДЛЯ КРЫШ СО СПЕЦИАЛЬНЫМИ ПОСАДОЧНЫМИ ГНЕЗДАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'price' => 'xxx рублей',
+        'price' => '<a class="page__link" href="tel:+73422889969">Уточнить цену по телефону</a>',
     ],
     //BASIC STAY SET - КРЕПЛЕНИЕ ДЛЯ КРЫШ С ВОДОСТОКАМИ
     [
@@ -48,7 +48,7 @@ $inno_basic = [
         'img3' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_3.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_3.jpg 700w" alt="BASIC STAY SET - КРЕПЛЕНИЕ ДЛЯ КРЫШ С ВОДОСТОКАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img4' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_4.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_4.jpg 700w" alt="BASIC STAY SET - КРЕПЛЕНИЕ ДЛЯ КРЫШ С ВОДОСТОКАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img5' => '<img class="img_main" src="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_5.jpg" srcset="/images/inno/autobagazhniki/basic/BASIC_STAY_SET_5.jpg 700w" alt="BASIC STAY SET - КРЕПЛЕНИЕ ДЛЯ КРЫШ С ВОДОСТОКАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'price' => 'xxx рублей',
+        'price' => '<a class="page__link" href="tel:+73422889969">Уточнить цену по телефону</a>',
     ],
 ];
 
@@ -64,7 +64,7 @@ $inno_aero =[
         'img2' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs100_2.jpg" srcset="/images/inno/autobagazhniki/aero/xs100_2.jpg 700w" alt="AERO BASE STAY XS100 – КРЕПЛЕНИЕ ДЛЯ КРЫШ С РЕЙЛИНГАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img3' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs100_3.jpg" srcset="/images/inno/autobagazhniki/aero/xs100_3.jpg 700w" alt="AERO BASE STAY XS100 – КРЕПЛЕНИЕ ДЛЯ КРЫШ С РЕЙЛИНГАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img4' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs100_4.jpg" srcset="/images/inno/autobagazhniki/aero/xs100_4.jpg 700w" alt="AERO BASE STAY XS100 – КРЕПЛЕНИЕ ДЛЯ КРЫШ С РЕЙЛИНГАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'price' => 'xxx рублей',
+        'price' => '<a class="page__link" href="tel:+73422889969">Уточнить цену по телефону</a>',
     ],
     //AERO BASE STAY XS200 – КРЕПЛЕНИЕ ДЛЯ ПЛОСКОЙ КРЫШИ
     [
@@ -77,7 +77,7 @@ $inno_aero =[
         'img3' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs200_3.jpg" srcset="/images/inno/autobagazhniki/aero/xs200_3.jpg 700w" alt="AERO BASE STAY XS200 – КРЕПЛЕНИЕ ДЛЯ ПЛОСКОЙ КРЫШИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img4' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs200_4.jpg" srcset="/images/inno/autobagazhniki/aero/xs200_4.jpg 700w" alt="AERO BASE STAY XS200 – КРЕПЛЕНИЕ ДЛЯ ПЛОСКОЙ КРЫШИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img5' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs200_5.jpg" srcset="/images/inno/autobagazhniki/aero/xs200_5.jpg 700w" alt="AERO BASE STAY XS200 – КРЕПЛЕНИЕ ДЛЯ ПЛОСКОЙ КРЫШИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'price' => 'xxx рублей',
+        'price' => '<a class="page__link" href="tel:+73422889969">Уточнить цену по телефону</a>',
     ],
     //AERO BASE STAY XS300 – КРЕПЛЕНИЕ ДЛЯ КРЫШ СО СПЕЦИАЛЬНЫМИ ПОСАДОЧНЫМИ ГНЕЗДАМИ
     [
@@ -89,7 +89,7 @@ $inno_aero =[
         'img2' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs300_2.jpg" srcset="/images/inno/autobagazhniki/aero/xs300_2.jpg 700w" alt="AERO BASE STAY XS300 – КРЕПЛЕНИЕ ДЛЯ КРЫШ СО СПЕЦИАЛЬНЫМИ ПОСАДОЧНЫМИ ГНЕЗДАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img3' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs300_3.jpg" srcset="/images/inno/autobagazhniki/aero/xs300_3.jpg 700w" alt="AERO BASE STAY XS300 – КРЕПЛЕНИЕ ДЛЯ КРЫШ СО СПЕЦИАЛЬНЫМИ ПОСАДОЧНЫМИ ГНЕЗДАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img4' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs300_4.jpg" srcset="/images/inno/autobagazhniki/aero/xs300_4.jpg 700w" alt="AERO BASE STAY XS300 – КРЕПЛЕНИЕ ДЛЯ КРЫШ СО СПЕЦИАЛЬНЫМИ ПОСАДОЧНЫМИ ГНЕЗДАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'price' => 'xxx рублей',
+        'price' => '<a class="page__link" href="tel:+73422889969">Уточнить цену по телефону</a>',
     ],
     //AERO BASE STAY XS400 – КРЕПЛЕНИЕ ДЛЯ КРЫШ С ПРИЖАТЫМИ РЕЙЛИНГАМИ
     [
@@ -101,7 +101,7 @@ $inno_aero =[
         'img2' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs400_2.jpg" srcset="/images/inno/autobagazhniki/aero/xs400_2.jpg 700w" alt="AERO BASE STAY XS400 – КРЕПЛЕНИЕ ДЛЯ КРЫШ С ПРИЖАТЫМИ РЕЙЛИНГАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img3' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs400_3.jpg" srcset="/images/inno/autobagazhniki/aero/xs400_3.jpg 700w" alt="AERO BASE STAY XS400 – КРЕПЛЕНИЕ ДЛЯ КРЫШ С ПРИЖАТЫМИ РЕЙЛИНГАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         'img4' => '<img class="img_main" src="/images/inno/autobagazhniki/aero/xs400_4.jpg" srcset="/images/inno/autobagazhniki/aero/xs400_4.jpg 700w" alt="AERO BASE STAY XS400 – КРЕПЛЕНИЕ ДЛЯ КРЫШ С ПРИЖАТЫМИ РЕЙЛИНГАМИ" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'price' => 'xxx рублей',
+        'price' => '<a class="page__link" href="tel:+73422889969">Уточнить цену по телефону</a>',
     ],
 ];
 $inno_box = [
