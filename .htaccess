@@ -171,3 +171,7 @@ RewriteRule ^inno/inno-basic inno.php?inno=inno-basic [L]
 RewriteRule ^inno/inno-boxes inno.php?inno=inno-boxes [L]
 RewriteRule ^inno/new-shadow inno.php?inno=new-shadow [L]
 RewriteRule ^inno/roofbox inno.php?inno=roofbox [L]
+
+RewriteRule ^textil_strops takelazh.php?takelazh=textil_strops [L]
+RewriteRule ^dynamic_strops takelazh.php?takelazh=dynamic_strops [L]
+
