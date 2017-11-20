@@ -43,8 +43,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                 echo "<meta name='description' content='"; echo $keywords[31][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[31][keywords]; echo "'/>";
 
-                $_SESSION['inno'] = $inno_basic;
-                $_SESSION['inno'] = $inno_aero;
+                $_SESSION['inno_basic'] = $inno_basic;
+                $_SESSION['inno_aero'] = $inno_aero;
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
                 echo "<h1 class='page__title-h1'>Базовые багажники</h1>";
@@ -128,7 +128,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                 echo "<meta name='description' content='"; echo $keywords[33][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[33][keywords]; echo "'/>";
 
-                $_SESSION['inno'] = $inno_box;
+                $_SESSION['inno_box'] = $inno_box;
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
                 echo "<h1 class='page__title-h1'>Автобоксы New Shadow</h1>";?>
@@ -190,7 +190,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
             echo "<meta name='description' content='"; echo $keywords[34][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $keywords[34][keywords]; echo "'/>";
 
-            $_SESSION['inno'] = $inno_box;
+            $_SESSION['inno_box'] = $inno_box;
             $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
             echo "<h1 class='page__title-h1'>Автобоксы Roofbox</h1>";?>
