@@ -115,6 +115,14 @@ RewriteRule ^prokat/xtender prokat.php?id=xtender
 RewriteRule ^prokat/r12 prokat.php?id=r12
 RewriteRule ^prokat/r16 prokat.php?id=r16
 RewriteRule ^prokat/gazel prokat.php?id=gazel
+RewriteRule ^prokat/stay_set_su prokat.php?id=stay_set_su
+RewriteRule ^prokat/stay_set_fr prokat.php?id=stay_set_fr
+RewriteRule ^prokat/stay_set_xr prokat.php?id=stay_set_xr
+RewriteRule ^prokat/stay_set prokat.php?id=stay_set
+RewriteRule ^prokat/xs100 prokat.php?id=xs100
+RewriteRule ^prokat/xs200 prokat.php?id=xs200
+RewriteRule ^prokat/xs300 prokat.php?id=xs300
+RewriteRule ^prokat/xs400 prokat.php?id=xs400
 
 #Скидки
 RewriteRule ^buy/s1 scripts/buy.php?id=s1
