@@ -318,6 +318,96 @@ if (!isset($id)) {
 	<div class="good_message">
 	<?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
 	</div> <?php
+} elseif ($id == 'stay_set_su') {
+    $tovar = $_SESSION['inno_basic'][0][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_basic'][0][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'stay_set_fr') {
+    $tovar = $_SESSION['inno_basic'][1][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_basic'][1][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'stay_set_xr') {
+    $tovar = $_SESSION['inno_basic'][2][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_basic'][2][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'stay_set') {
+    $tovar = $_SESSION['inno_basic'][3][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_basic'][3][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'xs100') {
+    $tovar = $_SESSION['inno_aero'][0][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_aero'][0][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'xs200') {
+    $tovar = $_SESSION['inno_aero'][1][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_aero'][1][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'xs300') {
+    $tovar = $_SESSION['inno_aero'][2][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_aero'][2][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'xs400') {
+    $tovar = $_SESSION['inno_aero'][3][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_aero'][3][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'BRA1260U5') {
+    $tovar = $_SESSION['inno_box'][0][name1];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_box'][0][name1]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'BRA1260U6') {
+    $tovar = $_SESSION['inno_box'][0][name2];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_box'][0][name2]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'BRA1250U1') {
+    $tovar = $_SESSION['inno_box'][0][name3];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_box'][0][name3]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'BRA1460U5') {
+    $tovar = $_SESSION['inno_box'][1][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_box'][1][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'BRA33RBK') {
+    $tovar = $_SESSION['inno_box'][2][name1];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_box'][2][name1]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'BRA33RDS') {
+    $tovar = $_SESSION['inno_box'][2][name2];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_box'][2][name2]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
+} elseif ($id == 'BRA56U1') {
+    $tovar = $_SESSION['inno_box'][3][name];
+    echo "<title>Заказ товара "; echo $_SESSION['inno_box'][3][name]; echo "</title>";?>
+    <div class="good_message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+    </div> <?php
 }
 $_SESSION['tovar'] = $tovar;
 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/buyform.php");
