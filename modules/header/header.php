@@ -12,10 +12,10 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/modal-calls/modal-calls.html"); ?>
                 <li class="header__list-item">Сб - Вс с 10:00 до 18:00</li>
             </ul>
             <ul class="header__list">
-                <li class="header__list-item"><a class="header__list-link header__list-link--big" href="tel:+7 342 288 99 69">+7 342 288 99 69</a></li>
+                <li class="header__list-item"><a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="header__list-link header__list-link--big" href="tel:+7 342 288 99 69">+7 342 288 99 69</a></li>
                 <button class="modal-call__button"><label for="modal-call__open" class="modal-call__link"><i class="fa fa-phone fa-4x" aria-hidden="true"></i></label></button>
-                <li class="header__list-item"><a class="header__list-link" href="tel:+7 912 489 79 39">+7 912 489 79 39</a>, <a class="header__list-link" href="tel:+7 965 572 26 28">+7 965 572 26 28</a></li>
-                <li class="header__list-item"><a class="header__list-link" href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a></li>
+                <li class="header__list-item"><a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="header__list-link" href="tel:+7 912 489 79 39">+7 912 489 79 39</a>, <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="header__list-link" href="tel:+7 965 572 26 28">+7 965 572 26 28</a></li>
+                <li class="header__list-item"><a onclick="yaCounter40650914.reachGoal('write_mail'); return true" class="header__list-link" href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a></li>
             </ul>
         </div>
     </header>

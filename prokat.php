@@ -339,7 +339,7 @@ $_SESSION['tovar'] = $tovar; ?>
 		<ul><li class='page__list'>паспорт</li>
 		<li class='page__list'>залоговую сумму (полная стоимость товара, взятого в прокат)</li></ul></li>
 	<li class='page__list'>В нашем магазине-прокате мы оформляем договор проката, квитанцию об оплате и выдаем Вам выбранное багажное оборудование.</li>
-	<li class='page__list'>Чтобы сократить время визита в магазин-вы можете заполнить <a class='page__link' href ="/docs/Договор проката.doc">договор</a> и отправить нам его на электронный адрес <a  class='page__link' href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
+	<li class='page__list'>Чтобы сократить время визита в магазин-вы можете заполнить <a class='page__link' href ="/docs/Договор проката.doc">договор</a> и отправить нам его на электронный адрес <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" class='page__link' href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
 </ol>
 <div class="prokat-docs">
 	<i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a class='page__link' href ="/docs/Договор проката.doc">Скачать договор проката</a><br>
