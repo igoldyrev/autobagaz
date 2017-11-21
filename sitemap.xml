@@ -1,4 +1,4 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset>
     <url>
         <loc>https://autobagaz.ru/</loc>
         <lastmod>2017-09-08T08:29:40+00:00</lastmod>
@@ -156,6 +156,21 @@
     <url>
         <loc>https://autobagaz.ru/inno/roofbox</loc>
         <lastmod>2017-11-20T09:28:12+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://autobagaz.ru/takelazh</loc>
+        <lastmod>2017-11-21T09:28:12+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://autobagaz.ru/dynamic_strops</loc>
+        <lastmod>2017-11-21T09:28:12+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://autobagaz.ru/textil_strops</loc>
+        <lastmod>2017-11-21T09:28:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
     </url>
 </urlset>
