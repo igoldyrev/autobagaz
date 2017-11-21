@@ -89,6 +89,15 @@ if (!isset($page)) {
                 <a href="/inno">Багажные системы Inno</a>
             </div>
         </div>
+        <div class="catalog__item">
+            <a href="/takelazh" class="catalog__item-link"></a>
+            <div class="item__image">
+                <a href="/takelazh"><img class="item__image-img" src="/images/inno/boxes/newshadow16/1.jpg" alt="inno"></a>
+            </div>
+            <div class="item__link">
+                <a href="/takelazh">Такелажная продукция</a>
+            </div>
+        </div>
     </div>
 
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php");
