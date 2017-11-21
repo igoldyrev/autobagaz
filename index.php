@@ -92,7 +92,7 @@ if (!isset($page)) {
         <div class="catalog__item">
             <a href="/takelazh" class="catalog__item-link"></a>
             <div class="item__image">
-                <a href="/takelazh"><img class="item__image-img" src="/images/inno/boxes/newshadow16/1.jpg" alt="inno"></a>
+                <a href="/takelazh"><img class="item__image-img" src="/images/autotuns/textil/2.JPG" alt="такелажная продукция"></a>
             </div>
             <div class="item__link">
                 <a href="/takelazh">Такелажная продукция</a>
