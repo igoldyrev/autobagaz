@@ -1,7 +1,7 @@
 <div class="help-block">
     <h3 class="page__title-h3">Не можете определиться с выбором? Заполните форму ниже, мы Вам поможем с этим!</h3>
     <div class="form__container">
-        <form action="/help" method="post" class="form">
+        <form action="/help" method="post" class="form" onsubmit="yaCounter40650914.reachGoal('post_help'); return true">
             <span class="form__label">Ваше имя:</span>
             <div class="form__input-block">
                 <input type="text" name="name" required class="form__input" placeholder="Введите Ваше имя">

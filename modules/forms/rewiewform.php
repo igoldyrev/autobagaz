@@ -1,5 +1,5 @@
 <div class="form__container">
-    <form action="/rewiew" method="post" class="form">
+    <form action="/rewiew" method="post" class="form" onsubmit="yaCounter40650914.reachGoal('post_rewiew'); return true">
         <span class="form__label">Ваше имя:</span>
         <div class="form__input-block">
             <input type="text" name="name" required class="form__input" placeholder="Введите Ваше имя">
