@@ -18,8 +18,8 @@ echo "<meta name='keywords' content='"; echo $keywords[20][keywords]; echo "'/>"
             echo "<p class='page__text'>Автомобиль должен быть не только функциональным, но и красивым, должен радовать глаз. С этим утверждением сегодня согласится, наверное, каждый. Тем более сейчас, когда автомобилей на дорогах стало особенно много. Придать облику вашего авто законченность и спортивную элегантность, подчеркнуть его сдержанную энергию, полную внутренней силы, способна такая незначительная на первый взгляд деталь как рейлинги на крыше автомобиля. Редкий водитель доволен объемом багажного отделения своего автомобиля. Но - благодаря рейлингам - даже малолитражка (не говоря уже о внедорожниках или машинах «средней ценовой категории») может перевозить куда большие объемы груза, чем было заложено конструкторами. Таким образом, решительно для любого автомобиля рейлинги - это необходимость, а часто и одно из условий, позволяющее установить на авто багажники: как стандартные, так и герметичные удобные боксы.</p>";
             echo "<h2 class='page__title-h2'>Мы предлагаем рейлинги двух проихводителей: Voyager и Can (Турция)</h2>"; ?>
             <div class="img_div">
-                <img class="img_main" src="/images/reelings/can.jpg" srcset="/images/reelings/can.jpg 300w" alt="Thule XTENDER" sizes="(max-width: 2000px) 150px, 300px, 350px">
-                <img class="img_main" src="/images/reelings/voyager.jpg" srcset="/images/reelings/voyager.jpg 300w" alt="Thule XTENDER" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                <img class="img_main" src="/images/reelings/can.jpg" srcset="/images/reelings/can.jpg 300w" alt="Can" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                <img class="img_main" src="/images/reelings/voyager.jpg" srcset="/images/reelings/voyager.jpg 300w" alt="Voyager" sizes="(max-width: 2000px) 150px, 300px, 350px">
             </div>
             <p class="page__text"><b>Цена 12 500 рублей</b></p>
             <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php"); ?>
