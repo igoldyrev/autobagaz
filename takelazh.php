@@ -65,8 +65,22 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<meta name='description' content='"; echo $keywords[37][description];      echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[37][keywords]; echo "'/>";
 
-            }
-            ?>
+                echo "<h1 class='page__title-h1'>Текстильные стропы</h1>"; ?>
+                <div class="img_div">
+                    <img class="img_main" src="/images/autotuns/textil/1.jpg" srcset="/images/autotuns/textil/1.jpg 4000w" alt="текстильные стропы" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                    <img class="img_main" src="/images/autotuns/textil/2.JPG" srcset="/images/autotuns/textil/2.JPG 4000w" alt="текстильные стропы" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                    <img class="img_main" src="/images/autotuns/textil/3.JPG" srcset="/images/autotuns/textil/3.JPG 4000w" alt="текстильные стропы" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                    <img class="img_main" src="/images/autotuns/textil/4.JPG" srcset="/images/autotuns/textil/4.JPG 4000w" alt="текстильные стропы" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                    <img class="img_main" src="/images/autotuns/textil/5.JPG" srcset="/images/autotuns/textil/5.JPG 4000w" alt="текстильные стропы" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                    <img class="img_main" src="/images/autotuns/textil/6.JPG" srcset="/images/autotuns/textil/6.JPG 4000w" alt="текстильные стропы" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                    <img class="img_main" src="/images/autotuns/textil/7.JPG" srcset="/images/autotuns/textil/7.JPG 4000w" alt="текстильные стропы" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                    <img class="img_main" src="/images/autotuns/textil/8.JPG" srcset="/images/autotuns/textil/8.JPG 4000w" alt="текстильные стропы" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                    <img class="img_main" src="/images/autotuns/textil/9.JPG" srcset="/images/autotuns/textil/9.JPG 4000w" alt="текстильные стропы" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                </div>
+                <p class="page__text">Имеются в наличии стропы с разрывом на 1 т, 2 т, 3 т, 4 т, 5 т, 6 т, 8 т и 10 т. </p>
+                <p class="page__text">Цены на данную продукцию Вы можете узнать <a class="page__link" href="tel:+73422889969">по телефону</a> или заполнив форму ниже на этой же странице.</p> <?php
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } ?>
         </div>
     </div>
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
