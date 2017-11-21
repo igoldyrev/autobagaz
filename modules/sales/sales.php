@@ -27,7 +27,7 @@ echo "<h2 class='page__title-h2 page__title-h2--sales'>Скидки в наше�
                 <span class="price price__sale"><?php echo $sale['price']; ?></span><span class="price price__strike"><?php echo $sale['strike_price']; ?></span>
             </div>
             <div class="sales__item-button">
-                <button class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $sale['id']; ?>">Заказать</a></button>
+                <button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $sale['id']; ?>">Заказать</a></button>
             </div>
         </div>
     </div>
