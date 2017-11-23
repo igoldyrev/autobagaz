@@ -339,11 +339,11 @@ $_SESSION['tovar'] = $tovar; ?>
 		<ul><li class='page__list'>паспорт</li>
 		<li class='page__list'>залоговую сумму (полная стоимость товара, взятого в прокат)</li></ul></li>
 	<li class='page__list'>В нашем магазине-прокате мы оформляем договор проката, квитанцию об оплате и выдаем Вам выбранное багажное оборудование.</li>
-	<li class='page__list'>Чтобы сократить время визита в магазин-вы можете заполнить <a class='page__link' href ="/docs/Договор проката.doc">договор</a> и отправить нам его на электронный адрес <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" class='page__link' href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
+	<li class='page__list'>Чтобы сократить время визита в магазин-вы можете заполнить <a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href ="/docs/Dogovor_prokata.doc">договор</a> и отправить нам его на электронный адрес <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" class='page__link' href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
 </ol>
 <div class="prokat-docs">
-	<i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a class='page__link' href ="/docs/Dogovor_prokata.doc">Скачать договор проката</a><br>
-	<i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a class='page__link' href="/docs/Pravila_ekspluatacii_avtoboksov.doc">Скачать правила эксплуатации автобоксов</a>
+	<i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href ="/docs/Dogovor_prokata.doc">Скачать договор проката</a><br>
+	<i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href="/docs/Pravila_ekspluatacii_avtoboksov.doc">Скачать правила эксплуатации автобоксов</a>
 </div>
 <p class='page__text'>Стоимость дня проката определяется исходя из времени пользования оборудованием:</p>
 <table cellspacing="0" align="center">
@@ -353,7 +353,7 @@ $_SESSION['tovar'] = $tovar; ?>
 <tr><td class="producttable" align="center">От 21 дня</td><td class="producttable" align="center">90 рублей/день</td><td class="producttable" align="center">210 рублей/день</td></tr>
 </table>
 <p class='page__text'>Обращаем ваше внимание, что время проката считается календарными днями. Монтаж/демонтаж багажных систем осуществляется полностью силами арендатора, либо оплачивается отдельно.</p>
-<p class='page__text'>С общими правилами пользования багажным оборудованием можно ознакомиться <a class='page__link' href="/docs/Pravila_ekspluatacii_avtoboksov.doc">здесь</a>.</p></div>
+<p class='page__text'>С общими правилами пользования багажным оборудованием можно ознакомиться <a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href="/docs/Pravila_ekspluatacii_avtoboksov.doc">здесь</a>.</p></div>
     </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html"); ?>
