@@ -34,7 +34,7 @@ mysql_query($sql_users);
 
 if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")){
 
-if (mail("autobagaz@yandex.ru", "Звонок с сайта!!!", 
+if (mail("autobagaz@yandex.ru", "Звонок с сайта!!!",
 "Страница с которой пришло письмо ".$_SESSION['url'].";
 Имя:".$name.";
 Телефон: ".$phone.";
