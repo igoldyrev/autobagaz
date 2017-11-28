@@ -13,7 +13,7 @@ echo "<meta name='keywords' content='"; echo $keywords[29][keywords]; echo "'/>"
             <h1 class="page__title-h1">Наши партнеры</h1>
             <div class="partner">
                 <h2 class="page__title-h2">Магазин AVTOPRICEP59</h2>
-                <p class="partner__text">Сайт: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="http://avtopricep59.ru/" class="partner__link">AVTOPRICEP59</a></p>
+                <p class="partner__text">Сайт: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="http://avtopricep59.ru/" class="partner__link" target="_blank">AVTOPRICEP59</a></p>
                 <p class="partner__text">Почта: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="mailto:PRI6EST@yandex.ru" class="partner__link">PRI6EST@yandex.ru</a></p>
                 <p class="partner__text">Телефон: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="tel:89124998777" class="partner__link">8-912-499-8777</a></p>
                 <p class="partner__text">Адрес: г. Пермь ул. Спешилова, 81</p>
