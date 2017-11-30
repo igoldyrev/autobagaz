@@ -1,5 +1,6 @@
 <?php
 $base_link = "<a class='breadcrumbs__link' href='/'>Главная страница</a>";
+$inno_boxes = "<a class='breadcrumbs__link' href='/inno/inno-boxes'>Автомобильные боксы Inno</a>";
 
 $get_url = $_SERVER['REQUEST_URI'];
 $url_parts = explode( '/', parse_url($get_url, PHP_URL_PATH) );
