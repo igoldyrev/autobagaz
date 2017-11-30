@@ -1189,10 +1189,9 @@ img.logo__img {
     margin: 5px; } }
 
 .breadcrumbs {
-  padding: 5px 0px;
+  padding: 5px 15px;
   display: flex;
   order: 3;
-  margin-top: 5px;
   background-color: #A4A4A4; }
   .breadcrumbs__link {
     font-family: Roboto, sans-serif;
