@@ -156,14 +156,14 @@ RewriteRule ^komissionka index.php?page=komissionka [L]
 RewriteRule ^podbor index.php?page=podbor [L]
 RewriteRule ^contacts index.php?page=contacts [L]
 
-RewriteRule ^yuago autobox?autobox=yuago [L]
-RewriteRule ^turino autobox?autobox=turino [L]
-RewriteRule ^lux autobox?autobox=lux [L]
-RewriteRule ^atlant autobox?autobox=atlant [L]
-RewriteRule ^vetlan autobox?autobox=vetlan [L]
+RewriteRule ^autobox/yuago autobox.php?autobox=yuago [L]
+RewriteRule ^autobox/turino autobox.php?autobox=turino [L]
+RewriteRule ^autobox/lux autobox.php?autobox=lux [L]
+RewriteRule ^autobox/atlant autobox.php?autobox=atlant [L]
+RewriteRule ^autobox/vetlan autobox.php?autobox=vetlan [L]
 
-RewriteRule ^velokreplenya_na_kryshy velokreplenya?velokreplenya=velokreplenya_na_kryshy [L]
-RewriteRule ^velokreplenya_na_farkop velokreplenya?velokreplenya=velokreplenya_na_farkop [L]
+RewriteRule ^velokreplenya/krysha velokreplenya.php?velokreplenya=velokreplenya_na_kryshy [L]
+RewriteRule ^velokreplenya/farkop velokreplenya.php?velokreplenya=velokreplenya_na_farkop [L]
 
 RewriteRule ^guestbook/add guestbook.php?guestbook=add [L]
 
@@ -172,6 +172,6 @@ RewriteRule ^inno/inno-boxes inno.php?inno=inno-boxes [L]
 RewriteRule ^inno/new-shadow inno.php?inno=new-shadow [L]
 RewriteRule ^inno/roofbox inno.php?inno=roofbox [L]
 
-RewriteRule ^textil_strops takelazh.php?takelazh=textil_strops [L]
-RewriteRule ^dynamic_strops takelazh.php?takelazh=dynamic_strops [L]
+RewriteRule ^takelazh/textil_strops takelazh.php?takelazh=textil_strops [L]
+RewriteRule ^takelazh/dynamic_strops takelazh.php?takelazh=dynamic_strops [L]
 
