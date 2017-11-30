@@ -27,5 +27,6 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/modal-calls/modal-calls.html"); ?>
             <span class="proposion__star">*</span><span class="footnote__text">Акция не распространяется на монтаж фаркопов</span>
         </div>
     </div>
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/header-top-nav/header-top-nav.html");?>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/header-top-nav/header-top-nav.html");
+    include ($_SERVER["DOCUMENT_ROOT"]."/modules/breadcrumbs/breadcrumbs.php");?>
 </div>
