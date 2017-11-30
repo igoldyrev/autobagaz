@@ -76,7 +76,7 @@ if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response']){
             "VALUES('{$name}', '{$phone}');";
         mysql_query($sql_users);
 
-        if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['time'])&&$_POST['time']!="")&&(isset($_POST['text'])&&$_POST['text']!="")){
+        if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['time'])&&$_POST['time']!="")){
 
             if (mail("autobagaz@yandex.ru", "Заказ оборудования в прокат", "Заказан товар ".$_SESSION['tovar'].";
     Имя:".$name.";
