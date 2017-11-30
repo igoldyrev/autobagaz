@@ -17,21 +17,21 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Такелажная продукция</h1>";?>
                 <div class="catalog">
                     <div class="catalog__item">
-                        <a href="/dynamic_strops" class="catalog__item-link"></a>
+                        <a href="/takelazh/dynamic_strops" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/dynamic_strops"><img class="item__image-img" src="/images/autotuns/dynamic/1.JPG" alt="динамические стропы"></a>
+                            <a href="/takelazh/dynamic_strops"><img class="item__image-img" src="/images/autotuns/dynamic/1.JPG" alt="динамические стропы"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/dynamic_strops">Динамические стропы</a>
+                            <a href="/takelazh/dynamic_strops">Динамические стропы</a>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="/textil_strops" class="catalog__item-link"></a>
+                        <a href="/takelazh/textil_strops" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/textil_strops"><img class="item__image-img" src="/images/autotuns/textil/3.JPG" alt="текстильные стропы"></a>
+                            <a href="/takelazh/textil_strops"><img class="item__image-img" src="/images/autotuns/textil/3.JPG" alt="текстильные стропы"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/textil_strops">Текстильные стропы</a>
+                            <a href="/takelazh/textil_strops">Текстильные стропы</a>
                         </div>
                     </div>
                 </div> <?php

@@ -22,48 +22,48 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
             echo "<h2 class='page__title-h2'>Варианты автобоксов</h2>"; ?>
             <div class="catalog">
                  <div class="catalog__item">
-                    <a href="/vetlan" class="catalog__item-link"></a>
+                    <a href="/autobox/vetlan" class="catalog__item-link"></a>
                     <div class="item__image">
-                        <a href="/vetlan"><img class="item__image-img" src="/images/logos/vetlan.png" alt="vetlan"></a>
+                        <a href="/autobox/vetlan"><img class="item__image-img" src="/images/logos/vetlan.png" alt="vetlan"></a>
                     </div>
                     <div class="item__link">
-                        <a href="/vetlan">Автобоксы Ветлан (Пермь)</a>
+                        <a href="/autobox/vetlan">Автобоксы Ветлан (Пермь)</a>
                     </div>
                 </div>
                 <div class="catalog__item">
-                    <a href="/atlant" class="catalog__item-link"></a>
+                    <a href="/autobox/atlant" class="catalog__item-link"></a>
                     <div class="item__image">
-                        <a href="/atlant"><img class="item__image-img" src="/images/logos/atlant.png" alt="atlant"></a>
+                        <a href="/autobox/atlant"><img class="item__image-img" src="/images/logos/atlant.png" alt="atlant"></a>
                     </div>
                     <div class="item__link">
-                        <a href="/atlant">Автобоксы Атлант</a>
+                        <a href="/autobox/atlant">Автобоксы Атлант</a>
                     </div>
                 </div>
                 <div class="catalog__item">
-                    <a href="/yuago" class="catalog__item-link"></a>
+                    <a href="/autobox/yuago" class="catalog__item-link"></a>
                     <div class="item__image">
-                        <a href="/yuago"><img class="item__image-img" src="/images/logos/yuago.png" alt="yuago"></a>
+                        <a href="/autobox/yuago"><img class="item__image-img" src="/images/logos/yuago.png" alt="yuago"></a>
                     </div>
                     <div class="item__link">
-                        <a href="/yuago">Автобоксы Yuago</a>
+                        <a href="/autobox/yuago">Автобоксы Yuago</a>
                     </div>
                 </div>
                 <div class="catalog__item">
-                    <a href="/turino" class="catalog__item-link"></a>
+                    <a href="/autobox/turino" class="catalog__item-link"></a>
                     <div class="item__image">
-                        <a href="/turino"><img class="item__image-img" src="/images/logos/turino.jpg" alt="turino"></a>
+                        <a href="/autobox/turino"><img class="item__image-img" src="/images/logos/turino.jpg" alt="turino"></a>
                     </div>
                     <div class="item__link">
-                        <a href="/turino">Автобоксы Турино</a>
+                        <a href="/autobox/turino">Автобоксы Турино</a>
                     </div>
                 </div>
                 <div class="catalog__item">
-                    <a href="/lux" class="catalog__item-link"></a>
+                    <a href="/autobox/lux" class="catalog__item-link"></a>
                     <div class="item__image">
-                        <a href="/lux"><img class="item__image-img" src="/images/logos/lux.png" alt="lux"></a>
+                        <a href="/autobox/lux"><img class="item__image-img" src="/images/logos/lux.png" alt="lux"></a>
                     </div>
                     <div class="item__link">
-                        <a href="/lux">Автобоксы Lux, Россия</a>
+                        <a href="/autobox/lux">Автобоксы Lux, Россия</a>
                     </div>
                 </div>
             </div>

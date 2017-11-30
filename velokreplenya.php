@@ -23,21 +23,21 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
             echo "<p class='page__text'>Условно, все велокрепления можно разделить на несколько типов по способу их установки на автомобиль:</p>"; ?>
             <div class="catalog">
                 <div class="catalog__item catalog__item--velo">
-                    <a href="/velokreplenya_na_kryshy" class="catalog__item-link"></a>
+                    <a href="/velokreplenya/krysha" class="catalog__item-link"></a>
                     <div class="item__image">
-                        <a href="/velokreplenya_na_kryshy"><img class="item__image-img" src="/images/velo/krysha/amos_1.jpg" alt="Велокрепления на крышу"></a>
+                        <a href="/velokreplenya/krysha"><img class="item__image-img" src="/images/velo/krysha/amos_1.jpg" alt="Велокрепления на крышу"></a>
                     </div>
                     <div class="item__link">
-                        <a href="/velokreplenya_na_kryshy">Велокрепления на крышу</a>
+                        <a href="/velokreplenya/krysha">Велокрепления на крышу</a>
                     </div>
                 </div>
                 <div class="catalog__item catalog__item--velo">
-                    <a href="/velokreplenya_na_farkop" class="catalog__item-link"></a>
+                    <a href="/velokreplenya/farkop" class="catalog__item-link"></a>
                     <div class="item__image">
-                        <a href="/velokreplenya_na_farkop"><img class="item__image-img" src="/images/velo/farkop/Thule_Xpress_970_1.jpg" alt="Велокрепления на фаркоп"></a>
+                        <a href="/velokreplenya/farkop"><img class="item__image-img" src="/images/velo/farkop/Thule_Xpress_970_1.jpg" alt="Велокрепления на фаркоп"></a>
                     </div>
                     <div class="item__link">
-                        <a href="/velokreplenya_na_farkop">Велокрепления на фаркоп</a>
+                        <a href="/velokreplenya/farkop">Велокрепления на фаркоп</a>
                     </div>
                 </div>
             </div> <?php
