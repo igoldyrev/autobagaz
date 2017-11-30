@@ -1202,6 +1202,8 @@ img.logo__img {
     padding: 0px 10px; }
     .breadcrumbs__link:first-child {
       padding-left: 0px; }
+    .breadcrumbs__link:hover {
+      text-decoration: underline; }
   .breadcrumbs__text {
     font-family: Roboto, sans-serif;
     font-size: 1em;

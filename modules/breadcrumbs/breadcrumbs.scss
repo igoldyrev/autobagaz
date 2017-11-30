@@ -16,6 +16,9 @@
     &:first-child {
       padding-left: 0px;
     }
+    &:hover {
+      text-decoration: underline;
+    }
   }
   &__text {
     font: {
