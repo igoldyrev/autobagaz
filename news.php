@@ -11,7 +11,6 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
             <?php
             $newspage = $_GET['newspage'];
             if (!isset($newspage)) {
-                include ($_SERVER["DOCUMENT_ROOT"]."/modules/breadcrumbs/breadcrumbs.php");
                 echo "<title> $titleconst"; echo $keywords[25][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[25][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[25][keywords]; echo "'/>";
@@ -85,7 +84,6 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo '</p>';
 
                 } elseif ($newspage == 'postuplenya_amos') {
-                include ($_SERVER["DOCUMENT_ROOT"]."/modules/breadcrumbs/breadcrumbs.php");
                 echo "<title> $titleconst"; echo $news[0][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $news[0][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $news[0][keywords]; echo "'/>"; ?>
