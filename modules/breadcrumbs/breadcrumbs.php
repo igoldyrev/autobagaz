@@ -246,3 +246,50 @@ elseif ($get_url == '/takelazh') { ?>
         <span class="breadcrumbs__text"><?php echo $keywords[37]['title']?></span>
     </div> <?php
 }
+
+//Страницы разделов
+elseif ($get_url == '/prokat') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[2]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/komissionka') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[5]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/guestbook') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[24]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/guestbook/add') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[24]['title']?></a>&#8594;
+        <span class="breadcrumbs__text">Добавление отзыва</span>
+    </div> <?php
+} elseif ($get_url == '/contacts') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[6]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/partners') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[29]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/sitemap') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[23]['title']?></span>
+    </div> <?php
+}
+
+//Галерея
+elseif ($get_url == '/gallery') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[3]['title']?></span>
+    </div> <?php
+}
