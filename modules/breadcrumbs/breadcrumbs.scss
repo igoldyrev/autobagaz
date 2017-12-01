@@ -30,3 +30,14 @@
     padding: 0px 10px;
   }
 }
+@include adaptive(mobile) {
+  .breadcrumbs {
+    flex-wrap: wrap;
+    &__link {
+      font-size: 0.8em;
+    }
+    &__text {
+      font-size: 0.8em;
+    }
+  }
+}
