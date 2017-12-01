@@ -81,7 +81,7 @@ if ($get_url == '/news/postuplenya_amos') { ?>
 } elseif ($get_url == '/podbor') { ?>
     <div class="breadcrumbs">
         <?php echo $base_link; ?>&#8594;
-        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[25]['title']?></a>&#8594;
+        <a class="breadcrumbs__link" href="/news"><?php echo $keywords[25]['title']?></a>&#8594;
         <span class="breadcrumbs__text"><?php echo $keywords[1]['title']?></span>
     </div> <?php
 } elseif ($get_url == '/news/oxota_na_autobagaz') { ?>
