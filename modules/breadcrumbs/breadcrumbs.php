@@ -1,6 +1,7 @@
 <?php
 $base_link = "<a class='breadcrumbs__link' href='/'>Главная страница</a>";
 $inno_boxes = "<a class='breadcrumbs__link' href='/inno/inno-boxes'>Автомобильные боксы Inno</a>";
+$gallery_link = "<a class='breadcrumbs__link' href='/gallery'>Галерея работ</a>";
 
 $get_url = $_SERVER['REQUEST_URI'];
 $url_parts = explode( '/', parse_url($get_url, PHP_URL_PATH) );
@@ -291,5 +292,203 @@ elseif ($get_url == '/gallery') { ?>
     <div class="breadcrumbs">
         <?php echo $base_link; ?>&#8594;
         <span class="breadcrumbs__text"><?php echo $keywords[3]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=xray0303') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada Xray</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=bmwx5') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">BMW X5</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=mazdampv') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Mazda MPV</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=uazpatriot') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">UAZ Patriot</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=wvjetta') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Volkswagen Jetta</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=xtrail') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Nissan X-Trail</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=lada2111') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada 2111</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=ladalargus') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada Largus</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=focus2') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Ford Focus 2</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=seed') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Kia Seed</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=xray0602') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada Xray</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=chevrolet') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Niva Chevrolet</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=kiario') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Kia Rio</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=lada2107') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada 2107</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=lancer') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Mitsubisi Lancer</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=outback') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Subaru Outback</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=21110621') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada 2111</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=polo') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Volkswagen Polo</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=bmwx50621') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">BMW X5</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=nivachevrolet') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Chevrolet Niva</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=lifanx50') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lifan X50</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=renologan') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Reno Logan</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=ladaxray2707') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada Xray</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=rapid2807') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Skoda Rapid</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=ladaxray3007') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada Xray</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=creta0108') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Hyundai Creta</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=cryiser0809') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Toyota Land Cryiser</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=duster0810') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Reno Duster</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=sandero0820') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Reno Sandero</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=ieti0826') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Skoda Ieti</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=ix358831') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Hyundai ix35</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=xray0902') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada Xray</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=mokka0908') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Opel Mokka</span>
     </div> <?php
 }
