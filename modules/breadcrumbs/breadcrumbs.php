@@ -141,6 +141,36 @@ elseif ($get_url == '/autobox') { ?>
         <?php echo $base_link; ?>&#8594;
         <span class="breadcrumbs__text"><?php echo $keywords[8]['title']?></span>
     </div> <?php
+} elseif ($get_url == '/autobox/vetlan') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[8]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[9]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/autobox/atlant') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[8]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[10]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/autobox/yuago') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[8]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[13]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/autobox/turino') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[8]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[14]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/autobox/lux') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[8]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[15]['title']?></span>
+    </div> <?php
 }
 
 //Велокрепления
@@ -148,6 +178,18 @@ elseif ($get_url == '/velokreplenya') { ?>
     <div class="breadcrumbs">
         <?php echo $base_link; ?>&#8594;
         <span class="breadcrumbs__text"><?php echo $keywords[16]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/velokreplenya/krysha') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[16]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[17]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/velokreplenya/farkop') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[16]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[18]['title']?></span>
     </div> <?php
 }
 
@@ -157,6 +199,32 @@ elseif ($get_url == '/inno') { ?>
         <?php echo $base_link; ?>&#8594;
         <span class="breadcrumbs__text"><?php echo $keywords[30]['title']?></span>
     </div> <?php
+} elseif ($get_url == '/inno/inno-basic') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[30]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[31]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/inno/inno-boxes') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[30]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[32]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/inno/roofbox') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[30]['title']?></a>&#8594;
+        <?php echo $inno_boxes; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[34]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/inno/new-shadow') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[30]['title']?></a>&#8594;
+        <?php echo $inno_boxes; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[33]['title']?></span>
+    </div> <?php
 }
 
 //Раздел такелаж
@@ -164,5 +232,17 @@ elseif ($get_url == '/takelazh') { ?>
     <div class="breadcrumbs">
         <?php echo $base_link; ?>&#8594;
         <span class="breadcrumbs__text"><?php echo $keywords[35]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/takelazh/dynamic_strops') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[35]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[36]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/takelazh/textil_strops') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[35]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[37]['title']?></span>
     </div> <?php
 }
