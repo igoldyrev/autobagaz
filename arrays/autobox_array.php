@@ -96,7 +96,7 @@ $yuago = [
 	//Заголовок на странице
 	'name' => 'Аэродинамический Бокс-Багажник (Автобокс) на крышу автомобиля YUAGO(ЯГО) Cosmo 210 объемом 485 литров',
 	//Изображение
-	'img1' => '<img class="img_main" src="images/yuago/yuago.jpg" srcset="images/yuago/yuago.jpg 350w" alt="yuago" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+	'img1' => '<img class="img_main" src="/images/yuago/yuago.jpg" srcset="/images/yuago/yuago.jpg 350w" alt="yuago" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 	//Данные таблицы
 	'size' => '2180 х 730 х 300 мм',
 	'volume' => '485 литров',
