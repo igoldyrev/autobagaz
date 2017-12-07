@@ -127,6 +127,7 @@ RewriteRule ^prokat/xs400 prokat.php?id=xs400
 #Скидки
 RewriteRule ^buy/s1 scripts/buy.php?id=s1
 RewriteRule ^buy/s2 scripts/buy.php?id=s2
+RewriteRule ^buy/s3 scripts/buy.php?id=s3
 #Новости
 RewriteRule ^news/postuplenya_amos news.php?newspage=postuplenya_amos
 RewriteRule ^news/reelings_xray news.php?newspage=reelings_xray

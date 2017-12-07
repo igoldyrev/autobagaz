@@ -3,17 +3,24 @@ $sales = [
 	[
 		'id' => 's1',
 		'name' => 'Велокрепление для одного велосипеда',
-		'img' => '<img itemprop="image" class="sale_img" src="/images/sales/velo-krysha.jpg" alt="Велокрепление на крышу для одного велосипеда">',
+		'img' => '<img class="sale_img" src="/images/sales/velo-krysha.jpg" alt="Велокрепление на крышу для одного велосипеда">',
 		'price' => '1500 рублей ',
 		'strike_price' => '2000 рублей',
 	],
 	[
 		'id' => 's2',
 		'name' => 'Велокрепление на фаркоп',
-		'img' => '<img itemprop="image" class="sale_img" src="/images/sales/velo-farkop.jpg" alt="Велокрепление на фаркоп для трех велосипедов">',
+		'img' => '<img class="sale_img" src="/images/sales/velo-farkop.jpg" alt="Велокрепление на фаркоп для трех велосипедов">',
 		'price' => '3800 рублей ',
 		'strike_price' => '4500 рублей',
 	],
+    [
+        'id' => 's3',
+        'name' => 'Ветлан 550М серый по специальной цене',
+        'img' => '<img class="sale_img" src="/images/sales/vellan-550m-gray.jpg" alt="Ветлан 550М серый">',
+        'price' => '12 000 рублей ',
+        'strike_price' => '14 800 рублей',
+    ],
 ];
 $_SESSION['sales'] = $sales;
 echo "<h2 class='page__title-h2 page__title-h2--sales'>Скидки в нашем магазине!</h2>"; ?>
