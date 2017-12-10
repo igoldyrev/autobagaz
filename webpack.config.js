@@ -6,6 +6,7 @@ var glob = require('glob-all');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurifyCSSPlugin = require('purifycss-webpack');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 var InProduction = (process.env.NODE_ENV === 'production');
 
@@ -33,12 +34,23 @@ module.exports = {
 
             {
                 test: /\.s[ac]ss$/,
-                use: ExtractTextPlugin.extract({
-                    use: ['css-loader', 'sass-loader'],
-                    fallback: 'style-loader'
-
-                })
-
+                use: ExtractTextPlugin.extract(
+                    {
+                        fallback: 'style-loader',
+                        use: [
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    /* minimize: false || { /* CSSNano options /}*/
+                                }
+                            },
+                            {
+                                loader: 'postcss-loader'
+                            },
+                            {
+                                loader: 'sass-loader'
+                            }]
+                    })
             },
 
             {
