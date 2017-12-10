@@ -11,8 +11,8 @@
     margin: 5px 0px;
     padding: 10px;
     box-sizing: border-box;
-    background-color: #F2F2F2;
-    border: 1px solid #F2F2F2;
+    background-color: $bg-color;
+    border: 1px solid $bg-color;
     border-radius: 5px;
     &--index {
       width: 32%;

@@ -4,7 +4,7 @@
   align-content: stretch;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #F2F2F2;
+  background-color: $bg-color;
   margin-bottom: 30px;
     &__item {
       position: relative;
