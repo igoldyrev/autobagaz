@@ -22,7 +22,6 @@
 <link rel="stylesheet" href="../build/autobagaz.css">
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
 
-<script src="../build/autobagaz.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../js/popup.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
