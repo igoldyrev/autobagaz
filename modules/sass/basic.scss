@@ -120,6 +120,32 @@
       transform: rotate(-10deg);
     }
   }
+  //Навигация на страницах
+  &__header {
+    display: flex;
+    background-color: $bg-color;
+    margin-bottom: 20px;
+    &-tab {
+      font: {
+        family: $font;
+        size: 1em;
+        weight: 400;
+      }
+      padding: 10px;
+      margin-right: 30px;
+      cursor: pointer;
+      &--active {
+        border-bottom: 5px solid $subcolor;
+      }
+    }
+  }
+}
+
+.guestbook__tab {
+  display: none;
+    &--active {
+      display: block;
+    }
 }
 
 /* Блок изображений */
