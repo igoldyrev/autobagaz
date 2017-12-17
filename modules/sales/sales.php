@@ -1,18 +1,18 @@
 <?php 
 $sales = [
-	[
+    [
+        'id' => 's2',
+        'name' => 'Велокрепление на фаркоп',
+        'img' => '<img class="sale_img" src="/images/sales/velo-farkop.jpg" alt="Велокрепление на фаркоп для трех велосипедов">',
+        'price' => '3800 рублей ',
+        'strike_price' => '4500 рублей',
+    ],
+    [
 		'id' => 's1',
 		'name' => 'Велокрепление для одного велосипеда',
 		'img' => '<img class="sale_img" src="/images/sales/velo-krysha.jpg" alt="Велокрепление на крышу для одного велосипеда">',
 		'price' => '1500 рублей ',
 		'strike_price' => '2000 рублей',
-	],
-	[
-		'id' => 's2',
-		'name' => 'Велокрепление на фаркоп',
-		'img' => '<img class="sale_img" src="/images/sales/velo-farkop.jpg" alt="Велокрепление на фаркоп для трех велосипедов">',
-		'price' => '3800 рублей ',
-		'strike_price' => '4500 рублей',
 	],
     [
         'id' => 's3',
