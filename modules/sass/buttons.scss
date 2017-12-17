@@ -26,6 +26,9 @@
   }
   &__rewiew {
     background-color: $subcolor;
+    &:hover {
+      background-color: #0B610B;
+    }
   }
   &__buy {
     background-color: $subcolor;
