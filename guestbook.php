@@ -94,7 +94,7 @@ echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"
                             echo '<a class="page__link" href="guestbook.php?page='.$page.'">'.$page.'</a> &nbsp;';
                         }
                     } ?>
-                    <a href="/guestbook/add" class="left-nav__link left-nav__link--rewiew">Добавить отзыв на сайт</a>
+                    <div class="page__header-tab guestbook__tab-add left-nav__link left-nav__link--rewiew">Добавить отзыв на сайт</div>
                     <?php
                 }
                 echo '</p>'; ?></div>
