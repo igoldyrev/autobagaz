@@ -226,6 +226,15 @@ if (!isset($page)) {
     echo $bagazhniki[4][img5];
     echo '</div>'; ?>
     <p class="page__text"><b><?php echo $bagazhniki[4][price]; ?></b></p>
+    <p class="page__text"><?php echo $bagazhniki[5][name]; ?> </p>
+    <div class="img_div"> <?php
+    echo $bagazhniki[5][img1];
+    echo $bagazhniki[5][img2];
+    echo $bagazhniki[5][img3];
+    echo $bagazhniki[5][img4];
+    echo $bagazhniki[5][img5];
+    echo '</div>'; ?>
+    <p class="page__text"><b><?php echo $bagazhniki[5][price]; ?></b></p>
     <?php echo "<h2 class='page__title-h2'>Фаркопы</h2>"; ?>
     <p class="page__text"><?php echo $farkops[0][name];?> </p>
     <div class="img_div"> <?php

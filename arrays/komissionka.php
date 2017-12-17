@@ -52,6 +52,15 @@ $bagazhniki = [
 			/images/komissionka/thule-2.jpg 3000w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="Опоры THULE">',
 			'price' => 'Цена 7000 рублей',
 		],
+        [
+            'id' => '6',
+            'name' => 'Оригинальная багажная система Mont Blanc для автомобиля Chevrolet Aveo, состояние отличное.',
+            'img1' => '<img class="img_main" src="/images/komissionka/mont-blanc-chevrolet-aveo-1.jpg" srcset="
+			/images/komissionka/mont-blanc-chevrolet-aveo-1.jpg 800w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="Mont Blanc">',
+            'img2' => '<img class="img_main" src="/images/komissionka/mont-blanc-chevrolet-aveo-2.jpg" srcset="
+			/images/komissionka/mont-blanc-chevrolet-aveo-2.jpg 800w" sizes="(max-width: 2000px) 150px, 300px, 350px" alt="Mont Blanc">',
+            'price' => 'Цена 7000 рублей',
+        ],
 ];
 $farkops = [
 		[
