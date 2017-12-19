@@ -92,6 +92,12 @@ if ($get_url == '/news/postuplenya_amos') { ?>
         <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[25]['title']?></a>&#8594;
         <span class="breadcrumbs__text"><?php echo $news[13]['title']?></span>
     </div> <?php
+} elseif ($get_url == '/news/rozygryzh_montblanc') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[25]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $news[14]['title']?></span>
+    </div> <?php
 } elseif ($get_url == '/news/1') { ?>
     <div class="breadcrumbs">
         <?php echo $base_link; ?>&#8594;

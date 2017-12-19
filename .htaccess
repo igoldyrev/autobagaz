@@ -142,6 +142,7 @@ RewriteRule ^news/12_june news.php?newspage=12_june
 RewriteRule ^news/cenopad news.php?newspage=cenopad
 RewriteRule ^news/akcia_na_braslets news.php?newspage=akcia_na_braslets
 RewriteRule ^news/oxota_na_autobagaz news.php?newspage=oxota_na_autobagaz
+RewriteRule ^news/rozygryzh_montblanc news.php?newspage=rozygryzh_montblanc
 RewriteRule ^news/1 news.php?page=1
 RewriteRule ^news/2 news.php?page=2
 

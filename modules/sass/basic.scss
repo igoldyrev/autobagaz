@@ -70,6 +70,10 @@
     &--error {
       line-height: 30px;
     }
+    i {
+      margin: 7px 7px 7px 0px;
+      color: $subcolor;
+    }
   }
   &__list {
     font: {

@@ -310,7 +310,28 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     <img class="img_main" src="/images/news/121017/5.jpg" srcset="/images/news/121017/5.jpg 500w" alt="Охота на Autobagaz" sizes="(max-width: 2000px) 150px, 300px, 350px">
                 </div>
                 <?php
-            } ?>
+            } elseif ($newspage == 'rozygryzh_montblanc') {
+                echo "<title> $titleconst"; echo $news[14][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $news[14][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $news[14][keywords]; echo "'/>"; ?>
+            <h1 class="page__title-h1">Розыгрыш лыжных креплений Mont Blanc (для двух пар лыж)</h1>
+            <p class="page__text">Магазин "AutoBagaz" поздравляет вас с наступающим Новым годом!</p>
+            <p class="page__text">Розыгрыш проводится среди покупателей в период с 16.12.17 по 17.01.18 (Телефон для справок: 2-88-99-69)</p>
+            <p class="page__text">Розыгрыш лыжного крепления Mont Blanc состоится <b>30.01.2018</b></p>
+            <h4 class="page__title-h4">Розыгрыш ЗА РЕПОСТ! Разыгрываем три подарка!</h4>
+            <p class="page__text"><i class="fa fa-star" aria-hidden="true"></i>1 место: Сертификат на 1500 рублей.</p>
+            <p class="page__text"><i class="fa fa-star" aria-hidden="true"></i>2 место: Сертификат на 1000 рублей.</p>
+            <p class="page__text"><i class="fa fa-star" aria-hidden="true"></i>3 место: Сертификат на 500 рублей.</p>
+            <h4 class="page__title-h4">Что необходимо для участия в розыгрыше?</h4>
+            <p class="page__text"><i class="fa fa-star" aria-hidden="true"></i>Вступить в группу <a class="page__link" href="https://vk.com/autobagaz" target="_blank">Автобоксы и Багажники | Пермь</a></p>
+            <p class="page__text"><i class="fa fa-star" aria-hidden="true"></i>Сделать репост этой <a class="page__link" href="https://vk.com/wall-86325723_1143" target="_blank">записи</a></p>
+            <p class="page__text"><i class="fa fa-star" aria-hidden="true"></i>Розыгрыш сертификатов состоится <b>09.01.2018</b></p>
+            <p class="page__text">Дорогие друзья, мы рады вступить в новый год вместе с вами! Позвольте поздравить вас с этим замечательным праздником, пожелать здоровья, успехов и благополучия вам и вашим семьям. Чтобы в новом году были новые победы и свершения, исполнялись самые заветные желания. А мы и впредь будем помогать вам идти к своим целям, отдавая лучшее, что у нас есть. Искренне ваш, магазин <a class="page__link" href="/">AutoBagaz.ru</a></p>
+            <p class="page__text">Сертификат дает возможность оплаты до 30% стоимости товаров нашего магазина.</p>
+                <div class="img_div">
+                    <img class="img_main" src="/images/news/191217/montblanc.jpg" srcset="/images/news/191217/montblanc.jpg 300w" alt="Розыгрыш лыжных креплений Mont Blanc" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                </div>
+          <?php  } ?>
         </div>
     </div>
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
