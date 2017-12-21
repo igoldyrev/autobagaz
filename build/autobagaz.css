@@ -548,13 +548,21 @@ td.producttablecaption {
   cursor: pointer; }
   .button__zakaz {
     background-color: #367347; }
+    .button__zakaz:hover {
+      background-color: #0B610B; }
   .button__prokat {
     background-color: #848484; }
+    .button__prokat:hover {
+      background-color: #6E6E6E; }
   .button__help {
     background-color: #DF0101; }
+    .button__help:hover {
+      background-color: #B40404; }
   .button__call {
     background-color: #DF0101;
     width: 450px; }
+    .button__call:hover {
+      background-color: #B40404; }
   .button__rewiew {
     background-color: #367347; }
     .button__rewiew:hover {

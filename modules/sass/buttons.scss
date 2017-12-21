@@ -13,16 +13,28 @@
   cursor: pointer;
   &__zakaz {
     background-color: $subcolor;
+    &:hover {
+      background-color: #0B610B;
+    }
   }
     &__prokat {
       background-color: #848484;
+    &:hover {
+      background-color: #6E6E6E;
+    }
   }
   &__help {
     background-color: $redcolor;
+  &:hover {
+    background-color: #B40404;
+  }
   }
   &__call {
     background-color: $redcolor;
     width: 450px;
+    &:hover {
+      background-color: #B40404;
+    }
   }
   &__rewiew {
     background-color: $subcolor;
