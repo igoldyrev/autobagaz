@@ -65,8 +65,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                                 <p class="page__text"><?php echo $basic['price']; ?></p>
                             </div>
                             <div class="good__price-button">
-                                <button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a href="/buy/<?php echo $basic['id']; ?>" class="button__buy-link">Заказать</a></button>
-                                <button onclick="yaCounter40650914.reachGoal('click_prokat'); return true" class="button__buy button__buy--prokat"><a href="/prokat/<?php echo $basic['id']; ?>" class="button__buy-link">Взять в прокат</a></button>
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $basic['id']; ?>" class="button button__buy" >Заказать</a>
+                                <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $basic['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
                             </div>
                         </div>
                     </div>
@@ -90,8 +90,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                                 <p class="page__text"><?php echo $aero['price']; ?></p>
                             </div>
                             <div class="good__price-button">
-                                <button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a href="/buy/<?php echo $aero['id']; ?>" class="button__buy-link">Заказать</a></button>
-                                <button onclick="yaCounter40650914.reachGoal('click_prokat'); return true" class="button__buy button__buy--prokat"><a href="/prokat/<?php echo $aero['id']; ?>" class="button__buy-link">Взять в прокат</a></button>
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $aero['id']; ?>" class="button button__buy" >Заказать</a>
+                                <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $aero['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
                             </div>
                         </div>
                     </div>
@@ -153,9 +153,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                     <div class="good__price">
                         <div class="good__price-info">
                             <table align="center">
-                                <tr><td class="producttable" align="left">Черный матовый</td><td class="producttable"><?php echo $inno_box[0]['price_black'];?></td><td class="producttable" align="center"><button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[0]['id1']; ?>">Заказать</a></button></td></tr>
-                                <tr><td class="producttable" align="left">Серебристый матовый</td><td class="producttable"><?php echo $inno_box[0]['price_silver'];?></td><td class="producttable" align="center"><button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[0]['id2']; ?>">Заказать</a></button></td></tr>
-                                <tr><td class="producttable" align="left">Белый глянец<td class="producttable"><?php echo $inno_box[0]['price_white'];?></td></td><td class="producttable" align="center"><button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[0]['id3']; ?>">Заказать</a></button></td></tr>
+                                <tr><td class="producttable" align="left">Черный матовый</td><td class="producttable"><?php echo $inno_box[0]['price_black'];?></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[0]['id1']; ?>" class="button button__buy" >Заказать</a></td></tr>
+                                <tr><td class="producttable" align="left">Серебристый матовый</td><td class="producttable"><?php echo $inno_box[0]['price_silver'];?></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[0]['id2']; ?>" class="button button__buy" >Заказать</a></td></tr>
+                                <tr><td class="producttable" align="left">Белый глянец<td class="producttable"><?php echo $inno_box[0]['price_white'];?></td></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[0]['id3']; ?>" class="button button__buy" >Заказать</a></td></tr>
                             </table>
                         </div></div>
                 </div>
@@ -180,7 +180,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                     <div class="good__price">
                         <div class="good__price-info">
                             <table align="center">
-                                <tr><td class="producttable" align="left">Черный матовый</td><td class="producttable"><?php echo $inno_box[1]['price'];?></td><td class="producttable" align="center"><button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[1]['id']; ?>">Заказать</a></button></td></tr>
+                                <tr><td class="producttable" align="left">Черный матовый</td><td class="producttable"><?php echo $inno_box[1]['price'];?></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[1]['id']; ?>" class="button button__buy" >Заказать</a></td></tr>
                             </table>
                         </div></div>
                 </div>
@@ -215,8 +215,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                 <div class="good__price">
                     <div class="good__price-info">
                         <table align="center">
-                            <tr><td class="producttable" align="left">Черный глянец</td><td class="producttable"><?php echo $inno_box[2]['price'];?></td><td class="producttable" align="center"><button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[2]['id1']; ?>">Заказать</a></button></td></tr>
-                            <tr><td class="producttable" align="left">Серый глянец</td><td class="producttable"><?php echo $inno_box[2]['price'];?></td><td class="producttable" align="center"><button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[2]['id2']; ?>">Заказать</a></button></td></tr>
+                            <tr><td class="producttable" align="left">Черный глянец</td><td class="producttable"><?php echo $inno_box[2]['price'];?></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[2]['id1']; ?>" class="button button__buy" >Заказать</a></td></tr>
+                            <tr><td class="producttable" align="left">Серый глянец</td><td class="producttable"><?php echo $inno_box[2]['price'];?></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[2]['id2']; ?>" class="button button__buy" >Заказать</a></td></tr>
                         </table>
                     </div></div>
             </div>
@@ -241,7 +241,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
                 <div class="good__price">
                     <div class="good__price-info">
                         <table align="center">
-                            <tr><td class="producttable" align="left">Белый глянец</td><td class="producttable"><?php echo $inno_box[3]['price'];?></td><td class="producttable" align="center"><button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a class="button__buy-link" href="/buy/<?php echo $inno_box[3]['id']; ?>">Заказать</a></button></td></tr>
+                            <tr><td class="producttable" align="left">Белый глянец</td><td class="producttable"><?php echo $inno_box[3]['price'];?></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[3]['id']; ?>" class="button button__buy" >Заказать</a></td></tr>
                         </table>
                     </div></div>
             </div>

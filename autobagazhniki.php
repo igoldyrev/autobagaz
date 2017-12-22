@@ -33,8 +33,8 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                         <p class="page__text"><?php echo $item['price']; ?></p>
                     </div>
                     <div class="good__price-button">
-                        <button onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" class="button__buy"><a href="/buy/<?php echo $item['id']; ?>" class="button__buy-link">Заказать</a></button>
-                        <button onclick="yaCounter40650914.reachGoal('click_prokat'); return true" class="button__buy button__buy--prokat"><a href="/prokat/<?php echo $item['id']; ?>" class="button__buy-link">Взять в прокат</a></button>
+                        <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                        <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $item['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
                     </div>
                 </div>
             </div>
