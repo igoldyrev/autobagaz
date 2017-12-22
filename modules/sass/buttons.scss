@@ -73,6 +73,9 @@
 @include adaptive(mobile) {
   .button {
     width: 100%;
+    &__buy {
+      width: 150px;
+    }
   }
 }
 

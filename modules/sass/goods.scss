@@ -54,3 +54,14 @@
     }
   }
 }
+@include adaptive(mobile) {
+  .good {
+    padding: 5px;
+    box-sizing: border-box;
+    &__price {
+      &-button {
+        flex-direction: column;
+      }
+    }
+  }
+}
