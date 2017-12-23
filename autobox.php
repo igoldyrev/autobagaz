@@ -58,12 +58,21 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                     </div>
                 </div>
                 <div class="catalog__item">
-                    <a href="/autobox/lux" class="catalog__item-link"></a>
+                        <a href="/autobox/lux" class="catalog__item-link"></a>
+                        <div class="item__image">
+                            <a href="/autobox/lux"><img class="item__image-img" src="/images/logos/lux.png" alt="lux"></a>
+                        </div>
+                        <div class="item__link">
+                            <a href="/autobox/lux">Автобоксы Lux, Россия</a>
+                        </div>
+                </div>
+                <div class="catalog__item">
+                    <a href="/inno/inno-boxes" class="catalog__item-link"></a>
                     <div class="item__image">
-                        <a href="/autobox/lux"><img class="item__image-img" src="/images/logos/lux.png" alt="lux"></a>
+                        <a href="/inno/inno-boxes"><img class="item__image-img" src="/images/logos/inno.jpg" alt="Inno"></a>
                     </div>
                     <div class="item__link">
-                        <a href="/autobox/lux">Автобоксы Lux, Россия</a>
+                        <a href="/inno/inno-boxes">Автобоксы Inno</a>
                     </div>
                 </div>
             </div>
