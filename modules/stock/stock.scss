@@ -1,9 +1,25 @@
 .stock {
+  position: absolute;
+  top: 0;
   display: flex;
   justify-content: space-around;
   padding: 10px;
-  border: 1px solid $subcolor;
-  margin-bottom: 20px;
+  //border: 1px solid $subcolor;
+  box-sizing: border-box;
+  width: 100%;
+  //margin-bottom: 20px;
+  &__bg {
+    position: relative;
+    background: url("/images/stock/bg-1.jpg") no-repeat 50%;
+    background-size: cover;
+    opacity: 0.6;
+    height: 172px;
+    width: 100%;
+  }
+  &__container {
+    position: relative;
+    margin-bottom: 20px;
+  }
   &__title {
     font: {
       family: $font;
@@ -64,6 +80,9 @@
 @include adaptive(mobile) {
   .stock {
     flex-direction: column;
+    &__bg {
+      height: 190px;
+    }
     &__title {
       font-size: 22px;
       line-height: 26px;
