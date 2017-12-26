@@ -5,7 +5,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/admin/connect_news.php"); ?>
 <form action="/admin/guestbook/delete/delete.php" method="post">
 <?php
-$select_sql = "SELECT news_id, news_title, news_link, news_text FROM  news";
+$select_sql = "SELECT * FROM  news";
 $result = mysql_query($select_sql);
 $row = mysql_fetch_array($result);
 do
