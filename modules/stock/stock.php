@@ -26,7 +26,7 @@ while ($row = mysql_fetch_assoc($result))
         <div class="stock__block">
             <h2 class="stock__title"><?php echo $row['news_title'] ?></h2>
             <p class="stock__description"><?php echo $row['news_annotation'] ?></p>
-            <a class="stock__link" href="<?php echo $row['news_link'] ?>">Участвовать в розыгрыше</a>
+            <a onclick="yaCounter40650914.reachGoal('banner_click'); return true" class="stock__link" href="<?php echo $row['news_link'] ?>">Участвовать в розыгрыше</a>
         </div>
         <div class="stock__block">
             <img class="stock__image" src="/images/stock/new-year.jpg">
