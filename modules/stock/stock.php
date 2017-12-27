@@ -22,6 +22,8 @@ if(!$result)
 
 while ($row = mysql_fetch_assoc($result))
 { ?>
+    <div class="stock__container">
+    <div class="stock__bg"></div>
     <div class="stock">
         <div class="stock__block">
             <h2 class="stock__title"><?php echo $row['news_title'] ?></h2>
@@ -31,5 +33,6 @@ while ($row = mysql_fetch_assoc($result))
         <div class="stock__block">
             <img class="stock__image" src="/images/stock/new-year.jpg">
         </div>
-    </div> <?php
+    </div>
+    </div><?php
 }
