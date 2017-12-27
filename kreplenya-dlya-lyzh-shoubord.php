@@ -28,7 +28,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php");
                         <?php echo $lyzhi[0]['img']; ?>
                     </div>
                     <div class="good__text">
-                        <p><?php echo $lyzhi[0]['desc']; ?></p>
+                        <p class="page__text"><?php echo $lyzhi[0]['desc']; ?></p>
                     </div></div>
                 <div class="good__price">
                     <div class="good__price-info">
@@ -46,7 +46,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php");
                         <?php echo $lyzhi[1]['img']; ?>
                     </div>
                     <div class="good__text">
-                        <p><?php echo $lyzhi[1]['desc']; ?></p>
+                        <p class="page__text"><?php echo $lyzhi[1]['desc']; ?></p>
                     </div></div>
                 <div class="good__price">
                     <div class="good__price-info">
@@ -64,7 +64,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php");
                         <?php echo $lyzhi[2]['img']; ?>
                     </div>
                     <div class="good__text">
-                        <p><?php echo $lyzhi[2]['desc']; ?></p>
+                        <p class="page__text"><?php echo $lyzhi[2]['desc']; ?></p>
                     </div></div>
                 <div class="good__price">
                     <div class="good__price-info">
@@ -82,7 +82,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php");
                         <?php echo $lyzhi[3]['img']; ?>
                     </div>
                     <div class="good__text">
-                        <p><?php echo $lyzhi[3]['desc']; ?></p>
+                        <p class="page__text"><?php echo $lyzhi[3]['desc']; ?></p>
                     </div></div>
                 <div class="good__price">
                     <div class="good__price-info">
@@ -100,7 +100,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php");
                         <?php echo $lyzhi[4]['img1']; echo $lyzhi[4]['img2']; echo $lyzhi[4]['img3']; ?>
                     </div>
                     <div class="good__text">
-                        <p><?php echo $lyzhi[4]['desc']; ?></p>
+                        <p class="page__text"><?php echo $lyzhi[4]['desc']; ?></p>
                     </div></div>
                 <div class="good__price">
                     <div class="good__price-info">

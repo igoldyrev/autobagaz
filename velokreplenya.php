@@ -49,7 +49,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
 	$_SESSION['velokrysha'] = $velokrysha;
 	$_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
-	echo "<h1 CLASS='page__title-h1'>Велокрепления на крышу</h1>";
+	echo "<h1 class='page__title-h1'>Велокрепления на крышу</h1>";
 	echo "<p class='page__text'>Пожалуй, самые распространенные в нашей стране. Сложилось это, скорее всего, исторически: перевозка велосипеда на верхнем багажнике – самый «древний» вариант транспортировки велосипедов; вторая причина в том, что многие считают этот вид креплений самым дешевым. Велокрепления этого типа присутствуют в линейке практически каждого производителя автомобильных багажников. Все они монтируются на стандартные поперечины, некоторые только на «классические» прямоугольные, некоторые – еще и на аэродинамические, при помощи хомутов или зажимов. Велосипед устанавливается колесами в специальный профиль, металлический или пластмассовый; колеса фиксируются в нем хомутами либо быстросъемными стропами от перемещения велосипеда вперед-назад и от выскакивания колес из профиля при тряске.</p>"; ?>
 	<div class="good">
 		<h2 class="good__name"><?php echo $velokrysha[0]['name']; ?></h2>
@@ -58,7 +58,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
 			<?php echo $velokrysha[0]['img1']; echo $velokrysha[0]['img2']; ?>
 		</div>
 		<div class="good__text">
-			<p><?php echo $velokrysha[0]['desc']; ?></p>
+			<p class="page__text"><?php echo $velokrysha[0]['desc']; ?></p>
 		</div></div>
 		<div class="good__price">
 			<div class="good__price-info">
@@ -77,7 +77,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
 			<?php echo $velokrysha[1]['img1']; echo $velokrysha[1]['img2']; ?>
 		</div>
 		<div class="good__text">
-			<p><?php echo $velokrysha[1]['desc']; ?></p>
+			<p class="page__text"><?php echo $velokrysha[1]['desc']; ?></p>
 		</div></div>
 		<div class="good__price">
 			<div class="good__price-info">
@@ -122,7 +122,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
 			<?php echo $velokrysha[3]['img1']; echo $velokrysha[3]['img2']; ?>
 		</div>
 		<div class="good__text"  itemprop="description">
-			<p><?php echo $velokrysha[3]['desc']; ?></p>
+			<p class="page__text"><?php echo $velokrysha[3]['desc']; ?></p>
 			<p class="page__text">Особенности Thule ProRide 598:</p>
 			<ul class="page__list">
 				<li>Саморегулирующийся держатель рамы велосипеда позволит легко закрепить велосипед на багажнике;</li>
@@ -136,7 +136,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
 		</div></div>
 		<div class="good__price">
 			<div class="good__price-info">
-			<p><?php echo $velokrysha[3]['price']; ?></p>
+			<p class="page__text"><?php echo $velokrysha[3]['price']; ?></p>
 			</div>
 			<div class="good__price-button">
                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[3]['id']; ?>" class="button button__buy" >Заказать</a>
