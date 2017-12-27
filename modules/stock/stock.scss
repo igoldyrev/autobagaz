@@ -43,7 +43,7 @@
     display: block;
     width: 90%;
     height: 50px;
-    background: linear-gradient(top, $redcolor, #F78181);
+    background: linear-gradient(to bottom, $redcolor, #F78181);
     margin: 0 auto;
     margin-top: 10px;
     text-align: center;
@@ -57,7 +57,7 @@
     color: white;
     border-radius: 25px;
     &:hover {
-      background: linear-gradient(top, $redcolor, #F5A9A9);
+      background: linear-gradient(to bottom, $redcolor, #F5A9A9);
     }
   }
   &__image {
