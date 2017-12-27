@@ -37,7 +37,7 @@
   "browserslist": [
     "> 1%",
     "ie > 9",
-    "last 4 versions",
+    "last 5 versions",
     "iOS >= 9"
   ]
 }
