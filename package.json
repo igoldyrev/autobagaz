@@ -26,7 +26,7 @@
     "jquery": "^3.2.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.9",
-    "purify-css": "^1.2.5",
+    "purify-css": "^1.2.6",
     "purifycss-webpack": "^0.7.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.6",
