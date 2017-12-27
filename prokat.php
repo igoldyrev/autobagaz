@@ -333,13 +333,16 @@ if (!isset($id)) {
 }
 $_SESSION['tovar'] = $tovar; ?>
 <p class='page__text'>Чтобы воспользоваться услугами аренды необходимо сделать несколько простых шагов:</p>
-<ol>
-	<li class='page__list'>Забронируйте багажник, бокс, или любой необходимый аксессуар по телефону, или оставив заявку на сайте (для нас важно, чтобы ваше путешествие ничто не омрачило-выбранное багажное оборудование 100% будет Вас ждать точно в срок)</li>
-	<li class='page__list'>В день аренды необходимо приехать в пункт проката, взяв с собой:
-		<ul><li class='page__list'>паспорт</li>
-		<li class='page__list'>залоговую сумму (полная стоимость товара, взятого в прокат)</li></ul></li>
-	<li class='page__list'>В нашем магазине-прокате мы оформляем договор проката, квитанцию об оплате и выдаем Вам выбранное багажное оборудование.</li>
-	<li class='page__list'>Чтобы сократить время визита в магазин-вы можете заполнить <a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href ="/docs/Dogovor_prokata.doc">договор</a> и отправить нам его на электронный адрес <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" class='page__link' href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
+<ol class="page__decimal">
+	<li>Забронируйте багажник, бокс, или любой необходимый аксессуар по телефону, или оставив заявку на сайте (для нас важно, чтобы ваше путешествие ничто не омрачило-выбранное багажное оборудование 100% будет Вас ждать точно в срок)</li>
+	<li>В день аренды необходимо приехать в пункт проката, взяв с собой:
+		<ul class="page__list">
+            <li>паспорт</li>
+		    <li>залоговую сумму (полная стоимость товара, взятого в прокат)</li>
+        </ul>
+    </li>
+	<li>В нашем магазине-прокате мы оформляем договор проката, квитанцию об оплате и выдаем Вам выбранное багажное оборудование.</li>
+	<li>Чтобы сократить время визита в магазин-вы можете заполнить <a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href ="/docs/Dogovor_prokata.doc">договор</a> и отправить нам его на электронный адрес <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" class='page__link' href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
 </ol>
 <div class="prokat-docs">
 	<i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href ="/docs/Dogovor_prokata.doc">Скачать договор проката</a><br>

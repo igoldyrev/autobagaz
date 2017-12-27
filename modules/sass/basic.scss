@@ -75,7 +75,9 @@
       color: $subcolor;
     }
   }
+  /* Маркированый список */
   &__list {
+    list-style-type: none;
     font: {
       family: $font;
       size: 1em;
@@ -83,10 +85,32 @@
     }
     line-height: 20px;
     margin-left: 30px;
+    & li:before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: $subcolor;
+        margin-right: 5px;
+        display: inline-block;
+        vertical-align: middle;
+      }
     &--sitemap {
       list-style-type: none;
     }
   }
+  /* Нумерованый список */
+  &__decimal {
+    list-style-type: decimal;
+    font: {
+      family: $font;
+      size: 1em;
+      weight: 400;
+    }
+    line-height: 20px;
+    margin-left: 30px;
+  }
+  /* Ссылки */
   &__link {
     font: {
       family: $font;
@@ -99,19 +123,9 @@
         color: $subcolor;
         transition: 0.5s ease-in-out;
       }
-      &::before {
-        content: '';
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background-color: $subcolor;
-        margin-right: 5px;
-        display: inline-block;
-        vertical-align: middle;
-      }
     }
   }
-  /* Зачеркнутый текст */ //
+  /* Зачеркнутый текст */
   &__strike {
     position: relative;
     &::before {
