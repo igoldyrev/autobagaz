@@ -16,6 +16,7 @@ if (!isset($page)) {
     echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>"; ?>
 
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php");
+    include ($_SERVER["DOCUMENT_ROOT"]."/modules/message/message.php");
     include ($_SERVER["DOCUMENT_ROOT"]."/modules/stock/stock.php"); ?>
 
     <div class="catalog">
