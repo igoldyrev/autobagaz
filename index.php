@@ -15,9 +15,8 @@ if (!isset($page)) {
     echo "<meta name='description' content='"; echo $keywords[0][description]; echo "'/>";
     echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>"; ?>
 
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php");
-    include ($_SERVER["DOCUMENT_ROOT"]."/modules/message/message.php");
-    include ($_SERVER["DOCUMENT_ROOT"]."/modules/stock/stock.php"); ?>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/stock/stock.php");
+    include ($_SERVER["DOCUMENT_ROOT"]."/modules/message/message.php"); ?>
 
     <div class="catalog">
         <div class="catalog__item">
@@ -103,7 +102,8 @@ if (!isset($page)) {
         </div>
     </div>
 
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/newslist.php"); ?>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php");
+    include ($_SERVER["DOCUMENT_ROOT"]."/modules/newslist.php"); ?>
 
 
     <h2 class="page__title-h2">Мы работаем со следующими брендами:</h2>
