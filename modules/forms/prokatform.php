@@ -2,7 +2,7 @@
     <form action="/vprokat" method="post" class="form" onsubmit="yaCounter40650914.reachGoal('post_prokat'); return true">
         <span class="form__label">Ваше имя:</span>
         <div class="form__input-block">
-            <input type="text" name="name" required class="form__input" placeholder="Введите Ваше имя">
+            <input type="text" name="name" required autofocus class="form__input" placeholder="Введите Ваше имя">
             <label for="name" class="form__label--shown">Введите Ваше имя</label>
         </div>
         <span class="form__label">Ваш телефон:</span>
