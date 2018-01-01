@@ -25,6 +25,6 @@ while ($row = mysql_fetch_assoc($result))
     <div class="index-message">
         <h2 class="index-message__title"><?php echo $row['title'] ?></h2>
         <p class="index-message__text"><?php echo $row['msg'] ?></p>
-        <p class="index-message__holiday">С наступающими, Вас, праздниками!</p>
+        <p class="index-message__holiday"><?php echo $row['holiday'] ?></p>
     </div><?php
 }
