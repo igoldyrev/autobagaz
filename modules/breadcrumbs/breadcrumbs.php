@@ -260,10 +260,10 @@ elseif ($get_url == '/prokat') { ?>
         <?php echo $base_link; ?>&#8594;
         <span class="breadcrumbs__text"><?php echo $keywords[2]['title']?></span>
     </div> <?php
-} elseif ($get_url == '/komissionka') { ?>
+} elseif ($get_url == '/special-offers') { ?>
     <div class="breadcrumbs">
         <?php echo $base_link; ?>&#8594;
-        <span class="breadcrumbs__text"><?php echo $keywords[5]['title']?></span>
+        <span class="breadcrumbs__text"><?php echo $keywords[38]['title']?></span>
     </div> <?php
 } elseif ($get_url == '/guestbook') { ?>
     <div class="breadcrumbs">
