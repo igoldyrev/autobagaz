@@ -25,6 +25,24 @@ $(function()
         $('.guestbook__tab-rewiew').addClass('page__header-tab--active');
         $('.guestbook__rewiews').addClass('guestbook__tab--active');
     });
+
+    $('.special__tab-komm').click(function()
+    {
+        $('.page__header-tab').removeClass('page__header-tab--active');
+        $('.special__tab').removeClass('special__tab--active');
+
+        $('.special__tab-komm').addClass('page__header-tab--active');
+        $('.special__komm').addClass('special__tab--active');
+    });
+
+    $('.special__tab-sale').click(function()
+    {
+        $('.special__tab-komm').removeClass('page__header-tab--active');
+        $('.special__komm').removeClass('special__tab--active');
+
+        $('.special__tab-sale').addClass('page__header-tab--active');
+        $('.special__sale').addClass('special__tab--active');
+    });
 });
 
 if (window.localStorage) {

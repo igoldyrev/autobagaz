@@ -166,6 +166,13 @@
     }
 }
 
+.special__tab {
+  display: none;
+  &--active {
+    display: block;
+  }
+}
+
 /* Блок изображений */
 img {
   max-width: 100%;
