@@ -154,7 +154,6 @@ RewriteRule ^rewiew scripts/rewiew.php
 RewriteRule ^call scripts/call.php
 
 #Правила для разделов
-RewriteRule ^komissionka index.php?page=komissionka [L]
 RewriteRule ^podbor index.php?page=podbor [L]
 RewriteRule ^contacts index.php?page=contacts [L]
 
@@ -166,8 +165,6 @@ RewriteRule ^autobox/vetlan autobox.php?autobox=vetlan [L]
 
 RewriteRule ^velokreplenya/krysha velokreplenya.php?velokreplenya=velokreplenya_na_kryshy [L]
 RewriteRule ^velokreplenya/farkop velokreplenya.php?velokreplenya=velokreplenya_na_farkop [L]
-
-RewriteRule ^guestbook/add guestbook.php?guestbook=add [L]
 
 RewriteRule ^inno/inno-basic inno.php?inno=inno-basic [L]
 RewriteRule ^inno/inno-boxes inno.php?inno=inno-boxes [L]
