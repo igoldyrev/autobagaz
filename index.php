@@ -102,8 +102,9 @@ if (!isset($page)) {
         </div>
     </div>
 
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php");
-    include ($_SERVER["DOCUMENT_ROOT"]."/modules/newslist.php"); ?>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php"); ?>
+    <a href="/special-offers" class="left-nav left-nav__link left-nav__link--rewiew">Все предложения</a>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/newslist.php"); ?>
 
 
     <h2 class="page__title-h2">Мы работаем со следующими брендами:</h2>
