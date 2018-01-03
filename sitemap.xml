@@ -20,11 +20,6 @@
         <changefreq>weekly</changefreq>
     </url>
     <url>
-        <loc>https://autobagaz.ru/komissionka</loc>
-        <lastmod>2017-09-08T09:28:12+00:00</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
         <loc>https://autobagaz.ru/podbor</loc>
         <lastmod>2017-09-08T09:28:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
@@ -134,6 +129,11 @@
         <changefreq>weekly</changefreq>
     </url>
     <url>
+        <loc>https://autobagaz.ru/news/rozygryzh_montblanc</loc>
+        <lastmod>2017-12-08T09:28:12+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
         <loc>https://autobagaz.ru/inno</loc>
         <lastmod>2017-11-20T09:28:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
@@ -171,6 +171,11 @@
     <url>
         <loc>https://autobagaz.ru/takelazh/textil_strops</loc>
         <lastmod>2017-11-21T09:28:12+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://autobagaz.ru/special-offers</loc>
+        <lastmod>2018-01-04T09:28:12+00:00</lastmod>
         <changefreq>weekly</changefreq>
     </url>
 </urlset>
