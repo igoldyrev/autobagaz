@@ -15,7 +15,7 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
                 <div class="page__header-tab special__tab-komm">Комиссионные товары</div>
             </div>
             <div class="special__tab special__sale special__tab--active">
-                Sale
+               <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/sales/sales.php"); ?>
             </div>
 
             <div class="special__tab special__komm">
@@ -34,7 +34,7 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
                 mysql_query ("SET NAMES utf8");
 
                 // Количество записей на странице
-                $on_page = 10;
+                $on_page = 30;
 
                 // Получаем количество записей таблицы
                 $query = "SELECT COUNT(*) FROM `bagazhniki`";
@@ -84,11 +84,103 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
                     echo '</div>';
                 }
 
+                echo "<h2 class='page__title-h2'>Фаркопы</h2>";
+                // Получаем количество записей таблицы
+                $query = "SELECT COUNT(*) FROM `farkops`";
+                $res = mysql_query($query);
+                $count_records = mysql_fetch_row($res);
+                $count_records = $count_records[0];
 
+                // Получаем количество страниц
+                // Делим количество всех записей на количество записей на странице
+                // и округляем в большую сторону
+                $num_pages = ceil($count_records / $on_page);
 
-                ?>
+                // Текущая страница из GET-параметра page
+                // Если параметр не определен, то текущая страница равна 1
+                $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
+                // Если текущая страница меньше единицы, то страница равна 1
+                if ($current_page < 1)
+                {
+                    $current_page = 1;
+                }
+                // Если текущая страница больше общего количества страница, то
+                // текущая страница равна количеству страниц
+                elseif ($current_page > $num_pages)
+                {
+                    $current_page = $num_pages;
+                }
 
+                // Начать получение данных от числа (текущая страница - 1) * количество записей на странице
+                $start_from = ($current_page - 1) * $on_page;
+
+                // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
+                $query = "SELECT `fs_id`, `fs_name`, `fs_img1`, `fs_img2`, `fs_img3`, `fs_img4`, `fs_img5`, `fs_price` FROM `farkops` ORDER BY `fs_id` ASC LIMIT $start_from, $on_page";
+                $res = mysql_query($query);
+
+                // Вывод результатов
+                while ($row = mysql_fetch_assoc($res))
+                {
+                    echo '<div class="good">';
+                        echo '<h2 class="good__name">'.$row['fs_name'].'</h2>';
+                            echo '<div class="good__description">';
+                                echo '<div class="img_div">';
+                                    echo $row['fs_img1']; echo $row['fs_img2']; echo $row['fs_img3']; echo $row['fs_img4']; echo $row['fs_img5'];
+                                echo '</div>';
+                            echo '</div>';
+                    echo '<p class="page__text">Цена '.$row['fs_price'].' рублей.</p>';
+                    echo '</div>';
+                }
+
+                echo "<h2 class='page__title-h2'>Корзины</h2>";
+                // Получаем количество записей таблицы
+                $query = "SELECT COUNT(*) FROM `korzins`";
+                $res = mysql_query($query);
+                $count_records = mysql_fetch_row($res);
+                $count_records = $count_records[0];
+
+                // Получаем количество страниц
+                // Делим количество всех записей на количество записей на странице
+                // и округляем в большую сторону
+                $num_pages = ceil($count_records / $on_page);
+
+                // Текущая страница из GET-параметра page
+                // Если параметр не определен, то текущая страница равна 1
+                $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+                // Если текущая страница меньше единицы, то страница равна 1
+                if ($current_page < 1)
+                {
+                    $current_page = 1;
+                }
+                // Если текущая страница больше общего количества страница, то
+                // текущая страница равна количеству страниц
+                elseif ($current_page > $num_pages)
+                {
+                    $current_page = $num_pages;
+                }
+
+                // Начать получение данных от числа (текущая страница - 1) * количество записей на странице
+                $start_from = ($current_page - 1) * $on_page;
+
+                // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
+                $query = "SELECT `ks_id`, `ks_name`, `ks_img1`, `ks_img2`, `ks_img3`, `ks_img4`, `ks_img5`, `ks_price` FROM `korzins` ORDER BY `ks_id` ASC LIMIT $start_from, $on_page";
+                $res = mysql_query($query);
+
+                // Вывод результатов
+                while ($row = mysql_fetch_assoc($res))
+                {
+                    echo '<div class="good">';
+                        echo '<h2 class="good__name">'.$row['ks_name'].'</h2>';
+                            echo '<div class="good__description">';
+                                echo '<div class="img_div">';
+                                    echo $row['ks_img1']; echo $row['ks_img2']; echo $row['ks_img3']; echo $row['ks_img4']; echo $row['ks_img5'];
+                                echo '</div>';
+                            echo '</div>';
+                    echo '<p class="page__text">Цена '.$row['ks_price'].' рублей.</p>';
+                    echo '</div>';
+                } ?>
             </div>
         </div>
     </div>
