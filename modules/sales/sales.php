@@ -23,7 +23,7 @@ $sales = [
     ],
 ];
 $_SESSION['sales'] = $sales;
-echo "<h2 class='page__title-h2 page__title-h2--sales'>Скидки в нашем магазине!</h2>"; ?>
+echo "<h2 class='page__title-h2 page__title-h2--sales'>Специальные предложения</h2>"; ?>
 <div class="sales">
     <?php foreach ($sales as $sale): ?>
     <div class="sales__item">
