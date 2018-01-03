@@ -1,7 +1,7 @@
 <?php
 $dbname = "9082410193_zakaz";
 
-require_once ("/modules/connectdb.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php");
 
 $query = "SELECT * FROM guestbook ORDER BY id DESC LIMIT 5"; // запрос на выборку
 
