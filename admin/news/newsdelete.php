@@ -1,24 +1,33 @@
 <?php echo "<title>Выбор новости для удаления</title>";
-echo "<h1>Выбор новости для удаления</h1>";
+include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html"); ?>
 
-$dbname = "9082410193_news";
+<div class="admin__container">
+    <h1 class='page__title-h1'>Выбор новости для удаления</h1>
 
-include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php");
+    <?php
+    $dbname = "9082410193_news";
 
+    include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php"); ?>
 
-?>
-<form action="/admin/news/delete.php" method="post">
-<?php
-$select_sql = "SELECT * FROM  news";
-$result = mysqli_query($connect, $select_sql);
-$row = mysqli_fetch_array($result);
-do
-{
-printf("<input type='radio' name='news' value='%s'>%s<br/><br/>", $row['news_id'], $row['news_title']);	
-}
-while($row = mysqli_fetch_array($result))
-?>
-<input type="submit" value="Удалить новость с сайта">
-</form>
-<a href="/admin/index.php">Вернуться на главную админки</a>
+    <div class="form__container">
+        <form action="/admin/news/delete.php" method="post">
+
+            <?php
+            $select_sql = "SELECT * FROM  news";
+            $result = mysqli_query($connect, $select_sql);
+            $row = mysqli_fetch_array($result);
+
+            do
+            {
+                printf("<div class='admin__item'><input class='admin__radio' type='radio' name='news' value='%s'>%s", $row['news_id'], '<span class="page__text">'.$row['news_title'].'</span></div>');
+            }
+            while($row = mysqli_fetch_array($result))
+            ?>
+
+            <input class="button button__zakaz" type="submit" value="Удалить новость с сайта">
+        </form>
+    </div>
+    <div class="admin__link-down clearfix">
+        <a class="admin__link" href="/admin/index.php">Вернуться на главную админки</a>
+    </div>
+</div>
