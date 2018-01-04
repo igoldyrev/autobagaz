@@ -1,18 +1,23 @@
 <?php echo "<title>Выбор новости для удаления</title>";
 echo "<h1>Выбор новости для удаления</h1>";
 
+$dbname = "9082410193_news";
+
 include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/admin/connect_news.php"); ?>
-<form action="/admin/guestbook/delete/delete.php" method="post">
+include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php");
+
+
+?>
+<form action="/admin/news/delete.php" method="post">
 <?php
 $select_sql = "SELECT * FROM  news";
-$result = mysql_query($select_sql);
-$row = mysql_fetch_array($result);
+$result = mysqli_query($connect, $select_sql);
+$row = mysqli_fetch_array($result);
 do
 {
 printf("<input type='radio' name='news' value='%s'>%s<br/><br/>", $row['news_id'], $row['news_title']);	
 }
-while($row = mysql_fetch_array($result))
+while($row = mysqli_fetch_array($result))
 ?>
 <input type="submit" value="Удалить новость с сайта">
 </form>
