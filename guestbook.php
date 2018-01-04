@@ -19,19 +19,17 @@ echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"
                 <p class="page__text">На данной странице Вы можете оставить отзыв о нашей проделанной работе, либо написать нам какие-либо пожелания. А также посмотреть другие отзывы о нас.</p>
                 <?php
                 // Соединение с БД MySQL
-                $sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
-                mysql_select_db('9082410193_zakaz', $sql);
+                $dbname = "9082410193_zakaz";
 
-                mysql_query ("set_client='utf8'");//Следующие 2 строки решают проблему с кодировкой.
-                mysql_query ("SET NAMES utf8");
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php");
 
-                // Количество новостей на странице
+                // Количество записей на странице
                 $on_page = 10;
 
                 // Получаем количество записей таблицы
-                $query = "SELECT COUNT(*) FROM `guestbook`";
-                $res = mysql_query($query);
-                $count_records = mysql_fetch_row($res);
+                $query = "SELECT COUNT(*) FROM guestbook";
+                $res = mysqli_query($connect, $query);
+                $count_records = mysqli_fetch_row($res);
                 $count_records = $count_records[0];
 
                 // Получаем количество страниц
@@ -60,7 +58,7 @@ echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"
 
                 // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
                 $query = "SELECT `name`, `phone`, `rewiew` FROM `guestbook` ORDER BY `id` DESC LIMIT $start_from, $on_page";
-                $res = mysql_query($query);
+                $res = mysqli_query($connect, $query);
 
                 if ($count_records == 0) {
                     echo '<div class="good_message">';
@@ -69,7 +67,7 @@ echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"
                 } elseif ($count_records <> 0){
 
                     // Вывод результатов
-                    while ($row = mysql_fetch_assoc($res))
+                    while ($row = mysqli_fetch_assoc($res))
                     {
                         echo '<div class="rewiew">';
                         echo '<div class="rewiew__name">';
