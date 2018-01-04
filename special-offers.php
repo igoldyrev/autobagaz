@@ -27,19 +27,17 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
                 echo "<h2 class='page__title-h2'>Автомобильные багажники</h2>";
 
                 // Соединение с БД MySQL
-                $sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
-                mysql_select_db('9082410193_komm', $sql);
+                $dbname = "9082410193_komm";
 
-                mysql_query ("set_client='utf8'");//Следующие 2 строки решают проблему с кодировкой.
-                mysql_query ("SET NAMES utf8");
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php");
 
                 // Количество записей на странице
                 $on_page = 30;
 
                 // Получаем количество записей таблицы
                 $query = "SELECT COUNT(*) FROM `bagazhniki`";
-                $res = mysql_query($query);
-                $count_records = mysql_fetch_row($res);
+                $res = mysqli_query($connect, $query);
+                $count_records = mysqli_fetch_row($res);
                 $count_records = $count_records[0];
 
                 // Получаем количество страниц
@@ -67,11 +65,11 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
                 $start_from = ($current_page - 1) * $on_page;
 
                 // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
-                $query = "SELECT `bg_id`, `bg_name`, `bg_img1`, `bg_img2`, `bg_img3`, `bg_img4`, `bg_img5`, `bg_price` FROM `bagazhniki` ORDER BY `bg_id` ASC LIMIT $start_from, $on_page";
-                $res = mysql_query($query);
+                $query = "SELECT * FROM `bagazhniki` ORDER BY `bg_id` ASC LIMIT $start_from, $on_page";
+                $res = mysqli_query($connect, $query);
 
                 // Вывод результатов
-                while ($row = mysql_fetch_assoc($res))
+                while ($row = mysqli_fetch_assoc($res))
                 {
                     echo '<div class="good">';
                         echo '<h2 class="good__name">'.$row['bg_name'].'</h2>';
@@ -87,8 +85,8 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
                 echo "<h2 class='page__title-h2'>Фаркопы</h2>";
                 // Получаем количество записей таблицы
                 $query = "SELECT COUNT(*) FROM `farkops`";
-                $res = mysql_query($query);
-                $count_records = mysql_fetch_row($res);
+                $res = mysqli_query($connect, $query);
+                $count_records = mysqli_fetch_row($res);
                 $count_records = $count_records[0];
 
                 // Получаем количество страниц
@@ -116,11 +114,11 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
                 $start_from = ($current_page - 1) * $on_page;
 
                 // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
-                $query = "SELECT `fs_id`, `fs_name`, `fs_img1`, `fs_img2`, `fs_img3`, `fs_img4`, `fs_img5`, `fs_price` FROM `farkops` ORDER BY `fs_id` ASC LIMIT $start_from, $on_page";
-                $res = mysql_query($query);
+                $query = "SELECT * FROM `farkops` ORDER BY `fs_id` ASC LIMIT $start_from, $on_page";
+                $res = mysqli_query($connect, $query);
 
                 // Вывод результатов
-                while ($row = mysql_fetch_assoc($res))
+                while ($row = mysqli_fetch_assoc($res))
                 {
                     echo '<div class="good">';
                         echo '<h2 class="good__name">'.$row['fs_name'].'</h2>';
@@ -136,8 +134,8 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
                 echo "<h2 class='page__title-h2'>Корзины</h2>";
                 // Получаем количество записей таблицы
                 $query = "SELECT COUNT(*) FROM `korzins`";
-                $res = mysql_query($query);
-                $count_records = mysql_fetch_row($res);
+                $res = mysqli_query($connect, $query);
+                $count_records = mysqli_fetch_row($res);
                 $count_records = $count_records[0];
 
                 // Получаем количество страниц
@@ -165,11 +163,11 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
                 $start_from = ($current_page - 1) * $on_page;
 
                 // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
-                $query = "SELECT `ks_id`, `ks_name`, `ks_img1`, `ks_img2`, `ks_img3`, `ks_img4`, `ks_img5`, `ks_price` FROM `korzins` ORDER BY `ks_id` ASC LIMIT $start_from, $on_page";
-                $res = mysql_query($query);
+                $query = "SELECT * FROM `korzins` ORDER BY `ks_id` ASC LIMIT $start_from, $on_page";
+                $res = mysqli_query($connect, $query);
 
                 // Вывод результатов
-                while ($row = mysql_fetch_assoc($res))
+                while ($row = mysqli_fetch_assoc($res))
                 {
                     echo '<div class="good">';
                         echo '<h2 class="good__name">'.$row['ks_name'].'</h2>';
