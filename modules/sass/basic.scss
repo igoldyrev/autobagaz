@@ -173,6 +173,14 @@
   }
 }
 
+.clearfix {
+  &:after  {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 /* Блок изображений */
 img {
   max-width: 100%;
