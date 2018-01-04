@@ -15,25 +15,28 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<meta name='description' content='"; echo $keywords[25][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[25][keywords]; echo "'/>";
                 // Соединение с БД MySQL
-                $sql = mysql_connect('localhost', '9082410193', 'GfhjkmDatabase');
-                mysql_select_db('9082410193_news', $sql);
+                $dbname = "9082410193_news";
 
-                mysql_query ("set_client='utf8'");//Следующие 2 строки решают проблему с кодировкой.
-                mysql_query ("SET NAMES utf8");
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php");
+
                 // Количество новостей на странице
                 $on_page = 10;
-                // Получаем количество записей таблицы news.scss
-                $query = "SELECT COUNT(*) FROM `news`";
-                $res = mysql_query($query);
-                $count_records = mysql_fetch_row($res);
+
+                // Получаем количество записей таблицы news
+                $query = "SELECT COUNT(*) FROM news";
+                $res = mysqli_query($connect, $query);
+                $count_records = mysqli_fetch_row($res);
                 $count_records = $count_records[0];
+
                 // Получаем количество страниц
                 // Делим количество записей на количество новостей на странице
                 // и округляем в большую сторону
                 $num_pages = ceil($count_records / $on_page);
+
                 // Текущая страница из GET-параметра page
                 // Если параметр не определен, то текущая страница равна 1
                 $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
                 // Если текущая страница меньше единицы, то страница равна 1
                 if ($current_page < 1)
                 {
@@ -48,13 +51,13 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 // Начать получение данных от числа (текущая страница - 1) * количество записей на странице
                 $start_from = ($current_page - 1) * $on_page;
                 // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
-                $query = "SELECT `news_title`, `news_link`, `news_annotation`, `news_author`, `news_date` FROM `news` ORDER BY `news_date` DESC LIMIT $start_from, $on_page";
-                $res = mysql_query($query);
+                $query = "SELECT * FROM `news` ORDER BY `news_date` DESC LIMIT $start_from, $on_page";
+                $res = mysqli_query($connect, $query);
 
                 // Вывод результатов
 
                 echo "<div class='news'>";
-                while ($row = mysql_fetch_assoc($res))
+                while ($row = mysqli_fetch_assoc($res))
                 {
                     echo "<div class='news__item'>";
                     echo "<div class='news__info'>";
