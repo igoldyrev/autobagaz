@@ -1,12 +1,24 @@
 .admin {
   position: relative;
   display: block;
-  width: 70%;
-  margin: 15px auto;
-  padding: 10px;
+  margin: 20px auto;
+  padding: 15px;
   border: 1px solid #D8D8D8;
+  &__container {
+    width: 70%;
+    margin: 10px auto 0;
+  }
+  &__item {
+    margin: 10px 0;
+    padding: 5px;
+  }
+  &__radio {
+    margin-right: 10px;
+  }
   &__link {
     display: block;
+    float: left;
+    clear: both;
     font: {
       family: $font;
       size: 1em;
@@ -15,8 +27,15 @@
     color: #000000;
     line-height: 25px;
     text-decoration: none;
+    &-down {
+      margin: 15px 0;
+      padding: 10px;
+      border: 1px solid #D8D8D8;
+    }
     &--back {
-      text-align: center;
+      float: none;
+      width: 300px;
+      margin: 0 auto;
     }
     &:hover {
       color: $subcolor;
