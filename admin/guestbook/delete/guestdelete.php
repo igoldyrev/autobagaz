@@ -1,19 +1,31 @@
 <?php echo "<title>Выбор отзыва для удаления</title>";
-echo "<h1>Выбор отзыва для удаления</h1>";
+include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html"); ?>
 
-include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/admin/connect.php"); ?>
-<form action="/admin/guestbook/delete/delete.php" method="post">
-<?php
-$select_sql = "SELECT id, name, phone, rewiew FROM guestbook";
-$result = mysql_query($select_sql);
-$row = mysql_fetch_array($result);
-do
-{
-printf("<input type='radio' name='rewiew' value='%s'>%s<br/><br/>", $row['id'], $row['name']);	
-}
-while($row = mysql_fetch_array($result))
-?>
-<input type="submit" value="Удалить отзыв">
-</form>
-<a href="/admin/index.php">Вернуться на главную админки</a>
+<div class="admin__container">
+    <h1 class="page__title-h1">Выбор отзыва для удаления</h1>
+
+    <?php
+    $dbname = "9082410193_zakaz";
+
+    include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php"); ?>
+
+    <div class="form__container">
+        <form action="/admin/guestbook/delete/delete.php" method="post">
+            <?php
+            $select_sql = "SELECT id, name, phone, rewiew FROM guestbook";
+            $result = mysqli_query($connect, $select_sql);
+            $row = mysqli_fetch_array($result);
+
+            do
+            {
+                printf("<div class='admin__item'><input class='admin__radio' type='radio' name='rewiew' value='%s'>%s", $row['id'], '<span class="page__text">'.$row['name'].'</span></div>');
+            }
+            while($row = mysqli_fetch_array($result))
+            ?>
+            <input class="button button__zakaz" type="submit" value="Удалить отзыв">
+        </form>
+    </div>
+    <div class="admin__link-down clearfix">
+        <a class="admin__link" href="/admin/index.php">Вернуться на главную админки</a>
+    </div>
+</div>
