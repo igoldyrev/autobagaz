@@ -12,6 +12,12 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
     </div>
 
     <div class="admin clearfix">
+        <?php echo "<h3 class='page__title-h3'>Панель управления обьявлением</h3>"; ?>
+        <p class="page__text">Это та запись на главной странице, в которой говорится, что мы не работаем тогда-то...</p>
+        <a class="admin__link" href="/admin/message/update/msgupdate.php">Редактировать обьявление</a>
+    </div>
+
+    <div class="admin clearfix">
         <?php echo "<h3 class='page__title-h3'>Панель управления новостями</h3>"; ?>
         <a class="admin__link" href="/admin/news/newsdelete.php">Удалить новости</a>
     </div>
