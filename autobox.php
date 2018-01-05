@@ -309,78 +309,203 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                     <div class="img_div">
                         <?php echo $vetlan[0]['img1']; echo $vetlan[0]['img2']; echo $vetlan[0]['img3']; echo $vetlan[0]['img4']; ?>
                     </div>
-                    <table cellspacing="0" align="center">
-                        <tr><td class="producttablecaption" align="left">Характеристики</td><td class="producttablecaption" align="center">Значение</td><td class="producttablecaption"></td></tr>
-                        <tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $vetlan[0]['size']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $vetlan[0]['volume']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Материал</td><td class="producttable" align="center"><?php echo $vetlan[0]['material']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Крепление</td><td class="producttable" align="center"><?php echo $vetlan[0]['clamp']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Замок</td><td class="producttable" align="center"><?php echo $vetlan[0]['lock']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Варианты цветов</td><td class="producttable" align="center"><?php echo $vetlan[0]['color']; ?></td></tr>
-                    </table>
+                   <div class="table">
+                       <div class="table__column"></div>
+                       <ul class="table__header">
+                           <li class="table__cell">Характеристики</li>
+                           <li class="table__cell">Значение</li>
+                       </ul>
+                       <ul class="table__row">
+                           <li class="table__cell">Размер</li>
+                           <li class="table__cell"><?php echo $vetlan[0]['size']; ?></li>
+                       </ul>
+                       <ul class="table__row">
+                           <li class="table__cell">Литраж</li>
+                           <li class="table__cell"><?php echo $vetlan[0]['volume']; ?></li>
+                       </ul>
+                       <ul class="table__row">
+                           <li class="table__cell">Материал</li>
+                           <li class="table__cell"><?php echo $vetlan[0]['material']; ?></li>
+                       </ul>
+                       <ul class="table__row">
+                           <li class="table__cell">Крепление</li>
+                           <li class="table__cell"><?php echo $vetlan[0]['clamp']; ?></li>
+                       </ul>
+                       <ul class="table__row">
+                           <li class="table__cell">Замок</li>
+                           <li class="table__cell"><?php echo $vetlan[0]['lock']; ?></li>
+                       </ul>
+                       <ul class="table__row">
+                           <li class="table__cell">Варианты цветов</li>
+                           <li class="table__cell"><?php echo $vetlan[0]['color']; ?></li>
+                       </ul>
+                   </div>
                     <div class="good__description"> <?php
                         echo "<p class='page__text'>"; echo $vetlan[0]['desc1']; echo "</p>";
                         echo "<p class='page__text'>"; echo $vetlan[0]['desc2']; echo "</p>"; ?></div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <table align="center">
-                                <tr><td class="producttable" align="left"><b><?php echo "Черный: "; echo $vetlan[0]['price_black']; ?></b></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[0]['id1']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[0]['id1']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a></td></tr>
-                                <tr><td class="producttable" align="left"><b><?php echo "Серый: "; echo $vetlan[0]['price_gray']; ?></b></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[0]['id2']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[0]['id2']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a></td></tr>
-                                <tr><td class="producttable" align="left"><b><?php echo "Белый: "; echo $vetlan[0]['price_white']; ?></b></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[0]['id3']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[0]['id3']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a></td></tr>
-                            </table>
-                        </div></div></div>
-
+                            <p class="page__text"><?php echo "Черный: "; echo $vetlan[0]['price_black']; ?></p>
+                        </div>
+                        <div class="good__price-button">
+                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[0]['id1']; ?>" class="button button__buy" >Заказать</a>
+                            <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[0]['id1']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                        </div>
+                    </div>
+                   <div class="good__price">
+                       <div class="good__price-info">
+                           <p class="page__text"><?php echo "Серый: "; echo $vetlan[0]['price_gray']; ?></p>
+                       </div>
+                       <div class="good__price-button">
+                           <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[0]['id2']; ?>" class="button button__buy" >Заказать</a>
+                           <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[0]['id2']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                       </div>
+                   </div>
+                   <div class="good__price">
+                       <div class="good__price-info">
+                           <p class="page__text"><?php echo "Белый: "; echo $vetlan[0]['price_white']; ?></p>
+                       </div>
+                       <div class="good__price-button">
+                           <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[0]['id3']; ?>" class="button button__buy" >Заказать</a>
+                           <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[0]['id3']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                       </div>
+                   </div>
+               </div>
                 <div class="good"> <?php
                     echo "<h2 class='good__name'>"; echo $vetlan[1]['title']; echo "</h2>"; ?>
                     <div class="img_div">
                         <?php echo $vetlan[1]['img1']; echo $vetlan[1]['img2']; echo $vetlan[1]['img3']; echo $vetlan[1]['img4']; ?>
                     </div>
-                    <table cellspacing="0" align="center">
-                        <tr><td class="producttablecaption" align="left">Характеристики</td><td class="producttablecaption" align="center">Значение</td><td class="producttablecaption"></td></tr>
-                        <tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $vetlan[1]['size']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $vetlan[1]['volume']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Материал</td><td class="producttable" align="center"><?php echo $vetlan[1]['material']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Крепление</td><td class="producttable" align="center"><?php echo $vetlan[1]['clamp']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Замок</td><td class="producttable" align="center"><?php echo $vetlan[1]['lock']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Варианты цветов</td><td class="producttable" align="center"><?php echo $vetlan[1]['color']; ?></td></tr>
-                    </table>
+                    <div class="table">
+                        <div class="table__column"></div>
+                        <ul class="table__header">
+                            <li class="table__cell">Характеристики</li>
+                            <li class="table__cell">Значение</li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Размер</li>
+                            <li class="table__cell"><?php echo $vetlan[1]['size']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Литраж</li>
+                            <li class="table__cell"><?php echo $vetlan[1]['volume']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Материал</li>
+                            <li class="table__cell"><?php echo $vetlan[1]['material']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Крепление</li>
+                            <li class="table__cell"><?php echo $vetlan[1]['clamp']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Замок</li>
+                            <li class="table__cell"><?php echo $vetlan[1]['lock']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Варианты цветов</li>
+                            <li class="table__cell"><?php echo $vetlan[1]['color']; ?></li>
+                        </ul>
+                    </div>
                     <div class="good__description"> <?php
                         echo "<p class='page__text'>"; echo $vetlan[1]['desc1']; echo "</p>";
                         echo "<p class='page__text'>"; echo $vetlan[1]['desc2']; echo "</p>"; ?></div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <table align="center">
-                                <tr><td class="producttable" align="left"><b><?php echo "Черный: "; echo $vetlan[1]['price_black']; ?></b></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[1]['id1']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[1]['id1']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a></td></tr>
-                                <tr><td class="producttable" align="left"><b><?php echo "Серый: "; echo $vetlan[1]['price_gray']; ?></b></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[1]['id2']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[1]['id2']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a></td></tr>
-                                <tr><td class="producttable" align="left"><b><?php echo "Белый: "; echo $vetlan[1]['price_white']; ?></b></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[1]['id3']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[1]['id3']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a></td></tr>
-                            </table>
-                        </div></div></div>
+                            <p class="page__text"><?php echo "Черный: "; echo $vetlan[1]['price_black']; ?></p>
+                        </div>
+                        <div class="good__price-button">
+                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[1]['id1']; ?>" class="button button__buy" >Заказать</a>
+                            <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[1]['id1']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                        </div>
+                    </div>
+                    <div class="good__price">
+                        <div class="good__price-info">
+                            <p class="page__text"><?php echo "Серый: "; echo $vetlan[1]['price_gray']; ?></p>
+                        </div>
+                        <div class="good__price-button">
+                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[1]['id2']; ?>" class="button button__buy" >Заказать</a>
+                            <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[1]['id2']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                        </div>
+                    </div>
+                    <div class="good__price">
+                        <div class="good__price-info">
+                            <p class="page__text"><?php echo "Белый: "; echo $vetlan[1]['price_white']; ?></p>
+                        </div>
+                        <div class="good__price-button">
+                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[1]['id3']; ?>" class="button button__buy" >Заказать</a>
+                            <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[1]['id3']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="good"> <?php
                     echo "<h2 class='good__name'>"; echo $vetlan[2]['title']; echo "</h2>"; ?>
                     <div class="img_div">
                         <?php echo $vetlan[2]['img1']; echo $vetlan[2]['img2']; echo $vetlan[2]['img3']; echo $vetlan[2]['img4']; ?>
                     </div>
-                    <table cellspacing="0" align="center">
-                        <tr><td class="producttablecaption" align="left">Характеристики</td><td class="producttablecaption" align="center">Значение</td><td class="producttablecaption"></td></tr>
-                        <tr><td class="producttable" align="left">Размер</td><td class="producttable" align="center"><?php echo $vetlan[2]['size']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Литраж</td><td class="producttable" align="center"><?php echo $vetlan[2]['volume']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Материал</td><td class="producttable" align="center"><?php echo $vetlan[2]['material']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Крепление</td><td class="producttable" align="center"><?php echo $vetlan[2]['clamp']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Замок</td><td class="producttable" align="center"><?php echo $vetlan[2]['lock']; ?></td></tr>
-                        <tr><td class="producttable" align="left">Варианты цветов</td><td class="producttable" align="center"><?php echo $vetlan[2]['color']; ?></td></tr>
-                    </table>
+                    <div class="table">
+                        <div class="table__column"></div>
+                        <ul class="table__header">
+                            <li class="table__cell">Характеристики</li>
+                            <li class="table__cell">Значение</li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Размер</li>
+                            <li class="table__cell"><?php echo $vetlan[2]['size']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Литраж</li>
+                            <li class="table__cell"><?php echo $vetlan[2]['volume']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Материал</li>
+                            <li class="table__cell"><?php echo $vetlan[2]['material']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Крепление</li>
+                            <li class="table__cell"><?php echo $vetlan[2]['clamp']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Замок</li>
+                            <li class="table__cell"><?php echo $vetlan[2]['lock']; ?></li>
+                        </ul>
+                        <ul class="table__row">
+                            <li class="table__cell">Варианты цветов</li>
+                            <li class="table__cell"><?php echo $vetlan[2]['color']; ?></li>
+                        </ul>
+                    </div>
                     <div class="good__description"> <?php
                         echo "<p class='page__text'>"; echo $vetlan[2]['desc1']; echo "</p>";
                         echo "<p class='page__text'>"; echo $vetlan[2]['desc2']; echo "</p>"; ?></div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <table align="center">
-                                <tr><td class="producttable" align="left"><b><?php echo "Черный: "; echo $vetlan[2]['price_black']; ?></b></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[2]['id1']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[2]['id1']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a></td></tr>
-                                <tr><td class="producttable" align="left"><b><?php echo "Серый: "; echo $vetlan[2]['price_gray']; ?></b></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[2]['id2']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[2]['id2']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a></td></tr>
-                                <tr><td class="producttable" align="left"><b><?php echo "Белый: "; echo $vetlan[2]['price_white']; ?></b></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[2]['id3']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[2]['id3']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a></td></tr>
-                            </table>
-                        </div></div></div> <?php
+                            <p class="page__text"><?php echo "Черный: "; echo $vetlan[2]['price_black']; ?></p>
+                        </div>
+                        <div class="good__price-button">
+                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[2]['id1']; ?>" class="button button__buy" >Заказать</a>
+                            <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[2]['id1']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                        </div>
+                    </div>
+                    <div class="good__price">
+                        <div class="good__price-info">
+                            <p class="page__text"><?php echo "Серый: "; echo $vetlan[2]['price_gray']; ?></p>
+                        </div>
+                        <div class="good__price-button">
+                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[2]['id2']; ?>" class="button button__buy" >Заказать</a>
+                            <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[2]['id2']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                        </div>
+                    </div>
+                    <div class="good__price">
+                        <div class="good__price-info">
+                            <p class="page__text"><?php echo "Белый: "; echo $vetlan[2]['price_white']; ?></p>
+                        </div>
+                        <div class="good__price-button">
+                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[2]['id3']; ?>" class="button button__buy" >Заказать</a>
+                            <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $vetlan[2]['id3']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                        </div>
+                    </div>
+                </div> <?php
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
             } ?>
         </div>
