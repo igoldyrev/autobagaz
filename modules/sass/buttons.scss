@@ -74,6 +74,9 @@
 @include adaptive(mobile) {
   .button {
     width: 100%;
+    &--cell {
+      display: table-cell;
+    }
     &__buy {
       width: 150px;
     }
