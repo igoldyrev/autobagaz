@@ -88,14 +88,37 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
 	echo "<h1 class='page__title-h1'>"; echo $yuago[name]; echo "</h1>";
 	echo "<p class='page__text'>Лучший выбор для лыжника! При длине бокса в 2180см перевозка лыж и сноубордов теперь становится легкой задачей, больше Вам не придется складывать сиденья, пачкать и царапать салон автомобиля.</p>";
 	echo "<p class='page__text'>Автобокс Cosmo изготовлен из АБС-пластика. Материал автобокса устойчив к большинству видов химических реагентов: кислотам, щелочам и жирам. Важным фактором при ежедневной эксплуатации является повышенная жесткостью конструкции и устойчивость поверхности к царапинам.</p>"; ?>
-	<table cellspacing="0" align="left">
-		<tr><td class="producttable" align="left">Габариты</td><td class="producttable" align="left"><?php echo $yuago[size]; ?></td></tr>
-		<tr><td class="producttable" align="left">Объем</td><td class="producttable" align="left"><?php echo $yuago[volume]; ?></td></tr>
-		<tr><td class="producttable" align="left">Материал</td><td class="producttable" align="left"><?php echo $yuago[material]; ?></td></tr>
-		<tr><td class="producttable" align="left">Цвета</td><td class="producttable" align="left"><?php echo $yuago[color]; ?></td></tr>
-		<tr><td class="producttable" align="left">Замок</td><td class="producttable" align="left"><?php echo $yuago[lock]; ?></td></tr>
-		<tr><td class="producttable" align="left">Погрузка багажа</td><td class="producttable" align="left"><?php echo $yuago[bagazh]; ?></td></tr>
-	</table>
+    <div class="table">
+        <div class="table__column"></div>
+        <ul class="table__header">
+            <li class="table__cell">Характеристики</li>
+            <li class="table__cell">Значение</li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell">Габариты</li>
+            <li class="table__cell"><?php echo $yuago[size]; ?></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell">Объем</li>
+            <li class="table__cell"><?php echo $yuago[volume]; ?></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell">Материал</li>
+            <li class="table__cell"><?php echo $yuago[material]; ?></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell">Цвета</li>
+            <li class="table__cell"><?php echo $yuago[color]; ?></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell">Замок</li>
+            <li class="table__cell"><?php echo $yuago[lock]; ?></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell">Погрузка багажа</li>
+            <li class="table__cell"><?php echo $yuago[bagazh]; ?></li>
+        </ul>
+    </div>
 	<div class="img_div"> <?php
 	echo $yuago[img1]; ?>
 	</div>
