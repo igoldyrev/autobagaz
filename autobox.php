@@ -171,16 +171,44 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
 		<img class="img_main" src="/images/lux/lux_1.jpg" srcset="/images/lux/lux_1.jpg 300w" alt="Lux, Россия" sizes="(max-width: 2000px) 150px, 300px, 350px">
 		<img class="img_main" src="/images/lux/lux_2.jpg" srcset="/images/lux/lux_2.jpg 300w" alt="Lux, Россия" sizes="(max-width: 2000px) 150px, 300px, 350px">
 	</div>
-	<table cellspacing="0" align="center">
-		<tr><td class="producttablecaption" align="left">Наименование, характеристики</td><td class="producttablecaption" align="center">Цена</td><td class="producttablecaption"></td></tr>
-		<tr><td class="producttable" align="left"><?php echo $lux[name1]; ?></td><td class="producttable" align="center"><?php echo $lux[price1]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id1']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable" align="left"><?php echo $lux[name2]; ?></td><td class="producttable" align="center"><?php echo $lux[price2]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id2']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable" align="left"><?php echo $lux[name3]; ?></td><td class="producttable" align="center"><?php echo $lux[price3]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id3']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable" align="left"><?php echo $lux[name4]; ?></td><td class="producttable" align="center"><?php echo $lux[price4]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id4']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable" align="left"><?php echo $lux[name5]; ?></td><td class="producttable" align="center"><?php echo $lux[price5]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id5']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable" align="left"><?php echo $lux[name6]; ?></td><td class="producttable" align="center"><?php echo $lux[price6]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id6']; ?>" class="button button__buy" >Заказать</a></td></tr>
-	</table> <?php
-	include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+    <div class="table table--buttons">
+        <ul class="table__header">
+            <li class="table__cell">Наименование, характеристики</li>
+            <li class="table__cell">Цена</li>
+            <li class="table__cell"></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $lux[name1]; ?></li>
+            <li class="table__cell"><?php echo $lux[price1]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id1']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $lux[name2]; ?></li>
+            <li class="table__cell"><?php echo $lux[price2]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id2']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $lux[name3]; ?></li>
+            <li class="table__cell"><?php echo $lux[price3]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id3']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $lux[name4]; ?></li>
+            <li class="table__cell"><?php echo $lux[price4]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id4']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $lux[name5]; ?></li>
+            <li class="table__cell"><?php echo $lux[price5]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id5']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $lux[name6]; ?></li>
+            <li class="table__cell"><?php echo $lux[price6]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id6']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+    </div>
+	<?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
 } elseif ($autobox == 'atlant') {
 	echo "<title> $titleconst"; echo $keywords[10][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[10][description]; echo "'/>";
