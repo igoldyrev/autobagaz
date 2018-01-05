@@ -132,45 +132,45 @@ $discoveryclassic = [
 	//Discovery CLASSIC 320
 	'id1' => 'dc320',
 	'name1' => 'Бокс CLASSIC 320 (133*73*40 см.)',
-	'price1' => '14 000 руб.',
+	'price1' => '14000 руб.',
 	//Discovery CLASSIC 430
 	'id2' => 'dc430',
 	'name2' => 'Бокс CLASSIC 430 (171*73*36) черный',
-	'price2' => '17 000 руб.',
+	'price2' => '17000 руб.',
 	//Discovery CLASSIC 500
 	'id3' => 'dc500',
 	'name3' => 'Бокс CLASSIC 500 (216*73*38) черный',
-	'price3' => '19 000 руб.',
+	'price3' => '19000 руб.',
 ];
 $discoverysport = [
 	//Discovery SPORT 431
 	'id1' => 'ds431',
 	'name1' => 'SPORT 431 (171*73*39) темно-серый',
-	'price1' => '22 000 руб.',
+	'price1' => '22000 руб.',
 	//Discovery SPORT 501
 	'id2' => 'ds501',
 	'name2' => 'SPORT 501 (216*73*38) темно-серый',
-	'price2' => '25 000 руб.',
+	'price2' => '25000 руб.',
 ];
 $dynamic = [
 	//Atlant DYNAMIC 434
 	'id1' => 'dynamic434',
 	'name1' => 'DYNAMIC 434 (171*73*36 см.) серебристый металлик',
-	'price1' => '25 000 руб.',
+	'price1' => '25000 руб.',
 	//Atlant DYNAMIC 504
 	'id2' => 'dynamic504',
 	'name2' => 'DYNAMIC 504 (216*73*38 см.) серебристый металлик',
-	'price2' => '28 000 руб.',
+	'price2' => '28000 руб.',
 ];
 $airtek = [
 	//Atlant AIRTEK 435
 	'id1' => 'airtek435',
 	'name1' => 'AIRTEK 435 (171*73*36 см.) чёрный металлик',
-	'price1' => '25 000 руб.',
+	'price1' => '25000 руб.',
 	//Atlant AIRTEK 505
 	'id2' => 'airtek505',
 	'name2' => 'AIRTEK 505 (216*73*38 см.) чёрный металлик',
-	'price2' => '28 000 руб.',
+'price2' => '28000 руб.',
 ];
 
 //Автобоксы LUX
@@ -199,4 +199,4 @@ $lux = [
 	'id6' => 'lux960white',
 	'name6' => 'Бокс LUX960 480L белый глянец 1960х780х420 с двустор. откр.',
 	'price6' => '29 900 рублей',
-]; ?>
+];
