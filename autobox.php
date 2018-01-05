@@ -227,33 +227,69 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
 	<div class="img_div">
 		<img class="img_main" src="/images/discovery/discovery_1.jpg"  srcset="/images/discovery/discovery_1.jpg 150w" alt="discovery" sizes="(max-width: 2000px) 150px, 300px, 350px">
 	</div>
-	<table align="center">
-		<tr><td class="producttable"><?php echo $discoveryclassic[name1]; ?></td><td class="producttable"><?php echo $discoveryclassic[price1]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoveryclassic['id1']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable"><?php echo $discoveryclassic[name2]; ?></td><td class="producttable"><?php echo $discoveryclassic[price2]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoveryclassic['id2']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable"><?php echo $discoveryclassic[name3]; ?></td><td class="producttable"><?php echo $discoveryclassic[price3]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoveryclassic['id3']; ?>" class="button button__buy" >Заказать</a></td></tr>
-	</table>
+    <div class="table table--buttons">
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $discoveryclassic[name1]; ?></li>
+            <li class="table__cell"><?php echo $discoveryclassic[price1]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoveryclassic['id1']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $discoveryclassic[name2]; ?></li>
+            <li class="table__cell"><?php echo $discoveryclassic[price2]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoveryclassic['id2']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $discoveryclassic[name3]; ?></li>
+            <li class="table__cell"><?php echo $discoveryclassic[price3]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoveryclassic['id3']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+    </div>
 	<div class="img_div">
 		<img class="img_main" src="/images/discovery/discovery_2.jpg"  srcset="/images/discovery/discovery_2.jpg 150w" alt="discovery" sizes="(max-width: 2000px) 150px, 300px, 350px">
 	</div>
-	<table align="center">
-		<tr><td class="producttable"><?php echo $discoverysport[name1]; ?></td><td class="producttable"><?php echo $discoverysport[price1]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoverysport['id1']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable"><?php echo $discoverysport[name2]; ?></td><td class="producttable"><?php echo $discoverysport[price2]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoverysport['id2']; ?>" class="button button__buy" >Заказать</a></td></tr>
-	</table> <?php
+    <div class="table table--buttons">
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $discoverysport[name1]; ?></li>
+            <li class="table__cell"><?php echo $discoverysport[price1]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoverysport['id1']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $discoverysport[name2]; ?></li>
+            <li class="table__cell"><?php echo $discoverysport[price2]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $discoverysport['id2']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+    </div><?php
 	echo "<h2 class='page__title-h2'>Серия Атлант, двухстороннее открывание, цвет металлик</h2>"; ?>
 	<div class="img_div">
 		<img class="img_main" src="/images/atlant/atlant_1.jpg"  srcset="/images/atlant/atlant_1.jpg 150w" alt="atlant" sizes="(max-width: 2000px) 150px, 300px, 350px">
 	</div>
-	<table align="center">
-		<tr><td class="producttable"><?php echo $dynamic[name1]; ?></td><td class="producttable"><?php echo $dynamic[price1]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $dynamic['id1']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable"><?php echo $dynamic[name2]; ?></td><td class="producttable"><?php echo $dynamic[price2]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $dynamic['id2']; ?>" class="button button__buy" >Заказать</a></td></tr>
-	</table>
+    <div class="table table--buttons">
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $dynamic[name1]; ?></li>
+            <li class="table__cell"><?php echo $dynamic[price1]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $dynamic['id1']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $dynamic[name2]; ?></li>
+            <li class="table__cell"><?php echo $dynamic[price2]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $dynamic['id2']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+    </div>
 	<div class="img_div">
 		<img class="img_main" src="/images/atlant/atlant_2.jpg"  srcset="/images/atlant/atlant_2.jpg 140w" alt="atlant" sizes="(max-width: 2000px) 150px, 300px, 350px">
 	</div>
-	<table align="center">
-		<tr><td class="producttable"><?php echo $airtek[name1]; ?></td><td class="producttable"><?php echo $airtek[price1]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $airtek['id1']; ?>" class="button button__buy" >Заказать</a></td></tr>
-		<tr><td class="producttable"><?php echo $airtek[name2]; ?></td><td class="producttable"><?php echo $airtek[price2]; ?></td><td class="producttable"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $airtek['id2']; ?>" class="button button__buy" >Заказать</a></td></tr>
-	</table> <?php
+    <div class="table table--buttons">
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $airtek[name1]; ?></li>
+            <li class="table__cell"><?php echo $airtek[price1]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $airtek['id1']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+        <ul class="table__row">
+            <li class="table__cell"><?php echo $airtek[name2]; ?></li>
+            <li class="table__cell"><?php echo $airtek[price2]; ?></li>
+            <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $airtek['id2']; ?>" class="button button__buy button--cell" >Заказать</a></li>
+        </ul>
+    </div><?php
 	include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
 } elseif ($autobox == 'vetlan') {
                 echo "<title> $titleconst"; echo $keywords[9][title]; echo "</title>";
