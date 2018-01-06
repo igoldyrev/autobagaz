@@ -12,12 +12,12 @@
         </div>
         <span class="form__label">Тип оборудования. Вы можете выбрать несколько видов:</span>
         <div class="form__input-block">
-            <p class="form__label--checkbox"><input type="checkbox" name="bagazhnik" value="Багажник на крышу" class="form__checkbox" <?php echo $checkedbagazh ?>>Багажник на крышу</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="autobox" value="Автобокс" class="form__checkbox" <?php echo $checkedbox ?>>Автобокс на крышу</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="velokreplenie_krysha" value="Велокрепление на крышу" class="form__checkbox" <?php echo $checkedvelokrysha ?>>Велокрепление на крышу</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="velokreplenie_farkop" value="Велокрепление на фаркоп" class="form__checkbox" <?php echo $checkedvelofarkop ?>>Велокрепление на фаркоп</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="lyzhnoe_kreplenie" value="Лыжное крепление" class="form__checkbox" <?php echo $checkedlyzhi ?>>Лыжное крепление</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="braslets" value="Браслеты противоскольжения" class="form__checkbox" <?php echo $checkedbraslets ?>>Браслеты противоскольжения</p>
+            <p class="form__label--checkbox"><input type="checkbox" name="bagazhnik" class="form__checkbox" <?php echo $checkedbagazh ?>>Багажник на крышу</p>
+            <p class="form__label--checkbox"><input type="checkbox" name="autobox" class="form__checkbox" <?php echo $checkedbox ?>>Автобокс на крышу</p>
+            <p class="form__label--checkbox"><input type="checkbox" name="velokreplenie_krysha" class="form__checkbox" <?php echo $checkedvelokrysha ?>>Велокрепление на крышу</p>
+            <p class="form__label--checkbox"><input type="checkbox" name="velokreplenie_farkop" class="form__checkbox" <?php echo $checkedvelofarkop ?>>Велокрепление на фаркоп</p>
+            <p class="form__label--checkbox"><input type="checkbox" name="lyzhnoe_kreplenie" class="form__checkbox" <?php echo $checkedlyzhi ?>>Лыжное крепление</p>
+            <p class="form__label--checkbox"><input type="checkbox" name="braslets" class="form__checkbox" <?php echo $checkedbraslets ?>>Браслеты противоскольжения</p>
         </div>
         <span class="form__label">Срок проката:</span>
         <div class="form__input-block">

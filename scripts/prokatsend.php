@@ -19,55 +19,45 @@ if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response']){
         //В файле на первом этапе нужно принять данные из пост массива. Для этого создаем переменные
         $name = $_POST['name'];
         $phone = $_POST['phone'];
-        $bagazhnik = $_POST['bagazhnik'];
-        $autobox = $_POST['autobox'];
-        $velokreplenie_krysha = $_POST['velokreplenie_krysha'];
-        $velokreplenie_farkop = $_POST['velokreplenie_farkop'];
-        $lyzhnoe_kreplenie = $_POST['lyzhnoe_kreplenie'];
-        $braslets = $_POST['braslets'];
         $time = $_POST['time'];
         $text = $_POST['text'];
+        if(isset($_POST['bagazhnik']) == true ){
+            $bagazhnik = 'Багажник на крышу';
+        }
+        if(isset($_POST['autobox']) == true ){
+            $autobox = 'Автобокс';
+        }
+        if(isset($_POST['velokreplenie_krysha']) == true ){
+            $velokreplenie_krysha = 'Велокрепление на крышу';
+        }
+        if(isset($_POST['velokreplenie_farkop']) == true ){
+            $velokreplenie_farkop = 'Велокрепление на фаркоп';
+        }
+        if(isset($_POST['lyzhnoe_kreplenie']) == true ){
+            $lyzhnoe_kreplenie = 'Лыжное крепление';
+        }
+        if(isset($_POST['braslets']) == true ){
+            $braslets = 'Браслеты противоскольжения';
+        }
+
 //Первая функция преобразует все символы, которые пользователь попытается добавить в форму
         $name = htmlspecialchars($name);
         $phone = htmlspecialchars($phone);
-        $bagazhnik = htmlspecialchars($bagazhnik);
-        $autobox = htmlspecialchars($autobox);
-        $velokreplenie_krysha = htmlspecialchars($velokreplenie_krysha);
-        $velokreplenie_farkop = htmlspecialchars($velokreplenie_farkop);
-        $lyzhnoe_kreplenie = htmlspecialchars($lyzhnoe_kreplenie);
-        $braslets = htmlspecialchars($braslets);
         $time = htmlspecialchars($time);
         $text = htmlspecialchars($text);
 //Вторая функция декодирует url, если пользователь попытается его добавить в форму
         $name = urldecode($name);
         $phone = urldecode($phone);
-        $autobox = urldecode($autobox);
-        $velokreplenie_krysha = urldecode($velokreplenie_krysha);
-        $velokreplenie_farkop = urldecode($velokreplenie_farkop);
-        $lyzhnoe_kreplenie = urldecode($lyzhnoe_kreplenie);
-        $braslets = urldecode($braslets);
         $time = urldecode($time);
         $text = urldecode($text);
 //Третьей функцией мы удалим пробелы с начала и конца строки, если таковые имеются
         $name = trim($name);
         $phone = trim($phone);
-        $bagazhnik = trim($bagazhnik);
-        $autobox = trim($autobox);
-        $velokreplenie_krysha = trim($velokreplenie_krysha);
-        $velokreplenie_farkop = trim($velokreplenie_farkop);
-        $lyzhnoe_kreplenie = trim($lyzhnoe_kreplenie);
-        $braslets = trim($braslets);
         $time = trim($time);
         $text = trim($text);
 //Заносим данные из формы в переменные
         $name = $_REQUEST['name'];
         $phone = $_REQUEST['phone'];
-        $bagazhnik = $_REQUEST['bagazhnik'];
-        $autobox = $_REQUEST['autobox'];
-        $velokreplenie_krysha = $_REQUEST['velokreplenie_krysha'];
-        $velokreplenie_farkop = $_REQUEST['velokreplenie_farkop'];
-        $lyzhnoe_kreplenie = $_REQUEST['lyzhnoe_kreplenie'];
-        $braslets = $_REQUEST['braslets'];
         $time = $_REQUEST['time'];
         $text = $_REQUEST['text'];
 
@@ -78,7 +68,7 @@ if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response']){
 
         if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")&&(isset($_POST['time'])&&$_POST['time']!="")){
 
-            if (mail("autobagaz@yandex.ru", "Заказ оборудования в прокат", "Заказан товар ".$_SESSION['tovar'].";
+            if (mail("goldirev12@yandex.ru", "Заказ оборудования в прокат", "Заказан товар ".$_SESSION['tovar'].";
     Имя:".$name.";
     Телефон: ".$phone.";
     Оборудование: ".$bagazhnik.", ".$autobox.", ".$velokreplenie_krysha.", ".$velokreplenie_farkop.", ".$lyzhnoe_kreplenie.", ".$braslets.";
@@ -90,7 +80,7 @@ if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response']){
 	ip-адрес:" .$_SERVER['REMOTE_ADDR'].";
 	Ссылка на скрипт, с которого пришло письмо:" .$_SERVER['REQUEST_URI'] ,           "From: autobagaz@yandex.ru \r\n"))
             {     	echo "<center><b>Вы успешно забронировали оборудование! Мы с Вами свяжемся в ближайшее время!</b><br><br><center>Через 5 секунд Вы будете перенаправлены на страницу проката<br><br>Если этого не произошло, то нажмите на ссылку:<br><a href='/prokat'>Перейти на страницу</a>";
-                header('Refresh: 3; URL='.$url);
+                //header('Refresh: 3; URL='.$url);
             }
             else {
                 echo "<center>При отправке заказа возникли проблемы :(<br><a href='".$url; echo "'>Вернуться назад</a>";
