@@ -30,7 +30,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 </div>
                 <div class="good__price">
                     <div class="good__price-info">
-                        <p class="page__text"><?php echo $item['price']; ?></p>
+                        <p class="page__text"><strong><?php echo $item['price']; ?></strong></p>
                     </div>
                     <div class="good__price-button">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
