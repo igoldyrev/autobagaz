@@ -349,14 +349,32 @@ $_SESSION['tovar'] = $tovar; ?>
 	<i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href="/docs/Pravila_ekspluatacii_avtoboksov.doc">Скачать правила эксплуатации автобоксов</a>
 </div>
 <p class='page__text'>Стоимость дня проката определяется исходя из времени пользования оборудованием:</p>
-<table cellspacing="0" align="center">
-<tr><td class="producttablecaption" align="center">Сроки проката</td><td class="producttablecaption" align="center">Прокат дуг багажника, крепления для велосипеда (на крышу), лыж, лодки, браслетов противоскольжения</td><td class="producttablecaption" align="center">Прокат автобокса, велокрепления на фаркоп/заднюю дверь, цепей противоскольжения</td></tr>
-<tr><td class="producttable" align="center">От 0 до 14 дней</td><td class="producttable" align="center">130 рублей/день</td><td class="producttable" align="center">270 рублей/день</td></tr>
-<tr><td class="producttable" align="center">От 15 до 21 дня</td><td class="producttable" align="center">110 рублей/день</td><td class="producttable" align="center">240 рублей/день</td></tr>
-<tr><td class="producttable" align="center">От 21 дня</td><td class="producttable" align="center">90 рублей/день</td><td class="producttable" align="center">210 рублей/день</td></tr>
-</table>
+<div class="table">
+    <div class="table__column table__column-prokat--srok"></div>
+    <ul class="table__header">
+        <li class="table__cell">Сроки проката</li>
+        <li class="table__cell">Прокат дуг багажника, крепления для велосипеда (на крышу), лыж, лодки, браслетов противоскольжения</li>
+        <li class="table__cell">Прокат автобокса, велокрепления на фаркоп/заднюю дверь, цепей противоскольжения</li>
+    </ul>
+    <ul class="table__row">
+        <li class="table__cell table__cell--price">От 0 до 14 дней	</li>
+        <li class="table__cell table__cell--price">130 рублей/день</li>
+        <li class="table__cell table__cell--price">270 рублей/день</li>
+    </ul>
+    <ul class="table__row">
+        <li class="table__cell table__cell--price">От 15 до 21 дня</li>
+        <li class="table__cell table__cell--price">110 рублей/день</li>
+        <li class="table__cell table__cell--price">240 рублей/день</li>
+    </ul>
+    <ul class="table__row">
+        <li class="table__cell table__cell--price">От 21 дня</li>
+        <li class="table__cell table__cell--price">90 рублей/день</li>
+        <li class="table__cell table__cell--price">210 рублей/день</li>
+    </ul>
+</div>
 <p class='page__text'>Обращаем ваше внимание, что время проката считается календарными днями. Монтаж/демонтаж багажных систем осуществляется полностью силами арендатора, либо оплачивается отдельно.</p>
-<p class='page__text'>С общими правилами пользования багажным оборудованием можно ознакомиться <a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href="/docs/Pravila_ekspluatacii_avtoboksov.doc">здесь</a>.</p></div>
+<p class='page__text'>С общими правилами пользования багажным оборудованием можно ознакомиться <a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='page__link' href="/docs/Pravila_ekspluatacii_avtoboksov.doc">здесь</a>.</p>
+        </div>
     </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html"); ?>
