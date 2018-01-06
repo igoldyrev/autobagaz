@@ -26,11 +26,31 @@ echo "<meta name='keywords' content='"; echo $keywords[21][keywords]; echo "'/>"
                         <p class="page__text"><?php echo $braslet['desc']; ?></p>
                     </div></div>
                 <div class="good__price">
-                    <table align="center">
-                        <tr><td class="producttable" align="left"><?php echo $braslet['desc1']; ?></td><td class="producttable" align="center"><?php echo $braslet['price1']; ?></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $braslet['id1']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $braslet['id1']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a></td></tr>
-                        <tr><td class="producttable" align="left"><?php echo $braslet['desc2']; ?></td><td class="producttable" align="center"><?php echo $braslet['price2']; ?></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $braslet['id2']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $braslet['id2']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a></td></tr>
-                        <tr><td class="producttable" align="left"><?php echo $braslet['desc3']; ?></td><td class="producttable" align="center"><?php echo $braslet['price3']; ?></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $braslet['id3']; ?>" class="button button__buy" >Заказать</a></td><td class="producttable" align="center"><a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $braslet['id3']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a></td></tr>
-                    </table>
+                    <div class="good__price-info">
+                        <span class="page__text"><?php echo $braslet['desc1']; ?> </span><span class="page__text"><strong><?php echo $braslet['price1']; ?></strong></span>
+                    </div>
+                    <div class="good__price-button">
+                        <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $braslet['id1']; ?>" class="button button__buy" >Заказать</a>
+                        <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $braslet['id1']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
+                    </div>
+                </div>
+                <div class="good__price">
+                    <div class="good__price-info">
+                        <span class="page__text"><?php echo $braslet['desc2']; ?> </span><span class="page__text"><strong><?php echo $braslet['price2']; ?></strong></span>
+                    </div>
+                    <div class="good__price-button">
+                        <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $braslet['id2']; ?>" class="button button__buy" >Заказать</a>
+                        <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $braslet['id2']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
+                    </div>
+                </div>
+                <div class="good__price">
+                    <div class="good__price-info">
+                        <span class="page__text"><?php echo $braslet['desc3']; ?> </span><span class="page__text"><strong><?php echo $braslet['price3']; ?></strong></span>
+                    </div>
+                    <div class="good__price-button">
+                        <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $braslet['id3']; ?>" class="button button__buy" >Заказать</a>
+                        <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $braslet['id3']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
+                    </div>
                 </div>
             </div>
             <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php"); ?>
