@@ -124,7 +124,7 @@ $turino = [
 	'img5' => '<img class="img_main" src="/images/turino/turino_5.jpg" srcset="/images/turino/turino_5.jpg 1200w" alt="Автобоксы Турино" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 	'img6' => '<img class="img_main" src="/images/turino/turino_6.jpg" srcset="/images/turino/turino_6.jpg 1200w" alt="Автобоксы Турино" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 	//Цена
-	'price' => 'Цена 14000/16000 (матовый/глянцевый)',
+	'price' => '14000 рублей/16000 рублей ',
 ];
 
 //Автобоксы Атлант Discovery
