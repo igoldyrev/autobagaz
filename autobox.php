@@ -124,7 +124,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
 	</div>
 	<div class="good__price">
 		<div class="good__price-info">
-	<?php echo "<p class='page__text'>Цена "; echo $yuago[price]; echo "</p>";	?>
+	<?php echo "<p class='page__text'><strong>Цена "; echo $yuago[price]; echo "</strong></p>";	?>
 		</div>
 		<div class="good__price-button">
             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $yuago['id']; ?>" class="button button__buy" >Заказать</a>
@@ -147,7 +147,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
 	</div>
 	<div class="good__price">
 		<div class="good__price-info">
-	<?php echo "<p class='page__text'>"; echo $turino[price]; echo "</p>";	?>
+            <p class="page__text">Цена <strong><?php echo $turino[price]; ?></strong>(матовый/глянцевый)</p>
 		</div>
 		<div class="good__price-button">
             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $turino['id']; ?>" class="button button__buy" >Заказать</a>
@@ -179,32 +179,32 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
         </ul>
         <ul class="table__row">
             <li class="table__cell"><?php echo $lux[name1]; ?></li>
-            <li class="table__cell"><?php echo $lux[price1]; ?></li>
+            <li class="table__cell table__cell--price"><?php echo $lux[price1]; ?></li>
             <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id1']; ?>" class="button button__buy button--cell" >Заказать</a></li>
         </ul>
         <ul class="table__row">
             <li class="table__cell"><?php echo $lux[name2]; ?></li>
-            <li class="table__cell"><?php echo $lux[price2]; ?></li>
+            <li class="table__cell table__cell--price"><?php echo $lux[price2]; ?></li>
             <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id2']; ?>" class="button button__buy button--cell" >Заказать</a></li>
         </ul>
         <ul class="table__row">
             <li class="table__cell"><?php echo $lux[name3]; ?></li>
-            <li class="table__cell"><?php echo $lux[price3]; ?></li>
+            <li class="table__cell table__cell--price"><?php echo $lux[price3]; ?></li>
             <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id3']; ?>" class="button button__buy button--cell" >Заказать</a></li>
         </ul>
         <ul class="table__row">
             <li class="table__cell"><?php echo $lux[name4]; ?></li>
-            <li class="table__cell"><?php echo $lux[price4]; ?></li>
+            <li class="table__cell table__cell--price"><?php echo $lux[price4]; ?></li>
             <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id4']; ?>" class="button button__buy button--cell" >Заказать</a></li>
         </ul>
         <ul class="table__row">
             <li class="table__cell"><?php echo $lux[name5]; ?></li>
-            <li class="table__cell"><?php echo $lux[price5]; ?></li>
+            <li class="table__cell table__cell--price"><?php echo $lux[price5]; ?></li>
             <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id5']; ?>" class="button button__buy button--cell" >Заказать</a></li>
         </ul>
         <ul class="table__row">
             <li class="table__cell"><?php echo $lux[name6]; ?></li>
-            <li class="table__cell"><?php echo $lux[price6]; ?></li>
+            <li class="table__cell table__cell--price"><?php echo $lux[price6]; ?></li>
             <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id6']; ?>" class="button button__buy button--cell" >Заказать</a></li>
         </ul>
     </div>
@@ -345,7 +345,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                         echo "<p class='page__text'>"; echo $vetlan[0]['desc2']; echo "</p>"; ?></div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="page__text"><?php echo "Черный: "; echo $vetlan[0]['price_black']; ?></p>
+                            <p class="page__text"><?php echo "Черный: <strong>"; echo $vetlan[0]['price_black']; ?></strong></p>
                         </div>
                         <div class="good__price-button">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[0]['id1']; ?>" class="button button__buy" >Заказать</a>
@@ -354,7 +354,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                     </div>
                    <div class="good__price">
                        <div class="good__price-info">
-                           <p class="page__text"><?php echo "Серый: "; echo $vetlan[0]['price_gray']; ?></p>
+                           <p class="page__text"><?php echo "Серый: <strong>"; echo $vetlan[0]['price_gray']; ?></strong></p>
                        </div>
                        <div class="good__price-button">
                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[0]['id2']; ?>" class="button button__buy" >Заказать</a>
@@ -363,7 +363,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                    </div>
                    <div class="good__price">
                        <div class="good__price-info">
-                           <p class="page__text"><?php echo "Белый: "; echo $vetlan[0]['price_white']; ?></p>
+                           <p class="page__text"><?php echo "Белый: <strong>"; echo $vetlan[0]['price_white']; ?></strong></p>
                        </div>
                        <div class="good__price-button">
                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[0]['id3']; ?>" class="button button__buy" >Заказать</a>
@@ -412,7 +412,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                         echo "<p class='page__text'>"; echo $vetlan[1]['desc2']; echo "</p>"; ?></div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="page__text"><?php echo "Черный: "; echo $vetlan[1]['price_black']; ?></p>
+                            <p class="page__text"><?php echo "Черный: <strong>"; echo $vetlan[1]['price_black']; ?></strong></p>
                         </div>
                         <div class="good__price-button">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[1]['id1']; ?>" class="button button__buy" >Заказать</a>
@@ -421,7 +421,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                     </div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="page__text"><?php echo "Серый: "; echo $vetlan[1]['price_gray']; ?></p>
+                            <p class="page__text"><?php echo "Серый: <strong>"; echo $vetlan[1]['price_gray']; ?></strong></p>
                         </div>
                         <div class="good__price-button">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[1]['id2']; ?>" class="button button__buy" >Заказать</a>
@@ -430,7 +430,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                     </div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="page__text"><?php echo "Белый: "; echo $vetlan[1]['price_white']; ?></p>
+                            <p class="page__text"><?php echo "Белый: <strong>"; echo $vetlan[1]['price_white']; ?></strong></p>
                         </div>
                         <div class="good__price-button">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[1]['id3']; ?>" class="button button__buy" >Заказать</a>
@@ -480,7 +480,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                         echo "<p class='page__text'>"; echo $vetlan[2]['desc2']; echo "</p>"; ?></div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="page__text"><?php echo "Черный: "; echo $vetlan[2]['price_black']; ?></p>
+                            <p class="page__text"><?php echo "Черный: <strong>"; echo $vetlan[2]['price_black']; ?></strong></p>
                         </div>
                         <div class="good__price-button">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[2]['id1']; ?>" class="button button__buy" >Заказать</a>
@@ -489,7 +489,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                     </div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="page__text"><?php echo "Серый: "; echo $vetlan[2]['price_gray']; ?></p>
+                            <p class="page__text"><?php echo "Серый: <strong>"; echo $vetlan[2]['price_gray']; ?></strong></p>
                         </div>
                         <div class="good__price-button">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[2]['id2']; ?>" class="button button__buy" >Заказать</a>
@@ -498,7 +498,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
                     </div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="page__text"><?php echo "Белый: "; echo $vetlan[2]['price_white']; ?></p>
+                            <p class="page__text"><?php echo "Белый: <strong>"; echo $vetlan[2]['price_white']; ?></strong></p>
                         </div>
                         <div class="good__price-button">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $vetlan[2]['id3']; ?>" class="button button__buy" >Заказать</a>
