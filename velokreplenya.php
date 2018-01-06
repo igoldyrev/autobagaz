@@ -62,7 +62,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
 		</div></div>
 		<div class="good__price">
 			<div class="good__price-info">
-			<p class="page__text"><?php echo $velokrysha[0]['price']; ?></p>
+			<p class="page__text"><strong><?php echo $velokrysha[0]['price']; ?></strong></p>
 			</div>
 			<div class="good__price-button">
                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[0]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -81,7 +81,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
 		</div></div>
 		<div class="good__price">
 			<div class="good__price-info">
-			<p class="page__text"><?php echo $velokrysha[1]['price']; ?></p>
+			<p class="page__text"><strong><?php echo $velokrysha[1]['price']; ?></strong></p>
 			</div>
 			<div class="good__price-button">
                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[1]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -107,7 +107,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
 		</div></div>
 		<div class="good__price">
 			<div class="good__price-info">
-			<p class="page__text"><?php echo $velokrysha[2]['price']; ?></p>
+			<p class="page__text"><strong><?php echo $velokrysha[2]['price']; ?></strong></p>
 			</div>
 			<div class="good__price-button">
                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[2]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -136,7 +136,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
 		</div></div>
 		<div class="good__price">
 			<div class="good__price-info">
-			<p class="page__text"><?php echo $velokrysha[3]['price']; ?></p>
+			<p class="page__text"><strong><?php echo $velokrysha[3]['price']; ?></strong></p>
 			</div>
 			<div class="good__price-button">
                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[3]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -167,7 +167,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
                         </div></div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="page__text"><?php echo $velofarkop[0]['price']; ?></p>
+                            <p class="page__text"><strong><?php echo $velofarkop[0]['price']; ?></strong></p>
                         </div>
                         <div class="good__price-button">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velofarkop[0]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -201,7 +201,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
                         </div></div>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="page__text"><?php echo $velofarkop[1]['price']; ?></p>
+                            <p class="page__text"><strong><?php echo $velofarkop[1]['price']; ?></strong></p>
                         </div>
                         <div class="good__price-button">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velofarkop[1]['id']; ?>" class="button button__buy" >Заказать</a>
