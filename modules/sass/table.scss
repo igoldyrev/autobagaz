@@ -32,6 +32,9 @@
       weight: 400;
     }
     text-align: center;
+    >.table__cell {
+      vertical-align: middle;
+    }
   }
   &__footer {
     display: table-footer-group;
@@ -39,6 +42,11 @@
   &__column {
     display: table-column;
     width: 25%;
+    &-prokat {
+      &--srok {
+        width: 20%;
+      }
+    }
   }
 }
 @include adaptive(pad) {
