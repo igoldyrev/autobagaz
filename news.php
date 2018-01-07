@@ -191,8 +191,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<meta name='keywords' content='"; echo $news[7][keywords]; echo "'/>"; ?>
 
                 <h1 class="page__title-h1">Поступления автобоксов Vetlan</h1>
-                <p class="page__text">В нашем магазине поступление автобоксов Vetlan, серии 400М, 430М и 530М. Подробнее об их характеристиках и ценах можно узнать на <a class="page__link" href ="/vetlan" target="_blank">специальной</a> странице.</p>
-                <p>Заказать боксы можно на той же странице, выбрав интересующий вас бокс или позвонить по телефону.
+                <p class="page__text">В нашем магазине поступление автобоксов Vetlan, серии 400М, 430М и 530М. Подробнее об их характеристиках и ценах можно узнать на <a class="page__link" href ="/autobox/vetlan" target="_blank">специальной</a> странице.</p>
+                <p class="page__text">Заказать боксы можно на той же странице, выбрав интересующий вас бокс или позвонить <a class="page__link" href="tel:+73422889969">по телефону</a>.
                 <div align="center">
                     <img src="/images/vetlan/550M/1.jpg" alt="Vetlan 550M" width="300px">
                 </div> <?php
