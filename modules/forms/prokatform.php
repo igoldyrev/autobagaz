@@ -11,13 +11,19 @@
             <label for="phone" class="form__label--shown">Введите номер телефона</label>
         </div>
         <span class="form__label">Тип оборудования. Вы можете выбрать несколько видов:</span>
-        <div class="form__input-block">
-            <p class="form__label--checkbox"><input type="checkbox" name="bagazhnik" class="form__checkbox" <?php echo $checkedbagazh ?>>Багажник на крышу</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="autobox" class="form__checkbox" <?php echo $checkedbox ?>>Автобокс на крышу</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="velokreplenie_krysha" class="form__checkbox" <?php echo $checkedvelokrysha ?>>Велокрепление на крышу</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="velokreplenie_farkop" class="form__checkbox" <?php echo $checkedvelofarkop ?>>Велокрепление на фаркоп</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="lyzhnoe_kreplenie" class="form__checkbox" <?php echo $checkedlyzhi ?>>Лыжное крепление</p>
-            <p class="form__label--checkbox"><input type="checkbox" name="braslets" class="form__checkbox" <?php echo $checkedbraslets ?>>Браслеты противоскольжения</p>
+        <div class="form__input-block clearfix">
+            <input type="checkbox" name="bagazhnik" class="form__checkbox" id="bagazhnik" <?php echo $checkedbagazh ?>>
+            <label for="bagazhnik" class="form__label--checkbox">Багажник на крышу</label>
+            <input type="checkbox" name="autobox" class="form__checkbox" id="autobox" <?php echo $checkedbox ?>>
+            <label for="autobox" class="form__label--checkbox">Автобокс на крышу</label>
+            <input type="checkbox" name="velokreplenie_krysha" class="form__checkbox" id="velokreplenie_krysha" <?php echo $checkedvelokrysha ?>>
+            <label for="velokreplenie_krysha" class="form__label--checkbox">Велокрепление на крышу</label>
+            <input type="checkbox" name="velokreplenie_farkop" class="form__checkbox" id="velokreplenie_farkop" <?php echo $checkedvelofarkop ?>>
+            <label for="velokreplenie_farkop" class="form__label--checkbox">Велокрепление на фаркоп</label>
+            <input type="checkbox" name="lyzhnoe_kreplenie" class="form__checkbox" id="lyzhnoe_kreplenie" <?php echo $checkedlyzhi ?>>
+            <label for="lyzhnoe_kreplenie" class="form__label--checkbox">Лыжное крепление</label>
+            <input type="checkbox" name="braslets" class="form__checkbox" id="braslets" <?php echo $checkedbraslets ?>>
+            <label for="braslets" class="form__label--checkbox">Браслеты противоскольжения</label>
         </div>
         <span class="form__label">Срок проката:</span>
         <div class="form__input-block">
