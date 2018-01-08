@@ -52,6 +52,10 @@
         weight: 400;
       }
     }
+    &--wrong {
+      border: 2px solid $redcolor;
+      background: #ff6666;
+    }
   }
 }
 @include adaptive(mobile) {
