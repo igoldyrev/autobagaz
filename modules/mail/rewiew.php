@@ -1,5 +1,5 @@
 <?php
-$rewiew = "
+$rewiewmail = "
 Имя отправителя: ".$name.";
 Телефон: ".$phone.";
 Текст отзыва: ".$rewiew.";
