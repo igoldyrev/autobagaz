@@ -42,18 +42,16 @@ include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html"); ?>
                     $rewiew = $_REQUEST['rewiew'];
 
                     //Создаем запрос в базу данных
-//                    $sql_insert = "INSERT INTO guestbook (name, phone, rewiew)" .
-//                        "VALUES('{$name}', '{$phone}', '{$rewiew}');";
-//                    mysqli_query($sql_insert);
-//
-//                    $sql_users = "INSERT INTO users (name, phone)" .
-//                        "VALUES('{$name}', '{$phone}');";
-//                    mysqli_query($sql_users);
+                    $sql_insert = "INSERT INTO guestbook (name, phone, rewiew)" . "VALUES('{$name}', '{$phone}', '{$rewiew}');";
+                    mysqli_query($sql_insert);
+
+                    $sql_users = "INSERT INTO users (name, phone)" . "VALUES('{$name}', '{$phone}');";
+                    mysqli_query($sql_users);
 
                     include($_SERVER["DOCUMENT_ROOT"] . "/modules/mails.php");
 
                     if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['rewiew'])&&$_POST['rewiew']!="")){
-                        if (mail("goldirev12@yandex.ru", "Новый отзыв на сайте",
+                        if (mail("autobagaz@yandex.ru", "Новый отзыв на сайте",
                             $rewiewmail, "From: autobagaz@yandex.ru \r\n")){
                             echo "<title>Ваш отзыв успешно размещен на сайте!</title>";
                             echo "<div class='good_message'>";

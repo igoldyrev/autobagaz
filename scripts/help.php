@@ -48,15 +48,14 @@ include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html"); ?>
                     $message = $_REQUEST['message'];
 
                     //Создаем запрос в базу данных
-//        $sql_users = "INSERT INTO users (name, phone)" .
-//            "VALUES('{$name}', '{$phone}');";
-//        mysqli_query($sql_users);
+                    $sql_users = "INSERT INTO users (name, phone)" . "VALUES('{$name}', '{$phone}');";
+                    mysqli_query($sql_users);
 
                     include($_SERVER["DOCUMENT_ROOT"] . "/modules/mails.php");
 
                     if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")){
 
-                        if (mail("goldirev12@yandex.ru", "Человек не может определиться с оборудованием!", $help, "From: autobagaz@yandex.ru \r\n")){
+                        if (mail("autobagaz@yandex.ru", "Человек не может определиться с оборудованием!", $help, "From: autobagaz@yandex.ru \r\n")){
                             echo "<title>Вам обязательно перезвоним!</title>";
                             echo "<div class='good_message'>";
                             echo "<p>Мы Вам обязательно перезвоним!</p>";

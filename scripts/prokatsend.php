@@ -67,15 +67,15 @@ include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html"); ?>
                     $text = $_REQUEST['text'];
 
                     //Создаем запрос в базу данных
-//                  $sql_users = "INSERT INTO users (name, phone)" .
-//            "VALUES('{$name}', '{$phone}');";
-//                  mysqli_query($sql_users);
+
+                    $sql_users = "INSERT INTO users (name, phone)" . "VALUES('{$name}', '{$phone}');";
+                    mysqli_query($sql_users);
 
                     include($_SERVER["DOCUMENT_ROOT"] . "/modules/mails.php");
 
                     if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")) {
 
-                        if (mail("goldirev12@yandex.ru", "Заказ оборудования в прокат", $prokat, "From: autobagaz@yandex.ru \r\n")) {
+                        if (mail("autobagaz@yandex.ru", "Заказ оборудования в прокат", $prokat, "From: autobagaz@yandex.ru \r\n")) {
                             echo "<title>Вы успешно забронировали оборудование!</title>";
                             echo "<div class='good_message'>";
                             echo "<p>Вы успешно забронировали оборудование! Мы с Вами свяжемся в ближайшее время!</p>";
