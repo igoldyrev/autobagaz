@@ -1,8 +1,7 @@
 <?php
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "/modules/keywords.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html");
-echo "<title>".$keywords[43][title]; echo "</title>"; ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html"); ?>
 
 <div class="wrapper">
     <div class="wrapper-content">
@@ -51,45 +50,50 @@ echo "<title>".$keywords[43][title]; echo "</title>"; ?>
 //                        "VALUES('{$name}', '{$phone}');";
 //                    mysqli_query($sql_users);
 
-                    include($_SERVER["DOCUMENT_ROOT"] . "/modules/mail/rewiew.php");
+                    include($_SERVER["DOCUMENT_ROOT"] . "/modules/mails.php");
 
                     if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['rewiew'])&&$_POST['rewiew']!="")){
                         if (mail("goldirev12@yandex.ru", "Новый отзыв на сайте",
                             $rewiewmail, "From: autobagaz@yandex.ru \r\n")){
+                            echo "<title>Ваш отзыв успешно размещен на сайте!</title>";
                             echo "<div class='good_message'>";
                             echo "<p>Ваш отзыв успешно размещен на сайте!</p>";
                             echo "</div>";
                             echo "<p class='page__text page__text--notification'>Через 5 секунд Вы будете перенаправлены на предыдущую страницу</p>";
                             echo "<p class='page__text page__text--notification'>Если этого не произошло, то нажмите на ссылку:</p>";
-                            echo "<a class='page__link page__link--notification page__link--sitemap' href='" . $url . "'>Вернуться назад</a>";
-                            header('Refresh: 5; URL='.$url);
+                            echo "<a class='page__link page__link--notification page__link--sitemap' href='/guestbook'>Вернуться назад</a>";
+                            header('Refresh: 5; URL=/guestbook');
                         }
                         else {
+                            echo "<title>При отправке данных возникли проблемы</title>";
                             echo "<div class='good_message good_message--wrong'>";
-                            echo "<p class='page__text page__text--notification'>При отправке заказа возникли проблемы :(</p>";
+                            echo "<p class='page__text page__text--notification'>При отправке данных возникли проблемы :(</p>";
                             echo "</div>";
-                            echo "<a class='page__link page__link--notification page__link--sitemap' href='".$url."'>Вернуться назад</a>";
+                            echo "<a class='page__link page__link--notification page__link--sitemap' href='/guestbook'>Вернуться назад</a>";
                         }
                     }
                     else {
+                        echo "<title>Вы не заполнили одно из полей формы</title>";
                         echo "<div class='good_message good_message--wrong'>";
                         echo "<p class='page__text page__text--notification'>Вы не заполнили одно из обязательных полей формы, вернитесь, пожалуйста, и заполните его</p>";
                         echo "</div>";
-                        echo "<a class='page__link page__link--notification page__link--sitemap' href='".$url."'>Вернуться назад</a>";
+                        echo "<a class='page__link page__link--notification page__link--sitemap' href='/guestbook'>Вернуться назад</a>";
                     }
                 }
                 else {
+                    echo "<title>Вы неправильно ввели  капчу</title>";
                     echo "<div class='good_message good_message--wrong'>";
                     echo "<p class='page__text page__text--notification'>Вы неправильно ввели  капчу, вернитесь, пожалуйста, и введите правильно</p>";
                     echo "</div>";
-                    echo "<a class='page__link page__link--notification page__link--sitemap' href='".$url."'>Вернуться назад</a>";
+                    echo "<a class='page__link page__link--notification page__link--sitemap' href='/guestbook'>Вернуться назад</a>";
                 }
             }
             else {
+                echo "<title>Вы не ввели  капчу</title>";
                 echo "<div class='good_message good_message--wrong'>";
                 echo "<p class='page__text page__text--notification'>Вы не ввели  капчу, вернитесь, пожалуйста, и введите её</p>";
                 echo "</div>";
-                echo "<a class='page__link page__link--notification page__link--sitemap' href='".$url."'>Вернуться назад</a>";
+                echo "<a class='page__link page__link--notification page__link--sitemap' href='/guestbook'>Вернуться назад</a>";
             }
             ?>
         </div>

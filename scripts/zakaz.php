@@ -1,8 +1,7 @@
 <?php
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "/modules/keywords.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html");
-echo "<title>".$keywords[39][title]; echo "</title>"; ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html"); ?>
 
 <div class="wrapper">
     <div class="wrapper-content">
@@ -63,12 +62,13 @@ echo "<title>".$keywords[39][title]; echo "</title>"; ?>
 //            "VALUES('{$name}', '{$phone}');";
 //        mysqli_query($sql_users);
 
-                    include($_SERVER["DOCUMENT_ROOT"] . "/modules/mail/zakaz.php");
+                    include($_SERVER["DOCUMENT_ROOT"] . "/modules/mails.php");
 
                     if ((isset($_POST['name']) && $_POST['name'] != "") && (isset($_POST['phone']) && $_POST['phone'] != "")) {
 
                         if (mail("goldirev12@yandex.ru", "Заказ товара с сайта",
                             $zakaz, "From: autobagaz@yandex.ru \r\n")) {
+                            echo "<title>Ваш заказ успешно отправлен!</title>";
                             echo "<div class='good_message'>";
                             echo "<p>Ваш заказ успешно отправлен!</p>";
                             echo "</div>";
@@ -78,6 +78,7 @@ echo "<title>".$keywords[39][title]; echo "</title>"; ?>
                             header('Refresh: 5; URL='.$url);
                         }
                         else {
+                            echo "<title>При отправке заказа возникли проблемы</title>";
                             echo "<div class='good_message good_message--wrong'>";
                             echo "<p class='page__text page__text--notification'>При отправке заказа возникли проблемы :(</p>";
                             echo "</div>";
@@ -85,6 +86,7 @@ echo "<title>".$keywords[39][title]; echo "</title>"; ?>
                         }
                     }
                     else {
+                        echo "<title>Вы не заполнили одно из полей формы</title>";
                         echo "<div class='good_message good_message--wrong'>";
                         echo "<p class='page__text page__text--notification'>Вы не заполнили одно из обязательных полей формы, вернитесь, пожалуйста, и заполните его</p>";
                         echo "</div>";
@@ -92,6 +94,7 @@ echo "<title>".$keywords[39][title]; echo "</title>"; ?>
                     }
                 }
                 else {
+                    echo "<title>Вы неправильно ввели  капчу</title>";
                     echo "<div class='good_message good_message--wrong'>";
                     echo "<p class='page__text page__text--notification'>Вы неправильно ввели  капчу, вернитесь, пожалуйста, и введите правильно</p>";
                     echo "</div>";
@@ -99,6 +102,7 @@ echo "<title>".$keywords[39][title]; echo "</title>"; ?>
                 }
             }
             else {
+                echo "<title>Вы не ввели  капчу</title>";
                 echo "<div class='good_message good_message--wrong'>";
                 echo "<p class='page__text page__text--notification'>Вы не ввели  капчу, вернитесь, пожалуйста, и введите её</p>";
                 echo "</div>";
