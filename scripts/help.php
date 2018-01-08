@@ -53,10 +53,11 @@ echo "<title>".$keywords[42][title]; echo "</title>"; ?>
 //            "VALUES('{$name}', '{$phone}');";
 //        mysqli_query($sql_users);
 
+                    include($_SERVER["DOCUMENT_ROOT"] . "/modules/mail/help.php");
+
                     if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")){
 
-                        if (mail("goldirev12@yandex.ru", "Человек не может определиться с оборудованием!",
-                            $help, "From: autobagaz@yandex.ru \r\n")){
+                        if (mail("goldirev12@yandex.ru", "Человек не может определиться с оборудованием!", $help, "From: autobagaz@yandex.ru \r\n")){
                             echo "<div class='good_message'>";
                             echo "<p>Мы Вам обязательно перезвоним!</p>";
                             echo "</div>";
