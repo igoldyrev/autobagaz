@@ -65,7 +65,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html"); ?>
 
                     if ((isset($_POST['name']) && $_POST['name'] != "") && (isset($_POST['phone']) && $_POST['phone'] != "")) {
 
-                        if (mail("autobagaz@yandex.ru", "Заказ товара с сайта",
+                        if (mail($email, "Заказ товара с сайта",
                             $zakaz, "From: autobagaz@yandex.ru \r\n")) {
                             echo "<title>Ваш заказ успешно отправлен!</title>";
                             echo "<div class='good_message'>";

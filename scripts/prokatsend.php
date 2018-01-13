@@ -75,7 +75,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html"); ?>
 
                     if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")) {
 
-                        if (mail("autobagaz@yandex.ru", "Заказ оборудования в прокат", $prokat, "From: autobagaz@yandex.ru \r\n")) {
+                        if (mail($email, "Заказ оборудования в прокат", $prokat, "From: autobagaz@yandex.ru \r\n")) {
                             echo "<title>Вы успешно забронировали оборудование!</title>";
                             echo "<div class='good_message'>";
                             echo "<p>Вы успешно забронировали оборудование! Мы с Вами свяжемся в ближайшее время!</p>";

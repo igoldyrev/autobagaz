@@ -51,7 +51,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html"); ?>
                     include($_SERVER["DOCUMENT_ROOT"] . "/modules/mails.php");
 
                     if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['rewiew'])&&$_POST['rewiew']!="")){
-                        if (mail("autobagaz@yandex.ru", "Новый отзыв на сайте",
+                        if (mail($email, "Новый отзыв на сайте",
                             $rewiewmail, "From: autobagaz@yandex.ru \r\n")){
                             echo "<title>Ваш отзыв успешно размещен на сайте!</title>";
                             echo "<div class='good_message'>";

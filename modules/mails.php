@@ -1,4 +1,6 @@
 <?php
+$email = "goldirev12@yandex.ru";
+
 $zakaz = "
 Заказан товар".$_SESSION['tovar'].";
 Имя: ".$name.";
@@ -12,6 +14,7 @@ $zakaz = "
 ip-адрес: ".$_SERVER['REMOTE_ADDR']."
 Ссылка на скрипт, который прислал письмо: ".$_SERVER['REQUEST_URI']."
 ";
+
 $prokat = "
 Заказан товар".$_SESSION['tovar'].";
 Имя: ".$name.";
@@ -24,6 +27,7 @@ $prokat = "
 ip-адрес: ".$_SERVER['REMOTE_ADDR']."
 Ссылка на скрипт, который прислал письмо: ".$_SERVER['REQUEST_URI']."
 ";
+
 $call = "
 Страница с которой отправлено письмо ".$_SESSION['url'].";
 Имя: ".$name.";
@@ -33,6 +37,7 @@ $call = "
 ip-адрес: ".$_SERVER['REMOTE_ADDR']."
 Ссылка на скрипт, который прислал письмо: ".$_SERVER['REQUEST_URI']."
 ";
+
 $help = "
 Страница с которой отправлено письмо".$_SESSION['url'].";
 Имя: ".$name.";
@@ -43,6 +48,7 @@ $help = "
 ip-адрес: ".$_SERVER['REMOTE_ADDR']."
 Ссылка на скрипт, который прислал письмо: ".$_SERVER['REQUEST_URI']."
 ";
+
 $rewiewmail = "
 Имя отправителя: ".$name.";
 Телефон: ".$phone.";
