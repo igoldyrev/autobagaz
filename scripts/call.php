@@ -32,10 +32,10 @@ include($_SERVER["DOCUMENT_ROOT"] . "/admin/headtags.html"); ?>
 
             //Создаем запрос в базу данных
             $sql_insert = "INSERT INTO calls (name, phone)" . "VALUES('{$name}', '{$phone}');";
-            mysqli_query($sql_insert);
+            mysqli_query($connect, $sql_insert);
 
             $sql_users = "INSERT INTO users (name, phone)" . "VALUES('{$name}', '{$phone}');";
-            mysqli_query($sql_users);
+            mysqli_query($connect, $sql_users);
 
             include($_SERVER["DOCUMENT_ROOT"] . "/modules/mails.php");
 
