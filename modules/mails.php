@@ -1,8 +1,8 @@
 <?php
-$email = "goldirev12@yandex.ru";
+$email = "autobagaz@yandex.ru";
 
 $zakaz = "
-Заказан товар".$_SESSION['tovar'].";
+Заказан товар: ".$_SESSION['tovar'].";
 Имя: ".$name.";
 Телефон: ".$phone.";
 Марка машины: ".$auto.";
@@ -16,7 +16,7 @@ ip-адрес: ".$_SERVER['REMOTE_ADDR']."
 ";
 
 $prokat = "
-Заказан товар".$_SESSION['tovar'].";
+Заказан товар: ".$_SESSION['tovar'].";
 Имя: ".$name.";
 Телефон: ".$phone.";
 Оборудование: ".$bagazhnik.", ".$autobox.", ".$velokreplenie_krysha.", ".$velokreplenie_farkop.", ".$lyzhnoe_kreplenie.", ".$braslets.";
@@ -29,7 +29,7 @@ ip-адрес: ".$_SERVER['REMOTE_ADDR']."
 ";
 
 $call = "
-Страница с которой отправлено письмо ".$_SESSION['url'].";
+Страница с которой отправлено письмо: ".$_SESSION['url'].";
 Имя: ".$name.";
 Телефон: ".$phone.";
 
@@ -39,7 +39,7 @@ ip-адрес: ".$_SERVER['REMOTE_ADDR']."
 ";
 
 $help = "
-Страница с которой отправлено письмо".$_SESSION['url'].";
+Страница с которой отправлено письмо: ".$_SESSION['url'].";
 Имя: ".$name.";
 Телефон: ".$phone.";
 Сообщение: ".$message.";
