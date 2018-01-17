@@ -1,5 +1,6 @@
 <?php session_start();
-include ($_SERVER["DOCUMENT_ROOT"]."/admin/config.php"); ?>
+include ($_SERVER["DOCUMENT_ROOT"]."/admin/config.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/admin/blocks.php"); ?>
 
 <!-- meta tags -->
 <meta charset="UTF-8">
