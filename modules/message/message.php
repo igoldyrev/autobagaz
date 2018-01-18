@@ -7,7 +7,7 @@ $query = "SELECT * FROM `message` ORDER BY id DESC";
 
 if ($result = mysqli_query($connect, $query)) {
     while ($row = mysqli_fetch_assoc($result)) {
-        echo '<div class="index-message">';
+        echo '<div class="index-message" '; echo $style; echo '>';
         echo '<h2 class="index-message__title">'.$row['title'].'</h2>';
             echo '<p class="index-message__text">'.$row['msg'].'</p>';
             echo '<p class="index-message__holiday">'.$row['holiday'].'</p>';
