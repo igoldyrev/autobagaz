@@ -1,12 +1,12 @@
 <?php
 include ($_SERVER["DOCUMENT_ROOT"]."/admin/config.php");
 if ($checkedmsgon == 'checked'){
-    $style = 'style="display: flex; "';
+    $stylemsg = 'style="display: flex; "';
 }elseif ($checkedmsgon == 'none'){
-    $style = 'style="display: none; "';
+    $stylemsg = 'style="display: none; "';
 }
 if ($checkedstock == 'checked'){
-    $style = 'style="display: block; "';
+    $stylestock = 'style="display: block; "';
 }elseif ($checkedstock == 'none'){
-    $style = 'style="display: none; "';
+    $stylestock = 'style="display: none; "';
 }
