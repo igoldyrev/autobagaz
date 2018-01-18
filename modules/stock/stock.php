@@ -8,7 +8,7 @@ $query = "SELECT * FROM `news` ORDER BY news_id DESC LIMIT 1";
 
 if ($result = mysqli_query($connect, $query)) {
     while ($row = mysqli_fetch_assoc($result)) {
-        echo '<div class="stock__container">';
+        echo '<div class="stock__container" '; echo $style; echo '>';
         echo '<div class="stock__bg"></div>';
             echo '<div class="stock">';
                 echo '<div class="stock__block">';
