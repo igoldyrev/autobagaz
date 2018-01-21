@@ -1,5 +1,5 @@
 <?php
-include ($_SERVER["DOCUMENT_ROOT"]."/modules/modal-calls/modal-calls.html"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/modules/modal-calls/modal-calls.php"); ?>
 <div class="header-container">
     <header class="header">
         <div class="header__logo">

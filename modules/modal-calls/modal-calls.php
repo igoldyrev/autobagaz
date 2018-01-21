@@ -1,5 +1,5 @@
-<input type="radio" id="modal-call__close" class="modal-control modal-control__close" name="modal">
-<input type="radio" id="modal-call__open" class="modal-control modal-control__open" name="modal">
+<input type="radio" id="modal-call__close" class="modal-control modal-control__close" name="modal" <?php $checkmodalclose ?>>
+<input type="radio" id="modal-call__open" class="modal-control modal-control__open" name="modal" <?php $checkmodalopen ?>>
 <label for="modal-call__close" class="modal-control__close--overlay"></label>
 <div class="modal-call">
     <label for="modal-call__close" class="modal-control__close--label">X</label>
