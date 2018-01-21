@@ -60,3 +60,8 @@ if (window.localStorage) {
         })(elements[i]);
     }
 }
+
+function modal() {
+   document.getElementById("modal-call__open").checked = true;
+}
+setTimeout(modal, 5000);
