@@ -9,6 +9,7 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
         <?php echo "<h3 class='page__title-h3'>Панель управления отзывами</h3>"; ?>
         <a class="admin__link" href="/admin/guestbook/update/guestupdate.php">Редактировать отзывы</a>
         <a class="admin__link" href="/admin/guestbook/answers/rewiewanswer.php">Ответить на отзывы</a>
+        <a class="admin__link" href="/admin/guestbook/answers/answerchoice.php">Редактировать ответы на отзывы</a>
         <a class="admin__link" href="/admin/guestbook/delete/guestdelete.php">Удалить отзывы</a>
     </div>
 
