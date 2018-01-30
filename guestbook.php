@@ -57,7 +57,7 @@ echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"
                 $start_from = ($current_page - 1) * $on_page;
 
                 // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
-                $query = "SELECT `name`, `phone`, `rewiew` FROM `guestbook` ORDER BY `id` DESC LIMIT $start_from, $on_page";
+                $query = "SELECT * FROM `guestbook` ORDER BY `id` DESC LIMIT $start_from, $on_page";
                 $res = mysqli_query($connect, $query);
 
                 if ($count_records == 0) {
@@ -75,6 +75,9 @@ echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"
                         echo '</div>';
                         echo '<div class="rewiew__text">';
                         echo '<p class="page__text page__text--rewiew">'.$row['rewiew'].'</p>';
+                        echo '</div>';
+                        echo '<div class="rewiew__answer">';
+                        echo '<p class="page__text page__text--answer">'.$row['answer'].'</p>';
                         echo '</div>';
                         echo '</div>';
                     }

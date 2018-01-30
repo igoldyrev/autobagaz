@@ -26,7 +26,16 @@
       weight: 400;
     }
     border-radius: 10px;
-    margin-top: 60px;
+    margin-top: 30px;
+  }
+  &__answer {
+    font: {
+      family: $font;
+      size: 1.2em;
+      weight: 400;
+    }
+    border-radius: 10px;
+    margin-top: 30px;
   }
   @include adaptive(mobile) {
     padding: 0px;
