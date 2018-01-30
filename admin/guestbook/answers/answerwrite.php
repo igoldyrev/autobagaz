@@ -22,7 +22,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/admin/headtags.html"); ?>
                 </div>
                 <div class='form__input-block'>
                     <label class='form__label' for='answer'>Введите ответ на отзыв</label>
-                    <textarea class='form__input form__textarea form__textarea--admin' name='answer' ></textarea>                 
+                    <textarea class='form__input form__textarea form__textarea--admin' name='answer' autofocus ></textarea>                 
                 </div>
                 <input class='button button__zakaz' id='submit' type='submit' value='Ответить на отзыв'>
     </form>",$row['id'], $row['answer']);
