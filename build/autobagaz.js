@@ -163,10 +163,6 @@ $('.rewiew__answer').each(function () {
     }
 });
 
-// if($('.page__text--answer').css()=="display:none") {
-//     $('.rewiew__answer').css({'display':'none'});
-// }
-
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {

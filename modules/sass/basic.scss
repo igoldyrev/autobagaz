@@ -59,14 +59,34 @@
         &::before {
           content: '';
           position: absolute;
-          top: -49px;
-          left: 50px;
+          top: -15px;
+          left: 45px;
           width: 0px;
           height: 0px;
-          border-right: 50px solid transparent;
-          border-bottom: 50px solid #BDBDBD;
+          border-right: 30px solid #BDBDBD;
+          border-bottom: 30px solid #BDBDBD;
+          transform: rotate(45deg);
         }
     }
+
+    &--answer {
+      position: relative;
+      background-color: #BDBDBD;
+      border-radius: 15px;
+      padding: 15px;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -15px;
+        right: 45px;
+        width: 0px;
+        height: 0px;
+        border-right: 30px solid #BDBDBD;
+        border-bottom: 30px solid #BDBDBD;
+        transform: rotate(45deg);
+      }
+    }
+
     &--error {
       line-height: 30px;
     }
