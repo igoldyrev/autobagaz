@@ -77,4 +77,16 @@ if (window.localStorage) {
             };
         })(elements[i]);
     }
-}
+};
+
+$('.page__text--answer').each(function () {
+    if ($(this).text() === '') {
+        $(this).remove();
+    }
+});
+
+$('.rewiew__answer').each(function () {
+    if ($(this).text() === '') {
+        $(this).remove();
+    }
+});
