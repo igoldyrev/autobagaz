@@ -333,8 +333,22 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
             <p class="page__text">Сертификат дает возможность оплаты до 30% стоимости товаров нашего магазина.</p>
                 <div class="img_div">
                     <img class="img_main" src="/images/news/191217/montblanc.jpg" srcset="/images/news/191217/montblanc.jpg 300w" alt="Розыгрыш лыжных креплений Mont Blanc" sizes="(max-width: 2000px) 150px, 300px, 350px">
+                </div> <?php
+            } elseif ($newspage == 'result_rozygryzh_montblanc') {
+                echo "<title> $titleconst"; echo $news[15][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $news[15][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $news[15][keywords]; echo "'/>"; ?>
+                <h1 class="page__title-h1">Итоги розыгрыша лыжных креплений Mont Blanc</h1>
+                <p class="page__text">Подводим итоги розыгрыша лыжного крепления MontBlanc.</p>
+                <p class="page__text">Узнавайте номер выигрышного билета из видео.</p>
+                <p class="page__text">Ниже прилагаем фото брата-близнеца купона, ждем вас в гости с таким же.</p>
+                <p class="page__text">Искренние поздравления от всего коллектива магазина "AutoBagaz"!</p>
+                <p class="page__text">Крепление можно забрать по адресу: Спешилова 102/29 телефон для связи: <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+73422889969" class="page__link">288 99 69</a></p>
+                <div class="img_div">
+                    <img class="img_main" src="/images/news/300118/mont-blanc-card.jpg" srcset="/images/news/300118/mont-blanc-card.jpg 300w" alt="Розыгрыш лыжных креплений Mont Blanc" sizes="(max-width: 2000px) 150px, 300px, 350px">
                 </div>
-          <?php  } ?>
+                <p class="page__text">Видео с итогами розыгрыша находится <a href="https://vk.com/video-86325723_456239025" target="_blank" class="page__link">здесь</a>.</p>
+            <?php  } ?>
         </div>
     </div>
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
