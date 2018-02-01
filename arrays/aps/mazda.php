@@ -1,74 +1,132 @@
 <?php
-$mazda = [
+$mazda3 = [
     //Mazda 3 (2003 - 2009)
     [
         //Имена товаров и номера для создания ссылок
-        'id1' => 'mazda3black',
-        'id2' => 'mazda3gray',
-        'id3' => 'mazda3white',
-        'name1' => 'Рейлинг для Mazda 3 (2003 - 2009) полимер черный',
-        'name2' => 'Рейлинг для Mazda 3 (2003 - 2009) анод серый',
-        'name3' => 'Рейлинг для Mazda 3 (2003 - 2009) серебристый',
-        //Заголовок, который отображается на странице
-        'title' => 'Рейлинги для Mazda 3 (2003 - 2009)',
+        'id' => 'mazda3black',
+        'name' => 'Рейлинг для Mazda 3 (2003 - 2009) полимер черный',
         //Изображения
-        'img1' => '<img class="img_main" src="/images/aps/mazda/3-2003-2009/polymer-black.png" srcset="/images/aps/mazda/3-2003-2009/polymer-black.png 800w" alt="Рейлинги для Mazda 3" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'img2' => '<img class="img_main" src="/images/aps/mazda/3-2003-2009/anod-gray.png" srcset="/images/aps/mazda/3-2003-2009/anod-gray.png 800w" alt="Рейлинги для Mazda 3" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'img3' => '<img class="img_main" src="/images/aps/mazda/3-2003-2009/white.png" srcset="/images/aps/mazda/3-2003-2009/white.png 800w" alt="Рейлинги для Mazda 3" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/mazda/3-2003-2009/polymer-black.png" srcset="/images/aps/mazda/3-2003-2009/polymer-black.png 800w" alt="Рейлинги для Mazda 3" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
-        'color1' => 'полимер черный',
-        'color2' => 'анод серый',
-        'color3' => 'серебристый',
+        'color' => 'полимер черный',
         //Цена без монтажа
         'price' => '6 350 рублей',
         //Цена с монтажом
         'price_montazh' => '6 750 рублей',
     ],
 
+    [
+        //Имена товаров и номера для создания ссылок
+        'id' => 'mazda3gray',
+        'name' => 'Рейлинг для Mazda 3 (2003 - 2009) анод серый',
+        //Изображения
+        'img' => '<img class="img_main" src="/images/aps/mazda/3-2003-2009/anod-gray.png" srcset="/images/aps/mazda/3-2003-2009/anod-gray.png 800w" alt="Рейлинги для Mazda 3" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        //Цвета
+        'color' => 'анод серый',
+        //Цена без монтажа
+        'price' => '6 350 рублей',
+        //Цена с монтажом
+        'price_montazh' => '6 750 рублей',
+    ],
+
+   [
+        //Имена товаров и номера для создания ссылок
+        'id' => 'mazda3white',
+        'name' => 'Рейлинг для Mazda 3 (2003 - 2009) серебристый',
+        //Изображения
+        'img' => '<img class="img_main" src="/images/aps/mazda/3-2003-2009/white.png" srcset="/images/aps/mazda/3-2003-2009/white.png 800w" alt="Рейлинги для Mazda 3" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        //Цвета
+        'color' => 'серебристый',
+        //Цена без монтажа
+        'price' => '6 350 рублей',
+        //Цена с монтажом
+        'price_montazh' => '6 750 рублей',
+    ],
+];
+
+$mazda_cx5_1 = [
     //Mazda CX-5 I
     [
         //Имена товаров и номера для создания ссылок
-        'id1' => 'mazdacx5oneblack',
-        'id2' => 'mazdacx5onegray',
-        'id3' => 'mazdacx5onewhite',
-        'name1' => 'Рейлинг для Mazda CX-5 I полимер черный',
-        'name2' => 'Рейлинг для Mazda CX-5 I анод серый',
-        'name3' => 'Рейлинг для Mazda CX-5 I серебристый',
-        //Заголовок, который отображается на странице
-        'title' => 'Рейлинги для Mazda CX-5 I',
+        'id' => 'mazdacx5oneblack',
+        'name' => 'Рейлинг для Mazda CX-5 I полимер черный',
         //Изображения
-        'img1' => '<img class="img_main" src="/images/aps/mazda/cx-5-2012-2017/polymer-black.png" srcset="/images/aps/mazda/cx-5-2012-2017/polymer-black.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'img2' => '<img class="img_main" src="/images/aps/mazda/cx-5-2012-2017/anod-gray.png" srcset="/images/aps/mazda/cx-5-2012-2017/anod-gray.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'img3' => '<img class="img_main" src="/images/aps/mazda/cx-5-2012-2017/white.png" srcset="/images/aps/mazda/cx-5-2012-2017/white.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/mazda/cx-5-2012-2017/polymer-black.png" srcset="/images/aps/mazda/cx-5-2012-2017/polymer-black.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
-        'color1' => 'полимер черный',
-        'color2' => 'анод серый',
-        'color3' => 'серебристый',
+        'color' => 'полимер черный',
         //Цена без монтажа
         'price' => '6 800 рублей',
         //Цена с монтажом
         'price_montazh' => '7 200 рублей',
     ],
 
+    [
+        //Имена товаров и номера для создания ссылок
+        'id' => 'mazdacx5onegray',
+        'name' => 'Рейлинг для Mazda CX-5 I анод серый',
+        //Изображения
+        'img' => '<img class="img_main" src="/images/aps/mazda/cx-5-2012-2017/anod-gray.png" srcset="/images/aps/mazda/cx-5-2012-2017/anod-gray.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        //Цвета
+        'color' => 'анод серый',
+        //Цена без монтажа
+        'price' => '6 800 рублей',
+        //Цена с монтажом
+        'price_montazh' => '7 200 рублей',
+    ],
+
+    [
+        //Имена товаров и номера для создания ссылок
+        'id' => 'mazdacx5onewhite',
+        'name' => 'Рейлинг для Mazda CX-5 I серебристый',
+        //Изображения
+        'img' => '<img class="img_main" src="/images/aps/mazda/cx-5-2012-2017/white.png" srcset="/images/aps/mazda/cx-5-2012-2017/white.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        //Цвета
+        'color' => 'серебристый',
+        //Цена без монтажа
+        'price' => '6 800 рублей',
+        //Цена с монтажом
+        'price_montazh' => '7 200 рублей',
+    ],
+];
+
+$mazda_cx5_2 = [
     //Mazda CX-5 II
     [
         //Имена товаров и номера для создания ссылок
-        'id1' => 'mazdacx5twoblack',
-        'id2' => 'mazdacx5twogray',
-        'id3' => 'mazdacx5twowhite',
-        'name1' => 'Рейлинг для Mazda CX-5 II полимер черный',
-        'name2' => 'Рейлинг для Mazda CX-5 II анод серый',
-        'name3' => 'Рейлинг для Mazda CX-5 II серебристый',
-        //Заголовок, который отображается на странице
-        'title' => 'Рейлинги для Mazda CX-5 II',
+        'id' => 'mazdacx5twoblack',
+        'name' => 'Рейлинг для Mazda CX-5 II полимер черный',
         //Изображения
-        'img1' => '<img class="img_main" src="/images/aps/mazda/cx-5-new/polymer-black.png" srcset="/images/aps/mazda/cx-5-new/polymer-black.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'img2' => '<img class="img_main" src="/images/aps/mazda/cx-5-new/anod-gray.png" srcset="/images/aps/mazda/cx-5-new/anod-gray.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'img3' => '<img class="img_main" src="/images/aps/mazda/cx-5-new/white.png" srcset="/images/aps/mazda/cx-5-new/white.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/mazda/cx-5-new/polymer-black.png" srcset="/images/aps/mazda/cx-5-new/polymer-black.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
-        'color1' => 'полимер черный',
-        'color2' => 'анод серый',
-        'color3' => 'серебристый',
+        'color' => 'полимер черный',
+        //Цена без монтажа
+        'price' => '6 800 рублей',
+        //Цена с монтажом
+        'price_montazh' => '7 200 рублей',
+    ],
+
+    [
+        //Имена товаров и номера для создания ссылок
+        'id' => 'mazdacx5twogray',
+        'name' => 'Рейлинг для Mazda CX-5 II анод серый',
+        //Изображения
+        'img' => '<img class="img_main" src="/images/aps/mazda/cx-5-new/anod-gray.png" srcset="/images/aps/mazda/cx-5-new/anod-gray.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        //Цвета
+        'color' => 'анод серый',
+        //Цена без монтажа
+        'price' => '6 800 рублей',
+        //Цена с монтажом
+        'price_montazh' => '7 200 рублей',
+    ],
+
+    [
+        //Имена товаров и номера для создания ссылок
+        'id' => 'mazdacx5twowhite',
+        'name' => 'Рейлинг для Mazda CX-5 II серебристый',
+        //Изображения
+        'img' => '<img class="img_main" src="/images/aps/mazda/cx-5-new/white.png" srcset="/images/aps/mazda/cx-5-new/white.png 800w" alt="Рейлинги для Mazda CX-5" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        //Цвета
+        'color' => 'серебристый',
         //Цена без монтажа
         'price' => '6 800 рублей',
         //Цена с монтажом
