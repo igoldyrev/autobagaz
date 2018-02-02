@@ -193,7 +193,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     <div class="catalog__item">
                         <a href="/reelings/lada-4x4-l" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/lada-4x4-l"><img class="item__image-img" src="/images/aps/lada/4x4-l" alt="lada 4x4 L"></a>
+                            <a href="/reelings/lada-4x4-l"><img class="item__image-img" src="/images/aps/lada/4x4-l/polymer-black.gif" alt="lada 4x4 L"></a>
                         </div>
                         <div class="item__link">
                             <a href="/reelings/lada-4x4-l">LADA 4x4 L</a>
