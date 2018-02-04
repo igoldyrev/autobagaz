@@ -6,7 +6,7 @@ $hyundai_creta = [
         'id' => 'cretablack',
         'name' => 'Рейлинг для Hyundai Creta полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/images/aps/hyundai/creta/polymer-black.png" srcset="/images/aps/hyundai/creta/polymer-black.png 800w" alt="Рейлинги для Hyundai Creta" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/hyundai/creta/polymer-black.png" srcset="/images/aps/hyundai/creta/polymer-black.png 150w" alt="Рейлинги для Hyundai Creta" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -20,7 +20,7 @@ $hyundai_creta = [
         'id' => 'cretagray',
         'name' => 'Рейлинг для Hyundai Creta анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/images/aps/hyundai/creta/anod-gray.png" srcset="/images/aps/hyundai/creta/anod-gray.png 800w" alt="Рейлинги для Hyundai Creta" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/hyundai/creta/anod-gray.png" srcset="/images/aps/hyundai/creta/anod-gray.png 150w" alt="Рейлинги для Hyundai Creta" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -34,7 +34,7 @@ $hyundai_creta = [
         'id' => 'cretawhite',
         'name' => 'Рейлинг для Hyundai Creta серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/images/aps/hyundai/creta/white.png" srcset="/images/aps/hyundai/creta/white.png 800w" alt="Рейлинги для Hyundai Creta" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/hyundai/creta/white.png" srcset="/images/aps/hyundai/creta/white.png 150w" alt="Рейлинги для Hyundai Creta" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -51,7 +51,7 @@ $hyundai_solaris = [
         'id' => 'solarisblack',
         'name' => 'Рейлинг для Hyundai Solaris полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/images/aps/hyundai/solaris/polymer-black.png" srcset="/images/aps/hyundai/solaris/polymer-black.png 800w" alt="Рейлинги для Hyundai Solaris" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/hyundai/solaris/polymer-black.png" srcset="/images/aps/hyundai/solaris/polymer-black.png 150w" alt="Рейлинги для Hyundai Solaris" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -65,7 +65,7 @@ $hyundai_solaris = [
         'id' => 'solarisgray',
         'name' => 'Рейлинг для Hyundai Solaris анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/images/aps/hyundai/solaris/anod-gray.png" srcset="/images/aps/hyundai/solaris/anod-gray.png 800w" alt="Рейлинги для Hyundai Solaris" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/hyundai/solaris/anod-gray.png" srcset="/images/aps/hyundai/solaris/anod-gray.png 150w" alt="Рейлинги для Hyundai Solaris" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -79,7 +79,7 @@ $hyundai_solaris = [
         'id' => 'solariswhite',
         'name' => 'Рейлинг для Hyundai Solaris серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/images/aps/hyundai/solaris/white.png" srcset="/images/aps/hyundai/solaris/white.png 800w" alt="Рейлинги для Hyundai Solaris" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/hyundai/solaris/white.png" srcset="/images/aps/hyundai/solaris/white.png 150w" alt="Рейлинги для Hyundai Solaris" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -96,7 +96,7 @@ $hyundai_i30 = [
         'id' => 'i30black',
         'name' => 'Рейлинг для Hyundai i30 полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/images/aps/hyundai/i-30/polymer-black.png" srcset="/images/aps/hyundai/i-30/polymer-black.png 800w" alt="Рейлинги для Hyundai i30" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/hyundai/i-30/polymer-black.png" srcset="/images/aps/hyundai/i-30/polymer-black.png 150w" alt="Рейлинги для Hyundai i30" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -110,7 +110,7 @@ $hyundai_i30 = [
         'id' => 'i30gray',
         'name' => 'Рейлинг для Hyundai i30 анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/images/aps/hyundai/i-30/anod-gray.png" srcset="/images/aps/hyundai/i-30/anod-gray.png 800w" alt="Рейлинги для Hyundai i30" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/hyundai/i-30/anod-gray.png" srcset="/images/aps/hyundai/i-30/anod-gray.png 150w" alt="Рейлинги для Hyundai i30" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -124,7 +124,7 @@ $hyundai_i30 = [
         'id' => 'i30white',
         'name' => 'Рейлинг для Hyundai i30 серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/images/aps/hyundai/i-30/white.png" srcset="/images/aps/hyundai/i-30/white.png 800w" alt="Рейлинги для Hyundai i30" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+        'img' => '<img class="img_main" src="/images/aps/hyundai/i-30/white.png" srcset="/images/aps/hyundai/i-30/white.png 150w" alt="Рейлинги для Hyundai i30" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
