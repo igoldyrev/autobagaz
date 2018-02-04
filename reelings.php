@@ -478,6 +478,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
             echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада XRAY</h1>";
             include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
             $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+            $_SESSION['lada_xray'] = $lada_xray;
 
             foreach ($lada_xray as $item): ?>
                 <div class="good">
@@ -508,6 +509,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада LARGUS</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['lada_largus'] = $lada_largus;
 
                 foreach ($lada_largus as $item): ?>
                     <div class="good">
@@ -538,6 +540,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада GRANTA Лифтбек</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['granta_liftbek'] = $granta_liftbek;
 
                 foreach ($granta_liftbek as $item): ?>
                     <div class="good">
@@ -568,6 +571,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада GRANTA 'E'</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['granta_e'] = $granta_e;
 
                 foreach ($granta_e as $item): ?>
                     <div class="good">
@@ -598,6 +602,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада Гранта / Калина Седан</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['granta_sedan'] = $granta_sedan;
 
                 foreach ($granta_sedan as $item): ?>
                     <div class="good">
@@ -628,6 +633,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада Калина Хэтчбек S</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['kalina_xetchbek'] = $kalina_xetchbek;
 
                 foreach ($kalina_xetchbek as $item): ?>
                     <div class="good">
@@ -658,6 +664,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада Калина Универсал M</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['kalina_universal'] = $kalina_universal;
 
                 foreach ($kalina_universal as $item): ?>
                     <div class="good">
@@ -688,6 +695,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада 4x4</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['lada_4x4'] = $lada_4x4;
 
                 foreach ($lada_4x4 as $item): ?>
                     <div class="good">
@@ -718,6 +726,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада 4x4 L</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['lada_4x4_l'] = $lada_4x4_l;
 
                 foreach ($lada_4x4_l as $item): ?>
                     <div class="good">
@@ -748,6 +757,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Chevrolet Niva M</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/aps.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['niva_m'] = $niva_m;
 
                 foreach ($niva_m as $item): ?>
                     <div class="good">
@@ -778,6 +788,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Chevrolet Niva L</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/aps.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['niva_l'] = $niva_l;
 
                 foreach ($niva_l as $item): ?>
                     <div class="good">
@@ -808,6 +819,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Renault Kaptur</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/renault.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['renault_kaptur'] = $renault_kaptur;
 
                 foreach ($renault_kaptur as $item): ?>
                     <div class="good">
@@ -838,6 +850,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Renault Logan (2004 - 2014)</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/renault.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['renault_logan_2004'] = $renault_logan_2004;
 
                 foreach ($renault_logan_2004 as $item): ?>
                     <div class="good">
@@ -868,6 +881,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для новый Renault Logan </h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/renault.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['renault_logan_2015'] = $renault_logan_2015;
 
                 foreach ($renault_logan_2015 as $item): ?>
                     <div class="good">
@@ -898,6 +912,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Renault Sandero</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/renault.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['renault_sandero_2010'] = $renault_sandero_2010;
 
                 foreach ($renault_sandero_2010 as $item): ?>
                     <div class="good">
@@ -928,6 +943,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для новый Renault Sandero</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/renault.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['renault_sandero_2014'] = $renault_sandero_2014;
 
                 foreach ($renault_sandero_2014 as $item): ?>
                     <div class="good">
@@ -958,6 +974,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Kia Ceed</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/aps.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['kia_ceed_2006'] = $kia_ceed_2006;
 
                 foreach ($kia_ceed_2006 as $item): ?>
                     <div class="good">
@@ -988,6 +1005,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для новый Kia Ceed</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/aps.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['kia_ceed_2012'] = $kia_ceed_2012;
 
                 foreach ($kia_ceed_2012 as $item): ?>
                     <div class="good">
@@ -1018,6 +1036,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Mazda 3</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/mazda.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['mazda3'] = $mazda3;
 
                 foreach ($mazda3 as $item): ?>
                     <div class="good">
@@ -1048,6 +1067,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Mazda CX-5 I</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/mazda.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['mazda_cx5_1'] = $mazda_cx5_1;
 
                 foreach ($mazda_cx5_1 as $item): ?>
                     <div class="good">
@@ -1078,6 +1098,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Mazda CX-5 II</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/mazda.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['mazda_cx5_2'] = $mazda_cx5_2;
 
                 foreach ($mazda_cx5_2 as $item): ?>
                     <div class="good">
@@ -1108,6 +1129,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Hyundai Creta</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/hyundai.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['hyundai_creta'] = $hyundai_creta;
 
                 foreach ($hyundai_creta as $item): ?>
                     <div class="good">
@@ -1138,6 +1160,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Hyundai Solaris</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/hyundai.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['hyundai_solaris'] = $hyundai_solaris;
 
                 foreach ($hyundai_solaris as $item): ?>
                     <div class="good">
@@ -1168,6 +1191,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Hyundai i30</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/hyundai.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['hyundai_i30'] = $hyundai_i30;
 
                 foreach ($hyundai_i30 as $item): ?>
                     <div class="good">
@@ -1198,6 +1222,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Opel Astra</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/aps.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['opel_astra_2004'] = $opel_astra_2004;
 
                 foreach ($opel_astra_2004 as $item): ?>
                     <div class="good">
@@ -1228,6 +1253,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Toyota RAV-4 III</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/toyota.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['toyota_rav4_2006'] = $toyota_rav4_2006;
 
                 foreach ($toyota_rav4_2006 as $item): ?>
                     <div class="good">
@@ -1258,6 +1284,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Toyota RAV-4 IV</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/toyota.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['toyota_rav4_2013'] = $toyota_rav4_2013;
 
                 foreach ($toyota_rav4_2013 as $item): ?>
                     <div class="good">
@@ -1288,6 +1315,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Toyota PRADO 150</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/toyota.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['toyota_prado150'] = $toyota_prado150;
 
                 foreach ($toyota_prado150 as $item): ?>
                     <div class="good">
@@ -1318,6 +1346,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Land Rover Freelander 2</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/aps.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['landrover'] = $landrover;
 
                 foreach ($landrover as $item): ?>
                     <div class="good">
@@ -1348,6 +1377,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Datsun ON-DO</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/datsun.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['on_do'] = $on_do;
 
                 foreach ($on_do as $item): ?>
                     <div class="good">
@@ -1378,6 +1408,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 echo "<h1 class='page__title-h1'>Рейлинги АПС для Datsun MI-DO</h1>";
                 include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/datsun.php");
                 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+                $_SESSION['mi_do'] = $mi_do;
 
                 foreach ($mi_do as $item): ?>
                     <div class="good">
