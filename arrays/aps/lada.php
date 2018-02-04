@@ -146,10 +146,8 @@ $granta_e = [
         'color' => 'полимер черный',
         //Цена без монтажа
         'price' => '2 950 рублей',
-        'price_poperechina' => '3 950 рублей',
         //Цена с монтажом
         'price_montazh' => '3 350 рублей',
-        'price_montazh_poperechina' => '4 450 рублей',
     ],
 
     [
@@ -162,27 +160,22 @@ $granta_e = [
         'color' => 'анод серый',
         //Цена без монтажа
         'price' => '2 950 рублей',
-        'price_poperechina' => '3 950 рублей',
         //Цена с монтажом
         'price_montazh' => '3 350 рублей',
-        'price_montazh_poperechina' => '4 450 рублей',
     ],
 
     [
         //Имена товаров и номера для создания ссылок
         'id' => 'grantaeblackpoperechina',
         'name' => 'Рейлинг для Гранта "Е" седан полимер черный с поперечиной',
-        'name4' => 'Рейлинг для Гранта "Е" седан анод серый с поперечиной',
         //Изображения
         'img' => '<img class="img_main" src="/images/aps/lada/granta-e/polymer-black-poperechina.png" srcset="/images/aps/lada/granta-e/polymer-black-poperechina.png 800w" alt="Рейлинги для Гранта E седан" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'полимер черный с поперечиной',
         //Цена без монтажа
-        'price' => '2 950 рублей',
-        'price_poperechina' => '3 950 рублей',
+        'price' => '3 950 рублей',
         //Цена с монтажом
-        'price_montazh' => '3 350 рублей',
-        'price_montazh_poperechina' => '4 450 рублей',
+        'price_montazh' => '4 450 рублей',
     ],
 
     [
@@ -194,11 +187,9 @@ $granta_e = [
         //Цвета
         'color' => 'анод серый с поперечиной',
         //Цена без монтажа
-        'price' => '2 950 рублей',
-        'price_poperechina' => '3 950 рублей',
+        'price' => '3 950 рублей',
         //Цена с монтажом
-        'price_montazh' => '3 350 рублей',
-        'price_montazh_poperechina' => '4 450 рублей',
+        'price_montazh' => '4 450 рублей',
     ],
 ];
 
@@ -354,10 +345,8 @@ $kalina_universal = [
         //Имена товаров и номера для создания ссылок
         'id' => 'kalinauniversal2008cleanblack',
         'name' => 'Рейлинг для Лада Калина Универсал "М" полимер черный, крыша гладкая, а/м до 2008г.' ,
-        'name6' => 'Рейлинг для Лада Калина Универсал "М" анод серый, крыша гладкая, а/м до 2008г.',
         //Изображения
         'img' => '<img class="img_main" src="/images/aps/lada/kalina-universal/polymer-black-do-2008-gladkaya-krysha.gif" srcset="/images/aps/lada/kalina-universal/polymer-black-do-2008-gladkaya-krysha.gif 800w" alt="Рейлинги для Калина Универсал" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-        'img6' => '<img class="img_main" src="/images/aps/lada/kalina-universal/anod-gray-do-2008-gladkaya-krysha.gif" srcset="/images/aps/lada/kalina-universal/anod-gray-do-2008-gladkaya-krysha.gif 800w" alt="Рейлинги для Калина Универсал" sizes="(max-width: 2000px) 150px, 300px, 350px">',
         //Цвета
         'color' => 'полимер черный, крыша гладкая, а/м до 2008г.',
         //Цена без монтажа
