@@ -852,18 +852,6 @@ if (!isset($id)) {
     <div class="good_message">
         <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
     </div> <?php
-} elseif ($id == 'rav42006black') {
-    $tovar = $_SESSION['toyota_rav4_2006'][0][name];
-    echo "<title>Заказ товара "; echo $_SESSION['toyota_rav4_2006'][0][name]; echo "</title>";?>
-    <div class="good_message">
-        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
-    </div> <?php
-} elseif ($id == 'rav42006gray') {
-    $tovar = $_SESSION['toyota_rav4_2006'][1][name];
-    echo "<title>Заказ товара "; echo $_SESSION['toyota_rav4_2006'][1][name]; echo "</title>";?>
-    <div class="good_message">
-        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
-    </div> <?php
 } elseif ($id == 'kapturblack') {
     $tovar = $_SESSION['renault_kaptur'][0][name];
     echo "<title>Заказ товара "; echo $_SESSION['renault_kaptur'][0][name]; echo "</title>";?>
