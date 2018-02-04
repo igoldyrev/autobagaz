@@ -470,10 +470,280 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                         </div>
                     </div>
                 </div> <?php
+            } elseif ($reelings == 'xray') {
+            echo "<title> $titleconst"; echo $keywords[49][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $keywords[49][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $keywords[49][keywords]; echo "'/>";
+
+            echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада XRAY</h1>";
+            include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
+            $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+            foreach ($lada_xray as $item): ?>
+                <div class="good">
+                    <h2 class="good__name"><?php echo $item['name']; ?></h2>
+                    <div class="good__description">
+                        <div class="img_div">
+                            <?php echo $item['img']; ?>
+                        </div>
+                        <p class="page__text">Цвет: <?php echo $item['color']; ?></p>
+                    </div>
+                    <div class="good__price">
+                        <div class="good__price-info">
+                            <p class="page__text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                            <p class="page__text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                        </div>
+                        <div class="good__price-button">
+                            <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                        </div>
+                    </div>
+                </div>
+           <?php endforeach;
+           include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($reelings == 'largus') {
+                echo "<title> $titleconst"; echo $keywords[50][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[50][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[50][keywords]; echo "'/>";
+
+                echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада LARGUS</h1>";
+                include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
+                $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+                foreach ($lada_largus as $item): ?>
+                    <div class="good">
+                        <h2 class="good__name"><?php echo $item['name']; ?></h2>
+                        <div class="good__description">
+                            <div class="img_div">
+                                <?php echo $item['img']; ?>
+                            </div>
+                            <p class="page__text">Цвет: <?php echo $item['color']; ?></p>
+                        </div>
+                        <div class="good__price">
+                            <div class="good__price-info">
+                                <p class="page__text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="page__text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                            </div>
+                            <div class="good__price-button">
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($reelings == 'granta_liftbek') {
+                echo "<title> $titleconst"; echo $keywords[51][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[51][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[51][keywords]; echo "'/>";
+
+                echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада GRANTA Лифтбек</h1>";
+                include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
+                $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+                foreach ($granta_liftbek as $item): ?>
+                    <div class="good">
+                        <h2 class="good__name"><?php echo $item['name']; ?></h2>
+                        <div class="good__description">
+                            <div class="img_div">
+                                <?php echo $item['img']; ?>
+                            </div>
+                            <p class="page__text">Цвет: <?php echo $item['color']; ?></p>
+                        </div>
+                        <div class="good__price">
+                            <div class="good__price-info">
+                                <p class="page__text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="page__text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                            </div>
+                            <div class="good__price-button">
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($reelings == 'granta-e') {
+                echo "<title> $titleconst"; echo $keywords[52][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[52][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[52][keywords]; echo "'/>";
+
+                echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада GRANTA 'E'</h1>";
+                include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
+                $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+                foreach ($granta_e as $item): ?>
+                    <div class="good">
+                        <h2 class="good__name"><?php echo $item['name']; ?></h2>
+                        <div class="good__description">
+                            <div class="img_div">
+                                <?php echo $item['img']; ?>
+                            </div>
+                            <p class="page__text">Цвет: <?php echo $item['color']; ?></p>
+                        </div>
+                        <div class="good__price">
+                            <div class="good__price-info">
+                                <p class="page__text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="page__text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                            </div>
+                            <div class="good__price-button">
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($reelings == 'granta-kalina-sedan') {
+                echo "<title> $titleconst"; echo $keywords[53][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[53][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[53][keywords]; echo "'/>";
+
+                echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада Гранта / Калина Седан</h1>";
+                include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
+                $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+                foreach ($granta_sedan as $item): ?>
+                    <div class="good">
+                        <h2 class="good__name"><?php echo $item['name']; ?></h2>
+                        <div class="good__description">
+                            <div class="img_div">
+                                <?php echo $item['img']; ?>
+                            </div>
+                            <p class="page__text">Цвет: <?php echo $item['color']; ?></p>
+                        </div>
+                        <div class="good__price">
+                            <div class="good__price-info">
+                                <p class="page__text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="page__text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                            </div>
+                            <div class="good__price-button">
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($reelings == 'kalina-xetchbek') {
+                echo "<title> $titleconst"; echo $keywords[54][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[54][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[54][keywords]; echo "'/>";
+
+                echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада Калина Хэтчбек S</h1>";
+                include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
+                $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+                foreach ($kalina_xetchbek as $item): ?>
+                    <div class="good">
+                        <h2 class="good__name"><?php echo $item['name']; ?></h2>
+                        <div class="good__description">
+                            <div class="img_div">
+                                <?php echo $item['img']; ?>
+                            </div>
+                            <p class="page__text">Цвет: <?php echo $item['color']; ?></p>
+                        </div>
+                        <div class="good__price">
+                            <div class="good__price-info">
+                                <p class="page__text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="page__text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                            </div>
+                            <div class="good__price-button">
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($reelings == 'kalina-universal') {
+                echo "<title> $titleconst"; echo $keywords[55][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[55][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[55][keywords]; echo "'/>";
+
+                echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада Калина Универсал M</h1>";
+                include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
+                $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+                foreach ($kalina_universal as $item): ?>
+                    <div class="good">
+                        <h2 class="good__name"><?php echo $item['name']; ?></h2>
+                        <div class="good__description">
+                            <div class="img_div">
+                                <?php echo $item['img']; ?>
+                            </div>
+                            <p class="page__text">Цвет: <?php echo $item['color']; ?></p>
+                        </div>
+                        <div class="good__price">
+                            <div class="good__price-info">
+                                <p class="page__text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="page__text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                            </div>
+                            <div class="good__price-button">
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($reelings == 'lada-4x4') {
+                echo "<title> $titleconst"; echo $keywords[56][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[56][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[56][keywords]; echo "'/>";
+
+                echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада 4x4</h1>";
+                include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
+                $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+                foreach ($lada_4x4 as $item): ?>
+                    <div class="good">
+                        <h2 class="good__name"><?php echo $item['name']; ?></h2>
+                        <div class="good__description">
+                            <div class="img_div">
+                                <?php echo $item['img']; ?>
+                            </div>
+                            <p class="page__text">Цвет: <?php echo $item['color']; ?></p>
+                        </div>
+                        <div class="good__price">
+                            <div class="good__price-info">
+                                <p class="page__text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="page__text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                            </div>
+                            <div class="good__price-button">
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            } elseif ($reelings == 'lada-4x4-l') {
+                echo "<title> $titleconst"; echo $keywords[57][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[57][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[57][keywords]; echo "'/>";
+
+                echo "<h1 class='page__title-h1'>Рейлинги АПС для Лада 4x4 L</h1>";
+                include ($_SERVER["DOCUMENT_ROOT"]."/arrays/aps/lada.php");
+                $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+                foreach ($lada_4x4_l as $item): ?>
+                    <div class="good">
+                        <h2 class="good__name"><?php echo $item['name']; ?></h2>
+                        <div class="good__description">
+                            <div class="img_div">
+                                <?php echo $item['img']; ?>
+                            </div>
+                            <p class="page__text">Цвет: <?php echo $item['color']; ?></p>
+                        </div>
+                        <div class="good__price">
+                            <div class="good__price-info">
+                                <p class="page__text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="page__text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                            </div>
+                            <div class="good__price-button">
+                                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;
+                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
             }
 
 
-            $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
 
             ?>
 
