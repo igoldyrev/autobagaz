@@ -182,21 +182,21 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="/reelings/lada-4x4" class="catalog__item-link"></a>
+                        <a href="/reelings/4x4" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/lada-4x4"><img class="item__image-img" src="/images/aps/lada/4x4/anod-gray.gif" alt="lada 4x4"></a>
+                            <a href="/reelings/4x4"><img class="item__image-img" src="/images/aps/lada/4x4/anod-gray.gif" alt="lada 4x4"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/lada-4x4">LADA 4x4</a>
+                            <a href="/reelings/4x4">LADA 4x4</a>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="/reelings/lada-4x4-l" class="catalog__item-link"></a>
+                        <a href="/reelings/l4x4" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/lada-4x4-l"><img class="item__image-img" src="/images/aps/lada/4x4-l/polymer-black.gif" alt="lada 4x4 L"></a>
+                            <a href="/reelings/l4x4"><img class="item__image-img" src="/images/aps/lada/4x4-l/polymer-black.gif" alt="lada 4x4 L"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/lada-4x4-l">LADA 4x4 L</a>
+                            <a href="/reelings/l4x4">LADA 4x4 L</a>
                         </div>
                     </div>
                 </div> <?php
@@ -208,21 +208,21 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
             echo "<h1 class='page__title-h1'>Рейлинги для автомобилей Chevrolet</h1>"; ?>
                 <div class="catalog">
                     <div class="catalog__item">
-                        <a href="/reelings/chevrolet-m" class="catalog__item-link"></a>
+                        <a href="/reelings/chevi-m" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/chevrolet-m"><img class="item__image-img" src="/images/aps/chevrolet/niva-m/polymer-black.gif" alt="chevrolet niva m"></a>
+                            <a href="/reelings/chevi-m"><img class="item__image-img" src="/images/aps/chevrolet/niva-m/polymer-black.gif" alt="chevrolet niva m"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/chevrolet-m">CHEVROLET NIVA M</a>
+                            <a href="/reelings/chevi-m">CHEVROLET NIVA M</a>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="/reelings/chevrolet-l" class="catalog__item-link"></a>
+                        <a href="/reelings/chevi-l" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/chevrolet-l"><img class="item__image-img" src="/images/aps/chevrolet/niva-l/anod-gray.png" alt="chevrolet niva l"></a>
+                            <a href="/reelings/chevi-l"><img class="item__image-img" src="/images/aps/chevrolet/niva-l/anod-gray.png" alt="chevrolet niva l"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/chevrolet-l">CHEVROLET NIVA L</a>
+                            <a href="/reelings/chevi-l">CHEVROLET NIVA L</a>
                         </div>
                     </div>
                 </div> <?php
@@ -252,12 +252,12 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="/reelings/logan-new" class="catalog__item-link"></a>
+                        <a href="/reelings/new-logan" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/logan-new"><img class="item__image-img" src="/images/aps/renault/logan-new/white.png" alt="renault logan"></a>
+                            <a href="/reelings/new-logan"><img class="item__image-img" src="/images/aps/renault/logan-new/white.png" alt="renault logan"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/logan-new">Новый RENAULT LOGAN</a>
+                            <a href="/reelings/new-logan">Новый RENAULT LOGAN</a>
                         </div>
                     </div>
                     <div class="catalog__item">
@@ -270,12 +270,12 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="/reelings/sandero-new" class="catalog__item-link"></a>
+                        <a href="/reelings/new-sandero" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/sandero-new"><img class="item__image-img" src="/images/aps/renault/logan-new/white.png" alt="renault sandero"></a>
+                            <a href="/reelings/new-sandero"><img class="item__image-img" src="/images/aps/renault/logan-new/white.png" alt="renault sandero"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/sandero-new">Новый RENAULT SANDERO</a>
+                            <a href="/reelings/new-sandero">Новый RENAULT SANDERO</a>
                         </div>
                     </div>
                 </div> <?php
@@ -296,12 +296,12 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="/reelings/ceed-new" class="catalog__item-link"></a>
+                        <a href="/reelings/new-ceed" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/ceed-new"><img class="item__image-img" src="/images/aps/kia/ceed-new/anod-gray-vkladka.png" alt="kia ceed"></a>
+                            <a href="/reelings/new-ceed"><img class="item__image-img" src="/images/aps/kia/ceed-new/anod-gray-vkladka.png" alt="kia ceed"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/ceed-new">Новый KIA CEED</a>
+                            <a href="/reelings/new-ceed">Новый KIA CEED</a>
                         </div>
                     </div>
                 </div> <?php
@@ -313,30 +313,30 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
             echo "<h1 class='page__title-h1'>Рейлинги для автомобилей Mazda</h1>"; ?>
                 <div class="catalog">
                     <div class="catalog__item">
-                        <a href="/reelings/mazda3" class="catalog__item-link"></a>
+                        <a href="/reelings/three" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/mazda3"><img class="item__image-img" src="/images/aps/mazda/3-2003-2009/polymer-black.png" alt="mazda 3"></a>
+                            <a href="/reelings/three"><img class="item__image-img" src="/images/aps/mazda/3-2003-2009/polymer-black.png" alt="mazda 3"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/mazda3">MAZDA 3</a>
+                            <a href="/reelings/three">MAZDA 3</a>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="/reelings/mazdacx5-1" class="catalog__item-link"></a>
+                        <a href="/reelings/cx5-1" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/mazdacx5-1"><img class="item__image-img" src="/images/aps/mazda/cx-5-2012-2017/anod-gray.png" alt="mazda cx-5"></a>
+                            <a href="/reelings/cx5-1"><img class="item__image-img" src="/images/aps/mazda/cx-5-2012-2017/anod-gray.png" alt="mazda cx-5"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/mazdacx5-1">MAZDA CX5 I</a>
+                            <a href="/reelings/cx5-1">MAZDA CX5 I</a>
                         </div>
                     </div>
                     <div class="catalog__item">
-                        <a href="/reelings/mazdacx5-2" class="catalog__item-link"></a>
+                        <a href="/reelings/cx5-2" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/mazdacx5-2"><img class="item__image-img" src="/images/aps/mazda/cx-5-new/white.png" alt="mazda cx-5"></a>
+                            <a href="/reelings/cx5-2"><img class="item__image-img" src="/images/aps/mazda/cx-5-new/white.png" alt="mazda cx-5"></a>
                         </div>
                         <div class="item__link">
-                            <a href="/reelings/mazdacx5-2">MAZDA CX5 II</a>
+                            <a href="/reelings/cx5-2">MAZDA CX5 II</a>
                         </div>
                     </div>
                 </div> <?php
@@ -687,7 +687,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings == 'lada-4x4') {
+            } elseif ($reelings == '4x4') {
                 echo "<title> $titleconst"; echo $keywords[56][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[56][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[56][keywords]; echo "'/>";
@@ -718,7 +718,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings == 'lada-4x4-l') {
+            } elseif ($reelings == 'l4x4') {
                 echo "<title> $titleconst"; echo $keywords[57][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[57][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[57][keywords]; echo "'/>";
@@ -749,7 +749,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings =='chevrolet-m') {
+            } elseif ($reelings =='chevi-m') {
                 echo "<title> $titleconst"; echo $keywords[58][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[58][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[58][keywords]; echo "'/>";
@@ -780,7 +780,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings == 'chevrolet-l') {
+            } elseif ($reelings == 'chevi-l') {
                 echo "<title> $titleconst"; echo $keywords[59][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[59][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[59][keywords]; echo "'/>";
@@ -873,7 +873,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings == 'logan-new') {
+            } elseif ($reelings == 'new-logan') {
                 echo "<title> $titleconst"; echo $keywords[62][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[62][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[62][keywords]; echo "'/>";
@@ -935,7 +935,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings == 'sandero-new') {
+            } elseif ($reelings == 'new-sandero') {
                 echo "<title> $titleconst"; echo $keywords[64][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[64][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[64][keywords]; echo "'/>";
@@ -997,7 +997,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings == 'ceed-new') {
+            } elseif ($reelings == 'new-ceed') {
                 echo "<title> $titleconst"; echo $keywords[66][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[66][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[66][keywords]; echo "'/>";
@@ -1028,7 +1028,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings == 'mazda3') {
+            } elseif ($reelings == 'three') {
                 echo "<title> $titleconst"; echo $keywords[67][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[67][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[67][keywords]; echo "'/>";
@@ -1059,7 +1059,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings == 'mazdacx5-1') {
+            } elseif ($reelings == 'cx5-1') {
                 echo "<title> $titleconst"; echo $keywords[68][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[68][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[68][keywords]; echo "'/>";
@@ -1090,7 +1090,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
-            } elseif ($reelings == 'mazdacx5-2') {
+            } elseif ($reelings == 'cx5-2') {
                 echo "<title> $titleconst"; echo $keywords[69][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[69][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[69][keywords]; echo "'/>";
