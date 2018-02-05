@@ -2,6 +2,16 @@
 $base_link = "<a class='breadcrumbs__link' href='/'>Главная страница</a>";
 $inno_boxes = "<a class='breadcrumbs__link' href='/inno/inno-boxes'>Автомобильные боксы Inno</a>";
 $gallery_link = "<a class='breadcrumbs__link' href='/gallery'>Галерея работ</a>";
+$lada = "<a class='breadcrumbs__link' href='/reelings/lada'>Рейлинги АПС для Лада</a>";
+$chevrolet = "<a class='breadcrumbs__link' href='/reelings/chevrolet'>Рейлинги АПС для Chevrolet</a>";
+$renault = "<a class='breadcrumbs__link' href='/reelings/renault'>Рейлинги АПС для Renault</a>";
+$kia = "<a class='breadcrumbs__link' href='/reelings/kia'>Рейлинги АПС для Kia</a>";
+$mazda = "<a class='breadcrumbs__link' href='/reelings/mazda'>Рейлинги АПС для Mazda</a>";
+$hyundai = "<a class='breadcrumbs__link' href='/reelings/hyundai'>Рейлинги АПС для Hyundai</a>";
+$opel = "<a class='breadcrumbs__link' href='/reelings/opel'>Рейлинги АПС для Opel</a>";
+$toyota = "<a class='breadcrumbs__link' href='/reelings/toyota'>Рейлинги АПС для Toyota</a>";
+$landrover = "<a class='breadcrumbs__link' href='/reelings/landrover'>Рейлинги АПС для Land Rover</a>";
+$datsun = "<a class='breadcrumbs__link' href='/reelings/datsun'>Рейлинги АПС для Datsun</a>";
 
 $get_url = $_SERVER['REQUEST_URI'];
 $url_parts = explode( '/', parse_url($get_url, PHP_URL_PATH) );
@@ -124,11 +134,6 @@ if ($get_url == '/news/postuplenya_amos') { ?>
     <div class="breadcrumbs">
         <?php echo $base_link; ?>&#8594;
         <span class="breadcrumbs__text"><?php echo $keywords[19]['title']?></span>
-    </div> <?php
-} elseif ($get_url == '/reelings') { ?>
-    <div class="breadcrumbs">
-        <?php echo $base_link; ?>&#8594;
-        <span class="breadcrumbs__text"><?php echo $keywords[20]['title']?></span>
     </div> <?php
 } elseif ($get_url == '/braslets') { ?>
     <div class="breadcrumbs">
@@ -498,3 +503,289 @@ elseif ($get_url == '/gallery') { ?>
         <span class="breadcrumbs__text">Opel Mokka</span>
     </div> <?php
 }
+
+//Раздел рейлингов
+elseif ($get_url == '/reelings') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[20]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/lada') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[39]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/chevrolet') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[40]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/renault') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[41]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/kia') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[42]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/mazda') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[43]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/hyundai') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[44]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/opel') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[45]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/toyota') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[46]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/landrover') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[47]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/datsun') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[48]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/xray') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $lada; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[49]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/largus') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $lada; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[50]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/granta-liftback') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $lada; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[51]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/granta-e') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $lada; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[52]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/granta-kalina-sedan') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $lada; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[53]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/kalina-xetchbek') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $lada; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[54]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/kalina-universal') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $lada; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[55]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/4x4') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $lada; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[56]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/l4x4') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $lada; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[57]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/chevi-m') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $chevrolet; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[58]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/chevi-l') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $chevrolet; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[59]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/kaptur') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $renault; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[60]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/logan') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $renault; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[61]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/new-logan') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $renault; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[62]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/sandero') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $renault; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[63]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/new-sandero') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $renault; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[64]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/ceed') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $kia; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[65]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/new-ceed') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $kia; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[66]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/three') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $mazda; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[67]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/cx5-1') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $mazda; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[68]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/cx5-2') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $mazda; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[69]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/creta') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $hyundai; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[70]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/solaris') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $hyundai; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[71]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/i30') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $hyundai; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[72]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/astra') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $opel; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[73]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/rav4-3') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $toyota; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[74]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/rav4-4') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $toyota; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[75]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/prado150') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $toyota; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[76]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/freelander2') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $landrover; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[77]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/on-do') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $datsun; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[78]['title']?></span>
+    </div> <?php
+} elseif ($get_url == '/reelings/mi-do') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>"><?php echo $keywords[20]['title']?></a>&#8594;
+        <?php echo $datsun; ?>&#8594;
+        <span class="breadcrumbs__text"><?php echo $keywords[79]['title']?></span>
+    </div> <?php
+}
+
