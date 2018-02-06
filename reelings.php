@@ -67,7 +67,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     <div class="catalog__item">
                         <a href="/reelings/hyundai" class="catalog__item-link"></a>
                         <div class="item__image">
-                            <a href="/reelings/hyundai"><img class="item__image-img" src="/images/aps/logo/kia.png" alt="hyundai"></a>
+                            <a href="/reelings/hyundai"><img class="item__image-img" src="/images/aps/logo/hyundai.png" alt="hyundai"></a>
                         </div>
                         <div class="item__link">
                             <a href="/reelings/hyundai">HYUNDAI</a>
