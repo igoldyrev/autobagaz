@@ -5,6 +5,8 @@
   padding: 10px;
   background-color: #F2F2F2;
   border-radius: 10px;
+  margin-bottom: 15px;
+
   &__text {
     font: {
       family: $font;
@@ -13,13 +15,41 @@
     }
     line-height: 30px;
   }
+
   &__link {
     color: #000000;
     text-decoration: none;
     font-weight: 500;
+
     &:hover {
       color: $subcolor;
       transition: 0.3s ease-in-out;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    margin-top: 10px;
+
+    &--column {
+      flex-direction: column;
+    }
+  }
+
+  &__logo {
+    margin-right: 20px;
+
+    &--column {
+      margin: 0 auto;
+    }
+  }
+}
+
+@include adaptive(mobile) {
+  .partner {
+
+    &__inner {
+      flex-direction: column;
     }
   }
 }
