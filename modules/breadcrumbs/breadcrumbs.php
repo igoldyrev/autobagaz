@@ -508,6 +508,18 @@ elseif ($get_url == '/gallery') { ?>
         <?php echo $gallery_link; ?>&#8594;
         <span class="breadcrumbs__text">Opel Mokka</span>
     </div> <?php
+} elseif ($get_url == '/gallery?auto=kaptur0802') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Reno Kaptur</span>
+    </div> <?php
+} elseif ($get_url == '/gallery?auto=priora0802') { ?>
+    <div class="breadcrumbs">
+        <?php echo $base_link; ?>&#8594;
+        <?php echo $gallery_link; ?>&#8594;
+        <span class="breadcrumbs__text">Lada Приора</span>
+    </div> <?php
 }
 
 //Раздел рейлингов
