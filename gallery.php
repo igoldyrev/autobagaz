@@ -502,7 +502,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php");
                     'name' => 'Lada Приора',
                     'img1' => '<img class="img_main" src="/images/gallery/20180208_1_priora.jpg" srcset="/images/gallery/20180208_1_priora.jpg 1000w" alt="Lada Priora" sizes="(max-width: 2000px) 150px, 300px, 350px">',
                     'img2' => '<img class="img_main" src="/images/gallery/20180208_2_priora.jpg" srcset="/images/gallery/20180208_2_priora.jpg 1000w" alt="Lada Priora" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-                    'img2' => '<img class="img_main" src="/images/gallery/20180208_3_priora.jpg" srcset="/images/gallery/20180208_3_priora.jpg 1000w" alt="Lada Priora" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+                    'img3' => '<img class="img_main" src="/images/gallery/20180208_3_priora.jpg" srcset="/images/gallery/20180208_3_priora.jpg 1000w" alt="Lada Priora" sizes="(max-width: 2000px) 150px, 300px, 350px">',
                 ],
             ];
 
