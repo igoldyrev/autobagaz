@@ -210,6 +210,18 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php");
                     'pagename' => 'mokka0908',
                     'img' => '<img class="img_main img_main--gallery" src="/images/gallery/20170908_1_mokka.jpg" alt="Opel Mokka">',
                 ],
+                [
+                    'id' => 34,
+                    'name' => 'Reno Kaptur',
+                    'pagename' => 'kaptur0802',
+                    'img' => '<img class="img_main img_main--gallery" src="/images/gallery/20180208_1_kaptur.jpg" alt="Reno Kaptur">',
+                ],
+                [
+                    'id' => 35,
+                    'name' => 'Lada Приора',
+                    'pagename' => 'priora0802',
+                    'img' => '<img class="img_main img_main--gallery" src="/images/gallery/20180208_1_priora.jpg" alt="Lada Priora">',
+                ],
             ];
             $gallery = [
                 [
@@ -477,6 +489,20 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php");
                     'img2' => '<img class="img_main" src="/images/gallery/20170908_2_mokka.jpg" srcset="/images/gallery/20170908_2_mokka.jpg 1300w" alt="Opel Mokka" sizes="(max-width: 2000px) 150px, 300px, 350px">',
                     'img3' => '<img class="img_main" src="/images/gallery/20170908_3_mokka.jpg" srcset="/images/gallery/20170908_3_mokka.jpg 1300w" alt="Opel Mokka" sizes="(max-width: 2000px) 150px, 300px, 350px">',
                     'img4' => '<img class="img_main" src="/images/gallery/20170908_4_mokka.jpg" srcset="/images/gallery/20170908_4_mokka.jpg 1300w" alt="Opel Mokka" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+                ],
+                [
+                    'id' => 34,
+                    'name' => 'Reno Kaptur',
+                    'img1' => '<img class="img_main" src="/images/gallery/20180208_1_kaptur.jpg" srcset="/images/gallery/20180208_1_kaptur.jpg 300w" alt="Reno Kaptur" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+                    'img2' => '<img class="img_main" src="/images/gallery/20180208_2_kaptur.jpg" srcset="/images/gallery/20180208_2_kaptur.jpg 300w" alt="Reno Kaptur" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+                    'img3' => '<img class="img_main" src="/images/gallery/20180208_3_kaptur.jpg" srcset="/images/gallery/20180208_3_kaptur.jpg 300w" alt="Reno Kaptur" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+                ],
+                [
+                    'id' => 35,
+                    'name' => 'Lada Приора',
+                    'img1' => '<img class="img_main" src="/images/gallery/20180208_1_priora.jpg" srcset="/images/gallery/20180208_1_priora.jpg 1000w" alt="Lada Priora" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+                    'img2' => '<img class="img_main" src="/images/gallery/20180208_2_priora.jpg" srcset="/images/gallery/20180208_2_priora.jpg 1000w" alt="Lada Priora" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+                    'img2' => '<img class="img_main" src="/images/gallery/20180208_3_priora.jpg" srcset="/images/gallery/20180208_3_priora.jpg 1000w" alt="Lada Priora" sizes="(max-width: 2000px) 150px, 300px, 350px">',
                 ],
             ];
 
@@ -897,7 +923,31 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php");
     echo $gallery[32][img7];
     echo $gallery[32][img8];
     echo '</div>';
-} ?>
+    } elseif ($auto == 'kaptur0802') {
+    ?> <h3 class="page__title-h3"> <?php echo $gallery[33][name]; ?> </h3>
+    <div class="img_div"> <?php
+    echo $gallery[33][img1];
+    echo $gallery[33][img2];
+    echo $gallery[33][img3];
+    echo $gallery[33][img4];
+    echo $gallery[33][img5];
+    echo $gallery[33][img6];
+    echo $gallery[33][img7];
+    echo $gallery[33][img8];
+    echo '</div>';
+    } elseif ($auto == 'priora0802') {
+    ?> <h3 class="page__title-h3"> <?php echo $gallery[34][name]; ?> </h3>
+    <div class="img_div"> <?php
+    echo $gallery[34][img1];
+    echo $gallery[34][img2];
+    echo $gallery[34][img3];
+    echo $gallery[34][img4];
+    echo $gallery[34][img5];
+    echo $gallery[34][img6];
+    echo $gallery[34][img7];
+    echo $gallery[34][img8];
+    echo '</div>';
+    } ?>
         </div>
     </div>
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
