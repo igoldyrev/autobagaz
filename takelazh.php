@@ -9,6 +9,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
         <div class="content">
             <?php
             $takelazh = $_GET['takelazh'];
+            $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
             if (!isset($takelazh)) {
                 echo "<title> $titleconst"; echo $keywords[35][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[35][description];      echo "'/>";

@@ -10,6 +10,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/inno_array.php"); ?>
         <div class="content">
             <?php
             $inno = $_GET['inno'];
+            $_SESSION['url'] = $_SERVER['REQUEST_URI'];
             if (!isset($inno)) {
                 echo "<title> $titleconst"; echo $keywords[30][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[30][description]; echo "'/>";
