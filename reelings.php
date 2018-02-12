@@ -9,6 +9,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
         <div class="content">
             <?php
             $reelings = $_GET['reelings'];
+            $_SESSION['url'] = $_SERVER['REQUEST_URI'];
             if (!isset($reelings)) {
                 echo "<title> $titleconst"; echo $keywords[20][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[20][description]; echo "'/>";

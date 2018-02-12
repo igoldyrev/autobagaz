@@ -11,6 +11,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/autobox_array.php"); ?>
         <div class="content">
             <?php
             $autobox = $_GET['autobox'];
+            $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
             if (!isset($autobox)) {
             echo "<title> $titleconst"; echo $keywords[8][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[8][description]; echo "'/>";

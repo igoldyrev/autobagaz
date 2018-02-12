@@ -10,6 +10,7 @@ echo "<meta name='keywords' content='"; echo $keywords[38][keywords]; echo "'/>"
     <div class="wrapper-content">
         <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/left-nav/left-nav.html"); ?>
         <div class="content">
+            <?php $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="page__header">
                 <div class="page__header-tab special__tab-sale page__header-tab--active">Товары со скидкой</div>
                 <div class="page__header-tab special__tab-komm">Комиссионные товары</div>

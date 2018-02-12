@@ -10,6 +10,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/arrays/velokreplenya_array.php"); ?>
         <div class="content">
             <?php
             $velokreplenya = $_GET['velokreplenya'];
+            $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
             if (!isset($velokreplenya)) {
             echo "<title> $titleconst"; echo $keywords[16][title]; echo "</title>";
