@@ -7,6 +7,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurifyCSSPlugin = require('purifycss-webpack');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var autoprefixer = require('autoprefixer');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 var InProduction = (process.env.NODE_ENV === 'production');
 
@@ -69,15 +71,14 @@ module.exports = {
 
             {
 
-                test: /\.(png|jpe?g|gif)$/,
+                test: /\.(png|JPE?G|jpe?g|gif)$/,
                 loaders: [
                     {
 
                         loader: 'file-loader',
                         options: {
-                            name: 'images/[name].[ext]'
-
-                        }
+                            name: '[path]/[name].[ext]',
+                        },
                     },
 
                     'img-loader'
@@ -110,6 +111,12 @@ module.exports = {
 
         }),*/
 
+        new CopyWebpackPlugin(
+            [
+                {from: './img', to: 'img' }
+            ]
+        ),
+
         new CleanWebpackPlugin(['build'], {
             root: __dirname,
             verbose: true,
@@ -128,5 +135,12 @@ module.exports = {
 if (InProduction) {
     module.exports.plugins.push(
         new webpack.optimize.UglifyJsPlugin()
+    );
+
+    module.exports.plugins.push(
+        // Image optimizer
+        new ImageminPlugin({
+            test: /\.(jpe?g|JPE?G|png|gif|svg)$/i
+        })
     );
 }
