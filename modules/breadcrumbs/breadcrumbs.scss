@@ -4,6 +4,7 @@
   order: 3;
   //margin-top: 5px;
   background-color: #A4A4A4;
+
   &__link {
     font: {
       family: $font;
@@ -13,13 +14,16 @@
     color: #000;
     text-decoration: none;
     padding: 0px 10px;
+
     &:first-child {
       padding-left: 0px;
     }
+
     &:hover {
       text-decoration: underline;
     }
   }
+
   &__text {
     font: {
       family: $font;
@@ -30,12 +34,15 @@
     padding: 0px 10px;
   }
 }
+
 @include adaptive(mobile) {
   .breadcrumbs {
     flex-wrap: wrap;
+
     &__link {
       font-size: 0.8em;
     }
+
     &__text {
       font-size: 0.8em;
     }
