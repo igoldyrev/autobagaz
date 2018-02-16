@@ -1,8 +1,8 @@
 //Уровень переопределения с базовыми блоками
 
-@import "library.blocks/fonts";
-@import "library.blocks/variables";
-@import "library.blocks/mixins";
+@import "fonts";
+@import "variables";
+@import "mixins";
 
 //Тело и обертка
 @import "library.blocks/body/body";
