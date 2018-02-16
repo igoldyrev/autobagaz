@@ -17,7 +17,7 @@ module.exports = {
 
         autobagaz: [
                 './js/main.js',
-                './modules/style.scss'
+                './src/style.scss'
 
         ],
         //vendor: ['jquery']
@@ -111,11 +111,11 @@ module.exports = {
 
         }),*/
 
-        new CopyWebpackPlugin(
-            [
-                {from: './img', to: 'img' }
-            ]
-        ),
+        // new CopyWebpackPlugin(
+        //     [
+        //         {from: '/img', to: 'img' }
+        //     ]
+        // ),
 
         new CleanWebpackPlugin(['build'], {
             root: __dirname,
