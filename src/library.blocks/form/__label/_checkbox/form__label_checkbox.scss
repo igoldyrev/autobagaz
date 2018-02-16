@@ -1,0 +1,13 @@
+.form__label--checkbox {
+  display: block;
+
+  float: left;
+  clear: both;
+
+  font-family: $font;
+  font-size: 1.1em;
+  font-weight: 300;
+
+  margin-bottom: 10px;
+  cursor: pointer;
+}
