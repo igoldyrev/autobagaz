@@ -40,3 +40,12 @@
 @import "library.blocks/form/__label/_shown/form__label_shown";
 @import "library.blocks/button/button";
 
+//Шапка сайта
+@import "common.blocks/header/header";
+@import "common.blocks/header/__wrap/header__wrap";
+//@import "common.blocks/header/__logo/";
+@import "common.blocks/header/__info/header__info";
+@import "common.blocks/header/__list/header__list";
+@import "common.blocks/header/__link/header__link";
+@import "common.blocks/header/__link/_big/header__link_big";
+

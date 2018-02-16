@@ -32,22 +32,22 @@ body {
   margin-bottom: 15px; }
 
 .title-h1 {
-  font-size: 1.4em;
+  font-size: 1.6em;
   line-height: 40px;
   color: inherit; }
 
 .title-h2 {
-  font-size: 1.3em;
+  font-size: 1.4em;
   line-height: 32px;
   color: inherit; }
 
 .title-h3 {
-  font-size: 1em;
+  font-size: 1.2em;
   line-height: 24px;
   color: inherit; }
 
 .title-h4 {
-  font-size: 0.9em;
+  font-size: 1em;
   line-height: 20px;
   color: inherit; }
 
@@ -175,3 +175,33 @@ body {
   line-height: 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.header__wrap {
+  width: 1220px;
+  margin: 0 auto; }
+
+.header__info {
+  text-align: right; }
+
+.header__list {
+  margin: 10px 0 10px 0; }
+
+.header__link {
+  font-size: 1em;
+  font-weight: 400;
+  text-decoration: none; }
+
+.header__link--big {
+  font-size: 1.5em; }
