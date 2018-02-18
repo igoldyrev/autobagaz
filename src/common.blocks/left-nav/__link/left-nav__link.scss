@@ -1,0 +1,22 @@
+.left-nav__link {
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: inherit;
+
+  color: $subcolor;
+  text-align: center;
+  text-decoration: none;
+
+  width: 200px;
+  padding: 3px 0;
+  margin: 3px 0;
+
+  border: 1px solid $subcolor;
+  border-radius: 5px;
+
+  &:hover {
+    border: 1px solid $subcolor;
+    background: $subcolor;
+    color: #ffffff;
+  }
+}
