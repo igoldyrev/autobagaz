@@ -1,4 +1,7 @@
 .header__wrap {
+  display: flex;
+  justify-content: space-between;
+
   width: 1220px;
   margin: 0 auto;
 }
