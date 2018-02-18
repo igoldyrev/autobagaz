@@ -189,8 +189,22 @@ body {
           justify-content: space-between; }
 
 .header__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 1220px;
   margin: 0 auto; }
+
+.header__logo {
+  width: 400px;
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+.header__img {
+  width: 400px; }
 
 .header__info {
   text-align: right; }
@@ -205,3 +219,23 @@ body {
 
 .header__link--big {
   font-size: 1.5em; }
+
+.proposition__block {
+  text-align: center; }
+  .proposition__block:last-child {
+    margin-bottom: 15px; }
+
+.proposition__text {
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 36px;
+  color: #DF0101; }
+
+.proposition__text--small {
+  font-weight: 300;
+  font-size: 1em;
+  color: #DF0101; }
+
+.proposition__star {
+  color: #DF0101;
+  vertical-align: top; }
