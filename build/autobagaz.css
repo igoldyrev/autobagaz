@@ -239,3 +239,50 @@ body {
 .proposition__star {
   color: #DF0101;
   vertical-align: top; }
+
+.navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5px;
+  width: 1220px;
+  height: 40px;
+  background: #0a2a0a;
+  margin: 0 auto; }
+
+.navigation__list {
+  list-style-type: none;
+  padding: 0px;
+  width: 980px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto; }
+
+.navigation__list-item:last-child a {
+  border-right: none; }
+
+.navigation__link {
+  display: block;
+  width: 150px;
+  font-size: 0.9em;
+  color: #ffffff;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-right: 1px solid #A4A4A4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
