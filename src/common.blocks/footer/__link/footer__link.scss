@@ -1,0 +1,12 @@
+.footer__link {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

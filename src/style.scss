@@ -65,3 +65,9 @@
 //Навигация слева
 @import "common.blocks/left-nav/left-nav";
 @import "common.blocks/left-nav/__link/left-nav__link";
+
+//Подвал сайта
+@import "common.blocks/footer/footer";
+@import "common.blocks/footer/__list/footer__list";
+@import "common.blocks/footer/__list-item/footer__list-item";
+@import "common.blocks/footer/__link/footer__link";

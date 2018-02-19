@@ -9,3 +9,4 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
 
     </div>
 </div>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html"); ?>
