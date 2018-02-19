@@ -1,4 +1,4 @@
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php");
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatags.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html"); ?>

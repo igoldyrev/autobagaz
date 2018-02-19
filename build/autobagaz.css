@@ -23,7 +23,8 @@ body {
           justify-content: flex-start; }
 
 .wrapper__content {
-  margin-left: 15px; }
+  margin-left: 15px;
+  width: 100%; }
 
 .title {
   font-family: "Roboto Slab", Tahoma, serif;
