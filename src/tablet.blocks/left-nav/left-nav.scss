@@ -1,0 +1,13 @@
+@include adaptive(pad) {
+  .left-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-bottom: 15px;
+  }
+
+  #vk_groups {
+    display: none;
+  }
+}
