@@ -7,12 +7,12 @@ img - адреса изображений, которые отображаютс
 price - цены, редактировать МОЖНО
 */
 
-$products = [
+$autobagazhniki = [
 		[
 		'id' => 'ab1',
 		'name' => 'Багажник для рейлингов',
 		'desc' => 'Рейлинги - продольные направляющие вдоль кузова автомобиля. Багажник для них представляет собой две поперечные дуги, которые крепятся с помощью зажимов с регулируемой шириной захвата.',
-		'img1' => '<img class="img" src="/content/autobagazhniki/img/1.jpg" alt="багажник для рейлингов">',
+		'img1' => '/content/autobagazhniki/img/1.jpg',
 		'price' => 'Цена от 1500 рублей',
 		],
 		[
@@ -39,4 +39,55 @@ $products = [
 		'img2' => '<img class="img" src="/content/autobagazhniki/img/7.jpg" alt="багажник для водостоков">',
 		'price' => 'Цена от 1000 рублей',
 		],
+];
+
+$reelings = [
+    [
+        'id' => 'reelingskrepysh',
+        'name' => 'Багажник Крепыш для рейлингов',
+        'img1' => '/content/autobagazhniki//img/reelings/krepysh1.jpg',
+        'img2' => '/content/autobagazhniki//img/reelings/krepysh2.jpg',
+        'desc' => 'Надёжный и недорогой багажник на рейлинги Крепыш. Универсальное крепление на многие виды рейлингов. Быстрая сборка и установка за 2 минуты.',
+    ],
+    [
+        'id' => 'reelingsfavorit',
+        'name' => 'Багажник Favorit для рейлингов',
+        'img1' => '/content/autobagazhniki//img/reelings/favorit1.jpg',
+        'img2' => '/content/autobagazhniki//img/reelings/favorit2.jpg',
+        'img3' => '/content/autobagazhniki//img/reelings/favorit3.jpg',
+        'desc' => 'Надёжный багажник на рейлинги. Крепится на рейлинги методом зажима. Быстрая сборка и установка за 2 минуты.',
+    ],
+    [
+        'id' => 'reelingsduster',
+        'name' => 'Багажник на рейлинги для Рено Дастер',
+        'img1' => '/content/autobagazhniki//img/reelings/duster1.jpg',
+        'img2' => '/content/autobagazhniki//img/reelings/duster2.jpg',
+        'img3' => '/content/autobagazhniki//img/reelings/duster3.jpg',
+        'desc' => 'Надёжный багажник на рейлинги для Рено Дастер. Крепится на рейлинги методом зажима.',
+    ],
+    [
+        'id' => 'reelingseuro',
+        'name' => 'Багажник Euro для рейлингов',
+        'img1' => '/content/autobagazhniki//img/reelings/euro1.jpg',
+        'img2' => '/content/autobagazhniki//img/reelings/euro2.jpg',
+        'img3' => '/content/autobagazhniki//img/reelings/euro3.jpg',
+        'img4' => '/content/autobagazhniki//img/reelings/euro4.jpg',
+        'desc' => 'Надёжный багажник на рейлинги. Крепится на рейлинги методом зажима. Быстрая сборка и установка за 2 минуты.',
+    ],
+    [
+        'id' => 'reelingslux',
+        'name' => 'Багажник Lux для рейлингов',
+        'img1' => '/content/autobagazhniki//img/reelings/lux1.jpg',
+        'img2' => '/content/autobagazhniki//img/reelings/lux2.jpg',
+        'img3' => '/content/autobagazhniki//img/reelings/lux3.jpg',
+        'desc' => 'Надёжный багажник Lux для рейлингов. Крепится на рейлинги методом зажима. Быстрая сборка и установка за несколько минут.',
+    ],
+    [
+        'id' => 'reelingsmontblanc',
+        'name' => 'Багажник Mont Blanc для рейлингов',
+        'img1' => '/content/autobagazhniki//img/reelings/montblanc1.jpg',
+        'img2' => '/content/autobagazhniki//img/reelings/montblanc2.jpg',
+        'img3' => '/content/autobagazhniki//img/reelings/montblanc3.jpg',
+        'desc' => 'Надёжный багажник Mont Blanc для рейлингов. Крепится на рейлинги методом зажима. Быстрая сборка и установка за несколько минут.',
+    ],
 ];
