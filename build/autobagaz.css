@@ -535,3 +535,29 @@ body {
   .text {
     font-size: 0.9em;
     margin-bottom: 10px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .title {
+    margin-bottom: 10px; } }
+
+.title-h1 {
+  font-size: 1.4em;
+  line-height: 30px; }
+
+.title-h2 {
+  font-size: 1.2em;
+  line-height: 26px; }
+
+.title-h3 {
+  font-size: 1em;
+  line-height: 22px; }
+
+.title-h4 {
+  font-size: 0.9em;
+  line-height: 20px; }
+
+.title-h5 {
+  line-height: 18px; }
+
+.title-h6 {
+  line-height: 18px; }
