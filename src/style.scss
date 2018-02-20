@@ -91,3 +91,9 @@
 
 //Сообщение об успешном или неуспешном заказе товара
 @import "common.blocks/good-message/good-message";
+
+//Стили для планшетов
+@import "tablet.blocks/header/__wrap/header__wrap";
+@import "tablet.blocks/header/__list/header__list";
+@import "tablet.blocks/header/__link/header__link";
+@import "tablet.blocks/header/__link/_big/header__link_big";
