@@ -18,14 +18,15 @@ RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html
 
 RewriteRule ^autobagazhniki /content/autobagazhniki/autobagazhniki.php
+RewriteRule ^product/([^/]+)/?$ /content/autobagazhniki/backend/product.php?id=$1
 
 #Правила для переадресации страниц
 #Автобагажники
-#RewriteRule ^buy scripts/buy.php
-RewriteRule ^buy/ab1 scripts/buy.php?id=ab1
-RewriteRule ^buy/ab2 scripts/buy.php?id=ab2
-RewriteRule ^buy/ab3 scripts/buy.php?id=ab3
-RewriteRule ^buy/ab4 scripts/buy.php?id=ab4
+#RewriteRule ^buy /backend/buy.php
+RewriteRule ^buy/([^/]+)/?$ /content/autobagazhniki/backend/buy.php?id=$1
+
+
+
 RewriteRule ^buy/yuago scripts/buy.php?id=yuago
 RewriteRule ^buy/turino scripts/buy.php?id=turino
 RewriteRule ^buy/lux600blackmetal scripts/buy.php?id=lux600blackmetal
