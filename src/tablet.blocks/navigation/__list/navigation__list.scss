@@ -1,0 +1,9 @@
+@include adaptive(pad) {
+  .navigation__list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
