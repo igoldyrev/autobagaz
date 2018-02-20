@@ -561,3 +561,20 @@ body {
 
 .title-h6 {
   line-height: 18px; }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .good__img {
+    width: 160px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .good__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .good__price {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; } }
