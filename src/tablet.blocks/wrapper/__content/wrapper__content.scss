@@ -1,0 +1,8 @@
+@include adaptive(pad) {
+  .wrapper__content {
+    margin-left: 0;
+    padding: 0 15px;
+
+    box-sizing: border-box;
+  }
+}
