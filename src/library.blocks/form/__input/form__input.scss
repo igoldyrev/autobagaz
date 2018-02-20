@@ -3,3 +3,7 @@
   font-size: 0.9em;
   padding: 16px 10px 8px;
 }
+
+.form__input:placeholder-shown + .form__label--shown {
+  display: none;
+}

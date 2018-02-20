@@ -119,6 +119,9 @@ body {
   font-size: 0.9em;
   padding: 16px 10px 8px; }
 
+.form__input:placeholder-shown + .form__label--shown {
+  display: none; }
+
 .form__checkbox {
   display: none; }
 
@@ -156,7 +159,7 @@ body {
 
 .form__label--shown {
   position: absolute;
-  top: 4px;
+  top: 0px;
   left: 14px;
   font-size: 14px;
   color: #a4a4a4; }
@@ -209,6 +212,9 @@ body {
     -webkit-transition: 0.7s ease-in-out;
     -o-transition: 0.7s ease-in-out;
     transition: 0.7s ease-in-out; }
+
+.g-recaptcha {
+  margin-top: 15px; }
 
 .header {
   display: -webkit-box;
