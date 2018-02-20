@@ -71,3 +71,10 @@
 @import "common.blocks/footer/__list/footer__list";
 @import "common.blocks/footer/__list-item/footer__list-item";
 @import "common.blocks/footer/__link/footer__link";
+
+//Карточка отдельного товара
+@import "common.blocks/product/product";
+@import "common.blocks/product/__img/product__img";
+@import "common.blocks/product/__img/_small/product__img_small";
+@import "common.blocks/product/__photos/product__photos";
+@import "common.blocks/product/__buttons/product__buttons";
