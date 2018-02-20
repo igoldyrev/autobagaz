@@ -93,6 +93,16 @@
 @import "common.blocks/good-message/good-message";
 
 //Стили для планшетов
+@import "tablet.blocks/wrapper/wrapper";
+@import "tablet.blocks/wrapper/__content/wrapper__content";
+@import "tablet.blocks/text/text";
+@import "tablet.blocks/title/title";
+@import "tablet.blocks/title-h1/title-h1";
+@import "tablet.blocks/title-h2/title-h2";
+@import "tablet.blocks/title-h3/title-h3";
+@import "tablet.blocks/title-h4/title-h4";
+@import "tablet.blocks/title-h5/title-h5";
+@import "tablet.blocks/title-h6/title-h6";
 @import "tablet.blocks/header/__wrap/header__wrap";
 @import "tablet.blocks/header/__list/header__list";
 @import "tablet.blocks/header/__link/header__link";
@@ -105,16 +115,6 @@
 @import "tablet.blocks/navigation/__list/navigation__list";
 @import "tablet.blocks/navigation/__list-item/navigation__list-item";
 @import "tablet.blocks/navigation/__link/navigation__link";
-@import "tablet.blocks/wrapper/wrapper";
-@import "tablet.blocks/wrapper/__content/wrapper__content";
-@import "tablet.blocks/text/text";
-@import "tablet.blocks/title/title";
-@import "tablet.blocks/title-h1/title-h1";
-@import "tablet.blocks/title-h2/title-h2";
-@import "tablet.blocks/title-h3/title-h3";
-@import "tablet.blocks/title-h4/title-h4";
-@import "tablet.blocks/title-h5/title-h5";
-@import "tablet.blocks/title-h6/title-h6";
 @import "tablet.blocks/good/__img/good__img";
 @import "tablet.blocks/good/__buttons/good__buttons";
 @import "tablet.blocks/good/__price/good__price";

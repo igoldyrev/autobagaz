@@ -451,6 +451,52 @@ body {
   text-align: center; }
 
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .wrapper {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .wrapper__content {
+    margin-left: 0;
+    padding: 0 15px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .text {
+    font-size: 0.9em;
+    margin-bottom: 10px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .title {
+    margin-bottom: 10px; } }
+
+.title-h1 {
+  font-size: 1.4em;
+  line-height: 30px; }
+
+.title-h2 {
+  font-size: 1.2em;
+  line-height: 26px; }
+
+.title-h3 {
+  font-size: 1em;
+  line-height: 22px; }
+
+.title-h4 {
+  font-size: 0.9em;
+  line-height: 20px; }
+
+.title-h5 {
+  line-height: 18px; }
+
+.title-h6 {
+  line-height: 18px; }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
   .header__wrap {
     width: 100%;
     margin: 0 15px; } }
@@ -515,52 +561,6 @@ body {
     width: 100%;
     line-height: 30px;
     border-bottom: 1px solid #A4A4A4; } }
-
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .wrapper {
-    width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column; } }
-
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .wrapper__content {
-    margin-left: 0;
-    padding: 0 15px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; } }
-
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .text {
-    font-size: 0.9em;
-    margin-bottom: 10px; } }
-
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .title {
-    margin-bottom: 10px; } }
-
-.title-h1 {
-  font-size: 1.4em;
-  line-height: 30px; }
-
-.title-h2 {
-  font-size: 1.2em;
-  line-height: 26px; }
-
-.title-h3 {
-  font-size: 1em;
-  line-height: 22px; }
-
-.title-h4 {
-  font-size: 0.9em;
-  line-height: 20px; }
-
-.title-h5 {
-  line-height: 18px; }
-
-.title-h6 {
-  line-height: 18px; }
 
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .good__img {
