@@ -11,7 +11,7 @@ $braslet = [
     'title' => 'Браслеты противоскольжения',
     'desc' => 'Всесезонные, всепогодные. Устанавливаются без наезда, домкрата и инструмента в 1 минуту. Даже для полного привода достаточно 2-х браслетов. Отличный подарок активным автолюбителям.',
     //Изображение
-    'img' => '<img class="img_main" src="/images/braslets/braslet.jpg" srcset="/images/braslets/braslet.jpg 500w" alt="braslet" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+    'img' => '<img class="img good__img" src="/content/braslets/img/braslet.jpg" alt="Браслеты противоскольжения">',
     //Цены, менять можно
     'desc1' => 'R12-R15',
     'price1' => '500рублей/штука',
