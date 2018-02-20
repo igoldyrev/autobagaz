@@ -1,0 +1,13 @@
+.button__about {
+  border: 1px solid $subcolor;
+  background-color: #ffffff;
+
+  color: $subcolor;
+  font-size: 1em;
+
+  &:hover {
+    background-color: $subcolor;
+    color: #ffffff;
+    transition: 0.7s ease-in-out;
+  }
+}

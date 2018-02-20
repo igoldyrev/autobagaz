@@ -177,6 +177,39 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
+.button__buy {
+  border: 1px solid #367347;
+  background-color: #367347;
+  color: #ffffff;
+  font-size: 1em; }
+  .button__buy:hover {
+    background-color: #0B610B;
+    -webkit-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out; }
+
+.button__buy--prokat {
+  background-color: #848484;
+  border: 1px solid #848484; }
+  .button__buy--prokat:hover {
+    background-color: #A4A4A4;
+    border: 1px solid #A4A4A4;
+    -webkit-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out; }
+
+.button__about {
+  border: 1px solid #367347;
+  background-color: #ffffff;
+  color: #367347;
+  font-size: 1em; }
+  .button__about:hover {
+    background-color: #367347;
+    color: #ffffff;
+    -webkit-transition: 0.7s ease-in-out;
+    -o-transition: 0.7s ease-in-out;
+    transition: 0.7s ease-in-out; }
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,0 +1,10 @@
+.button__buy--prokat {
+  background-color: #848484;
+  border: 1px solid #848484;
+
+  &:hover {
+    background-color: #A4A4A4;
+    border: 1px solid #A4A4A4;
+    transition: 0.5s ease-in-out;
+  }
+}
