@@ -17,25 +17,26 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
         <p class="text">Проблема перевозки крупногабаритных вещей периодически возникает у каждого автомобилиста. Длинномерные грузы, громоздкие коробки и поклажу неравномерной формы редко удается разместить в стандартном багажнике автомобиля, и они начинают скапливаться в салоне, занимая собой личное пространство пассажиров и водителя. Было создано множество средств для решения этой проблемы, но, пожалуй, самыми известными и привычными из них для нас являются багажники на крышу автомобиля.</p>
         <p class="text">Каждый день в нашем магазине есть 3-10 вариантов различных багажников на любой автомобиль. И для Вашего удобства мы разбили их на категории с обозначением минимальной цены.</p>
 
-    <?php foreach ($autobagazhniki as $item): ?>
-    <div class="good">
-        <h2 class="title title-h2"><?php echo $item['name']; ?></h2>
-        <div class="good__description">
-            <div class="img__wrap">
-                <?php echo $item['img1']; echo $item['img2']; ?>
+        <?php foreach ($autobagazhniki as $item): ?>
+        <div class="good">
+            <h2 class="title title-h2"><?php echo $item['name']; ?></h2>
+            <div class="good__description">
+                <div class="img__wrap">
+                    <?php echo $item['img1']; echo $item['img2']; ?>
+                </div>
+                <p class="text"><?php echo $item['desc']; ?></p>
             </div>
-            <p class="text"><?php echo $item['desc']; ?></p>
-        </div>
-        <div class="good__price">
-            <p class="text"><strong><?php echo $item['price']; ?></strong></p>
-            <div class="good__buttons">
-                <a onclick="yaCounter40650914.reachGoal('click_about'); return true" href="/product/<?php echo $item['id']; ?>" class="button button__about" >Подробнее</a>
-                <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
-                <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $item['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
+            <div class="good__price">
+                <p class="text"><strong><?php echo $item['price']; ?></strong></p>
+                <div class="good__buttons">
+                    <a onclick="yaCounter40650914.reachGoal('click_about'); return true" href="/product/<?php echo $item['id']; ?>" class="button button__about" >Подробнее</a>
+                    <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
+                    <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $item['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
+                </div>
             </div>
         </div>
-    </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+        <p class="text">Если вы являетесь гордым обладателем японского, корейского или китайского автомобиля, остальные продавцы разводят руками в подборе оборудования-не отчаивайтесь, наш богатый опыт поможет вам решить данный вопрос быстро и из наличия!</p>
     </div>
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html");
