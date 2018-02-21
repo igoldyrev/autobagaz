@@ -80,9 +80,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
             </div>
         <?php }
         elseif ($autobox == 'yuago') {
-            echo "<title> $titleconst"; echo $keywords[5][title]; echo "</title>";
-            echo "<meta name='description' content='"; echo $keywords[5][description]; echo "'/>";
-            echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>";
+            echo "<title> $titleconst"; echo $keywords[3][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $keywords[3][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $keywords[3][keywords]; echo "'/>";
 
             $_SESSION['yuago'] = $yuago;
             $_SESSION['url'] = $_SERVER['REQUEST_URI'];
@@ -132,9 +132,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
             </div> <?php
             include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
         } elseif ($autobox == 'turino') {
-            echo "<title> $titleconst"; echo $keywords[6][title]; echo "</title>";
-            echo "<meta name='description' content='"; echo $keywords[6][description]; echo "'/>";
-            echo "<meta name='keywords' content='"; echo $keywords[6][keywords]; echo "'/>";
+            echo "<title> $titleconst"; echo $keywords[4][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $keywords[4][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $keywords[4][keywords]; echo "'/>";
 
             $_SESSION['turino'] = $turino;
             $_SESSION['url'] = $_SERVER['REQUEST_URI'];
@@ -153,9 +153,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
             </div> <?php
             include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
         } elseif ($autobox == 'lux') {
-            echo "<title> $titleconst"; echo $keywords[7][title]; echo "</title>";
-            echo "<meta name='description' content='"; echo $keywords[7][description]; echo "'/>";
-            echo "<meta name='keywords' content='"; echo $keywords[7][keywords]; echo "'/>";
+            echo "<title> $titleconst"; echo $keywords[5][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $keywords[5][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>";
 
             $_SESSION['lux'] = $lux;
             $_SESSION['url'] = $_SERVER['REQUEST_URI'];
@@ -208,9 +208,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
             </div>
             <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
         } elseif ($autobox == 'atlant') {
-            echo "<title> $titleconst"; echo $keywords[4][title]; echo "</title>";
-            echo "<meta name='description' content='"; echo $keywords[4][description]; echo "'/>";
-            echo "<meta name='keywords' content='"; echo $keywords[4][keywords]; echo "'/>";
+            echo "<title> $titleconst"; echo $keywords[2][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>";
 
             $_SESSION['discoveryclassic'] = $discoveryclassic;
             $_SESSION['discoverysport'] = $discoverysport;
