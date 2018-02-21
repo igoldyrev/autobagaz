@@ -12,9 +12,9 @@ $vetlan = [
 	//Заголовок, который отображается на странице
 	'title' => 'Автобоксы серии 400M',
 	//Изображения автобоксов
-	'img1' => '<img class="img_main" src="/images/vetlan/400/1.jpg" srcset="/images/vetlan/400/1.jpg 800w" alt="Vetlan 400M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img2' => '<img class="img_main" src="/images/vetlan/400/2.jpg" srcset="/images/vetlan/400/2.jpg 800w" alt="Vetlan 400M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img3' => '<img class="img_main" src="/images/vetlan/400/3.jpg" srcset="/images/vetlan/400/3.jpg 800w" alt="Vetlan 400M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+	'img1' => '<img class="img good__img" src="/content/autobox/img/vetlan/400/1.jpg" alt="Vetlan 400M">',
+	'img2' => '<img class="img good__img" src="/content/autobox/img/vetlan/400/2.jpg" alt="Vetlan 400M">',
+	'img3' => '<img class="img good__img" src="/content/autobox/img/vetlan/400/3.jpg" alt="Vetlan 400M">',
 	//Данные таблицы
 	'size' => '165х80х35см',
 	'volume' => '400 л',
@@ -40,10 +40,10 @@ $vetlan = [
 	//Заголовок, который отображается на странице
 	'title' => 'Автобоксы серии 430M',
 	//Изображения автобоксов
-	'img1' => '<img class="img_main" src="/images/vetlan/430M/1.jpg" srcset="/images/vetlan/430M/1.jpg 800w" alt="Vetlan 430M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img2' => '<img class="img_main" src="/images/vetlan/430M/2.jpg" srcset="/images/vetlan/430M/2.jpg 800w" alt="Vetlan 430M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img3' => '<img class="img_main" src="/images/vetlan/430M/3.jpg" srcset="/images/vetlan/430M/3.jpg 800w" alt="Vetlan 430M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img4' => '<img class="img_main" src="/images/vetlan/430M/4.jpg" srcset="/images/vetlan/430M/4.jpg 800w" alt="Vetlan 430M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+	'img1' => '<img class="img good__img" src="/content/autobox/img/vetlan/430M/1.jpg" alt="Vetlan 430M">',
+	'img2' => '<img class="img good__img" src="/content/autobox/img/vetlan/430M/2.jpg" alt="Vetlan 430M">',
+	'img3' => '<img class="img good__img" src="/content/autobox/img/vetlan/430M/3.jpg" alt="Vetlan 430M">',
+	'img4' => '<img class="img good__img" src="/content/autobox/img/vetlan/430M/4.jpg" alt="Vetlan 430M">',
 	//Данные таблицы
 	'size' => '175х77х45см',
 	'volume' => '430 л',
@@ -69,10 +69,10 @@ $vetlan = [
 	//Заголовок, который отображается на странице
 	'title' => 'Автобоксы серии 550M',
 	//Изображения автобоксов
-	'img1' => '<img class="img_main" src="/images/vetlan/550M/1.jpg" srcset="/images/vetlan/550M/1.jpg 800w" alt="Vetlan 550M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img2' => '<img class="img_main" src="/images/vetlan/550M/2.jpg" srcset="/images/vetlan/550M/2.jpg 800w" alt="Vetlan 550M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img3' => '<img class="img_main" src="/images/vetlan/550M/3.jpg" srcset="/images/vetlan/550M/3.jpg 800w" alt="Vetlan 550M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img4' => '<img class="img_main" src="/images/vetlan/550M/4.jpg" srcset="/images/vetlan/550M/4.jpg 800w" alt="Vetlan 550M" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+	'img1' => '<img class="img good__img" src="/content/autobox/img/vetlan/550M/1.jpg" alt="Vetlan 550M">',
+	'img2' => '<img class="img good__img" src="/content/autobox/img/vetlan/550M/2.jpg" alt="Vetlan 550M">',
+	'img3' => '<img class="img good__img" src="/content/autobox/img/vetlan/550M/3.jpg" alt="Vetlan 550M">',
+	'img4' => '<img class="img good__img" src="/content/autobox/img/vetlan/550M/4.jpg" alt="Vetlan 550M">',
 	//Данные таблицы
 	'size' => '205х84х45см',
 	'volume' => '550 л',
@@ -96,7 +96,7 @@ $yuago = [
 	//Заголовок на странице
 	'name' => 'Аэродинамический Бокс-Багажник (Автобокс) на крышу автомобиля YUAGO(ЯГО) Cosmo 210 объемом 485 литров',
 	//Изображение
-	'img1' => '<img class="img_main" src="/images/yuago/yuago.jpg" srcset="/images/yuago/yuago.jpg 350w" alt="yuago" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+	'img1' => '<img class="img good__img" src="/images/yuago/yuago.jpg" srcset="/images/yuago/yuago.jpg 350w" alt="yuago" sizes="(max-width: 2000px) 150px, 300px, 350px">',
 	//Данные таблицы
 	'size' => '2180 х 730 х 300 мм',
 	'volume' => '485 литров',
@@ -117,12 +117,12 @@ $turino = [
 	//Описания и изображения, которые отображаются на странице
 	'desc1' => 'Пожалуй, самые сбалансированные боксы по параметрам: цена/качество, выполненные из высококачественного ABS пластика, снабженный современным 3-х точечным замком, надежно сохранит ваш груз.',
 	'desc2' => 'Цвет: серый, черный, белый - матовый, одностороннее открывание,3-х точечный замок Размер внешний 175 х 82 х 45 см, внутренний 169 х 76х40 см, объем 460 л.',
-	'img1' => '<img class="img_main" src="/images/turino/turino_1.jpg" srcset="/images/turino/turino_1.jpg 200w" alt="Автобоксы Турино" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img2' => '<img class="img_main" src="/images/turino/turino_2.jpg" srcset="/images/turino/turino_2.jpg 1200w" alt="Автобоксы Турино" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img3' => '<img class="img_main" src="/images/turino/turino_3.jpg" srcset="/images/turino/turino_3.jpg 1200w" alt="Автобоксы Турино" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img4' => '<img class="img_main" src="/images/turino/turino_4.jpg" srcset="/images/turino/turino_4.jpg 1200w" alt="Автобоксы Турино" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img5' => '<img class="img_main" src="/images/turino/turino_5.jpg" srcset="/images/turino/turino_5.jpg 1200w" alt="Автобоксы Турино" sizes="(max-width: 2000px) 150px, 300px, 350px">',
-	'img6' => '<img class="img_main" src="/images/turino/turino_6.jpg" srcset="/images/turino/turino_6.jpg 1200w" alt="Автобоксы Турино" sizes="(max-width: 2000px) 150px, 300px, 350px">',
+	'img1' => '<img class="img good__img" src="/images/turino/turino_1.jpg" alt="Автобоксы Турино">',
+	'img2' => '<img class="img good__img" src="/images/turino/turino_2.jpg" alt="Автобоксы Турино">',
+	'img3' => '<img class="img good__img" src="/images/turino/turino_3.jpg" alt="Автобоксы Турино">',
+	'img4' => '<img class="img good__img" src="/images/turino/turino_4.jpg" alt="Автобоксы Турино">',
+	'img5' => '<img class="img good__img" src="/images/turino/turino_5.jpg" alt="Автобоксы Турино">',
+	'img6' => '<img class="img good__img" src="/images/turino/turino_6.jpg" alt="Автобоксы Турино">',
 	//Цена
 	'price' => '14000 рублей/16000 рублей ',
 ];
