@@ -198,6 +198,7 @@ body {
           box-sizing: border-box; }
 
 .button__buy {
+  display: block;
   border: 1px solid #367347;
   background-color: #367347;
   color: #ffffff;
