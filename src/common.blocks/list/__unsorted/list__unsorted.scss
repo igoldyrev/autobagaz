@@ -1,0 +1,12 @@
+.list__unsorted {
+  & li:before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: $subcolor;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
