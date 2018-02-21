@@ -259,7 +259,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
             </div><?php
             echo "<h2 class='title title-h2'>Серия Атлант, двухстороннее открывание, цвет металлик</h2>"; ?>
             <div class="img__wrap">
-                <img class="img good__img" src="/images/atlant/atlant_1.jpg" alt="atlant">
+                <img class="img good__img" src="/content/autobox/img/atlant/atlant_1.jpg" alt="atlant">
             </div>
             <div class="table table--buttons">
                 <ul class="table__row">
@@ -274,7 +274,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                 </ul>
             </div>
             <div class="img__wrap">
-                <img class="img good__img" src="/images/atlant/atlant_2.jpg" alt="atlant">
+                <img class="img good__img" src="/content/autobox/img/atlant/atlant_2.jpg" alt="atlant">
             </div>
             <div class="table table--buttons">
                 <ul class="table__row">
