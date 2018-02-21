@@ -20,6 +20,7 @@ RewriteRule ^(.*)$ $1.html
 RewriteRule ^autobagazhniki /content/autobagazhniki/autobagazhniki.php
 RewriteRule ^braslets /content/braslets/braslets.php
 RewriteRule ^kreplenya-dlya-lyzh-shoubord /content/lyzhnye-kreplenya/kreplenya-dlya-lyzh-shoubord.php
+RewriteRule ^farkops /content/farkops/farkops.php
 RewriteRule ^product/([^/]+)/?$ /content/autobagazhniki/backend/product.php?id=$1
 
 #Правила для переадресации страниц
