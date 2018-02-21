@@ -24,8 +24,9 @@ RewriteRule ^product/([^/]+)/?$ /content/autobagazhniki/backend/product.php?id=$
 #Правила для переадресации страниц
 #Автобагажники
 #RewriteRule ^buy /backend/buy.php
-RewriteRule ^buy/([^/]+)/?$ /backend/buy.php?id=$1
+RewriteRule ^buy/([^/]+)/?$ /backend/buy.php?id=$1 [L]
 
+#RewriteRule ^prokat /backend/prokat.php
 
 RewriteRule ^prokat/ab1 prokat.php?id=ab1
 RewriteRule ^prokat/ab2 prokat.php?id=ab2
