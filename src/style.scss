@@ -21,7 +21,9 @@
 //Текст, списки и ссылки
 @import "library.blocks/text/text";
 @import "library.blocks/list/list";
+@import "common.blocks/list/__unsorted/list__unsorted";
 @import "library.blocks/list/_decimal/list_decimal";
+@import "common.blocks/list/_decimal/list_decimal";
 @import "library.blocks/link/link";
 
 //Изображения
@@ -92,6 +94,24 @@
 
 //Сообщение об успешном или неуспешном заказе товара
 @import "common.blocks/good-message/good-message";
+
+//Документы в разделе проката
+@import "common.blocks/prokat-docs/prokat-docs";
+
+//Стили для таблиц
+@import "common.blocks/table/table";
+@import "mobile.blocks/table/table";
+@import "common.blocks/table/__caption/table__caption";
+@import "common.blocks/table/__row/table__row";
+@import "common.blocks/table/__cell/table__cell";
+@import "mobile.blocks/table/__cell/table__cell";
+@import "common.blocks/table/__cell/_price/table__cell_price";
+@import "common.blocks/table/__cell/_price/table__cell_price";
+@import "common.blocks/table/__column/table__column";
+@import "common.blocks/table/__column/__column-prokat/_srok/table__column-prokat_srok";
+@import "common.blocks/table/__header/table__header";
+@import "common.blocks/table/__footer/table__footer";
+@import "tablet.blocks/table/_buttons/table--buttons";
 
 //Стили для планшетов
 @import "tablet.blocks/wrapper/wrapper";
