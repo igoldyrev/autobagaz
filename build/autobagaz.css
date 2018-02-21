@@ -577,7 +577,7 @@ body {
   z-index: 1; }
 
 .catalog__item--velo {
-  height: 285px;
+  height: 310px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between; }
