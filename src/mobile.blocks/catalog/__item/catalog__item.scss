@@ -1,0 +1,7 @@
+@include adaptive(mobile) {
+  .catalog__item {
+    width: 46%;
+    padding: 0px;
+    margin: 5px;
+  }
+}

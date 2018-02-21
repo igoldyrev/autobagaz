@@ -1,0 +1,9 @@
+.catalog {
+  position: relative;
+  display: flex;
+  align-content: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: $bg-color;
+  margin-bottom: 30px;
+}
