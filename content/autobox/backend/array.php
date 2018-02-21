@@ -96,7 +96,7 @@ $yuago = [
 	//Заголовок на странице
 	'name' => 'Аэродинамический Бокс-Багажник (Автобокс) на крышу автомобиля YUAGO(ЯГО) Cosmo 210 объемом 485 литров',
 	//Изображение
-	'img1' => '<img class="img good__img" src="/images/yuago/yuago.jpg" alt="yuago">',
+	'img1' => '<img class="img good__img" src="/content/autobox/img/yuago/yuago.jpg" alt="yuago">',
 	//Данные таблицы
 	'size' => '2180 х 730 х 300 мм',
 	'volume' => '485 литров',
@@ -117,12 +117,12 @@ $turino = [
 	//Описания и изображения, которые отображаются на странице
 	'desc1' => 'Пожалуй, самые сбалансированные боксы по параметрам: цена/качество, выполненные из высококачественного ABS пластика, снабженный современным 3-х точечным замком, надежно сохранит ваш груз.',
 	'desc2' => 'Цвет: серый, черный, белый - матовый, одностороннее открывание,3-х точечный замок Размер внешний 175 х 82 х 45 см, внутренний 169 х 76х40 см, объем 460 л.',
-	'img1' => '<img class="img good__img" src="/images/turino/turino_1.jpg" alt="Автобоксы Турино">',
-	'img2' => '<img class="img good__img" src="/images/turino/turino_2.jpg" alt="Автобоксы Турино">',
-	'img3' => '<img class="img good__img" src="/images/turino/turino_3.jpg" alt="Автобоксы Турино">',
-	'img4' => '<img class="img good__img" src="/images/turino/turino_4.jpg" alt="Автобоксы Турино">',
-	'img5' => '<img class="img good__img" src="/images/turino/turino_5.jpg" alt="Автобоксы Турино">',
-	'img6' => '<img class="img good__img" src="/images/turino/turino_6.jpg" alt="Автобоксы Турино">',
+	'img1' => '<img class="img good__img" src="/content/autobox/img/turino/turino_1.jpg" alt="Автобоксы Турино">',
+	'img2' => '<img class="img good__img" src="/content/autobox/img/turino/turino_2.jpg" alt="Автобоксы Турино">',
+	'img3' => '<img class="img good__img" src="/content/autobox/img/turino/turino_3.jpg" alt="Автобоксы Турино">',
+	'img4' => '<img class="img good__img" src="/content/autobox/img/turino/turino_4.jpg" alt="Автобоксы Турино">',
+	'img5' => '<img class="img good__img" src="/content/autobox/img/turino/turino_5.jpg" alt="Автобоксы Турино">',
+	'img6' => '<img class="img good__img" src="/content/autobox/img/turino/turino_6.jpg" alt="Автобоксы Турино">',
 	//Цена
 	'price' => '14000 рублей/16000 рублей ',
 ];
