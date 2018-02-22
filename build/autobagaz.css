@@ -857,6 +857,15 @@ body {
   .proposition__text--small {
     font-size: 0.9em; } }
 
+@media only screen and (max-width: 767px) {
+  .proposition__text {
+    font-size: 1em;
+    line-height: 24px; } }
+
+@media only screen and (max-width: 767px) {
+  .proposition__text--small {
+    font-size: 0.8em; } }
+
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .navigation {
     position: relative;

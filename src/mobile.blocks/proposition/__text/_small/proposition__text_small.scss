@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .proposition__text--small {
+    font-size: 0.8em;
+  }
+}
