@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .catalog__image {
+    width: 100%;
+  }
+}
