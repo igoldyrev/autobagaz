@@ -1,5 +1,6 @@
 .sales__price--strike {
   position: relative;
+  display: inline-block;
 
   &::before {
     position: absolute;

@@ -618,7 +618,8 @@ body {
   color: inherit; }
 
 .sales__price--strike {
-  position: relative; }
+  position: relative;
+  display: inline-block; }
   .sales__price--strike::before {
     position: absolute;
     content: '';
