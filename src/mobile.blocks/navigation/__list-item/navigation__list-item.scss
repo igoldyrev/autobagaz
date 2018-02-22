@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .navigation__list-item {
+    width: 50%;
+  }
+}

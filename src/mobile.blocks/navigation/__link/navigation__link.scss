@@ -1,0 +1,8 @@
+@include adaptive(mobile) {
+  .navigation__link {
+    width: 100%;
+    line-height: 30px;
+
+    border-bottom: 1px solid #A4A4A4;
+  }
+}
