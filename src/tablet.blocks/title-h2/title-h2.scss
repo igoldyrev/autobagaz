@@ -1,4 +1,6 @@
-.title-h2 {
-  font-size: 1.2em;
-  line-height: 26px;
+@include adaptive(pad) {
+  .title-h2 {
+    font-size: 1.2em;
+    line-height: 26px;
+  }
 }
