@@ -1,7 +1,7 @@
 <?php
 $dbname = "9082410193_news";
 
-include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/connectdb.php");
 
 $query = "SELECT * FROM `message` ORDER BY id DESC";
 
