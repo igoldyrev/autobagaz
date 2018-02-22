@@ -112,6 +112,19 @@
 @import "common.blocks/speech/__left/speech__left";
 @import "common.blocks/speech/__right/speech__right";
 
+//Блок со скидками
+@import "common.blocks/sales/sales";
+@import "tablet.blocks/sales/sales";
+@import "common.blocks/sales/__item/sales__item";
+@import "tablet.blocks/sales/__item/sales__item";
+@import "mobile.blocks/sales/__item/sales__item";
+@import "common.blocks/sales/__img/sales__img";
+@import "common.blocks/sales/__item-price/sales__item-price";
+@import "common.blocks/sales/__item-button/sales__item-button";
+@import "common.blocks/sales/__description/sales__description";
+@import "common.blocks/sales/__price/sales__price";
+@import "common.blocks/sales/__price/_strike/sales__price_strike";
+
 //Стили для таблиц
 @import "common.blocks/table/table";
 @import "mobile.blocks/table/table";

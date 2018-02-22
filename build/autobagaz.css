@@ -308,7 +308,7 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 5px;
-  z-index: 1;
+  z-index: 3;
   width: 1220px;
   height: 40px;
   background: #0a2a0a;
@@ -549,6 +549,86 @@ body {
     height: 0px;
     border-left: 50px solid transparent;
     border-top: 50px solid #82fa58; }
+
+.sales {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 20px; }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .sales {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; } }
+
+.sales__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 240px;
+  margin: 0 10px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #999; }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .sales__item {
+    margin: 0 0 15px 0; } }
+
+@media only screen and (max-width: 767px) {
+  .sales__item {
+    width: 98%;
+    margin: 5px; } }
+
+.sales__img {
+  width: 100%; }
+
+.sales__item-price {
+  margin: 10px 0; }
+
+.sales__item-button {
+  width: 150px;
+  margin: 0 auto; }
+
+.sales__description {
+  margin-top: 10px;
+  text-align: center; }
+
+.sales__price {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  color: inherit; }
+
+.sales__price--strike {
+  position: relative; }
+  .sales__price--strike::before {
+    position: absolute;
+    content: '';
+    top: 10px;
+    width: 100%;
+    background-color: red;
+    height: 3px;
+    -webkit-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+            transform: rotate(-10deg); }
 
 .table {
   display: table;

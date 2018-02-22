@@ -1,0 +1,13 @@
+.sales__price--strike {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 10px;
+    width: 100%;
+    background-color: red;
+    height: 3px;
+    transform: rotate(-10deg);
+  }
+}
