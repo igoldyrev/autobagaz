@@ -1,0 +1,7 @@
+@include adaptive(mobile) {
+  .wrapper {
+    width: 100%;
+
+    flex-direction: column;
+  }
+}

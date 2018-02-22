@@ -1,0 +1,6 @@
+@include adaptive(mobile) {
+  .title-h1 {
+    font-size: 1.2em;
+    line-height: 24px;
+  }
+}
