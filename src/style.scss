@@ -7,24 +7,46 @@
 //Тело и обертка
 @import "library.blocks/body/body";
 @import "library.blocks/wrapper/wrapper";
+@import "tablet.blocks/wrapper/wrapper";
+@import "mobile.blocks/wrapper/wrapper";
 @import "library.blocks/wrapper/__content/wrapper__content";
+@import "tablet.blocks/wrapper/__content/wrapper__content";
+@import "mobile.blocks/wrapper/__content/wrapper__content";
 
 //Заголовки
 @import "library.blocks/title/title";
+@import "tablet.blocks/title/title";
+@import "mobile.blocks/title/title";
 @import "library.blocks/title-h1/title-h1";
+@import "tablet.blocks/title-h1/title-h1";
+@import "mobile.blocks/title-h1/title-h1";
 @import "library.blocks/title-h2/title-h2";
+@import "tablet.blocks/title-h2/title-h2";
+@import "mobile.blocks/title-h2/title-h2";
 @import "library.blocks/title-h3/title-h3";
+@import "tablet.blocks/title-h3/title-h3";
+@import "mobile.blocks/title-h3/title-h3";
 @import "library.blocks/title-h4/title-h4";
+@import "tablet.blocks/title-h4/title-h4";
+@import "mobile.blocks/title-h4/title-h4";
 @import "library.blocks/title-h5/title-h5";
+@import "tablet.blocks/title-h5/title-h5";
+@import "mobile.blocks/title-h5/title-h5";
 @import "library.blocks/title-h6/title-h6";
+@import "tablet.blocks/title-h6/title-h6";
+@import "mobile.blocks/title-h6/title-h6";
 
 //Текст, списки и ссылки
 @import "library.blocks/text/text";
+@import "tablet.blocks/text/text";
+@import "mobile.blocks/text/text";
 @import "library.blocks/list/list";
+@import "mobile.blocks/list/list";
 @import "common.blocks/list/__unsorted/list__unsorted";
 @import "library.blocks/list/_decimal/list_decimal";
 @import "common.blocks/list/_decimal/list_decimal";
 @import "library.blocks/link/link";
+
 
 //Изображения
 @import "library.blocks/img/__wrap/img__wrap";
@@ -64,19 +86,35 @@
 
 //Навигация на сайте
 @import "common.blocks/navigation/navigation";
+@import "tablet.blocks/navigation/navigation";
+@import "mobile.blocks/navigation/navigation";
 @import "common.blocks/navigation/__list/navigation__list";
+@import "tablet.blocks/navigation/__list/navigation__list";
+@import "mobile.blocks/navigation/__list/navigation__list";
 @import "common.blocks/navigation/__list-item/navigation__list-item";
+@import "tablet.blocks/navigation/__list-item/navigation__list-item";
+@import "mobile.blocks/navigation/__list-item/navigation__list-item";
 @import "common.blocks/navigation/__link/navigation__link";
+@import "tablet.blocks/navigation/__link/navigation__link";
+@import "mobile.blocks/navigation/__link/navigation__link";
 
 //Навигация слева
 @import "common.blocks/left-nav/left-nav";
+@import "tablet.blocks/left-nav/left-nav";
+@import "mobile.blocks/left-nav/left-nav";
 @import "common.blocks/left-nav/__link/left-nav__link";
+@import "tablet.blocks/left-nav/__link/left-nav__link";
+@import "mobile.blocks/left-nav/__link/left-nav__link";
 
 //Подвал сайта
 @import "common.blocks/footer/footer";
+@import "tablet.blocks/footer/footer";
+@import "mobile.blocks/footer/footer";
 @import "common.blocks/footer/__list/footer__list";
 @import "common.blocks/footer/__list-item/footer__list-item";
 @import "common.blocks/footer/__link/footer__link";
+@import "tablet.blocks/footer/__link/footer__link";
+@import "mobile.blocks/footer/__link/footer__link";
 
 //Карточка отдельного товара на странице product
 @import "common.blocks/product/product";
@@ -89,8 +127,13 @@
 //Карточка отдельного товара на всех страницах сайта
 @import "common.blocks/good/good";
 @import "common.blocks/good/__img/good__img";
+@import "tablet.blocks/good/__img/good__img";
 @import "common.blocks/good/__price/good__price";
+@import "tablet.blocks/good/__price/good__price";
+@import "mobile.blocks/good/__price/good__price";
 @import "common.blocks/good/__buttons/good__buttons";
+@import "tablet.blocks/good/__buttons/good__buttons";
+@import "mobile.blocks/good/__buttons/good__buttons";
 
 //Сообщение об успешном или неуспешном заказе товара
 @import "common.blocks/good-message/good-message";
@@ -142,25 +185,28 @@
 
 //Стили для карточек каталога
 @import "common.blocks/catalog/catalog";
+@import "mobile.blocks/catalog/catalog";
 @import "common.blocks/catalog/__item/catalog__item";
 @import "common.blocks/catalog/__item/_velo/catalog__item_velo";
 @import "mobile.blocks/catalog/__item/catalog__item";
 @import "common.blocks/catalog/__image-wrap/catalog__image-wrap";
 @import "common.blocks/catalog/__image/catalog__image";
+@import "mobile.blocks/catalog/__image/catalog__image";
 @import "common.blocks/catalog/__item-link/catalog__item-link";
 @import "common.blocks/catalog/__text/catalog__text";
 
-//Стили для планшетов
-@import "tablet.blocks/wrapper/wrapper";
-@import "tablet.blocks/wrapper/__content/wrapper__content";
-@import "tablet.blocks/text/text";
-@import "tablet.blocks/title/title";
-@import "tablet.blocks/title-h1/title-h1";
-@import "tablet.blocks/title-h2/title-h2";
-@import "tablet.blocks/title-h3/title-h3";
-@import "tablet.blocks/title-h4/title-h4";
-@import "tablet.blocks/title-h5/title-h5";
-@import "tablet.blocks/title-h6/title-h6";
+//Сообщение на главной странице
+@import "common.blocks/index-message/index-message";
+@import "mobile.blocks/index-message/index-message";
+@import "common.blocks/index-message/__title/index-message__title";
+@import "common.blocks/index-message/__text/index-message__text";
+@import "mobile.blocks/index-message/__text/index-message__text";
+@import "common.blocks/index-message/__holiday/index-message__holiday";
+@import "mobile.blocks/index-message/__holiday/index-message__holiday";
+
+
+
+
 @import "tablet.blocks/header/__wrap/header__wrap";
 @import "tablet.blocks/header/__list/header__list";
 @import "tablet.blocks/header/__link/header__link";
@@ -172,20 +218,12 @@
 
 
 
-@import "tablet.blocks/footer/footer";
-@import "tablet.blocks/footer/__link/footer__link";
+
+
 @import "tablet.blocks/proposition/__text/proposition__text";
 @import "tablet.blocks/proposition/__text/_small/proposition__text_small";
 @import "mobile.blocks/proposition/__text/proposition__text";
 @import "mobile.blocks/proposition/__text/_small/proposition__text_small";
 
 
-@import "tablet.blocks/navigation/navigation";
-@import "tablet.blocks/navigation/__list/navigation__list";
-@import "tablet.blocks/navigation/__list-item/navigation__list-item";
-@import "tablet.blocks/navigation/__link/navigation__link";
-@import "tablet.blocks/good/__img/good__img";
-@import "tablet.blocks/good/__buttons/good__buttons";
-@import "tablet.blocks/good/__price/good__price";
-@import "tablet.blocks/left-nav/left-nav";
-@import "tablet.blocks/left-nav/__link/left-nav__link";
+

@@ -1,0 +1,10 @@
+.index-message {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+  margin-bottom: 20px;
+
+  border: 1px solid $subcolor;
+  border-radius: 5px;
+}
