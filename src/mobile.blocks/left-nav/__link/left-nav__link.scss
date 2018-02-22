@@ -1,0 +1,12 @@
+@include adaptive(mobile) {
+  .left-nav__link {
+    width: auto;
+    height: 20px;
+
+    font-size: 0.8em;
+    line-height: 20px;
+
+    padding: 0 5px;
+    margin: 2px;
+  }
+}

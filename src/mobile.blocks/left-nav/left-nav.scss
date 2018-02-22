@@ -1,0 +1,13 @@
+@include adaptive(mobile) {
+  .left-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-bottom: 10px;
+  }
+
+  #vk_groups {
+    display: none;
+  }
+}
