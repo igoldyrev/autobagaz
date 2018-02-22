@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .header__logo {
+    width: 100%;
+  }
+}
