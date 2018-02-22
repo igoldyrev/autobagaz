@@ -481,6 +481,12 @@ body {
   .prokat-docs i {
     margin: 7px; }
 
+.brands {
+  text-align: center; }
+
+.brands__wrap {
+  margin-bottom: 20px; }
+
 .table {
   display: table;
   width: 85%;

@@ -98,6 +98,10 @@
 //Документы в разделе проката
 @import "common.blocks/prokat-docs/prokat-docs";
 
+//Бренды на главной странице
+@import "common.blocks/brands/brands";
+@import "common.blocks/brands/__wrap/brands__wrap";
+
 //Стили для таблиц
 @import "common.blocks/table/table";
 @import "mobile.blocks/table/table";
