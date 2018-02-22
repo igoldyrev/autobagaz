@@ -487,6 +487,69 @@ body {
 .brands__wrap {
   margin-bottom: 20px; }
 
+.contacts:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.contacts__link {
+  display: block;
+  float: left;
+  clear: both;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-decoration: none;
+  line-height: 2;
+  cursor: pointer; }
+
+.contacts__inn {
+  margin-top: 30px; }
+
+.speech {
+  position: relative;
+  width: 97%;
+  font-family: "Roboto", Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  text-align: left;
+  line-height: 1.4;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 4px #888;
+          box-shadow: 2px 2px 4px #888;
+  padding: 10px; }
+
+.speech__left {
+  color: #fff;
+  background-color: #0a2a0a;
+  border: 1px solid #0a2a0a;
+  margin-bottom: 55px; }
+  .speech__left::before {
+    content: '';
+    position: absolute;
+    bottom: -49px;
+    left: 50px;
+    width: 0px;
+    height: 0px;
+    border-right: 50px solid transparent;
+    border-top: 50px solid #0a2a0a; }
+
+.speech__right {
+  color: #000;
+  background-color: #82fa58;
+  border: 1px solid #82fa58;
+  margin-bottom: 60px; }
+  .speech__right::before {
+    content: '';
+    position: absolute;
+    bottom: -49px;
+    right: 50px;
+    width: 0px;
+    height: 0px;
+    border-left: 50px solid transparent;
+    border-top: 50px solid #82fa58; }
+
 .table {
   display: table;
   width: 85%;

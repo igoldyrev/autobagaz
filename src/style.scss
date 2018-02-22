@@ -102,6 +102,16 @@
 @import "common.blocks/brands/brands";
 @import "common.blocks/brands/__wrap/brands__wrap";
 
+//Страница контакты
+@import "common.blocks/contacts/contacts";
+@import "common.blocks/contacts/__link/contacts__link";
+@import "common.blocks/contacts/__inn/contacts__inn";
+
+//Страница с диалогами выбора автобокса
+@import "common.blocks/speech/speech";
+@import "common.blocks/speech/__left/speech__left";
+@import "common.blocks/speech/__right/speech__right";
+
 //Стили для таблиц
 @import "common.blocks/table/table";
 @import "mobile.blocks/table/table";

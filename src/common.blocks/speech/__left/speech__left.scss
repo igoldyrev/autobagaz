@@ -1,0 +1,17 @@
+.speech__left {
+  color: #fff;
+  background-color: $primarycolor;
+  border: 1px solid $primarycolor;
+  margin-bottom: 55px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -49px;
+    left: 50px;
+    width: 0px;
+    height: 0px;
+    border-right: 50px solid transparent;
+    border-top: 50px solid $primarycolor;
+  }
+}
