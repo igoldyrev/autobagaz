@@ -27,7 +27,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'ab2') {
             $tovar = $_SESSION['autobagazhniki'][1][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][1][name]; echo "</title>";
@@ -35,7 +35,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'ab3') {
             $tovar = $_SESSION['autobagazhniki'][2][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][2][name]; echo "</title>";
@@ -43,7 +43,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'ab4') {
             $tovar = $_SESSION['autobagazhniki'][3][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['autobagazhniki'][3][name]; echo "</title>";
@@ -51,7 +51,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == '400Mblack') {
             $tovar = $_SESSION['vetlan'][0][name1];
             echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][0][name1]; echo "</title>";
@@ -59,7 +59,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == '400Mgray') {
             $tovar = $_SESSION['vetlan'][0][name2];
             echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][0][name2]; echo "</title>";
@@ -67,7 +67,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == '400Mwhite') {
             $tovar = $_SESSION['vetlan'][0][name3];
             echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][0][name3]; echo "</title>";
@@ -75,7 +75,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == '430Mblack') {
             $tovar = $_SESSION['vetlan'][1][name1];
             echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][1][name1]; echo "</title>";
@@ -83,7 +83,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == '430Mgray') {
             $tovar = $_SESSION['vetlan'][1][name2];
             echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][1][name2]; echo "</title>";
@@ -91,7 +91,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == '430Mwhite') {
             $tovar = $_SESSION['vetlan'][1][name3];
             echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][1][name3]; echo "</title>";
@@ -99,7 +99,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == '550Mblack') {
             $tovar = $_SESSION['vetlan'][2][name1];
             echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][2][name1]; echo "</title>";
@@ -107,7 +107,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == '550Mgray') {
             $tovar = $_SESSION['vetlan'][2][name2];
             echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][2][name2]; echo "</title>";
@@ -115,7 +115,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == '550Mwhite') {
             $tovar = $_SESSION['vetlan'][2][name3];
             echo "<title>Взятие в прокат "; echo $_SESSION['vetlan'][2][name3]; echo "</title>";
@@ -123,7 +123,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'vk1') {
             $tovar = $_SESSION['velokrysha'][0][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][0][name]; echo "</title>";
@@ -131,7 +131,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'vk2') {
             $tovar = $_SESSION['velokrysha'][1][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][1][name]; echo "</title>";
@@ -139,7 +139,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'vk3') {
             $tovar = $_SESSION['velokrysha'][2][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][2][name]; echo "</title>";
@@ -147,7 +147,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'vk4') {
             $tovar = $_SESSION['velokrysha'][3][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['velokrysha'][3][name]; echo "</title>";
@@ -155,7 +155,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'vf1') {
             $tovar = $_SESSION['velofarkop'][0][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['velofarkop'][0][name]; echo "</title>";
@@ -163,7 +163,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'vf2') {
             $tovar = $_SESSION['velofarkop'][1][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['velofarkop'][1][name]; echo "</title>";
@@ -171,7 +171,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'amos34') {
             $tovar = $_SESSION['lyzhi'][0][name1];
             echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][0][name1]; echo "</title>";
@@ -179,7 +179,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'amos56') {
             $tovar = $_SESSION['lyzhi'][0][name2];
             echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][0][name2]; echo "</title>";
@@ -187,7 +187,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'atlant34') {
             $tovar = $_SESSION['lyzhi'][1][name1];
             echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][1][name1]; echo "</title>";
@@ -195,7 +195,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'atlant56') {
             $tovar = $_SESSION['lyzhi'][1][name2];
             echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][1][name2]; echo "</title>";
@@ -203,7 +203,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'montblanc34') {
             $tovar = $_SESSION['lyzhi'][2][name1];
             echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][2][name1]; echo "</title>";
@@ -211,7 +211,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'montblanc56') {
             $tovar = $_SESSION['lyzhi'][2][name2];
             echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][2][name2]; echo "</title>";
@@ -219,7 +219,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'thule34') {
             $tovar = $_SESSION['lyzhi'][3][name1];
             echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][3][name1]; echo "</title>";
@@ -227,7 +227,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'thule56') {
             $tovar = $_SESSION['lyzhi'][3][name2];
             echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][3][name2]; echo "</title>";
@@ -235,7 +235,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'xtender') {
             $tovar = $_SESSION['lyzhi'][4][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['lyzhi'][4][name]; echo "</title>";
@@ -243,7 +243,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'r12') {
             $tovar = $_SESSION['braslet'][name1];
             echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name1]; echo "</title>";
@@ -251,7 +251,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'r16') {
             $tovar = $_SESSION['braslet'][name2];
             echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name2]; echo "</title>";
@@ -259,7 +259,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'gazel') {
             $tovar = $_SESSION['braslet'][name3];
             echo "<title>Взятие в прокат "; echo $_SESSION['braslet'][name3]; echo "</title>";
@@ -267,7 +267,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'stay_set_su') {
             $tovar = $_SESSION['inno_basic'][0][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['inno_basic'][0][name]; echo "</title>";
@@ -275,7 +275,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
                 <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'stay_set_fr') {
             $tovar = $_SESSION['inno_basic'][1][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['inno_basic'][1][name]; echo "</title>";
@@ -283,7 +283,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
                 <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'stay_set_xr') {
             $tovar = $_SESSION['inno_basic'][2][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['inno_basic'][2][name]; echo "</title>";
@@ -291,7 +291,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
                 <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'stay_set') {
             $tovar = $_SESSION['inno_basic'][3][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['inno_basic'][3][name]; echo "</title>";
@@ -299,7 +299,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
                 <?php echo "<p>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'xs100') {
             $tovar = $_SESSION['inno_aero'][0][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['inno_aero'][0][name]; echo "</title>";
@@ -307,7 +307,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
                 <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'xs200') {
             $tovar = $_SESSION['inno_aero'][1][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['inno_aero'][1][name]; echo "</title>";
@@ -315,7 +315,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
                 <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'xs300') {
             $tovar = $_SESSION['inno_aero'][2][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['inno_aero'][2][name]; echo "</title>";
@@ -323,7 +323,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
                 <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'xs400') {
             $tovar = $_SESSION['inno_aero'][3][name];
             echo "<title>Взятие в прокат "; echo $_SESSION['inno_aero'][3][name]; echo "</title>";
@@ -331,7 +331,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <div class="good-message">
                 <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/modules/forms/prokatform.php");
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         }
         $_SESSION['tovar'] = $tovar; ?>
         <p class='text'>Чтобы воспользоваться услугами аренды необходимо сделать несколько простых шагов:</p>

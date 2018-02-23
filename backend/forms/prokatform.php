@@ -1,17 +1,17 @@
 <div class="form__container">
     <form action="/vprokat" method="post" class="form" onsubmit="yaCounter40650914.reachGoal('post_prokat'); return true">
         <span class="form__label">Ваше имя:</span>
-        <div class="form__input-block">
+        <div class="form__input-wrap">
             <input type="text" name="name" required autofocus class="form__input" placeholder="Введите Ваше имя">
             <label for="name" class="form__label--shown">Введите Ваше имя</label>
         </div>
         <span class="form__label">Ваш телефон:</span>
-        <div class="form__input-block">
+        <div class="form__input-wrap">
             <input type="text" name="phone" required class="form__input" placeholder="Введите номер телефона">
             <label for="phone" class="form__label--shown">Введите номер телефона</label>
         </div>
         <span class="form__label">Тип оборудования. Вы можете выбрать несколько видов:</span>
-        <div class="form__input-block clearfix">
+        <div class="form__input-wrap clearfix">
             <input type="checkbox" name="bagazhnik" class="form__checkbox" id="bagazhnik" <?php echo $checkedbagazh ?>>
             <label for="bagazhnik" class="form__label--checkbox">Багажник на крышу</label>
             <input type="checkbox" name="autobox" class="form__checkbox" id="autobox" <?php echo $checkedbox ?>>
@@ -26,7 +26,7 @@
             <label for="braslets" class="form__label--checkbox">Браслеты противоскольжения</label>
         </div>
         <span class="form__label">Срок проката:</span>
-        <div class="form__input-block">
+        <div class="form__input-wrap">
             <select name="time" size="1" class="form__select">
                 <option value="Не выбрано" selected>Не указано</option>
                 <option value="0-14 дней">От 0 до 14 дней</option>
@@ -35,7 +35,7 @@
             </select>
         </div>
         <span class="form__label">Дополнительная информация:</span>
-        <div class="form__input-block">
+        <div class="form__input-wrap">
             <textarea name="text" class="form__input form__textarea" placeholder="Введите какую-либо дополнительную информацию"></textarea>
             <label for="text" class="form__label--shown">Введите какую-либо дополнительную информацию</label>
         </div>
