@@ -156,6 +156,15 @@
 //Документы в разделе проката
 @import "common.blocks/prokat-docs/prokat-docs";
 
+//Вкладки-переключатели на страницах
+@import "common.blocks/tabs/tabs";
+@import "common.blocks/tabs/__item/tabs__item";
+@import "common.blocks/tabs/__item/_active/tabs__item_active";
+
+@import "common.blocks/tabs/guestbook__tab/guestbook__tab";
+@import "common.blocks/tabs/special__tab/special__tab";
+
+
 //Бренды на главной странице
 @import "common.blocks/brands/brands";
 @import "common.blocks/brands/__wrap/brands__wrap";

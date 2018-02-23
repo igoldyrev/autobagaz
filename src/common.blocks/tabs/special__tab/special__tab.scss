@@ -1,0 +1,7 @@
+.special__tab {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
