@@ -1,27 +1,27 @@
-<?php
-include ($_SERVER["DOCUMENT_ROOT"]."/modules/keywords.php");
-include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php");
-echo "<title> $titleconst"; echo $keywords[24][title]; echo "</title>";
-echo "<meta name='description' content='"; echo $keywords[24][description]; echo "'/>";
-echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"; ?>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatags.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php");
+echo "<title> $titleconst"; echo $keywords[5][title]; echo "</title>";
+echo "<meta name='description' content='"; echo $keywords[5][description];      echo "'/>";
+echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>"; ?>
 
 <div class="wrapper">
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/header/header.php"); ?>
-    <div class="wrapper-content">
-        <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/left-nav/left-nav.html"); ?>
-        <div class="content">
-            <div class="page__header">
-                <div class="page__header-tab guestbook__tab-rewiew page__header-tab--active">Все отзывы</div>
-                <div class="page__header-tab guestbook__tab-add">Оставить отзыв</div>
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/left-nav/left-nav.html"); ?>
+    <div class="wrapper__content">
+            <div class="tabs">
+                <div class="tabs__item guestbook__tab-rewiew tabs__item--active">Все отзывы</div>
+                <div class="tabs__item guestbook__tab-add">Оставить отзыв</div>
             </div>
             <div class="guestbook__tab guestbook__rewiews guestbook__tab--active">
-                <h1 class="page__title-h1">Нам важно Ваше мнение!</h1>
-                <p class="page__text">На данной странице Вы можете оставить отзыв о нашей проделанной работе, либо написать нам какие-либо пожелания. А также посмотреть другие отзывы о нас.</p>
+                <h1 class="title title-h1">Нам важно Ваше мнение!</h1>
+                <p class="text">На данной странице Вы можете оставить отзыв о нашей проделанной работе, либо написать нам какие-либо пожелания. А также посмотреть другие отзывы о нас.</p>
                 <?php
                 // Соединение с БД MySQL
                 $dbname = "9082410193_zakaz";
 
-                include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php");
+                include ($_SERVER["DOCUMENT_ROOT"]."/backend/connectdb.php");
 
                 // Количество записей на странице
                 $on_page = 10;
@@ -61,8 +61,8 @@ echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"
                 $res = mysqli_query($connect, $query);
 
                 if ($count_records == 0) {
-                    echo '<div class="good_message">';
-                    echo 'На сайте пока не оставлено ни одного отзыва :( Вы можете сделать это первым!';
+                    echo '<div class="good-message">';
+                    echo '<p class="text">На сайте пока не оставлено ни одного отзыва :( Вы можете сделать это первым!</p>';
                     echo '</div>';
                 } elseif ($count_records <> 0){
 
@@ -73,11 +73,11 @@ echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"
                         echo '<div class="rewiew__name">';
                         echo '<span>'.$row['name'].'</span>';
                         echo '</div>';
-                        echo '<div class="rewiew__text">';
-                        echo '<p class="page__text page__text--rewiew">'.$row['rewiew'].'</p>';
+                        echo '<div class="rewiew__text-wrap">';
+                        echo '<p class="text rewiew__text">'.$row['rewiew'].'</p>';
                         echo '</div>';
-                        echo '<div class="rewiew__answer">';
-                        echo '<p class="page__text page__text--answer">'.$row['answer'].'</p>';
+                        echo '<div class="rewiew__text-wrap">';
+                        echo '<p class="text rewiew__answer">'.$row['answer'].'</p>';
                         echo '</div>';
                         echo '</div>';
                     }
@@ -104,8 +104,7 @@ echo "<meta name='keywords' content='"; echo $keywords[24][keywords]; echo "'/>"
                 <h2 class="page__title-h2">Оставить свой отзыв о нас!</h2>
                 <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/rewiewform.php"); ?>
             </div>
-        </div>
     </div>
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
-    include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html"); ?>
 </div>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/counters.html"); ?>
