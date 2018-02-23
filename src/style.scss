@@ -71,9 +71,16 @@
 
 //Кнопки
 @import "library.blocks/button/button";
+@import "mobile.blocks/button/button";
 @import "common.blocks/button/__buy/button__buy";
+@import "mobile.blocks/button/__buy/button__buy";
+@import "mobile.blocks/button/_cell/button_cell";
 @import "common.blocks/button/__buy/_prokat/button__buy_prokat";
 @import "common.blocks/button/__about/button__about";
+@import "mobile.blocks/button/__about/button__about";
+@import "common.blocks/button/__zakaz/button__zakaz";
+@import "mobile.blocks/button/__zakaz/button__zakaz";
+@import "common.blocks/button/__zakaz/_prokat/button__zakaz_prokat";
 
 //Шапка сайта
 @import "common.blocks/header/header";

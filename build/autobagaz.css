@@ -353,6 +353,10 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
+@media only screen and (max-width: 767px) {
+  .button {
+    width: 100%; } }
+
 .button__buy {
   display: block;
   border: 1px solid #367347;
@@ -364,6 +368,14 @@ body {
     -webkit-transition: 0.5s ease-in-out;
     -o-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out; }
+
+@media only screen and (max-width: 767px) {
+  .button__buy {
+    width: 150px; } }
+
+@media only screen and (max-width: 767px) {
+  .button--cell {
+    display: table-cell; } }
 
 .button__buy--prokat {
   background-color: #848484;
@@ -386,6 +398,37 @@ body {
     -webkit-transition: 0.7s ease-in-out;
     -o-transition: 0.7s ease-in-out;
     transition: 0.7s ease-in-out; }
+
+@media only screen and (max-width: 767px) {
+  .button__about {
+    width: 150px; } }
+
+.button__zakaz {
+  width: 500px;
+  height: 50px;
+  font-family: "Roboto", Tahoma, sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #367347;
+  cursor: pointer; }
+  .button__zakaz:hover {
+    background-color: #0B610B;
+    -webkit-transition: 0.7s ease-in-out;
+    -o-transition: 0.7s ease-in-out;
+    transition: 0.7s ease-in-out; }
+
+@media only screen and (max-width: 767px) {
+  .button__zakaz {
+    width: 100%; } }
+
+.button__zakaz--prokat {
+  background-color: #848484; }
+  .button__zakaz--prokat:hover {
+    background-color: #6E6E6E; }
 
 .header {
   display: -webkit-box;

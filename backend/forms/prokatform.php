@@ -40,7 +40,7 @@
             <label for="text" class="form__label--shown">Введите какую-либо дополнительную информацию</label>
         </div>
         <div class="g-recaptcha" data-sitekey="6LenJjcUAAAAALv0jIybM3O45CnsEYa4X58EZ1uH"></div>
-        <button class="button button__prokat">Взять в прокат</button>
+        <button class="button button__zakaz button__zakaz--prokat">Взять в прокат</button>
     </form>
 </div>
 <p class="page__text">Правила пользования услугами аренды и стоимость дня проката приведены ниже.</p>

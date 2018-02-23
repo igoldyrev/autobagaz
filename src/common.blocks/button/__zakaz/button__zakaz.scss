@@ -1,0 +1,21 @@
+.button__zakaz {
+  width: 500px;
+  height: 50px;
+
+  font-family: $font;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #ffffff;
+
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: $subcolor;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0B610B;
+    transition: 0.7s ease-in-out;
+  }
+}
