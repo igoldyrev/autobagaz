@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .form__textarea {
+    width: 100%;
+  }
+}

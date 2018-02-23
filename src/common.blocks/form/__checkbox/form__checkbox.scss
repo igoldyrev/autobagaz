@@ -1,0 +1,18 @@
+.form__checkbox {
+  & + .form__label--checkbox:before {
+    content: "\2713";
+    color: transparent;
+    display: inline-block;
+    border: 1px solid #A4A4A4;
+    font-size: 0.9em;
+    margin: -5px 5px 0 0;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    vertical-align: middle;
+    transition: color ease 0.7s;
+  }
+  &:checked + .form__label--checkbox:before {
+    color: $subcolor;
+  }
+}

@@ -1,8 +1,8 @@
-//Уровень переопределения с базовыми блоками
-
 @import "fonts";
 @import "variables";
 @import "mixins";
+
+@import "library.blocks/clearfix/clearfix";
 
 //Тело и обертка
 @import "library.blocks/body/body";
@@ -47,26 +47,33 @@
 @import "common.blocks/list/_decimal/list_decimal";
 @import "library.blocks/link/link";
 
-
 //Изображения
 @import "library.blocks/img/__wrap/img__wrap";
 @import "library.blocks/img/img";
 
-//Формы и кнопки
+//Поля ввода
 @import "library.blocks/form/__container/form__container";
+@import "mobile.blocks/form/__container/form__container";
 @import "library.blocks/form/__input/_wrap/form__input_wrap";
 @import "library.blocks/form/__input/form__input";
+@import "mobile.blocks/form/__input/form__input";
 @import "library.blocks/form/__checkbox/form__checkbox";
+@import "common.blocks/form/__checkbox/form__checkbox";
 @import "library.blocks/form/__select/form__select";
+@import "mobile.blocks/form/__select/form__select";
 @import "library.blocks/form/__textarea/form__textarea";
+@import "common.blocks/form/__textarea/form__textarea";
+@import "mobile.blocks/form/__textarea/form__textarea";
 @import "library.blocks/form/__label/form__label";
 @import "library.blocks/form/__label/_checkbox/form__label_checkbox";
 @import "library.blocks/form/__label/_shown/form__label_shown";
+@import "library.blocks/form/g-recaptcha";
+
+//Кнопки
 @import "library.blocks/button/button";
 @import "common.blocks/button/__buy/button__buy";
 @import "common.blocks/button/__buy/_prokat/button__buy_prokat";
 @import "common.blocks/button/__about/button__about";
-@import "library.blocks/form/g-recaptcha";
 
 //Шапка сайта
 @import "common.blocks/header/header";

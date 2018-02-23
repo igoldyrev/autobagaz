@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .form__input {
+    width: 100%;
+  }
+}
