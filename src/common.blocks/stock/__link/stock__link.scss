@@ -1,0 +1,23 @@
+.stock__link {
+  display: block;
+  width: 90%;
+  height: 50px;
+
+  font-family: $font;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+
+  margin: 10px auto 0 auto;
+
+  background: linear-gradient(to bottom, $redcolor, #F78181);
+  border-radius: 25px;
+
+  &:hover {
+    background: linear-gradient(to bottom, $redcolor, #F5A9A9);
+  }
+}
