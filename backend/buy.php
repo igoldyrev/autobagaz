@@ -942,7 +942,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
         </div> <?php
     }
     $_SESSION['tovar'] = $tovar;
-    include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/buyform.php");
+    include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/buyform.php");
     ?>
     </div>
 </div>
