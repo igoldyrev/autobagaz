@@ -16,7 +16,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php"); ?>
             echo "<meta name='description' content='"; echo $keywords[0][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>"; ?>
 
-            <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/stock/stock.php");
+            <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/stock/stock.php");
             include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/index-message/index-message.php"); ?>
 
             <div class="catalog">
