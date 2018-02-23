@@ -204,17 +204,23 @@
 @import "common.blocks/index-message/__holiday/index-message__holiday";
 @import "mobile.blocks/index-message/__holiday/index-message__holiday";
 
-//Сообщение на главной странице
+//Блок с акцией на главной странице
 @import "common.blocks/stock/stock";
+@import "mobile.blocks/stock/stock";
 @import "common.blocks/stock/__container/stock__container";
 @import "common.blocks/stock/__bg/stock__bg";
+@import "mobile.blocks/stock/__bg/stock__bg";
 @import "common.blocks/stock/__image/stock__image";
+@import "mobile.blocks/stock/__image/stock__image";
 @import "common.blocks/stock/__title/stock__title";
 @import "tablet.blocks/stock/__title/stock__title";
+@import "mobile.blocks/stock/__title/stock__title";
 @import "common.blocks/stock/__description/stock__description";
 @import "tablet.blocks/stock/__description/stock__description";
+@import "mobile.blocks/stock/__description/stock__description";
 @import "common.blocks/stock/__link/stock__link";
 @import "tablet.blocks/stock/__link/stock__link";
+@import "mobile.blocks/stock/__link/stock__link";
 
 
 @import "tablet.blocks/header/__wrap/header__wrap";

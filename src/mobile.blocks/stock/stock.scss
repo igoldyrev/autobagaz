@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .stock {
+    flex-direction: column;
+  }
+}
