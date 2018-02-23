@@ -1436,4 +1436,4 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
     </div>
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html");
-include ($_SERVER["DOCUMENT_ROOT"]."backend/blocks/counters.html"); ?>
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/counters.html"); ?>
