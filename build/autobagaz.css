@@ -254,7 +254,8 @@ body {
 .form__input {
   width: 500px;
   font-size: 0.9em;
-  padding: 16px 10px 8px; }
+  padding: 16px 10px 8px;
+  border: 1px solid #d9d9d9; }
 
 .form__input:placeholder-shown + .form__label--shown {
   display: none; }
@@ -429,6 +430,11 @@ body {
   background-color: #848484; }
   .button__zakaz--prokat:hover {
     background-color: #6E6E6E; }
+
+.button__zakaz--help {
+  background-color: #DF0101; }
+  .button__zakaz--help:hover {
+    background-color: #B40404; }
 
 .header {
   display: -webkit-box;
