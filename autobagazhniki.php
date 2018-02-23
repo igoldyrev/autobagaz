@@ -37,6 +37,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
         </div>
         <?php endforeach; ?>
         <p class="text">Если вы являетесь гордым обладателем японского, корейского или китайского автомобиля, остальные продавцы разводят руками в подборе оборудования-не отчаивайтесь, наш богатый опыт поможет вам решить данный вопрос быстро и из наличия!</p>
+        <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php"); ?>
     </div>
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html");

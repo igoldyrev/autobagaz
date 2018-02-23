@@ -89,7 +89,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/inno/backend/array.php"); ?>
                         </div>
                     </div>
                 <?php endforeach;
-                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+                include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
             } elseif ($inno == 'inno-boxes') {
                 echo "<title> $titleconst"; echo $keywords[2][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
@@ -233,7 +233,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/inno/backend/array.php"); ?>
                         </div>
                     </div>
                 </div>
-                <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+                <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
             } elseif ($inno == 'roofbox') {
             echo "<title> $titleconst"; echo $keywords[4][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[4][description]; echo "'/>";
@@ -343,7 +343,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/inno/backend/array.php"); ?>
                     </div>
                 </div>
             </div>
-                <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+                <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
             } ?>
     </div>
 </div>

@@ -130,7 +130,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                     </div>
                 </div>
             </div> <?php
-            include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($velokreplenya == 'velokreplenya_na_farkop') {
             echo "<title> $titleconst"; echo $keywords[2][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
@@ -185,7 +185,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                         </div>
                     </div>
                 </div> <?php
-                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+                include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
             } ?>
     </div>
 </div>

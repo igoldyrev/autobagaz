@@ -61,7 +61,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/takelazh/backend/keywords.php"); ?>
                 <img class="img good__img" src="/content/takelazh/img/bug/3.jpg" alt="сумка-перевозка">
             </div>
             <p class="text">Цены на данную продукцию Вы можете узнать <a class="link" href="tel:+73422889969">по телефону</a> или заполнив форму ниже на этой же странице.</p>
-            <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
             } elseif ($takelazh == 'textil_strops') {
                 echo "<title> $titleconst"; echo $keywords[2][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[2][description];      echo "'/>";
@@ -81,7 +81,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/takelazh/backend/keywords.php"); ?>
                 </div>
                 <p class="text">Имеются в наличии стропы с разрывом на 1 т, 2 т, 3 т, 4 т, 5 т, 6 т, 8 т и 10 т. </p>
                 <p class="text">Цены на данную продукцию Вы можете узнать <a class="link" href="tel:+73422889969">по телефону</a> или заполнив форму ниже на этой же странице.</p>
-            <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
             } ?>
     </div>
 </div>

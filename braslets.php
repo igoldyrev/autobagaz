@@ -43,6 +43,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 </div>
             </div>
         </div>
+        <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php"); ?>
     </div>
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html");

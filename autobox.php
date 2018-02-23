@@ -130,7 +130,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $yuago['id']; ?>" class="button button__buy" >Заказать</a>
                 </div>
             </div> <?php
-            include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($autobox == 'turino') {
             echo "<title> $titleconst"; echo $keywords[4][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[4][description]; echo "'/>";
@@ -151,7 +151,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $turino['id']; ?>" class="button button__buy" >Заказать</a>
                 </div>
             </div> <?php
-            include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($autobox == 'lux') {
             echo "<title> $titleconst"; echo $keywords[5][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[5][description]; echo "'/>";
@@ -206,7 +206,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                     <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lux['id6']; ?>" class="button button__buy button--cell" >Заказать</a></li>
                 </ul>
             </div>
-            <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($autobox == 'atlant') {
             echo "<title> $titleconst"; echo $keywords[2][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
@@ -288,7 +288,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                     <li class="table__cell"><a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $airtek['id2']; ?>" class="button button__buy button--cell" >Заказать</a></li>
                 </ul>
             </div><?php
-            include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($autobox == 'vetlan') {
                 echo "<title> $titleconst"; echo $keywords[1][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[1][description]; echo "'/>";
@@ -483,7 +483,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                         </div>
                     </div>
                 </div> <?php
-                include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php");
+                include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
             } ?>
     </div>
 </div>

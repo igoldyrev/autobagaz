@@ -51,7 +51,7 @@ echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>";
             echo "<p class='text'>Мы работаем только с качественными, сертифицированными фаркопами лучших производителей мира ,такими как: Thule (Швеция), Brink (Нидерланды),Bosal (Россия), Imiola (Польша), Galia (Словакия), Westfalia (Германия), Лидер+ (Россия), Трейлер (Россия), Балтекс (Россия) и др.</p>";
             echo "<p class='text'>Также готовы предоставить Вам монтаж в нашем сертифицированном сервисе. На гарантию автомобиля наша работа не повлияет.</p>";
 
-            include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/helpform.php"); ?>
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php"); ?>
     </div>
 </div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html");
