@@ -164,6 +164,19 @@
 @import "common.blocks/tabs/guestbook__tab/guestbook__tab";
 @import "common.blocks/tabs/special__tab/special__tab";
 
+//Отзывы
+@import "common.blocks/rewiew/rewiew";
+@import "mobile.blocks/rewiew/rewiew";
+@import "common.blocks/rewiew/__name/rewiew__name";
+@import "tablet.blocks/rewiew/__name/rewiew__name";
+@import "mobile.blocks/rewiew/__name/rewiew__name";
+@import "common.blocks/rewiew/__text-wrap/rewiew__text-wrap";
+@import "common.blocks/rewiew/__text/rewiew__text";
+@import "tablet.blocks/rewiew/__text/rewiew__text";
+@import "mobile.blocks/rewiew/__text/rewiew__text";
+@import "common.blocks/rewiew/__answer/rewiew__answer";
+@import "tablet.blocks/rewiew/__answer/rewiew__answer";
+@import "mobile.blocks/rewiew/__answer/rewiew__answer";
 
 //Бренды на главной странице
 @import "common.blocks/brands/brands";
