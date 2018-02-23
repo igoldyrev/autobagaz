@@ -29,7 +29,7 @@ echo "<h2 class='title title-h2'>Специальные предложения</
     <div class="sales__item">
         <?php echo $sale['img']; ?>
         <div class="sales__description">
-            <h3 class="title title-h3"><?php echo $sale['name']; ?></h3>
+            <h4 class="title title-h4"><?php echo $sale['name']; ?></h4>
             <div class="sales__item-price">
                 <span class="sales__price"><?php echo $sale['price']; ?></span><span class="sales__price sales__price--strike"><?php echo $sale['strike_price']; ?></span>
             </div>
