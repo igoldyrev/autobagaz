@@ -104,6 +104,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php"); ?>
             </div>
 
             <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/sales/sales.php"); ?>
+            <a href="/special-offers" class="link-green">Все предложения</a>
             <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/newslist.php"); ?>
 
             <h2 class="title title-h2">Мы работаем со следующими брендами:</h2>

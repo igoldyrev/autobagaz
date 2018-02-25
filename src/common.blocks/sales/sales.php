@@ -40,4 +40,3 @@ echo "<h2 class='title title-h2'>Специальные предложения</
     </div>
     <?php endforeach ?>
 </div>
-<a href="/special-offers" class="link-green">Все предложения</a>
