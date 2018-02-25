@@ -1,0 +1,7 @@
+.news__item--index {
+  width: 32%;
+  height: 200px;
+  &:nth-child(n+4) {
+    display: none;
+  }
+}

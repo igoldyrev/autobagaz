@@ -263,6 +263,19 @@
 @import "tablet.blocks/stock/__link/stock__link";
 @import "mobile.blocks/stock/__link/stock__link";
 
+//Новости
+@import "common.blocks/news/news";
+@import "common.blocks/news/__item/news__item";
+@import "tablet.blocks/news/__item/news__item";
+@import "mobile.blocks/news/__item/news__item";
+@import "common.blocks/news/__item/_index/news__item_index";
+@import "tablet.blocks/news/__item/_index/news__item_index";
+@import "mobile.blocks/news/__item/_index/news__item_index";
+@import "common.blocks/news/__info/news__info";
+@import "common.blocks/news/__date/news__date";
+@import "common.blocks/news/__title/news__title";
+@import "common.blocks/news/__link/news__link";
+
 //Блок с номерами страниц (новости и отзывы)
 @import "common.blocks/page-numbers/page-numbers";
 

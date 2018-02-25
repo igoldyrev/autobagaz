@@ -1,0 +1,8 @@
+@include adaptive(pad) {
+  .news__item--index {
+    width: 49%;
+    &:nth-child(n+3) {
+      display: none;
+    }
+  }
+}

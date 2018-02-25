@@ -1,0 +1,15 @@
+.news__item {
+  position: relative;
+
+  width: 48%;
+  height: 150px;
+
+  margin: 7px 0px;
+  padding: 10px;
+
+  background-color: $bg-color;
+  border: 1px solid $bg-color;
+  border-radius: 5px;
+
+  box-sizing: border-box;
+}
