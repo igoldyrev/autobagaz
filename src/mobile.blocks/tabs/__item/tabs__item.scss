@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .tabs__item {
+    font-size: 0.9em;
+  }
+}
