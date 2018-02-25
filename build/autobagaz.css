@@ -63,6 +63,27 @@ body {
     -webkit-box-sizing: border-box;
             box-sizing: border-box; } }
 
+.tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #F2F2F2;
+  margin-bottom: 20px; }
+
+.tabs__item {
+  font-family: "Roboto", Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  padding: 10px 15px;
+  cursor: pointer; }
+
+@media only screen and (max-width: 767px) {
+  .tabs__item {
+    font-size: 0.9em; } }
+
+.tabs__item--active {
+  border-bottom: 5px solid #367347; }
+
 .title {
   font-family: "Roboto Slab", Tahoma, serif;
   font-weight: 700;
@@ -221,6 +242,25 @@ body {
   color: inherit;
   text-decoration: underline;
   cursor: pointer; }
+
+.link-green {
+  display: block;
+  font-family: "Roboto", Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #367347;
+  text-decoration: none;
+  text-align: center;
+  width: 250px;
+  padding: 15px 35px;
+  margin: 15px auto;
+  border: 1px solid #367347;
+  border-radius: 5px; }
+
+@media only screen and (max-width: 767px) {
+  .link-green {
+    font-size: 0.8em;
+    padding: 10px 15px; } }
 
 .img__wrap {
   display: -webkit-box;
@@ -846,23 +886,6 @@ body {
     margin: 7px; }
   .prokat-docs i {
     margin: 7px; }
-
-.tabs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #F2F2F2;
-  margin-bottom: 20px; }
-
-.tabs__item {
-  font-family: "Roboto", Tahoma, sans-serif;
-  font-size: 1em;
-  font-weight: 400;
-  padding: 10px 15px;
-  cursor: pointer; }
-
-.tabs__item--active {
-  border-bottom: 5px solid #367347; }
 
 .guestbook__tab {
   display: none; }

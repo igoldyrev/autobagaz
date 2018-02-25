@@ -1,0 +1,6 @@
+@include adaptive(mobile) {
+  .link-green {
+    font-size: 0.8em;
+    padding: 10px 15px;
+  }
+}

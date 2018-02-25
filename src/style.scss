@@ -13,6 +13,12 @@
 @import "tablet.blocks/wrapper/__content/wrapper__content";
 @import "mobile.blocks/wrapper/__content/wrapper__content";
 
+//Вкладки-переключатели на страницах
+@import "common.blocks/tabs/tabs";
+@import "common.blocks/tabs/__item/tabs__item";
+@import "mobile.blocks/tabs/__item/tabs__item";
+@import "common.blocks/tabs/__item/_active/tabs__item_active";
+
 //Заголовки
 @import "library.blocks/title/title";
 @import "tablet.blocks/title/title";
@@ -46,6 +52,8 @@
 @import "library.blocks/list/_decimal/list_decimal";
 @import "common.blocks/list/_decimal/list_decimal";
 @import "library.blocks/link/link";
+@import "common.blocks/link-green/link-green";
+@import "mobile.blocks/link-green/link-green";
 
 //Изображения
 @import "library.blocks/img/__wrap/img__wrap";
@@ -155,11 +163,6 @@
 
 //Документы в разделе проката
 @import "common.blocks/prokat-docs/prokat-docs";
-
-//Вкладки-переключатели на страницах
-@import "common.blocks/tabs/tabs";
-@import "common.blocks/tabs/__item/tabs__item";
-@import "common.blocks/tabs/__item/_active/tabs__item_active";
 
 @import "common.blocks/tabs/guestbook__tab/guestbook__tab";
 @import "common.blocks/tabs/special__tab/special__tab";
