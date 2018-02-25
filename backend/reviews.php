@@ -18,4 +18,4 @@ if ($result = mysqli_query($connect, $query)) {
         echo '</div>';
     }
 } ?>
-<a href="/guestbook" class="left-nav left-nav__link left-nav__link--rewiew">Смотреть все отзывы</a>
+<a href="/guestbook" class="link-green">Смотреть все отзывы</a>
