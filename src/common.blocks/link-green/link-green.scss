@@ -17,4 +17,10 @@
 
   border: 1px solid $subcolor;
   border-radius: 5px;
+
+  &:hover {
+    background: $subcolor;
+    color: #ffffff;
+    transition: 0.7s ease-in-out;
+  }
 }
