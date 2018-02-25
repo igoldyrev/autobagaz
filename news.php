@@ -1,23 +1,25 @@
 <?php 
-include ($_SERVER["DOCUMENT_ROOT"]."/modules/keywords.php");
-include ($_SERVER["DOCUMENT_ROOT"]."/modules/keywords_news.php");
-include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatags.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html"); ?>
 
 <div class="wrapper">
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/header/header.php"); ?>
-    <div class="wrapper-content">
-        <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/left-nav/left-nav.html");?>
-        <div class="content">
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/left-nav/left-nav.html"); ?>
+    <div class="wrapper__content">
+
             <?php
             $newspage = $_GET['newspage'];
             if (!isset($newspage)) {
-                echo "<title> $titleconst"; echo $keywords[25][title]; echo "</title>";
-                echo "<meta name='description' content='"; echo $keywords[25][description]; echo "'/>";
-                echo "<meta name='keywords' content='"; echo $keywords[25][keywords]; echo "'/>";
+                echo "<title> $titleconst"; echo $keywords[4][title]; echo "</title>";
+                echo "<meta name='description' content='"; echo $keywords[4][description]; echo "'/>";
+                echo "<meta name='keywords' content='"; echo $keywords[4][keywords]; echo "'/>";
                 // Соединение с БД MySQL
                 $dbname = "9082410193_news";
 
-                include ($_SERVER["DOCUMENT_ROOT"]."/modules/connectdb.php");
+                include ($_SERVER["DOCUMENT_ROOT"]."/backend/connectdb.php");
 
                 // Количество новостей на странице
                 $on_page = 10;
@@ -61,18 +63,18 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 {
                     echo "<div class='news__item'>";
                     echo "<div class='news__info'>";
-                        echo "<span class='news__date page__text'>".$row['news_date']."</span>";
-                        echo "<span class='page__text'>Автор: ".$row['news_author']."</span>";
+                        echo "<span class='news__date text'>".$row['news_date']."</span>";
+                        echo "<span class='text'>Автор: ".$row['news_author']."</span>";
                     echo "</div>";
-                    echo "<a href='".$row['news_link']."' class='news__title page__link'>".$row['news_title']."</a>";
-                    echo "<p class='news__annotation page__text'>".$row['news_annotation']."</p>";
-                    echo "<a href='".$row['news_link']."' class='news__link page__link'>Читать далее</a>";
+                    echo "<a href='".$row['news_link']."' class='news__title link'>".$row['news_title']."</a>";
+                    echo "<p class='text'>".$row['news_annotation']."</p>";
+                    echo "<a href='".$row['news_link']."' class='news__link link'>Читать далее</a>";
                     echo "</div>";
                 }
                 echo "</div>";
 
                 // Вывод списка страниц
-                echo '<p class="news__page page__text">';
+                echo '<p class="page-numbers">';
                 for ($page = 1; $page <= $num_pages; $page++)
                 {
                     if ($page == $current_page)
@@ -81,7 +83,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                     }
                     else
                     {
-                        echo '<a class="page__link" href="/news/'.$page.'">'.$page.'</a> &nbsp;';
+                        echo '<a class="link" href="/news/'.$page.'">'.$page.'</a> &nbsp;';
                     }
                 }
                 echo '</p>';
@@ -349,8 +351,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/modules/headtags.php"); ?>
                 </div>
                 <p class="page__text">Видео с итогами розыгрыша находится <a href="https://vk.com/video-86325723_456239025" target="_blank" class="page__link">здесь</a>.</p>
             <?php  } ?>
-        </div>
     </div>
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/footer/footer.html");
-    include ($_SERVER["DOCUMENT_ROOT"]."/modules/counters.html"); ?>
 </div>
+<?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/counters.html"); ?>
