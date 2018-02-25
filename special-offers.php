@@ -2,7 +2,6 @@
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/content/autobagazhniki/backend/keywords.php");
 echo "<title> $titleconst"; echo $keywords[3][title]; echo "</title>";
 echo "<meta name='description' content='"; echo $keywords[3][description];      echo "'/>";
 echo "<meta name='keywords' content='"; echo $keywords[3][keywords]; echo "'/>"; ?>
