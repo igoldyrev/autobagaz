@@ -830,6 +830,9 @@ body {
 .good__img {
   width: 250px; }
 
+.good__img--mini {
+  width: 160px; }
+
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .good__img {
     width: 160px; } }
