@@ -68,7 +68,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(3);
+__webpack_require__(2);
+__webpack_require__(3);
+__webpack_require__(4);
+module.exports = __webpack_require__(5);
 
 
 /***/ }),
@@ -78,46 +81,10 @@ module.exports = __webpack_require__(3);
 "use strict";
 
 
-var _notification = __webpack_require__(2);
-
-//notify('Here is my mesage');
-(0, _notification.log)('Это сайт компании Автобагаж');
-(0, _notification.log)('Сейчас сайт работает нормально');
-
-//import {topmenu} from './js/nav-menu.js';
+console.log('Это сайт компании Автобагаж');
+console.log('Сейчас сайт работает нормально');
 
 $(function () {
-    $('.guestbook__tab-add').click(function () {
-        $('.page__header-tab').removeClass('page__header-tab--active');
-        $('.guestbook__tab').removeClass('guestbook__tab--active');
-
-        $('.guestbook__tab-add').addClass('page__header-tab--active');
-        $('.guestbook__rewiews-add').addClass('guestbook__tab--active');
-    });
-
-    $('.guestbook__tab-rewiew').click(function () {
-        $('.guestbook__tab-add').removeClass('page__header-tab--active');
-        $('.guestbook__rewiews-add').removeClass('guestbook__tab--active');
-
-        $('.guestbook__tab-rewiew').addClass('page__header-tab--active');
-        $('.guestbook__rewiews').addClass('guestbook__tab--active');
-    });
-
-    $('.special__tab-komm').click(function () {
-        $('.page__header-tab').removeClass('page__header-tab--active');
-        $('.special__tab').removeClass('special__tab--active');
-
-        $('.special__tab-komm').addClass('page__header-tab--active');
-        $('.special__komm').addClass('special__tab--active');
-    });
-
-    $('.special__tab-sale').click(function () {
-        $('.special__tab-komm').removeClass('page__header-tab--active');
-        $('.special__komm').removeClass('special__tab--active');
-
-        $('.special__tab-sale').addClass('page__header-tab--active');
-        $('.special__sale').addClass('special__tab--active');
-    });
 
     $('.modal-call__button').click(function () {
         $('.modal-call').addClass('modal-call--active');
@@ -151,7 +118,64 @@ if (window.localStorage) {
     }
 };
 
-$('.page__text--answer').each(function () {
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(function () {
+    $('.guestbook__tab-add').click(function () {
+        $('.tabs__item').removeClass('tabs__item--active');
+        $('.guestbook__tab').removeClass('guestbook__tab--active');
+
+        $('.guestbook__tab-add').addClass('tabs__item--active');
+        $('.guestbook__rewiews-add').addClass('guestbook__tab--active');
+    });
+
+    $('.guestbook__tab-rewiew').click(function () {
+        $('.guestbook__tab-add').removeClass('tabs__item--active');
+        $('.guestbook__rewiews-add').removeClass('guestbook__tab--active');
+
+        $('.guestbook__tab-rewiew').addClass('tabs__item--active');
+        $('.guestbook__rewiews').addClass('guestbook__tab--active');
+    });
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(function () {
+    $('.special__tab-komm').click(function () {
+        $('.tabs__item').removeClass('tabs__item--active');
+        $('.special__tab').removeClass('special__tab--active');
+
+        $('.special__tab-komm').addClass('tabs__item--active');
+        $('.special__komm').addClass('special__tab--active');
+    });
+
+    $('.special__tab-sale').click(function () {
+        $('.special__tab-komm').removeClass('tabs__item--active');
+        $('.special__komm').removeClass('special__tab--active');
+
+        $('.special__tab-sale').addClass('tabs__item--active');
+        $('.special__sale').addClass('special__tab--active');
+    });
+});
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$('.rewiew__text-wrap').each(function () {
     if ($(this).text() === '') {
         $(this).remove();
     }
@@ -164,27 +188,7 @@ $('.rewiew__answer').each(function () {
 });
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.log = log;
-//export function notify (message) {
-//    alert(message);
-//};
-
-function log(message) {
-
-    console.log(message);
-};
-
-/***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
