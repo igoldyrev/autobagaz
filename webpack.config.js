@@ -17,6 +17,9 @@ module.exports = {
 
         autobagaz: [
                 './js/main.js',
+                './src/common.blocks/tabs/guestbook__tab/guestbook__tab.js',
+                './src/common.blocks/tabs/special__tab/special__tab.js',
+                './src/common.blocks/rewiew/__answer/rewiew__answer.js',
                 './src/style.scss'
 
         ],
