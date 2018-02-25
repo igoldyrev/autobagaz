@@ -1407,6 +1407,13 @@ body {
   .stock__link {
     font-size: 16px; } }
 
+.page-numbers {
+  font-family: "Roboto", Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 25px auto 20px auto;
+  text-align: center; }
+
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .header__wrap {
     width: 100%;
