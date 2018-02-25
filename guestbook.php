@@ -83,7 +83,7 @@ echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>";
                     }
 
                     // Вывод списка страниц
-                    echo '<p class="page__text page__text--guestbook">';
+                    echo '<p class="page-numbers">';
                     for ($page = 1; $page <= $num_pages; $page++)
                     {
                         if ($page == $current_page)
@@ -92,17 +92,18 @@ echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>";
                         }
                         else
                         {
-                            echo '<a class="page__link" href="guestbook.php?page='.$page.'">'.$page.'</a> &nbsp;';
+                            echo '<a class="link" href="guestbook.php?page='.$page.'">'.$page.'</a> &nbsp;';
                         }
                     } ?>
-                    <div class="page__header-tab guestbook__tab-add left-nav__link left-nav__link--rewiew">Добавить отзыв на сайт</div>
+                    <div class="tabs__item guestbook__tab-add link-green">Добавить отзыв на сайт</div>
                     <?php
                 }
-                echo '</p>'; ?></div>
+                echo '</p>'; ?>
+            </div>
 
             <div class="guestbook__tab guestbook__rewiews-add">
-                <h2 class="page__title-h2">Оставить свой отзыв о нас!</h2>
-                <?php include ($_SERVER["DOCUMENT_ROOT"]."/modules/forms/rewiewform.php"); ?>
+                <h2 class="title title-h2">Оставить свой отзыв о нас!</h2>
+                <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/rewiewform.php"); ?>
             </div>
     </div>
 </div>
