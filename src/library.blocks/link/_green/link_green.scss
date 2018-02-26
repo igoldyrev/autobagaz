@@ -1,0 +1,7 @@
+.link--green-hover {
+
+  &:hover {
+    color: $subcolor;
+    transition: 0.5s ease-in-out;
+  }
+}

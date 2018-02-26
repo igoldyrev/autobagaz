@@ -245,6 +245,12 @@ body {
   text-decoration: underline;
   cursor: pointer; }
 
+.link--green-hover:hover {
+  color: #367347;
+  -webkit-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out; }
+
 .link-green {
   display: block;
   font-family: "Roboto", Tahoma, sans-serif;
