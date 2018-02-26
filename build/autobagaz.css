@@ -1452,10 +1452,19 @@ body {
       flex-wrap: wrap;
   margin-bottom: 20px; }
 
+.news__inner {
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px; }
+
+.news__img {
+  border: 1px solid #d9d9d9; }
+
 .news__item {
   position: relative;
   width: 48%;
-  height: 150px;
+  height: 180px;
   margin: 7px 0px;
   padding: 10px;
   background-color: #F2F2F2;

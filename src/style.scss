@@ -265,6 +265,8 @@
 
 //Новости
 @import "common.blocks/news/news";
+@import "common.blocks/news/__inner/news__inner";
+@import "common.blocks/news/__img/news__img";
 @import "common.blocks/news/__item/news__item";
 @import "tablet.blocks/news/__item/news__item";
 @import "mobile.blocks/news/__item/news__item";
