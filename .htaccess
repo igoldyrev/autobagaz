@@ -27,49 +27,10 @@ RewriteRule ^news/2 news.php?page=2
 RewriteRule ^news/([a-zA-Z0-9_-]+)/? news.php?newspage=$1
 
 #Ссылки на заказ товаров
-RewriteRule ^buy/([^/]+)/?$ /backend/buy.php?id=$1 [L]
+RewriteRule ^buy/([^/]+)/? /backend/buy.php?id=$1 [L]
 
-#RewriteRule ^prokat /backend/prokat.php
-
-RewriteRule ^prokat/ab1 prokat.php?id=ab1
-RewriteRule ^prokat/ab2 prokat.php?id=ab2
-RewriteRule ^prokat/ab3 prokat.php?id=ab3
-RewriteRule ^prokat/ab4 prokat.php?id=ab4
-RewriteRule ^prokat/400Mblack prokat.php?id=400Mblack
-RewriteRule ^prokat/400Mgray prokat.php?id=400Mgray
-RewriteRule ^prokat/400Mwhite prokat.php?id=400Mwhite
-RewriteRule ^prokat/430Mblack prokat.php?id=430Mblack
-RewriteRule ^prokat/430Mgray prokat.php?id=430Mgray
-RewriteRule ^prokat/430Mwhite prokat.php?id=430Mwhite
-RewriteRule ^prokat/550Mblack prokat.php?id=550Mblack
-RewriteRule ^prokat/550Mgray prokat.php?id=550Mgray
-RewriteRule ^prokat/550Mwhite prokat.php?id=550Mwhite
-RewriteRule ^prokat/vk1 prokat.php?id=vk1
-RewriteRule ^prokat/vk2 prokat.php?id=vk2
-RewriteRule ^prokat/vk3 prokat.php?id=vk3
-RewriteRule ^prokat/vk4 prokat.php?id=vk4
-RewriteRule ^prokat/vf1 prokat.php?id=vf1
-RewriteRule ^prokat/vf2 prokat.php?id=vf2
-RewriteRule ^prokat/amos34 prokat.php?id=amos34
-RewriteRule ^prokat/amos56 prokat.php?id=amos56
-RewriteRule ^prokat/atlant34 prokat.php?id=atlant34
-RewriteRule ^prokat/atlant56 prokat.php?id=atlant56
-RewriteRule ^prokat/montblanc34 prokat.php?id=montblanc34
-RewriteRule ^prokat/montblanc56 prokat.php?id=montblanc56
-RewriteRule ^prokat/thule34 prokat.php?id=thule34
-RewriteRule ^prokat/thule56 prokat.php?id=thule56
-RewriteRule ^prokat/xtender prokat.php?id=xtender
-RewriteRule ^prokat/r12 prokat.php?id=r12
-RewriteRule ^prokat/r16 prokat.php?id=r16
-RewriteRule ^prokat/gazel prokat.php?id=gazel
-RewriteRule ^prokat/stay_set_su prokat.php?id=stay_set_su
-RewriteRule ^prokat/stay_set_fr prokat.php?id=stay_set_fr
-RewriteRule ^prokat/stay_set_xr prokat.php?id=stay_set_xr
-RewriteRule ^prokat/stay_set prokat.php?id=stay_set
-RewriteRule ^prokat/xs100 prokat.php?id=xs100
-RewriteRule ^prokat/xs200 prokat.php?id=xs200
-RewriteRule ^prokat/xs300 prokat.php?id=xs300
-RewriteRule ^prokat/xs400 prokat.php?id=xs400
+#Ссылки на прокат товаров
+RewriteRule ^prokat/([a-zA-Z0-9_-]+)/? prokat.php?id=$1
 
 #Страницы заказов
 RewriteRule ^zakaz scripts/zakaz.php
