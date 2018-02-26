@@ -4,6 +4,7 @@ ErrorDocument 404 /backend/errors/404.php
 ErrorDocument 500 /backend/errors/500.php
 
 RewriteEngine On  # Если этой строки нет выше
+RewriteBase /
 #RewriteCond %{HTTP:X-Forwarded-Protocol} !=https
 #RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 
@@ -17,11 +18,15 @@ RewriteRule ^(.*)$ $1.php
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html
 
+#Карточки для отдельных товаров
 RewriteRule ^product/([^/]+)/?$ /content/autobagazhniki/backend/product.php?id=$1
 
-#Правила для переадресации страниц
-#Автобагажники
-#RewriteRule ^buy /backend/buy.php
+#Новости
+RewriteRule ^news/1 news.php?page=1
+RewriteRule ^news/2 news.php?page=2
+RewriteRule ^news/([a-zA-Z0-9_-]+)/? news.php?newspage=$1
+
+#Ссылки на заказ товаров
 RewriteRule ^buy/([^/]+)/?$ /backend/buy.php?id=$1 [L]
 
 #RewriteRule ^prokat /backend/prokat.php
@@ -65,25 +70,6 @@ RewriteRule ^prokat/xs100 prokat.php?id=xs100
 RewriteRule ^prokat/xs200 prokat.php?id=xs200
 RewriteRule ^prokat/xs300 prokat.php?id=xs300
 RewriteRule ^prokat/xs400 prokat.php?id=xs400
-
-#Новости
-RewriteRule ^news/postuplenya_amos news.php?newspage=postuplenya_amos
-RewriteRule ^news/reelings_xray news.php?newspage=reelings_xray
-RewriteRule ^news/mayskie_prazdniki news.php?newspage=mayskie_prazdniki
-RewriteRule ^news/rozygryzh_bagazhnika news.php?newspage=rozygryzh_bagazhnika
-RewriteRule ^news/braslety news.php?newspage=braslety
-RewriteRule ^news/itogi_rozygryzha news.php?newspage=itogi_rozygryzha
-RewriteRule ^news/postuplenya_avtoboksov news.php?newspage=postuplenya_avtoboksov
-RewriteRule ^news/rozygryzh_velokreplenya news.php?newspage=rozygryzh_velokreplenya
-RewriteRule ^news/akcia_na_boksy news.php?newspage=akcia_na_boksy
-RewriteRule ^news/12_june news.php?newspage=12_june
-RewriteRule ^news/cenopad news.php?newspage=cenopad
-RewriteRule ^news/akcia_na_braslets news.php?newspage=akcia_na_braslets
-RewriteRule ^news/oxota_na_autobagaz news.php?newspage=oxota_na_autobagaz
-RewriteRule ^news/rozygryzh_montblanc news.php?newspage=rozygryzh_montblanc
-RewriteRule ^news/result_rozygryzh_montblanc news.php?newspage=result_rozygryzh_montblanc
-RewriteRule ^news/1 news.php?page=1
-RewriteRule ^news/2 news.php?page=2
 
 #Страницы заказов
 RewriteRule ^zakaz scripts/zakaz.php
