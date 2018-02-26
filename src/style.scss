@@ -19,6 +19,9 @@
 @import "mobile.blocks/tabs/__item/tabs__item";
 @import "common.blocks/tabs/__item/_active/tabs__item_active";
 
+@import "common.blocks/tabs/guestbook__tab/guestbook__tab";
+@import "common.blocks/tabs/special__tab/special__tab";
+
 //Заголовки
 @import "library.blocks/title/title";
 @import "tablet.blocks/title/title";
@@ -95,17 +98,28 @@
 //Шапка сайта
 @import "common.blocks/header/header";
 @import "common.blocks/header/__wrap/header__wrap";
+@import "tablet.blocks/header/__wrap/header__wrap";
+@import "mobile.blocks/header/__wrap/header__wrap";
 @import "common.blocks/header/__logo/header__logo";
+@import "mobile.blocks/header/__logo/header__logo";
 @import "common.blocks/header/__img/header__img";
+@import "mobile.blocks/header/__img/header__img";
 @import "common.blocks/header/__info/header__info";
 @import "common.blocks/header/__list/header__list";
+@import "tablet.blocks/header/__list/header__list";
 @import "common.blocks/header/__link/header__link";
+@import "tablet.blocks/header/__link/header__link";
+@import "tablet.blocks/header/__link/_big/header__link_big";
 @import "common.blocks/header/__link/_big/header__link_big";
 
 //Акция сайта
 @import "common.blocks/proposition/__block/proposition__block";
 @import "common.blocks/proposition/__text/proposition__text";
+@import "tablet.blocks/proposition/__text/proposition__text";
+@import "mobile.blocks/proposition/__text/proposition__text";
 @import "common.blocks/proposition/__text/_small/proposition__text_small";
+@import "tablet.blocks/proposition/__text/_small/proposition__text_small";
+@import "mobile.blocks/proposition/__text/_small/proposition__text_small";
 @import "common.blocks/proposition/__star/proposition__star";
 
 //Навигация на сайте
@@ -165,9 +179,6 @@
 
 //Документы в разделе проката
 @import "common.blocks/prokat-docs/prokat-docs";
-
-@import "common.blocks/tabs/guestbook__tab/guestbook__tab";
-@import "common.blocks/tabs/special__tab/special__tab";
 
 //Отзывы
 @import "common.blocks/rewiew/rewiew";
@@ -292,24 +303,3 @@
 
 //Блок с номерами страниц (новости и отзывы)
 @import "common.blocks/page-numbers/page-numbers";
-
-@import "tablet.blocks/header/__wrap/header__wrap";
-@import "tablet.blocks/header/__list/header__list";
-@import "tablet.blocks/header/__link/header__link";
-@import "tablet.blocks/header/__link/_big/header__link_big";
-@import "mobile.blocks/header/__wrap/header__wrap";
-@import "mobile.blocks/header/__logo/header__logo";
-@import "mobile.blocks/header/__img/header__img";
-
-
-
-
-
-
-@import "tablet.blocks/proposition/__text/proposition__text";
-@import "tablet.blocks/proposition/__text/_small/proposition__text_small";
-@import "mobile.blocks/proposition/__text/proposition__text";
-@import "mobile.blocks/proposition/__text/_small/proposition__text_small";
-
-
-
