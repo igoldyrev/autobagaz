@@ -278,6 +278,17 @@
 @import "common.blocks/news/__title/news__title";
 @import "common.blocks/news/__link/news__link";
 
+//Партнеры
+@import "common.blocks/partner/partner";
+@import "common.blocks/partner/__inner/partner__inner";
+@import "common.blocks/partner/__inner/_column/partner__inner_column";
+@import "mobile.blocks/partner/__inner/partner__inner";
+@import "common.blocks/partner/__text/partner__text";
+@import "common.blocks/partner/__link/partner__link";
+@import "common.blocks/partner/__logo/partner__logo";
+@import "mobile.blocks/partner/__logo/partner__logo";
+@import "common.blocks/partner/__logo/_column/partner__logo_column";
+
 //Блок с номерами страниц (новости и отзывы)
 @import "common.blocks/page-numbers/page-numbers";
 

@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .partner__inner {
+    flex-direction: column;
+  }
+}

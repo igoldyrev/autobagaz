@@ -1,0 +1,15 @@
+.partner {
+  position: relative;
+  display: block;
+
+  width: 98%;
+  padding: 10px;
+  margin-bottom: 15px;
+
+  background-color: $bg-color;
+  border-radius: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
