@@ -533,7 +533,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                     </div>
                 <?php endforeach;
                 include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
-            } elseif ($reelings == 'granta_liftbek') {
+            } elseif ($reelings == 'granta-liftback') {
                 echo "<title> $titleconst"; echo $keywords[13][title]; echo "</title>";
                 echo "<meta name='description' content='"; echo $keywords[13][description]; echo "'/>";
                 echo "<meta name='keywords' content='"; echo $keywords[13][keywords]; echo "'/>";
