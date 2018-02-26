@@ -42,7 +42,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                     </div>
                 </div>
             </div> <?php
-        } elseif ($velokreplenya == 'velokreplenya_na_kryshy') {
+        } elseif ($velokreplenya == 'krysha') {
             echo "<title> $titleconst"; echo $keywords[1][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[1][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $keywords[1][keywords]; echo "'/>";
@@ -131,7 +131,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                 </div>
             </div> <?php
             include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
-        } elseif ($velokreplenya == 'velokreplenya_na_farkop') {
+        } elseif ($velokreplenya == 'farkop') {
             echo "<title> $titleconst"; echo $keywords[2][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>";
