@@ -211,12 +211,14 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
             echo "<meta name='description' content='"; echo $news[7][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[7][keywords]; echo "'/>"; ?>
 
-            <h1 class="title title-h1">Поступления автобоксов Vetlan</h1>
-            <p class="text">В нашем магазине поступление автобоксов Vetlan, серии 400М, 430М и 530М. Подробнее об их характеристиках и ценах можно узнать на <a class="link" href ="/autobox/vetlan" target="_blank">специальной</a> странице.</p>
-            <p class="text">Заказать боксы можно на той же странице, выбрав интересующий вас бокс или позвонить <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="link" href="tel:+73422889969">по телефону</a>.
-            <div class="img__wrap">
-                <img class="img good__img news__img" src="/content/autobox/img/vetlan/550M/1.jpg" alt="Vetlan 550M">
-            </div> <?php
+            <div class="news__inner">
+                <h1 class="title title-h1">Поступления автобоксов Vetlan</h1>
+                <p class="text">В нашем магазине поступление автобоксов Vetlan, серии 400М, 430М и 530М. Подробнее об их характеристиках и ценах можно узнать на <a class="link" href ="/autobox/vetlan" target="_blank">специальной</a> странице.</p>
+                <p class="text">Заказать боксы можно на той же странице, выбрав интересующий вас бокс или позвонить <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="link" href="tel:+73422889969">по телефону</a>.
+                <div class="img__wrap">
+                    <img class="img good__img news__img" src="/content/autobox/img/vetlan/550M/1.jpg" alt="Vetlan 550M">
+                </div>
+            </div><?php
 
         } elseif ($newspage == 'mayskie_prazdniki') {
             echo "<title> $titleconst"; echo $news[2][title]; echo "</title>";
