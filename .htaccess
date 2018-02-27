@@ -33,11 +33,11 @@ RewriteRule ^buy/([^/]+)/? /backend/buy.php?id=$1 [L]
 RewriteRule ^prokat/([a-zA-Z0-9_-]+)/? prokat.php?id=$1
 
 #Страницы заказов
-RewriteRule ^zakaz scripts/zakaz.php
-RewriteRule ^vprokat scripts/prokatsend.php
-RewriteRule ^help scripts/help.php
-RewriteRule ^rewiew scripts/rewiew.php
-RewriteRule ^call scripts/call.php
+RewriteRule ^zakaz backend/scripts/zakaz.php
+RewriteRule ^vprokat backend/scripts/prokatsend.php
+RewriteRule ^help backend/scripts/help.php
+RewriteRule ^rewiew backend/scripts/rewiew.php
+RewriteRule ^call backend/scripts/call.php
 
 #Правила для разделов
 RewriteRule ^podbor index.php?page=podbor [L]
