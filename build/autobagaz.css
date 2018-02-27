@@ -1686,3 +1686,10 @@ body {
 
 .error__text {
   text-align: center; }
+
+.page-numbers {
+  font-family: "Roboto", Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 25px auto 20px auto;
+  text-align: center; }
