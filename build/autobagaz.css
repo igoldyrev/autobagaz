@@ -1450,7 +1450,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   .stock__title {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 26px; } }
 
 .stock__description {
@@ -1465,7 +1465,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   .stock__description {
-    font-size: 18px; } }
+    font-size: 14px; } }
 
 .stock__link {
   display: block;
