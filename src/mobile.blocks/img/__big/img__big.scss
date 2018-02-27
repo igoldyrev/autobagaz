@@ -1,0 +1,6 @@
+@include adaptive(mobile) {
+  .img__big {
+    max-height: 80%;
+    max-width: 80%;
+  }
+}
