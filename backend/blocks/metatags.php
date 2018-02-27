@@ -24,8 +24,10 @@ $titleconst = "Автобагаж - купить автобагажники и �
 <link rel="stylesheet" href="../src/fa/css/font-awesome.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?139"></script>
 <script type="text/javascript">
     VK.init({apiId: 5866168, onlyWidgets: true});
 </script>
+<script src="../src/library.blocks/img/img.js"></script>
