@@ -956,6 +956,10 @@ body {
   background: #BCF5A9;
   text-align: center; }
 
+.good-message--wrong {
+  border: 2px solid #DF0101;
+  background: #ff6666; }
+
 .prokat-docs {
   border: 1px solid black;
   margin: 10px; }
@@ -1692,4 +1696,7 @@ body {
   font-size: 1em;
   font-weight: 400;
   margin: 25px auto 20px auto;
+  text-align: center; }
+
+.notification-wrap {
   text-align: center; }

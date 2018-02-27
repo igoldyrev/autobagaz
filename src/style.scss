@@ -176,6 +176,7 @@
 
 //Сообщение об успешном или неуспешном заказе товара
 @import "common.blocks/good-message/good-message";
+@import "common.blocks/good-message/_wrong/good-message_wrong";
 
 //Документы в разделе проката
 @import "common.blocks/prokat-docs/prokat-docs";
@@ -313,3 +314,6 @@
 
 //Блок с номерами страниц
 @import "common.blocks/page-numbers/page-numbers";
+
+//Обертка для уведомлений форм
+@import "common.blocks/notification-wrap/notification-wrap";
