@@ -1,5 +1,7 @@
 <?php session_start();
-$titleconst = "Автобагаж - купить автобагажники и автобоксы на крышу автомобиля в Перми - "; ?>
+$titleconst = "Автобагаж - купить автобагажники и автобоксы на крышу автомобиля в Перми - ";
+include ($_SERVER["DOCUMENT_ROOT"]."/admin/blocks.php");
+?>
 <html lang="ru">
 
 <!-- meta tags -->
