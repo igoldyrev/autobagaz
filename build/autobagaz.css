@@ -409,6 +409,10 @@ body {
 .form__textarea {
   padding: 15px; }
 
+.form__textarea--admin {
+  width: 98%;
+  height: 200px; }
+
 @media only screen and (max-width: 767px) {
   .form__textarea {
     width: 100%; } }
