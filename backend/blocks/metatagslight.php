@@ -9,7 +9,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-<link rel="stylesheet" href="../build/autobagaz.css">
+<link rel="stylesheet" href="/build/autobagaz.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
