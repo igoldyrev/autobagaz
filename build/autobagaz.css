@@ -1816,3 +1816,57 @@ body {
   .modal-call__close {
     top: 0;
     right: 5px; } }
+
+.admin {
+  position: relative;
+  display: block;
+  margin: 20px auto;
+  padding: 15px;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px; }
+
+.admin__container {
+  width: 70%;
+  margin: 15px auto 0; }
+
+@media only screen and (max-width: 767px) {
+  .admin__container {
+    width: 100%;
+    margin: 10px auto;
+    padding: 0 10px 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; } }
+
+.admin__item {
+  margin: 10px 0;
+  padding: 5px; }
+
+.admin__radio {
+  margin-right: 10px; }
+
+.admin__link {
+  display: block;
+  float: left;
+  clear: both;
+  font-family: "Roboto", Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  color: inherit;
+  line-height: 24px;
+  text-decoration: none; }
+  .admin__link:hover {
+    color: #367347;
+    -webkit-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out; }
+
+.admin__link--back {
+  float: none;
+  width: 300px;
+  margin: 0 auto;
+  text-align: center; }
+
+.admin__link-wrap {
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid #d9d9d9; }

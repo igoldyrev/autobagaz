@@ -1,0 +1,22 @@
+.admin__link {
+  display: block;
+
+  float: left;
+  clear: both;
+
+  font: {
+    family: $font;
+    size: 1em;
+    weight: 500;
+  }
+
+  color: inherit;
+
+  line-height: 24px;
+  text-decoration: none;
+
+  &:hover {
+    color: $subcolor;
+    transition: 0.5s ease-in-out;
+  }
+}
