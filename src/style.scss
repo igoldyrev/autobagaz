@@ -147,6 +147,12 @@
 @import "tablet.blocks/navigation/__link/navigation__link";
 @import "mobile.blocks/navigation/__link/navigation__link";
 
+//Навигация на мобильных устройствах
+@import "common.blocks/navigation-mobile/navigation-mobile";
+@import "mobile.blocks/navigation-mobile/navigation-mobile";
+@import "mobile.blocks/navigation-mobile/__link-wrap/navigation-mobile__link-wrap";
+@import "mobile.blocks/navigation-mobile/__link/navigation-mobile__link";
+
 //Навигация слева
 @import "common.blocks/left-nav/left-nav";
 @import "tablet.blocks/left-nav/left-nav";

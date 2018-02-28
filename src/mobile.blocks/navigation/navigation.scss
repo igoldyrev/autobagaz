@@ -1,8 +1,5 @@
 @include adaptive(mobile) {
   .navigation {
-    position: relative;
-    height: auto;
-    width: 98%;
-    margin: 0 auto;
+    display: none;
   }
 }

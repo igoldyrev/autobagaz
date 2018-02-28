@@ -1,0 +1,41 @@
+@include adaptive(mobile) {
+  .navigation-mobile__link {
+    display: block;
+    box-sizing: border-box;
+
+    width: 100%;
+    border-bottom: 1px solid $mediumgray;
+    line-height: 36px;
+
+    font: {
+      family: $font;
+      size: 1em;
+      weight: 400;
+    }
+
+    color: #fff;
+    text-decoration: none;
+
+    padding-left: 10px;
+    
+    &::before {
+      content: '';
+      display: inline-block;
+      position:absolute;
+
+      top: -6px;
+      right: 7px;
+
+      width: 32px;
+      height: 9px;
+
+      box-shadow: 0 3px 0 $subcolor,
+                  0 8px 0 #fff,
+                  0 13px 0 $subcolor,
+                  0 18px 0 #fff,
+                  0 23px 0 $subcolor,
+                  0 28px 0 #fff,
+                  0 28px 0 $subcolor;
+    }
+  }
+}

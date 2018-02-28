@@ -693,10 +693,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   .navigation {
-    position: relative;
-    height: auto;
-    width: 98%;
-    margin: 0 auto; } }
+    display: none; } }
 
 .navigation__list {
   list-style-type: none;
@@ -733,9 +730,7 @@ body {
   .navigation__list {
     width: 100%;
     height: auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -752,7 +747,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   .navigation__list-item {
-    width: 50%; } }
+    width: 100%; } }
 
 .navigation__link {
   display: block;
@@ -780,6 +775,53 @@ body {
     width: 100%;
     line-height: 30px;
     border-bottom: 1px solid #A4A4A4; } }
+
+.navigation-mobile {
+  display: none; }
+
+@media only screen and (max-width: 767px) {
+  .navigation-mobile {
+    position: relative;
+    display: block;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #0a2a0a;
+    margin: 0 auto;
+    width: 98%; } }
+
+@media only screen and (max-width: 767px) {
+  .navigation-mobile__link-wrap {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 0;
+    background-color: #367347; } }
+
+@media only screen and (max-width: 767px) {
+  .navigation-mobile__link {
+    display: block;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid #d9d9d9;
+    line-height: 36px;
+    font-family: "Roboto", Tahoma, sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 10px; }
+    .navigation-mobile__link::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: -6px;
+      right: 7px;
+      width: 32px;
+      height: 9px;
+      -webkit-box-shadow: 0 3px 0 #367347, 0 8px 0 #fff, 0 13px 0 #367347, 0 18px 0 #fff, 0 23px 0 #367347, 0 28px 0 #fff, 0 28px 0 #367347;
+              box-shadow: 0 3px 0 #367347, 0 8px 0 #fff, 0 13px 0 #367347, 0 18px 0 #fff, 0 23px 0 #367347, 0 28px 0 #fff, 0 28px 0 #367347; } }
 
 .left-nav {
   display: -webkit-box;
