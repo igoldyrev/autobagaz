@@ -71,7 +71,8 @@ __webpack_require__(1);
 __webpack_require__(2);
 __webpack_require__(3);
 __webpack_require__(4);
-module.exports = __webpack_require__(5);
+__webpack_require__(5);
+module.exports = __webpack_require__(6);
 
 
 /***/ }),
@@ -83,24 +84,6 @@ module.exports = __webpack_require__(5);
 
 console.log('Это сайт компании Автобагаж');
 console.log('Сейчас сайт работает нормально');
-
-$(function () {
-
-    $('.modal-call__button').click(function () {
-        $('.modal-call').addClass('modal-call--active');
-        $('.modal-call__overlay').addClass('modal-call__overlay--active');
-    });
-
-    $('.modal-call__close').click(function () {
-        $('.modal-call').removeClass('modal-call--active');
-        $('.modal-call__overlay').removeClass('modal-call__overlay--active');
-    });
-
-    $('.modal-call__overlay').click(function () {
-        $('.modal-call').removeClass('modal-call--active');
-        $('.modal-call__overlay').removeClass('modal-call__overlay--active');
-    });
-});
 
 if (window.localStorage) {
     var elements = document.querySelectorAll('[name]');
@@ -189,6 +172,30 @@ $('.rewiew__answer').each(function () {
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(function () {
+    $('.modal-call__button').click(function () {
+        $('.modal-call').addClass('modal-call--active');
+        $('.modal-call__overlay').addClass('modal-call__overlay--active');
+    });
+
+    $('.modal-call__close').click(function () {
+        $('.modal-call').removeClass('modal-call--active');
+        $('.modal-call__overlay').removeClass('modal-call__overlay--active');
+    });
+
+    $('.modal-call__overlay').click(function () {
+        $('.modal-call').removeClass('modal-call--active');
+        $('.modal-call__overlay').removeClass('modal-call__overlay--active');
+    });
+});
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

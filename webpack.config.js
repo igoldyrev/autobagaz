@@ -16,10 +16,11 @@ module.exports = {
     entry: {
 
         autobagaz: [
-                './js/main.js',
+                './src/main.js',
                 './src/common.blocks/tabs/guestbook__tab/guestbook__tab.js',
                 './src/common.blocks/tabs/special__tab/special__tab.js',
                 './src/common.blocks/rewiew/__answer/rewiew__answer.js',
+                './src/common.blocks/modal-call/modal-call.js',
                 './src/style.scss'
 
         ],
