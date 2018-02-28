@@ -18,7 +18,7 @@ $titleconst = "Автобагаж - купить автобагажники и �
 <meta property="og:url" content="https://autobagaz.ru">
 <meta property="og:site_name" content="Автобагаж">
 
-//todo сделать иконки в новом формате
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 <link rel="stylesheet" href="../build/autobagaz.css">
 <link rel="stylesheet" href="../src/fa/css/font-awesome.min.css">

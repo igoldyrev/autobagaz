@@ -7,6 +7,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="robots" content="noindex,nofollow">
 
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
 <link rel="stylesheet" href="../build/autobagaz.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
