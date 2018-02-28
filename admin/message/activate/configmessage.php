@@ -1,3 +1,4 @@
-<?php
-$checkedmsgon = 'checked';
+<?php 
+$checkedmsgon = 'none';
+ $checkedstock = 'none';
  
