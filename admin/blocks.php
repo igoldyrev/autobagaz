@@ -1,5 +1,5 @@
 <?php
-include ($_SERVER["DOCUMENT_ROOT"]."/admin/config.php");
+include ($_SERVER["DOCUMENT_ROOT"]."/admin/message/activate/configmessage.php");
 if ($checkedmsgon == 'checked'){
     $stylemsg = 'style="display: flex; "';
 }elseif ($checkedmsgon == 'none'){
