@@ -1,0 +1,6 @@
+@include adaptive(mobile) {
+  .modal-call__close {
+    top: 0;
+    right: 5px;
+  }
+}

@@ -75,6 +75,7 @@
 @import "mobile.blocks/form/__container/form__container";
 @import "library.blocks/form/__input/_wrap/form__input_wrap";
 @import "library.blocks/form/__input/form__input";
+@import "library.blocks/form/__input/_call/form__input_call";
 @import "mobile.blocks/form/__input/form__input";
 @import "library.blocks/form/__checkbox/form__checkbox";
 @import "common.blocks/form/__checkbox/form__checkbox";
@@ -101,6 +102,8 @@
 @import "mobile.blocks/button/__zakaz/button__zakaz";
 @import "common.blocks/button/__zakaz/_prokat/button__zakaz_prokat";
 @import "common.blocks/button/__zakaz/_help/button__zakaz_help";
+@import "common.blocks/button/__zakaz/_call/button__zakaz_call";
+@import "mobile.blocks/button/__zakaz/_call/button__zakaz_call";
 
 //Шапка сайта
 @import "common.blocks/header/header";
@@ -324,3 +327,15 @@
 
 //Обертка для уведомлений форм
 @import "common.blocks/notification-wrap/notification-wrap";
+
+//Виджет для заказа обратного звонка
+@import "common.blocks/modal-call/modal-call";
+@import "mobile.blocks/modal-call/modal-call";
+@import "common.blocks/modal-call/_active/modal-call_active";
+@import "common.blocks/modal-call/__overlay/modal-call__overlay";
+@import "common.blocks/modal-call/__overlay/_active/modal-call__overlay_active";
+@import "common.blocks/modal-call/__button/modal-call__button";
+@import "common.blocks/modal-call/__header/modal-call__header";
+@import "common.blocks/modal-call/__close/modal-call__close";
+@import "tablet.blocks/modal-call/__close/modal-call__close";
+@import "mobile.blocks/modal-call/__close/modal-call__close";

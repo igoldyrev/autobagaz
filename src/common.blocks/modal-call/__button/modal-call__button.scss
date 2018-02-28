@@ -1,0 +1,15 @@
+.modal-call__button {
+  position: fixed;
+  left: 5%;
+  bottom: 5%;
+  z-index: 10;
+
+  background: linear-gradient(#F5A9A9, #B40404, #F5A9A9);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5A9A9', endColorstr='#B40404');
+
+  padding: 3px 7px;
+  border-radius: 50%;
+  border: 1px solid $lightgray;
+
+  cursor: pointer;
+}

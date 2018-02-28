@@ -359,6 +359,9 @@ body {
 .form__input:placeholder-shown + .form__label--shown {
   display: none; }
 
+.form__input--call {
+  width: 440px; }
+
 @media only screen and (max-width: 767px) {
   .form__input {
     width: 100%; } }
@@ -534,6 +537,17 @@ body {
   background-color: #DF0101; }
   .button__zakaz--help:hover {
     background-color: #B40404; }
+
+.button__zakaz--call {
+  background-color: #DF0101;
+  width: 440px;
+  margin: 15px 0 0 0; }
+  .button__zakaz--call:hover {
+    background-color: #B40404; }
+
+@media only screen and (max-width: 767px) {
+  .button__zakaz--call {
+    width: 100%; } }
 
 .header {
   display: -webkit-box;
@@ -1735,3 +1749,70 @@ body {
 
 .notification-wrap {
   text-align: center; }
+
+.modal-call {
+  position: fixed;
+  left: 45%;
+  top: 45%;
+  z-index: 4;
+  display: none;
+  margin-left: -150px;
+  margin-top: -150px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 470px;
+  border: 2px solid #d9d9d9;
+  background-color: #ffffff; }
+
+@media only screen and (max-width: 767px) {
+  .modal-call {
+    left: 1%;
+    margin-left: 0;
+    width: 98%; } }
+
+.modal-call--active {
+  display: block; }
+
+.modal-call__overlay {
+  position: fixed;
+  display: none;
+  z-index: 3;
+  width: 100%;
+  height: 100%; }
+
+.modal-call__overlay--active {
+  display: block; }
+
+.modal-call__button {
+  position: fixed;
+  left: 5%;
+  bottom: 5%;
+  z-index: 10;
+  background: -webkit-gradient(linear, left top, left bottom, from(#F5A9A9), color-stop(#B40404), to(#F5A9A9));
+  background: -webkit-linear-gradient(#F5A9A9, #B40404, #F5A9A9);
+  background: -o-linear-gradient(#F5A9A9, #B40404, #F5A9A9);
+  background: linear-gradient(#F5A9A9, #B40404, #F5A9A9);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5A9A9', endColorstr='#B40404');
+  padding: 3px 7px;
+  border-radius: 50%;
+  border: 1px solid #F2F2F2;
+  cursor: pointer; }
+
+.modal-call__header {
+  height: 55px; }
+
+.modal-call__close {
+  position: absolute;
+  right: 15px;
+  cursor: pointer; }
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .modal-call__close {
+    top: 0;
+    right: 5px; } }
+
+@media only screen and (max-width: 767px) {
+  .modal-call__close {
+    top: 0;
+    right: 5px; } }

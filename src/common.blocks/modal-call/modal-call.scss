@@ -1,0 +1,17 @@
+.modal-call {
+  position: fixed;
+  left: 45%;
+  top: 45%;
+  z-index: 4;
+  display: none;
+
+  margin-left: -150px;
+  margin-top: -150px;
+  padding: 10px;
+
+  box-sizing: border-box;
+  width: 470px;
+
+  border: 2px solid $mediumgray;
+  background-color: #ffffff;
+}
