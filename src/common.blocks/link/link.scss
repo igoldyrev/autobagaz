@@ -1,0 +1,9 @@
+.link {
+  &:visited {
+    color: $primarycolor;
+  }
+
+  &:active {
+    color: $subcolor;
+  }
+}

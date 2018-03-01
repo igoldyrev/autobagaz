@@ -255,6 +255,12 @@ body {
   text-decoration: underline;
   cursor: pointer; }
 
+.link:visited {
+  color: #0a2a0a; }
+
+.link:active {
+  color: #367347; }
+
 .link--green-hover:hover {
   color: #367347;
   -webkit-transition: 0.5s ease-in-out;
