@@ -148,6 +148,6 @@ $vodostok = [
         'img1' => '/content/autobagazhniki/img/vodostok/atlant-1.JPG',
         'img2' => '/content/autobagazhniki/img/vodostok/atlant-2.JPG',
         'img3' => '/content/autobagazhniki/img/vodostok/atlant-3.JPG',
-        'desc' => 'Надёжный багажник Atlant для автомобиля. Способ установки багажника на крышу автомобиля - крепление за водостоки с испольлзованием прижимов.',
+        'desc' => 'Надёжный багажник Atlant для автомобиля. Способ установки багажника на крышу автомобиля - крепление за водостоки с использованием прижимов.',
     ],
 ];
