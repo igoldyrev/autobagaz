@@ -310,6 +310,11 @@ body {
   margin: 5px 15px;
   cursor: pointer; }
 
+.img--gallery {
+  margin: 0;
+  width: 175px;
+  text-align: center; }
+
 .img__popup {
   position: fixed;
   top: 15%;
