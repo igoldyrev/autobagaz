@@ -348,8 +348,12 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <li>Чтобы сократить время визита в магазин-вы можете заполнить <a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='link' href ="/content/prokat/Dogovor_prokata.doc">договор</a> и отправить нам его на электронный адрес <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" class='link' href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
         </ol>
         <div class="prokat-docs">
-            <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='link' href ="/content/prokat/Dogovor_prokata.doc">Скачать договор проката</a>
-            <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='link' href="/content/prokat/Pravila_ekspluatacii_avtoboksov.doc">Скачать правила эксплуатации автобоксов</a>
+            <div>
+                <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='link link--green-hover' href ="/content/prokat/Dogovor_prokata.doc">Скачать договор проката</a>
+            </div>
+            <div>
+                <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i><a onclick="yaCounter40650914.reachGoal('down_prokat'); return true" class='link link--green-hover' href="/content/prokat/Pravila_ekspluatacii_avtoboksov.doc">Скачать правила эксплуатации автобоксов</a>
+            </div>
         </div>
 <p class='page__text'>Стоимость дня проката определяется исходя из времени пользования оборудованием:</p>
 <div class="table">
