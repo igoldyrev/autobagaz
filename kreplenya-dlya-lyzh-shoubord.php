@@ -3,6 +3,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation-mobile/navigat
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/content/lyzhnye-kreplenya/backend/keywords.php");
 echo "<title> $titleconst"; echo $keywords[0][title]; echo "</title>";
 echo "<meta name='description' content='"; echo $keywords[0][description];      echo "'/>";

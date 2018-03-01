@@ -5,6 +5,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation-mobile/navigat
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
 	echo "<title> $titleconst"; echo $keywords[9][title]; echo "</title>";
 	echo "<meta name='description' content='"; echo $keywords[9][description]; echo "'/>";
 	echo "<meta name='keywords' content='"; echo $keywords[9][keywords]; echo "'/>"; ?>
