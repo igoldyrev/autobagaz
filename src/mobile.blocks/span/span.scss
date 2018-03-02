@@ -1,0 +1,6 @@
+@include adaptive(mobile) {
+  .span {
+    font-size: 0.8em;
+    line-height: 20px;
+  }
+}
