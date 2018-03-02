@@ -1,6 +1,7 @@
 <?php
 $expiditions = [
     [
+        'id' => 'abcheviniva',
         'name' => 'БАГАЖНИК НА НИВУ ШЕВРОЛЕ',
         'desc1' => 'Корзина экспедиционного сварного багажника',
         'desc2' => 'Предназначен для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -11,6 +12,7 @@ $expiditions = [
         'price' => '11 000 рублей',
     ],
     [
+        'id' => 'absuzukijimmny',
         'name' => 'БАГАЖНИК ДЛЯ SUZUKI JIMNY',
         'img1' => '/content/expiditions/img/jimmy/jimmy-1.jpg',
         'img2' => '/content/expiditions/img/jimmy/jimmy-2.jpg',
@@ -20,6 +22,7 @@ $expiditions = [
         'price' => '11 000 рублей',
     ],
     [
+        'id' => 'abrenodaster',
         'name' => 'БАГАЖНИК НА РЕНО ДАСТЕР',
         'desc1' => 'Корзина экспедиционного сварного багажника',
         'desc2' => 'Предназначен для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -30,6 +33,7 @@ $expiditions = [
         'price' => '11 000 рублей',
     ],
     [
+        'id' => 'abplatforma',
         'name' => 'БАГАЖНАЯ ПЛАТФОРМА',
         'desc1' => 'Подходит на любые авто с креплением на рейлинги или поперечины.',
         'img1' => '/content/expiditions/img/platforma/platforma-1.jpg',
@@ -39,6 +43,7 @@ $expiditions = [
         'price' => '7 000 рублей',
     ],
     [
+        'id' => 'abkorzina',
         'name' => 'БАГАЖНАЯ КОРЗИНА',
         'desc1' => 'Подходит на любые авто с креплением на рейлинги или поперечины.',
         'img1' => '/content/expiditions/img/korzina/korzina-1.jpg',
@@ -48,6 +53,7 @@ $expiditions = [
         'price' => '7 000 рублей',
     ],
     [
+        'id' => 'abexpidition',
         'name' => 'ЭКСПЕДИЦИОННЫЙ БАГАЖНИК',
         'desc1' => 'Корзина экспедиционного сварного багажника ',
         'desc2' => 'Предназначен для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -57,6 +63,7 @@ $expiditions = [
         'price' => '9 000 рублей',
     ],
     [
+        'id' => 'abplatforma-vodostok',
         'name' => 'БАГАЖНАЯ ПЛАТФОРМА НА ВОДОСТОКИ',
         'desc1' => 'Предназначена для перевозки крупногабаритных и тяжелых грузов до 200 кг',
         'img1' => '/content/expiditions/img/platforma-vodostok/platforma-1.jpg',
@@ -64,6 +71,7 @@ $expiditions = [
         'price' => '9 000 рублей',
     ],
     [
+        'id' => 'abkorzina-universal',
         'name' => 'УНИВЕРСАЛЬНАЯ БАГАЖНАЯ КОРЗИНА',
         'desc1' => 'Предназначена для перевозки крупногабаритных и тяжелых грузов до 200 кг',
         'img1' => '/content/expiditions/img/korzina-universal/universal-1.png',
@@ -72,6 +80,7 @@ $expiditions = [
         'price' => '9 000 рублей',
     ],
     [
+        'id' => 'abniva2121',
         'name' => 'БАГАЖНИК НА НИВУ 2121',
         'desc1' => 'Экспедиционного багажник на 3-х дверную Ниву',
         'desc2' => 'Предназначена для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -81,6 +90,7 @@ $expiditions = [
         'price' => '9 000 рублей',
     ],
     [
+        'id' => 'abkiasportage',
         'name' => 'БАГАЖНИК НА КИА СПОРТЕЙДЖ',
         'img1' => '/content/expiditions/img/sportage/sportage-1.png',
         'img2' => '/content/expiditions/img/sportage/sportage-2.jpg',
@@ -88,6 +98,7 @@ $expiditions = [
         'price' => '10 000 рублей',
     ],
     [
+        'id' => 'abniva2131',
         'name' => 'БАГАЖНИК НА НИВУ 2131',
         'desc1' => 'Экспедиционного багажник на 5-х дверную Ниву',
         'desc2' => 'Предназначена для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -98,6 +109,7 @@ $expiditions = [
         'price' => '10 000 рублей',
     ],
     [
+        'id' => 'abusilennyi',
         'name' => 'БАГАЖНИК С УСИЛЕННОЙ ПЕРЕДНЕЙ ПЛОЩАДКОЙ',
         'img1' => '/content/expiditions/img/usilennyi/usilennyi-1.jpg',
         'img2' => '/content/expiditions/img/usilennyi/usilennyi-2.jpg',
@@ -106,6 +118,7 @@ $expiditions = [
         'price' => '12 000 рублей',
     ],
     [
+        'id' => 'abtoyotaprado',
         'name' => 'БАГАЖНИК ТОЙОТА ПРАДО',
         'desc1' => 'Корзина экспедиционного сварного багажника ',
         'desc2' => 'Предназначен для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -116,6 +129,7 @@ $expiditions = [
         'price' => '12 000 рублей',
     ],
     [
+        'id' => 'abpatriot',
         'name' => 'БАГАЖНИК НА УАЗ ПАТРИОТ',
         'desc1' => 'Корзина экспедиционного сварного багажника ',
         'desc2' => 'Предназначен для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -125,6 +139,7 @@ $expiditions = [
         'price' => '12 000 рублей',
     ],
     [
+        'id' => 'abxterra',
         'name' => 'БАГАЖНИК NISSAN X-TERRA',
         'desc1' => 'Корзина экспедиционного сварного багажника ',
         'desc2' => 'Предназначен для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -134,6 +149,7 @@ $expiditions = [
         'price' => '12 000 рублей',
     ],
     [
+        'id' => 'abmodern',
         'name' => 'БАГАЖНИК МОДЕРН С УСИЛЕННЫМ ДНОМ',
         'img1' => '/content/expiditions/img/modern/modern-1.png',
         'img2' => '/content/expiditions/img/modern/modern-2.png',
@@ -141,6 +157,7 @@ $expiditions = [
         'price' => '12 000 рублей',
     ],
     [
+        'id' => 'ablux-3door',
         'name' => 'БАГАЖНИК ЛЮКС ДЛЯ 3-Х ДВЕРНОЙ НИВЫ',
         'img1' => '/content/expiditions/img/niva-3door/3door-1.jpg',
         'img2' => '/content/expiditions/img/niva-3door/3door-2.jpg',
@@ -149,6 +166,7 @@ $expiditions = [
         'price' => '13 000 рублей',
     ],
     [
+        'id' => 'abwallhover',
         'name' => 'БАГАЖНИК НА ГРЕЙТ ВОЛЛ ХОВЕР',
         'desc1' => 'Корзина экспедиционного сварного багажника ',
         'desc2' => 'Предназначен для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -158,6 +176,7 @@ $expiditions = [
         'price' => '14 000 рублей',
     ],
     [
+        'id' => 'abuazhunter',
         'name' => 'БАГАЖНИК НА УАЗ ХАНТЕР',
         'desc1' => 'Корзина экспедиционного сварного багажника ',
         'desc2' => 'Предназначен для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -167,6 +186,7 @@ $expiditions = [
         'price' => '11 000 рублей',
     ],
     [
+        'id' => 'abmodern-duster',
         'name' => 'БАГАЖНИК МОДЕРН + НА ДАСТЕР',
         'img1' => '/content/expiditions/img/modern-duster/modern-duster-1.JPG',
         'img2' => '/content/expiditions/img/modern-duster/modern-duster-2.png',
@@ -174,6 +194,7 @@ $expiditions = [
         'price' => '14 000 рублей',
     ],
     [
+        'id' => 'abnina-5door',
         'name' => 'БАГАЖНИК ЛЮКС ДЛЯ 5-ТИ ДВЕРНОЙ НИВЫ',
         'img1' => '/content/expiditions/img/lux-5door/lux-5door-1.jpg',
         'img2' => '/content/expiditions/img/lux-5door/lux-5door-2.jpg',
@@ -181,6 +202,7 @@ $expiditions = [
         'price' => '14 000 рублей',
     ],
     [
+        'id' => 'abuaz',
         'name' => 'БАГАЖНИК НА УАЗИК',
         'img1' => '/content/expiditions/img/uaz/uaz-1.jpg',
         'img2' => '/content/expiditions/img/uaz/uaz-2.jpg',
@@ -189,6 +211,7 @@ $expiditions = [
         'price' => '17 000 рублей',
     ],
     [
+        'id' => 'abmodern-lux',
         'name' => 'БАГАЖНИК МОДЕРН ЛЮКС С ОБВЕСОМ',
         'img1' => '/content/expiditions/img/lux-obves/lux-obves-1.jpg',
         'img2' => '/content/expiditions/img/lux-obves/lux-obves-2.jpg',
@@ -197,6 +220,7 @@ $expiditions = [
         'price' => '15 000 рублей',
     ],
     [
+        'id' => 'abrendjer',
         'name' => 'БАГАЖНИК НА ФОРД РЕНДЖЕР (ДВОЙНОЙ)',
         'desc1' => 'Корзина экспедиционного сварного багажника ',
         'desc2' => 'Предназначен для перевозки крупногабаритных и тяжелых грузов до 200 кг',
@@ -206,6 +230,7 @@ $expiditions = [
         'price' => '17 000 рублей',
     ],
     [
+        'id' => 'abfurgon',
         'name' => 'БАГАЖНИК НА ФУРГОН',
         'img1' => '/content/expiditions/img/furgon/furgon-1.jpg',
         'img2' => '/content/expiditions/img/furgon/furgon-2.jpg',
