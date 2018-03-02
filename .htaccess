@@ -20,6 +20,7 @@ RewriteRule ^(.*)$ $1.html
 
 #Карточки для отдельных товаров
 RewriteRule ^product/([^/]+)/?$ /content/autobagazhniki/backend/product.php?id=$1
+RewriteRule ^expiditions/([^/]+)/?$ /content/expiditions/backend/product.php?id=$1
 
 #Новости
 RewriteRule ^news/1 news.php?page=1
