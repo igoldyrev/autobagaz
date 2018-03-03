@@ -51,6 +51,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'absuzukijimmny') { ?>
 
             <title><?php echo $keywords[2][title]; ?></title>
@@ -81,6 +82,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abrenodaster') { ?>
 
             <title><?php echo $keywords[3][title]; ?></title>
@@ -110,6 +112,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abplatforma') { ?>
 
             <title><?php echo $keywords[4][title]; ?></title>
@@ -136,6 +139,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abkorzina') { ?>
 
             <title><?php echo $keywords[5][title]; ?></title>
@@ -163,6 +167,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abexpidition') { ?>
 
             <title><?php echo $keywords[6][title]; ?></title>
@@ -192,6 +197,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abplatforma-vodostok') { ?>
 
             <title><?php echo $keywords[7][title]; ?></title>
@@ -218,6 +224,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abkorzina-universal') { ?>
 
             <title><?php echo $keywords[8][title]; ?></title>
@@ -246,6 +253,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abniva2121') { ?>
 
             <title><?php echo $keywords[9][title]; ?></title>
@@ -275,6 +283,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abkiasportage') { ?>
 
             <title><?php echo $keywords[10][title]; ?></title>
@@ -302,6 +311,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abniva2131') { ?>
 
             <title><?php echo $keywords[11][title]; ?></title>
@@ -333,6 +343,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abusilennyi') { ?>
 
             <title><?php echo $keywords[12][title]; ?></title>
@@ -360,6 +371,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abtoyotaprado') { ?>
 
             <title><?php echo $keywords[13][title]; ?></title>
@@ -390,6 +402,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abpatriot') { ?>
 
             <title><?php echo $keywords[14][title]; ?></title>
@@ -418,6 +431,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abxterra') { ?>
 
             <title><?php echo $keywords[15][title]; ?></title>
@@ -447,6 +461,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abmodern') { ?>
 
             <title><?php echo $keywords[16][title]; ?></title>
@@ -474,6 +489,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'ablux-3door') { ?>
 
             <title><?php echo $keywords[17][title]; ?></title>
@@ -506,6 +522,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abwallhover') { ?>
 
             <title><?php echo $keywords[18][title]; ?></title>
@@ -534,6 +551,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abuazhunter') { ?>
 
             <title><?php echo $keywords[19][title]; ?></title>
@@ -564,6 +582,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abmodern-duster') { ?>
 
             <title><?php echo $keywords[20][title]; ?></title>
@@ -589,6 +608,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abnina-5door') { ?>
 
             <title><?php echo $keywords[21][title]; ?></title>
@@ -620,6 +640,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abuaz') { ?>
 
             <title><?php echo $keywords[22][title]; ?></title>
@@ -649,6 +670,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abmodern-lux') { ?>
 
             <title><?php echo $keywords[23][title]; ?></title>
@@ -681,6 +703,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($id == 'abrendjer') { ?>
 
             <title><?php echo $keywords[24][title]; ?></title>
@@ -710,7 +733,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
-        } elseif ($id == 'abfurgon') { ?>
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");        } elseif ($id == 'abfurgon') { ?>
 
             <title><?php echo $keywords[25][title]; ?></title>
             <div class="product">
@@ -739,6 +762,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } ?>
     </div>
 </div>
