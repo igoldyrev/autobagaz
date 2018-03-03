@@ -108,6 +108,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
                     </ul>
                 </ul>
                 <li><a class="link link--green-hover" href="/takelazh" target="_parent">Такелажная продукция</a></li>
+                <li><a class="link link--green-hover" href="/expidition" target="_parent">Экспедиционные багажники</a></li>
             </ul>
             <li><a class="link link--green-hover" href="/prokat" target="_parent">Прокат</a></li>
             <li><a class="link link--green-hover" href="/gallery" target="_parent">Галерея</a></li>
