@@ -49,6 +49,9 @@
 @import "library.blocks/text/text";
 @import "tablet.blocks/text/text";
 @import "mobile.blocks/text/text";
+@import "library.blocks/span/span";
+@import "tablet.blocks/span/span";
+@import "mobile.blocks/span/span";
 @import "library.blocks/list/list";
 @import "mobile.blocks/list/list";
 @import "common.blocks/list/__unsorted/list__unsorted";
@@ -178,8 +181,10 @@
 @import "mobile.blocks/product/product";
 @import "common.blocks/product/__img/product__img";
 @import "tablet.blocks/product/__img/product__img";
+@import "mobile.blocks/product/__img/product__img";
 @import "common.blocks/product/__img/_small/product__img_small";
 @import "common.blocks/product/__photos/product__photos";
+@import "mobile.blocks/product/__photos/product__photos";
 @import "common.blocks/product/__buttons/product__buttons";
 
 //Карточка отдельного товара на всех страницах сайта
@@ -268,6 +273,10 @@
 @import "mobile.blocks/catalog/__image/catalog__image";
 @import "common.blocks/catalog/__item-link/catalog__item-link";
 @import "common.blocks/catalog/__text/catalog__text";
+
+//Уменьшенные карточки каталога
+@import "common.blocks/good-mini/__wrap/good-mini__wrap";
+@import "common.blocks/good-mini/good-mini";
 
 //Сообщение на главной странице
 @import "common.blocks/index-message/index-message";

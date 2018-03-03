@@ -1,0 +1,5 @@
+@include adaptive(mobile) {
+  .product__photos {
+    width: 100%;
+  }
+}

@@ -49,6 +49,10 @@ $level2 = [
         'link' => '/takelazh',
     ],
     [
+        'name' => 'Экспедиционные багажники',
+        'link' => '/expidition',
+    ],
+    [
         'name' => 'Наши партнеры',
         'link' => '/partners',
     ],

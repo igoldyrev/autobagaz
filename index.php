@@ -103,6 +103,15 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php"); ?>
                         <p class="text">Такелажная продукция</p>
                     </div>
                 </div>
+                <div class="catalog__item">
+                    <a href="/expidition" class="catalog__item-link"></a>
+                    <div class="catalog__image-wrap">
+                        <img class="catalog__image" src="/content/index/img/catalog/11_expidition.JPG" alt="экспедиционные багажники">
+                    </div>
+                    <div class="catalog__text">
+                        <p class="text">Экспедиционные багажники</p>
+                    </div>
+                </div>
             </div>
 
             <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/sales/sales.php"); ?>
