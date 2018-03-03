@@ -272,6 +272,10 @@
 @import "common.blocks/catalog/__item-link/catalog__item-link";
 @import "common.blocks/catalog/__text/catalog__text";
 
+//Уменьшенные карточки каталога
+@import "common.blocks/good-mini/__wrap/good-mini__wrap";
+@import "common.blocks/good-mini/good-mini";
+
 //Сообщение на главной странице
 @import "common.blocks/index-message/index-message";
 @import "mobile.blocks/index-message/index-message";
