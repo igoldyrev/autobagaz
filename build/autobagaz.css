@@ -1002,12 +1002,20 @@ body {
   .product__img {
     width: 250px; } }
 
+@media only screen and (max-width: 767px) {
+  .product__img {
+    width: 100%; } }
+
 .product__img--small {
   width: 100px; }
 
 .product__photos {
   width: 300px;
   margin-right: 15px; }
+
+@media only screen and (max-width: 767px) {
+  .product__photos {
+    width: 100%; } }
 
 .product__buttons {
   display: -webkit-box;
