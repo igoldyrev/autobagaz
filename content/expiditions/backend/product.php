@@ -739,13 +739,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
                     </div>
                 </div>
             </div><?php
-        }
-
-
-
-        ?>
-
-
+        } ?>
     </div>
 </div>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/footer/footer.html");
