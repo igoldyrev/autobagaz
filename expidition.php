@@ -8,7 +8,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/keywords.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/content/expiditions/backend/array.php");
 echo "<title> $titleconst"; echo $keywords[0][title]; echo "</title>";
 echo "<meta name='description' content='"; echo $keywords[0][description];      echo "'/>";
-echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>"; ?>
+echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>";
+$_SESSION['expiditions'] = $expiditions;
+$_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
 
 <div class="wrapper">
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/left-nav/left-nav.html"); ?>
