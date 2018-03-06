@@ -6,7 +6,7 @@ $lada_xray = [
         'id' => 'xrayblack',
         'name' => 'Рейлинг для Лада XRAY полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/xray/polymer-black.png" alt="Рейлинги для Лада XRAY">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/xray/polymer-black.png" alt="Рейлинги для Лада XRAY">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -20,7 +20,7 @@ $lada_xray = [
         'id' => 'xraygray',
         'name' => 'Рейлинг для Лада XRAY анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/xray/anod-gray.png" alt="Рейлинги для Лада XRAY">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/xray/anod-gray.png" alt="Рейлинги для Лада XRAY">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -34,7 +34,7 @@ $lada_xray = [
         'id' => 'xraywhite',
         'name' => 'Рейлинг для Лада XRAY серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/xray/white.png" alt="Рейлинги для Лада XRAY">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/xray/white.png" alt="Рейлинги для Лада XRAY">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -51,7 +51,7 @@ $lada_largus = [
         'id' => 'largusblack',
         'name' => 'Рейлинг для Лада LARGUS полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/largus/polymer-black.png" alt="Рейлинги для Лада LARGUS">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/largus/polymer-black.png" alt="Рейлинги для Лада LARGUS">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -65,7 +65,7 @@ $lada_largus = [
         'id' => 'largusgray',
         'name' => 'Рейлинг для Лада LARGUS анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/largus/anod-gray.png" alt="Рейлинги для Лада LARGUS">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/largus/anod-gray.png" alt="Рейлинги для Лада LARGUS">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -79,7 +79,7 @@ $lada_largus = [
         'id' => 'larguswhite',
         'name' => 'Рейлинг для Лада LARGUS серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/largus/white.png" alt="Рейлинги для Лада LARGUS">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/largus/white.png" alt="Рейлинги для Лада LARGUS">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -96,7 +96,7 @@ $granta_liftbek = [
         'id' => 'liftbekblack',
         'name' => 'Рейлинг для Гранта Лифтбек полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-liftbek/polymer-black.png" alt="Рейлинги для Гранта Лифтбек">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-liftbek/polymer-black.png" alt="Рейлинги для Гранта Лифтбек">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -110,7 +110,7 @@ $granta_liftbek = [
         'id' => 'liftbekgray',
         'name' => 'Рейлинг для Гранта Лифтбек анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-liftbek/anod-gray.png" alt="Рейлинги для Гранта Лифтбек">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-liftbek/anod-gray.png" alt="Рейлинги для Гранта Лифтбек">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -124,7 +124,7 @@ $granta_liftbek = [
         'id' => 'liftbekwhite',
         'name' => 'Рейлинг для Гранта Лифтбек серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-liftbek/white.png" alt="Рейлинги для Гранта Лифтбек">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-liftbek/white.png" alt="Рейлинги для Гранта Лифтбек">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -141,7 +141,7 @@ $granta_e = [
         'id' => 'grantaeblack',
         'name' => 'Рейлинг для Гранта "Е" седан полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-e/polymer-black.png" alt="Рейлинги для Гранта E седан">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-e/polymer-black.png" alt="Рейлинги для Гранта E седан">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -155,7 +155,7 @@ $granta_e = [
         'id' => 'grantaegray',
         'name' => 'Рейлинг для Гранта "Е" седан анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-e/anod-gray.png" alt="Рейлинги для Гранта E седан">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-e/anod-gray.png" alt="Рейлинги для Гранта E седан">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -169,7 +169,7 @@ $granta_e = [
         'id' => 'grantaeblackpoperechina',
         'name' => 'Рейлинг для Гранта "Е" седан полимер черный с поперечиной',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-e/polymer-black-poperechina.png" alt="Рейлинги для Гранта E седан">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-e/polymer-black-poperechina.png" alt="Рейлинги для Гранта E седан">',
         //Цвета
         'color' => 'полимер черный с поперечиной',
         //Цена без монтажа
@@ -183,7 +183,7 @@ $granta_e = [
         'id' => 'grantaegraypoperechina',
         'name' => 'Рейлинг для Гранта "Е" седан анод серый с поперечиной',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-e/anod-gray-poperechina.png" alt="Рейлинги для Гранта E седан">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-e/anod-gray-poperechina.png" alt="Рейлинги для Гранта E седан">',
         //Цвета
         'color' => 'анод серый с поперечиной',
         //Цена без монтажа
@@ -200,7 +200,7 @@ $granta_sedan = [
         'id' => 'grantablack',
         'name' => 'Рейлинг для Лада Гранта седан / Лада Калина седан полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-sedan/polymer-black.gif" alt="Рейлинги для Гранта Седан">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-sedan/polymer-black.gif" alt="Рейлинги для Гранта Седан">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -214,7 +214,7 @@ $granta_sedan = [
         'id' => 'grantagray',
         'name' => 'Рейлинг для Лада Гранта седан / Лада Калина седан анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-sedan/anod-gray.gif" alt="Рейлинги для Гранта Седан">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-sedan/anod-gray.gif" alt="Рейлинги для Гранта Седан">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -228,7 +228,7 @@ $granta_sedan = [
         'id' => 'grantawhite',
         'name' => 'Рейлинг для Лада Гранта седан / Лада Калина седан серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/granta-sedan/white.png" alt="Рейлинги для Гранта Седан">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/granta-sedan/white.png" alt="Рейлинги для Гранта Седан">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -245,7 +245,7 @@ $kalina_xetchbek = [
         'id' => 'kalinaxetchbekblack',
         'name' => 'Рейлинг для Лада Калина Хэтчбек "S" полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/kalina-xetchbek/polymer-black.gif" alt="Рейлинги для Калина Хэтчбек">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/kalina-xetchbek/polymer-black.gif" alt="Рейлинги для Калина Хэтчбек">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -259,7 +259,7 @@ $kalina_xetchbek = [
         'id' => 'kalinaxetchbekgray',
         'name' => 'Рейлинг для Лада Калина Хэтчбек "S" анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/kalina-xetchbek/anod-gray.gif" alt="Рейлинги для Калина Хэтчбек">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/kalina-xetchbek/anod-gray.gif" alt="Рейлинги для Калина Хэтчбек">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -273,7 +273,7 @@ $kalina_xetchbek = [
         'id' => 'kalinaxetchbekwhite',
         'name' => 'Рейлинг для Лада Калина Хэтчбек "S" серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/kalina-xetchbek/white.png" alt="Рейлинги для Калина Хэтчбек">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/kalina-xetchbek/white.png" alt="Рейлинги для Калина Хэтчбек">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -290,7 +290,7 @@ $kalina_universal = [
         'id' => 'kalinauniversal2008black',
         'name' => 'Рейлинг для Лада Калина Универсал "М" полимер черный, а/м 2008-2012г.' ,
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/kalina-universal/polymer-black-2008-2012.gif" alt="Рейлинги для Калина Универсал">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/kalina-universal/polymer-black-2008-2012.gif" alt="Рейлинги для Калина Универсал">',
         //Цвета
         'color' => 'полимер черный, а/м 2008-2012г.',
         //Цена без монтажа
@@ -304,7 +304,7 @@ $kalina_universal = [
         'id' => 'kalinauniversal2008gray',
         'name' => 'Рейлинг для Лада Калина Универсал "М" анод серый, а/м 2008-2012г.',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/kalina-universal/anod-gray-2008-2012.gif" alt="Рейлинги для Калина Универсал">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/kalina-universal/anod-gray-2008-2012.gif" alt="Рейлинги для Калина Универсал">',
         //Цвета
         'color' => 'анод серый, а/м 2008-2012г.',
         //Цена без монтажа
@@ -318,7 +318,7 @@ $kalina_universal = [
         'id' => 'kalinauniversal2013black',
         'name' => 'Рейлинг для Лада Калина Универсал "М" полимер черный, а/м 2013г.' ,
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/kalina-universal/polymer-black-2013.gif" alt="Рейлинги для Калина Универсал">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/kalina-universal/polymer-black-2013.gif" alt="Рейлинги для Калина Универсал">',
         //Цвета
         'color' => 'полимер черный, а/м 2013г.',
         //Цена без монтажа
@@ -332,7 +332,7 @@ $kalina_universal = [
         'id' => 'kalinauniversal2013gray',
         'name' => 'Рейлинг для Лада Калина Универсал "М" анод серый, а/м 2013г.',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/kalina-universal/anod-gray-2013.gif" alt="Рейлинги для Калина Универсал">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/kalina-universal/anod-gray-2013.gif" alt="Рейлинги для Калина Универсал">',
         //Цвета
         'color' => 'анод серый, а/м 2013г.',
         //Цена без монтажа
@@ -346,7 +346,7 @@ $kalina_universal = [
         'id' => 'kalinauniversal2008cleanblack',
         'name' => 'Рейлинг для Лада Калина Универсал "М" полимер черный, крыша гладкая, а/м до 2008г.' ,
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/kalina-universal/polymer-black-do-2008-gladkaya-krysha.gif" alt="Рейлинги для Калина Универсал">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/kalina-universal/polymer-black-do-2008-gladkaya-krysha.gif" alt="Рейлинги для Калина Универсал">',
         //Цвета
         'color' => 'полимер черный, крыша гладкая, а/м до 2008г.',
         //Цена без монтажа
@@ -360,7 +360,7 @@ $kalina_universal = [
         'id' => 'kalinauniversal2013cleangray',
         'name' => 'Рейлинг для Лада Калина Универсал "М" анод серый, крыша гладкая, а/м до 2008г.',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/kalina-universal/anod-gray-do-2008-gladkaya-krysha.gif" alt="Рейлинги для Калина Универсал">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/kalina-universal/anod-gray-do-2008-gladkaya-krysha.gif" alt="Рейлинги для Калина Универсал">',
         //Цвета
         'color' => 'анод серый, крыша гладкая, а/м до 2008г.',
         //Цена без монтажа
@@ -377,7 +377,7 @@ $lada_4x4 = [
         'id' => '4x4black',
         'name' => 'Рейлинг для Лада 4x4 полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/4x4/polymer-black.gif" alt="Рейлинги для Лада 4x4">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/4x4/polymer-black.gif" alt="Рейлинги для Лада 4x4">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -391,7 +391,7 @@ $lada_4x4 = [
         'id' => '4x4gray',
         'name' => 'Рейлинг для Лада 4x4 анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/4x4/anod-gray.gif" alt="Рейлинги для Лада 4x4">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/4x4/anod-gray.gif" alt="Рейлинги для Лада 4x4">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -408,7 +408,7 @@ $lada_4x4_l = [
         'id' => '4x4lblack',
         'name' => 'Рейлинг для Лада 4x4 L полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/4x4-l/polymer-black.gif" alt="Рейлинги для Лада 4x4 L">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/4x4-l/polymer-black.gif" alt="Рейлинги для Лада 4x4 L">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -422,7 +422,7 @@ $lada_4x4_l = [
         'id' => '4x4lgray',
         'name' => 'Рейлинг для Лада 4x4 L анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/lada/4x4-l/anod-gray.gif" alt="Рейлинги для Лада 4x4 L">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/lada/4x4-l/anod-gray.gif" alt="Рейлинги для Лада 4x4 L">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа

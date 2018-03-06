@@ -6,7 +6,7 @@ $on_do = [
         'id' => 'ondoblack',
         'name' => 'Рейлинг для Datsun ON-DO полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/datsun/on-do/polymer-black.gif" alt="Рейлинги для Datsun ON-DO">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/datsun/on-do/polymer-black.gif" alt="Рейлинги для Datsun ON-DO">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -20,7 +20,7 @@ $on_do = [
         'id' => 'ondogray',
         'name' => 'Рейлинг для Datsun ON-DO анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/datsun/on-do/anod-gray.gif" alt="Рейлинги для Datsun ON-DO">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/datsun/on-do/anod-gray.gif" alt="Рейлинги для Datsun ON-DO">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -34,7 +34,7 @@ $on_do = [
         'id' => 'ondoblackpoperechina',
         'name' => 'Рейлинг для Datsun ON-DO полимер черный с поперечиной',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/datsun/on-do/polymer-black-poperechina.png" alt="Рейлинги для Datsun ON-DO">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/datsun/on-do/polymer-black-poperechina.png" alt="Рейлинги для Datsun ON-DO">',
         //Цвета
         'color' => 'полимер черный с поперечиной',
         //Цена без монтажа
@@ -48,7 +48,7 @@ $on_do = [
         'id' => 'ondograypoperechina',
         'name' => 'Рейлинг для Datsun ON-DO анод серый с поперечиной',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/datsun/on-do/anod-gray-poperechina.png" alt="Рейлинги для Datsun ON-DO">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/datsun/on-do/anod-gray-poperechina.png" alt="Рейлинги для Datsun ON-DO">',
         //Цвета
         'color' => 'анод серый с поперечиной',
         //Цена без монтажа
@@ -65,7 +65,7 @@ $mi_do = [
         'id' => 'midoblack',
         'name' => 'Рейлинг для Datsun MI-DO полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/datsun/mi-do/polymer-black.gif" alt="Рейлинги для Datsun MI-DO">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/datsun/mi-do/polymer-black.gif" alt="Рейлинги для Datsun MI-DO">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -79,7 +79,7 @@ $mi_do = [
         'id' => 'midogray',
         'name' => 'Рейлинг для Datsun MI-DO анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/datsun/mi-do/anod-gray.gif" alt="Рейлинги для Datsun MI-DO">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/datsun/mi-do/anod-gray.gif" alt="Рейлинги для Datsun MI-DO">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -93,7 +93,7 @@ $mi_do = [
         'id' => 'midowhite',
         'name' => 'Рейлинг для Datsun MI-DO серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/datsun/mi-do/white.png" alt="Рейлинги для Datsun MI-DO">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/datsun/mi-do/white.png" alt="Рейлинги для Datsun MI-DO">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
