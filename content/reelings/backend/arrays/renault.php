@@ -6,7 +6,7 @@ $renault_kaptur = [
         'id' => 'kapturblack',
         'name' => 'Рейлинг для Renault Kaptur полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/kaptur/polymer-black.png" alt="Рейлинги для Renault Kaptur">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/kaptur/polymer-black.png" alt="Рейлинги для Renault Kaptur">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -20,7 +20,7 @@ $renault_kaptur = [
         'id' => 'kapturgray',
         'name' => 'Рейлинг для Renault Kaptur анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/kaptur/anod-gray.png" alt="Рейлинги для Renault Kaptur">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/kaptur/anod-gray.png" alt="Рейлинги для Renault Kaptur">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -34,7 +34,7 @@ $renault_kaptur = [
         'id' => 'kapturwhite',
         'name' => 'Рейлинг для Renault Kaptur серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/kaptur/white.png" alt="Рейлинги для Renault Kaptur">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/kaptur/white.png" alt="Рейлинги для Renault Kaptur">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -51,7 +51,7 @@ $renault_logan_2004 = [
         'id' => 'logan2004black',
         'name' => 'Рейлинг для Renault Logan (2004 - 2014) полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/logan-2004-2014/polymer-black.gif" alt="Рейлинги для Renault Logan">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/logan-2004-2014/polymer-black.gif" alt="Рейлинги для Renault Logan">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -66,7 +66,7 @@ $renault_logan_2004 = [
         'id' => 'logan2004gray',
         'name' => 'Рейлинг для Renault Logan (2004 - 2014) анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/logan-2004-2014/anod-gray.gif" alt="Рейлинги для Renault Logan">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/logan-2004-2014/anod-gray.gif" alt="Рейлинги для Renault Logan">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -81,7 +81,7 @@ $renault_logan_2004 = [
         'id' => 'logan2004white',
         'name' => 'Рейлинг для Renault Logan (2004 - 2014) серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/logan-2004-2014/white.png" alt="Рейлинги для Renault Logan">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/logan-2004-2014/white.png" alt="Рейлинги для Renault Logan">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -98,7 +98,7 @@ $renault_logan_2015 = [
         'id' => 'logan2015black',
         'name' => 'Рейлинг для Renault Logan (2014 - н.в.) полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/logan-new/polymer-black.gif" alt="Рейлинги для Renault Logan">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/logan-new/polymer-black.gif" alt="Рейлинги для Renault Logan">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -112,7 +112,7 @@ $renault_logan_2015 = [
         'id' => 'logan2015gray',
         'name' => 'Рейлинг для Renault Logan (2014 - н.в.) анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/logan-new/anod-gray.gif" alt="Рейлинги для Renault Logan">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/logan-new/anod-gray.gif" alt="Рейлинги для Renault Logan">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -127,7 +127,7 @@ $renault_logan_2015 = [
         'id' => 'logan2015white',
         'name' => 'Рейлинг для Renault Logan (2014 - н.в.) серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/logan-new/white.png" alt="Рейлинги для Renault Logan">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/logan-new/white.png" alt="Рейлинги для Renault Logan">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -144,7 +144,7 @@ $renault_sandero_2010 = [
         'id' => 'sandero2010black',
         'name' => 'Рейлинг для Renault Sandero (2010 - 2014) полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/sandero-2010-2014/polymer-black.gif" alt="Рейлинги для Renault Sandero">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/sandero-2010-2014/polymer-black.gif" alt="Рейлинги для Renault Sandero">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -158,7 +158,7 @@ $renault_sandero_2010 = [
         'id' => 'sandero2010gray',
         'name' => 'Рейлинг для Renault Sandero (2010 - 2014) анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/sandero-2010-2014/anod-gray.gif" alt="Рейлинги для Renault Sandero">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/sandero-2010-2014/anod-gray.gif" alt="Рейлинги для Renault Sandero">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -173,7 +173,7 @@ $renault_sandero_2010 = [
         'id' => 'sandero2010white',
         'name' => 'Рейлинг для Renault Sandero (2010 - 2014) серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/sandero-2010-2014/white.png" alt="Рейлинги для Renault Sandero">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/sandero-2010-2014/white.png" alt="Рейлинги для Renault Sandero">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
@@ -190,7 +190,7 @@ $renault_sandero_2014 = [
         'id' => 'sandero2015black',
         'name' => 'Рейлинг для Renault Sandero (2014 - н.в.) полимер черный',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/sandero-new/polymer-black.png" alt="Рейлинги для Renault Sandero">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/sandero-new/polymer-black.png" alt="Рейлинги для Renault Sandero">',
         //Цвета
         'color' => 'полимер черный',
         //Цена без монтажа
@@ -204,7 +204,7 @@ $renault_sandero_2014 = [
         'id' => 'sandero2015gray',
         'name' => 'Рейлинг для Renault Sandero (2014 - н.в.) анод серый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/sandero-new/anod-gray.png" alt="Рейлинги для Renault Sandero">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/sandero-new/anod-gray.png" alt="Рейлинги для Renault Sandero">',
         //Цвета
         'color' => 'анод серый',
         //Цена без монтажа
@@ -218,7 +218,7 @@ $renault_sandero_2014 = [
         'id' => 'sandero2015white',
         'name' => 'Рейлинг для Renault Sandero (2014 - н.в.) серебристый',
         //Изображения
-        'img' => '<img class="img_main" src="/content/reelings/img/renault/sandero-new/white.png" alt="Рейлинги для Renault Sandero">',
+        'img' => '<img class="img product__img" src="/content/reelings/img/renault/sandero-new/white.png" alt="Рейлинги для Renault Sandero">',
         //Цвета
         'color' => 'серебристый',
         //Цена без монтажа
