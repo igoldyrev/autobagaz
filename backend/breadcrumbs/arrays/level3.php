@@ -40,6 +40,10 @@ $level3 = [
         'link' => '/autobox/lux',
     ],
     [
+        'name' => 'Автобоксы INMAX',
+        'link' => '/autobox/inmax',
+    ],
+    [
         'name' => 'Велокрепления на крышу',
         'link' => '/velokreplenya/krysha',
     ],
