@@ -538,6 +538,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                     </div>
                 </div>
             </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
             } ?>
     </div>
 </div>
