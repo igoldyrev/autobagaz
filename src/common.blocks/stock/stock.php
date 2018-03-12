@@ -14,10 +14,10 @@ if ($result = mysqli_query($connect, $query)) {
                 echo '<div class="stock__block">';
                 echo '<h2 class="stock__title">'.$row['news_title'].'</h2>';
                 echo '<p class="stock__description">'.$row['news_annotation'].'</p>';
-                echo '<a onclick="yaCounter40650914.reachGoal(\'banner_click\'); return true" class="stock__link" href="'.$row['news_link'].'">Узнать итоги розыгрыша</a>';
+                echo '<a onclick="yaCounter40650914.reachGoal(\'banner_click\'); return true" class="stock__link" href="'.$row['news_link'].'">Узнать подробности</a>';
             echo '</div>';
         echo '<div class="stock__block">';
-            echo '<img class="stock__image" src="/src/common.blocks/stock/img/new-year.jpg">';
+            echo '<img class="stock__image" src="/src/common.blocks/stock/img/inmax-box.jpg">';
         echo '</div></div></div>';
     }
 }
