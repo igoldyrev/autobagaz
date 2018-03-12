@@ -71,6 +71,15 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                         </div>
                 </div>
                 <div class="catalog__item">
+                        <a href="/autobox/inmax" class="catalog__item-link"></a>
+                        <div class="catalog__image-wrap">
+                            <img class="catalog__image" src="/content/autobox/img/logo/inmax.png" alt="lux">
+                        </div>
+                        <div class="catalog__text">
+                            <p class="text">Автомобильные боксы INMAX</p>
+                        </div>
+                </div>
+                <div class="catalog__item">
                     <a href="/inno/inno-boxes" class="catalog__item-link"></a>
                     <div class="catalog__image-wrap">
                         <img class="catalog__image" src="/content/autobox/img/logo/inno.jpg" alt="Inno">
@@ -486,6 +495,59 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                     </div>
                 </div> <?php
                 include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
+            } elseif ($autobox == 'inmax') {
+
+            echo "<title> $titleconst"; echo $keywords[6][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $keywords[6][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $keywords[6][keywords]; echo "'/>";
+
+            $_SESSION['inmax'] = $inmax;
+            $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+            echo "<h1 class='title title-h1'>Автомобильные боксы INMAX</h1>";
+            echo "<p class='text'>Автомобильный бокс производства российской компании Inmax «Space 460» – оптимальное соотношение качества и цены. </p>";?>
+
+            <div class="good"> <?php
+                echo "<h2 class='title title-h2'>"; echo $inmax['name']; echo "</h2>"; ?>
+                <div class="img__wrap">
+                    <?php echo $inmax['img1']; echo $inmax['img2']; echo $inmax['img3']; echo $inmax['img4']; ?>
+                </div>
+                <div class="table">
+                    <div class="table__column"></div>
+                    <ul class="table__header">
+                        <li class="table__cell">Характеристики</li>
+                        <li class="table__cell">Значение</li>
+                    </ul>
+                    <ul class="table__row">
+                        <li class="table__cell">Длина</li>
+                        <li class="table__cell"><?php echo $inmax['length']; ?></li>
+                    </ul>
+                    <ul class="table__row">
+                        <li class="table__cell">Ширина</li>
+                        <li class="table__cell"><?php echo $inmax['width']; ?></li>
+                    </ul>
+                    <ul class="table__row">
+                        <li class="table__cell">Высота</li>
+                        <li class="table__cell"><?php echo $inmax['height']; ?></li>
+                    </ul>
+                    <ul class="table__row">
+                        <li class="table__cell">Объем</li>
+                        <li class="table__cell"><?php echo $inmax['volume']; ?></li>
+                    </ul>
+                    <ul class="table__row">
+                        <li class="table__cell">Материал</li>
+                        <li class="table__cell"><?php echo $inmax['material']; ?></li>
+                    </ul>
+                </div>
+                <div class="good__price">
+                    <p class="text"><?php echo "Цена: <strong>"; echo $inmax['price']; ?></strong></p>
+                    <div class="good__buttons">
+                        <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inmax['id']; ?>" class="button button__buy" >Заказать</a>
+                        <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $inmax['id']; ?>" class="button button__buy button__buy--prokat" >Взять в прокат</a>
+                    </div>
+                </div>
+            </div><?php
+            include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
             } ?>
     </div>
 </div>
