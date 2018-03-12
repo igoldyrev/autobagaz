@@ -334,6 +334,14 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
             <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'inmaxspace460') {
+            $tovar = $_SESSION['inmax'][name];
+            echo "<title>Взятие в прокат "; echo $_SESSION['inmax'][name]; echo "</title>";
+            $checkedbox  = "checked"; ?>
+            <div class="good-message">
+                <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+            </div>
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         }
         $_SESSION['tovar'] = $tovar; ?>
         <p class='text'>Чтобы воспользоваться услугами аренды необходимо сделать несколько простых шагов:</p>
