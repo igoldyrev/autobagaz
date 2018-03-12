@@ -200,3 +200,19 @@ $lux = [
 	'name6' => 'Бокс LUX960 480L белый глянец 1960х780х420 с двустор. откр.',
 	'price6' => '29 900 рублей',
 ];
+
+//Автобоксы INMAX
+$inmax = [
+	'id' => 'inmaxspace460',
+	'name' => 'INMAX Space 460 с двусторонним открыванием',
+	'price' => '17 000 рублей',
+    'img1' => '<img class="img good__img" src="/content/autobox/img/inmax/1.jpg" alt="Автобоксы Inmax">',
+    'img2' => '<img class="img good__img" src="/content/autobox/img/inmax/2.jpg" alt="Автобоксы Inmax">',
+    'img3' => '<img class="img good__img" src="/content/autobox/img/inmax/3.jpg" alt="Автобоксы Inmax">',
+    'img4' => '<img class="img good__img" src="/content/autobox/img/inmax/4.jpg" alt="Автобоксы Inmax">',
+    'length' => '1860 мм ',
+    'width' => '860 мм',
+    'height' => '365 мм ',
+    'volume' => '460 литров ',
+    'material' => 'АБС-пластик толщиной 5 мм',
+];
