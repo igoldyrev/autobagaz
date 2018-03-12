@@ -398,6 +398,28 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                 </div>
                 <p class="text">Видео с итогами розыгрыша находится <a href="https://vk.com/video-86325723_456239025" target="_blank" class="link">здесь</a>.</p>
             </div><?php
+        } elseif ($newspage == 'postuplenie-inmax') {
+            echo "<title> $titleconst"; echo $news[16][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $news[16][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $news[16][keywords]; echo "'/>"; ?>
+
+            <div class="news__inner">
+                <h1 class="title title-h1">Поступление автобоксов INMAX Space 460</h1>
+                <p class="text">Уважаемые покупатели и посетители магазина "AutoBagaz"! Презентуем вам новую линейку автобоксов INMAX Space 460. </p>
+                <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Автомобильный бокс производства российской компании Inmax «Space 460» – оптимальное соотношение качества и цены.</p>
+                <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Двухстороннее открывание </p>
+                <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Характеристики: </p>
+                <p class="text"><i class="fa fa-star" aria-hidden="true"></i> Ширина - 860 мм</p>
+                <p class="text"><i class="fa fa-star" aria-hidden="true"></i> Высота - 365 мм </p>
+                <p class="text"><i class="fa fa-star" aria-hidden="true"></i> Материал - АБС-пластик толщиной 5 мм.</p>
+                <p class="text"><i class="fa fa-star" aria-hidden="true"></i> Объем - 460 л. </p>
+                <p class="text"><strong>Цена от 17000 руб. </strong></p>
+                <p class="text">Собрат по объему и толщине АБС пластика, но односторонний бокс (для тех кому не важно двухстороннее открывание)
+                    <a class="link" href="/autobox/vetlan">Vetlan 430M</a>.</p>
+                <div class="img__wrap">
+                    <img class="img product__img news__img" src="/content/news/120318/inmax.jpg" alt="Поступление автобоксов INMAX Space 460">
+                </div>
+            </div><?php
         } ?>
     </div>
 </div>
