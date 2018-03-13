@@ -59,6 +59,11 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/gallery/backend/gallery-array.php")
         </div>
     </div>
 
+    <form action="/content/gallery/backend/send.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Send">
+    </form>
+
 
             <div class="catalog">
                 <?php foreach ($pages as $block): ?>
