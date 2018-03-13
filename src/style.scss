@@ -321,6 +321,14 @@
 @import "common.blocks/news/__title/news__title";
 @import "common.blocks/news/__link/news__link";
 
+//Галерея
+@import "common.blocks/gallery/gallery";
+@import "common.blocks/gallery/__item/gallery__item";
+@import "common.blocks/gallery/__name/gallery__name";
+@import "common.blocks/gallery/__info/gallery__info";
+@import "common.blocks/gallery/__tag-inner/gallery__tag-inner";
+@import "common.blocks/gallery/__tag/gallery__tag";
+
 //Партнеры
 @import "common.blocks/partner/partner";
 @import "common.blocks/partner/__inner/partner__inner";

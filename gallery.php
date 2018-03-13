@@ -22,8 +22,49 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/gallery/backend/gallery-array.php")
         if (!isset($auto)) {
             echo "<p class='text'>В этом разделе приведены фотографии наших клиентов, которые когда-либо приобретали у нас багажник или автобокс. Как Вы видите, у нас действительно есть выбор практически на любой автомобиль!</p>"; ?>
 
+    <div class="gallery">
+        <div class="gallery__item">
+            <?php echo $gallery[0]['img1'];?>
+            <a class="gallery__name" href="#">Ссылка на страницу с фото</a>
+            <div class="gallery__info">
+                <div class="gallery__tag-inner">
+                    <a class="gallery__tag" href="#">Huyndai Creta</a>
+                    <a class="gallery__tag" href="#">Атлант на водосток</a>
+                    <a class="gallery__tag" href="#">Vetlan 550M</a>
+                </div>
+                <p class="text">12.03.18</p>
+            </div>
+        </div>
+        <div class="gallery__item">
+            <?php echo $gallery[0]['img1'];?>
+            <a class="gallery__name" href="#">Ссылка на страницу с фото</a>
+            <div class="gallery__info">
+                <div class="gallery__tag-inner">
+                    <a class="gallery__tag" href="#">Lada Xray</a>
+                    <a class="gallery__tag" href="#">Vetlan 430M</a>
+                </div>
+                <p class="text">12.03.18</p>
+            </div>
+        </div>
+        <div class="gallery__item">
+            <?php echo $gallery[0]['img1'];?>
+            <a class="gallery__name" href="#">Ссылка на страницу с фото</a>
+            <div class="gallery__info">
+                <div class="gallery__tag-inner">
+                    <a class="gallery__tag" href="#">Toyota Land Cryiser</a>
+                    <a class="gallery__tag" href="#">Рейлинги</a>
+                </div>
+                <p class="text">12.03.18</p>
+            </div>
+        </div>
+    </div>
+
+
             <div class="catalog">
                 <?php foreach ($pages as $block): ?>
+
+
+
 
                     <div class="catalog__item">
                         <a href="gallery?auto=<?php echo $block['pagename']; ?>" class="catalog__item-link"></a>
