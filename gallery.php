@@ -60,7 +60,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/gallery/backend/gallery-array.php")
     </div>
 
     <form action="/content/gallery/backend/send.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
+        <input type="text" name="text">
+        <input type="file" name="file[]" id="file" multiple="multiple">
         <input type="submit" value="Send">
     </form>
 

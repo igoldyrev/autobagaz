@@ -1,24 +1,36 @@
 <?php
+$text = $_POST['text'];
+$text = $_REQUEST['text'];
+
+$name = mb_strtolower(str_replace(" ","",$text));
+
 $path = '/content/gallery/img1/'; // директория для загрузки
-$ext = array_pop(explode('.',$_FILES['file']['name'])); // расширение
-$new_name = time().'.'.$ext; // новое имя с расширением
-$full_path = $path.$new_name; // полный путь с новым именем и расширением
-echo "<pre>";
-echo var_dump($_FILES['file']);
-echo "</pre>";
 
-if($_FILES['file']['error'] == 0){
+$total = count($_FILES['file']['name']); //счетчик файлов
 
-    if(move_uploaded_file($_FILES['file']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$full_path)){
+for($i=0; $i<$total; $i++) {
+    $ext = array_pop(explode('.',$_FILES['file']['name'][$i])); //получение расширения
 
-        var_dump($_FILES['file']);
+    //Уникальные номера файлов
+    for ($j=1; $j<=$total; $j++) {
 
-        echo '<br>';
-        echo $full_path;
-        echo '<br>';
-        echo $new_name;
+        $rand = rand(0, 50);
+        $new_name = $name.'-'.date("d-m-Y").'-'.$rand.$ext ; // новое имя с расширением
+    }
 
-        // Если файл успешно загружен, то вносим в БД
-        // Можно сохранить $full_path (полный путь) или просто имя файла - $new_name
+    $tmpFilePath = $_FILES['file']['tmp_name'][$i]; //Получаем временный путь хранения файла
+
+    if ($tmpFilePath != ""){
+
+        $newFilePath = $_SERVER['DOCUMENT_ROOT'].$path.$new_name;
+
+        if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+
+            var_dump($newFilePath);
+            var_dump($new_name);
+
+            //Здесь писать код для добавления в БД
+
+        }
     }
 }
