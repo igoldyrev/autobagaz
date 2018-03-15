@@ -71,15 +71,15 @@ echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>";
                     while ($row = mysqli_fetch_assoc($res))
                     {?>
                         <div class="gallery__item">
-                            <img src="" class="gallery__img" alt="">
-                            <a href="" class="gallery__name"></a>
+                            <img src="<?php echo $row['img0']?>" class="gallery__img" alt="<?php echo $row['name']?>">
+                            <a href="/gallery/<?php echo $row['link']?>" class="gallery__name"><?php echo $row['name']?></a>
                             <div class="gallery__info">
                                 <div class="gallery__tag-inner">
-                                    <a href="" class="gallery__tag"></a>
-                                    <a href="" class="gallery__tag"></a>
-                                    <a href="" class="gallery__tag"></a>
+                                    <a href="#" class="gallery__tag"><?php echo $row['tag1']?></a>
+                                    <a href="#" class="gallery__tag"><?php echo $row['tag2']?></a>
+                                    <a href="#" class="gallery__tag"><?php echo $row['tag3']?></a>
                                 </div>
-                                <p class="text"></p>
+                                <p class="text"><?php echo $row['date']?></p>
                             </div>
                         </div><?php
                     } ?>
