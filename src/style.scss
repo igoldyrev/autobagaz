@@ -326,10 +326,15 @@
 //Галерея
 @import "common.blocks/gallery/gallery";
 @import "common.blocks/gallery/__item/gallery__item";
+@import "tablet.blocks/gallery/__item/gallery__item";
+@import "mobile.blocks/gallery/__item/gallery__item";
 @import "common.blocks/gallery/__name/gallery__name";
 @import "common.blocks/gallery/__info/gallery__info";
 @import "common.blocks/gallery/__tag-inner/gallery__tag-inner";
 @import "common.blocks/gallery/__tag/gallery__tag";
+@import "tablet.blocks/gallery/__tag/gallery__tag";
+@import "mobile.blocks/gallery/__tag/gallery__tag";
+@import "common.blocks/gallery/__img/gallery__img";
 
 //Партнеры
 @import "common.blocks/partner/partner";
