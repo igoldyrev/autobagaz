@@ -388,6 +388,9 @@ body {
 .form__input--call {
   width: 440px; }
 
+.form__input-file {
+  display: none; }
+
 @media only screen and (max-width: 767px) {
   .form__input {
     width: 100%; } }
@@ -466,6 +469,9 @@ body {
   left: 14px;
   font-size: 14px;
   color: #a4a4a4; }
+
+.form__label--file {
+  cursor: pointer; }
 
 .g-recaptcha {
   margin-top: 15px; }

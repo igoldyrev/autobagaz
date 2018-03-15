@@ -32,8 +32,11 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
                 <input type="text" name="tagthree" class="form__input" placeholder="Введите третье ключевое слово (необязательно)">
                 <label for="tagthree" class="form__label--shown">Введите третье ключевое слово</label>
             </div>
-
-            <input type="file" name="photos[]" id="photos" multiple="multiple">
+            <span class="form__label">Выберите фотографии (до 10 штук):</span>
+            <div class="form__input-wrap">
+                <input type="file" name="photos[]" class="form__input-file" id="photos" multiple="multiple">
+                <label for="photos" class="form__label form__label--file">Выбрать фото</label>
+            </div>
             <input class='button button__zakaz' id='submit' type='submit' value='Добавить запись'>
         </form>
     </div>
