@@ -33,7 +33,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
                 <label for="tagthree" class="form__label--shown">Введите третье ключевое слово</label>
             </div>
 
-            <input type="file" name="file[]" id="file" multiple="multiple">
+            <input type="file" name="photos[]" id="photos" multiple="multiple">
             <input class='button button__zakaz' id='submit' type='submit' value='Добавить запись'>
         </form>
     </div>

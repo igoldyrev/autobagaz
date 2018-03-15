@@ -34,18 +34,17 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
 
     $namemini = mb_strtolower(str_replace(" ","",$name)); // делаем введенное имя подходящим для имени файла
 
-    $path = '/content/gallery/img1/'; // директория для загрузки
+    $path = '/uploads/gallery/'; // директория для загрузки
 
-    $total = count($_FILES['file']['name']); //счетчик файлов
+    $total = count($_FILES['photos']['name']); //счетчик файлов
 
     //Пустые массивы для хранения переменных img0 - img9 и адресов изображений
     $arrimg = array();
     $arrurl = array();
 
-
     //цикл, который заносит адреса загруженных файлов в таблицу БД
     for($i=0; $i<$total; $i++) {
-        $ext = array_pop(explode('.',$_FILES['file']['name'][$i])); //получение расширения
+        $ext = array_pop(explode('.',$_FILES['photos']['name'][$i])); //получение расширения
 
         //Уникальные номера файлов для избежания перезаписи
         for ($j=1; $j<=$total; $j++) {
@@ -54,7 +53,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
             $new_name = $namemini.'-'.date("d-m-Y").'-'.$rand.'.'.$ext ; // новое имя с расширением
         }
 
-        $tmpFilePath = $_FILES['file']['tmp_name'][$i]; //Получаем временный путь хранения файла
+        $tmpFilePath = $_FILES['photos']['tmp_name'][$i]; //Получаем временный путь хранения файла
 
         if ($tmpFilePath != ""){
 
@@ -132,9 +131,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
         $sql_name = "INSERT INTO photos (date, name, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6], $arrimg[7], $arrimg[8], $arrimg[9]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]', '$arrurl[7]', '$arrurl[8]', '$arrurl[9]')";
         mysqli_query($connect, $sql_name);
 
-    }
-
-    ?>
+    } ?>
     <div class="admin__link-wrap clearfix">
         <a class="admin__link" href="/admin/gallery/galleryadd/addform">Добавить еще одну запись</a>
         <a class="admin__link" href="/admin/index.php">Вернуться на главную админки</a>
