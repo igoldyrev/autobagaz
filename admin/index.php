@@ -21,6 +21,13 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
     </div>
 
     <div class="admin clearfix">
+        <?php echo "<h3 class='title title-h3'>Панель управления галереей</h3>"; ?>
+        <a class="admin__link" href="/admin/gallery/galleryadd/addform">Добавить запись в галерею</a>
+        <a class="admin__link" href="/admin/gallery/galleryedit/galleryedit">Редактировать записи в галерее</a>
+        <a class="admin__link" href="/admin/gallery/gallerydelete/gallerydelete">Удалить записи из галереи</a>
+    </div>
+
+    <div class="admin clearfix">
         <?php echo "<h3 class='title title-h3'>Панель управления новостями</h3>"; ?>
         <a class="admin__link" href="/admin/news/newsdelete.php">Удалить новости</a>
     </div>
