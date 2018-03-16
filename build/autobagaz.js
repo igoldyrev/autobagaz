@@ -208,12 +208,6 @@ $('.gallery__tag').each(function () {
     }
 });
 
-// $('.rewiew__answer').each(function () {
-//     if ($(this).text() === '') {
-//         $(this).remove();
-//     }
-// });
-
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
