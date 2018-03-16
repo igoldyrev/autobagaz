@@ -57,8 +57,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
         //Уникальные номера файлов для избежания перезаписи
         for ($j=1; $j<=$total; $j++) {
 
-            $rand = rand(0, 50);
-            $new_name = $namemini.'-'.date("d-m-Y").'-'.$rand.'.'.$ext ; // новое имя с расширением
+            $rand = rand(0, 100);
+            $new_name = $translitname.'-'.date("d-m-Y").'-'.$rand.'.'.$ext ; // новое имя с расширением
         }
 
         $tmpFilePath = $_FILES['photos']['tmp_name'][$i]; //Получаем временный путь хранения файла
@@ -86,7 +86,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
     // Создаем уникальный адрес для страниц
     $dateurl = $date;
     $dateurlmini = str_replace("-", "", $dateurl);
-    $url = $translitname.'-'.$dateurlmini;
+    $randurl = rand(0, 20);
+    $url = $translitname.'-'.$dateurlmini.'-'.$randurl;
 
     // Условия записи в БД в зависимости от количества отправленных файлов
     if ($total == '1') {
