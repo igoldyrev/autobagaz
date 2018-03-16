@@ -77,7 +77,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
                             <a href="/gallery/<?php echo $row['link']?>" class="gallery__name"><?php echo $row['name']?></a>
                             <div class="gallery__info">
                                 <div class="gallery__tag-inner">
-                                    <a href="#" class="gallery__tag"><?php echo $row['tag1']?></a>
+                                    <a href="/tag.php?tag=<?php echo $row['tag1']?>" class="gallery__tag"><?php echo $row['tag1']?></a>
                                     <a href="#" class="gallery__tag"><?php echo $row['tag2']?></a>
                                     <a href="#" class="gallery__tag"><?php echo $row['tag3']?></a>
                                 </div>
