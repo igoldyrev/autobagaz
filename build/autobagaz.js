@@ -72,7 +72,8 @@ __webpack_require__(2);
 __webpack_require__(3);
 __webpack_require__(4);
 __webpack_require__(5);
-module.exports = __webpack_require__(6);
+__webpack_require__(6);
+module.exports = __webpack_require__(7);
 
 
 /***/ }),
@@ -196,6 +197,25 @@ $(function () {
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$('.gallery__tag').each(function () {
+    if ($(this).text() === '') {
+        $(this).remove();
+    }
+});
+
+// $('.rewiew__answer').each(function () {
+//     if ($(this).text() === '') {
+//         $(this).remove();
+//     }
+// });
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
