@@ -78,8 +78,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
                             <div class="gallery__info">
                                 <div class="gallery__tag-inner">
                                     <a href="/tag.php?tag=<?php echo $row['tag1']?>" class="gallery__tag"><?php echo $row['tag1']?></a>
-                                    <a href="#" class="gallery__tag"><?php echo $row['tag2']?></a>
-                                    <a href="#" class="gallery__tag"><?php echo $row['tag3']?></a>
+                                    <a href="/tag.php?tag=<?php echo $row['tag2']?>" class="gallery__tag"><?php echo $row['tag2']?></a>
+                                    <a href="/tag.php?tag=<?php echo $row['tag3']?>" class="gallery__tag"><?php echo $row['tag3']?></a>
                                 </div>
                                 <p class="text"><?php echo $row['date']?></p>
                             </div>
@@ -124,6 +124,12 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
                         <img class="img good__img news__img" src="<?php echo $row['img7'] ?>" alt="<?php echo $row['name'] ?>">
                         <img class="img good__img news__img" src="<?php echo $row['img8'] ?>" alt="<?php echo $row['name'] ?>">
                         <img class="img good__img news__img" src="<?php echo $row['img9'] ?>" alt="<?php echo $row['name'] ?>">
+                    </div>
+                    <p class="text">Найти похожие записи:</p>
+                    <div class="gallery__tag-inner">
+                        <a href="/tag.php?tag=<?php echo $row['tag1']?>" class="gallery__tag"><?php echo $row['tag1']?></a>
+                        <a href="/tag.php?tag=<?php echo $row['tag2']?>" class="gallery__tag"><?php echo $row['tag2']?></a>
+                        <a href="/tag.php?tag=<?php echo $row['tag3']?>" class="gallery__tag"><?php echo $row['tag3']?></a>
                     </div>
                 </div><?php
             }
