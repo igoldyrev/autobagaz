@@ -73,7 +73,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
                     while ($row = mysqli_fetch_assoc($res))
                     {?>
                         <div class="gallery__item">
-                            <img src="<?php echo $row['img0']?>" class="gallery__img" alt="<?php echo $row['name']?>">
+                        <a href="/gallery/<?php echo $row['link']?>"><img src="<?php echo $row['img0']?>" class="gallery__img" alt="<?php echo $row['name']?>"></a>
                             <a href="/gallery/<?php echo $row['link']?>" class="gallery__name"><?php echo $row['name']?></a>
                             <div class="gallery__info">
                                 <div class="gallery__tag-inner">
