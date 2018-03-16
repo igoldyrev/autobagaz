@@ -5,9 +5,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
-echo "<title> $titleconst"; echo $keywords[2][title]; echo "</title>";
-echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
-echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>"; ?>
+include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"); ?>
 
 <div class="wrapper">
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/left-nav/left-nav.html"); ?>
@@ -20,6 +18,10 @@ echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>";
         $auto = $_GET['auto'];
 
         if (!isset($auto)){
+            echo "<title> $titleconst"; echo $keywords[2][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>";
+
             echo "<h1 class='title title-h1'>Галерея работ</h1>";
             echo "<p class='text'>В этом разделе приведены фотографии наших клиентов, которые когда-либо приобретали у нас багажник или автобокс. Как Вы видите, у нас действительно есть выбор практически на любой автомобиль!</p>";
 
@@ -98,6 +100,32 @@ echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>";
                         echo '<a class="link" href="gallery.php?page='.$page.'">'.$page.'</a> &nbsp;';
                     }
                 }
+            }
+        }
+
+        $query = "SELECT * FROM `photos` ORDER BY `id` DESC";
+        $res = mysqli_query($connect, $query);
+
+        while ($row = mysqli_fetch_assoc($res)){
+
+            if ($auto == $row['link']){
+                echo "<title> $titleconst"; echo $row['name']; echo "</title>"; ?>
+
+                <div class="news__inner">
+                    <h2 class="title title-h2"><?php echo $row['name'] ?></h2>
+                    <div class="img__wrap">
+                        <img class="img good__img news__img" src="<?php echo $row['img0'] ?>" alt="<?php echo $row['name'] ?>">
+                        <img class="img good__img news__img" src="<?php echo $row['img1'] ?>" alt="<?php echo $row['name'] ?>">
+                        <img class="img good__img news__img" src="<?php echo $row['img2'] ?>" alt="<?php echo $row['name'] ?>">
+                        <img class="img good__img news__img" src="<?php echo $row['img3'] ?>" alt="<?php echo $row['name'] ?>">
+                        <img class="img good__img news__img" src="<?php echo $row['img4'] ?>" alt="<?php echo $row['name'] ?>">
+                        <img class="img good__img news__img" src="<?php echo $row['img5'] ?>" alt="<?php echo $row['name'] ?>">
+                        <img class="img good__img news__img" src="<?php echo $row['img6'] ?>" alt="<?php echo $row['name'] ?>">
+                        <img class="img good__img news__img" src="<?php echo $row['img7'] ?>" alt="<?php echo $row['name'] ?>">
+                        <img class="img good__img news__img" src="<?php echo $row['img8'] ?>" alt="<?php echo $row['name'] ?>">
+                        <img class="img good__img news__img" src="<?php echo $row['img9'] ?>" alt="<?php echo $row['name'] ?>">
+                    </div>
+                </div><?php
             }
         } ?>
     </div>
