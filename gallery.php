@@ -73,13 +73,13 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
                     while ($row = mysqli_fetch_assoc($res))
                     {?>
                         <div class="gallery__item">
-                        <a href="/gallery/<?php echo $row['link']?>"><img src="<?php echo $row['img0']?>" class="gallery__img" alt="<?php echo $row['name']?>"></a>
+                            <a href="/gallery/<?php echo $row['link']?>"><img src="<?php echo $row['img0']?>" class="gallery__img" alt="<?php echo $row['name']?>"></a>
                             <a href="/gallery/<?php echo $row['link']?>" class="gallery__name"><?php echo $row['name']?></a>
                             <div class="gallery__info">
                                 <div class="gallery__tag-inner">
-                                    <a href="/tag.php?tag=<?php echo $row['tag1']?>" class="gallery__tag"><?php echo $row['tag1']?></a>
-                                    <a href="/tag.php?tag=<?php echo $row['tag2']?>" class="gallery__tag"><?php echo $row['tag2']?></a>
-                                    <a href="/tag.php?tag=<?php echo $row['tag3']?>" class="gallery__tag"><?php echo $row['tag3']?></a>
+                                    <a href="/tags.php?tag=<?php echo $row['tag1']?>" class="gallery__tag"><?php echo $row['tag1']?></a>
+                                    <a href="/tags.php?tag=<?php echo $row['tag2']?>" class="gallery__tag"><?php echo $row['tag2']?></a>
+                                    <a href="/tags.php?tag=<?php echo $row['tag3']?>" class="gallery__tag"><?php echo $row['tag3']?></a>
                                 </div>
                                 <p class="text"><?php echo $row['date']?></p>
                             </div>
@@ -127,9 +127,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
                     </div>
                     <p class="text">Найти похожие записи:</p>
                     <div class="gallery__tag-inner">
-                        <a href="/tag.php?tag=<?php echo $row['tag1']?>" class="gallery__tag"><?php echo $row['tag1']?></a>
-                        <a href="/tag.php?tag=<?php echo $row['tag2']?>" class="gallery__tag"><?php echo $row['tag2']?></a>
-                        <a href="/tag.php?tag=<?php echo $row['tag3']?>" class="gallery__tag"><?php echo $row['tag3']?></a>
+                        <a href="/tags.php?tag=<?php echo $row['tag1']?>" class="gallery__tag"><?php echo $row['tag1']?></a>
+                        <a href="/tags.php?tag=<?php echo $row['tag2']?>" class="gallery__tag"><?php echo $row['tag2']?></a>
+                        <a href="/tags.php?tag=<?php echo $row['tag3']?>" class="gallery__tag"><?php echo $row['tag3']?></a>
                     </div>
                 </div><?php
             }
