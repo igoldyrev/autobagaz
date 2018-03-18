@@ -1709,7 +1709,8 @@ img[src=""] {
   margin-bottom: 20px; }
 
 .news__img {
-  border: 1px solid #d9d9d9; }
+  border: 1px solid #d9d9d9;
+  border-radius: 10px; }
 
 .news__item {
   position: relative;
@@ -1872,7 +1873,8 @@ img[src=""] {
 
 .gallery__img {
   width: 100%;
-  height: auto; }
+  height: auto;
+  border-radius: 10px; }
 
 .partner {
   position: relative;
