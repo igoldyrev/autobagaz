@@ -26,7 +26,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
             echo "<p class='text'>В этом разделе приведены фотографии наших клиентов, которые когда-либо приобретали у нас багажник или автобокс. Как Вы видите, у нас действительно есть выбор практически на любой автомобиль!</p>";
 
             // Количество записей на странице
-            $on_page = 9;
+            $on_page = 12;
 
             // Получаем количество записей таблицы
             $query = "SELECT COUNT(*) FROM photos";
@@ -125,11 +125,18 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
                         <img class="img good__img news__img" src="<?php echo $row['img8'] ?>" alt="<?php echo $row['name'] ?>">
                         <img class="img good__img news__img" src="<?php echo $row['img9'] ?>" alt="<?php echo $row['name'] ?>">
                     </div>
-                    <p class="text">Найти похожие записи:</p>
-                    <div class="gallery__tag-inner">
-                        <a href="/tags.php?tag=<?php echo $row['tag1']?>" class="gallery__tag"><?php echo $row['tag1']?></a>
-                        <a href="/tags.php?tag=<?php echo $row['tag2']?>" class="gallery__tag"><?php echo $row['tag2']?></a>
-                        <a href="/tags.php?tag=<?php echo $row['tag3']?>" class="gallery__tag"><?php echo $row['tag3']?></a>
+                    <div class="gallery__info">
+                        <div class="">
+                            <p class="text">Найти похожие записи:</p>
+                            <div class="">
+                                <a href="/tags.php?tag=<?php echo $row['tag1']?>" class="gallery__tag"><?php echo $row['tag1']?></a>
+                                <a href="/tags.php?tag=<?php echo $row['tag2']?>" class="gallery__tag"><?php echo $row['tag2']?></a>
+                                <a href="/tags.php?tag=<?php echo $row['tag3']?>" class="gallery__tag"><?php echo $row['tag3']?></a>
+                            </div>
+                        </div>
+                        <div class="">
+                            <p class="text">Дата публикации: <span><?php echo $row['date']?></span></p>
+                        </div>
                     </div>
                 </div><?php
             }
