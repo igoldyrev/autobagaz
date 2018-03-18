@@ -2144,3 +2144,9 @@ img[src=""] {
   margin: 15px 0;
   padding: 10px;
   border: 1px solid #d9d9d9; }
+
+.admin__img {
+  display: block;
+  width: 120px;
+  margin: 10px 0;
+  cursor: default; }
