@@ -122,7 +122,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
 
     }elseif ($total == '7') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6]) VALUES ('$date', '$name', '$url', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]')";
+        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree',  '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '8') {
