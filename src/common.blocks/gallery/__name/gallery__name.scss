@@ -1,0 +1,16 @@
+.gallery__name {
+  display: inline-block;
+
+  padding: 15px;
+
+  text-decoration: none;
+  color: inherit;
+
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+    color: $subcolor;
+    transition:0.5s ease-in-out;
+  }
+}

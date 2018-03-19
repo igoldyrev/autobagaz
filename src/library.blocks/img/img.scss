@@ -2,3 +2,7 @@
   margin: 5px 15px;
   cursor: pointer;
 }
+
+img[src=""] {
+  display: none;
+}

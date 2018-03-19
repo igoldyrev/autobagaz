@@ -21,6 +21,7 @@ module.exports = {
                 './src/common.blocks/tabs/special__tab/special__tab.js',
                 './src/common.blocks/rewiew/__answer/rewiew__answer.js',
                 './src/common.blocks/modal-call/modal-call.js',
+                './src/common.blocks/gallery/gallery.js',
                 './src/style.scss'
 
         ],

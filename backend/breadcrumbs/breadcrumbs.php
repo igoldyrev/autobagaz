@@ -2,7 +2,6 @@
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/arrays/level2.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/arrays/level3.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/arrays/news.php");
-include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/arrays/gallery.php");
 
 $get_url = $_SERVER['REQUEST_URI'];
 $url_parts = explode( '/', parse_url($get_url, PHP_URL_PATH) );
@@ -16,20 +15,6 @@ foreach ($news as $newsitem):
             <a class="breadcrumbs__link" href="/">Главная страница</a>&#8594;
             <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>">Новости и статьи</a>&#8594;
             <span class="breadcrumbs__text"><?php echo $newsitem['name']; ?></span>
-        </div><?php
-
-    }
-
-endforeach;
-
-foreach ($gallery as $galleryitem):
-
-    if($get_url == $galleryitem['link']) { ?>
-
-        <div class="breadcrumbs">
-            <a class="breadcrumbs__link" href="/">Главная страница</a>&#8594;
-            <a class="breadcrumbs__link" href="<?php echo '/'; echo $url_parts[1]; ?>">Галерея работ</a>&#8594;
-            <span class="breadcrumbs__text"><?php echo $galleryitem['name']; ?></span>
         </div><?php
 
     }

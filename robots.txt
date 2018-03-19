@@ -8,6 +8,7 @@ Disallow: /googlea56fc622b0027217.html
 Disallow: /yandex_febcf56753a9e525.html
 Disallow: /LICENSE
 Disallow: /README.md
+Disallow: /tags.php
 Sitemap: https://autobagaz.ru/sitemap.xml
 Host: https://autobagaz.ru
 

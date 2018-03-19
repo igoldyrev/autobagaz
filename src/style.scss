@@ -81,6 +81,7 @@
 @import "library.blocks/form/__input/_wrap/form__input_wrap";
 @import "library.blocks/form/__input/form__input";
 @import "library.blocks/form/__input/_call/form__input_call";
+@import "library.blocks/form/__input-file/form__input-file";
 @import "mobile.blocks/form/__input/form__input";
 @import "library.blocks/form/__checkbox/form__checkbox";
 @import "common.blocks/form/__checkbox/form__checkbox";
@@ -93,6 +94,7 @@
 @import "library.blocks/form/__label/form__label";
 @import "library.blocks/form/__label/_checkbox/form__label_checkbox";
 @import "library.blocks/form/__label/_shown/form__label_shown";
+@import "library.blocks/form/__label/_file/form__label_file";
 @import "library.blocks/form/g-recaptcha";
 
 //Кнопки
@@ -321,6 +323,19 @@
 @import "common.blocks/news/__title/news__title";
 @import "common.blocks/news/__link/news__link";
 
+//Галерея
+@import "common.blocks/gallery/gallery";
+@import "common.blocks/gallery/__item/gallery__item";
+@import "tablet.blocks/gallery/__item/gallery__item";
+@import "mobile.blocks/gallery/__item/gallery__item";
+@import "common.blocks/gallery/__name/gallery__name";
+@import "common.blocks/gallery/__info/gallery__info";
+@import "common.blocks/gallery/__tag-inner/gallery__tag-inner";
+@import "common.blocks/gallery/__tag/gallery__tag";
+@import "tablet.blocks/gallery/__tag/gallery__tag";
+@import "mobile.blocks/gallery/__tag/gallery__tag";
+@import "common.blocks/gallery/__img/gallery__img";
+
 //Партнеры
 @import "common.blocks/partner/partner";
 @import "common.blocks/partner/__inner/partner__inner";
@@ -378,3 +393,4 @@
 @import "common.blocks/admin/__link/admin__link";
 @import "common.blocks/admin/__link/_back/admin__link_back";
 @import "common.blocks/admin/__link-wrap/admin__link-wrap";
+@import "common.blocks/admin/__img/admin__img";
