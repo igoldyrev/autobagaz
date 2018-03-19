@@ -57,7 +57,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
         //Уникальные номера файлов для избежания перезаписи
         for ($j=1; $j<=$total; $j++) {
 
-            $rand = rand(0, 100);
+            $rand = rand(0, 200);
             $new_name = $translitname.'-'.date("d-m-Y").'-'.$rand.'.'.$ext ; // новое имя с расширением
         }
 
