@@ -9,6 +9,10 @@ Disallow: /yandex_febcf56753a9e525.html
 Disallow: /LICENSE
 Disallow: /README.md
 Disallow: /tags.php
+Disallow: /zakaz
+Disallow: /vprokat
+Disallow: /rewiew
+Disallow: /call
 Sitemap: https://autobagaz.ru/sitemap.xml
 Host: https://autobagaz.ru
 
