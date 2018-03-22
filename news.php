@@ -119,9 +119,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                 <p class="text">Оригинальный дизайн, гармонично дополняющий облик автомобиля.</p>
                 <p class="text">Материалы и комплектующие высокого качества – упрочненный алюминиевый профиль с защитно-декоративным анодным покрытием, и АБС - пластик с защитным слоем, предотвращающим выгорание и обесцвечивание.</p>
                 <div class="img__wrap">
-                    <img class="img good__img news__img" src="/content/gallery/20170727_7_xray.jpg" alt="x-ray">
-                    <img class="img good__img news__img" src="/content/gallery/20170602_4_xray.jpg" alt="x-ray">
-                    <img class="img good__img news__img" src="/content/gallery/20170303_4_xray.jpg" alt="x-ray">
+                    <img class="img good__img news__img" src="/content/news/260117/xray_1.jpg" alt="x-ray">
+                    <img class="img good__img news__img" src="/content/news/260117/xray_2.jpg" alt="x-ray">
+                    <img class="img good__img news__img" src="/content/news/260117/xray_3.jpg" alt="x-ray">
                 </div>
             </div><?php
 
