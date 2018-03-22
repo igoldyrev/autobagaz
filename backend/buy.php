@@ -58,6 +58,42 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
         <div class="good-message">
             <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
         </div> <?php
+    } elseif ($id == 's4') {
+        $tovar = $_SESSION['sales'][3][name];
+        echo "<title>Заказ товара "; echo $_SESSION['sales'][3][name]; echo "</title>";?>
+        <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+        </div> <?php
+    } elseif ($id == 's5') {
+        $tovar = $_SESSION['sales'][4][name];
+        echo "<title>Заказ товара "; echo $_SESSION['sales'][4][name]; echo "</title>";?>
+        <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+        </div> <?php
+    } elseif ($id == 's6') {
+        $tovar = $_SESSION['sales'][5][name];
+        echo "<title>Заказ товара "; echo $_SESSION['sales'][5][name]; echo "</title>";?>
+        <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+        </div> <?php
+    } elseif ($id == 's7') {
+        $tovar = $_SESSION['sales'][6][name];
+        echo "<title>Заказ товара "; echo $_SESSION['sales'][6][name]; echo "</title>";?>
+        <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+        </div> <?php
+    } elseif ($id == 's8') {
+        $tovar = $_SESSION['sales'][7][name];
+        echo "<title>Заказ товара "; echo $_SESSION['sales'][7][name]; echo "</title>";?>
+        <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+        </div> <?php
+    } elseif ($id == 's9') {
+        $tovar = $_SESSION['sales'][8][name];
+        echo "<title>Заказ товара "; echo $_SESSION['sales'][8][name]; echo "</title>";?>
+        <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+        </div> <?php
     } elseif ($id == 'yuago') {
         $tovar = $_SESSION['yuago'][name];
         echo "<title>Заказ товара "; echo $_SESSION['yuago'][name]; echo "</title>";?>
