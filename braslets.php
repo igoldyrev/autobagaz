@@ -25,7 +25,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 </div>
             </div>
             <div class="good__price">
-                <span class="text"><?php echo $braslet['desc1']; ?> <span class="text"><strong><?php echo $braslet['price1']; ?></strong></span></span>
+                <span class="text"><?php echo $braslet['desc1']; ?> <span class="text"<?php echo $styleprice ?>><strong><?php echo $braslet['price1']; ?></strong></span></span>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $braslet['id1']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $braslet['id1']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -40,7 +40,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 </div>
             </div>
             <div class="good__price">
-                <span class="text"><?php echo $braslet['desc2']; ?> <span class="text"><strong><?php echo $braslet['price2']; ?></strong></span></span>
+                <span class="text"><?php echo $braslet['desc2']; ?> <span class="text"<?php echo $styleprice ?>><strong><?php echo $braslet['price2']; ?></strong></span></span>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $braslet['id2']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $braslet['id2']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -55,7 +55,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 </div>
             </div>
             <div class="good__price">
-                <span class="text"><?php echo $braslet['desc3']; ?> <span class="text"><strong><?php echo $braslet['price3']; ?></strong></span></span>
+                <span class="text"><?php echo $braslet['desc3']; ?> <span class="text"<?php echo $styleprice ?>><strong><?php echo $braslet['price3']; ?></strong></span></span>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $braslet['id3']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $braslet['id3']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>

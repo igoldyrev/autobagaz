@@ -29,7 +29,9 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <p class="text"><?php echo $item['desc']; ?></p>
             </div>
             <div class="good__price">
-                <p class="text"><strong><?php echo $item['price']; ?></strong></p>
+                <div class="good__price-info">
+                    <p class="text" <?php echo $styleprice ?>><strong><?php echo $item['price']; ?></strong></p>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_about'); return true" href="/product/<?php echo $item['id']; ?>" class="button button__about" >Подробнее</a>
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
