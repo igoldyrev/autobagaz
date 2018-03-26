@@ -11,6 +11,10 @@ if ($checkedmsgon == 'checked'){
     $checkedstock = "checked";
 }elseif ($checkedstock == 'none'){
     $checkedstock = "";
+}elseif ($checkedprice == 'checked'){
+    $checkedprice = "checked";
+}elseif ($checkedprice == 'none'){
+    $checkedprice = "";
 } ?>
 
 <div class="admin__container">
@@ -26,6 +30,10 @@ if ($checkedmsgon == 'checked'){
             <div class="form__input-wrap clearfix">
                 <input type="checkbox" name="stock_on" class="form__checkbox" id="stockon" <?php echo $checkedstock ?>>
                 <label for="stockon" class="form__label--checkbox">Включить/выключить блок с акцией</label>
+            </div>
+            <div class="form__input-wrap clearfix">
+                <input type="checkbox" name="price_on" class="form__checkbox" id="priceon" <?php echo $checkedprice ?>>
+                <label for="priceon" class="form__label--checkbox">Включить/выключить цены на сайте</label>
             </div>
             <input type="submit" class="button button__zakaz" value="Включить/выключить блоки">
         </form>

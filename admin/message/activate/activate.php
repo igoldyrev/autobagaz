@@ -34,6 +34,19 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
         $contents = file_get_contents($config);
         $contents .= "$checkedstock = 'none';\n ";
         file_put_contents($config, $contents);
+    }
+    if(isset($_POST['price_on']) == true ){
+        echo '<h2 class="title title-h2">Цены на сайте показываются</h2>';
+        $checkedprice = '$checkedprice';
+        $contents = file_get_contents($config);
+        $contents .= "$checkedprice = 'checked';\n ";
+        file_put_contents($config, $contents);
+    } elseif (isset($_POST['price_on']) == false){
+        echo '<h2 class="title title-h2">Цены на сайте НЕ показываются</h2>';
+        $checkedprice = '$checkedprice';
+        $contents = file_get_contents($config);
+        $contents .= "$checkedprice = 'none';\n ";
+        file_put_contents($config, $contents);
     } ?>
     <div class="admin__link-wrap clearfix">
         <a class="admin__link" href="/admin/message/activate/msgactivate.php">Вернуться на предыдущую страницу</a>
