@@ -114,7 +114,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php"); ?>
                 </div>
             </div>
 
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/sales/sales.php"); ?>
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/sales/sales-index.php"); ?>
             <a href="/special-offers" class="link-green">Все предложения</a>
             <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/newslist.php"); ?>
 
