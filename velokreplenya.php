@@ -61,7 +61,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                 </div>
                 <p class="text"><?php echo $velokrysha[0]['desc']; ?></p>
                 <div class="good__price">
-                    <p class="text"><strong><?php echo $velokrysha[0]['price']; ?></strong></p>
+                    <div class="good__price-info">
+                        <p class="text"<?php echo $styleprice ?>><strong><?php echo $velokrysha[0]['price']; ?></strong></p>
+                    </div>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[0]['id']; ?>" class="button button__buy" >Заказать</a>
                         <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $velokrysha[0]['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -79,7 +81,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                 </div></div>
                 <div class="good__price">
                     <div class="good__price-info">
-                    <p class="text"><strong><?php echo $velokrysha[1]['price']; ?></strong></p>
+                        <p class="text"<?php echo $styleprice ?>><strong><?php echo $velokrysha[1]['price']; ?></strong></p>
                     </div>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[1]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -101,7 +103,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                         <li>Соответствие нормам City Crash.</li>
                     </ul>
                 <div class="good__price">
-                    <p class="text"><strong><?php echo $velokrysha[2]['price']; ?></strong></p>
+                    <div class="good__price-info">
+                        <p class="text"<?php echo $styleprice ?>><strong><?php echo $velokrysha[2]['price']; ?></strong></p>
+                    </div>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[2]['id']; ?>" class="button button__buy" >Заказать</a>
                         <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $velokrysha[2]['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -125,7 +129,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                     <li>Запирает на ключ велосипед и насадку на багажнике.</li>
                 </ul>
                 <div class="good__price">
-                    <p class="text"><strong><?php echo $velokrysha[3]['price']; ?></strong></p>
+                    <div class="good__price-info">
+                        <p class="text"<?php echo $styleprice ?>><strong><?php echo $velokrysha[3]['price']; ?></strong></p>
+                    </div>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[3]['id']; ?>" class="button button__buy" >Заказать</a>
                         <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $velokrysha[3]['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -151,7 +157,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                     <p class="text"><?php echo $velofarkop[0]['desc1']; ?></p>
                     <p class="text"><?php echo $velofarkop[0]['desc2']; ?></p>
                     <div class="good__price">
-                        <p class="text"><strong><?php echo $velofarkop[0]['price']; ?></strong></p>
+                        <div class="good__price-info">
+                            <p class="text"<?php echo $styleprice ?>><strong><?php echo $velofarkop[0]['price']; ?></strong></p>
+                        </div>
                         <div class="good__buttons">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velofarkop[0]['id']; ?>" class="button button__buy" >Заказать</a>
                             <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $velofarkop[0]['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -180,7 +188,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                         <li>Запираемое крепление для автомобилей с навесным замком.</li>
                     </ul>
                     <div class="good__price">
-                        <p class="text"><strong><?php echo $velofarkop[1]['price']; ?></strong></p>
+                        <div class="good__price-info">
+                            <p class="text"<?php echo $styleprice ?>><strong><?php echo $velofarkop[1]['price']; ?></strong></p>
+                        </div>
                         <div class="good__buttons">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velofarkop[1]['id']; ?>" class="button button__buy" >Заказать</a>
                             <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $velofarkop[1]['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
