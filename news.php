@@ -420,6 +420,30 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                     <img class="img product__img news__img" src="/content/news/120318/inmax.jpg" alt="Поступление автобоксов INMAX Space 460">
                 </div>
             </div><?php
+        } elseif ($newspage == 'help_birds') {
+            echo "<title> $titleconst"; echo $news[17][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $news[17][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $news[17][keywords]; echo "'/>"; ?>
+
+            <div class="news__inner">
+                <h1 class="title title-h1">Акция "Помоги крылатым"!</h1>
+                <p class="text">Магазин "AutoBagaz" запускает акцию "Помоги крылатым"!</p>
+                <p class="text">Делаем кормушки, скворечники, поилки вместе с "AutoBagaz".</p>
+                <p class="text">Кормушка для птиц - это одна из немногих реальных возможностей помочь природе. Ведь чем больше птиц - тем больше песен мы услышим весной, тем больше деревьев будет защищено от вредителей, тем выше будет количество самой разной живности в наших парках и лесах.</p>
+                <p class="text">Приятный бонус от магазина "AutoBagaz" всем участникам акции скидка 20% в нашем магазине.</p>
+                <p class="text">Проводим голосование на лучшую кормушку. Победитель получает багажник на автомобиль!</p>
+                <p class="text">Порядок проведения акции "Помоги крылатым":</p>
+                <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Акция проводится в период с 25 марта по 1 мая 2018г.</p>
+                <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Для того что бы мы смогли определить что вы являетесь участником акции необходимо разместить на скворечнике или кормушке текст: "Autobagaz.ru".</p>
+                <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Сделать фото кормушки и выставить в нашей
+                    <a class="link" href="https://vk.com/autobagaz" target="_blank">группе</a> в комментариях к <a class="link" href="https://vk.com/autobagaz?w=wall-86325723_1218" target="_blank">посту</a>.</p>
+                <p class="text">Задавайте вопросы по телефону: <a class="link" href="tel:89504510449">89504510449</a></p>
+
+
+                <div class="img__wrap">
+                    <img class="img product__img news__img" src="/content/news/260318/help-bird.jpg" alt="Помоги крылатым с Autobagaz.ru">
+                </div>
+            </div><?php
         } ?>
     </div>
 </div>
