@@ -13,8 +13,28 @@ if ($checkedstock == 'checked'){
     $stylestock = 'style="display: none; "';
 }
 //Условия для цен на сайте
-if ($checkedprice == 'checked'){
-    $styleprice = 'style="display: block; "';
-}elseif ($checkedprice == 'none'){
-    $styleprice = 'style="display: none; "';
+if ($checkedpricebagazh == 'checked'){
+    $stylepricebagazh = 'style="display: block; "';
+}elseif ($checkedpricebagazh == 'none'){
+    $stylepricebagazh = 'style="display: none; "';
+}
+if ($checkedpriceautobox == 'checked'){
+    $stylepriceautobox = 'style="display: block; "';
+}elseif ($checkedpriceautobox == 'none'){
+    $stylepriceautobox = 'style="display: none; "';
+}
+if ($checkedpricevelo == 'checked'){
+    $stylepricevelo = 'style="display: block; "';
+}elseif ($checkedpricevelo == 'none'){
+    $stylepricevelo = 'style="display: none; "';
+}
+if ($checkedpriceskies == 'checked'){
+    $stylepriceskies = 'style="display: block; "';
+}elseif ($checkedpriceskies == 'none'){
+    $stylepriceskies = 'style="display: none; "';
+}
+if ($checkedpricebraslet == 'checked'){
+    $stylepricebraslet = 'style="display: block; "';
+}elseif ($checkedpricebraslet == 'none'){
+    $stylepricebraslet = 'style="display: none; "';
 }

@@ -62,7 +62,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                 <p class="text"><?php echo $velokrysha[0]['desc']; ?></p>
                 <div class="good__price">
                     <div class="good__price-info">
-                        <p class="text"<?php echo $styleprice ?>><strong><?php echo $velokrysha[0]['price']; ?></strong></p>
+                        <p class="text"<?php echo $stylepricevelo ?>><strong><?php echo $velokrysha[0]['price']; ?></strong></p>
                     </div>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[0]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -81,7 +81,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                 </div></div>
                 <div class="good__price">
                     <div class="good__price-info">
-                        <p class="text"<?php echo $styleprice ?>><strong><?php echo $velokrysha[1]['price']; ?></strong></p>
+                        <p class="text"<?php echo $stylepricevelo ?>><strong><?php echo $velokrysha[1]['price']; ?></strong></p>
                     </div>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[1]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -104,7 +104,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                     </ul>
                 <div class="good__price">
                     <div class="good__price-info">
-                        <p class="text"<?php echo $styleprice ?>><strong><?php echo $velokrysha[2]['price']; ?></strong></p>
+                        <p class="text"<?php echo $stylepricevelo ?>><strong><?php echo $velokrysha[2]['price']; ?></strong></p>
                     </div>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[2]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -130,7 +130,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                 </ul>
                 <div class="good__price">
                     <div class="good__price-info">
-                        <p class="text"<?php echo $styleprice ?>><strong><?php echo $velokrysha[3]['price']; ?></strong></p>
+                        <p class="text"<?php echo $stylepricevelo ?>><strong><?php echo $velokrysha[3]['price']; ?></strong></p>
                     </div>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velokrysha[3]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -158,7 +158,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                     <p class="text"><?php echo $velofarkop[0]['desc2']; ?></p>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="text"<?php echo $styleprice ?>><strong><?php echo $velofarkop[0]['price']; ?></strong></p>
+                            <p class="text"<?php echo $stylepricevelo ?>><strong><?php echo $velofarkop[0]['price']; ?></strong></p>
                         </div>
                         <div class="good__buttons">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velofarkop[0]['id']; ?>" class="button button__buy" >Заказать</a>
@@ -189,7 +189,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                     </ul>
                     <div class="good__price">
                         <div class="good__price-info">
-                            <p class="text"<?php echo $styleprice ?>><strong><?php echo $velofarkop[1]['price']; ?></strong></p>
+                            <p class="text"<?php echo $stylepricevelo ?>><strong><?php echo $velofarkop[1]['price']; ?></strong></p>
                         </div>
                         <div class="good__buttons">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $velofarkop[1]['id']; ?>" class="button button__buy" >Заказать</a>

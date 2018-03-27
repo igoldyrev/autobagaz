@@ -27,14 +27,18 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             </div>
             <p class="text"><?php echo $lyzhi[0]['desc']; ?></p>
             <div class="good__price">
-                <span class="text"><?php echo $lyzhi[0]['desc34']; ?> </span><span class="text"><strong><?php echo $lyzhi[0]['price34']; ?></strong></span>
+                <div class="good__price-info">
+                    <span class="text"><?php echo $lyzhi[0]['desc34']; ?> </span><span class="text"<?php echo $stylepriceskies ?>><strong><?php echo $lyzhi[0]['price34']; ?></strong></span>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lyzhi[0]['id1']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $lyzhi[0]['id1']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
                 </div>
             </div>
             <div class="good__price">
-                <span class="text"><?php echo $lyzhi[0]['desc56']; ?> </span><span class="text"><strong><?php echo $lyzhi[0]['price56']; ?></strong></span>
+                <div class="good__price-info">
+                    <span class="text"><?php echo $lyzhi[0]['desc56']; ?> </span><span class="text"<?php echo $stylepriceskies ?>><strong><?php echo $lyzhi[0]['price56']; ?></strong></span>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lyzhi[0]['id2']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $lyzhi[0]['id2']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -48,14 +52,18 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             </div>
             <p class="text"><?php echo $lyzhi[1]['desc']; ?></p>
             <div class="good__price">
-                <span class="text"><?php echo $lyzhi[1]['desc34']; ?> </span><span class="text"><strong><?php echo $lyzhi[1]['price34']; ?></strong></span>
+                <div class="good__price-info">
+                    <span class="text"><?php echo $lyzhi[1]['desc34']; ?> </span><span class="text"<?php echo $stylepriceskies ?>><strong><?php echo $lyzhi[1]['price34']; ?></strong></span>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lyzhi[1]['id1']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $lyzhi[1]['id1']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
                 </div>
             </div>
             <div class="good__price">
-                <span class="text"><?php echo $lyzhi[1]['desc56']; ?> </span><span class="text"><strong><?php echo $lyzhi[1]['price56']; ?></strong></span>
+                <div class="good__price-info">
+                    <span class="text"><?php echo $lyzhi[1]['desc56']; ?> </span><span class="text"<?php echo $stylepriceskies ?>><strong><?php echo $lyzhi[1]['price56']; ?></strong></span>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lyzhi[1]['id2']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $lyzhi[1]['id2']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -69,14 +77,18 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             </div>
             <p class="text"><?php echo $lyzhi[2]['desc']; ?></p>
             <div class="good__price">
-                <span class="text"><?php echo $lyzhi[2]['desc34']; ?> </span><span class="text"><strong><?php echo $lyzhi[2]['price34']; ?></strong></span>
+                <div class="good__price-info">
+                    <span class="text"><?php echo $lyzhi[2]['desc34']; ?> </span><span class="text"<?php echo $stylepriceskies ?>><strong><?php echo $lyzhi[2]['price34']; ?></strong></span>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lyzhi[2]['id1']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $lyzhi[2]['id1']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
                 </div>
             </div>
             <div class="good__price">
-                <span class="text"><?php echo $lyzhi[2]['desc56']; ?> </span><span class="text"><strong><?php echo $lyzhi[2]['price56']; ?></strong></span>
+                <div class="good__price-info">
+                    <span class="text"><?php echo $lyzhi[2]['desc56']; ?> </span><span class="text"<?php echo $stylepriceskies ?>><strong><?php echo $lyzhi[2]['price56']; ?></strong></span>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lyzhi[2]['id2']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $lyzhi[2]['id2']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -90,14 +102,18 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             </div>
             <p class="text"><?php echo $lyzhi[3]['desc']; ?></p>
             <div class="good__price">
-                <span class="text"><?php echo $lyzhi[3]['desc34']; ?> </span><span class="text"><strong><?php echo $lyzhi[3]['price34']; ?></strong></span>
+                <div class="good__price-info">
+                    <span class="text"><?php echo $lyzhi[3]['desc34']; ?> </span><span class="text"<?php echo $stylepriceskies ?>><strong><?php echo $lyzhi[3]['price34']; ?></strong></span>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lyzhi[3]['id1']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $lyzhi[3]['id1']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
                 </div>
             </div>
             <div class="good__price">
-                <span class="text"><?php echo $lyzhi[3]['desc56']; ?> </span><span class="text"><strong><?php echo $lyzhi[3]['price56']; ?></strong></span>
+                <div class="good__price-info">
+                    <span class="text"><?php echo $lyzhi[3]['desc56']; ?> </span><span class="text"<?php echo $stylepriceskies ?>><strong><?php echo $lyzhi[3]['price56']; ?></strong></span>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lyzhi[3]['id2']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $lyzhi[3]['id2']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
@@ -111,7 +127,9 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             </div>
             <p class="text"><?php echo $lyzhi[4]['desc']; ?></p>
             <div class="good__price">
-                <p class="text"><strong><?php echo $lyzhi[4]['price']; ?></strong></p>
+                <div class="good__price-info">
+                    <p class="text"<?php echo $stylepriceskies ?>><strong><?php echo $lyzhi[4]['price']; ?></strong></p>
+                </div>
                 <div class="good__buttons">
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $lyzhi[4]['id']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $lyzhi[4]['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>

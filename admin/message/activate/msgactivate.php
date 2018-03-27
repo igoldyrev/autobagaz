@@ -11,10 +11,26 @@ if ($checkedmsgon == 'checked'){
     $checkedstock = "checked";
 }elseif ($checkedstock == 'none'){
     $checkedstock = "";
-}elseif ($checkedprice == 'checked'){
-    $checkedprice = "checked";
-}elseif ($checkedprice == 'none'){
-    $checkedprice = "";
+}elseif ($checkedpricebagazh == 'checked'){
+    $checkedpricebagazh = "checked";
+}elseif ($checkedpricebagazh == 'none'){
+    $checkedpricebagazh = "";
+}elseif ($checkedpriceautobox == 'checked'){
+    $checkedpriceautobox = "checked";
+}elseif ($checkedpriceautobox == 'none'){
+    $checkedpriceautobox = "";
+}elseif ($checkedpricevelo == 'checked'){
+    $checkedpricevelo = "checked";
+}elseif ($checkedpricevelo == 'none'){
+    $checkedpricevelo = "";
+}elseif ($checkedpriceskies == 'checked'){
+    $checkedpriceskies = "checked";
+}elseif ($checkedpriceskies == 'none'){
+    $checkedpriceskies = "";
+}elseif ($checkedpricebraslet == 'checked'){
+    $checkedpricebraslet = "checked";
+}elseif ($checkedpricebraslet == 'none'){
+    $checkedpricebraslet = "";
 } ?>
 
 <div class="admin__container">
@@ -22,7 +38,7 @@ if ($checkedmsgon == 'checked'){
 
     <div class="form__container">
         <p class="text">Если галочка установлена - то блок отображается на странице. Если она убрана - то не отображается.</p>
-        <form action="/admin/message/activate/activate.php" method="post" class="form">
+        <form action="/admin/message/activate/activate" method="post" class="form">
             <div class="form__input-wrap clearfix">
                 <input type="checkbox" name="msg_on" class="form__checkbox" id="msgon" <?php echo $checkedmsgon ?>>
                 <label for="msgon" class="form__label--checkbox">Включить/выключить сообщение</label>
@@ -31,14 +47,31 @@ if ($checkedmsgon == 'checked'){
                 <input type="checkbox" name="stock_on" class="form__checkbox" id="stockon" <?php echo $checkedstock ?>>
                 <label for="stockon" class="form__label--checkbox">Включить/выключить блок с акцией</label>
             </div>
+            <h2 class="title title-h2">Отключение/включение цен на сайте</h2>
             <div class="form__input-wrap clearfix">
-                <input type="checkbox" name="price_on" class="form__checkbox" id="priceon" <?php echo $checkedprice ?>>
-                <label for="priceon" class="form__label--checkbox">Включить/выключить цены на сайте</label>
+                <input type="checkbox" name="price_on_bagazh" class="form__checkbox" id="priceonbagazh" <?php echo $checkedpricebagazh ?>>
+                <label for="priceonbagazh" class="form__label--checkbox">Включить/выключить цены в разделе Автобагажники</label>
+            </div>
+            <div class="form__input-wrap clearfix">
+                <input type="checkbox" name="price_on_autobox" class="form__checkbox" id="priceonautobox" <?php echo $checkedpriceautobox ?>>
+                <label for="priceonautobox" class="form__label--checkbox">Включить/выключить цены в разделе Автобоксы</label>
+            </div>
+            <div class="form__input-wrap clearfix">
+                <input type="checkbox" name="price_on_velo" class="form__checkbox" id="priceonvelo" <?php echo $checkedpricevelo ?>>
+                <label for="priceonvelo" class="form__label--checkbox">Включить/выключить цены в разделе Велокрепления</label>
+            </div>
+            <div class="form__input-wrap clearfix">
+                <input type="checkbox" name="price_on_skies" class="form__checkbox" id="priceonskies" <?php echo $checkedpriceskies ?>>
+                <label for="priceonskies" class="form__label--checkbox">Включить/выключить цены в разделе Лыжные крепления</label>
+            </div>
+            <div class="form__input-wrap clearfix">
+                <input type="checkbox" name="price_on_braslet" class="form__checkbox" id="priceonbraslet" <?php echo $checkedpricebraslet ?>>
+                <label for="priceonbraslet" class="form__label--checkbox">Включить/выключить цены в разделе Браслеты</label>
             </div>
             <input type="submit" class="button button__zakaz" value="Включить/выключить блоки">
         </form>
     </div>
     <div class="admin__link-wrap clearfix">
-        <a class="admin__link" href="/admin/index.php">Вернуться на главную админки</a>
+        <a class="admin__link" href="/admin/">Вернуться на главную админки</a>
     </div>
 </div>
