@@ -29,7 +29,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
             ?>
         </div>
         <div class="admin__link-wrap clearfix">
-            <a class="admin__link" href="/admin/guestbook/answers/rewiewanswer.php">Вернуться к выбору отзыва для ответа</a>
-            <a class="admin__link" href="/admin/index.php">Вернуться на главную админки</a>
+            <a class="admin__link" href="/admin/guestbook/answers/rewiewanswer">Вернуться к выбору отзыва для ответа</a>
+            <a class="admin__link" href="/admin/">Вернуться на главную админки</a>
         </div>
     </div>

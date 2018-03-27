@@ -13,7 +13,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     echo "<h3 class='title title-h3'>Отзыв успешно удален!</h3>";
     ?>
     <div class="admin__link-wrap clearfix">
-        <a class="admin__link" href="/admin/guestbook/delete/guestdelete.php">Вернуться к выбору отзывов</a>
-        <a class="admin__link" href="/admin/index.php">Вернуться на главную админки</a>
+        <a class="admin__link" href="/admin/guestbook/delete/guestdelete">Вернуться к выбору отзывов</a>
+        <a class="admin__link" href="/admin/">Вернуться на главную админки</a>
     </div>
 </div>

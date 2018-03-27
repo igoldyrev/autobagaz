@@ -12,7 +12,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     mysqli_query($connect, $delete_sql) or die("<p class='text'>При удалении новости произошла ошибка</p>". mysqli_error());
     echo "<h3 class='title title-h3'>Новость успешно удалена!</h3>"; ?>
     <div class="admin__link-wrap clearfix">
-        <a class="admin__link" href="/admin/news/newsdelete.php">Вернуться к выбору новостей</a>
-        <a class="admin__link" href="/admin/index.php">Вернуться на главную админки</a>
+        <a class="admin__link" href="/admin/news/newsdelete">Вернуться к выбору новостей</a>
+        <a class="admin__link" href="/admin/">Вернуться на главную админки</a>
     </div>
 </div>

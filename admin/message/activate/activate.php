@@ -102,6 +102,6 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     } ?>
     <div class="admin__link-wrap clearfix">
         <a class="admin__link" href="/admin/message/activate/msgactivate">Вернуться на предыдущую страницу</a>
-        <a class="admin__link" href="/admin/index.php">Вернуться на главную админки</a>
+        <a class="admin__link" href="/admin/">Вернуться на главную админки</a>
     </div>
 </div>

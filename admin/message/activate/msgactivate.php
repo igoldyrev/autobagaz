@@ -72,6 +72,6 @@ if ($checkedmsgon == 'checked'){
         </form>
     </div>
     <div class="admin__link-wrap clearfix">
-        <a class="admin__link" href="/admin/index.php">Вернуться на главную админки</a>
+        <a class="admin__link" href="/admin/">Вернуться на главную админки</a>
     </div>
 </div>
