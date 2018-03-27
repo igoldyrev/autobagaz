@@ -1,5 +1,9 @@
 <?php 
 $checkedmsgon = 'none';
  $checkedstock = 'none';
- $checkedprice = 'none';
+ $checkedpricebagazh = 'none';
+ $checkedpriceautobox = 'none';
+ $checkedpricevelo = 'none';
+ $checkedpriceskies = 'none';
+ $checkedpricebraslet = 'none';
  
