@@ -5,7 +5,7 @@ $sales = [
         'name' => 'Ветлан 550М черный после проката',
         'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/vellan-550m-black.jpg" alt="Ветлан 550М черный">',
         'price' => '11 000 рублей ',
-        'strike_price' => '14 800 рублей',
+        'strike_price' => '14 500 рублей',
     ],
     [
         'id' => 's2',

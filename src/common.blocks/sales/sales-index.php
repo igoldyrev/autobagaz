@@ -2,10 +2,10 @@
 $sales = [
     [
         'id' => 's1',
-        'name' => 'Ветлан 550М серый по специальной цене',
-        'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/vellan-550m-gray.jpg" alt="Ветлан 550М серый">',
-        'price' => '12 000 рублей ',
-        'strike_price' => '14 800 рублей',
+        'name' => 'Ветлан 550М черный после проката',
+        'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/vellan-550m-black.jpg" alt="Ветлан 550М черный">',
+        'price' => '11 000 рублей ',
+        'strike_price' => '14 500 рублей',
     ],
     [
         'id' => 's2',
