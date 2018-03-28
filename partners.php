@@ -43,6 +43,13 @@ echo "<meta name='keywords' content='"; echo $keywords[8][keywords]; echo "'/>";
 <!--            </div>-->
 <!--        </div>-->
         <div class="partner">
+            <h2 class="title title-h2">Электровелосипеды Пермь</h2>
+            <p class="partner__text">Телефон: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="tel:89323370758" class="partner__link">+ 7 (932) 3370758</a></p>
+            <p class="partner__text">Skype: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="skype:ebikekitsupport" class="partner__link">ebikekitsupport</a></p>
+            <p class="partner__text"><span>Часы работы: </span><span>Вторник - Суббота с 11:30 до 17:30</span></p>
+            <p class="partner__text">Сайт: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="http://electricbikes59.ru" class="partner__link" target="_blank">electricbikes59</a></p>
+        </div>
+        <div class="partner">
             <h2 class="title title-h2">Магазин AVTOPRICEP59</h2>
             <p class="partner__text">Сайт: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="http://avtopricep59.ru/" class="partner__link" target="_blank">AVTOPRICEP59</a></p>
             <p class="partner__text">Почта: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="mailto:PRI6EST@yandex.ru" class="partner__link">PRI6EST@yandex.ru</a></p>
