@@ -349,9 +349,12 @@
 
 //Сертификаты
 @import "common.blocks/sertificates/sertificates";
+@import "mobile.blocks/sertificates/sertificates";
 @import "common.blocks/sertificates/__item/sertificates__item";
+@import "mobile.blocks/sertificates/__item/sertificates__item";
 @import "common.blocks/sertificates/__photos/sertificates__photos";
 @import "common.blocks/sertificates/__img/sertificates__img";
+@import "mobile.blocks/sertificates/__img/sertificates__img";
 @import "common.blocks/sertificates/__img/_small/sertificates__img_small";
 
 //Страницы с ошибками
