@@ -77,7 +77,11 @@ $level2 = [
         'link' => '/contacts',
     ],
     [
-        'name' => 'Карта сайта  ',
+        'name' => 'Карта сайта',
         'link' => '/sitemap',
+    ],
+    [
+        'name' => 'Сертификаты и лицензии',
+        'link' => '/sertificates',
     ],
 ];
