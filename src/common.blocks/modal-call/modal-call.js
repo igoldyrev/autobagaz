@@ -7,12 +7,14 @@
     var modalCallButton = document.querySelector('.modal-call__button');
     var modalCallInput = document.querySelector('.form__input--call');
     var modalCallHeader = document.querySelector('.modal-call__header');
+    var modalCallForm = document.querySelector('.js-modal-call-form');
+    var url = '/call';
 
     var onModalCallEscPress = function (evt) {
         if (evt.keyCode === ESC_KEYCODE) {
             onModalCallClose();
         }
-    }
+    };
     
     var onModalCallClose = function () {
         modalCall.classList.remove('modal-call--active');
@@ -78,4 +80,26 @@
     modalCallButton.addEventListener('click', onModalCallButtonClick);
     modalCallInput.addEventListener('focus', onModalCallInputFocus);
     modalCallInput.addEventListener('blur', onModalCallInputFocusLost);
+
+    var modalCallSend = function (data, onSuccess, onError) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('load', function () {
+            if (xhr.status === 200) {
+                onSuccess(xhr.response);
+            } else {
+                onError ('При отправке формы произошла ошибка :(');
+            }
+        });
+
+        xhr.open('POST', url);
+        xhr.send(data);
+    };
+
+    modalCallForm.addEventListener('submit', function (evt) {
+        modalCallSend(new FormData(modalCallForm), function (response) {
+            modalCall.classList.remove('modal-call--active')
+        });
+        evt.preventDefault();
+    });
 })();
