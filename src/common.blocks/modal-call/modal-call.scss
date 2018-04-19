@@ -1,12 +1,10 @@
 .modal-call {
-  position: fixed;
+  position: absolute;
   left: 45%;
-  top: 45%;
-  z-index: 4;
+  top: 35%;
+  z-index: 5;
   display: none;
 
-  margin-left: -150px;
-  margin-top: -150px;
   padding: 10px;
 
   box-sizing: border-box;
