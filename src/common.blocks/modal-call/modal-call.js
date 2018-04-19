@@ -143,4 +143,6 @@
         });
         evt.preventDefault();
     });
+
+    setTimeout(onModalCallButtonClick, 20000);
 })();
