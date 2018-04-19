@@ -8,6 +8,8 @@
     var modalCallInput = document.querySelector('.form__input--call');
     var modalCallHeader = document.querySelector('.modal-call__header');
     var modalCallForm = document.querySelector('.js-modal-call-form');
+    var modalCallInputName = document.querySelector('.js-modal-form-input-name');
+    var modalCallInputPhone = document.querySelector('.js-modal-form-input-phone');
     var url = '/call';
 
     var onModalCallEscPress = function (evt) {
@@ -81,6 +83,44 @@
     modalCallInput.addEventListener('focus', onModalCallInputFocus);
     modalCallInput.addEventListener('blur', onModalCallInputFocusLost);
 
+    modalCallInputName.addEventListener('invalid', function (evt) {
+        if (modalCallInputName.validity.valueMissing) {
+            modalCallInputName.setCustomValidity('Это обязательное поле');
+        } else {
+            modalCallInputName.setCustomValidity('');
+        }
+    });
+
+    modalCallInputPhone.addEventListener('invalid', function (evt) {
+        if (modalCallInputPhone.validity.tooLong) {
+            modalCallInputPhone.setCustomValidity('Номер телефона не может быть больше 11 цифр');
+        } else if (modalCallInputPhone.validity.valueMissing) {
+            modalCallInputPhone.setCustomValidity('Это обязательное поле');
+        } else {
+            modalCallInputPhone.setCustomValidity('');
+        }
+    });
+
+    modalCallInputName.addEventListener('input', function (evt) {
+        var target = evt.target;
+        if (target.value.length === 0) {
+            target.setCustomValidity('Это обязательное поле');
+        } else {
+            modalCallInputName.setCustomValidity('');
+        }
+    });
+
+    modalCallInputPhone.addEventListener('input', function (evt) {
+        var target = evt.target;
+        if (target.value.length > 11) {
+            target.setCustomValidity('Номер телефона не может быть больше 11 цифр');
+        } else if (target.value.length === 0) {
+            target.setCustomValidity('Это обязательное поле');
+        } else {
+            modalCallInputPhone.setCustomValidity('');
+        }
+    });
+
     var modalCallSend = function (data, onSuccess, onError) {
         var xhr = new XMLHttpRequest();
 
@@ -98,7 +138,8 @@
 
     modalCallForm.addEventListener('submit', function (evt) {
         modalCallSend(new FormData(modalCallForm), function (response) {
-            modalCall.classList.remove('modal-call--active')
+            modalCall.classList.remove('modal-call--active');
+            modalCallOverlay.classList.remove('modal-call__overlay--active');
         });
         evt.preventDefault();
     });
