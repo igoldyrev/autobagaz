@@ -144,5 +144,5 @@
         evt.preventDefault();
     });
 
-    setTimeout(onModalCallButtonClick, 20000);
+    setTimeout(onModalCallButtonClick, 75000);
 })();
