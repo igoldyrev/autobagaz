@@ -1,1 +1,371 @@
-!function(e){function t(o){if(a[o])return a[o].exports;var n=a[o]={i:o,l:!1,exports:{}};return e[o].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var a={};t.m=e,t.c=a,t.d=function(e,a,o){t.o(e,a)||Object.defineProperty(e,a,{configurable:!1,enumerable:!0,get:o})},t.n=function(e){var a=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(a,"a",a),a},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=0)}([function(e,t,a){a(1),a(2),a(3),a(4),a(5),a(6),e.exports=a(7)},function(e,t,a){"use strict";if(console.log("Это сайт компании Автобагаж"),console.log("Сейчас сайт работает нормально"),window.localStorage)for(var o=document.querySelectorAll("[name]"),n=0,i=o.length;n<i;n++)!function(e){var t=e.getAttribute("name");e.value=localStorage.getItem(t)||"",e.onkeyup=function(){localStorage.setItem(t,e.value)}}(o[n])},function(e,t,a){"use strict";$(function(){$(".guestbook__tab-add").click(function(){$(".tabs__item").removeClass("tabs__item--active"),$(".guestbook__tab").removeClass("guestbook__tab--active"),$(".guestbook__tab-add").addClass("tabs__item--active"),$(".guestbook__rewiews-add").addClass("guestbook__tab--active")}),$(".guestbook__tab-rewiew").click(function(){$(".guestbook__tab-add").removeClass("tabs__item--active"),$(".guestbook__rewiews-add").removeClass("guestbook__tab--active"),$(".guestbook__tab-rewiew").addClass("tabs__item--active"),$(".guestbook__rewiews").addClass("guestbook__tab--active")})})},function(e,t,a){"use strict";$(function(){$(".special__tab-komm").click(function(){$(".tabs__item").removeClass("tabs__item--active"),$(".special__tab").removeClass("special__tab--active"),$(".special__tab-komm").addClass("tabs__item--active"),$(".special__komm").addClass("special__tab--active")}),$(".special__tab-sale").click(function(){$(".special__tab-komm").removeClass("tabs__item--active"),$(".special__komm").removeClass("special__tab--active"),$(".special__tab-sale").addClass("tabs__item--active"),$(".special__sale").addClass("special__tab--active")})})},function(e,t,a){"use strict";$(".rewiew__text-wrap").each(function(){""===$(this).text()&&$(this).remove()}),$(".rewiew__answer").each(function(){""===$(this).text()&&$(this).remove()})},function(e,t,a){"use strict";!function(){var e=document.querySelector(".modal-call"),t=document.querySelector(".modal-call__overlay"),a=document.querySelector(".modal-call__close"),o=document.querySelector(".modal-call__button"),n=document.querySelector(".form__input--call"),i=document.querySelector(".modal-call__header"),s=document.querySelector(".js-modal-call-form"),l=document.querySelector(".js-modal-form-input-name"),c=document.querySelector(".js-modal-form-input-phone"),u=function(e){27===e.keyCode&&r()},r=function(){e.classList.remove("modal-call--active"),t.classList.remove("modal-call__overlay--active"),e.style.top="45%",e.style.left="45%"},d=function(){document.removeEventListener("keydown",u)},m=function(){document.addEventListener("keydown",u)},_=function(){e.classList.add("modal-call--active"),t.classList.add("modal-call__overlay--active"),a.addEventListener("click",r),document.addEventListener("keydown",u)},v=function(t){t.preventDefault();var a={x:t.clientX,y:t.clientY},o=function(t){t.preventDefault();var o={x:a.x-t.clientX,y:a.y-t.clientY};a={x:t.clientX,y:t.clientY},e.style.top=e.offsetTop-o.y+"px",e.style.left=e.offsetLeft-o.x+"px"},n=function e(t){t.preventDefault(),document.removeEventListener("mousemove",o),document.removeEventListener("mouseup",e)};document.addEventListener("mousemove",o),document.addEventListener("mouseup",n)};i.addEventListener("mousedown",v),o.addEventListener("click",_),n.addEventListener("focus",d),n.addEventListener("blur",m),l.addEventListener("invalid",function(){l.validity.valueMissing?l.setCustomValidity("Это обязательное поле"):l.setCustomValidity("")}),c.addEventListener("invalid",function(){c.validity.tooLong?c.setCustomValidity("Номер телефона не может быть больше 11 цифр"):c.validity.valueMissing?c.setCustomValidity("Это обязательное поле"):c.setCustomValidity("")}),l.addEventListener("input",function(e){var t=e.target;0===t.value.length?t.setCustomValidity("Это обязательное поле"):l.setCustomValidity("")}),c.addEventListener("input",function(e){var t=e.target;t.value.length>11?t.setCustomValidity("Номер телефона не может быть больше 11 цифр"):0===t.value.length?t.setCustomValidity("Это обязательное поле"):c.setCustomValidity("")});var f=function(e,t,a){var o=new XMLHttpRequest;o.addEventListener("load",function(){200===o.status?t(o.response):a("При отправке формы произошла ошибка :(")}),o.open("POST","/call"),o.send(e)};s.addEventListener("submit",function(a){f(new FormData(s),function(){e.classList.remove("modal-call--active"),t.classList.remove("modal-call__overlay--active")}),a.preventDefault()}),setTimeout(_,75e3)}()},function(e,t,a){"use strict";$(".gallery__tag").each(function(){""===$(this).text()&&$(this).remove()})},function(e,t){}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(1);
+__webpack_require__(2);
+__webpack_require__(3);
+__webpack_require__(4);
+__webpack_require__(5);
+module.exports = __webpack_require__(6);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+console.log('Это сайт компании Автобагаж');
+console.log('Сейчас сайт работает нормально');
+
+if (window.localStorage) {
+    var elements = document.querySelectorAll('[name]');
+
+    for (var i = 0, length = elements.length; i < length; i++) {
+        (function (element) {
+            var name = element.getAttribute('name');
+
+            element.value = localStorage.getItem(name) || '';
+
+            element.onkeyup = function () {
+                localStorage.setItem(name, element.value);
+            };
+        })(elements[i]);
+    }
+};
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+(function () {
+  var tabs = document.querySelector('.tabs');
+  var tabsItem = document.querySelectorAll('.tabs__item');
+
+  var clearClasses = function clearClasses(tabItem, tabOpen, tabClass) {
+    tabItem.forEach(function (item) {
+      item.classList.remove('tabs__item--active');
+    });
+
+    tabOpen.forEach(function (tab) {
+      tab.classList.remove(tabClass);
+    });
+  };
+
+  var tabClicked = function tabClicked(tabItem, tabOpened, tabClass) {
+    tabItem.classList.add('tabs__item--active');
+    tabOpened.classList.add(tabClass);
+  };
+
+  if (tabs) {
+    var specialTabSale = document.querySelector('.special__tab-sale');
+    var specialTabKomm = document.querySelector('.special__tab-komm');
+
+    var guestbookTabRewiew = document.querySelector('.guestbook__tab-rewiew');
+    var guestbookTabForm = document.querySelector('.guestbook__tab-add');
+
+    if (specialTabSale && specialTabKomm) {
+      var specialClassActive = 'special__tab--active';
+      var specialTab = document.querySelectorAll('.special__tab');
+
+      var specialTabSaleClick = function specialTabSaleClick() {
+        var tabSale = document.querySelector('.special__sale');
+        clearClasses(tabsItem, specialTab, specialClassActive);
+        tabClicked(specialTabSale, tabSale, specialClassActive);
+      };
+
+      var specialTabKommClick = function specialTabKommClick() {
+        var tabKomm = document.querySelector('.special__komm');
+        clearClasses(tabsItem, specialTab, specialClassActive);
+        tabClicked(specialTabKomm, tabKomm, specialClassActive);
+      };
+
+      specialTabSale.addEventListener('click', specialTabSaleClick);
+      specialTabKomm.addEventListener('click', specialTabKommClick);
+    } else if (guestbookTabRewiew && guestbookTabForm) {
+      var guestbookClassActive = 'guestbook__tab--active';
+      var guestbookTab = document.querySelectorAll('.guestbook__tab');
+
+      var guestbookTabRewiewClick = function guestbookTabRewiewClick() {
+        var tabRewiews = document.querySelector('.guestbook__rewiews');
+        clearClasses(tabsItem, guestbookTab, guestbookClassActive);
+        tabClicked(guestbookTabRewiew, tabRewiews, guestbookClassActive);
+      };
+
+      var guestbookTabFormClick = function guestbookTabFormClick() {
+        var tabForm = document.querySelector('.guestbook__rewiews-add');
+        clearClasses(tabsItem, guestbookTab, guestbookClassActive);
+        tabClicked(guestbookTabForm, tabForm, guestbookClassActive);
+      };
+
+      guestbookTabRewiew.addEventListener('click', guestbookTabRewiewClick);
+      guestbookTabForm.addEventListener('click', guestbookTabFormClick);
+    }
+  }
+})();
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$('.rewiew__text-wrap').each(function () {
+    if ($(this).text() === '') {
+        $(this).remove();
+    }
+});
+
+$('.rewiew__answer').each(function () {
+    if ($(this).text() === '') {
+        $(this).remove();
+    }
+});
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+(function () {
+  var ESC_KEYCODE = 27;
+  var modalCall = document.querySelector('.modal-call');
+  var modalCallOverlay = document.querySelector('.modal-call__overlay');
+  var modalCallClose = document.querySelector('.modal-call__close');
+  var modalCallButton = document.querySelector('.modal-call__button');
+  var modalCallInput = document.querySelector('.form__input--call');
+  var modalCallHeader = document.querySelector('.modal-call__header');
+  var modalCallForm = document.querySelector('.js-modal-call-form');
+  var modalCallInputName = document.querySelector('.js-modal-form-input-name');
+  var modalCallInputPhone = document.querySelector('.js-modal-form-input-phone');
+  var url = '/call';
+
+  var onModalCallEscPress = function onModalCallEscPress(evt) {
+    if (evt.keyCode === ESC_KEYCODE) {
+      onModalCallClose();
+    }
+  };
+
+  var onModalCallClose = function onModalCallClose() {
+    modalCall.classList.remove('modal-call--active');
+    modalCallOverlay.classList.remove('modal-call__overlay--active');
+
+    modalCall.style.top = 45 + '%';
+    modalCall.style.left = 45 + '%';
+  };
+
+  var onModalCallInputFocus = function onModalCallInputFocus() {
+    document.removeEventListener('keydown', onModalCallEscPress);
+  };
+
+  var onModalCallInputFocusLost = function onModalCallInputFocusLost() {
+    document.addEventListener('keydown', onModalCallEscPress);
+  };
+
+  var onModalCallButtonClick = function onModalCallButtonClick() {
+    modalCall.classList.add('modal-call--active');
+    modalCallOverlay.classList.add('modal-call__overlay--active');
+
+    modalCallClose.addEventListener('click', onModalCallClose);
+    document.addEventListener('keydown', onModalCallEscPress);
+  };
+
+  var modalCallHeaderDown = function modalCallHeaderDown(evt) {
+    evt.preventDefault();
+
+    var startCoords = {
+      x: evt.clientX,
+      y: evt.clientY
+    };
+
+    var onMouseMove = function onMouseMove(moveEvt) {
+      moveEvt.preventDefault();
+
+      var shift = {
+        x: startCoords.x - moveEvt.clientX,
+        y: startCoords.y - moveEvt.clientY
+      };
+
+      startCoords = {
+        x: moveEvt.clientX,
+        y: moveEvt.clientY
+      };
+
+      modalCall.style.top = modalCall.offsetTop - shift.y + 'px';
+      modalCall.style.left = modalCall.offsetLeft - shift.x + 'px';
+    };
+
+    var onMouseUp = function onMouseUp(upEvt) {
+      upEvt.preventDefault();
+
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  };
+
+  modalCallHeader.addEventListener('mousedown', modalCallHeaderDown);
+  modalCallButton.addEventListener('click', onModalCallButtonClick);
+  modalCallInput.addEventListener('focus', onModalCallInputFocus);
+  modalCallInput.addEventListener('blur', onModalCallInputFocusLost);
+
+  modalCallInputName.addEventListener('invalid', function () {
+    if (modalCallInputName.validity.valueMissing) {
+      modalCallInputName.setCustomValidity('Это обязательное поле');
+    } else {
+      modalCallInputName.setCustomValidity('');
+    }
+  });
+
+  modalCallInputPhone.addEventListener('invalid', function () {
+    if (modalCallInputPhone.validity.tooLong) {
+      modalCallInputPhone.setCustomValidity('Номер телефона не может быть больше 11 цифр');
+    } else if (modalCallInputPhone.validity.valueMissing) {
+      modalCallInputPhone.setCustomValidity('Это обязательное поле');
+    } else {
+      modalCallInputPhone.setCustomValidity('');
+    }
+  });
+
+  modalCallInputName.addEventListener('input', function (evt) {
+    var target = evt.target;
+    if (target.value.length === 0) {
+      target.setCustomValidity('Это обязательное поле');
+    } else {
+      modalCallInputName.setCustomValidity('');
+    }
+  });
+
+  modalCallInputPhone.addEventListener('input', function (evt) {
+    var target = evt.target;
+    if (target.value.length > 11) {
+      target.setCustomValidity('Номер телефона не может быть больше 11 цифр');
+    } else if (target.value.length === 0) {
+      target.setCustomValidity('Это обязательное поле');
+    } else {
+      modalCallInputPhone.setCustomValidity('');
+    }
+  });
+
+  var modalCallSend = function modalCallSend(data, onSuccess, onError) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('load', function () {
+      if (xhr.status === 200) {
+        onSuccess(xhr.response);
+      } else {
+        onError('При отправке формы произошла ошибка :(');
+      }
+    });
+
+    xhr.open('POST', url);
+    xhr.send(data);
+  };
+
+  modalCallForm.addEventListener('submit', function (evt) {
+    modalCallSend(new FormData(modalCallForm), function () {
+      modalCall.classList.remove('modal-call--active');
+      modalCallOverlay.classList.remove('modal-call__overlay--active');
+    });
+    evt.preventDefault();
+  });
+
+  setTimeout(onModalCallButtonClick, 75000);
+})();
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$('.gallery__tag').each(function () {
+    if ($(this).text() === '') {
+        $(this).remove();
+    }
+});
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+/******/ ]);
