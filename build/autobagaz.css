@@ -382,7 +382,7 @@ img[src=""] {
 
 @media only screen and (max-width: 767px) {
   .img__popup {
-    top: 20%;
+    top: 0;
     left: 0; } }
 
 @media only screen and (max-width: 767px) {
