@@ -1,0 +1,28 @@
+.img__close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+
+  width: 42px;
+  height: 42px;
+
+  font-size: 0;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  background: url("/src/library.blocks/img/img/icon-cross.svg") center no-repeat;
+
+  border: 0;
+  border-radius: 2px;
+
+  opacity: 0.6;
+
+  &:hover, &:focus {
+    background-color: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
