@@ -32,7 +32,6 @@ include ($_SERVER["DOCUMENT_ROOT"]."/admin/blocks.php");
 <script type="text/javascript">
     VK.init({apiId: 5866168, onlyWidgets: true});
 </script>
-<script src="../src/library.blocks/img/img.js"></script>
 
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/modal-call/modal-call.html"); ?>
 <div class="modal-call__button"><i class="fa fa-phone fa-4x" aria-hidden="true"></i></div>
