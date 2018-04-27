@@ -1,5 +1,9 @@
-$('.gallery__tag').each(function () {
-    if ($(this).text() === '') {
-        $(this).remove();
+'use strict';
+(function () {
+  var galleyTag = document.querySelectorAll('.gallery__tag');
+  galleyTag.forEach(function (tag) {
+    if (tag.textContent === '') {
+      tag.style.display = 'none';
     }
-});
+  });
+})();

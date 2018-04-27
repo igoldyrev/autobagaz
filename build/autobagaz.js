@@ -197,18 +197,6 @@ if (window.localStorage) {
   });
 })();
 
-// $('.rewiew__text-wrap').each(function () {
-//     if ($(this).text() === '') {
-//         $(this).remove();
-//     }
-// });
-//
-// $('.rewiew__answer').each(function () {
-//     if ($(this).text() === '') {
-//         $(this).remove();
-//     }
-// });
-
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -371,11 +359,14 @@ if (window.localStorage) {
 "use strict";
 
 
-$('.gallery__tag').each(function () {
-    if ($(this).text() === '') {
-        $(this).remove();
+(function () {
+  var galleyTag = document.querySelectorAll('.gallery__tag');
+  galleyTag.forEach(function (tag) {
+    if (tag.textContent === '') {
+      tag.style.display = 'none';
     }
-});
+  });
+})();
 
 /***/ }),
 /* 6 */
