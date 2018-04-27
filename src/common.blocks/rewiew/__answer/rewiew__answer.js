@@ -1,11 +1,16 @@
-$('.rewiew__text-wrap').each(function () {
-    if ($(this).text() === '') {
-        $(this).remove();
-    }
-});
+'use strict';
+(function () {
+  var rewiewTextWrap = document.querySelectorAll('.rewiew__text-wrap');
+  var textRewiewAnswer = document.querySelectorAll('.rewiew__answer');
 
-$('.rewiew__answer').each(function () {
-    if ($(this).text() === '') {
-        $(this).remove();
+  textRewiewAnswer.forEach(function (rewiew) {
+    if (rewiew.textContent === '') {
+      rewiew.style.display = 'none';
     }
-});
+  });
+  rewiewTextWrap.forEach(function (wrap) {
+    if (wrap.textContent === '') {
+      wrap.style.display = 'none';
+    }
+  });
+})();
