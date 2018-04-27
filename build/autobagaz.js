@@ -72,7 +72,8 @@ __webpack_require__(2);
 __webpack_require__(3);
 __webpack_require__(4);
 __webpack_require__(5);
-module.exports = __webpack_require__(6);
+__webpack_require__(6);
+module.exports = __webpack_require__(7);
 
 
 /***/ }),
@@ -367,6 +368,36 @@ module.exports = __webpack_require__(6);
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+(function () {
+  window.onload = function () {
+    var imgAll = document.querySelectorAll('.img');
+    var imgBig = document.querySelector('.img__big');
+    var imgPopup = document.querySelector('.img__popup');
+    var imgClose = document.querySelector('.img__close');
+    imgAll.forEach(function (img) {
+      img.addEventListener('click', function () {
+        var imgSrc = img.src;
+        imgBig.src = imgSrc;
+        imgPopup.style.display = 'flex';
+        document.body.classList.add('img__modal-open');
+      });
+    });
+    var closePopup = function closePopup() {
+      imgPopup.style.display = '';
+      document.body.classList.remove('img__modal-open');
+    };
+    imgClose.addEventListener('click', closePopup);
+    imgPopup.addEventListener('click', closePopup);
+  };
+})();
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
