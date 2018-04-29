@@ -84,6 +84,8 @@ module.exports = __webpack_require__(7);
 
 
 (function () {
+  var ESC_KEYCODE = 27;
+
   if (window.localStorage) {
     var elements = document.querySelectorAll('[name]');
 
@@ -97,6 +99,12 @@ module.exports = __webpack_require__(7);
       })(elements[i]);
     }
   }
+
+  window.onEscPress = function (evt, action) {
+    if (evt.keyCode === ESC_KEYCODE) {
+      action();
+    }
+  };
 })();
 
 /***/ }),
@@ -203,23 +211,16 @@ module.exports = __webpack_require__(7);
 
 
 (function () {
-  var ESC_KEYCODE = 27;
   var modalCall = document.querySelector('.modal-call');
   var modalCallOverlay = document.querySelector('.modal-call__overlay');
   var modalCallClose = document.querySelector('.modal-call__close');
   var modalCallButton = document.querySelector('.modal-call__button');
-  var modalCallInput = document.querySelector('.form__input--call');
+  var modalCallInput = document.querySelectorAll('.form__input--call');
   var modalCallHeader = document.querySelector('.modal-call__header');
   var modalCallForm = document.querySelector('.js-modal-call-form');
   var modalCallInputName = document.querySelector('.js-modal-form-input-name');
   var modalCallInputPhone = document.querySelector('.js-modal-form-input-phone');
   var url = '/call';
-
-  var onModalCallEscPress = function onModalCallEscPress(evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      onModalCallClose();
-    }
-  };
 
   var onModalCallClose = function onModalCallClose() {
     modalCall.classList.remove('modal-call--active');
@@ -227,6 +228,10 @@ module.exports = __webpack_require__(7);
 
     modalCall.style.top = 45 + '%';
     modalCall.style.left = 45 + '%';
+  };
+
+  var onModalCallEscPress = function onModalCallEscPress(evt) {
+    window.onEscPress(evt, onModalCallClose);
   };
 
   var onModalCallInputFocus = function onModalCallInputFocus() {
@@ -283,8 +288,11 @@ module.exports = __webpack_require__(7);
 
   modalCallHeader.addEventListener('mousedown', modalCallHeaderDown);
   modalCallButton.addEventListener('click', onModalCallButtonClick);
-  modalCallInput.addEventListener('focus', onModalCallInputFocus);
-  modalCallInput.addEventListener('blur', onModalCallInputFocusLost);
+
+  modalCallInput.forEach(function (input) {
+    input.addEventListener('focus', onModalCallInputFocus);
+    input.addEventListener('blur', onModalCallInputFocusLost);
+  });
 
   modalCallInputName.addEventListener('invalid', function () {
     if (modalCallInputName.validity.valueMissing) {
@@ -376,23 +384,46 @@ module.exports = __webpack_require__(7);
 (function () {
   window.onload = function () {
     var imgAll = document.querySelectorAll('.img');
+    var imgWrap = document.querySelectorAll('.img__wrap');
     var imgBig = document.querySelector('.img__big');
     var imgPopup = document.querySelector('.img__popup');
     var imgClose = document.querySelector('.img__close');
+    var imgButtomRight = imgPopup.querySelector('.img__button--right');
+
+    var closePopup = function closePopup() {
+      imgPopup.style.display = '';
+      document.body.classList.remove('img__modal-open');
+    };
+
+    var countChilds = function countChilds(image) {
+      return parent = image.parentElement.children.length;
+    };
+
+    var buttonRightClick = function buttonRightClick() {
+      imgButtomRight.addEventListener('click', function () {
+        imgWrap.forEach(function (wrap) {
+          for (var i = 0; i < wrap.children.length; i++) {
+            console.log('hello ' + i);
+          }
+        });
+      });
+    };
+
+    // console.log(imgWrap.children);
+    // console.log(imgWrap.nextElementSibling);
+
+
     imgAll.forEach(function (img) {
       img.addEventListener('click', function () {
         var imgSrc = img.src;
         imgBig.src = imgSrc;
         imgPopup.style.display = 'flex';
         document.body.classList.add('img__modal-open');
+        countChilds(img);
+        console.log(countChilds(img));
       });
     });
-    var closePopup = function closePopup() {
-      imgPopup.style.display = '';
-      document.body.classList.remove('img__modal-open');
-    };
     imgClose.addEventListener('click', closePopup);
-    imgPopup.addEventListener('click', closePopup);
   };
 })();
 
