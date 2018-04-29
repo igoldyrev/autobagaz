@@ -1,22 +1,15 @@
 'use strict';
 (function () {
-  var ESC_KEYCODE = 27;
   var modalCall = document.querySelector('.modal-call');
   var modalCallOverlay = document.querySelector('.modal-call__overlay');
   var modalCallClose = document.querySelector('.modal-call__close');
   var modalCallButton = document.querySelector('.modal-call__button');
-  var modalCallInput = document.querySelector('.form__input--call');
+  var modalCallInput = document.querySelectorAll('.form__input--call');
   var modalCallHeader = document.querySelector('.modal-call__header');
   var modalCallForm = document.querySelector('.js-modal-call-form');
   var modalCallInputName = document.querySelector('.js-modal-form-input-name');
   var modalCallInputPhone = document.querySelector('.js-modal-form-input-phone');
   var url = '/call';
-
-  var onModalCallEscPress = function (evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      onModalCallClose();
-    }
-  };
 
   var onModalCallClose = function () {
     modalCall.classList.remove('modal-call--active');
@@ -24,6 +17,10 @@
 
     modalCall.style.top = 45 + '%';
     modalCall.style.left = 45 + '%';
+  };
+
+  var onModalCallEscPress = function (evt) {
+    window.onEscPress(evt, onModalCallClose);
   };
 
   var onModalCallInputFocus = function () {
@@ -80,8 +77,11 @@
 
   modalCallHeader.addEventListener('mousedown', modalCallHeaderDown);
   modalCallButton.addEventListener('click', onModalCallButtonClick);
-  modalCallInput.addEventListener('focus', onModalCallInputFocus);
-  modalCallInput.addEventListener('blur', onModalCallInputFocusLost);
+
+  modalCallInput.forEach(function (input) {
+    input.addEventListener('focus', onModalCallInputFocus);
+    input.addEventListener('blur', onModalCallInputFocusLost);
+  });
 
   modalCallInputName.addEventListener('invalid', function () {
     if (modalCallInputName.validity.valueMissing) {

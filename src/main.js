@@ -1,5 +1,7 @@
 'use strict';
 (function () {
+  var ESC_KEYCODE = 27;
+
   if (window.localStorage) {
     var elements = document.querySelectorAll('[name]');
 
@@ -13,5 +15,11 @@
       })(elements[i]);
     }
   }
+
+  window.onEscPress = function (evt, action) {
+    if (evt.keyCode === ESC_KEYCODE) {
+      action();
+    }
+  };
 })();
 
