@@ -384,43 +384,63 @@ module.exports = __webpack_require__(7);
 (function () {
   window.onload = function () {
     var imgAll = document.querySelectorAll('.img');
-    var imgWrap = document.querySelectorAll('.img__wrap');
     var imgBig = document.querySelector('.img__big');
     var imgPopup = document.querySelector('.img__popup');
     var imgClose = document.querySelector('.img__close');
     var imgButtomRight = imgPopup.querySelector('.img__button--right');
+    var imgButtomLeft = imgPopup.querySelector('.img__button--left');
 
     var closePopup = function closePopup() {
       imgPopup.style.display = '';
       document.body.classList.remove('img__modal-open');
     };
 
-    var countChilds = function countChilds(image) {
-      return parent = image.parentElement.children.length;
+    var getArrayImageSrc = [].map.call(imgAll, function (it) {
+      return it.src;
+    });
+
+    var findIndex = function findIndex(array, value) {
+      return array.indexOf(value);
     };
 
     var buttonRightClick = function buttonRightClick() {
-      imgButtomRight.addEventListener('click', function () {
-        imgWrap.forEach(function (wrap) {
-          for (var i = 0; i < wrap.children.length; i++) {
-            console.log('hello ' + i);
-          }
-        });
-      });
+      var i = findIndex(getArrayImageSrc, imgBig.src);
+      if (i === 0) {
+        i = i + 1;
+      } else {
+        i = findIndex(getArrayImageSrc, imgBig.src) + 1;
+      }
+      if (i >= getArrayImageSrc.length) {
+        i = 0;
+      }
+      imgBig.src = getArrayImageSrc[i];
     };
 
-    // console.log(imgWrap.children);
-    // console.log(imgWrap.nextElementSibling);
+    var buttonLeftClick = function buttonLeftClick() {
+      var i = findIndex(getArrayImageSrc, imgBig.src);
+      if (i === 0) {
+        i = i + 1;
+      } else {
+        i = findIndex(getArrayImageSrc, imgBig.src) - 1;
+      }
+      if (i < 0) {
+        i = getArrayImageSrc.length - 1;
+      }
+      imgBig.src = getArrayImageSrc[i];
+    };
 
+    var openPhoto = function openPhoto(image) {
+      var imageSrc = image.src;
+      imgBig.src = imageSrc;
+      imgPopup.style.display = 'flex';
+      document.body.classList.add('img__modal-open');
+    };
 
     imgAll.forEach(function (img) {
       img.addEventListener('click', function () {
-        var imgSrc = img.src;
-        imgBig.src = imgSrc;
-        imgPopup.style.display = 'flex';
-        document.body.classList.add('img__modal-open');
-        countChilds(img);
-        console.log(countChilds(img));
+        openPhoto(img);
+        imgButtomRight.addEventListener('click', buttonRightClick);
+        imgButtomLeft.addEventListener('click', buttonLeftClick);
       });
     });
     imgClose.addEventListener('click', closePopup);
