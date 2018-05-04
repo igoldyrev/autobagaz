@@ -1,24 +1,75 @@
-﻿$(document).ready(function() { // Ждём загрузки страницы
+﻿'use strict';
+(function () {
+  var imgAll = document.querySelectorAll('.img');
+  var imgBig = document.querySelector('.img__big');
+  var imgPopup = document.querySelector('.img__popup');
+  var imgClose = document.querySelector('.img__close');
+  var imgButtomRight = imgPopup.querySelector('.img__button--right');
+  var imgButtomLeft = imgPopup.querySelector('.img__button--left');
 
-	$(".img").click(function(){	// Событие клика на маленькое изображение
+  var closePopup = function () {
+    imgPopup.style.display = '';
+    document.body.classList.remove('img__modal-open');
+  };
 
-		var img = $(this);	// Получаем изображение, на которое кликнули
-		var src = img.attr('src'); // Достаем из этого изображения путь до картинки
+  var getArrayImageSrc = [].map.call(imgAll, function (it) {
+    return it.src;
+  });
 
-		$("body").append("<div class='img__popup'>"+ //Добавляем в тело документа разметку всплывающего окна
-						 "<div class='img__inner'></div>"+ // Блок, который будет служить фоном затемненным
-						 "<img src="+src+" class='img__big' />"+ // Само увеличенное фото
-						 "</div>");
+  for (var j = 0; j < getArrayImageSrc.length; j++) {
+    while (getArrayImageSrc[j] === window.location.href) {
+      getArrayImageSrc.pop();
+    }
+  }
 
-		$(".img__popup").fadeIn(800); // Медленно выводим изображение
-		$(".img__inner").click(function(){	// Событие клика на затемненный фон
+  var findIndex = function (array, value) {
+    return array.indexOf(value);
+  };
 
-			$(".img__popup").fadeOut(800);	// Медленно убираем всплывающее окно
 
-			setTimeout(function() {	// Выставляем таймер
-				$(".img__popup").remove(); // Удаляем разметку высплывающего окна
-				}, 800);
-		});
-	});
-	
-});
+  var buttonRightClick = function () {
+    var i = findIndex(getArrayImageSrc, imgBig.src);
+    if (i === 0) {
+      i = i + 1;
+    } else {
+      i = findIndex(getArrayImageSrc, imgBig.src) + 1;
+    }
+    if (i >= getArrayImageSrc.length) {
+      i = 0;
+    }
+    imgBig.src = getArrayImageSrc[i];
+  };
+
+  var buttonLeftClick = function () {
+    var i = findIndex(getArrayImageSrc, imgBig.src);
+    if (i === 0) {
+      i = i - 1;
+    } else {
+      i = findIndex(getArrayImageSrc, imgBig.src) - 1;
+    }
+    if (i < 0) {
+      i = getArrayImageSrc.length - 1;
+    }
+    imgBig.src = getArrayImageSrc[i];
+  };
+
+  var openPhoto = function (image) {
+    var imageSrc = image.src;
+    imgBig.src = imageSrc;
+    imgPopup.style.display = 'flex';
+    document.body.classList.add('img__modal-open');
+  };
+
+  imgAll.forEach(function (img) {
+    if (img.src === window.location.href) {
+      img.remove();
+    }
+    img.addEventListener('click', function () {
+      openPhoto(img);
+      imgButtomRight.addEventListener('click', buttonRightClick);
+      imgButtomLeft.addEventListener('click', buttonLeftClick);
+      imgBig.addEventListener('click', buttonRightClick);
+    });
+  });
+  imgClose.addEventListener('click', closePopup);
+})();
