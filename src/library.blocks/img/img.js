@@ -16,8 +16,8 @@
     return it.src;
   });
 
-  for (var i = 0; i < getArrayImageSrc.length; i++) {
-    while (getArrayImageSrc[i] === window.location.href) {
+  for (var j = 0; j < getArrayImageSrc.length; j++) {
+    while (getArrayImageSrc[j] === window.location.href) {
       getArrayImageSrc.pop();
     }
   }
@@ -68,6 +68,7 @@
       openPhoto(img);
       imgButtomRight.addEventListener('click', buttonRightClick);
       imgButtomLeft.addEventListener('click', buttonLeftClick);
+      imgBig.addEventListener('click', buttonRightClick);
     });
   });
   imgClose.addEventListener('click', closePopup);
