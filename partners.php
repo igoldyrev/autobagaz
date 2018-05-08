@@ -30,6 +30,18 @@ echo "<meta name='keywords' content='"; echo $keywords[8][keywords]; echo "'/>";
                 </div>
             </div>
         </div>
+        <div class="partner">
+              <h2 class="title title-h2">Парапланерный клуб "ПермАЭРО"</h2>
+              <div class="partner__inner">
+                  <img class="partner__logo" src="/content/partner/permaero.png" alt="permaero">
+                  <div class="partner__description">
+                      <p class="partner__text">Сайт: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="https://permaero.ru/" class="partner__link" target="_blank">permaero.ru</a></p>
+                      <p class="partner__text">Почта: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="mailto:info@permaero.ru" class="partner__link">info@permaero.ru</a></p>
+                      <p class="partner__text">Телефон: <a onclick="yaCounter40650914.reachGoal('partner_link'); return true" href="tel:+79824574388" class="partner__link">+7 (982) 457 43 88</a></p>
+                      <p class="partner__text">Контактное лицо: Силин Роман (Руководитель клуба)</p>
+                  </div>
+              </div>
+          </div>
 <!--        <div class="partner">-->
 <!--            <h2 class="title title-h2">Парк активного отдыха "Юго-Камские горки"</h2>-->
 <!--            <div class="partner__inner partner__inner--column">-->
