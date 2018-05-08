@@ -9,10 +9,10 @@ $sales = [
     ],
     [
         'id' => 's2',
-        'name' => 'Лыжное крепление Amos для 3-4 пар лыж со скидкой',
-        'img' => '<img class="sales__img" src="/content/lyzhnye-kreplenya/img/amos.jpg" alt="amos">',
-        'price' => 'Скидка 20%',
-        'strike_price' => '2700 рублей',
+        'name' => 'Автобокс на крышу INMAX Space 460 со скидкой',
+        'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/inmax-space.jpg" alt="nmax">',
+        'price' => '15 500 рублей',
+        'strike_price' => '17 000 рублей',
     ],
     [
         'id' => 's3',

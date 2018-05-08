@@ -94,6 +94,12 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
         <div class="good-message">
             <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
         </div> <?php
+    } elseif ($id == 's10') {
+        $tovar = $_SESSION['sales'][9][name];
+        echo "<title>Заказ товара "; echo $_SESSION['sales'][9][name]; echo "</title>";?>
+        <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+        </div> <?php
     } elseif ($id == 'yuago') {
         $tovar = $_SESSION['yuago'][name];
         echo "<title>Заказ товара "; echo $_SESSION['yuago'][name]; echo "</title>";?>
