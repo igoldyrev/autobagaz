@@ -64,4 +64,16 @@ $news = [
         'name' => 'Итоги розыгрыша лыжного крепления Mont Blanc',
         'link' => '/news/result_rozygryzh_montblanc',
     ],
+    [
+        'name' => 'Поступление автобоксов INMAX Space 460',
+        'link' => '/news/postuplenie-inmax',
+    ],
+    [
+        'name' => 'Акция "Помоги крылатым"!',
+        'link' => '/news/help_birds',
+    ],
+    [
+        'name' => 'Розыгрыш велокрепления от магазина "AutoBagaz"',
+        'link' => '/news/rozygryzh_velo_amos',
+    ],
 ];

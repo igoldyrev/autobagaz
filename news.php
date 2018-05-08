@@ -1,4 +1,4 @@
-<?php 
+<?php
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatags.php");
@@ -443,6 +443,25 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                 <div class="img__wrap">
                     <img class="img product__img news__img" src="/content/news/260318/help-bird.jpg" alt="Помоги крылатым с Autobagaz.ru">
                 </div>
+            </div><?php
+        } elseif ($newspage == 'rozygryzh_velo_amos') {
+            echo "<title> $titleconst"; echo $news[18][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $news[18][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $news[18][keywords]; echo "'/>"; ?>
+
+            <div class="news__inner">
+              <h1 class="title title-h1">Розыгрыш велокрепления от магазина "AutoBagaz"</h1>
+              <p class="text">Мы объявляем конкурс в котором разыграем Крепление для перевозки велосипеда на крышу фирмы AMOS!</p>
+              <p class="text">Условия : </p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Быть участником нашей <a class="link" href="https://vk.com/autobagaz" target="_blank">группы</a></p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Сделать репост этой <a class="link" href="https://vk.com/wall-86325723_1242" target="_blank">записи</a> к себе на стену!</p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Результат конкурса будет подведен 09 июня 2018 года</p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Победитель будет определен с помощью генератора случайных чисел.</p>
+              <p class="text">Задавайте вопросы по телефону: <a class="link" href="tel:+73422889969">+7 342 288 99 69</a></p>
+
+              <div class="img__wrap">
+                <img class="img product__img news__img" src="/content/news/080518/rozygryzh_velokreplenya.jpg" alt="Розыгрыш велокрепления от магазина AutoBagaz">
+              </div>
             </div><?php
         } ?>
     </div>
