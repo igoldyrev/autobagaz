@@ -161,7 +161,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php"); ?>
                 <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+73422889969" class="contacts__link">+7 (342) 288 99 69</a>
                 <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79124897939" class="contacts__link">+7 912 489 79 39 Валентин Сарафанов</a>
                 <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79127824243" class="contacts__link">+7 912 782 42 43 Валерия Пачина</a>
-                <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79655722628" class="contacts__link">+7 965 572 26 28 Илья Голдырев</a>
+                <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79082410193" class="contacts__link">+7 908 241 01 93 Илья Голдырев</a>
                 <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79091004006" class="contacts__link">+7 909 100 40 06 Денис Зарубин (руководитель)</a>
                 <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" href="mailto:autobagaz@yandex.ru" class="contacts__link">autobagaz@yandex.ru</a>
             </div>
