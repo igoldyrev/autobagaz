@@ -1,9 +1,0 @@
-@include adaptive(mobile) {
-  .wrapper {
-    width: 100%;
-
-    flex-direction: column-reverse;
-
-    margin: 15px auto 15px auto;
-  }
-}

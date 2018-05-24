@@ -2,16 +2,11 @@
 @import "variables";
 @import "mixins";
 
-@import "library.blocks/clearfix/clearfix";
+@import "library.blocks/clearfix";
 
 //Тело и обертка
-@import "library.blocks/body/body";
-@import "library.blocks/wrapper/wrapper";
-@import "tablet.blocks/wrapper/wrapper";
-@import "mobile.blocks/wrapper/wrapper";
-@import "library.blocks/wrapper/__content/wrapper__content";
-@import "tablet.blocks/wrapper/__content/wrapper__content";
-@import "mobile.blocks/wrapper/__content/wrapper__content";
+@import "library.blocks/body";
+@import "library.blocks/wrapper";
 
 //Вкладки-переключатели на страницах
 @import "common.blocks/tabs/tabs";
