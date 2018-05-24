@@ -18,23 +18,13 @@
 @import "common.blocks/tabs/special__tab/special__tab";
 
 //Заголовки
-@import "library.blocks/title/title";
+@import "library.blocks/title";
 
 //Текст, списки и ссылки
-@import "library.blocks/text/text";
-@import "tablet.blocks/text/text";
-@import "mobile.blocks/text/text";
-@import "library.blocks/span/span";
-@import "tablet.blocks/span/span";
-@import "mobile.blocks/span/span";
-@import "library.blocks/list/list";
-@import "mobile.blocks/list/list";
-@import "common.blocks/list/__unsorted/list__unsorted";
-@import "library.blocks/list/_decimal/list_decimal";
-@import "common.blocks/list/_decimal/list_decimal";
-@import "library.blocks/link/link";
-@import "common.blocks/link/link";
-@import "library.blocks/link/_green/link_green";
+@import "library.blocks/text";
+@import "library.blocks/span";
+@import "library.blocks/list";
+@import "library.blocks/link";
 @import "common.blocks/link-green/link-green";
 @import "mobile.blocks/link-green/link-green";
 
