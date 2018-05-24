@@ -48,29 +48,10 @@
 @import "mobile.blocks/img/__big/img__big";
 
 //Поля ввода
-@import "library.blocks/form/__container/form__container";
-@import "mobile.blocks/form/__container/form__container";
-@import "library.blocks/form/__input/_wrap/form__input_wrap";
-@import "library.blocks/form/__input/form__input";
-@import "library.blocks/form/__input/_call/form__input_call";
-@import "library.blocks/form/__input-file/form__input-file";
-@import "mobile.blocks/form/__input/form__input";
-@import "library.blocks/form/__checkbox/form__checkbox";
-@import "common.blocks/form/__checkbox/form__checkbox";
-@import "library.blocks/form/__select/form__select";
-@import "mobile.blocks/form/__select/form__select";
-@import "library.blocks/form/__textarea/form__textarea";
-@import "common.blocks/form/__textarea/form__textarea";
-@import "common.blocks/form/__textarea/_admin/form__textarea_admin";
-@import "mobile.blocks/form/__textarea/form__textarea";
-@import "library.blocks/form/__label/form__label";
-@import "library.blocks/form/__label/_checkbox/form__label_checkbox";
-@import "library.blocks/form/__label/_shown/form__label_shown";
-@import "library.blocks/form/__label/_file/form__label_file";
-@import "library.blocks/form/g-recaptcha";
+@import "library.blocks/form";
 
 //Кнопки
-@import "library.blocks/button/button";
+@import "library.blocks/button";
 @import "mobile.blocks/button/button";
 @import "common.blocks/button/__buy/button__buy";
 @import "mobile.blocks/button/__buy/button__buy";
