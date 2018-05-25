@@ -12,12 +12,12 @@ npm update --save-dev
 ```
 npm run dev
 ```
-### Сборка production для linux 
+### Тест ESlint для JS
 ```
-npm run prod-lin
+npm run eslint
 ```
-### Сборка production для windows 
+### Сборка production
 ```
-npm run prod-win
+npm run production
 ```
 
