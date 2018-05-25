@@ -201,16 +201,7 @@
 @import "tablet.blocks/table/_buttons/table--buttons";
 
 //Стили для карточек каталога
-@import "common.blocks/catalog/catalog";
-@import "mobile.blocks/catalog/catalog";
-@import "common.blocks/catalog/__item/catalog__item";
-@import "common.blocks/catalog/__item/_velo/catalog__item_velo";
-@import "mobile.blocks/catalog/__item/catalog__item";
-@import "common.blocks/catalog/__image-wrap/catalog__image-wrap";
-@import "common.blocks/catalog/__image/catalog__image";
-@import "mobile.blocks/catalog/__image/catalog__image";
-@import "common.blocks/catalog/__item-link/catalog__item-link";
-@import "common.blocks/catalog/__text/catalog__text";
+@import "common.blocks/catalog";
 
 //Уменьшенные карточки каталога
 @import "common.blocks/good-mini/__wrap/good-mini__wrap";
