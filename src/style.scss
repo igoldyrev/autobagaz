@@ -127,16 +127,7 @@
 @import "common.blocks/product/__buttons/product__buttons";
 
 //Карточка отдельного товара на всех страницах сайта
-@import "common.blocks/good/good";
-@import "common.blocks/good/__img/good__img";
-@import "common.blocks/good/__img/_mini/good__img_mini";
-@import "tablet.blocks/good/__img/good__img";
-@import "common.blocks/good/__price/good__price";
-@import "tablet.blocks/good/__price/good__price";
-@import "mobile.blocks/good/__price/good__price";
-@import "common.blocks/good/__buttons/good__buttons";
-@import "tablet.blocks/good/__buttons/good__buttons";
-@import "mobile.blocks/good/__buttons/good__buttons";
+@import "common.blocks/good";
 
 //Сообщение об успешном или неуспешном заказе товара
 @import "common.blocks/good-message/good-message";
