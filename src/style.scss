@@ -163,19 +163,7 @@
 @import "common.blocks/sales/__price/_strike/sales__price_strike";
 
 //Стили для таблиц
-@import "common.blocks/table/table";
-@import "mobile.blocks/table/table";
-@import "common.blocks/table/__caption/table__caption";
-@import "common.blocks/table/__row/table__row";
-@import "common.blocks/table/__cell/table__cell";
-@import "mobile.blocks/table/__cell/table__cell";
-@import "common.blocks/table/__cell/_price/table__cell_price";
-@import "common.blocks/table/__cell/_price/table__cell_price";
-@import "common.blocks/table/__column/table__column";
-@import "common.blocks/table/__column/__column-prokat/_srok/table__column-prokat_srok";
-@import "common.blocks/table/__header/table__header";
-@import "common.blocks/table/__footer/table__footer";
-@import "tablet.blocks/table/_buttons/table--buttons";
+@import "common.blocks/table";
 
 //Стили для карточек каталога
 @import "common.blocks/catalog";
