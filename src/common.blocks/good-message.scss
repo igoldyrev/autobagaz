@@ -4,4 +4,9 @@
   padding: 15px;
   background: #BCF5A9;
   text-align: center;
+
+  &--wrong {
+    border: 2px solid $redcolor;
+    background: #ff6666;
+  }
 }

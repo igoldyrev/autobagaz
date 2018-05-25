@@ -130,8 +130,7 @@
 @import "common.blocks/good";
 
 //Сообщение об успешном или неуспешном заказе товара
-@import "common.blocks/good-message/good-message";
-@import "common.blocks/good-message/_wrong/good-message_wrong";
+@import "common.blocks/good-message";
 
 //Документы в разделе проката
 @import "common.blocks/prokat-docs/prokat-docs";
