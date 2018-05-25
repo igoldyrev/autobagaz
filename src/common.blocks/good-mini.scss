@@ -11,4 +11,16 @@
   padding: 10px;
 
   width: 250px;
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@include adaptive(mobile) {
+  .good-mini {
+    width: 100%;
+  }
 }
