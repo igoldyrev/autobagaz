@@ -333,12 +333,4 @@
 @import "tablet.blocks/breadcrumbs/__text/breadcrumbs__text";
 
 //Админка
-@import "common.blocks/admin/admin";
-@import "common.blocks/admin/__container/admin__container";
-@import "mobile.blocks/admin/__container/admin__container";
-@import "common.blocks/admin/__item/admin__item";
-@import "common.blocks/admin/__radio/admin__radio";
-@import "common.blocks/admin/__link/admin__link";
-@import "common.blocks/admin/__link/_back/admin__link_back";
-@import "common.blocks/admin/__link-wrap/admin__link-wrap";
-@import "common.blocks/admin/__img/admin__img";
+@import "common.blocks/admin";
