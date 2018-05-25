@@ -323,13 +323,7 @@
 @import "mobile.blocks/modal-call/__close/modal-call__close";
 
 //Breadcrumbs
-@import "common.blocks/breadcrumbs/breadcrumbs";
-@import "tablet.blocks/breadcrumbs/breadcrumbs";
-@import "mobile.blocks/breadcrumbs/breadcrumbs";
-@import "common.blocks/breadcrumbs/__link/breadcrumbs__link";
-@import "tablet.blocks/breadcrumbs/__link/breadcrumbs__link";
-@import "common.blocks/breadcrumbs/__text/breadcrumbs__text";
-@import "tablet.blocks/breadcrumbs/__text/breadcrumbs__text";
+@import "common.blocks/breadcrumbs";
 
 //Админка
 @import "common.blocks/admin";
