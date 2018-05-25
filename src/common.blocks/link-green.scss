@@ -24,3 +24,10 @@
     transition: 0.7s ease-in-out;
   }
 }
+
+@include adaptive(mobile) {
+  .link-green {
+    font-size: 0.8em;
+    padding: 10px 15px;
+  }
+}
