@@ -10,12 +10,6 @@
 
 //Вкладки-переключатели на страницах
 @import "common.blocks/tabs/tabs";
-@import "common.blocks/tabs/__item/tabs__item";
-@import "mobile.blocks/tabs/__item/tabs__item";
-@import "common.blocks/tabs/__item/_active/tabs__item_active";
-
-@import "common.blocks/tabs/guestbook__tab/guestbook__tab";
-@import "common.blocks/tabs/special__tab/special__tab";
 
 //Заголовки
 @import "library.blocks/title";
