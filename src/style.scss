@@ -69,17 +69,6 @@
 
 //Отзывы
 @import "common.blocks/rewiew/rewiew";
-@import "mobile.blocks/rewiew/rewiew";
-@import "common.blocks/rewiew/__name/rewiew__name";
-@import "tablet.blocks/rewiew/__name/rewiew__name";
-@import "mobile.blocks/rewiew/__name/rewiew__name";
-@import "common.blocks/rewiew/__text-wrap/rewiew__text-wrap";
-@import "common.blocks/rewiew/__text/rewiew__text";
-@import "tablet.blocks/rewiew/__text/rewiew__text";
-@import "mobile.blocks/rewiew/__text/rewiew__text";
-@import "common.blocks/rewiew/__answer/rewiew__answer";
-@import "tablet.blocks/rewiew/__answer/rewiew__answer";
-@import "mobile.blocks/rewiew/__answer/rewiew__answer";
 
 //Бренды на главной странице
 @import "common.blocks/brands";
@@ -92,16 +81,6 @@
 
 //Блок со скидками
 @import "common.blocks/sales/sales";
-@import "tablet.blocks/sales/sales";
-@import "common.blocks/sales/__item/sales__item";
-@import "tablet.blocks/sales/__item/sales__item";
-@import "mobile.blocks/sales/__item/sales__item";
-@import "common.blocks/sales/__img/sales__img";
-@import "common.blocks/sales/__item-price/sales__item-price";
-@import "common.blocks/sales/__item-button/sales__item-button";
-@import "common.blocks/sales/__description/sales__description";
-@import "common.blocks/sales/__price/sales__price";
-@import "common.blocks/sales/__price/_strike/sales__price_strike";
 
 //Стили для таблиц
 @import "common.blocks/table";
