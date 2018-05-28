@@ -18,7 +18,7 @@ module.exports = {
         autobagaz: [
                 './src/main.js',
                 './src/common.blocks/tabs/tabs.js',
-                './src/common.blocks/rewiew/__answer/rewiew__answer.js',
+                './src/common.blocks/rewiew/rewiew__answer.js',
                 './src/common.blocks/modal-call/modal-call.js',
                 './src/common.blocks/gallery/gallery.js',
                 './src/library.blocks/img/img.js',
@@ -48,7 +48,7 @@ module.exports = {
                             {
                                 loader: 'css-loader',
                                 options: {
-                                    /* minimize: false || { /* CSSNano options /}*/
+                                    minimize: true
                                 }
                             },
                             {

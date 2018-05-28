@@ -12,4 +12,93 @@
   background: $primarycolor;
   margin: 0 auto 15px auto;
 
+  &__link {
+    display: block;
+    width: 150px;
+
+    font-size: 0.9em;
+    font-weight: 300;
+
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+
+    border-right: 1px solid #A4A4A4;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: $subcolor;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+    padding: 0;
+    width: 980px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  &__list-item {
+    &:last-child a {
+      border-right: none;
+    }
+  }
+}
+
+@include adaptive(pad) {
+  .navigation {
+    position: relative;
+    height: auto;
+    width: 98%;
+    margin: 0 auto;
+
+    &__link {
+      width: 100%;
+      line-height: 30px;
+
+      border-bottom: 1px solid #A4A4A4;
+    }
+
+    &__list {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &__list-item {
+      width: 50%;
+    }
+  }
+}
+
+@include adaptive(mobile) {
+  .navigation {
+    display: none;
+
+    &__link {
+      width: 100%;
+      line-height: 30px;
+
+      border-bottom: 1px solid #A4A4A4;
+    }
+
+    &__list {
+      width: 100%;
+      height: auto;
+      display: none;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &__list-item {
+      width: 100%;
+    }
+  }
 }

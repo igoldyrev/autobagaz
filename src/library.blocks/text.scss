@@ -1,0 +1,29 @@
+.text {
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: inherit;
+  line-height: inherit;
+
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@include adaptive(pad) {
+  .text {
+    font-size: 0.9em;
+
+    margin-bottom: 10px;
+  }
+}
+
+@include adaptive(mobile) {
+  .text {
+    font-size: 0.8em;
+    line-height: 20px;
+
+    margin-bottom: 10px;
+  }
+}

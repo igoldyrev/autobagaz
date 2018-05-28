@@ -8,4 +8,114 @@
 
   padding: 10px;
   box-sizing: border-box;
+
+  &__bg {
+    position: relative;
+
+    background: url("/src/common.blocks/stock/img/inmax-bg.jpg") no-repeat 50%;
+    background-size: cover;
+
+    opacity: 0.6;
+
+    height: 172px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  &__container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    font-family: $font;
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+
+    text-align: center;
+  }
+
+  &__image {
+    width: 200px;
+  }
+
+  &__link {
+    display: block;
+    width: 90%;
+    height: 50px;
+
+    font-family: $font;
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+
+    margin: 10px auto 0 auto;
+
+    background: linear-gradient(to bottom, $redcolor, #F78181);
+    border-radius: 25px;
+
+    &:hover {
+      background: linear-gradient(to bottom, $redcolor, #F5A9A9);
+    }
+  }
+
+  &__title {
+    font-family: $font;
+    font-size: 36px;
+    font-weight: 700;
+
+    color: inherit;
+    line-height: 40px;
+    text-align: center;
+
+    margin-bottom: 10px;
+  }
+}
+
+@include adaptive(pad) {
+  .stock {
+    &__description {
+      font-size: 18px;
+    }
+
+    &__link {
+      font-size: 18px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+  }
+}
+
+@include adaptive(mobile) {
+  .stock {
+    flex-direction: column;
+
+    &__bg {
+      height: 190px;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+
+    &__image {
+      display: none;
+    }
+
+    &__link {
+      font-size: 16px;
+    }
+
+    &__title {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
 }

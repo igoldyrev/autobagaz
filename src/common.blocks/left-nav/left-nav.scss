@@ -1,4 +1,77 @@
 .left-nav {
   display: flex;
   flex-direction: column;
+
+  &__link {
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: inherit;
+
+    color: $subcolor;
+    text-align: center;
+    text-decoration: none;
+
+    width: 200px;
+    padding: 3px 0;
+    margin: 3px 0;
+
+    border: 1px solid $subcolor;
+    border-radius: 5px;
+
+    &:hover {
+      border: 1px solid $subcolor;
+      background: $subcolor;
+      color: #ffffff;
+    }
+  }
+}
+
+@include adaptive(pad) {
+  .left-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    &__link {
+      width: auto;
+      height: 32px;
+
+      font-size: 0.8em;
+      line-height: 32px;
+
+      padding: 0 10px;
+      margin: 2px;
+    }
+  }
+
+  #vk_groups {
+    display: none;
+  }
+}
+
+@include adaptive(mobile) {
+  .left-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    &__link {
+      width: auto;
+      height: 20px;
+
+      font-size: 0.8em;
+      line-height: 20px;
+
+      padding: 0 5px;
+      margin: 2px;
+    }
+  }
+
+  #vk_groups {
+    display: none;
+  }
 }

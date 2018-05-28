@@ -1,9 +1,0 @@
-@include adaptive(mobile) {
-  .navigation__list {
-    width: 100%;
-    height: auto;
-    display: none;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}

@@ -1,0 +1,54 @@
+.good {
+  border: 2px solid $mediumgray;
+  border-radius: 5px;
+  margin: 15px 0;
+  padding: 10px;
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__img {
+    width: 250px;
+
+    &--mini {
+      width: 160px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+@include adaptive(pad) {
+  .good {
+    &__buttons {
+      flex-direction: column;
+    }
+
+    &__img {
+      width: 160px;
+    }
+
+    &__price {
+      align-items: center;
+    }
+  }
+}
+
+@include adaptive(mobile) {
+  .good {
+    &__buttons {
+      flex-direction: column;
+    }
+
+    &__price {
+      align-items: center;
+    }
+  }
+}

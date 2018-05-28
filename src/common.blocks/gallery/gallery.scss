@@ -4,4 +4,97 @@
   justify-content: space-between;
   align-items: stretch;
   margin-bottom: 20px;
+
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item {
+    width: 32%;
+
+    margin: 7px 0;
+    padding: 10px;
+
+    background-color: $bg-color;
+    border: 1px solid $bg-color;
+    border-radius: 5px;
+
+    box-sizing: border-box;
+  }
+
+  &__name {
+    display: inline-block;
+
+    padding: 15px;
+
+    text-decoration: none;
+    color: inherit;
+
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+      color: $subcolor;
+      transition:0.5s ease-in-out;
+    }
+  }
+
+  &__tag {
+    display: inline-block;
+
+    font: {
+      family: inherit;
+      size: 1em;
+      weight: inherit;
+    }
+    color: #222;
+    text-decoration: none;
+
+    padding: 5px 10px;
+    margin: 0 5px 5px 0;
+
+    background-color: $mediumgray;
+    border-radius: 5px;
+
+
+    &:hover {
+      background-color: #b3b3b3;
+    }
+  }
+
+  &__tag-inner {
+    width: 65%;
+  }
+}
+
+@include adaptive(pad) {
+  .gallery {
+    &__tag {
+      font-size: 0.9em;
+    }
+
+    &__item {
+      width: 49%;
+    }
+  }
+}
+
+@include adaptive(mobile) {
+  .gallery {
+    &__tag {
+      font-size: 0.8em;
+    }
+
+    &__item {
+      width: 100%;
+    }
+  }
 }
