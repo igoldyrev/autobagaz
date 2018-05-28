@@ -94,6 +94,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             echo '</p>';
 
         } elseif ($newspage == 'postuplenya_amos') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
 
             echo "<title> $titleconst"; echo $news[0][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[0][description]; echo "'/>";
@@ -109,6 +110,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'reelings_xray') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[1][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[1][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[1][keywords]; echo "'/>"; ?>
@@ -126,6 +128,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'rozygryzh_bagazhnika') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[3][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[3][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[3][keywords]; echo "'/>"; ?>
@@ -153,6 +156,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'braslety') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[4][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[4][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[4][keywords]; echo "'/>"; ?>
@@ -172,6 +176,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'itogi_rozygryzha') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[5][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[5][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[5][keywords]; echo "'/>"; ?>
@@ -186,6 +191,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'rozygryzh_velokreplenya') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[6][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[6][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[6][keywords]; echo "'/>"; ?>
@@ -209,6 +215,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'postuplenya_avtoboksov') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[7][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[7][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[7][keywords]; echo "'/>"; ?>
@@ -223,6 +230,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'mayskie_prazdniki') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[2][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[2][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[2][keywords]; echo "'/>"; ?>
@@ -237,6 +245,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'akcia_na_boksy') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[9][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[9][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[9][keywords]; echo "'/>"; ?>
@@ -261,6 +270,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == '12_june') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[10][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[10][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[10][keywords]; echo "'/>"; ?>
@@ -275,6 +285,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'cenopad') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[11][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[11][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[11][keywords]; echo "'/>"; ?>
@@ -299,6 +310,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'akcia_na_braslets') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[12][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[12][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[12][keywords]; echo "'/>"; ?>
@@ -317,6 +329,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'oxota_na_autobagaz') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[13][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[13][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[13][keywords]; echo "'/>"; ?>
@@ -357,6 +370,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'rozygryzh_montblanc') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[14][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[14][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[14][keywords]; echo "'/>"; ?>
@@ -382,6 +396,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             </div><?php
 
         } elseif ($newspage == 'result_rozygryzh_montblanc') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[15][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[15][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[15][keywords]; echo "'/>"; ?>
@@ -399,6 +414,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                 <p class="text">Видео с итогами розыгрыша находится <a href="https://vk.com/video-86325723_456239025" target="_blank" class="link">здесь</a>.</p>
             </div><?php
         } elseif ($newspage == 'postuplenie-inmax') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[16][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[16][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[16][keywords]; echo "'/>"; ?>
@@ -421,6 +437,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                 </div>
             </div><?php
         } elseif ($newspage == 'help_birds') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[17][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[17][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[17][keywords]; echo "'/>"; ?>
@@ -445,6 +462,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                 </div>
             </div><?php
         } elseif ($newspage == 'rozygryzh_velo_amos') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
             echo "<title> $titleconst"; echo $news[18][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $news[18][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $news[18][keywords]; echo "'/>"; ?>
