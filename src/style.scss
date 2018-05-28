@@ -41,14 +41,7 @@
 @import "common.blocks/header/header";
 
 //Акция сайта
-@import "common.blocks/proposition/__block/proposition__block";
-@import "common.blocks/proposition/__text/proposition__text";
-@import "tablet.blocks/proposition/__text/proposition__text";
-@import "mobile.blocks/proposition/__text/proposition__text";
-@import "common.blocks/proposition/__text/_small/proposition__text_small";
-@import "tablet.blocks/proposition/__text/_small/proposition__text_small";
-@import "mobile.blocks/proposition/__text/_small/proposition__text_small";
-@import "common.blocks/proposition/__star/proposition__star";
+@import "common.blocks/proposition";
 
 //Навигация на сайте
 @import "common.blocks/navigation/navigation";
