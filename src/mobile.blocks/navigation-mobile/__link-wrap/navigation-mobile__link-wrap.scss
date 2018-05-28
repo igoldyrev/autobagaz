@@ -1,9 +1,0 @@
-@include adaptive(mobile) {
-  .navigation-mobile__link-wrap {
-    width: 100%;
-    height: auto;
-    position: relative;
-    margin: 0;
-    background-color: $subcolor;
-  }
-}
