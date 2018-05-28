@@ -52,17 +52,6 @@
 
 //Навигация на сайте
 @import "common.blocks/navigation/navigation";
-@import "tablet.blocks/navigation/navigation";
-@import "mobile.blocks/navigation/navigation";
-@import "common.blocks/navigation/__list/navigation__list";
-@import "tablet.blocks/navigation/__list/navigation__list";
-@import "mobile.blocks/navigation/__list/navigation__list";
-@import "common.blocks/navigation/__list-item/navigation__list-item";
-@import "tablet.blocks/navigation/__list-item/navigation__list-item";
-@import "mobile.blocks/navigation/__list-item/navigation__list-item";
-@import "common.blocks/navigation/__link/navigation__link";
-@import "tablet.blocks/navigation/__link/navigation__link";
-@import "mobile.blocks/navigation/__link/navigation__link";
 
 //Навигация на мобильных устройствах
 @import "common.blocks/navigation-mobile/navigation-mobile";
