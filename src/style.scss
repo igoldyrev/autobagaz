@@ -21,21 +21,27 @@
 @import "library.blocks/link";
 @import "common.blocks/link-green";
 
-//Изображения + Всплывающие изображения
-@import "library.blocks/img/img";
-
-//Поля ввода
-@import "library.blocks/form";
-
 //Кнопки
 @import "library.blocks/button";
 @import "common.blocks/button";
 
+//Обертка для уведомлений форм
+@import "common.blocks/notification-wrap";
+
+//Поля ввода
+@import "library.blocks/form";
+
+//Изображения + Всплывающие изображения
+@import "library.blocks/img/img";
+
 //Шапка сайта
 @import "common.blocks/header/header";
 
+//Подвал сайта
+@import "common.blocks/footer/footer";
+
 //Акция сайта
-@import "common.blocks/proposition";
+@import "common.blocks/proposition/proposition";
 
 //Навигация на сайте
 @import "common.blocks/navigation/navigation";
@@ -46,14 +52,20 @@
 //Навигация слева
 @import "common.blocks/left-nav/left-nav";
 
-//Подвал сайта
-@import "common.blocks/footer/footer";
+//Бренды на главной странице
+@import "common.blocks/brands";
 
-//Карточка отдельного товара на странице product
-@import "common.blocks/product";
+//Стили для карточек каталога
+@import "common.blocks/catalog";
 
 //Карточка отдельного товара на всех страницах сайта
 @import "common.blocks/good";
+
+//Уменьшенные карточки каталога
+@import "common.blocks/good-mini";
+
+//Карточка отдельного товара на странице product
+@import "common.blocks/product";
 
 //Сообщение об успешном или неуспешном заказе товара
 @import "common.blocks/good-message";
@@ -61,29 +73,20 @@
 //Документы в разделе проката
 @import "common.blocks/prokat-docs";
 
-//Отзывы
-@import "common.blocks/rewiew/rewiew";
-
-//Бренды на главной странице
-@import "common.blocks/brands";
-
 //Страница контакты
 @import "common.blocks/contacts";
-
-//Страница с диалогами выбора автобокса
-@import "common.blocks/speech";
 
 //Блок со скидками
 @import "common.blocks/sales/sales";
 
+//Отзывы
+@import "common.blocks/rewiew/rewiew";
+
 //Стили для таблиц
 @import "common.blocks/table";
 
-//Стили для карточек каталога
-@import "common.blocks/catalog";
-
-//Уменьшенные карточки каталога
-@import "common.blocks/good-mini";
+//Виджет для заказа обратного звонка
+@import "common.blocks/modal-call/modal-call";
 
 //Сообщение на главной странице
 @import "common.blocks/index-message/index-message";
@@ -91,11 +94,17 @@
 //Блок с акцией на главной странице
 @import "common.blocks/stock/stock";
 
-//Новости
-@import "common.blocks/news";
+//Breadcrumbs
+@import "common.blocks/breadcrumbs";
 
 //Галерея
 @import "common.blocks/gallery/gallery";
+
+//Новости
+@import "common.blocks/news";
+
+//Страница с диалогами выбора автобокса
+@import "common.blocks/speech";
 
 //Партнеры
 @import "common.blocks/partner";
@@ -103,20 +112,11 @@
 //Сертификаты
 @import "common.blocks/sertificates";
 
-//Страницы с ошибками
-@import "common.blocks/error/error";
-
 //Блок с номерами страниц
 @import "common.blocks/page-numbers";
 
-//Обертка для уведомлений форм
-@import "common.blocks/notification-wrap";
-
-//Виджет для заказа обратного звонка
-@import "common.blocks/modal-call/modal-call";
-
-//Breadcrumbs
-@import "common.blocks/breadcrumbs";
+//Страницы с ошибками
+@import "common.blocks/error/error";
 
 //Админка
 @import "common.blocks/admin";
