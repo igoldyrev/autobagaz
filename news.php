@@ -481,6 +481,33 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                 <img class="img product__img news__img" src="/content/news/080518/rozygryzh_velokreplenya.jpg" alt="Розыгрыш велокрепления от магазина AutoBagaz">
               </div>
             </div><?php
+        } elseif ($newspage == 'new_store_dzerzhinskogo_15') {
+          include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords_news.php");
+            echo "<title> $titleconst"; echo $news[19][title]; echo "</title>";
+            echo "<meta name='description' content='"; echo $news[19][description]; echo "'/>";
+            echo "<meta name='keywords' content='"; echo $news[19][keywords]; echo "'/>"; ?>
+
+            <div class="news__inner">
+              <h1 class="title title-h1">Открытие нового магазина на Дзержинского 15</h1>
+              <p class="text">Здравствуйте, уважаемые посетители и гости нашего магазина!!! </p>
+              <p class="text">Мы рады анонсировать Вам ОТКРЫТИЕ второго магазина!!! </p>
+              <p class="text">Прошло полтора года, за которые мы зарекомендовали себя как профессионалы своего дела, которые подберут Вам багажное оборудование, по Вашим потребностям. </p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Дешево и сердито - не вопрос. </p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Красиво и качественно - да, пожалуйста. </p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> На любые нужды у нас всегда есть предложение. </p>
+              <p class="text">Сейчас мы хотим дать не только сервис, но еще и выбор - мы открываем филиал в нашем городе! </p>
+              <p class="text">Это праздник! А в праздники принято дарить подарки!!! </p>
+              <p class="text">Итак:</p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Первое - мы дарим на одну покупку скидку 10% от стоимости товара (действительно до 9 июня 2018) </p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Второе - один+один равно три? Да, равно. (действительно до 9 июня 2018) </p>
+              <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Третье - любой десятый товар по чекам (в день)- мы дарим. (действительно до 5 июля) </p>
+              <p class="text">Адрес нового магазина "AutoBagaz" - г.Пермь ул.Дзержинского 15 (1 этаж) </p>
+              <p class="text">Телефон для связи: <a class="link" href="tel:+73422889969">+7 342 288 99 69</a></p>
+
+              <div class="img__wrap">
+                <img class="img product__img news__img" src="/content/news/300518/new_store.jpg" alt="Новый магазин AutoBagaz на Дзержинского 15">
+              </div>
+            </div><?php
         } ?>
     </div>
 </div>
