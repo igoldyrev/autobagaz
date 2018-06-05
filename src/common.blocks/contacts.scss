@@ -6,10 +6,6 @@
     clear: both;
   }
 
-  &__inn {
-    margin-top: 30px;
-  }
-
   &__link {
     display: block;
 
@@ -25,5 +21,9 @@
     line-height: 2;
 
     cursor: pointer;
+  }
+
+  &__map {
+    margin-bottom: 30px;
   }
 }

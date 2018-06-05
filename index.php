@@ -155,33 +155,37 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php"); ?>
             echo "<meta name='description' content='"; echo $keywords[6][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $keywords[6][keywords]; echo "'/>"; ?>
 
-            <h3 class="title title-h3">Компания Автобагаж</h3>
-            <p class="text">Контакты для связи:</p>
-            <div class="contacts">
-                <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+73422889969" class="contacts__link">+7 (342) 288 99 69</a>
-                <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79124897939" class="contacts__link">+7 912 489 79 39 Валентин Сарафанов</a>
-                <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79082410193" class="contacts__link">+7 908 241 01 93 Илья Голдырев</a>
-                <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79091004006" class="contacts__link">+7 909 100 40 06 Денис Зарубин (руководитель)</a>
-                <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" href="mailto:autobagaz@yandex.ru" class="contacts__link">autobagaz@yandex.ru</a>
-            </div>
-            <h3 class="title title-h3">Режим работы:</h3>
-            <p class="text">Пн - Пт с 10:00 до 19:00</p>
-            <p class="text">Сб - Вс с 10:00 до 18:00</p>
-            <p class="text">Наш адрес: г.Пермь, Ул. Спешилова 102/29</p>
-            <h3 class="title title-h3">Мы находимся здесь:</h3>
-            <div class="img__wrap">
-                <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_front.jpg" alt="autobagaz">
-                <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_back.jpg" alt="autobagaz">
-                <img class="img good__img" src="/content/index/img/contacts/logo_circle.jpg" alt="autobagaz">
-            </div>
-            <div><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=dPv1vaWzXDrNMJs9tlKwl_50qOYIqktt&amp;width=100%&amp;height=250&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script></div>
-            <div class="contacts__inn">
-                <p class="text">Индивидуальный предприниматель: Зарубин Денис Юрьевич</p>
-                <p class="text">ИНН 590850700022 ОГРНИП 316595800158377</p>
-                <p class="text">р/с 40802810149770015620 в Пермском отделении №6984 ПАО Сбербанк России</p>
-                <p class="text">БИК 045773603 к/с № 30101810900000000603</p>
-                <p class="text">Свидетельство о регистрации 59 004723382 от 17.11.2016</p>
-            </div><?php
+          <h3 class="title title-h3">Компания Автобагаж</h3>
+          <p class="text">Контакты для связи:</p>
+          <div class="contacts">
+            <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+73422889969" class="contacts__link">+7 (342) 288 99 69</a>
+            <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79124897939" class="contacts__link">+7 912 489 79 39 Валентин Сарафанов</a>
+            <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79082410193" class="contacts__link">+7 908 241 01 93 Илья Голдырев</a>
+            <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79091004006" class="contacts__link">+7 909 100 40 06 Денис Зарубин (руководитель)</a>
+            <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" href="mailto:autobagaz@yandex.ru" class="contacts__link">autobagaz@yandex.ru</a>
+          </div>
+          <h3 class="title title-h3">Режим работы:</h3>
+          <p class="text">Пн - Пт с 10:00 до 19:00</p>
+          <p class="text">Сб - Вс с 10:00 до 18:00</p>
+          <h3 class="title title-h3">Наши магазины:</h3>
+          <h4 class="title title-h4">г.Пермь, Ул. Спешилова 102/29</h4>
+          <div class="img__wrap">
+            <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_front.jpg" alt="autobagaz">
+            <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_back.jpg" alt="autobagaz">
+          </div>
+          <div class="contacts__map"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=dPv1vaWzXDrNMJs9tlKwl_50qOYIqktt&amp;width=100%&amp;height=250&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script></div>
+          <h4 class="title title-h4">г.Пермь, Ул. Дзержинского 15</h4>
+          <div class="img__wrap">
+            <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_dzerzhinskogo.jpg" alt="autobagaz">
+          </div>
+          <div class="contacts__map"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9ce0f3ba2e36cfbb902238d75ab5fe2b20a6bc5e5c1d4eee55d146ebfa34dfc5&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script></div>
+          <div class="contacts__inn">
+            <p class="text">Индивидуальный предприниматель: Зарубин Денис Юрьевич</p>
+            <p class="text">ИНН 590850700022 ОГРНИП 316595800158377</p>
+            <p class="text">р/с 40802810149770015620 в Пермском отделении №6984 ПАО Сбербанк России</p>
+            <p class="text">БИК 045773603 к/с № 30101810900000000603</p>
+            <p class="text">Свидетельство о регистрации 59 004723382 от 17.11.2016</p>
+          </div><?php
         } elseif ($page == 'podbor') {
             echo "<title> $titleconst"; echo $keywords[7][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[7][description]; echo "'/>";
