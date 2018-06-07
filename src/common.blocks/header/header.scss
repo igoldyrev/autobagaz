@@ -7,8 +7,22 @@
     width: 400px;
   }
 
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
   &__info {
+    padding-left: 30px;
+    margin-left: 30px;
+    border-left: 1px solid $mediumgray;
     text-align: right;
+
+    &:first-child {
+      border-left: none;
+    }
   }
 
   &__link {
@@ -42,8 +56,13 @@
 @include adaptive(pad) {
  .header {
    &__wrap {
+     flex-direction: column;
      width: 100%;
      margin: 0 15px;
+   }
+
+   &__inner {
+     justify-content: flex-end;
    }
 
    &__list {
@@ -67,6 +86,17 @@
       width: 100%;
 
       margin: 0 10px;
+    }
+
+    &__inner {
+      display: block;
+      padding: 0;
+    }
+
+    &__info {
+      padding-left: 0;
+      margin-left: 0;
+      border-left: none;
     }
 
     &__logo {
