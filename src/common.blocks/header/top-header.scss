@@ -1,0 +1,27 @@
+.top-header {
+  width: 100%;
+  background-color: $subcolor;
+  height: 40px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    width: 1220px;
+    height: 100%;
+
+    margin: 0 auto;
+    padding: 5px 0;
+    box-sizing: border-box;
+  }
+
+  &__address {
+    color: white;
+    font-style: italic;
+    margin-right: auto;
+  }
+
+  &__shop {
+    margin-right: auto;
+  }
+}
