@@ -1,7 +1,7 @@
 .top-header {
   width: 100%;
   background-color: $subcolor;
-  height: 40px;
+  height: 60px;
 
   &__inner {
     display: flex;
@@ -16,12 +16,41 @@
   }
 
   &__address {
+    font: {
+      family: inherit;
+      size: 1em;
+      weight: inherit;
+      style: italic;
+    }
     color: white;
-    font-style: italic;
     margin-right: auto;
   }
 
   &__shop {
-    margin-right: auto;
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: auto;
+    }
+  }
+
+  &__shop-address {
+    font: {
+      family: inherit;
+      size: 1em;
+      weight: inherit;
+    }
+    color: #ffffff;
+  }
+
+  &__shop-phone {
+    font: {
+      family: inherit;
+      size: 1em;
+      weight: inherit;
+    }
+    color: #ffffff;
+    border-bottom: 1px dashed #fff;
+    text-decoration: none;
   }
 }
