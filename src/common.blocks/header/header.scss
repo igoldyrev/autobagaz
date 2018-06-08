@@ -56,7 +56,6 @@
 @include adaptive(pad) {
  .header {
    &__wrap {
-     flex-direction: column;
      width: 100%;
      margin: 0 15px;
    }

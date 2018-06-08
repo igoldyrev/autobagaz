@@ -54,3 +54,35 @@
     text-decoration: none;
   }
 }
+
+@include adaptive(pad) {
+  .top-header {
+    &__inner {
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    &__shop {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+@include adaptive(mobile) {
+  .top-header {
+    width: 98%;
+    height: fit-content;
+    margin: 10px auto;
+
+    &__inner {
+      width: 100%;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 5px 10px;
+    }
+  }
+}
