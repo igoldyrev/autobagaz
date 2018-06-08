@@ -62,12 +62,14 @@
   }
 
   &__shop-address {
+    display: block;
     font: {
       family: inherit;
       size: 1em;
       weight: inherit;
     }
     color: #ffffff;
+    text-decoration: none;
   }
 
   &__shop-phone {
