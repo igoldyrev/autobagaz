@@ -1,4 +1,8 @@
 .top-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
   width: 100%;
   background-color: $subcolor;
   height: 60px;
@@ -28,10 +32,10 @@
 
   &__shop {
     margin-right: 30px;
+  }
 
-    &:last-child {
-      margin-right: auto;
-    }
+  &__shop-last-child {
+    margin-right: auto;
   }
 
   &__shop-address {
@@ -53,6 +57,18 @@
     border-bottom: 1px dashed #fff;
     text-decoration: none;
   }
+
+  &__hidden {
+    display: none;
+  }
+
+  &__center {
+    justify-content: center;
+  }
+
+  &__height-30 {
+    height: 30px;
+  }
 }
 
 @include adaptive(pad) {
@@ -64,16 +80,14 @@
 
     &__shop {
       margin-right: 15px;
-
-      &:last-child {
-        margin-right: 15px;
-      }
     }
   }
 }
 
 @include adaptive(mobile) {
   .top-header {
+    position: static;
+
     width: 98%;
     height: fit-content;
     margin: 10px auto;
