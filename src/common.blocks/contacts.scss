@@ -26,4 +26,11 @@
   &__map {
     margin-bottom: 30px;
   }
+
+  &__shop {
+    background-color: $bg-color;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
 }
