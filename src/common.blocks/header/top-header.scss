@@ -1,3 +1,5 @@
+$animation: 0.4s ease-in-out;
+
 .top-header {
   position: sticky;
   top: 0;
@@ -6,12 +8,13 @@
   width: 100%;
   background-color: $subcolor;
   height: 60px;
+  transition: $animation;
 
   cursor: pointer;
 
   &:hover {
     height: 60px;
-    transition: 0.4s ease-in-out;
+    transition: $animation;
 
     .top-header__address {
       display: block;
@@ -85,14 +88,17 @@
 
   &__hidden {
     display: none;
+    transition: $animation;
   }
 
   &__center {
     justify-content: center;
+    transition: $animation;
   }
 
   &__height-30 {
     height: 30px;
+    transition: $animation;
   }
 }
 
@@ -143,6 +149,14 @@
       align-items: flex-start;
       flex-direction: column;
       padding: 5px 10px;
+    }
+
+    &__height-30 {
+      height: fit-content;
+    }
+
+    &__hidden {
+      display: block;
     }
   }
 }
