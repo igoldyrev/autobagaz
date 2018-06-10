@@ -6,7 +6,8 @@
   var topHeaderShopAddress = document.querySelectorAll('.top-header__shop-address');
   var topHeaderShopLast = document.querySelector('.top-header__shop-last');
   window.onscroll = function () {
-    if (document.body.scrollTop > 60) {
+    var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrolled > 50) {
       topHeader.classList.add('top-header__height-30');
       topHeaderAddress.classList.add('top-header__hidden');
       topHeaderInner.classList.add('top-header__center');
