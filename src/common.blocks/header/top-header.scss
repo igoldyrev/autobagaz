@@ -1,0 +1,162 @@
+$animation: 0.4s ease-in-out;
+
+.top-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
+  width: 100%;
+  background-color: $subcolor;
+  height: 60px;
+  transition: $animation;
+
+  cursor: pointer;
+
+  &:hover {
+    height: 60px;
+    transition: $animation;
+
+    .top-header__address {
+      display: block;
+    }
+
+    .top-header__inner {
+      justify-content: flex-start;
+    }
+
+    .top-header__shop-address {
+      display: block;
+    }
+
+    .top-header__shop-last {
+      margin-right: auto;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    width: 1220px;
+    height: 100%;
+
+    margin: 0 auto;
+    padding: 5px 0;
+    box-sizing: border-box;
+  }
+
+  &__address {
+    font: {
+      family: inherit;
+      size: 1em;
+      weight: inherit;
+      style: italic;
+    }
+    color: white;
+    margin-right: auto;
+  }
+
+  &__shop {
+    margin-right: 30px;
+  }
+
+  &__shop-last-child {
+    margin-right: auto;
+  }
+
+  &__shop-address {
+    display: block;
+    font: {
+      family: inherit;
+      size: 1em;
+      weight: inherit;
+    }
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  &__shop-phone {
+    font: {
+      family: inherit;
+      size: 1em;
+      weight: inherit;
+    }
+    color: #ffffff;
+    border-bottom: 1px dashed #fff;
+    text-decoration: none;
+  }
+
+  &__hidden {
+    display: none;
+    transition: $animation;
+  }
+
+  &__center {
+    justify-content: center;
+    transition: $animation;
+  }
+
+  &__height-30 {
+    height: 30px;
+    transition: $animation;
+  }
+}
+
+@include adaptive(pad) {
+  .top-header {
+    &__inner {
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    &__shop {
+      margin-right: 15px;
+    }
+  }
+}
+
+@include adaptive(mobile) {
+  .top-header {
+    position: static;
+
+    width: 98%;
+    height: fit-content;
+    margin: 10px auto;
+
+    &:focus, &:active, &:hover {
+      height: fit-content;
+      transition: none;
+
+      .top-header__address {
+        display: block;
+      }
+
+      .top-header__inner {
+        justify-content: flex-start;
+      }
+
+      .top-header__shop-address {
+        display: block;
+      }
+
+      .top-header__shop-last {
+        margin-right: auto;
+      }
+    }
+
+    &__inner {
+      width: 100%;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 5px 10px;
+    }
+
+    &__height-30 {
+      height: fit-content;
+    }
+
+    &__hidden {
+      display: block;
+    }
+  }
+}
