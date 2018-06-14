@@ -508,6 +508,35 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                 <img class="img product__img news__img" src="/content/news/300518/new_store.jpg" alt="Новый магазин AutoBagaz на Дзержинского 15">
               </div>
             </div><?php
+        } elseif ($newspage == 'result_rozygryzh_velokreplenya') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[20][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[20][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[20][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Итоги розыгрыша велокрепления от магазина Autobagaz</h1>
+            <p class="text">Здравствуйте, уважаемые посетители и гости нашего магазина!!! </p>
+            <p class="text">Вот и пришел этот долгожданный час подведения итогов розыгрыша Велокрепления!</p>
+            <p class="text">Поздравляем нашего победителя - <a class="link" target="_blank"
+                                                               href="https://vk.com/id64524093">Любовь Черенок</a></p>
+            <p class="text"> Подарок можно забрать по адресам:</p>
+            <p class="text">г.Пермь ул.Спешилова 102/29, тел: <a class="link" href="tel:+73422889969">2-88-99-69</a></p>
+            <p class="text">г.Пермь ул.Дзержинского 15, тел: <a class="link" href="tel:+73422889929">2-88-99-29</a></p>
+            <p class="text">Коллектив магазина "AutoBagaz" выражает благодарность всем участникам розыгрыша!</p>
+            <p class="text">Тем, кому в этот раз не повезло стать победителем, не отчаивайтесь, повезет в следующий раз.
+              Ведь этот розыгрыш далеко не последний!!!</p>
+            <div class="img__wrap">
+              <iframe src="//vk.com/video_ext.php?oid=-86325723&id=456239028&hash=a1c6c19056444d53&hd=1" width="640"
+                      height="360" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div><?php
         } ?>
     </div>
 </div>
