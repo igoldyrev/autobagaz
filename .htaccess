@@ -25,6 +25,8 @@ RewriteRule ^expiditions/([^/]+)/?$ /content/expiditions/backend/product.php?id=
 #Новости
 RewriteRule ^news/1 news.php?page=1
 RewriteRule ^news/2 news.php?page=2
+RewriteRule ^news/3 news.php?page=3
+RewriteRule ^news/4 news.php?page=4
 RewriteRule ^news/([a-zA-Z0-9_-]+)/? news.php?newspage=$1
 
 #Ссылки на заказ товаров
