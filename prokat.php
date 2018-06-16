@@ -342,6 +342,86 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
             </div>
             <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'terradrive480blackoneside') {
+          $tovar = $_SESSION['terradrivefour'][0][name1];
+          echo "<title>Взятие в прокат ";
+          echo $_SESSION['terradrivefour'][0][name1];
+          echo "</title>";
+          $checkedbox = "checked"; ?>
+          <div class="good-message">
+            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'terradrive480grayoneside') {
+          $tovar = $_SESSION['terradrivefour'][0][name2];
+          echo "<title>Взятие в прокат ";
+          echo $_SESSION['terradrivefour'][0][name2];
+          echo "</title>";
+          $checkedbox = "checked"; ?>
+          <div class="good-message">
+            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'terradrive480blacktwoside') {
+          $tovar = $_SESSION['terradrivefour'][0][name3];
+          echo "<title>Взятие в прокат ";
+          echo $_SESSION['terradrivefour'][0][name3];
+          echo "</title>";
+          $checkedbox = "checked"; ?>
+          <div class="good-message">
+            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'terradrive480graytwoside') {
+          $tovar = $_SESSION['terradrivefour'][0][name4];
+          echo "<title>Взятие в прокат ";
+          echo $_SESSION['terradrivefour'][0][name4];
+          echo "</title>";
+          $checkedbox = "checked"; ?>
+          <div class="good-message">
+            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'terradrive440blackoneside') {
+          $tovar = $_SESSION['terradrivefour'][1][name1];
+          echo "<title>Взятие в прокат ";
+          echo $_SESSION['terradrivefour'][1][name1];
+          echo "</title>";
+          $checkedbox = "checked"; ?>
+          <div class="good-message">
+            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'terradrive440grayoneside') {
+          $tovar = $_SESSION['terradrivefour'][1][name2];
+          echo "<title>Взятие в прокат ";
+          echo $_SESSION['terradrivefour'][1][name2];
+          echo "</title>";
+          $checkedbox = "checked"; ?>
+          <div class="good-message">
+            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'terradrive440blacktwoside') {
+          $tovar = $_SESSION['terradrivefour'][1][name3];
+          echo "<title>Взятие в прокат ";
+          echo $_SESSION['terradrivefour'][1][name3];
+          echo "</title>";
+          $checkedbox = "checked"; ?>
+          <div class="good-message">
+            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'terradrive440graytwoside') {
+          $tovar = $_SESSION['terradrivefour'][1][name4];
+          echo "<title>Взятие в прокат ";
+          echo $_SESSION['terradrivefour'][1][name4];
+          echo "</title>";
+          $checkedbox = "checked"; ?>
+          <div class="good-message">
+            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         }
         $_SESSION['tovar'] = $tovar; ?>
         <p class='text'>Чтобы воспользоваться услугами аренды необходимо сделать несколько простых шагов:</p>
