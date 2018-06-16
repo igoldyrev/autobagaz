@@ -1,10 +1,10 @@
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatags.php");
-include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation-mobile/navigation-mobile.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
-include ($_SERVER["DOCUMENT_ROOT"]."/content/autobox/backend/keywords.php");
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatags.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/navigation-mobile/navigation-mobile.html");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/header.html");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/proposition/proposition.html");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/navigation/navigation.html");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/breadcrumbs/breadcrumbs.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/keywords.php");
 
 include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
 
@@ -733,8 +733,196 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
       </div>
       </div><?php
       include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");
+    } elseif ($autobox == 'terradrive') {
+      echo "<title> $titleconst";
+      echo $keywords[7][title];
+      echo "</title>";
+      echo "<meta name='description' content='";
+      echo $keywords[7][description];
+      echo "'/>";
+      echo "<meta name='keywords' content='";
+      echo $keywords[7][keywords];
+      echo "'/>";
+
+      $_SESSION['terradrivefour'] = $terradrivefour;
+      $_SESSION['terradrivetwo'] = $terradrivetwo;
+      $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+      echo "<h1 class='title title-h1'>Автомобильные боксы Terra Drive</h1>";
+      echo "<p class='text'>Автомобильные боксы TERRA DRIVE — это качественные и недорогие автомобильные багажники.</p>";
+      echo "<p class='text'>Прочные, стильные, а также, что немаловажно, добавляют Вашему автомобилю довольно существенное увеличение грузового пространства. Возможностей, которые предоставляет автомобильному путешественнику автобокс для автомобиля, множество. Прикрепив на крышу автомобиля автобокс TERRA DRIVE, у Вас появится возможность значимо увеличить его объем возимого багажа практически в 2 раза. Автомобильные боксы защищают ваш багаж от влаги, грязи и пыли. Надежно запираются на ключ.</p>";
+      echo "<p class='text'>Автомобильные автобоксы TERRA DRIVE предназначены для перевозки груза на крыше легкового автомобиля. Они позволяют максимально увеличить полезный объем автомобиля и при этом, обтекаемая форма, которой обладают все автобоксы TERRA DRIVE, отнюдь не делает хуже аэродинамику авто, не приводит к потере скоростных характеристик. Особенно автобоксы актуальны для владельцев небольших автомобилей, любителей путешествий и активного отдыха (лыжи, сноуборды, рыбацкие снасти, ружья и т. д.), молодых родителей (детская коляска), а так же для авто с ГБО.</p>";
+
+      foreach ($terradrivefour as $terrafour): ?>
+        <div class="good">
+          <h2 class="title title-h2"><?php echo $terrafour['title'] ?></h2>
+          <div class="img__wrap">
+            <?php echo $terrafour['img1'];
+            echo $terrafour['img2'];
+            echo $terrafour['img3'];
+            echo $terrafour['img4'];
+            echo $terrafour['img5'];
+            echo $terrafour['img6'];
+            echo $terrafour['img7']; ?>
+          </div>
+          <div class="table">
+            <div class="table__column"></div>
+            <ul class="table__header">
+              <li class="table__cell">Характеристики</li>
+              <li class="table__cell">Значение</li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Грузоподьемность</li>
+              <li class="table__cell"><?php echo $terrafour['carrying']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Объем</li>
+              <li class="table__cell"><?php echo $terrafour['volume']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Открытие</li>
+              <li class="table__cell"><?php echo $terrafour['lock']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Размеры внешние, см</li>
+              <li class="table__cell"><?php echo $terrafour['size_outdoor']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Размеры внутренние, см</li>
+              <li class="table__cell"><?php echo $terrafour['size_indoor']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Цвет днища</li>
+              <li class="table__cell"><?php echo $terrafour['color_bottom']; ?></li>
+            </ul>
+          </div>
+          <p class="text" <?php echo $stylepriceautobox ?>>Цена: <strong><?php echo $terrafour['price'] ?></strong></p>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $terrafour['namecard1'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $terrafour['id1']; ?>" class="button button__buy">Заказать</a>
+              <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
+                 href="/prokat/<?php echo $terrafour['id1']; ?>" class="button button__buy button__buy--prokat">Взять в
+                прокат</a>
+            </div>
+          </div>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $terrafour['namecard2'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $terrafour['id2']; ?>" class="button button__buy">Заказать</a>
+              <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
+                 href="/prokat/<?php echo $terrafour['id2']; ?>" class="button button__buy button__buy--prokat">Взять в
+                прокат</a>
+            </div>
+          </div>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $terrafour['namecard3'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $terrafour['id3']; ?>" class="button button__buy">Заказать</a>
+              <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
+                 href="/prokat/<?php echo $terrafour['id3']; ?>" class="button button__buy button__buy--prokat">Взять в
+                прокат</a>
+            </div>
+          </div>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $terrafour['namecard4'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $terrafour['id4']; ?>" class="button button__buy">Заказать</a>
+              <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
+                 href="/prokat/<?php echo $terrafour['id4']; ?>" class="button button__buy button__buy--prokat">Взять в
+                прокат</a>
+            </div>
+          </div>
+
+        </div>
+      <?php endforeach;
+
+      foreach ($terradrivetwo as $terratwo): ?>
+        <div class="good">
+          <h2 class="title title-h2"><?php echo $terratwo['title'] ?></h2>
+          <div class="img__wrap">
+            <?php echo $terratwo['img1'];
+            echo $terratwo['img2'];
+            echo $terratwo['img3'];
+            echo $terratwo['img4'];
+            echo $terratwo['img5'];
+            echo $terratwo['img6'];
+            echo $terratwo['img7']; ?>
+          </div>
+          <div class="table">
+            <div class="table__column"></div>
+            <ul class="table__header">
+              <li class="table__cell">Характеристики</li>
+              <li class="table__cell">Значение</li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Грузоподьемность</li>
+              <li class="table__cell"><?php echo $terratwo['carrying']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Объем</li>
+              <li class="table__cell"><?php echo $terratwo['volume']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Открытие</li>
+              <li class="table__cell"><?php echo $terratwo['lock']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Размеры внешние, см</li>
+              <li class="table__cell"><?php echo $terratwo['size_outdoor']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Размеры внутренние, см</li>
+              <li class="table__cell"><?php echo $terratwo['size_indoor']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Цвет днища</li>
+              <li class="table__cell"><?php echo $terratwo['color_bottom']; ?></li>
+            </ul>
+          </div>
+          <p class="text" <?php echo $stylepriceautobox ?>>Цена: <strong><?php echo $terratwo['price'] ?></strong></p>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $terratwo['namecard1'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $terratwo['id1']; ?>" class="button button__buy">Заказать</a>
+              <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
+                 href="/prokat/<?php echo $terratwo['id1']; ?>" class="button button__buy button__buy--prokat">Взять в
+                прокат</a>
+            </div>
+          </div>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $terratwo['namecard2'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $terratwo['id2']; ?>" class="button button__buy">Заказать</a>
+              <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
+                 href="/prokat/<?php echo $terratwo['id2']; ?>" class="button button__buy button__buy--prokat">Взять в
+                прокат</a>
+            </div>
+          </div>
+
+        </div>
+      <?php endforeach;
+      include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");
     } ?>
   </div>
 </div>
-<?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/counters.html"); ?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/footer/footer.html");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/counters.html"); ?>
