@@ -79,10 +79,19 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
         <div class="catalog__item">
           <a href="/autobox/inmax" class="catalog__item-link"></a>
           <div class="catalog__image-wrap">
-            <img class="catalog__image" src="/content/autobox/img/logo/inmax.png" alt="lux">
+            <img class="catalog__image" src="/content/autobox/img/logo/inmax.png" alt="INMAX">
           </div>
           <div class="catalog__text">
             <p class="text">Автомобильные боксы INMAX</p>
+          </div>
+        </div>
+        <div class="catalog__item">
+          <a href="/autobox/terradrive" class="catalog__item-link"></a>
+          <div class="catalog__image-wrap">
+            <img class="catalog__image" src="/content/autobox/img/logo/terradrive.png" alt="Terra Drive">
+          </div>
+          <div class="catalog__text">
+            <p class="text">Автомобильные боксы Terra Drive</p>
           </div>
         </div>
         <div class="catalog__item">
