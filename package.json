@@ -13,7 +13,7 @@
   "author": "Ilya Goldyrev",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^8.6.0",
+    "autoprefixer": "^8.6.3",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
@@ -34,9 +34,9 @@
     "purify-css": "^1.2.6",
     "purifycss-webpack": "^0.7.0",
     "raw-loader": "^0.5.1",
-    "sass-loader": "^7.0.2",
+    "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
-    "webpack": "^4.10.2",
+    "webpack": "^4.12.0",
     "webpack-cli": "^2.1.5"
   },
   "dependencies": {},
