@@ -46,10 +46,6 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
                 $phone = $_REQUEST['phone'];
                 $message = $_REQUEST['message'];
 
-                //Создаем запрос в базу данных
-                $sql_users = "INSERT INTO users (name, phone)" . "VALUES('{$name}', '{$phone}');";
-                mysqli_query($connect, $sql_users);
-
                 include($_SERVER["DOCUMENT_ROOT"] . "/backend/scripts/mails.php");
 
                 if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")){
