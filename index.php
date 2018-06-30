@@ -198,10 +198,12 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
       <div class="contacts">
         <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+73422889969"
            class="contacts__link">+7 (342) 288 99 69</a>
+        <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+73422889929"
+           class="contacts__link">+7 (342) 288 99 29</a>
         <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79124897939"
            class="contacts__link">+7 912 489 79 39 Валентин Сарафанов</a>
-        <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79687113545"
-           class="contacts__link">+7 968 711 35 45 Максим Некрасов</a>
+        <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79194519402"
+           class="contacts__link">+7 919 451 94 02 Максим Некрасов</a>
         <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79091004006"
            class="contacts__link">+7 909 100 40 06 Денис Зарубин (руководитель)</a>
         <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" href="mailto:autobagaz@yandex.ru"
@@ -213,6 +215,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
       <h3 class="title title-h3">Наши магазины:</h3>
       <div class="contacts__shop" id="speshilova">
         <h4 class="title title-h4">г.Пермь, Ул. Спешилова 102/29</h4>
+        <p class="text">Позвонить в магазин: <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
+                                                href="tel:+73422889969"
+                                                class="link">+7 (342) 288 99 69</a></p>
         <div class="img__wrap">
           <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_front.jpg" alt="autobagaz">
           <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_back.jpg" alt="autobagaz">
@@ -224,6 +229,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
       </div>
       <div class="contacts__shop" id="dzerzhinskogo">
         <h4 class="title title-h4">г.Пермь, Ул. Дзержинского 15</h4>
+        <p class="text">Позвонить в магазин: <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
+                                                href="tel:+73422889929" class="link">+7 (342) 288 99 29</a></p>
         <div class="img__wrap">
           <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_dzerzhinskogo.jpg" alt="autobagaz">
         </div>
