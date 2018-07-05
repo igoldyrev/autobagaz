@@ -9,4 +9,8 @@
     border: 2px solid $redcolor;
     background: #ff6666;
   }
+
+  &--auth {
+    display: none;
+  }
 }
