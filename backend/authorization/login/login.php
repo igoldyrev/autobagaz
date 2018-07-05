@@ -34,7 +34,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
 
     if ($login = $dblogin) {
       $_SESSION['session_username'] = $login;
-      header('Refresh: 1; Url=intro');
+      //header('Refresh: 1; Url=intro');
     }
   }
 //  else {
@@ -52,7 +52,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
 
 <div class="admin__container admin__container--center">
   <h1 class="title title-h1">Войти</h1>
-  <form method="post" class="form">
+  <form method="post" class="form js-authorization-form">
     <span class="form__label">Введите логин:</span>
     <div class="form__input-wrap">
       <input type="text" name="login" required autofocus class="form__input" placeholder="Введите логин">
@@ -67,6 +67,8 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
   </form>
 </div>
 
-<?php if (!empty($message)) {
-  echo "<p class=\"error\">" . "MESSAGE: " . $message . "</p>";
-} ?>
+<div class='good-message good-message--auth js-authorization-form-message'>
+  <p class='text'>Вход успешно выполнен!</p>
+</div>
+
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/counters.html"); ?>
