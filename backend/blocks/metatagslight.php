@@ -17,4 +17,3 @@
 <script type="text/javascript">
     VK.init({apiId: 5866168, onlyWidgets: true});
 </script>
-<script src="../src/library.blocks/img/img.js"></script>
