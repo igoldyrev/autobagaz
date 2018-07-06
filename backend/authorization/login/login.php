@@ -60,7 +60,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
     </div>
     <span class="form__label">Введите пароль:</span>
     <div class="form__input-wrap">
-      <input type="text" name="password" required class="form__input" placeholder="Введите пароль">
+      <input type="password" name="password" required class="form__input" placeholder="Введите пароль">
       <label for="password" class="form__label--shown">Введите пароль</label>
     </div>
     <button class="button button__zakaz">Войти</button>
