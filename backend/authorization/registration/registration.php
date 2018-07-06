@@ -1,12 +1,70 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
-echo "<title>Зарегистрироваться</title>"; ?>
+echo "<title>Зарегистрироваться</title>";
+
+$dbname = "9082410193_zakaz";
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
+
+if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email']) && $_POST['email'] != '') && (isset($_POST['password']) && $_POST['password'] != '') && (isset($_POST['password-retype']) && $_POST['password-retype'] != '')) {
+  if ($_POST['password'] === $_POST['password-retype']) {
+    $login = $_POST['login'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $passwordretype = $_POST['password-retype'];
+
+    $login = htmlspecialchars($login);
+    $email = htmlspecialchars($email);
+    $password = htmlspecialchars($email);
+    $passwordretype = htmlspecialchars($passwordretype);
+
+    $login = urldecode($login);
+    $email = urldecode($email);
+    $password = urldecode($password);
+    $passwordretype = urldecode($passwordretype);
+
+    $login = trim($login);
+    $email = trim($email);
+    $password = trim($password);
+    $passwordretype = trim($passwordretype);
+
+    $password = md5($password);
+    //$password = $password + 'zagabotua';
+
+    $querylogin = "SELECT user_login FROM users WHERE user_login='" . $login . "'";
+    $reslogin = mysqli_query($connect, $querylogin);
+    $numrows = mysqli_num_rows($reslogin);
+
+    if ($numrows == 0) {
+      $queryemail = "SELECT user_email FROM users WHERE user_email='" . $email . "'";
+      $resemail = mysqli_query($connect, $queryemail);
+      $numrowsemail = mysqli_num_rows($resemail);
+
+      if ($numrowsemail == 0) {
+        $sqladd = "INSERT INTO users (user_login, user_email, user_hash) VALUES ('$login', '$email', '$password')";
+        $resadd = mysqli_query($connect, $sqladd);
+
+        mail($email, "Регистрация на сайте autobagaz.ru", "Тестовый текст письма 
+        " . $login . " Это логин 
+        " . $passwordretype . " Это пароль", "From: autobagaz@yandex.ru \r\n");
+      } else {
+        $message = 'Пользователь с такой почтой уже уществует';
+      }
+    } else {
+      $message = 'Пользователь с таким логином уже уществует';
+    }
+  } else {
+    $message = 'Введенные пароли не совпадают';
+  }
+} else {
+  $message = 'Необходимо заполнить все поля';
+}
+?>
 
 <div class="auth__wrapper">
   <div class="auth__content">
     <h2 class="title title-h2 auth__title">Регистрация</h2>
     <div class="auth__form-wrap">
-      <form action="" class="form auth__form">
+      <form action="" method="post" class="form auth__form">
         <span class="form__label">Придумайте имя пользователя:</span>
         <div class="form__input-wrap">
           <input type="text" name="login" required autofocus class="form__input auth__input"
