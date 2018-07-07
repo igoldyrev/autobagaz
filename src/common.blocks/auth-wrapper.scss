@@ -20,7 +20,7 @@
   }
 
   &__form-wrap {
-    max-width: 410px;
+    max-width: 440px;
     margin: 0 auto;
   }
 
@@ -37,13 +37,31 @@
 
     box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 20px;
     padding: 30px;
+    box-sizing: border-box;
   }
 
   &__input {
     width: 100%;
+    margin: 5px 0;
   }
 
   &__license {
     font-size: 0.85em;
+  }
+
+  &__error {
+    display: block;
+    width: 440px;
+    margin: 25px auto 0;
+    padding: 15px;
+
+    font: {
+      family: $font;
+      size: 1em;
+      weight: 400;
+    }
+    color: #333;
+
+    box-sizing: border-box;
   }
 }

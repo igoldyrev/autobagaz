@@ -47,16 +47,14 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
         " . $login . " Это логин 
         " . $passwordretype . " Это пароль", "From: autobagaz@yandex.ru \r\n");
       } else {
-        $message = 'Пользователь с такой почтой уже уществует';
+        $message = 'Такой email уже зарегистрирован';
       }
     } else {
-      $message = 'Пользователь с таким логином уже уществует';
+      $message = 'Такой логин уже зарегистрирован';
     }
   } else {
-    $message = 'Введенные пароли не совпадают';
+    $message = 'Введенные пароли не совпадают!';
   }
-} else {
-  $message = 'Необходимо заполнить все поля';
 }
 ?>
 
@@ -67,7 +65,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
       <form action="" method="post" class="form auth__form">
         <span class="form__label">Придумайте имя пользователя:</span>
         <div class="form__input-wrap">
-          <input type="text" name="login" required autofocus class="form__input auth__input"
+          <input type="text" name="login" required autofocus maxlength="30" class="form__input auth__input"
                  placeholder="На латинице, не более 30 символов">
           <label for="login" class="form__label--shown">На латинице, не более 30 символов</label>
         </div>
@@ -78,13 +76,13 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
         </div>
         <span class="form__label">Придумайте пароль:</span>
         <div class="form__input-wrap">
-          <input type="password" name="password" required class="form__input auth__input"
+          <input type="password" name="password" required maxlength="30" class="form__input auth__input"
                  placeholder="Латинские буквы и цифры, не более 30 символов">
           <label for="login" class="form__label--shown">Латинские буквы и цифры, не более 30 символов</label>
         </div>
         <span class="form__label">Повторите пароль:</span>
         <div class="form__input-wrap">
-          <input type="password" name="password-retype" required class="form__input auth__input"
+          <input type="password" name="password-retype" required maxlength="30" class="form__input auth__input"
                  placeholder="Повторите пароль еще раз">
           <label for="login" class="form__label--shown">Повторите пароль еще раз</label>
         </div>
@@ -95,4 +93,8 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
       </form>
     </div>
   </div>
+  <?php
+  if (!empty($message)) {
+    echo "<p class='good-message good-message--wrong auth__error'>" . $message . "</p>";
+  } ?>
 </div>
