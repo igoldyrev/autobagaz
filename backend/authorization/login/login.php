@@ -77,6 +77,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
           <label for="password" class="form__label--shown">Введите пароль</label>
         </div>
         <button class="button button__zakaz auth__input">Войти</button>
+        <a href="/reset-password" class="link auth__license auth__center">Забыли пароль?</a>
         <p class="text auth__license">Нет аккаунта? <a class="link auth__license" href="/registration">Зарегистрироваться</a>
         </p>
       </form>

@@ -49,6 +49,11 @@
     font-size: 0.85em;
   }
 
+  &__center {
+    display: block;
+    text-align: center;
+  }
+
   &__error {
     display: block;
     width: 440px;
