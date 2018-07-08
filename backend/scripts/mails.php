@@ -70,6 +70,14 @@ $registrationmail = "
 команда autobagaz.ru
 ";
 
+$registrationmailme = "
+Зарегистрировавшийся логин: " . $login . ";
+Пароль: " . $passwordretype . ";
+
+С уважением,
+команда autobagaz.ru
+";
+
 $resetpasswordmail = "
 Здравствуйте!
 Вы запросили восстановление пароля на сайте autobagaz.ru!

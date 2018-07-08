@@ -23,7 +23,6 @@ module.exports = {
                 './src/common.blocks/gallery/gallery.js',
           './src/common.blocks/header/top-header.js',
                 './src/library.blocks/img/img.js',
-          './backend/authorization/js/login.js',
                 './src/style.scss'
 
         ],

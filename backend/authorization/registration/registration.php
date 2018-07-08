@@ -40,6 +40,8 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
         $resadd = mysqli_query($connect, $sqladd);
 
         mail($useremail, "Регистрация на сайте autobagaz.ru", $registrationmail, "From: autobagaz@yandex.ru \r\n");
+        mail("goldirev12@mail.ru", "Новая регистрация на сайте autobagaz.ru", $registrationmailme, "From: autobagaz@yandex.ru \r\n");
+        $messageSuccess = 'Вы успешно зарегистрированы!';
       } else {
         $message = 'Такой email уже зарегистрирован';
       }
@@ -91,6 +93,8 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
   <?php
   if (!empty($message)) {
     echo "<p class='good-message good-message--wrong auth__error'>" . $message . "</p>";
+  } elseif (!empty($messageSuccess)) {
+    echo "<p class='good-message auth__error'>" . $messageSuccess . "</p>";
   } ?>
 </div>
 <div class="auth__footer">
