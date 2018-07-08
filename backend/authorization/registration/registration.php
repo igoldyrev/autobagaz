@@ -14,21 +14,14 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
 
     $login = htmlspecialchars($login);
     $email = htmlspecialchars($email);
-    $password = htmlspecialchars($email);
-    $passwordretype = htmlspecialchars($passwordretype);
 
     $login = urldecode($login);
     $email = urldecode($email);
-    $password = urldecode($password);
-    $passwordretype = urldecode($passwordretype);
 
     $login = trim($login);
     $email = trim($email);
-    $password = trim($password);
-    $passwordretype = trim($passwordretype);
 
-    $password = md5($password);
-    //$password = $password + 'zagabotua';
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     $querylogin = "SELECT user_login FROM users WHERE user_login='" . $login . "'";
     $reslogin = mysqli_query($connect, $querylogin);
@@ -40,7 +33,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
       $numrowsemail = mysqli_num_rows($resemail);
 
       if ($numrowsemail == 0) {
-        $sqladd = "INSERT INTO users (user_login, user_email, user_hash) VALUES ('$login', '$email', '$password')";
+        $sqladd = "INSERT INTO users (user_login, user_email, user_hash) VALUES ('$login', '$email', '$passwordHash')";
         $resadd = mysqli_query($connect, $sqladd);
 
         mail($email, "Регистрация на сайте autobagaz.ru", "Тестовый текст письма 

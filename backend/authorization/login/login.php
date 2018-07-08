@@ -9,36 +9,25 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
 if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password']) && $_POST['password'] != '')) {
   $login = $_POST['login'];
   $password = $_POST['password'];
-  echo $password;
 
   $login = htmlspecialchars($login);
-  $password = htmlspecialchars($password);
-
   $login = urldecode($login);
-  $password = urldecode($password);
-
   $login = trim($login);
-  $password = trim($password);
-
   $login = $_REQUEST['login'];
-  $password = $_REQUEST['password'];
 
-  $password = md5($password);
-  echo $password;
-
-  $querylogin = "SELECT user_login FROM users WHERE user_login='" . $login . "'";
+  $querylogin = "SELECT user_login, user_hash FROM users WHERE user_login='" . $login . "'";
   $res = mysqli_query($connect, $querylogin);
   $numrows = mysqli_num_rows($res);
 
   if ($numrows != 0) {
-
     while ($row = mysqli_fetch_assoc($res)) {
       $dblogin = $row['user_login'];
-      $dbpassword = $row['user_hash'];
+      $dbHash = $row['user_hash'];
     }
+    $dbHash = substr($dbHash, 0, 60);
 
     if ($login = $dblogin) {
-      if ($password = $dbpassword) {
+      if (password_verify($password, $dbHash)) {
         function generateRandomString($length = 32)
         {
           $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -59,7 +48,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
         setcookie($cookieName, $cookieValue, time() + (21600), "/"); //6h
 
         $_SESSION['session_username'] = $login;
-        //header('Refresh: 1; Url=intro');
+        header('Refresh: 1; Url=intro');
       } else {
         $message = "Введенный пароль неверный!";
       }
