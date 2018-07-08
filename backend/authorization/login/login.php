@@ -44,9 +44,14 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
         $queryString = "UPDATE users SET user_string='$randomUserString' WHERE user_login='$login'";
         $resString = mysqli_query($connect, $queryString);
 
-        $cookieName = "userString";
-        $cookieValue = $randomUserString;
-        setcookie($cookieName, $cookieValue, time() + (21600), "/"); //6h
+        $cookieNameLogin = "userLogin";
+        $cookieValueLogin = $login;
+
+        $cookieNameString = "userString";
+        $cookieValueString = $randomUserString;
+
+        setcookie($cookieNameLogin, $cookieValueLogin, time() + (21600), "/"); //6h
+        setcookie($cookieNameString, $cookieValueString, time() + (21600), "/"); //6h
 
         $_SESSION['session_username'] = $login;
         header('Refresh: 1; Url=intro');
