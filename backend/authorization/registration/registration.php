@@ -13,13 +13,13 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
     $passwordretype = $_POST['password-retype'];
 
     $login = htmlspecialchars($login);
-    $email = htmlspecialchars($email);
+    $useremail = htmlspecialchars($email);
 
     $login = urldecode($login);
-    $email = urldecode($email);
+    $useremail = urldecode($email);
 
     $login = trim($login);
-    $email = trim($email);
+    $useremail = trim($email);
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -27,18 +27,18 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
     $reslogin = mysqli_query($connect, $querylogin);
     $numrows = mysqli_num_rows($reslogin);
 
+    include($_SERVER["DOCUMENT_ROOT"] . "/backend/scripts/mails.php");
+
     if ($numrows == 0) {
-      $queryemail = "SELECT user_email FROM users WHERE user_email='" . $email . "'";
+      $queryemail = "SELECT user_email FROM users WHERE user_email='" . $useremail . "'";
       $resemail = mysqli_query($connect, $queryemail);
       $numrowsemail = mysqli_num_rows($resemail);
 
       if ($numrowsemail == 0) {
-        $sqladd = "INSERT INTO users (user_login, user_email, user_hash) VALUES ('$login', '$email', '$passwordHash')";
+        $sqladd = "INSERT INTO users (user_login, user_email, user_hash) VALUES ('$login', '$useremail', '$passwordHash')";
         $resadd = mysqli_query($connect, $sqladd);
 
-        mail($email, "Регистрация на сайте autobagaz.ru", "Тестовый текст письма 
-        " . $login . " Это логин 
-        " . $passwordretype . " Это пароль", "From: autobagaz@yandex.ru \r\n");
+        mail($useremail, "Регистрация на сайте autobagaz.ru", $registrationmail, "From: autobagaz@yandex.ru \r\n");
       } else {
         $message = 'Такой email уже зарегистрирован';
       }
