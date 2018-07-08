@@ -1,5 +1,6 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.html");
 echo "<title>Зарегистрироваться</title>";
 
 $dbname = "9082410193_zakaz";
@@ -83,6 +84,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
         <p class="text auth__license">Нажимая кнопку «Зарегистрироваться» вы соглашаетесь с <a
             class="link auth__license" href="#">Пользовательским соглашением</a> и даете
           <a class="link auth__license" href="#">Согласие на обработку персональных данных</a>.</p>
+        <p class="text auth__license">Уже есть аккаунт? <a class="link auth__license" href="/login">Войти</a></p>
       </form>
     </div>
   </div>
@@ -91,3 +93,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
     echo "<p class='good-message good-message--wrong auth__error'>" . $message . "</p>";
   } ?>
 </div>
+<div class="auth__footer">
+  <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/footer/footer.html"); ?>
+</div>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/counters.html"); ?>

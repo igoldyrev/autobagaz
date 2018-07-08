@@ -1,6 +1,7 @@
 <?php
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.html");
 echo "<title>Войти</title>";
 
 $dbname = "9082410193_zakaz";
@@ -86,5 +87,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
     echo "<p class='good-message good-message--wrong auth__error'>" . $message . "</p>";
   } ?>
 </div>
-
+<div class="auth__footer">
+  <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/footer/footer.html"); ?>
+</div>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/counters.html"); ?>

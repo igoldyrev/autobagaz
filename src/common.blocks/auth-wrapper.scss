@@ -4,7 +4,7 @@
     padding-bottom: 130px;
     color: #666666;
     background-color: #eaeaeb;
-    min-height: calc(100vh - 77px);
+    min-height: calc(100vh - 215px);
     margin: 0;
   }
 
@@ -63,5 +63,10 @@
     color: #333;
 
     box-sizing: border-box;
+  }
+
+  &__footer {
+    background: $primarycolor;
+    width: 100%;
   }
 }
