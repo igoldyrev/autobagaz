@@ -6,6 +6,7 @@ if(!isset($tag)){
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatags.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation-mobile/navigation-mobile.html");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
