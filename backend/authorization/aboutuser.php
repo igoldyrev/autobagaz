@@ -2,6 +2,12 @@
 $dbname = "9082410193_zakaz";
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
 
+if (!isset($_COOKIE['userString'])) {
+  header("HTTP/1.1 401 Unauthorized");
+  include($_SERVER["DOCUMENT_ROOT"] . "/backend/errors/401.php");
+  exit;
+}
+
 if (isset($_COOKIE['userString'])) {
   $cookieString = $_COOKIE['userString'];
   $cookieLogin = $_COOKIE['userLogin'];
