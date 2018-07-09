@@ -5,6 +5,10 @@
 
   &__img {
     width: 400px;
+
+    &--small {
+      width: 250px;
+    }
   }
 
   &__inner {

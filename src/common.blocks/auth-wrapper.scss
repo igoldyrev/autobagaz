@@ -54,6 +54,34 @@
     text-align: center;
   }
 
+  &__link {
+    font: {
+      family: $font;
+      size: 1.1em;
+      weight: 100;
+    }
+    color: #ffffff;
+
+    line-height: inherit;
+    margin-left: auto;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 1px;
+      background: white;
+      transition: width 0.3s;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+  }
+
   &__error {
     display: block;
     width: 440px;
