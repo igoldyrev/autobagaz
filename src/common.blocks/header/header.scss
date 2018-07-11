@@ -108,6 +108,10 @@
 
     &__img {
       width: 100%;
+
+      &--small {
+        margin-bottom: 15px;
+      }
     }
   }
 }
