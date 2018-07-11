@@ -26,7 +26,6 @@ if (isset($_COOKIE['userString'])) {
   }
 }
 
-echo $_COOKIE['userLogin'];
 if (isset($_GET['logout'])) {
   $login = $_COOKIE['userLogin'];
   setcookie('userString', 'exit', time() - (21600), "/"); //6h
