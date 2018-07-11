@@ -36,14 +36,3 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
 
   <a class="admin__link admin__link--back" href="/">Вернуться на главную страницу сайта</a>
 </div>
-
-<?php
-
-if (isset($_GET['logout'])) {
-  // echo 'logout';
-  header('Refresh: 3; URL=/');
-}
-
-?>
-
-

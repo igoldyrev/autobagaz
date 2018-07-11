@@ -25,3 +25,12 @@ if (isset($_COOKIE['userString'])) {
     exit;
   }
 }
+
+echo $_COOKIE['userLogin'];
+if (isset($_GET['logout'])) {
+  $login = $_COOKIE['userLogin'];
+  setcookie('userString', 'exit', time() - (21600), "/"); //6h
+  $queryexit = "UPDATE users SET user_string = '' WHERE user_login = '" . $login . "'";
+  $res = mysqli_query($connect, $queryexit);
+  header('Refresh: 1; URL=/login');
+}
