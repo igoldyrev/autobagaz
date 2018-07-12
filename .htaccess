@@ -58,4 +58,5 @@ RewriteRule ^login  backend/authorization/login/login
 RewriteRule ^intro  backend/authorization/login/intro
 RewriteRule ^registration  backend/authorization/registration/registration
 RewriteRule ^reset-password  backend/authorization/reset-password/reset-password
+RewriteRule ^user-agreement  backend/authorization/user-agreement
 

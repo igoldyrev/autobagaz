@@ -84,8 +84,8 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
         </div>
         <button class="button button__zakaz auth__input">Зарегистрироваться</button>
         <p class="text auth__license">Нажимая кнопку «Зарегистрироваться» вы соглашаетесь с <a
-            class="link auth__license" href="#">Пользовательским соглашением</a> и даете
-          <a class="link auth__license" href="#">Согласие на обработку персональных данных</a>.</p>
+            class="link auth__license" href="/user-agreement">Пользовательским соглашением</a> и даете согласие на
+          обработку персональных данных.</p>
         <p class="text auth__license">Уже есть аккаунт? <a class="link auth__license" href="/login">Войти</a></p>
       </form>
     </div>
