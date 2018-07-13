@@ -36,7 +36,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
       $numrowsemail = mysqli_num_rows($resemail);
 
       if ($numrowsemail == 0) {
-        $sqladd = "INSERT INTO users (user_login, user_email, user_hash) VALUES ('$login', '$useremail', '$passwordHash')";
+        $sqladd = "INSERT INTO users (user_login, user_email, user_hash, user_rank) VALUES ('$login', '$useremail', '$passwordHash', 3)";
         $resadd = mysqli_query($connect, $sqladd);
 
         mail($useremail, "Регистрация на сайте autobagaz.ru", $registrationmail, "From: autobagaz@yandex.ru \r\n");
@@ -59,28 +59,24 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
     <h2 class="title title-h2 auth__title">Регистрация</h2>
     <div class="auth__form-wrap">
       <form action="" method="post" class="form auth__form">
-        <span class="form__label">Придумайте имя пользователя:</span>
         <div class="form__input-wrap">
           <input type="text" name="login" required autofocus maxlength="30" class="form__input auth__input"
-                 placeholder="На латинице, не более 30 символов">
-          <label for="login" class="form__label--shown">На латинице, не более 30 символов</label>
+                 placeholder="Имя пользователя, не более 30 символов">
+          <label for="login" class="form__label--shown">Имя пользователя, не более 30 символов</label>
         </div>
-        <span class="form__label">Электронная почта:</span>
         <div class="form__input-wrap">
-          <input type="email" name="email" required class="form__input auth__input" placeholder="name@domain.ru">
-          <label for="login" class="form__label--shown">name@domain.ru</label>
+          <input type="email" name="email" required class="form__input auth__input" placeholder="email">
+          <label for="login" class="form__label--shown">email</label>
         </div>
-        <span class="form__label">Придумайте пароль:</span>
         <div class="form__input-wrap">
           <input type="password" name="password" required maxlength="30" class="form__input auth__input"
-                 placeholder="Латинские буквы и цифры, не более 30 символов">
-          <label for="login" class="form__label--shown">Латинские буквы и цифры, не более 30 символов</label>
+                 placeholder="Придумайте пароль, не более 30 символов">
+          <label for="login" class="form__label--shown">Придумайте пароль, не более 30 символов</label>
         </div>
-        <span class="form__label">Повторите пароль:</span>
         <div class="form__input-wrap">
           <input type="password" name="password-retype" required maxlength="30" class="form__input auth__input"
-                 placeholder="Повторите пароль еще раз">
-          <label for="login" class="form__label--shown">Повторите пароль еще раз</label>
+                 placeholder="Повторите пароль">
+          <label for="login" class="form__label--shown">Повторите пароль</label>
         </div>
         <button class="button button__zakaz auth__input">Зарегистрироваться</button>
         <p class="text auth__license">Нажимая кнопку «Зарегистрироваться» вы соглашаетесь с <a

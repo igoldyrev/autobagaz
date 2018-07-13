@@ -7,7 +7,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.html")
   <div class="auth__content">
 
     <?php
-    if (!isset($_SESSION["session_username"])) {
+    if (!isset($_SESSION["user"])) {
 
       echo "<title>Необходимо войти</title>";
       echo "<div class='good-message good-message--wrong'>";
@@ -18,10 +18,10 @@ include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.html")
       echo "</div>";
 
       header('Refresh: 1; Url=login');
-    } elseif ($_SESSION["session_username"] == 'admin') {
-      echo "<title>Здравствуйте, " . $_SESSION['session_username'] . "</title>";
+    } elseif ($_SESSION["user"]['rank'] == '2') {
+      echo "<title>Здравствуйте, " . $_SESSION['user']['login'] . "</title>";
       echo "<div class='good-message'>";
-      echo "<p class='text'>Здравствуйте, " . $_SESSION['session_username'] . "</p>";
+      echo "<p class='text'>Здравствуйте, " . $_SESSION['user']['login'] . "</p>";
       echo "</div>";
       echo "<div class='notification-wrap'>";
       echo "<p class='text'>Через 3 секунды Вы будете перенаправлены на страницу админки</p>";
@@ -30,9 +30,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.html")
       echo "</div>";
       header('Refresh: 3; URL=/admin');
     } else {
-      echo "<title>Здравствуйте, " . $_SESSION['session_username'] . "</title>";
+      echo "<title>Здравствуйте, " . $_SESSION['user']['login'] . "</title>";
       echo "<div class='good-message'>";
-      echo "<p class='text'>Здравствуйте, " . $_SESSION['session_username'] . "</p>";
+      echo "<p class='text'>Здравствуйте, " . $_SESSION['user']['login'] . "</p>";
       echo "</div>";
       echo "<div class='notification-wrap'>";
       echo "<p class='text'>Через 3 секунды Вы будете перенаправлены на главную страницу</p>";

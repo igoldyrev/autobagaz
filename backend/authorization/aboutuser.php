@@ -12,16 +12,21 @@ if (isset($_COOKIE['userString'])) {
   $cookieString = $_COOKIE['userString'];
   $cookieLogin = $_COOKIE['userLogin'];
 
-  $querystring = "SELECT user_login, user_string FROM users WHERE user_login='" . $cookieLogin . "'";
+  $querystring = "SELECT user_login, user_string, user_rank FROM users WHERE user_login='" . $cookieLogin . "'";
   $res = mysqli_query($connect, $querystring);
 
   while ($row = mysqli_fetch_assoc($res)) {
     $dbString = $row['user_string'];
+    $dbRank = $row['user_rank'];
   }
 
   if ($cookieString != $dbString) {
     header("HTTP/1.1 401 Unauthorized");
     include($_SERVER["DOCUMENT_ROOT"] . "/backend/errors/401.php");
+    exit;
+  } elseif ($dbRank <> 2) {
+    header("HTTP/1.1 403 Forbidden");
+    include($_SERVER["DOCUMENT_ROOT"] . "/backend/errors/403.php");
     exit;
   }
 }

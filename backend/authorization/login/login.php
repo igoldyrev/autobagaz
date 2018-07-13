@@ -16,7 +16,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
   $login = trim($login);
   $login = $_REQUEST['login'];
 
-  $querylogin = "SELECT user_login, user_hash FROM users WHERE user_login='" . $login . "'";
+  $querylogin = "SELECT user_login, user_hash, user_rank FROM users WHERE user_login='" . $login . "'";
   $res = mysqli_query($connect, $querylogin);
   $numrows = mysqli_num_rows($res);
 
@@ -24,6 +24,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
     while ($row = mysqli_fetch_assoc($res)) {
       $dblogin = $row['user_login'];
       $dbHash = $row['user_hash'];
+      $dbRank = $row['user_rank'];
     }
     $dbHash = substr($dbHash, 0, 60);
 
@@ -53,7 +54,10 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
         setcookie($cookieNameLogin, $cookieValueLogin, time() + (21600), "/"); //6h
         setcookie($cookieNameString, $cookieValueString, time() + (21600), "/"); //6h
 
-        $_SESSION['session_username'] = $login;
+        $_SESSION['user'] = array(
+          'login' => $login,
+          'rank' => $dbRank,
+        );
         header('Refresh: 1; Url=intro');
       } else {
         $message = "Введенный пароль неверный!";
@@ -69,13 +73,11 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
     <h2 class="title title-h2 auth__title">Войти</h2>
     <div class="auth__form-wrap">
       <form method="post" class="form auth__form">
-        <span class="form__label">Введите логин:</span>
         <div class="form__input-wrap">
           <input type="text" name="login" required autofocus maxlength="30" class="form__input auth__input"
                  placeholder="Введите логин">
           <label for="login" class="form__label--shown">Введите логин</label>
         </div>
-        <span class="form__label">Введите пароль:</span>
         <div class="form__input-wrap">
           <input type="password" name="password" required maxlength="30" class="form__input auth__input"
                  placeholder="Введите пароль">
