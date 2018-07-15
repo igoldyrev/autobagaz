@@ -6,7 +6,7 @@ echo "<title>Настройки пользователя</title>";
 $dbname = "9082410193_zakaz";
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
 
-$user_id = $_SESSION['reguser']['id'];
+$user_id = $_SESSION['user']['id'];
 
 if (!isset($_SESSION["user"])) {
   echo "<title>Необходимо войти</title>";
@@ -50,9 +50,7 @@ if (!isset($_SESSION["user"])) {
     //header('Refresh: 1; Url=profile');
 
   }
-}
-
-?>
+} ?>
 
 <div class="auth__wrapper">
   <div class="auth__content">

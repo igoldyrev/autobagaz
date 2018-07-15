@@ -36,6 +36,17 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
       $numrowsemail = mysqli_num_rows($resemail);
 
       if ($numrowsemail == 0) {
+        function generateRandomString($length = 32)
+        {
+          $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          $charactersLength = strlen($characters);
+          $randomString = '';
+          for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+          }
+          return $randomString;
+        }
+
         $sqladd = "INSERT INTO users (user_login, user_email, user_hash, user_rank) VALUES ('$login', '$useremail', '$passwordHash', 3)";
         $resadd = mysqli_query($connect, $sqladd);
 
@@ -48,25 +59,9 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
           $dbRank = $row['user_rank'];
         }
 
-        $_SESSION['reguser'] = array(
-          'login' => $dblogin,
-          'id' => $dbId,
-        );
-
         mail($useremail, "Регистрация на сайте autobagaz.ru", $registrationmail, "From: autobagaz@yandex.ru \r\n");
         mail("goldirev12@mail.ru", "Новая регистрация на сайте autobagaz.ru", $registrationmailme, "From: autobagaz@yandex.ru \r\n");
         $messageSuccess = 'Вы успешно зарегистрированы!';
-
-        function generateRandomString($length = 32)
-        {
-          $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-          $charactersLength = strlen($characters);
-          $randomString = '';
-          for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-          }
-          return $randomString;
-        }
 
         $randomUserString = generateRandomString();
         $queryString = "UPDATE users SET user_string='$randomUserString' WHERE user_login='$login'";
@@ -78,10 +73,15 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
         $cookieNameString = "userString";
         $cookieValueString = $randomUserString;
 
+        $cookieNameId = "userId";
+        $cookieValueId = $dbId;
+
         setcookie($cookieNameLogin, $cookieValueLogin, time() + (21600), "/"); //6h
         setcookie($cookieNameString, $cookieValueString, time() + (21600), "/"); //6h
+        setcookie($cookieNameId, $cookieValueId, time() + (21600), "/"); //6h
 
         $_SESSION['user'] = array(
+          'id' => $dbId,
           'login' => $login,
           'rank' => $dbRank,
         );

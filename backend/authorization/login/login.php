@@ -25,6 +25,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
       $dblogin = $row['user_login'];
       $dbHash = $row['user_hash'];
       $dbRank = $row['user_rank'];
+      $dbId = $row['user_id'];
     }
     $dbHash = substr($dbHash, 0, 60);
 
@@ -51,10 +52,15 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
         $cookieNameString = "userString";
         $cookieValueString = $randomUserString;
 
+        $cookieNameId = "userId";
+        $cookieValueId = $dbId;
+
         setcookie($cookieNameLogin, $cookieValueLogin, time() + (21600), "/"); //6h
         setcookie($cookieNameString, $cookieValueString, time() + (21600), "/"); //6h
+        setcookie($cookieNameId, $cookieValueId, time() + (21600), "/"); //6h
 
         $_SESSION['user'] = array(
+          'id' => $dbId,
           'login' => $login,
           'rank' => $dbRank,
         );
