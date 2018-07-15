@@ -60,4 +60,5 @@ RewriteRule ^registration  backend/authorization/registration/registration
 RewriteRule ^reset-password  backend/authorization/reset-password/reset-password
 RewriteRule ^user-agreement  backend/authorization/user-agreement
 RewriteRule ^reg-settings  backend/authorization/settings
+RewriteRule ^profile  backend/authorization/profile
 
