@@ -76,15 +76,13 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['email'])
         $cookieNameId = "userId";
         $cookieValueId = $dbId;
 
+        $cookieNameRank = "userRank";
+        $cookieValueRank = $dbRank;
+
         setcookie($cookieNameLogin, $cookieValueLogin, time() + (21600), "/"); //6h
         setcookie($cookieNameString, $cookieValueString, time() + (21600), "/"); //6h
         setcookie($cookieNameId, $cookieValueId, time() + (21600), "/"); //6h
-
-        $_SESSION['user'] = array(
-          'id' => $dbId,
-          'login' => $login,
-          'rank' => $dbRank,
-        );
+        setcookie($cookieNameRank, $cookieValueRank, time() + (21600), "/"); //6h
 
         header('Refresh: 1; Url=reg-settings');
       } else {
