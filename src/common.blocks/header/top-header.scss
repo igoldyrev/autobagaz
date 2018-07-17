@@ -112,14 +112,21 @@ $animation: 0.4s ease-in-out;
 
   &__icon {
     color: #ffffff;
+    margin-left: auto;
   }
 }
 
 @include adaptive(pad) {
   .top-header {
+    height: fit-content;
+
     &__inner {
       width: 100%;
-      padding: 0 15px;
+      padding: 5px 15px;
+    }
+
+    &__shops {
+      display: flex;
     }
 
     &__shop {
@@ -159,9 +166,27 @@ $animation: 0.4s ease-in-out;
 
     &__inner {
       width: 100%;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       padding: 5px 10px;
+    }
+
+    &__link {
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+
+    &__shop-last-child {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+
+    &__shops {
+      margin-bottom: 10px;
+    }
+
+    &__icon {
+      margin-left: 0;
     }
 
     &__height-30 {
