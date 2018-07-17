@@ -101,6 +101,18 @@ $animation: 0.4s ease-in-out;
     height: 30px;
     transition: $animation;
   }
+
+  &__logo {
+    width: 55px;
+  }
+
+  &__link {
+    margin-right: auto;
+  }
+
+  &__icon {
+    color: #ffffff;
+  }
 }
 
 @include adaptive(pad) {
@@ -147,8 +159,8 @@ $animation: 0.4s ease-in-out;
 
     &__inner {
       width: 100%;
-      align-items: flex-start;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
       padding: 5px 10px;
     }
 
