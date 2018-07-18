@@ -21,5 +21,10 @@
     </div>
     <!--<a href="/registration" title="Зарегистрироваться или войти" class="top-header__icon" target="_blank"><i-->
     <!--class="fa fa-user-o fa-2x top-header__icon" aria-hidden="true"></i></a>-->
+    <?php
+    if (!empty($_COOKIE['userString'])) {
+      echo '<a href="/profile?id=' . $_COOKIE['userId'] . '" class="auth__link">Профиль</a>';
+      echo '<a href="/?logout=1" class="auth__link">Выйти</a>';
+    } ?>
   </div>
 </div>
