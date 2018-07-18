@@ -9,7 +9,7 @@ $id = $_GET['id'];
 
 if (!isset($id)) {
   echo "<title>Ошибка доступа</title>";
-  if (isset($_SESSION['user']['id'])) {
+  if (!empty($_COOKIE['userId'])) {
     header('Refresh: 1; Url=profile.php?id=' . $_COOKIE['userId'] . '');
   } else {
     echo "<title>Ошибка доступа</title>";
