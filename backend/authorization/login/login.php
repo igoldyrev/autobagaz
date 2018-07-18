@@ -1,7 +1,7 @@
 <?php
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-auth.php");
 echo "<title>Войти</title>";
 
 $dbname = "9082410193_zakaz";
@@ -16,7 +16,7 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
   $login = trim($login);
   $login = $_REQUEST['login'];
 
-  $querylogin = "SELECT user_login, user_hash, user_rank FROM users WHERE user_login='" . $login . "'";
+  $querylogin = "SELECT user_id, user_login, user_hash, user_rank FROM users WHERE user_login='" . $login . "'";
   $res = mysqli_query($connect, $querylogin);
   $numrows = mysqli_num_rows($res);
 
@@ -58,9 +58,9 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
         $cookieNameRank = "userRank";
         $cookieValueRank = $dbRank;
 
+        setcookie($cookieNameId, $cookieValueId, time() + (21600), "/"); //6h
         setcookie($cookieNameLogin, $cookieValueLogin, time() + (21600), "/"); //6h
         setcookie($cookieNameString, $cookieValueString, time() + (21600), "/"); //6h
-        setcookie($cookieNameId, $cookieValueId, time() + (21600), "/"); //6h
         setcookie($cookieNameRank, $cookieValueRank, time() + (21600), "/"); //6h
 
         header('Refresh: 1; Url=intro');

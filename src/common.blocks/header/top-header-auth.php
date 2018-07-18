@@ -21,7 +21,13 @@
       <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="top-header-auth__shop-phone"
          href="tel:+73422889939">+7 342 288 99 39 </a>
     </div>
-    <a href="/registration" title="Зарегистрироваться или войти" class="top-header-auth__icon" target="_blank"><i
-      class="fa fa-user-o fa-2x top-header-auth__icon" aria-hidden="true"></i></a>
+    <?php
+    if (!empty($_COOKIE['userString'])) {
+      echo '<a href="/profile?id=' . $_COOKIE['userId'] . '" class="auth__link">Профиль</a>';
+      echo '<a href="/?logout=1" class="auth__link">Выйти</a>';
+    } else {
+      echo '<a href="/registration" title="Зарегистрироваться или войти" class="top-header-auth__icon" target="_blank"><i
+      class="fa fa-user-o fa-2x top-header-auth__icon" aria-hidden="true"></i></a>';
+    } ?>
   </div>
 </div>

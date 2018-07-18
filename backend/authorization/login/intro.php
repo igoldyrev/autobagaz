@@ -1,7 +1,7 @@
 <?php
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.php"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-auth.php"); ?>
 
 <div class="auth__wrapper">
   <div class="auth__content">

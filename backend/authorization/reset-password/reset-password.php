@@ -1,6 +1,6 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-auth.php");
 echo "<title>Восстановление пароля</title>";
 
 $dbname = "9082410193_zakaz";
