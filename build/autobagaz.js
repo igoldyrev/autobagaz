@@ -139,19 +139,6 @@
 /************************************************************************/
 /******/({
 
-  /***/ "./backend/authorization/js/login.js":
-  /*!*******************************************!*\
-    !*** ./backend/authorization/js/login.js ***!
-    \*******************************************/
-  /*! no static exports found */
-  /***/ (function (module, exports, __webpack_require__) {
-
-    "use strict";
-    eval("\n\n(function () {\n  var authorizationForm = document.querySelector('.js-authorization-form');\n  var authorizationFormMessage = document.querySelector('.js-authorization-form-message');\n  var url = '/intro';\n\n  var authorizationFormIntro = function authorizationFormIntro(data, onSuccess, onError) {\n    var xhr = new XMLHttpRequest();\n\n    xhr.addEventListener('load', function () {\n      if (xhr.status === 200) {\n        onSuccess(xhr.response);\n      } else {\n        onError('При отправке формы произошла ошибка :(');\n      }\n    });\n\n    xhr.open('POST', url);\n    xhr.send(data);\n  };\n\n  authorizationForm.addEventListener('submit', function (evt) {\n    authorizationFormIntro(new FormData(authorizationForm), function () {\n      authorizationFormMessage.classList.remove('good-message--auth');\n    });\n    evt.preventDefault();\n  });\n})();\n\n//# sourceURL=webpack:///./backend/authorization/js/login.js?");
-
-    /***/
-  }),
-
   /***/ "./src/common.blocks/gallery/gallery.js":
   /*!**********************************************!*\
     !*** ./src/common.blocks/gallery/gallery.js ***!
@@ -161,19 +148,6 @@
 
     "use strict";
     eval("\n\n(function () {\n  var galleyTag = document.querySelectorAll('.gallery__tag');\n  galleyTag.forEach(function (tag) {\n    if (tag.textContent === '') {\n      tag.style.display = 'none';\n    }\n  });\n})();\n\n//# sourceURL=webpack:///./src/common.blocks/gallery/gallery.js?");
-
-    /***/
-  }),
-
-  /***/ "./src/common.blocks/header/top-header.js":
-  /*!************************************************!*\
-    !*** ./src/common.blocks/header/top-header.js ***!
-    \************************************************/
-  /*! no static exports found */
-  /***/ (function (module, exports, __webpack_require__) {
-
-    "use strict";
-    eval("\n\n(function () {\n  var topHeader = document.querySelector('.top-header');\n  var topHeaderInner = document.querySelector('.top-header__inner');\n  var topHeaderAddress = document.querySelector('.top-header__address');\n  var topHeaderShopAddress = document.querySelectorAll('.top-header__shop-address');\n  var topHeaderShopLast = document.querySelector('.top-header__shop-last');\n  window.onscroll = function () {\n    var scrolled = window.pageYOffset || document.documentElement.scrollTop;\n    if (scrolled > 50) {\n      topHeader.classList.add('top-header__height-30');\n      topHeaderAddress.classList.add('top-header__hidden');\n      topHeaderInner.classList.add('top-header__center');\n      topHeaderShopAddress.forEach(function (adr) {\n        adr.classList.add('top-header__hidden');\n      });\n      topHeaderShopLast.classList.remove('top-header__shop-last-child');\n    } else {\n      topHeader.classList.remove('top-header__height-30');\n      topHeaderAddress.classList.remove('top-header__hidden');\n      topHeaderInner.classList.remove('top-header__center');\n      topHeaderShopAddress.forEach(function (adr) {\n        adr.classList.remove('top-header__hidden');\n      });\n      topHeaderShopLast.classList.add('top-header__shop-last-child');\n    }\n  };\n})();\n\n//# sourceURL=webpack:///./src/common.blocks/header/top-header.js?");
 
     /***/
   }),
@@ -256,13 +230,13 @@
   }),
 
   /***/ 0:
-  /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-    !*** multi ./src/main.js ./src/common.blocks/tabs/tabs.js ./src/common.blocks/rewiew/rewiew__answer.js ./src/common.blocks/modal-call/modal-call.js ./src/common.blocks/gallery/gallery.js ./src/common.blocks/header/top-header.js ./src/library.blocks/img/img.js ./backend/authorization/js/login.js ./src/style.scss ***!
-    \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+  /*!**********************************************************************************************************************************************************************************************************************************************!*\
+    !*** multi ./src/main.js ./src/common.blocks/tabs/tabs.js ./src/common.blocks/rewiew/rewiew__answer.js ./src/common.blocks/modal-call/modal-call.js ./src/common.blocks/gallery/gallery.js ./src/library.blocks/img/img.js ./src/style.scss ***!
+    \**********************************************************************************************************************************************************************************************************************************************/
   /*! no static exports found */
   /***/ (function (module, exports, __webpack_require__) {
 
-    eval("__webpack_require__(/*! ./src/main.js */\"./src/main.js\");\n__webpack_require__(/*! ./src/common.blocks/tabs/tabs.js */\"./src/common.blocks/tabs/tabs.js\");\n__webpack_require__(/*! ./src/common.blocks/rewiew/rewiew__answer.js */\"./src/common.blocks/rewiew/rewiew__answer.js\");\n__webpack_require__(/*! ./src/common.blocks/modal-call/modal-call.js */\"./src/common.blocks/modal-call/modal-call.js\");\n__webpack_require__(/*! ./src/common.blocks/gallery/gallery.js */\"./src/common.blocks/gallery/gallery.js\");\n__webpack_require__(/*! ./src/common.blocks/header/top-header.js */\"./src/common.blocks/header/top-header.js\");\n__webpack_require__(/*! ./src/library.blocks/img/img.js */\"./src/library.blocks/img/img.js\");\n__webpack_require__(/*! ./backend/authorization/js/login.js */\"./backend/authorization/js/login.js\");\nmodule.exports = __webpack_require__(/*! ./src/style.scss */\"./src/style.scss\");\n\n\n//# sourceURL=webpack:///multi_./src/main.js_./src/common.blocks/tabs/tabs.js_./src/common.blocks/rewiew/rewiew__answer.js_./src/common.blocks/modal-call/modal-call.js_./src/common.blocks/gallery/gallery.js_./src/common.blocks/header/top-header.js_./src/library.blocks/img/img.js_./backend/authorization/js/login.js_./src/style.scss?");
+    eval("__webpack_require__(/*! ./src/main.js */\"./src/main.js\");\n__webpack_require__(/*! ./src/common.blocks/tabs/tabs.js */\"./src/common.blocks/tabs/tabs.js\");\n__webpack_require__(/*! ./src/common.blocks/rewiew/rewiew__answer.js */\"./src/common.blocks/rewiew/rewiew__answer.js\");\n__webpack_require__(/*! ./src/common.blocks/modal-call/modal-call.js */\"./src/common.blocks/modal-call/modal-call.js\");\n__webpack_require__(/*! ./src/common.blocks/gallery/gallery.js */\"./src/common.blocks/gallery/gallery.js\");\n__webpack_require__(/*! ./src/library.blocks/img/img.js */\"./src/library.blocks/img/img.js\");\nmodule.exports = __webpack_require__(/*! ./src/style.scss */\"./src/style.scss\");\n\n\n//# sourceURL=webpack:///multi_./src/main.js_./src/common.blocks/tabs/tabs.js_./src/common.blocks/rewiew/rewiew__answer.js_./src/common.blocks/modal-call/modal-call.js_./src/common.blocks/gallery/gallery.js_./src/library.blocks/img/img.js_./src/style.scss?");
 
     /***/
   })
