@@ -255,6 +255,13 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
                   src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6a196e51bfb2806e4768bc830ccbc5c8947eba9b248b72778e9a4445adb50ebe&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
       </div>
+      <div class="contacts__shop">
+        <h4 class="title title-h4">Интернет-магазин</h4>
+        <div class="contacts">
+          <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:89082410193"
+             class="contacts__link">+7 908 24 101 93 Илья Голдырев</a>
+        </div>
+      </div>
       <div class="contacts__inn">
         <p class="text">Индивидуальный предприниматель: Зарубин Денис Юрьевич</p>
         <p class="text">ИНН 590850700022 ОГРНИП 316595800158377</p>
