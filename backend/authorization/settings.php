@@ -6,9 +6,9 @@ echo "<title>Настройки пользователя</title>";
 $dbname = "9082410193_zakaz";
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
 
-$user_id = $_SESSION['user']['id'];
+$user_id = $_COOKIE['userId'];
 
-if (!isset($_SESSION["user"])) {
+if (!isset($_COOKIE['userString'])) {
   echo "<title>Необходимо войти</title>";
   echo "<div class='good-message good-message--wrong'>";
   echo "<p class='text'>Необходимо войти в аккаунт</p>";
@@ -47,8 +47,7 @@ if (!isset($_SESSION["user"])) {
     $ressettings = mysqli_query($connect, $querysettings);
 
     $messageSuccess = 'Настройка аккаунта завершена!';
-    //header('Refresh: 1; Url=profile');
-
+    header('Refresh: 1; Url=/profile?id=' . $user_id);
   }
 } ?>
 
