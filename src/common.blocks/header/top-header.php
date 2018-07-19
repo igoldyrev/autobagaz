@@ -14,7 +14,7 @@
          href="tel:+7 342 288 99 69">+7 342 288 99 69</a>
     </div>
     <div class="top-header__shop top-header__shop-last top-header__shop-last-child">
-      <a class="top-header__shop-address" href="/contacts#speshilova" title="Посмотреть на карте">г.Пермь, ул.
+      <a class="top-header__shop-address" href="/contacts#turgeneva" title="Посмотреть на карте">г.Пермь, ул.
         Тургенева 23</a>
       <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="top-header__shop-phone"
          href="tel:+73422889939">+7 342 288 99 39 </a>
