@@ -35,3 +35,15 @@ include ($_SERVER["DOCUMENT_ROOT"]."/admin/blocks.php");
 
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/modal-call/modal-call.html"); ?>
 <div class="modal-call__button"><i class="fa fa-phone fa-4x" aria-hidden="true"></i></div>
+
+<?php
+$dbname = "9082410193_zakaz";
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
+
+if (isset($_GET['logout'])) {
+  $login = $_COOKIE['userLogin'];
+  setcookie('userString', 'exit', time() - (21600), "/"); //6h
+  $queryexit = "UPDATE users SET user_string = '' WHERE user_login = '" . $login . "'";
+  $res = mysqli_query($connect, $queryexit);
+  header('Refresh: 1; URL=/login');
+}

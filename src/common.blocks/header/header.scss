@@ -5,6 +5,10 @@
 
   &__img {
     width: 400px;
+
+    &--small {
+      width: 55px;
+    }
   }
 
   &__inner {
@@ -104,6 +108,10 @@
 
     &__img {
       width: 100%;
+
+      &--small {
+        width: 55px;
+      }
     }
   }
 }

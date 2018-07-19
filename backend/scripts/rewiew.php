@@ -49,9 +49,6 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
                 $sql_insert = "INSERT INTO guestbook (name, phone, rewiew)" . "VALUES('{$name}', '{$phone}', '{$rewiew}');";
                 mysqli_query($connect, $sql_insert);
 
-                $sql_users = "INSERT INTO users (name, phone)" . "VALUES('{$name}', '{$phone}');";
-                mysqli_query($connect, $sql_users);
-
                 include($_SERVER["DOCUMENT_ROOT"] . "/backend/scripts/mails.php");
 
                 if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['rewiew'])&&$_POST['rewiew']!="")){

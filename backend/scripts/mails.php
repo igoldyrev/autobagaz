@@ -58,3 +58,33 @@ $rewiewmail = "
 ip-адрес: ".$_SERVER['REMOTE_ADDR']."
 Ссылка на скрипт, который прислал письмо: ".$_SERVER['REQUEST_URI']."
 ";
+
+$registrationmail = "
+Здравствуйте!
+Спасибо за регистрацию на сайте autobagaz.ru!
+
+Ваш логин: " . $login . ";
+Ваш пароль: " . $passwordretype . "
+
+С уважением,
+команда autobagaz.ru
+";
+
+$registrationmailme = "
+Зарегистрировавшийся логин: " . $login . ";
+Пароль: " . $passwordretype . ";
+
+С уважением,
+команда autobagaz.ru
+";
+
+$resetpasswordmail = "
+Здравствуйте!
+Вы запросили восстановление пароля на сайте autobagaz.ru!
+Если Вы этого не делали, то просто проигнорируйте это письмо.
+
+Ваш новый пароль: " . $newPassword . "
+
+С уважением,
+команда autobagaz.ru
+";
