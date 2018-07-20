@@ -1266,6 +1266,22 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
       <div class="good-message">
         <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
       </div> <?php
+    } elseif ($id == 'bonusblack') {
+      $tovar = $_SESSION['bonus'][0][name];
+      echo "<title>Заказ товара ";
+      echo $_SESSION['bonus'][0][name];
+      echo "</title>"; ?>
+      <div class="good-message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+      </div> <?php
+    } elseif ($id == 'bonusgray') {
+      $tovar = $_SESSION['bonus'][1][name];
+      echo "<title>Заказ товара ";
+      echo $_SESSION['bonus'][1][name];
+      echo "</title>"; ?>
+      <div class="good-message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+      </div> <?php
     }
     $_SESSION['tovar'] = $tovar;
     include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/buyform.php");
