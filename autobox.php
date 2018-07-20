@@ -104,6 +104,15 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
             <p class="text">Автобоксы Inno</p>
           </div>
         </div>
+        <div class="catalog__item">
+          <a href="/autobox/bonus" class="catalog__item-link"></a>
+          <div class="catalog__image-wrap">
+            <img class="catalog__image" src="/content/autobox/img/logo/koffer.jpg" alt="Koffer Bonus">
+          </div>
+          <div class="catalog__text">
+            <p class="text">Автобоксы Koffer Bonus</p>
+          </div>
+        </div>
       </div>
     <?php } elseif ($autobox == 'yuago') {
       echo "<title> $titleconst";
@@ -946,6 +955,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
       $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
       echo "<h1 class='title title-h1'>Автомобильные боксы Bonus</h1>";
+      echo "<p class='text'>Koffer Bonus - идеальный бокс для всех видов туризма, в том числе для лыжного и горнолыжного, предназначен для автомобилей средних размеров и внедорожников, выполнен из ABS пластика толщиной исходного листа 5 мм, с UV фильтром. Ребра жёсткости на днище бокса полностью снимают эффект скручивания. Подъёмные штанги облегчают открывание крышки бокса и одновременно спроектированы так, что надёжно фиксируют крышку в закрытом состоянии. Идеальная геометрия крышки и днища даёт плотное прилегание, что не позволяет проникать грязи и пыли в грузовое пространство, а также обеспечивают лёгкое запирание/отпирание замка. П - образные крепежи - простые и надёжные, бокс устанавливается на багажные поперечины не более чем за 15-20 минут. В комплекте крепежа также присутствуют ремни для крепления грузов.</p>";
 
       foreach ($bonus as $bonusitem): ?>
         <div class="good">
