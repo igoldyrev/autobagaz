@@ -375,7 +375,7 @@ $bonus = [
     'price' => '13 000 рублей',
     'description' => 'Автомобильный бокс Bonus с односторонним открытием со стороны водителя имеет привлекательный дизайн и надежное качество. Изготовлен из прочного АБС-пластика, устойчивого к ультрафиолетовым лучам и морозу.',
     'img1' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_gray_1.jpg" alt="Автобоксы Bonus">',
-    'img2' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_gray_1.jpg" alt="Автобоксы Bonus">',
+    'img2' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_gray_2.jpg" alt="Автобоксы Bonus">',
     'img3' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_gray_3.jpg" alt="Автобоксы Bonus">',
     'volume' => '425 л',
     'carrying' => '50 кг',
