@@ -343,9 +343,7 @@ $terradrivetwo = [
     'img1' => '<img class="img good__img" src="/content/autobox/img/terradrive/320/320_1.jpg" alt="Автобоксы Terra Drive 320">',
     'img2' => '<img class="img good__img" src="/content/autobox/img/terradrive/320/320_2.jpg" alt="Автобоксы Terra Drive 320">',
     'img3' => '<img class="img good__img" src="/content/autobox/img/terradrive/320/320_3.jpg" alt="Автобоксы Terra Drive 320">',
-    'img4' => '<img class="img good__img" src="/content/autobox/img/terradrive/320/320_4.jpg" alt="Автобоксы Terra Drive 320">',
-    'img5' => '<img class="img good__img" src="/content/autobox/img/terradrive/320/320_5.jpg" alt="Автобоксы Terra Drive 320">',
-    'img6' => '<img class="img good__img" src="/content/autobox/img/terradrive/320/320_7.jpg" alt="Автобоксы Terra Drive 320">',
+
     'carrying' => '70 кг',
     'volume' => '320 л',
     'lock' => 'правостороннее',
@@ -353,4 +351,37 @@ $terradrivetwo = [
     'size_indoor' => '127x80x36',
     'color_bottom' => 'Черный',
   ]
+];
+
+$bonus = [
+  [
+    'id' => 'bonusblack',
+    'name' => 'Автобокс Bonus черный матовый',
+    'price' => '13 000 рублей',
+    'description' => 'Автомобильный бокс Bonus с односторонним открытием со стороны водителя имеет привлекательный дизайн и надежное качество. Изготовлен из прочного АБС-пластика, устойчивого к ультрафиолетовым лучам и морозу.',
+    'img1' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_black_1.jpg" alt="Автобоксы Bonus">',
+    'img2' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_black_2.jpg" alt="Автобоксы Bonus">',
+    'img3' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_black_3.jpg" alt="Автобоксы Bonus">',
+    'volume' => '425 л',
+    'carrying' => '50 кг',
+    'lock' => 'одностороннее',
+    'color' => 'черный матовый',
+    'size_outdoor' => '171x79x44 см',
+    'size_indoor' => '161 см',
+  ],
+  [
+    'id' => 'bonusgray',
+    'name' => 'Автобокс Bonus серый матовый',
+    'price' => '13 000 рублей',
+    'description' => 'Автомобильный бокс Bonus с односторонним открытием со стороны водителя имеет привлекательный дизайн и надежное качество. Изготовлен из прочного АБС-пластика, устойчивого к ультрафиолетовым лучам и морозу.',
+    'img1' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_gray_1.jpg" alt="Автобоксы Bonus">',
+    'img2' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_gray_1.jpg" alt="Автобоксы Bonus">',
+    'img3' => '<img class="img good__img" src="/content/autobox/img/bonus/bonus_gray_3.jpg" alt="Автобоксы Bonus">',
+    'volume' => '425 л',
+    'carrying' => '50 кг',
+    'lock' => 'одностороннее',
+    'color' => 'черный матовый',
+    'size_outdoor' => '171x79x44 см',
+    'size_indoor' => '161 см',
+  ],
 ];
