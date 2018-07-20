@@ -29,6 +29,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
                     <li><a class="link link--green-hover" href="/autobox/inmax" target="_parent">Автомобильные боксы INMAX</a></li>
                   <li><a class="link link--green-hover" href="/autobox/terradrive" target="_parent">Автомобильные боксы
                       Terra Drive</a></li>
+                  <li><a class="link link--green-hover" href="/autobox/bonus" target="_parent">Автомобильные боксы
+                      Bonus</a></li>
                 </ul>
                 <li><a class="link link--green-hover" href="/velokreplenya" target="_parent">Велокрепления</a></li>
                 <ul class="list list__unsorted">
