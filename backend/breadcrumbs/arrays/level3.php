@@ -48,6 +48,10 @@ $level3 = [
     'link' => '/autobox/terradrive',
   ],
   [
+    'name' => 'Автомобильные боксы Bonus',
+    'link' => '/autobox/bonus',
+  ],
+  [
     'name' => 'Велокрепления на крышу',
     'link' => '/velokreplenya/krysha',
   ],
