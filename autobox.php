@@ -931,6 +931,77 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
         </div>
       <?php endforeach;
       include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");
+    } elseif ($autobox == 'bonus') {
+      echo "<title> $titleconst";
+      echo $keywords[8][title];
+      echo "</title>";
+      echo "<meta name='description' content='";
+      echo $keywords[8][description];
+      echo "'/>";
+      echo "<meta name='keywords' content='";
+      echo $keywords[8][keywords];
+      echo "'/>";
+
+      $_SESSION['bonus'] = $bonus;
+      $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+      echo "<h1 class='title title-h1'>Автомобильные боксы Bonus</h1>";
+
+      foreach ($bonus as $bonusitem): ?>
+        <div class="good">
+          <h2 class="title title-h2"><?php echo $bonusitem['name'] ?></h2>
+          <div class="img__wrap">
+            <?php echo $bonusitem['img1'];
+            echo $bonusitem['img2'];
+            echo $bonusitem['img3']; ?>
+          </div>
+          <div class="table">
+            <div class="table__column"></div>
+            <ul class="table__header">
+              <li class="table__cell">Характеристики</li>
+              <li class="table__cell">Значение</li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Объем</li>
+              <li class="table__cell"><?php echo $bonusitem['volume']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Грузоподьемность</li>
+              <li class="table__cell"><?php echo $bonusitem['carrying']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Открытие</li>
+              <li class="table__cell"><?php echo $bonusitem['lock']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Цвет</li>
+              <li class="table__cell"><?php echo $bonusitem['color']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Размеры внешние, см</li>
+              <li class="table__cell"><?php echo $bonusitem['size_outdoor']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Размеры внутренние, см</li>
+              <li class="table__cell"><?php echo $bonusitem['size_indoor']; ?></li>
+            </ul>
+          </div>
+          <p class="text" <?php echo $stylepriceautobox ?>>Цена: <strong><?php echo $bonusitem['price'] ?></strong></p>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $bonusitem['name'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $bonusitem['id']; ?>" class="button button__buy">Заказать</a>
+              <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
+                 href="/prokat/<?php echo $bonusitem['id']; ?>" class="button button__buy button__buy--prokat">Взять в
+                прокат</a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach;
+      include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");
     } ?>
   </div>
 </div>
