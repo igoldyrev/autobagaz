@@ -56,7 +56,7 @@ RewriteRule ^gallery/([a-zA-Z0-9_-]+)/?  gallery.php?auto=$1
 
 RewriteRule ^login  backend/authorization/login/login
 RewriteRule ^intro  backend/authorization/login/intro
-RewriteRule ^registration  backend/authorization/registration/registration
+#RewriteRule ^registration  backend/authorization/registration/registration
 RewriteRule ^reset-password  backend/authorization/reset-password/reset-password
 RewriteRule ^user-agreement  backend/authorization/user-agreement
 RewriteRule ^reg-settings  backend/authorization/settings
