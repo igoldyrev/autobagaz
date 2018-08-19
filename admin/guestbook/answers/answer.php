@@ -10,7 +10,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     $id=$_REQUEST['id'];
     $answer=trim($_REQUEST['answer']);
 
-    $update_sql = "UPDATE guestbook SET  answer='$answer' WHERE id='$id'";
+    $update_sql = "UPDATE guestbook SET  answer='$answer', status='ИЗМЕНЕН', date=curdate() WHERE id='$id'";
     mysqli_query($connect, $update_sql) or die("Ошибка!" . mysqli_error());
     echo '<h3 class="title title-h3">Ответ размещен на сайте!</h3>'; ?>
     <div class="admin__link-wrap clearfix">
