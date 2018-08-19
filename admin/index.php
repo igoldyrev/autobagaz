@@ -13,7 +13,7 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
       <a class="admin__link" href="/admin/guestbook/answers/rewiewanswer">Ответить на отзывы</a>
       <a class="admin__link" href="/admin/guestbook/answers/answerchoice">Редактировать ответы</a>
       <a class="admin__link" href="/admin/guestbook/delete/guestdelete">Удаление</a>
-      <a class="admin__link" href="/admin/guestbook/delete/guestdelete">Восстановление</a>
+      <a class="admin__link" href="/admin/guestbook/restore/guestrestore">Восстановление</a>
     </div>
 
     <div class="admin clearfix">
