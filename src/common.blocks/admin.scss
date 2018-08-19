@@ -81,11 +81,27 @@
   }
 }
 
+@include adaptive(pad) {
+  .admin {
+    width: 47%;
+
+    &__container {
+      width: 100%;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+  }
+}
+
 @include adaptive(mobile) {
-  .admin__container {
+  .admin {
     width: 100%;
-    margin: 10px auto;
-    padding: 0 10px 20px;
-    box-sizing: border-box;
+
+    &__container {
+      width: 100%;
+      margin: 10px auto;
+      padding: 0 10px 20px;
+      box-sizing: border-box;
+    }
   }
 }
