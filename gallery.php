@@ -13,7 +13,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
     <div class="wrapper__content">
 
         <?php
-        $dbname = "9082410193_gallery";
+        $dbname = "9082410193_zakaz";
         include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
 
         $auto = $_GET['auto'];
@@ -30,7 +30,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
             $on_page = 12;
 
             // Получаем количество записей таблицы
-            $query = "SELECT COUNT(*) FROM photos";
+          $query = "SELECT COUNT(*) FROM gallery WHERE status <> 'УДАЛЕН'";
             $res = mysqli_query($connect, $query);
             $count_records = mysqli_fetch_row($res);
             $count_records = $count_records[0];
@@ -60,7 +60,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
             $start_from = ($current_page - 1) * $on_page;
 
             // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
-            $query = "SELECT * FROM `photos` ORDER BY `id` DESC LIMIT $start_from, $on_page";
+          $query = "SELECT * FROM `gallery` INNER JOIN status ON gallery.status = status.status_name AND status.status_name <> 'УДАЛЕН' ORDER BY `id` DESC LIMIT $start_from, $on_page";
             $res = mysqli_query($connect, $query);
 
             if ($count_records == 0) {
@@ -104,7 +104,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/gallerybreadcrumbs.php"
             }
         }
 
-        $query = "SELECT * FROM `photos` ORDER BY `id` DESC";
+        $query = "SELECT * FROM `gallery` INNER JOIN status ON gallery.status = status.status_name AND status.status_name <> 'УДАЛЕН' ORDER BY `id` DESC";
         $res = mysqli_query($connect, $query);
 
         while ($row = mysqli_fetch_assoc($res)){

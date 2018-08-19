@@ -21,7 +21,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/tagbreadcrumbs.php"); ?
         $dbname = "9082410193_gallery";
         include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
 
-        $query = "SELECT * FROM `photos` ORDER BY `id` DESC ";
+        $query = "SELECT * FROM `gallery` INNER JOIN status ON gallery.status = status.status_name AND status.status_name <> 'УДАЛЕН' ORDER BY `id` DESC ";
         $res = mysqli_query($connect, $query);
 
         echo "<title>$titleconst Все записи с меткой "; echo $tag; echo "</title>";
