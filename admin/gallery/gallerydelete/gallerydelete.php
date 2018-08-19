@@ -5,13 +5,13 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     <h1 class="title title-h1">Выбор записи для удаления</h1>
 
     <?php
-    $dbname = "9082410193_gallery";
+    $dbname = "9082410193_zakaz";
     include ($_SERVER["DOCUMENT_ROOT"]."/backend/connectdb.php"); ?>
 
     <div class="form__container">
         <form action="/admin/gallery/gallerydelete/delete" method="post">
             <?php
-            $select_sql = "SELECT id, name, date FROM photos";
+            $select_sql = "SELECT id, name, date, status FROM gallery INNER JOIN status ON gallery.status = status.status_name AND status.status_name <> 'УДАЛЕН'";
             $result = mysqli_query($connect, $select_sql);
             $row = mysqli_fetch_array($result);
 
