@@ -28,7 +28,7 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
       <a class="admin__link" href="/admin/gallery/galleryadd/addform">Добавить запись</a>
       <a class="admin__link" href="/admin/gallery/galleryedit/galleryedit">Редактировать записи</a>
       <a class="admin__link" href="/admin/gallery/gallerydelete/gallerydelete">Удаление записей</a>
-      <a class="admin__link" href="/admin/gallery/gallerydelete/gallerydelete">Восстановление записей</a>
+      <a class="admin__link" href="/admin/gallery/galleryrestore/galleryrestore">Восстановление записей</a>
     </div>
 
     <div class="admin clearfix">
