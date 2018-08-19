@@ -60,7 +60,7 @@ echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>";
                 $start_from = ($current_page - 1) * $on_page;
 
                 // Формат оператора LIMIT <ЗАПИСЬ ОТ>, <КОЛИЧЕСТВО ЗАПИСЕЙ>
-                $query = "SELECT * FROM `guestbook` ORDER BY `id` DESC LIMIT $start_from, $on_page";
+                $query = "SELECT * FROM `guestbook` INNER JOIN `status` ON guestbook.status = status.status_name AND status.status_name <> 'УДАЛЕН' ORDER BY `id` DESC LIMIT $start_from, $on_page";
                 $res = mysqli_query($connect, $query);
 
                 if ($count_records == 0) {
