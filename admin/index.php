@@ -32,6 +32,12 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
     </div>
 
     <div class="admin clearfix">
+      <?php echo "<h3 class='title title-h3'>Комиссионка</h3>"; ?>
+      <!--      <a class="admin__link" href="/admin/news/newsdelete">Удалить новости</a>-->
+      <h3 class="title title-h3">СКОРО...</h3>
+    </div>
+
+    <div class="admin clearfix">
       <?php echo "<h3 class='title title-h3'>Новости</h3>"; ?>
       <!--      <a class="admin__link" href="/admin/news/newsdelete">Удалить новости</a>-->
       <h3 class="title title-h3">СКОРО...</h3>
