@@ -12,7 +12,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     $phone=trim($_REQUEST['phone']);
     $rewiew=trim($_REQUEST['rewiew']);
 
-    $update_sql = "UPDATE guestbook SET name='$name', phone='$phone', rewiew='$rewiew' WHERE id='$id'";
+    $update_sql = "UPDATE guestbook SET name='$name', phone='$phone', rewiew='$rewiew', status='ИЗМЕНЕН' WHERE id='$id'";
     mysqli_query($connect, $update_sql) or die("Ошибка обновления" . mysqli_error());
     echo '<h3 class="title title-h3">Отзыв успешно обновлен!</h3>'; ?>
     <div class="admin__link-wrap clearfix">
