@@ -8,7 +8,6 @@ var PurifyCSSPlugin = require('purifycss-webpack');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 var InProduction = (process.env.NODE_ENV === 'production');
 
@@ -141,12 +140,5 @@ module.exports = {
 if (InProduction) {
     module.exports.plugins.push(
         new webpack.optimize.UglifyJsPlugin()
-    );
-
-    module.exports.plugins.push(
-        // Image optimizer
-        new ImageminPlugin({
-            test: /\.(jpe?g|JPE?G|png|gif|svg)$/i
-        })
     );
 }
