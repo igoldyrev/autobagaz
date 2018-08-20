@@ -22,7 +22,8 @@
     </div>
     <?php
     if (!empty($_COOKIE['userString'])) {
-      echo '<a href="/profile?id=' . $_COOKIE['userId'] . '" class="auth__link">Профиль</a>';
+      //echo '<a href="/profile?id=' . $_COOKIE['userId'] . '" class="auth__link">Профиль</a>';
+      echo '<a href="/admin/" class="auth__link">Админка</a>';
       echo '<a href="/?logout=1" class="auth__link">Выйти</a>';
     } ?>
   </div>
