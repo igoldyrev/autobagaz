@@ -1,7 +1,7 @@
 <?php
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-auth.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.php");
 echo "<title>Войти</title>";
 
 $dbname = "9082410193_zakaz";
@@ -90,8 +90,6 @@ if ((isset($_POST['login']) && $_POST['login'] != '') && (isset($_POST['password
         </div>
         <button class="button button__zakaz auth__input">Войти</button>
         <a href="/reset-password" class="link auth__license auth__center">Забыли пароль?</a>
-        <p class="text auth__license">Нет аккаунта? <a class="link auth__license" href="/registration">Зарегистрироваться</a>
-        </p>
       </form>
     </div>
   </div>

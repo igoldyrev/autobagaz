@@ -20,5 +20,11 @@
       <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="top-header__shop-phone"
          href="tel:+73422889939">+7 342 288 99 39 </a>
     </div>
+    <?php
+    if (!empty($_COOKIE['userString'])) {
+      //echo '<a href="/profile?id=' . $_COOKIE['userId'] . '" class="auth__link">Профиль</a>';
+      echo '<a href="/admin/" class="auth__link">Админка</a>';
+      echo '<a href="/?logout=1" class="auth__link">Выйти</a>';
+    } ?>
   </div>
 </div>

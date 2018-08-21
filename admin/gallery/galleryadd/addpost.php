@@ -4,7 +4,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
 <div class="admin__container">
     <h1 class="title title-h1">Запись в галерею добавлена</h1>
     <?php
-    $dbname = "9082410193_gallery";
+    $dbname = "9082410193_zakaz";
     include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
 
     $name = $_POST['name'];
@@ -92,52 +92,52 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
     // Условия записи в БД в зависимости от количества отправленных файлов
     if ($total == '1') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]')";
+      $sql_name = "INSERT INTO gallery (date, name, link, tag1, tag2, tag3, $arrimg[0], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '2') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]')";
+      $sql_name = "INSERT INTO gallery (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '3') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]')";
+      $sql_name = "INSERT INTO gallery (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '4') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]')";
+      $sql_name = "INSERT INTO gallery (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '5') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]')";
+      $sql_name = "INSERT INTO gallery (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '6') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]')";
+      $sql_name = "INSERT INTO gallery (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '7') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree',  '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]')";
+      $sql_name = "INSERT INTO gallery (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree',  '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '8') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6], $arrimg[7]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]', '$arrurl[7]')";
+      $sql_name = "INSERT INTO gallery (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6], $arrimg[7], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]', '$arrurl[7]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '9') {
 
-        $sql_name = "INSERT INTO photos (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6], $arrimg[7], $arrimg[8]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]', '$arrurl[7]', '$arrurl[8]')";
+      $sql_name = "INSERT INTO gallery (date, name, link, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6], $arrimg[7], $arrimg[8], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]', '$arrurl[7]', '$arrurl[8]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     }elseif ($total == '10') {
 
-        $sql_name = "INSERT INTO photos (date, name, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6], $arrimg[7], $arrimg[8], $arrimg[9]) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]', '$arrurl[7]', '$arrurl[8]', '$arrurl[9]')";
+      $sql_name = "INSERT INTO gallery (date, name, tag1, tag2, tag3, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], $arrimg[5], $arrimg[6], $arrimg[7], $arrimg[8], $arrimg[9], status) VALUES ('$date', '$name', '$url', '$tagone', '$tagtwo', '$tagthree', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$arrurl[5]', '$arrurl[6]', '$arrurl[7]', '$arrurl[8]', '$arrurl[9]', 'СОЗДАН')";
         mysqli_query($connect, $sql_name);
 
     } ?>

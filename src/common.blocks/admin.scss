@@ -1,12 +1,14 @@
 .admin {
-  position: relative;
-  display: block;
-
-  margin: 20px auto;
+  margin: 10px;
   padding: 15px;
+
+  width: 48%;
+  height: 200px;
 
   border: 1px solid $mediumgray;
   border-radius: 5px;
+
+  box-sizing: border-box;
 
   &__container {
     width: 1220px;
@@ -17,6 +19,13 @@
       flex-direction: column;
       align-items: center;
     }
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__img {
@@ -72,11 +81,27 @@
   }
 }
 
+@include adaptive(pad) {
+  .admin {
+    width: 47%;
+
+    &__container {
+      width: 100%;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+  }
+}
+
 @include adaptive(mobile) {
-  .admin__container {
+  .admin {
     width: 100%;
-    margin: 10px auto;
-    padding: 0 10px 20px;
-    box-sizing: border-box;
+
+    &__container {
+      width: 100%;
+      margin: 10px auto;
+      padding: 0 10px 20px;
+      box-sizing: border-box;
+    }
   }
 }

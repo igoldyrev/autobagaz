@@ -6,33 +6,43 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
 
 <div class="admin__container">
   <h1 class='title title-h1'>Админка сайта Автобагаж.ру!</h1>
+  <div class="admin__inner">
+    <div class="admin clearfix">
+      <?php echo "<h3 class='title title-h3'>Отзывы</h3>"; ?>
+      <a class="admin__link" href="/admin/guestbook/update/guestupdate">Редактировать</a>
+      <a class="admin__link" href="/admin/guestbook/answers/rewiewanswer">Ответить на отзывы</a>
+      <a class="admin__link" href="/admin/guestbook/answers/answerchoice">Редактировать ответы</a>
+      <a class="admin__link" href="/admin/guestbook/delete/guestdelete">Удаление</a>
+      <a class="admin__link" href="/admin/guestbook/restore/guestrestore">Восстановление</a>
+    </div>
 
-  <div class="admin clearfix">
-    <?php echo "<h3 class='title title-h3'>Панель управления отзывами</h3>"; ?>
-    <a class="admin__link" href="/admin/guestbook/update/guestupdate">Редактировать отзывы</a>
-    <a class="admin__link" href="/admin/guestbook/answers/rewiewanswer">Ответить на отзывы</a>
-    <a class="admin__link" href="/admin/guestbook/answers/answerchoice">Редактировать ответы на отзывы</a>
-    <a class="admin__link" href="/admin/guestbook/delete/guestdelete">Удалить отзывы</a>
+    <div class="admin clearfix">
+      <?php echo "<h3 class='title title-h3'>Блоки и цены</h3>"; ?>
+      <p class="text">Баннер с акцией и обьявление на главной странице</p>
+      <a class="admin__link" href="/admin/message/update/msgupdate">Редактировать обьявление</a>
+      <a class="admin__link" href="/admin/message/activate/msgactivate">Выключить/включить баннер и цены на сайте</a>
+    </div>
+
+    <div class="admin clearfix">
+      <?php echo "<h3 class='title title-h3'>Галерея</h3>"; ?>
+      <a class="admin__link" href="/admin/gallery/galleryadd/addform">Добавить запись</a>
+      <a class="admin__link" href="/admin/gallery/galleryedit/galleryedit">Редактировать записи</a>
+      <a class="admin__link" href="/admin/gallery/gallerydelete/gallerydelete">Удаление записей</a>
+      <a class="admin__link" href="/admin/gallery/galleryrestore/galleryrestore">Восстановление записей</a>
+    </div>
+
+    <div class="admin clearfix">
+      <?php echo "<h3 class='title title-h3'>Комиссионка</h3>"; ?>
+      <!--      <a class="admin__link" href="/admin/news/newsdelete">Удалить новости</a>-->
+      <h3 class="title title-h3">СКОРО...</h3>
+    </div>
+
+    <div class="admin clearfix">
+      <?php echo "<h3 class='title title-h3'>Новости</h3>"; ?>
+      <!--      <a class="admin__link" href="/admin/news/newsdelete">Удалить новости</a>-->
+      <h3 class="title title-h3">СКОРО...</h3>
+    </div>
   </div>
 
-  <div class="admin clearfix">
-    <?php echo "<h3 class='title title-h3'>Панель управления блоками</h3>"; ?>
-    <p class="text">Блок Акция и блок с обьявлением на главной странице.</p>
-    <a class="admin__link" href="/admin/message/update/msgupdate">Редактировать обьявление</a>
-    <a class="admin__link" href="/admin/message/activate/msgactivate">Выключить/включить блоки</a>
-  </div>
-
-  <div class="admin clearfix">
-    <?php echo "<h3 class='title title-h3'>Панель управления галереей</h3>"; ?>
-    <a class="admin__link" href="/admin/gallery/galleryadd/addform">Добавить запись в галерею</a>
-    <a class="admin__link" href="/admin/gallery/galleryedit/galleryedit">Редактировать записи в галерее</a>
-    <a class="admin__link" href="/admin/gallery/gallerydelete/gallerydelete">Удалить записи из галереи</a>
-  </div>
-
-  <div class="admin clearfix">
-    <?php echo "<h3 class='title title-h3'>Панель управления новостями</h3>"; ?>
-    <a class="admin__link" href="/admin/news/newsdelete">Удалить новости</a>
-  </div>
-
-  <a class="admin__link admin__link--back" href="/">Вернуться на главную страницу сайта</a>
+  <a class="admin__link admin__link--back" href="/">Перейти на главную страницу сайта</a>
 </div>

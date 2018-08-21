@@ -3,7 +3,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
 
 <div class="admin__container">
     <?php
-    $dbname = "9082410193_gallery";
+    $dbname = "9082410193_zakaz";
     include ($_SERVER["DOCUMENT_ROOT"]."/backend/connectdb.php");
 
     $id=$_REQUEST['id'];
@@ -22,7 +22,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     $img8=trim($_REQUEST['img8']);
     $img9=trim($_REQUEST['img9']);
 
-    $update_sql = "UPDATE photos SET name='$name', tag1='$tag1', tag2='$tag2', tag3='$tag3', img0='$img0', img1='$img1', img2='$img2', img3='$img3', img4='$img4', img5='$img5', img5='$img5', img6='$img6', img7='$img7', img8='$img8', img9='$img9' WHERE id='$id'";
+    $update_sql = "UPDATE gallery SET name='$name', tag1='$tag1', tag2='$tag2', tag3='$tag3', img0='$img0', img1='$img1', img2='$img2', img3='$img3', img4='$img4', img5='$img5', img5='$img5', img6='$img6', img7='$img7', img8='$img8', img9='$img9', status='ИЗМЕНЕН' WHERE id='$id'";
     mysqli_query($connect, $update_sql) or die("Ошибка обновления" . mysqli_error());
     echo '<h3 class="title title-h3">Запись успешно обновлена!</h3>'; ?>
     <div class="admin__link-wrap clearfix">

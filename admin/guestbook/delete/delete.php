@@ -8,7 +8,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     include ($_SERVER["DOCUMENT_ROOT"]."/backend/connectdb.php");
 
     $id=$_REQUEST['rewiew'];
-    $delete_sql = "DELETE FROM guestbook WHERE id=$id";
+    $delete_sql = "UPDATE guestbook SET status='УДАЛЕН', date=curdate() WHERE id=$id";
     mysqli_query($connect, $delete_sql) or die("<p class='text'>При удалении отзыва произошла ошибка</p>". mysqli_error());
     echo "<h3 class='title title-h3'>Отзыв успешно удален!</h3>";
     ?>

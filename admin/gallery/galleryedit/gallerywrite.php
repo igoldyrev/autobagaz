@@ -5,11 +5,11 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     <h1 class="title title-h1">Внесение изменений в запись</h1>
 
     <?php
-    $dbname = "9082410193_gallery";
+    $dbname = "9082410193_zakaz";
     include ($_SERVER["DOCUMENT_ROOT"]."/backend/connectdb.php");
 
     $id = $_REQUEST['galleryitem'];
-    $select_sql = "SELECT * FROM photos WHERE id = $id";
+    $select_sql = "SELECT * FROM gallery WHERE id = $id";
     $result = mysqli_query($connect, $select_sql);
     $row = mysqli_fetch_array($result); ?>
 

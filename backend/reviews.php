@@ -2,8 +2,7 @@
 $dbname = "9082410193_zakaz";
 
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/connectdb.php");
-
-$query = "SELECT * FROM guestbook ORDER BY id DESC LIMIT 5"; // запрос на выборку
+$query = "SELECT * FROM `guestbook` INNER JOIN `status` ON guestbook.status = status.status_name AND status.status_name <> 'УДАЛЕН' ORDER BY `id` DESC LIMIT 5"; // запрос на выборку
 
 echo "<h2 class= 'title                        title-h2'>Последние отзывы о нас</h2>";
 if ($result = mysqli_query($connect, $query)) {

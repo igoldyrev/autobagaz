@@ -46,7 +46,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php"); ?>
                 $rewiew = $_REQUEST['rewiew'];
 
                 //Создаем запрос в базу данных
-                $sql_insert = "INSERT INTO guestbook (name, phone, rewiew)" . "VALUES('{$name}', '{$phone}', '{$rewiew}');";
+              $sql_insert = "INSERT INTO guestbook (name, phone, rewiew, status, date)" . "VALUES('{$name}', '{$phone}', '{$rewiew}', 'СОЗДАН', CURDATE());";
                 mysqli_query($connect, $sql_insert);
 
                 include($_SERVER["DOCUMENT_ROOT"] . "/backend/scripts/mails.php");
