@@ -1,4 +1,6 @@
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/navigation-mobile/navigation-mobile.html");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html"); ?>
