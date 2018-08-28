@@ -17,45 +17,45 @@ echo "<meta name='keywords' content='"; echo $keywords[13][keywords]; echo "'/>"
     <h1 class="title title-h1">Сертификаты и лицензии</h1>
     <div class="sertificates">
       <div class="sertificates__item">
-        <a href="/content/sertificates/gibdd.jpg" class="link sertificates__link"><i
+        <a href="/content/sertificates/gibdd.jpg" class="link sertificates__link sertificates__link--js"><i
             class="fa fa-file-text-o sertificates__icon"></i>Письмо ГИБДД</a>
       </div>
       <div class="sertificates__item">
-        <a href="/content/sertificates/Delta-1.png" class="link sertificates__link"><i
+        <a href="/content/sertificates/Delta-1.png" class="link sertificates__link sertificates__link--js"><i
             class="fa fa-file-text-o sertificates__icon"></i>Багажники Delta</a>
       </div>
       <div class="sertificates__item">
-        <a href="/content/sertificates/LUX-1.jpg" class="link sertificates__link"><i
+        <a href="/content/sertificates/LUX-1.jpg" class="link sertificates__link sertificates__link--js"><i
             class="fa fa-file-text-o sertificates__icon"></i>Багажники LUX</a>
         <a href="/content/sertificates/pdf/LUX.pdf" target="_blank" class="link sertificates__link"><i
             class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
       </div>
       <div class="sertificates__item">
-        <a href="/content/sertificates/BagazhnikAtlant-1.jpg" class="link sertificates__link"><i
+        <a href="/content/sertificates/BagazhnikAtlant-1.jpg" class="link sertificates__link sertificates__link--js"><i
             class="fa fa-file-text-o sertificates__icon"></i>Багажники Атлант</a>
         <a href="/content/sertificates/pdf/Atlant.pdf" target="_blank" class="link sertificates__link"><i
             class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
       </div>
       <div class="sertificates__item">
-        <a href="/content/sertificates/BoxesAtlant.jpg" class="link sertificates__link"><i
+        <a href="/content/sertificates/BoxesAtlant.jpg" class="link sertificates__link sertificates__link--js"><i
             class="fa fa-file-text-o sertificates__icon"></i>Автобоксы Атлант</a>
         <a href="/content/sertificates/pdf/AtlantBoxes.pdf" target="_blank" class="link sertificates__link"><i
             class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
       </div>
       <div class="sertificates__item">
-        <a href="/content/sertificates/Baltex-1.jpg" class="link sertificates__link"><i
+        <a href="/content/sertificates/Baltex-1.jpg" class="link sertificates__link sertificates__link--js"><i
             class="fa fa-file-text-o sertificates__icon"></i>Baltex</a>
         <a href="/content/sertificates/pdf/Baltex.pdf" target="_blank" class="link sertificates__link"><i
             class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
       </div>
       <div class="sertificates__item">
-        <a href="/content/sertificates/LeaderPlus-1.jpg" class="link sertificates__link"><i
+        <a href="/content/sertificates/LeaderPlus-1.jpg" class="link sertificates__link sertificates__link--js"><i
             class="fa fa-file-text-o sertificates__icon"></i>Leader Plus</a>
         <a href="/content/sertificates/pdf/LeaderPlus.pdf" target="_blank" class="link sertificates__link"><i
             class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
       </div>
       <div class="sertificates__item">
-        <a href="/content/sertificates/Baltex-1.jpg" class="link sertificates__link"><i
+        <a href="/content/sertificates/Bosal-01.jpg" class="link sertificates__link sertificates__link--js"><i
             class="fa fa-file-text-o sertificates__icon"></i>Bosal</a>
         <a href="/content/sertificates/pdf/Bosal.pdf" target="_blank" class="link sertificates__link"><i
             class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
