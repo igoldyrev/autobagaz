@@ -11,95 +11,57 @@ echo "<title> $titleconst"; echo $keywords[13][title]; echo "</title>";
 echo "<meta name='description' content='"; echo $keywords[13][description]; echo "'/>";
 echo "<meta name='keywords' content='"; echo $keywords[13][keywords]; echo "'/>"; ?>
 
-    <div class="wrapper">
-        <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/left-nav/left-nav.html"); ?>
-        <div class="wrapper__content">
-            <h1 class="title title-h1">Сертификаты и лицензии</h1>
-            <div class="sertificates">
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Письмо ГИБДД</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/gibdd.jpg">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Багажники LUX</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/LUX-1.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/LUX-2.jpg">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Багажники Атлант</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/BagazhnikAtlant-1.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/BagazhnikAtlant-2.jpg">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Автобоксы Атлант</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/BoxesAtlant.jpg">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Багажники Delta</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/Delta-1.png">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Delta-2.png">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Baltex</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/Baltex-1.jpg">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Leader Plus</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/LeaderPlus-1.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/LeaderPlus-2.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/LeaderPlus-3.jpg">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Bosal</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/Bosal-01.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-02.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-03.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-04.jpg">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Bosal</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/Bosal-05.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-06.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-07.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-08.jpg">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Bosal</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/Bosal-09.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-10.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-11.jpg">
-                    </div>
-                </div>
-                <div class="sertificates__item">
-                    <h3 class="title title-h3">Bosal</h3>
-                    <div class="sertificates__photos">
-                        <img class="img sertificates__img" src="/content/sertificates/Bosal-12.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-13.jpg">
-                        <img class="img sertificates__img sertificates__img--small" src="/content/sertificates/Bosal-14.jpg">
-                    </div>
-                </div>
-
-            </div>
-        </div>
+<div class="wrapper">
+  <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/left-nav/left-nav.html"); ?>
+  <div class="wrapper__content">
+    <h1 class="title title-h1">Сертификаты и лицензии</h1>
+    <div class="sertificates">
+      <div class="sertificates__item">
+        <a href="/content/sertificates/gibdd.jpg" class="link sertificates__link sertificates__link--js"><i
+            class="fa fa-file-text-o sertificates__icon"></i>Письмо ГИБДД</a>
+      </div>
+      <div class="sertificates__item">
+        <a href="/content/sertificates/Delta-1.png" class="link sertificates__link sertificates__link--js"><i
+            class="fa fa-file-text-o sertificates__icon"></i>Багажники Delta</a>
+      </div>
+      <div class="sertificates__item">
+        <a href="/content/sertificates/LUX-1.jpg" class="link sertificates__link sertificates__link--js"><i
+            class="fa fa-file-text-o sertificates__icon"></i>Багажники LUX</a>
+        <a href="/content/sertificates/pdf/LUX.pdf" target="_blank" class="link sertificates__link"><i
+            class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
+      </div>
+      <div class="sertificates__item">
+        <a href="/content/sertificates/BagazhnikAtlant-1.jpg" class="link sertificates__link sertificates__link--js"><i
+            class="fa fa-file-text-o sertificates__icon"></i>Багажники Атлант</a>
+        <a href="/content/sertificates/pdf/Atlant.pdf" target="_blank" class="link sertificates__link"><i
+            class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
+      </div>
+      <div class="sertificates__item">
+        <a href="/content/sertificates/BoxesAtlant.jpg" class="link sertificates__link sertificates__link--js"><i
+            class="fa fa-file-text-o sertificates__icon"></i>Автобоксы Атлант</a>
+        <a href="/content/sertificates/pdf/AtlantBoxes.pdf" target="_blank" class="link sertificates__link"><i
+            class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
+      </div>
+      <div class="sertificates__item">
+        <a href="/content/sertificates/Baltex-1.jpg" class="link sertificates__link sertificates__link--js"><i
+            class="fa fa-file-text-o sertificates__icon"></i>Baltex</a>
+        <a href="/content/sertificates/pdf/Baltex.pdf" target="_blank" class="link sertificates__link"><i
+            class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
+      </div>
+      <div class="sertificates__item">
+        <a href="/content/sertificates/LeaderPlus-1.jpg" class="link sertificates__link sertificates__link--js"><i
+            class="fa fa-file-text-o sertificates__icon"></i>Leader Plus</a>
+        <a href="/content/sertificates/pdf/LeaderPlus.pdf" target="_blank" class="link sertificates__link"><i
+            class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
+      </div>
+      <div class="sertificates__item">
+        <a href="/content/sertificates/Bosal-01.jpg" class="link sertificates__link sertificates__link--js"><i
+            class="fa fa-file-text-o sertificates__icon"></i>Bosal</a>
+        <a href="/content/sertificates/pdf/Bosal.pdf" target="_blank" class="link sertificates__link"><i
+            class="fa fa-file-pdf-o sertificates__icon sertificates__icon--red"></i>Скачать в PDF</a>
+      </div>
     </div>
+  </div>
+</div>
 <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/footer/footer.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/counters.html"); ?>

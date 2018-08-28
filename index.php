@@ -138,14 +138,17 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
         <div class="brands">
           <img src="/content/index/img/logos/vetlan.png" alt="vetlan" width="150px">
           <img src="/content/index/img/logos/turino.jpg" alt="turino" width="150px">
-          <img src="/content/index/img/logos/atera.png" alt="atera" width="150px">
+          <img src="/content/autobox/img/logo/koffer.jpg" alt="koffer" width="150px">
           <img src="/content/index/img/logos/menabo.jpg" alt="menabo" width="150px">
-          <img src="/content/index/img/logos/yakima.png" alt="yakima" width="150px">
+          <img src="/content/autobox/img/logo/terradrive.png" alt="terra drive" width="150px">
+
         </div>
         <div class="brands">
           <img src="/content/index/img/logos/myravei.png" alt="myravei" width="150px">
           <img src="/content/index/img/logos/inno.jpg" alt="inno" width="150px">
           <img src="/content/index/img/logos/whispbar.png" alt="whispbar" width="150px">
+          <img src="/content/index/img/logos/yakima.png" alt="yakima" width="150px">
+          <img src="/content/index/img/logos/atera.png" alt="atera" width="150px">
         </div>
       </div>
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/reviews.php"); ?>

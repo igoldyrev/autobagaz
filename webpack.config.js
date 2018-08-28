@@ -21,6 +21,7 @@ module.exports = {
                 './src/common.blocks/modal-call/modal-call.js',
                 './src/common.blocks/gallery/gallery.js',
           './src/common.blocks/header/top-header.js',
+          './src/common.blocks/sertificates/sertificates.js',
                 './src/library.blocks/img/img.js',
                 './src/style.scss'
 
