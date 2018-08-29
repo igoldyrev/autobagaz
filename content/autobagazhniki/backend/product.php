@@ -6,7 +6,14 @@ include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/proposition/proposition.
 include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/navigation/navigation.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/content/autobagazhniki/backend/array.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/content/autobagazhniki/backend/keywords.php"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/content/autobagazhniki/backend/keywords.php");
+
+$_SESSION['autobagazhniki'] = $autobagazhniki;
+$_SESSION['reelings'] = $reelings;
+$_SESSION['shtatnye'] = $shtatnye;
+$_SESSION['smooth'] = $smooth;
+$_SESSION['vodostok'] = $vodostok;
+$_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
 
 <div class="wrapper">
   <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/left-nav/left-nav.html"); ?>
