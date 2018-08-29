@@ -2,19 +2,19 @@
 $autobagazhniki = [
   [
     'name' => 'Багажник для рейлингов',
-    'link' => '/product/ab1',
+    'link' => '/autobagazhnik/reelings',
   ],
   [
     'name' => 'Багажник в штатные места',
-    'link' => '/product/ab2',
+    'link' => '/autobagazhnik/shtatnye',
   ],
   [
     'name' => 'Багажник на плоскую крышу',
-    'link' => '/product/ab3',
+    'link' => '/autobagazhnik/smooth',
   ],
   [
     'name' => 'Багажник для водостоков',
-    'link' => '/product/ab4',
+    'link' => '/autobagazhnik/vodostok',
   ],
 ];
 
