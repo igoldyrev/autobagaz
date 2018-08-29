@@ -18,25 +18,25 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
         <div class="good_message">
         <?php echo "<p>Вы  не выбрали ничего для заказа. Вернитесь в каталог и выберите из него что-нибудь. А затем заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
         </div> <?php
-    } elseif ($id == 'ab1') {
+    } elseif ($id == 'reelings') {
         $tovar = $_SESSION['autobagazhniki'][0][name];
         echo "<title>Заказ товара "; echo $_SESSION['autobagazhniki'][0][name]; echo "</title>";?>
         <div class="good-message">
         <?php echo "<p class='text'>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
         </div> <?php
-    } elseif ($id == 'ab2') {
+    } elseif ($id == 'shtatnye') {
         $tovar = $_SESSION['autobagazhniki'][1][name];
         echo "<title>Заказ товара "; echo $_SESSION['autobagazhniki'][1][name]; echo "</title>";?>
         <div class="good-message">
         <?php echo "<p class='text'>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
         </div> <?php
-    } elseif ($id == 'ab3') {
+    } elseif ($id == 'smooth') {
         $tovar = $_SESSION['autobagazhniki'][2][name];
         echo "<title>Заказ товара "; echo $_SESSION['autobagazhniki'][2][name]; echo "</title>";?>
         <div class="good-message">
         <?php echo "<p class='text'>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
         </div> <?php
-    } elseif ($id == 'ab4') {
+    } elseif ($id == 'vodostok') {
         $tovar = $_SESSION['autobagazhniki'][3][name];
         echo "<title>Заказ товара "; echo $_SESSION['autobagazhniki'][3][name]; echo "</title>";?>
         <div class="good-message">
