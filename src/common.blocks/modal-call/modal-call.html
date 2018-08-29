@@ -1,23 +1,27 @@
 <div class="modal-call__overlay">
-    <div class="modal-call">
-        <div class="modal-call__close">X</div>
-        <div class="modal-call__header">
-            <h3 class="title title-h3">Введите имя и телефон и мы Вам перезвоним в течении 10 минут!</h3>
-        </div>
-        <div class="modal-call__body">
-            <form action="/call" method="post" class="form js-modal-call-form" onsubmit="yaCounter40650914.reachGoal('post_call'); return true">
-                <span class="form__label">Ваше имя:</span>
-                <div class="form__input-wrap">
-                    <input type="text" name="name" required autofocus class="form__input form__input--call js-modal-form-input-name" placeholder="Введите Ваше имя">
-                    <label for="name" class="form__label--shown">Введите Ваше имя</label>
-                </div>
-                <span class="form__label">Ваш телефон:</span>
-                <div class="form__input-wrap">
-                    <input type="text" name="phone" required maxlength="11" class="form__input form__input--call js-modal-form-input-phone" placeholder="Введите номер телефона">
-                    <label for="phone" class="form__label--shown">Введите номер телефона</label>
-                </div>
-                <button class="button button__zakaz button__zakaz--call">Перезвоните мне!</button>
-            </form>
-        </div>
+  <div class="modal-call">
+    <div class="modal-call__close">X</div>
+    <div class="modal-call__header">
+      <h3 class="title title-h3">Введите имя и телефон и мы Вам перезвоним в течении 10 минут!</h3>
     </div>
+    <div class="modal-call__body">
+      <form action="/call" method="post" class="form js-modal-call-form"
+            onsubmit="yaCounter40650914.reachGoal('post_call'); return true">
+        <span class="form__label">Ваше имя:</span>
+        <div class="form__input-wrap">
+          <input type="text" name="name" required autofocus
+                 class="form__input form__input--call js-modal-form-input-name" placeholder="Введите Ваше имя">
+          <label for="name" class="form__label--shown">Введите Ваше имя</label>
+        </div>
+        <span class="form__label">Ваш телефон:</span>
+        <div class="form__input-wrap">
+          <input type="text" name="phone" required maxlength="11"
+                 class="form__input form__input--call js-modal-form-input-phone" placeholder="Введите номер телефона">
+          <label for="phone" class="form__label--shown">Введите номер телефона</label>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LenJjcUAAAAALv0jIybM3O45CnsEYa4X58EZ1uH"></div>
+        <button class="button button__zakaz button__zakaz--call">Перезвоните мне!</button>
+      </form>
+    </div>
+  </div>
 </div>
