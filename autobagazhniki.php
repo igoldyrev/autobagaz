@@ -34,7 +34,8 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                     <p class="text" <?php echo $stylepricebagazh ?>><strong><?php echo $item['price']; ?></strong></p>
                 </div>
                 <div class="good__buttons">
-                    <a onclick="yaCounter40650914.reachGoal('click_about'); return true" href="/product/<?php echo $item['id']; ?>" class="button button__about" >Подробнее</a>
+                  <a onclick="yaCounter40650914.reachGoal('click_about'); return true"
+                     href="/autobagazhnik/<?php echo $item['id']; ?>" class="button button__about">Подробнее</a>
                     <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
                     <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true" href="/prokat/<?php echo $item['id']; ?>" class="button button__buy button__buy--prokat">Взять в прокат</a>
                 </div>
