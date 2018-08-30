@@ -18,7 +18,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/tagbreadcrumbs.php"); ?
     <div class="wrapper__content">
 
         <?php
-        $dbname = "9082410193_gallery";
+        $dbname = "9082410193_zakaz";
         include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
 
         $query = "SELECT * FROM `gallery` INNER JOIN status ON gallery.status = status.status_name AND status.status_name <> 'УДАЛЕН' ORDER BY `id` DESC ";
