@@ -36,10 +36,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
       <?php foreach ($reelings as $reeling): ?>
         <div class="product">
           <div class="img__wrap product__photos">
-            <img class="img product__img" src="<?php echo $reeling['img1'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $reeling['img2'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $reeling['img3'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $reeling['img4'] ?>">
+            <?php echo $reeling['img1'] ?>
+            <?php echo $reeling['img2'] ?>
+            <?php echo $reeling['img3'] ?>
+            <?php echo $reeling['img4'] ?>
           </div>
           <div class="product__info">
             <h3 class="title title-h3"><?php echo $reeling['name'] ?></h3>
@@ -63,10 +63,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
       <?php foreach ($shtatnye as $shtat): ?>
         <div class="product">
           <div class="img__wrap product__photos">
-            <img class="img product__img" src="<?php echo $shtat['img1'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $shtat['img2'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $shtat['img3'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $shtat['img4'] ?>">
+            <?php echo $shtat['img1'] ?>
+            <?php echo $shtat['img2'] ?>
+            <?php echo $shtat['img3'] ?>
+            <?php echo $shtat['img4'] ?>
           </div>
           <div class="product__info">
             <h3 class="title title-h3"><?php echo $shtat['name'] ?></h3>
@@ -90,10 +90,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
       <?php foreach ($smooth as $smoo): ?>
         <div class="product">
           <div class="img__wrap product__photos">
-            <img class="img product__img" src="<?php echo $smoo['img1'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $smoo['img2'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $smoo['img3'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $smoo['img4'] ?>">
+            <?php echo $smoo['img1'] ?>
+            <?php echo $smoo['img2'] ?>
+            <?php echo $smoo['img3'] ?>
+            <?php echo $smoo['img4'] ?>
           </div>
           <div class="product__info">
             <h3 class="title title-h3"><?php echo $smoo['name'] ?></h3>
@@ -117,10 +117,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
       <?php foreach ($vodostok as $stok): ?>
         <div class="product">
           <div class="img__wrap product__photos">
-            <img class="img product__img" src="<?php echo $stok['img1'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $stok['img2'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $stok['img3'] ?>">
-            <img class="img product__img product__img--small" src="<?php echo $stok['img4'] ?>">
+            <?php echo $stok['img1'] ?>
+            <?php echo $stok['img2'] ?>
+            <?php echo $stok['img3'] ?>
+            <?php echo $stok['img4'] ?>
           </div>
           <div class="product__info">
             <h3 class="title title-h3"><?php echo $stok['name'] ?></h3>
