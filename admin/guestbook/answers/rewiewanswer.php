@@ -1,6 +1,8 @@
 <?php
 echo "<title>Выбор отзыва для ответа</title>";
-include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/authorization/aboutuser.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.html"); ?>
 
 <div class="admin__container">
     <h1 class="title title-h1">Выбор отзыва для ответа</h1>

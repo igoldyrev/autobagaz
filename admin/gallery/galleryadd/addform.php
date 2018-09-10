@@ -1,5 +1,7 @@
 <?php echo "<title>Добавление записи в галерею</title>";
-include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/authorization/aboutuser.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.html"); ?>
 
 <div class="admin__container">
     <h1 class="title title-h1">Добавление записи в галерею</h1>

@@ -1,5 +1,7 @@
 <?php echo "<title>Ответ размещен на сайте!</title>";
-include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/authorization/aboutuser.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.html"); ?>
 
 <div class="admin__container">
     <?php

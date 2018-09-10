@@ -1,6 +1,8 @@
 <?php
 echo "<title>Выключить / включить блоки</title>";
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/authorization/aboutuser.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/admin/message/activate/configmessage.php");
 
 if ($checkedmsgon == 'checked'){

@@ -1,5 +1,7 @@
 <?php echo "<title>Редактирование ответа на отзыв</title>";
-include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/authorization/aboutuser.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.html"); ?>
 
 <div class="admin__container">
     <h1 class="title title-h1">Редактирование ответа на отзыв</h1>

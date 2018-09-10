@@ -1,6 +1,8 @@
 <?php
 echo "<title>Выбор элемента для редактирования</title>";
-include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/authorization/aboutuser.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.html"); ?>
 
 <div class="admin__container">
     <h1 class="title title-h1">Выбор сообщения для редактирования</h1>
