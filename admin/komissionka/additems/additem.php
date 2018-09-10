@@ -1,5 +1,7 @@
 <?php echo "<title>Добавление записи в комиссионку</title>";
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/authorization/aboutuser.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.html");
 
 $dbname = "9082410193_zakaz";
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/connectdb.php");
@@ -85,27 +87,26 @@ $dateurlmini = str_replace("-", "", $dateurl);
 $randurl = rand(0, 20);
 $url = $translitname . '-' . $dateurlmini . '-' . $randurl;
 
-var_dump($arrimg[0]);
-echo($arrimg[0]);
-var_dump($arrurl[0]);
-echo($arrurl[0]);
-echo($total);
-
 if ($total == '1') {
   $sql_name = "INSERT INTO komm_items (komm_items_name, $arrimg[0], komm_items_price, komm_items_group, komm_items_status) VALUES ('$name', '$arrurl[0]', '$price', '$category', 'СОЗДАН')";
   mysqli_query($connect, $sql_name);
+  $messageSuccess = 'Товар успешно добавлен!';
 } elseif ($total == '2') {
   $sql_name = "INSERT INTO komm_items (komm_items_name, $arrimg[0], $arrimg[1], komm_items_price, komm_items_group, komm_items_status) VALUES ('$name', '$arrurl[0]', '$arrurl[1]', '$price', '$category', 'СОЗДАН')";
   mysqli_query($connect, $sql_name);
+  $messageSuccess = 'Товар успешно добавлен!';
 } elseif ($total == '3') {
   $sql_name = "INSERT INTO komm_items (komm_items_name, $arrimg[0], $arrimg[1], $arrimg[2], komm_items_price, komm_items_group, komm_items_status) VALUES ('$name', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$price', '$category', 'СОЗДАН')";
   mysqli_query($connect, $sql_name);
+  $messageSuccess = 'Товар успешно добавлен!';
 } elseif ($total == '4') {
   $sql_name = "INSERT INTO komm_items (komm_items_name, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], komm_items_price, komm_items_group, komm_items_status) VALUES ('$name', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$price', '$category', 'СОЗДАН')";
   mysqli_query($connect, $sql_name);
+  $messageSuccess = 'Товар успешно добавлен!';
 } elseif ($total == '5') {
   $sql_name = "INSERT INTO komm_items (komm_items_name, $arrimg[0], $arrimg[1], $arrimg[2], $arrimg[3], $arrimg[4], komm_items_price, komm_items_group, komm_items_status) VALUES ('$name', '$arrurl[0]', '$arrurl[1]', '$arrurl[2]', '$arrurl[3]', '$arrurl[4]', '$price', '$category', 'СОЗДАН')";
   mysqli_query($connect, $sql_name);
+  $messageSuccess = 'Товар успешно добавлен!';
 }
 ?>
 
@@ -136,6 +137,12 @@ if ($total == '1') {
       </div>
       <input class='button button__zakaz' id='submit' type='submit' value='Добавить запись'>
     </form>
+    <?php
+    if (!empty($message)) {
+      echo "<p class='good-message good-message--wrong'>" . $message . "</p>";
+    } elseif (!empty($messageSuccess)) {
+      echo "<p class='good-message'>" . $messageSuccess . "</p>";
+    } ?>
   </div>
   <div class="admin__link-wrap clearfix">
     <a class="admin__link" href="/admin/">Вернуться на главную админки</a>
