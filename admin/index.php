@@ -37,7 +37,7 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
       <a class="admin__link" href="/admin/komissionka/items/add/additem">Добавить товар</a>
       <a class="admin__link" href="/admin/komissionka/items/add/additem">Добавить товар</a>
       <h3 class="title title-h3">Категории</h3>
-      <a class="admin__link" href="/admin/komissionka/items/add/addcategory">Добавить категорию</a>
+      <a class="admin__link" href="/admin/komissionka/categories/add/addcategory">Добавить категорию</a>
     </div>
 
     <div class="admin clearfix">
