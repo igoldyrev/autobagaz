@@ -33,9 +33,10 @@ echo "<title>Админка сайта Автобагаж.ру!</title>"; ?>
 
     <div class="admin clearfix">
       <?php echo "<h3 class='title title-h3'>Комиссионка</h3>"; ?>
-      <h3 class="title title-h3">Товары</h3>
       <a class="admin__link" href="/admin/komissionka/add/additem">Добавить товар</a>
       <a class="admin__link" href="/admin/komissionka/edit/itemchoice">Редактировать товары</a>
+      <a class="admin__link" href="/admin/komissionka/delete/itemsdelete">Удалить товары</a>
+      <a class="admin__link" href="/admin/komissionka/restore/itemsrestore">Восстановить товары</a>
     </div>
 
     <div class="admin clearfix">
