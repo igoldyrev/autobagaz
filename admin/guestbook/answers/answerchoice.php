@@ -13,7 +13,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     <div class="form__container">
         <form action="/admin/guestbook/answers/answeredit.php" method="post">
             <?php
-            $select_sql = "SELECT * FROM guestbook";
+            $select_sql = "SELECT * FROM guestbook INNER JOIN status ON guestbook.status = status.status_name AND status.status_name <> 'УДАЛЕН'";
             $result = mysqli_query($connect, $select_sql);
             $row = mysqli_fetch_array($result);
 
