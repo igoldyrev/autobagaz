@@ -9,7 +9,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-<link rel="stylesheet" href="../build/autobagaz.css">
+<link rel="stylesheet" href="/build/autobagaz.css">
 <link rel="stylesheet" href="../src/fa/css/font-awesome.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,5 +18,3 @@
 <script type="text/javascript">
     VK.init({apiId: 5866168, onlyWidgets: true});
 </script>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/modal-call/modal-call.html"); ?>
-<div class="modal-call__button"><i class="fa fa-phone fa-4x" aria-hidden="true"></i></div>
