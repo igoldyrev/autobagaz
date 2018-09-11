@@ -1,6 +1,8 @@
 <?php
 echo "<title>Выбор отзыва для редактирования</title>";
-include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/metatagslight.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/authorization/aboutuser.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.html"); ?>
 
 <div class="admin__container">
     <h1 class="title title-h1">Выбор отзыва для редактирования</h1>
@@ -13,7 +15,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatagslight.php"); ?>
     <div class="form__container">
         <form action="/admin/guestbook/update/guestwrite.php" method="post">
             <?php
-            $select_sql = "SELECT id, name, phone, rewiew FROM guestbook";
+            $select_sql = "SELECT id, name, phone, rewiew, status FROM guestbook INNER JOIN status ON guestbook.status = status.status_name AND status.status_name <> 'УДАЛЕН'";
             $result = mysqli_query($connect, $select_sql);
             $row = mysqli_fetch_array($result);
 
