@@ -538,6 +538,58 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                       height="360" frameborder="0" allowfullscreen></iframe>
             </div>
           </div><?php
+        } elseif ($newspage == 'rozygryzh_lyzh_amos') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[21][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[21][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[21][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Розыгрыш лыжных креплений от магазина "AutoBagaz"</h1>
+            <p class="text">Здравствуйте, уважаемые посетители и гости нашего магазина!!! </p>
+            <p class="text">Сети магазинов "AutoBagaz" 2 ГОДА!!! И по этому поводу мы решили устроить всеми любимый
+              розыгрыш! </p>
+            <p class="text">Условия розыгрыша как всегда просты:</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Вступить в группу <a class="link"
+                                                                                                      target="_blank"
+                                                                                                      href="https://vk.com/autobagaz">Автобоксы
+                и Багажники | Пермь</a></p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Поделиться <a class="link"
+                                                                                               target="_blank"
+                                                                                               href="https://vk.com/autobagaz?w=wall-86325723_1579">этой
+                новостью</a> с друзьями, с Вашим комментарием. Например: «Поздравляем с Днем Рождения AutoBagaz»</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Закрепите <a class="link"
+                                                                                              target="_blank"
+                                                                                              href="https://vk.com/autobagaz?w=wall-86325723_1579">эту
+                запись</a> у себя на стене до окончания розыгрыша.</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Далее ждем итогов розыгрыша. Подводим
+              итоги: 29.12</p>
+            <p class="text">Призы победителям:</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Лыжное крепление AMOS 5 пар лыж.</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Сертификат на скидку 1500 рублей.
+              (Оплата до 70% стоимости багажного оборудования)</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Сертификат на скидку 1000 рублей.
+              (Оплата до 70% стоимости багажного оборудования)</p>
+
+            <p class="text"> Призы можно забрать по адресам:</p>
+            <p class="text"><a class="link" href="/contacts#speshilova">г.Пермь ул.Спешилова 102/29</a></p>
+            <p class="text"><a class="link" href="/contacts#dzerzhinskogo">г.Пермь ул.Дзержинского 15</a></p>
+            <p class="text"><a class="link" href="/contacts#turgeneva">г.Пермь ул.Тургенева 23</a></p>
+            <p class="text"> Если возникли вопросы, то задавайте по телефону: <a class="link" href="tel:+73422889929">+7
+                342 288 99 29</a></p>
+            <p class="text">Коллектив магазина "AutoBagaz" выражает благодарность всем участникам розыгрыша!</p>
+
+            <div class="img__wrap">
+              <img class="img product__img news__img" src="/content/news/271118/rozugruzh_lyzh.jpg"
+                   alt="Розыгрыш лыжных креплений от магазина AutoBagaz">
+            </div>
+          </div><?php
         } ?>
     </div>
 </div>
