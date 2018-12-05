@@ -102,3 +102,63 @@ $oregonromb = [
 		'price' => '4800 рублей',
 	],
 ];
+
+$oregonmodel = [
+	[
+		'id' => '1',
+		'name' => 'Орегон Модельные черный Алькантара, экокожа',
+		'desc1' => 'Используемые материалы: Экокожа - боковые части, Перфорированная экокожа - центральная часть',
+		'desc2' => 'Вариант2: Экокожа - боковые части, Жаккард - центральная часть',
+		'img1' => '<img class="img product__img" src="/content/covers/img/Oregon_Model_Alkantara_Black_Face.jpg"',
+		'img2' => '<img class="img product__img product__img--small" src="/content/covers/img/Oregon_Model_Alkantara_Black_Front.jpg"',
+		'price' => '4500 рублей',
+	],
+	[
+		'id' => '2',
+		'name' => 'Орегон Модельные черный Жаккард, экокожа',
+		'desc1' => 'Используемые материалы: Экокожа - боковые части, Перфорированная экокожа - центральная часть',
+		'desc2' => 'Вариант2: Экокожа - боковые части, Жаккард - центральная часть',
+		'img1' => '<img class="img product__img" src="/content/covers/img/Oregon_Model_Jakkard_Black_Face.jpg"',
+		'img2' => '<img class="img product__img product__img--small" src="/content/covers/img/Oregon_Model_Jakkard_Black_Front.jpg"',
+		'price' => '4500 рублей',
+	],
+	[
+		'id' => '3',
+		'name' => 'Орегон Модельные черный-серый Алькантара, экокожа',
+		'desc1' => 'Используемые материалы: Экокожа - боковые части, Перфорированная экокожа - центральная часть',
+		'desc2' => 'Вариант2: Экокожа - боковые части, Жаккард - центральная часть',
+		'img1' => '<img class="img product__img" src="/content/covers/img/Oregon_Model_Alkantara_Black_Gray_Face.jpg"',
+		'img2' => '<img class="img product__img product__img--small" src="/content/covers/img/Oregon_Model_Alkantara_Black_Gray_Front.jpg"',
+		'price' => '4500 рублей',
+	],
+	[
+		'id' => '4',
+		'name' => 'Орегон Модельные черный-серый Жаккард, экокожа',
+		'desc1' => 'Используемые материалы: Экокожа - боковые части, Перфорированная экокожа - центральная часть',
+		'desc2' => 'Вариант2: Экокожа - боковые части, Жаккард - центральная часть',
+		'img1' => '<img class="img product__img" src="/content/covers/img/Oregon_Model_Jakkard_Black_Gray_Face.jpg"',
+		'img2' => '<img class="img product__img product__img--small" src="/content/covers/img/Oregon_Model_Jakkard_Black_Gray_Front.jpg"',
+		'price' => '4500 рублей',
+	],
+	[
+		'id' => '5',
+		'name' => 'Орегон Модельные черный, экокожа',
+		'img1' => '<img class="img product__img" src="/content/covers/img/Oregon_Model_Black_Face.jpg"',
+		'img2' => '<img class="img product__img product__img--small" src="/content/covers/img/Oregon_Model_Black_Front.jpg"',
+		'price' => '4500 рублей',
+	],
+	[
+		'id' => '6',
+		'name' => 'Орегон Модельные черный-серый, экокожа',
+		'img1' => '<img class="img product__img" src="/content/covers/img/Oregon_Model_Black_Gray_Face.jpg"',
+		'img2' => '<img class="img product__img product__img--small" src="/content/covers/img/Oregon_Model_Black_Gray_Front.jpg"',
+		'price' => '4500 рублей',
+	],
+	[
+		'id' => '7',
+		'name' => 'Орегон Модельные черный-синий, экокожа',
+		'img1' => '<img class="img product__img" src="/content/covers/img/Oregon_Model_Black_Blue_Face.jpg"',
+		'img2' => '<img class="img product__img product__img--small" src="/content/covers/img/Oregon_Model_Black_Blue_Front.jpg"',
+		'price' => '4500 рублей',
+	],
+];
