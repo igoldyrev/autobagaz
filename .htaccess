@@ -50,7 +50,7 @@ RewriteRule ^velokreplenya/([a-zA-Z0-9_-]+)/? velokreplenya.php?velokreplenya=$1
 RewriteRule ^inno/([a-zA-Z0-9_-]+)/? inno.php?inno=$1
 RewriteRule ^takelazh/([a-zA-Z0-9_-]+)/? takelazh.php?takelazh=$1
 RewriteRule ^reelings/([a-zA-Z0-9_-]+)/? reelings.php?reelings=$1
-RewriteRule ^covers/([a-zA-Z0-9_-]+)/? covers.php?cover=$1
+RewriteRule ^covers/([a-z]+)/? covers.php?cover=$1
 
 #Генерация адресов страниц галереи
 RewriteRule ^gallery/([a-zA-Z0-9_-]+)/?  gallery.php?auto=$1
