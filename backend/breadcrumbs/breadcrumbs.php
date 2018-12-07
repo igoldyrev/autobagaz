@@ -100,6 +100,14 @@ foreach ($level3 as $level3item):
             <span class="breadcrumbs__text"><?php echo $level3item['name']; ?></span>
         </div><?php
 
+        } elseif ($url_parts[1] == 'covers') { ?>
+
+            <div class="breadcrumbs">
+            <a class="breadcrumbs__link" href="/">Главная страница</a>&#8594;
+            <a class="breadcrumbs__link" href="/covers">Авточехлы</a>&#8594;
+            <span class="breadcrumbs__text"><?php echo $level3item['name']; ?></span>
+        </div><?php
+
         }
     }
 

@@ -84,4 +84,8 @@ $level2 = [
         'name' => 'Сертификаты и лицензии',
         'link' => '/sertificates',
     ],
+    [
+        'name' => 'Авточехлы',
+        'link' => '/covers',
+    ],
 ];

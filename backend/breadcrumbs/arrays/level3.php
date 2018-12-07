@@ -215,6 +215,18 @@ $level3 = [
     'name' => 'БАГАЖНИК НА ФУРГОН',
     'link' => '/expiditions/abfurgon',
   ],
+  [
+    'name' => 'Авточехлы Cayman',
+    'link' => '/covers/cayman',
+  ],
+  [
+    'name' => 'Авточехлы Орегон',
+    'link' => '/covers/oregon',
+  ],
+  [
+    'name' => 'Авточехлы Trend',
+    'link' => '/covers/trend',
+  ],
 ];
 
 $reelingslada = [
