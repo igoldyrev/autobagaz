@@ -69,20 +69,28 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/covers/backend/array.php"); ?>
       			echo "<h1 class='title title-h1'>" . $keywords[1][title] . "</h1>";
 
       			foreach ($cayman as $cay): ?>
-      				<div class="product">
-      					<div class="img__wrap product__photos">
-      						<?php echo $cay['img1'] ?>
-            				<?php echo $cay['img2'] ?>
-            				<?php echo $cay['img3'] ?>	
-          				</div>
-          				<div class="product__info">
-          					<h3 class="title title-h3"><?php echo $cay['name'] ?></h3>
-            				<p class="text"><?php echo $cay['desc1'] ?></p>
-							<p class="text"><?php echo $cay['desc2'] ?></p>
-							<p class="text"><?php echo $cay['desc3'] ?></p>
-          				</div>
-      				</div>
-      			<?php endforeach;
+				<div class="good">
+				  <?php echo "<h2 class='title title-h2'>" . $cay['name'] . "</h2>"; ?>
+				  <div class="img__wrap">
+				    <?php echo $cay['img1'];
+				    echo $cay['img2'];
+				    echo $cay['img3']; ?>
+				  </div>
+				  <?php echo "<p class='text'>" . $cay['desc1'] . "</p>";
+				  echo "<p class='text'>" . $cay['desc2'] . "</p>";
+				  echo "<p class='text'>" . $cay['desc3'] . "</p>"; ?>
+				  <div class="good__price">
+				    <div class="good__price-info">
+				      <p class="text"<?php echo $stylepricecovers ?>><?php echo "Цена: <strong>";
+				              echo $cay['price']; ?></strong></p>
+				    </div>
+				    <div class="good__buttons">
+				      <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+				               href="/buy/<?php echo $cay['id']; ?>" class="button button__buy">Заказать</a>
+				    </div>
+				  </div>
+				</div>
+				<?php endforeach;
       			include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");
 
       		} elseif ($cover == 'oregon') {
@@ -97,54 +105,83 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/covers/backend/array.php"); ?>
       			$_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
       			echo "<h1 class='title title-h1'>" . $keywords[2][title] . "</h1>";
+      			echo "<h2 class='title title-h2'>" . 'Авточехлы Орегон Ромб' . "</h2>";
 
       			foreach ($oregonromb as $oromb): ?>
-      				<div class="product">
-      					<div class="img__wrap product__photos">
-      						<?php echo $oromb['img1'] ?>
-            				<?php echo $oromb['img2'] ?>
-            				<?php echo $oromb['img3'] ?>	
-          				</div>
-          				<div class="product__info">
-          					<h3 class="title title-h3"><?php echo $oromb['name'] ?></h3>
-            				<p class="text"><?php echo $oromb['desc1'] ?></p>
-							<p class="text"><?php echo $oromb['desc2'] ?></p>
-							<p class="text"><?php echo $oromb['desc3'] ?></p>
-          				</div>
-      				</div>
-      			<?php endforeach;
+				<div class="good">
+				  <?php echo "<h2 class='title title-h2'>" . $oromb['name'] . "</h2>"; ?>
+				  <div class="img__wrap">
+				    <?php echo $oromb['img1'];
+				    echo $oromb['img2'];
+				    echo $oromb['img3']; ?>
+				  </div>
+				  <?php echo "<p class='text'>" . $oromb['desc1'] . "</p>";
+				  echo "<p class='text'>" . $oromb['desc2'] . "</p>";
+				  echo "<p class='text'>" . $oromb['desc3'] . "</p>"; ?>
+				  <div class="good__price">
+				    <div class="good__price-info">
+				      <p class="text"<?php echo $stylepricecovers ?>><?php echo "Цена: <strong>";
+				              echo $oromb['price']; ?></strong></p>
+				    </div>
+				    <div class="good__buttons">
+				      <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+				               href="/buy/<?php echo $oromb['id']; ?>" class="button button__buy">Заказать</a>
+				    </div>
+				  </div>
+				</div>
+				<?php endforeach;
+
+				echo "<h2 class='title title-h2'>" . 'Авточехлы Орегон Модельные' . "</h2>";
 
       			foreach ($oregonmodel as $omodel): ?>
-      				<div class="product">
-      					<div class="img__wrap product__photos">
-      						<?php echo $omodel['img1'] ?>
-            				<?php echo $omodel['img2'] ?>
-            				<?php echo $omodel['img3'] ?>	
-          				</div>
-          				<div class="product__info">
-          					<h3 class="title title-h3"><?php echo $omodel['name'] ?></h3>
-            				<p class="text"><?php echo $omodel['desc1'] ?></p>
-							<p class="text"><?php echo $omodel['desc2'] ?></p>
-							<p class="text"><?php echo $omodel['desc3'] ?></p>
-          				</div>
-      				</div>
-      			<?php endforeach;
+				<div class="good">
+				  <?php echo "<h2 class='title title-h2'>" . $omodel['name'] . "</h2>"; ?>
+				  <div class="img__wrap">
+				    <?php echo $omodel['img1'];
+				    echo $omodel['img2'];
+				    echo $omodel['img3']; ?>
+				  </div>
+				  <?php echo "<p class='text'>" . $omodel['desc1'] . "</p>";
+				  echo "<p class='text'>" . $omodel['desc2'] . "</p>";
+				  echo "<p class='text'>" . $omodel['desc3'] . "</p>"; ?>
+				  <div class="good__price">
+				    <div class="good__price-info">
+				      <p class="text"<?php echo $stylepricecovers ?>><?php echo "Цена: <strong>";
+				              echo $omodel['price']; ?></strong></p>
+				    </div>
+				    <div class="good__buttons">
+				      <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+				               href="/buy/<?php echo $omodel['id']; ?>" class="button button__buy">Заказать</a>
+				    </div>
+				  </div>
+				</div>
+				<?php endforeach;
+
+				echo "<h2 class='title title-h2'>" . 'Авточехлы Орегон Универсальные' . "</h2>";
 
       			foreach ($oregonuniversal as $ouniv): ?>
-      				<div class="product">
-      					<div class="img__wrap product__photos">
-      						<?php echo $ouniv['img1'] ?>
-            				<?php echo $ouniv['img2'] ?>
-            				<?php echo $ouniv['img3'] ?>	
-          				</div>
-          				<div class="product__info">
-          					<h3 class="title title-h3"><?php echo $ouniv['name'] ?></h3>
-            				<p class="text"><?php echo $ouniv['desc1'] ?></p>
-							<p class="text"><?php echo $ouniv['desc2'] ?></p>
-							<p class="text"><?php echo $ouniv['desc3'] ?></p>
-          				</div>
-      				</div>
-      			<?php endforeach; 
+				<div class="good">
+				  <?php echo "<h2 class='title title-h2'>" . $ouniv['name'] . "</h2>"; ?>
+				  <div class="img__wrap">
+				    <?php echo $ouniv['img1'];
+				    echo $ouniv['img2'];
+				    echo $ouniv['img3']; ?>
+				  </div>
+				  <?php echo "<p class='text'>" . $ouniv['desc1'] . "</p>";
+				  echo "<p class='text'>" . $ouniv['desc2'] . "</p>";
+				  echo "<p class='text'>" . $ouniv['desc3'] . "</p>"; ?>
+				  <div class="good__price">
+				    <div class="good__price-info">
+				      <p class="text"<?php echo $stylepricecovers ?>><?php echo "Цена: <strong>";
+				              echo $ouniv['price']; ?></strong></p>
+				    </div>
+				    <div class="good__buttons">
+				      <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+				               href="/buy/<?php echo $ouniv['id']; ?>" class="button button__buy">Заказать</a>
+				    </div>
+				  </div>
+				</div>
+				<?php endforeach;
       			include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");     			
 
 
@@ -160,45 +197,60 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/covers/backend/array.php"); ?>
       			$_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
       			echo "<h1 class='title title-h1'>" . $keywords[3][title] . "</h1>";
+      			echo "<h2 class='title title-h2'>" . 'Авточехлы Тренд Двойной Ромб' . "</h2>";
 
       			foreach ($trendromb as $tromb): ?>
-      				<div class="product">
-      					<div class="img__wrap product__photos">
-      						<?php echo $tromb['img1'] ?>
-            				<?php echo $tromb['img2'] ?>
-            				<?php echo $tromb['img3'] ?>	
-          				</div>
-          				<div class="product__info">
-          					<h3 class="title title-h3"><?php echo $tromb['name'] ?></h3>
-            				<p class="text"><?php echo $tromb['desc1'] ?></p>
-							<p class="text"><?php echo $tromb['desc2'] ?></p>
-							<p class="text"><?php echo $tromb['desc3'] ?></p>
-          				</div>
-      				</div>
-      			<?php endforeach;
+      			<div class="good">
+				  	<?php echo "<h2 class='title title-h2'>" . $tromb['name'] . "</h2>"; ?>
+				  <div class="img__wrap">
+				    <?php echo $tromb['img1'];
+				    echo $tromb['img2'];
+				    echo $tromb['img3']; ?>
+				  </div>
+				  <?php echo "<p class='text'>" . $tromb['desc1'] . "</p>";
+				  echo "<p class='text'>" . $tromb['desc2'] . "</p>";
+				  echo "<p class='text'>" . $tromb['desc3'] . "</p>"; ?>
+				  <div class="good__price">
+				    <div class="good__price-info">
+				      <p class="text"<?php echo $stylepricecovers ?>><?php echo "Цена: <strong>";
+				              echo $tromb['price']; ?></strong></p>
+				    </div>
+				    <div class="good__buttons">
+				      <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+				               href="/buy/<?php echo $tromb['id']; ?>" class="button button__buy">Заказать</a>
+				    </div>
+				  </div>
+				</div>
+				<?php endforeach;
+
+      			echo "<h2 class='title title-h2'>" . 'Авточехлы Тренд' . "</h2>";
 
       			foreach ($trend as $tr): ?>
-      				<div class="product">
-      					<div class="img__wrap product__photos">
-      						<?php echo $tr['img1'] ?>
-            				<?php echo $tr['img2'] ?>
-            				<?php echo $tr['img3'] ?>	
-          				</div>
-          				<div class="product__info">
-          					<h3 class="title title-h3"><?php echo $tr['name'] ?></h3>
-            				<p class="text"><?php echo $tr['desc1'] ?></p>
-							<p class="text"><?php echo $tr['desc2'] ?></p>
-							<p class="text"><?php echo $tr['desc3'] ?></p>
-          				</div>
-      				</div>
-      			<?php endforeach;
+      			<div class="good">
+				  <?php echo "<h2 class='title title-h2'>" . $tr['name'] . "</h2>"; ?>
+				  <div class="img__wrap">
+				    <?php echo $tr['img1'];
+				    echo $tr['img2'];
+				    echo $tr['img3']; ?>
+				  </div>
+				  <?php echo "<p class='text'>" . $tr['desc1'] . "</p>";
+				  echo "<p class='text'>" . $tr['desc2'] . "</p>";
+				  echo "<p class='text'>" . $tr['desc3'] . "</p>"; ?>
+				  <div class="good__price">
+				    <div class="good__price-info">
+				      <p class="text"<?php echo $stylepricecovers ?>><?php echo "Цена: <strong>";
+				              echo $tr['price']; ?></strong></p>
+				    </div>
+				    <div class="good__buttons">
+				      <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+				               href="/buy/<?php echo $tr['id']; ?>" class="button button__buy">Заказать</a>
+				    </div>
+				  </div>
+				</div>
+				<?php endforeach;
       			include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php"); 
-      		}
-
-
-
-		?>
+      		} ?>
 	</div>
 </div>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/footer/footer.html");
-include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/counters.html"); ?>
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/blocks/counters.html"); ?>	
