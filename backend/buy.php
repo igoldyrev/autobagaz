@@ -1388,7 +1388,87 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
       <div class="good-message">
         <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
       </div> <?php
+    } 
+
+    foreach ($_SESSION['cayman'] as $caybuy):
+
+    if ($id == $caybuy['id']) {
+      $tovar = $caybuy['name'];
+      echo "<title>Заказ товара ";
+      echo $caybuy['name'];
+      echo "</title>"; ?>
+      <div class="good-message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+      </div> <?php
     }
+    endforeach;
+
+    foreach ($_SESSION['oregonromb'] as $oromb):
+
+    if ($id == $oromb['id']) {
+      $tovar = $oromb['name'];
+      echo "<title>Заказ товара ";
+      echo $oromb['name'];
+      echo "</title>"; ?>
+      <div class="good-message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+      </div> <?php
+    }
+    endforeach;
+
+    foreach ($_SESSION['oregonmodel'] as $omodel):
+
+    if ($id == $omodel['id']) {
+      $tovar = $omodel['name'];
+      echo "<title>Заказ товара ";
+      echo $omodel['name'];
+      echo "</title>"; ?>
+      <div class="good-message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+      </div> <?php
+    }
+    endforeach;
+
+    foreach ($_SESSION['oregonuniversal'] as $ouniv):
+
+    if ($id == $ouniv['id']) {
+      $tovar = $ouniv['name'];
+      echo "<title>Заказ товара ";
+      echo $ouniv['name'];
+      echo "</title>"; ?>
+      <div class="good-message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+      </div> <?php
+    }
+    endforeach;
+
+    foreach ($_SESSION['trendromb'] as $tromb):
+
+    if ($id == $tromb['id']) {
+      $tovar = $tromb['name'];
+      echo "<title>Заказ товара ";
+      echo $tromb['name'];
+      echo "</title>"; ?>
+      <div class="good-message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+      </div> <?php
+    }
+    endforeach;
+
+    foreach ($_SESSION['trend'] as $tr):
+
+    if ($id == $tr['id']) {
+      $tovar = $tr['name'];
+      echo "<title>Заказ товара ";
+      echo $tr['name'];
+      echo "</title>"; ?>
+      <div class="good-message">
+        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+      </div> <?php
+    }
+    endforeach;
+    
+
     $_SESSION['tovar'] = $tovar;
     include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/buyform.php");
     ?>

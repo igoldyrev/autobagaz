@@ -101,7 +101,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/covers/backend/array.php"); ?>
 			    echo $keywords[2][description];
 			    echo "'/>";
 			 
-			 	$_SESSION['oregon'] = $oregon;
+			 	$_SESSION['oregonromb'] = $oregonromb;
+			 	$_SESSION['oregonmodel'] = $oregonmodel;
+			 	$_SESSION['oregonuniversal'] = $oregonuniversal;
       			$_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
       			echo "<h1 class='title title-h1'>" . $keywords[2][title] . "</h1>";
@@ -193,6 +195,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/covers/backend/array.php"); ?>
 			    echo $keywords[3][description];
 			    echo "'/>";
 			 
+			 	$_SESSION['trendromb'] = $trendromb;
 			 	$_SESSION['trend'] = $trend;
       			$_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
