@@ -120,6 +120,15 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
             <p class="text">Экспедиционные багажники</p>
           </div>
         </div>
+        <div class="catalog__item">
+          <a href="/covers" class="catalog__item-link"></a>
+          <div class="catalog__image-wrap">
+            <img class="catalog__image" src="/content/covers/img/Cayman_Black_Red_Face.jpg" alt="авточехлы">
+          </div>
+          <div class="catalog__text">
+            <p class="text">Авточехлы</p>
+          </div>
+        </div>
       </div>
 
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/sales/sales-index.php"); ?>
