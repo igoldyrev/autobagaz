@@ -38,3 +38,8 @@ if ($checkedpricebraslet == 'checked'){
 }elseif ($checkedpricebraslet == 'none'){
     $stylepricebraslet = 'style="display: none; "';
 }
+if ($checkedpricecovers == 'checked'){
+    $stylepricecovers = 'style="display: block; "';
+}elseif ($checkedpricecovers == 'none'){
+    $stylepricecovers = 'style="display: none; "';
+}

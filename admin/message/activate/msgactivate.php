@@ -70,6 +70,10 @@ if ($checkedmsgon == 'checked'){
                 <input type="checkbox" name="price_on_braslet" class="form__checkbox" id="priceonbraslet" <?php echo $checkedpricebraslet ?>>
                 <label for="priceonbraslet" class="form__label--checkbox">Включить/выключить цены в разделе Браслеты</label>
             </div>
+            <div class="form__input-wrap clearfix">
+                <input type="checkbox" name="price_on_covers" class="form__checkbox" id="priceoncovers" <?php echo $checkedpricecovers ?>>
+                <label for="priceoncovers" class="form__label--checkbox">Включить/выключить цены в разделе Авточехлы</label>
+            </div>
             <input type="submit" class="button button__zakaz" value="Включить/выключить блоки">
         </form>
     </div>

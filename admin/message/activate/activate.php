@@ -101,6 +101,19 @@ include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.
         $contents = file_get_contents($config);
         $contents .= "$checkedpricebraslet = 'none';\n ";
         file_put_contents($config, $contents);
+    }
+    if(isset($_POST['price_on_covers']) == true ){
+        echo '<h2 class="title title-h2">Цены в разделе Авточехлы показываются</h2>';
+        $checkedpricecovers = '$checkedpricecovers';
+        $contents = file_get_contents($config);
+        $contents .= "$checkedpricecovers = 'checked';\n ";
+        file_put_contents($config, $contents);
+    } elseif (isset($_POST['price_on_covers']) == false){
+        echo '<h2 class="title title-h2">Цены в разделе Авточехлы НЕ показываются</h2>';
+        $checkedpricecovers = '$checkedpricecovers';
+        $contents = file_get_contents($config);
+        $contents .= "$checkedpricecovers = 'none';\n ";
+        file_put_contents($config, $contents);
     } ?>
     <div class="admin__link-wrap clearfix">
         <a class="admin__link" href="/admin/message/activate/msgactivate">Вернуться на предыдущую страницу</a>

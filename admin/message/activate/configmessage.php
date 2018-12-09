@@ -6,4 +6,4 @@ $checkedmsgon = 'none';
  $checkedpricevelo = 'none';
  $checkedpriceskies = 'none';
  $checkedpricebraslet = 'none';
- 
+ $checkedpricecovers = 'none';
