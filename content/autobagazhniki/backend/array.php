@@ -72,6 +72,14 @@ $reelings = [
     'desc' => 'Надёжный багажник на рейлинги. Крепится на рейлинги методом зажима. Быстрая сборка и установка за 2 минуты.',
   ],
   [
+    'id' => 'reelingsatlant',
+    'name' => 'Багажник Atlant для рейлингов',
+    'img1' => '<img class="img product__img" src="/content/autobagazhniki/img/reelings/8810_1.jpg">',
+    'img2' => '<img class="img product__img product__img--small" src="/content/autobagazhniki/img/reelings/8810_2.jpg">',
+    'img3' => '<img class="img product__img product__img--small" src="/content/autobagazhniki/img/reelings/8810_3.jpg">',
+    'desc' => 'Надёжный багажник Atlant для рейлингов. Крепится на рейлинги методом зажима. Быстрая сборка и установка за несколько минут.',
+  ],
+  [
     'id' => 'reelingslux',
     'name' => 'Багажник Lux для рейлингов',
     'img1' => '<img class="img product__img" src="/content/autobagazhniki/img/reelings/lux1.jpg">',
@@ -132,6 +140,14 @@ $smooth = [
     'img2' => '<img class="img product__img product__img--small" src="/content/autobagazhniki/img/smooth/lux-2.JPG">',
     'img3' => '<img class="img product__img product__img--small" src="/content/autobagazhniki/img/smooth/lux-3.JPG">',
     'desc' => 'Надёжный багажник Lux для автомобиля. Устанавливается на гладкую поверхность крыши, что позволяет использовать это устройство на разных машинах.',
+  ],
+  [
+    'id' => 'smoothatlant',
+    'name' => 'Багажник Atlant для гладких крыш',
+    'img1' => '<img class="img product__img" src="/content/autobagazhniki/img/smooth/oporaE1.jpg">',
+    'img2' => '<img class="img product__img product__img--small" src="/content/autobagazhniki/img/smooth/oporaE2.jpg">',
+    'img3' => '<img class="img product__img product__img--small" src="/content/autobagazhniki/img/smooth/oporaE3.jpg">',
+    'desc' => 'Надёжный багажник Atlant для автомобиля. Устанавливается на гладкую поверхность крыши, что позволяет использовать это устройство на разных машинах.',
   ],
   [
     'id' => 'smoothmontblanc',

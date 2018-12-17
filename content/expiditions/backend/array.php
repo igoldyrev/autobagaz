@@ -9,7 +9,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/cheviniva/cheviniva-2.JPG',
         'img3' => '/content/expiditions/img/cheviniva/cheviniva-3.JPG',
         'img4' => '/content/expiditions/img/cheviniva/cheviniva-4.JPG',
-        'price' => '11 000 рублей',
+        'price' => '13 000 рублей',
     ],
     [
         'id' => 'absuzukijimmny',
@@ -19,7 +19,7 @@ $expiditions = [
         'img3' => '/content/expiditions/img/jimmy/jimmy-3.jpg',
         'img4' => '/content/expiditions/img/jimmy/jimmy-4.jpg',
         'img5' => '/content/expiditions/img/jimmy/jimmy-5.jpg',
-        'price' => '11 000 рублей',
+        'price' => '13 000 рублей',
     ],
     [
         'id' => 'abrenodaster',
@@ -30,7 +30,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/duster/duster-2.jpg',
         'img3' => '/content/expiditions/img/duster/duster-3.jpg',
         'img4' => '/content/expiditions/img/duster/duster-4.jpg',
-        'price' => '11 000 рублей',
+        'price' => '13 000 рублей',
     ],
     [
         'id' => 'abplatforma',
@@ -40,7 +40,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/platforma/platforma-2.jpg',
         'img3' => '/content/expiditions/img/platforma/platforma-3.jpg',
         'img4' => '/content/expiditions/img/platforma/platforma-4.jpg',
-        'price' => '7 000 рублей',
+        'price' => '9 000 рублей',
     ],
     [
         'id' => 'abkorzina',
@@ -50,7 +50,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/korzina/korzina-2.jpg',
         'img3' => '/content/expiditions/img/korzina/korzina-3.jpg',
         'img4' => '/content/expiditions/img/korzina/korzina-4.jpg',
-        'price' => '7 000 рублей',
+        'price' => '9 000 рублей',
     ],
     [
         'id' => 'abexpidition',
@@ -60,7 +60,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/universal/universal-1.jpg',
         'img2' => '/content/expiditions/img/universal/universal-2.jpg',
         'img3' => '/content/expiditions/img/universal/universal-3.jpg',
-        'price' => '9 000 рублей',
+        'price' => '11 000 рублей',
     ],
     [
         'id' => 'abplatforma-vodostok',
@@ -68,7 +68,7 @@ $expiditions = [
         'desc1' => 'Предназначена для перевозки крупногабаритных и тяжелых грузов до 200 кг',
         'img1' => '/content/expiditions/img/platforma-vodostok/platforma-1.jpg',
         'img2' => '/content/expiditions/img/platforma-vodostok/platforma-2.jpg',
-        'price' => '9 000 рублей',
+        'price' => '11 000 рублей',
     ],
     [
         'id' => 'abkorzina-universal',
@@ -77,7 +77,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/korzina-universal/universal-1.png',
         'img2' => '/content/expiditions/img/korzina-universal/universal-2.jpg',
         'img3' => '/content/expiditions/img/korzina-universal/universal-3.jpg',
-        'price' => '9 000 рублей',
+        'price' => '11 000 рублей',
     ],
     [
         'id' => 'abniva2121',
@@ -87,7 +87,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/niva2121/niva2121-1.jpg',
         'img2' => '/content/expiditions/img/niva2121/niva2121-2.jpg',
         'img3' => '/content/expiditions/img/niva2121/niva2121-3.jpg',
-        'price' => '9 000 рублей',
+        'price' => '11 000 рублей',
     ],
     [
         'id' => 'abkiasportage',
@@ -95,7 +95,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/sportage/sportage-1.png',
         'img2' => '/content/expiditions/img/sportage/sportage-2.jpg',
         'img3' => '/content/expiditions/img/sportage/sportage-3.jpg',
-        'price' => '10 000 рублей',
+        'price' => '12 000 рублей',
     ],
     [
         'id' => 'abniva2131',
@@ -106,7 +106,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/niva2131/niva2131-2.jpg',
         'img3' => '/content/expiditions/img/niva2131/niva2131-3.jpg',
         'img4' => '/content/expiditions/img/niva2131/niva2131-4.jpg',
-        'price' => '10 000 рублей',
+        'price' => '12 000 рублей',
     ],
     [
         'id' => 'abusilennyi',
@@ -115,7 +115,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/usilennyi/usilennyi-2.jpg',
         'img3' => '/content/expiditions/img/usilennyi/usilennyi-3.jpg',
         'img4' => '/content/expiditions/img/usilennyi/usilennyi-4.jpg',
-        'price' => '12 000 рублей',
+        'price' => '14 000 рублей',
     ],
     [
         'id' => 'abtoyotaprado',
@@ -126,7 +126,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/prado/prado-2.jpg',
         'img3' => '/content/expiditions/img/prado/prado-3.jpg',
         'img4' => '/content/expiditions/img/prado/prado-4.jpg',
-        'price' => '12 000 рублей',
+        'price' => '14 000 рублей',
     ],
     [
         'id' => 'abpatriot',
@@ -136,7 +136,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/patriot/patriot-1.JPG',
         'img2' => '/content/expiditions/img/patriot/patriot-2.JPG',
         'img3' => '/content/expiditions/img/patriot/patriot-3.JPG',
-        'price' => '12 000 рублей',
+        'price' => '14 000 рублей',
     ],
     [
         'id' => 'abxterra',
@@ -146,7 +146,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/terra/terra-1.jpg',
         'img2' => '/content/expiditions/img/terra/terra-2.jpg',
         'img3' => '/content/expiditions/img/terra/terra-3.jpg',
-        'price' => '12 000 рублей',
+        'price' => '14 000 рублей',
     ],
     [
         'id' => 'abmodern',
@@ -154,7 +154,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/modern/modern-1.png',
         'img2' => '/content/expiditions/img/modern/modern-2.png',
         'img3' => '/content/expiditions/img/modern/modern-3.png',
-        'price' => '12 000 рублей',
+        'price' => '14 000 рублей',
     ],
     [
         'id' => 'ablux-3door',
@@ -163,7 +163,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/niva-3door/3door-2.jpg',
         'img3' => '/content/expiditions/img/niva-3door/3door-3.jpg',
         'img4' => '/content/expiditions/img/niva-3door/3door-4.jpg',
-        'price' => '13 000 рублей',
+        'price' => '15 000 рублей',
     ],
     [
         'id' => 'abwallhover',
@@ -173,7 +173,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/wall-hover/wall-hover-1.jpg',
         'img2' => '/content/expiditions/img/wall-hover/wall-hover-2.jpg',
         'img3' => '/content/expiditions/img/wall-hover/wall-hover-3.jpg',
-        'price' => '14 000 рублей',
+        'price' => '16 000 рублей',
     ],
     [
         'id' => 'abuazhunter',
@@ -183,7 +183,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/uaz-hunter/uaz-hunter-1.png',
         'img2' => '/content/expiditions/img/uaz-hunter/uaz-hunter-2.jpg',
         'img3' => '/content/expiditions/img/uaz-hunter/uaz-hunter-3.png',
-        'price' => '11 000 рублей',
+        'price' => '13 000 рублей',
     ],
     [
         'id' => 'abmodern-duster',
@@ -191,7 +191,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/modern-duster/modern-duster-1.JPG',
         'img2' => '/content/expiditions/img/modern-duster/modern-duster-2.png',
         'img3' => '/content/expiditions/img/modern-duster/modern-duster-3.JPG',
-        'price' => '14 000 рублей',
+        'price' => '16 000 рублей',
     ],
     [
         'id' => 'abnina-5door',
@@ -199,7 +199,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/lux-5door/lux-5door-1.jpg',
         'img2' => '/content/expiditions/img/lux-5door/lux-5door-2.jpg',
         'img3' => '/content/expiditions/img/lux-5door/lux-5door-3.jpg',
-        'price' => '14 000 рублей',
+        'price' => '16 000 рублей',
     ],
     [
         'id' => 'abuaz',
@@ -208,7 +208,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/uaz/uaz-2.jpg',
         'img3' => '/content/expiditions/img/uaz/uaz-3.jpg',
         'img4' => '/content/expiditions/img/uaz/uaz-4.jpg',
-        'price' => '17 000 рублей',
+        'price' => '19 000 рублей',
     ],
     [
         'id' => 'abmodern-lux',
@@ -217,7 +217,7 @@ $expiditions = [
         'img2' => '/content/expiditions/img/lux-obves/lux-obves-2.jpg',
         'img3' => '/content/expiditions/img/lux-obves/lux-obves-3.jpg',
         'img4' => '/content/expiditions/img/lux-obves/lux-obves-4.jpg',
-        'price' => '15 000 рублей',
+        'price' => '17 000 рублей',
     ],
     [
         'id' => 'abrendjer',
@@ -227,7 +227,7 @@ $expiditions = [
         'img1' => '/content/expiditions/img/ford-ranger/ford-ranger-1.jpg',
         'img2' => '/content/expiditions/img/ford-ranger/ford-ranger-2.jpg',
         'img3' => '/content/expiditions/img/ford-ranger/ford-ranger-3.jpg',
-        'price' => '17 000 рублей',
+        'price' => '19 000 рублей',
     ],
     [
         'id' => 'abfurgon',
@@ -236,6 +236,6 @@ $expiditions = [
         'img2' => '/content/expiditions/img/furgon/furgon-2.jpg',
         'img3' => '/content/expiditions/img/furgon/furgon-3.jpg',
         'img4' => '/content/expiditions/img/furgon/furgon-4.jpg',
-        'price' => '17 000 рублей',
+        'price' => '19 000 рублей',
     ],
 ];
