@@ -579,6 +579,30 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                    alt="Розыгрыш лыжных креплений от магазина AutoBagaz">
             </div>
           </div><?php
+        } elseif ($newspage == 'tinkoff_credit') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[22][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[22][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[22][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Багажное оборудование в кредит и рассрочку</h1>
+            <p class="text">Здравствуйте, уважаемые посетители и гости нашего магазина!!! </p>
+            <p class="text">У нас для Вас прекрасная новость!</p>
+            <p class="text">Теперь мы можем отдавать наше багажное оборудование в кредит и рассрочку! Так что теперь необязательно иметь кучу бабла в кармане, планируйте свой бюджет грамотно!</p>
+            <p class="text">Банк, который предоставляет кредит/рассрочку: <a class="link" target="_blank" href="https://tinkoff.ru">tinkoff.ru</a></p>
+
+            <p class="text">Наши магазины:</p>
+            <p class="text"><a class="link" href="/contacts#speshilova">г.Пермь ул.Спешилова 102/29</a></p>
+            <p class="text"><a class="link" href="/contacts#dzerzhinskogo">г.Пермь ул.Дзержинского 15</a></p>
+            <p class="text"><a class="link" href="/contacts#turgeneva">г.Пермь ул.Тургенева 23</a></p>
+          </div><?php
         } ?>
     </div>
 </div>
