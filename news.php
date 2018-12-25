@@ -525,8 +525,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             <h1 class="title title-h1">Итоги розыгрыша велокрепления от магазина Autobagaz</h1>
             <p class="text">Здравствуйте, уважаемые посетители и гости нашего магазина!!! </p>
             <p class="text">Вот и пришел этот долгожданный час подведения итогов розыгрыша Велокрепления!</p>
-            <p class="text">Поздравляем нашего победителя - <a class="link" target="_blank"
-                                                               href="https://vk.com/id64524093">Любовь Черенок</a></p>
+            <p class="text">Поздравляем нашего победителя - <a class="link" target="_blank" href="https://vk.com/id64524093">Любовь Черенок</a></p>
             <p class="text"> Подарок можно забрать по адресам:</p>
             <p class="text">г.Пермь ул.Спешилова 102/29, тел: <a class="link" href="tel:+73422889969">2-88-99-69</a></p>
             <p class="text">г.Пермь ул.Дзержинского 15, тел: <a class="link" href="tel:+73422889929">2-88-99-29</a></p>
@@ -534,8 +533,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             <p class="text">Тем, кому в этот раз не повезло стать победителем, не отчаивайтесь, повезет в следующий раз.
               Ведь этот розыгрыш далеко не последний!!!</p>
             <div class="img__wrap">
-              <iframe src="//vk.com/video_ext.php?oid=-86325723&id=456239028&hash=a1c6c19056444d53&hd=1" width="640"
-                      height="360" frameborder="0" allowfullscreen></iframe>
+              <iframe src="//vk.com/video_ext.php?oid=-86325723&id=456239028&hash=a1c6c19056444d53&hd=1" width="640" height="360" frameborder="0" allowfullscreen></iframe>
             </div>
           </div><?php
         } elseif ($newspage == 'rozygryzh_lyzh_amos') {
@@ -556,18 +554,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             <p class="text">Сети магазинов "AutoBagaz" 2 ГОДА!!! И по этому поводу мы решили устроить всеми любимый
               розыгрыш! </p>
             <p class="text">Условия розыгрыша как всегда просты:</p>
-            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Вступить в группу <a class="link"
-                                                                                                      target="_blank"
-                                                                                                      href="https://vk.com/autobagaz">Автобоксы
-                и Багажники | Пермь</a></p>
-            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Поделиться <a class="link"
-                                                                                               target="_blank"
-                                                                                               href="https://vk.com/autobagaz?w=wall-86325723_1579">этой
-                новостью</a> с друзьями, с Вашим комментарием. Например: «Поздравляем с Днем Рождения AutoBagaz»</p>
-            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Закрепите <a class="link"
-                                                                                              target="_blank"
-                                                                                              href="https://vk.com/autobagaz?w=wall-86325723_1579">эту
-                запись</a> у себя на стене до окончания розыгрыша.</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Вступить в группу <a class="link" href="https://vk.com/autobagaz">Автобоксы и Багажники | Пермь</a></p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Поделиться <a class="link" target="_blank" href="https://vk.com/autobagaz?w=wall-86325723_1579">этой новостью</a> с друзьями, с Вашим комментарием. Например: «Поздравляем с Днем Рождения AutoBagaz»</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Закрепите <a class="link" target="_blank" href="https://vk.com/autobagaz?w=wall-86325723_1579">эту запись</a> у себя на стене до окончания розыгрыша.</p>
             <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Далее ждем итогов розыгрыша. Подводим
               итоги: 29.12</p>
             <p class="text">Призы победителям:</p>
