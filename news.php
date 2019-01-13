@@ -603,6 +603,35 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             <p class="text"><a class="link" href="/contacts#dzerzhinskogo">г.Пермь ул.Дзержинского 15</a></p>
             <p class="text"><a class="link" href="/contacts#turgeneva">г.Пермь ул.Тургенева 23</a></p>
           </div><?php
+        } elseif ($newspage == 'result_rozygryzh_lyzh_2018') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[23][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[23][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[23][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Итоги розыгрыша лыжного крепления от магазина Autobagaz</h1>
+            <p class="text">Здравствуйте, уважаемые посетители и гости нашего магазина!!! </p>
+            <p class="text">Наконец то, мы дождались победителя розыгрыша, лыжного крепления и вручили ему подарок, от
+              нашего магазина "AutoBagaz"!</p>
+            <p class="text">Следите за новостями <a class="link" target="_blank"
+                                                    href="https://vk.com/autobagaz">группы</a>, будут еще приятные
+              розыгрыши, скидки и подарки. Всем удачи в Новом году!</p>
+            <p class="text">г.Пермь ул.Спешилова 102/29, тел: <a class="link" href="tel:+73422889969">2-88-99-69</a></p>
+            <p class="text">г.Пермь ул.Дзержинского 15, тел: <a class="link" href="tel:+73422889929">2-88-99-29</a></p>
+            <p class="text">г.Пермь ул.Тургенева 23, тел: <a class="link" href="tel:+73422889939">2-88-99-39</a></p>
+            <p class="text">Коллектив магазина "AutoBagaz" выражает благодарность всем участникам розыгрыша!</p>
+            <div class="img__wrap">
+              <img class="img product__img news__img" src="/content/news/130119/winskies.jpg"
+                   alt="Розыгрыш лыжного крепления от магазина AutoBagaz">
+            </div>
+          </div><?php
         } ?>
     </div>
 </div>
