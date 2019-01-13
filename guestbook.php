@@ -30,7 +30,7 @@ echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>";
                 $on_page = 10;
 
                 // Получаем количество записей таблицы
-                $query = "SELECT COUNT(*) FROM guestbook";
+                $query = "SELECT COUNT(*) FROM guestbook INNER JOIN `status` ON guestbook.status = status.status_name AND status.status_name <> 'УДАЛЕН'";
                 $res = mysqli_query($connect, $query);
                 $count_records = mysqli_fetch_row($res);
                 $count_records = $count_records[0];
