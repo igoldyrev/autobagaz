@@ -632,6 +632,33 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
                    alt="Розыгрыш лыжного крепления от магазина AutoBagaz">
             </div>
           </div><?php
+        } elseif ($newspage == 'autobagaz_trade') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[24][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[24][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[24][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">AutoBagaz ОБНОВЛЯЕТ!</h1>
+            <p class="text">Здравствуйте, уважаемые посетители и гости нашего магазина!!! </p>
+            <p class="text">У Вас на багажнике старые, прогнившие дуги?</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Магазин "AutoBagaz" поменяет старый комплект дуг на НОВЫЙ.</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> У Вас дуги от багажника не подходят на новый автомобиль (даже если вы их покупали не у нас) Приезжайте.</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Магазин "AutoBagaz" поменяет, СТАРЫЙ комплект на НОВЫЙ комплект, подходящий по размеру Вашего авто.</p>
+            <p class="text">И самое интересное, весь обмен БЕСПЛАТНО!</p>
+            <p class="text">Спросите почему? Да потому что мы ценим наших клиентов и стараемся быть максимально полезными. </p>
+            <p class="text">Меняем только прямоугольные дуги.</p>
+            <p class="text">Замена дуг происходит по следующим адресам: </p>
+            <p class="text">г.Пермь ул.Спешилова 102/29, тел: <a class="link" href="tel:+73422889969">2-88-99-69</a></p>
+            <p class="text">г.Пермь ул.Дзержинского 15, тел: <a class="link" href="tel:+73422889929">2-88-99-29</a></p>
+            <p class="text">г.Пермь ул.Тургенева 23, тел: <a class="link" href="tel:+73422889939">2-88-99-39</a></p>
+          </div><?php
         } ?>
     </div>
 </div>
