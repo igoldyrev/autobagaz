@@ -7,3 +7,4 @@ $checkedmsgon = 'none';
  $checkedpriceskies = 'none';
  $checkedpricebraslet = 'none';
  $checkedpricecovers = 'none';
+$checkedpriceexpidition = 'none';
