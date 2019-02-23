@@ -231,7 +231,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $chevi['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $chevi['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $chevi['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $chevi['id']; ?>" class="button button__buy">Заказать</a>
@@ -277,7 +280,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $great['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $great['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $great['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $great['id']; ?>" class="button button__buy">Заказать</a>
@@ -323,7 +329,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $isuz['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $isuz['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $isuz['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $isuz['id']; ?>" class="button button__buy">Заказать</a>
@@ -369,7 +378,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $jeepitem['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $jeepitem['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $jeepitem['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $jeepitem['id']; ?>" class="button button__buy">Заказать</a>
@@ -415,7 +427,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $kiaitem['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $kiaitem['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $kiaitem['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $kiaitem['id']; ?>" class="button button__buy">Заказать</a>
@@ -461,7 +476,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $land['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $land['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $land['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $land['id']; ?>" class="button button__buy">Заказать</a>
@@ -507,7 +525,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $mitsu['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $mitsu['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $mitsu['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $mitsu['id']; ?>" class="button button__buy">Заказать</a>
@@ -553,7 +574,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $niss['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $niss['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $niss['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $niss['id']; ?>" class="button button__buy">Заказать</a>
@@ -599,7 +623,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $reno['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $reno['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $reno['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $reno['id']; ?>" class="button button__buy">Заказать</a>
@@ -645,7 +672,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $ssang['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $ssang['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $ssang['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $ssang['id']; ?>" class="button button__buy">Заказать</a>
@@ -691,7 +721,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $toyotaitem['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $toyotaitem['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $toyotaitem['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $toyotaitem['id']; ?>" class="button button__buy">Заказать</a>
@@ -737,7 +770,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $gazelitem['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $gazelitem['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $gazelitem['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $gazelitem['id']; ?>" class="button button__buy">Заказать</a>
@@ -783,7 +819,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $nivaitem['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $nivaitem['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $nivaitem['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $nivaitem['id']; ?>" class="button button__buy">Заказать</a>
@@ -829,7 +868,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $buxanka['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $buxanka['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $buxanka['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $buxanka['id']; ?>" class="button button__buy">Заказать</a>
@@ -875,7 +917,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $patriot['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $patriot['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $patriot['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $patriot['id']; ?>" class="button button__buy">Заказать</a>
@@ -921,7 +966,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $hunter['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $hunter['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $hunter['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $hunter['id']; ?>" class="button button__buy">Заказать</a>
@@ -967,7 +1015,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $universalitem['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $universalitem['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $universalitem['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $universalitem['id']; ?>" class="button button__buy">Заказать</a>
@@ -1013,7 +1064,10 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
                 <li><?php echo $stairsitem['item7'] ?></li>
               </ul>
               <div class="good__price">
-                <p class="span">Цена: <strong><?php echo $stairsitem['price'] ?></strong></p>
+                <div class="good__price-info">
+                  <p class="span" <?php echo $stylepriceexpidition ?>>Цена:
+                    <strong><?php echo $stairsitem['price'] ?></strong></p>
+                </div>
                 <div class="good__buttons">
                   <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
                      href="/buy/<?php echo $stairsitem['id']; ?>" class="button button__buy">Заказать</a>

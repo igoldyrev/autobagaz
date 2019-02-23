@@ -43,3 +43,8 @@ if ($checkedpricecovers == 'checked'){
 }elseif ($checkedpricecovers == 'none'){
     $stylepricecovers = 'style="display: none; "';
 }
+if ($checkedpriceexpidition == 'checked') {
+  $stylepriceexpidition = 'style="display: block; "';
+} elseif ($checkedpriceexpidition == 'none') {
+  $stylepriceexpidition = 'style="display: none; "';
+}
