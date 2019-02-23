@@ -171,6 +171,43 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
         </ul>
         <li><a class="link link--green-hover" href="/takelazh" target="_parent">Такелажная продукция</a></li>
         <li><a class="link link--green-hover" href="/expidition" target="_parent">Экспедиционные багажники</a></li>
+        <ul class="list list__unsorted">
+          <li><a class="link link--green-hover" href="/expidition/chevrolet" target="_parent">Экспедиционные багажники
+              для Chevrolet Niva</a></li>
+          <li><a class="link link--green-hover" href="/expidition/greatwall" target="_parent">Экспедиционные багажники
+              для Great Wall</a></li>
+          <li><a class="link link--green-hover" href="/expidition/isuzu" target="_parent">Экспедиционные багажники для
+              ISUZU</a></li>
+          <li><a class="link link--green-hover" href="/expidition/jeep" target="_parent">Экспедиционные багажники для
+              JEEP</a></li>
+          <li><a class="link link--green-hover" href="/expidition/kia" target="_parent">Экспедиционные багажники для
+              KIA</a></li>
+          <li><a class="link link--green-hover" href="/expidition/landrover" target="_parent">Экспедиционные багажники
+              для Land Rover</a></li>
+          <li><a class="link link--green-hover" href="/expidition/mitsubishi" target="_parent">Экспедиционные багажники
+              для Mitsubishi</a></li>
+          <li><a class="link link--green-hover" href="/expidition/nissan" target="_parent">Экспедиционные багажники для
+              Nissan</a></li>
+          <li><a class="link link--green-hover" href="/expidition/duster" target="_parent">Экспедиционные багажники для
+              Renault Duster 4x4</a></li>
+          <li><a class="link link--green-hover" href="/expidition/ssangyong" target="_parent">Экспедиционные багажники
+              для Ssang Yong</a></li>
+          <li><a class="link link--green-hover" href="/expidition/toyota" target="_parent">Экспедиционные багажники для
+              Toyota</a></li>
+          <li><a class="link link--green-hover" href="/expidition/gazel" target="_parent">Экспедиционные багажники для
+              Газель, Соболь, Баргузин</a></li>
+          <li><a class="link link--green-hover" href="/expidition/niva" target="_parent">Экспедиционные багажники для
+              Нива 2121, 2131</a></li>
+          <li><a class="link link--green-hover" href="/expidition/buxanka" target="_parent">Экспедиционные багажники для
+              УАЗ Буханка 452</a></li>
+          <li><a class="link link--green-hover" href="/expidition/patriot" target="_parent">Экспедиционные багажники для
+              УАЗ Патриот, УАЗ Пикап</a></li>
+          <li><a class="link link--green-hover" href="/expidition/hunter" target="_parent">Экспедиционные багажники для
+              УАЗ Хантер</a></li>
+          <li><a class="link link--green-hover" href="/expidition/universal" target="_parent">Универсальные
+              багажники</a></li>
+          <li><a class="link link--green-hover" href="/expidition/stairs" target="_parent">Лестницы</a></li>
+        </ul>
         <li><a class="link link--green-hover" href="/covers" target="_parent">Авточехлы</a></li>
       </ul>
       <li><a class="link link--green-hover" href="/prokat" target="_parent">Прокат</a></li>

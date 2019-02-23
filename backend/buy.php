@@ -902,13 +902,268 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
       endforeach;
     }
 
-    if ($_SESSION['expiditions']) {
-      foreach ($_SESSION['expiditions'] as $expiditionsbuy):
+    if ($_SESSION['cheviniva']) {
+      foreach ($_SESSION['cheviniva'] as $chevinivabuy):
 
-        if ($id == $expiditionsbuy['id']) {
-          $tovar = $expiditionsbuy['name'];
+        if ($id == $chevinivabuy['id']) {
+          $tovar = $chevinivabuy['name'];
           echo "<title>Заказ товара ";
-          echo $expiditionsbuy['name'];
+          echo $chevinivabuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['greatwall']) {
+      foreach ($_SESSION['greatwall'] as $greatwallbuy):
+
+        if ($id == $greatwallbuy['id']) {
+          $tovar = $greatwallbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $greatwallbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['isuzu']) {
+      foreach ($_SESSION['isuzu'] as $isuzubuy):
+
+        if ($id == $isuzubuy['id']) {
+          $tovar = $isuzubuy['name'];
+          echo "<title>Заказ товара ";
+          echo $isuzubuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['jeep']) {
+      foreach ($_SESSION['jeep'] as $jeepbuy):
+
+        if ($id == $jeepbuy['id']) {
+          $tovar = $jeepbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $jeepbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['kia']) {
+      foreach ($_SESSION['kia'] as $kiabuy):
+
+        if ($id == $kiabuy['id']) {
+          $tovar = $kiabuy['name'];
+          echo "<title>Заказ товара ";
+          echo $kiabuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['landrover']) {
+      foreach ($_SESSION['landrover'] as $landroverbuy):
+
+        if ($id == $landroverbuy['id']) {
+          $tovar = $landroverbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $landroverbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['mitsubishi']) {
+      foreach ($_SESSION['mitsubishi'] as $mitsubishibuy):
+
+        if ($id == $mitsubishibuy['id']) {
+          $tovar = $mitsubishibuy['name'];
+          echo "<title>Заказ товара ";
+          echo $mitsubishibuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['nissan']) {
+      foreach ($_SESSION['nissan'] as $nissanbuy):
+
+        if ($id == $nissanbuy['id']) {
+          $tovar = $nissanbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $nissanbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['renault']) {
+      foreach ($_SESSION['renault'] as $renaultbuy):
+
+        if ($id == $renaultbuy['id']) {
+          $tovar = $renaultbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $renaultbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['ssang_yong']) {
+      foreach ($_SESSION['ssang_yong'] as $ssang_yongbuy):
+
+        if ($id == $ssang_yongbuy['id']) {
+          $tovar = $ssang_yongbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $ssang_yongbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['toyota']) {
+      foreach ($_SESSION['toyota'] as $toyotabuy):
+
+        if ($id == $toyotabuy['id']) {
+          $tovar = $toyotabuy['name'];
+          echo "<title>Заказ товара ";
+          echo $toyotabuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['gazel']) {
+      foreach ($_SESSION['gazel'] as $gazelbuy):
+
+        if ($id == $gazelbuy['id']) {
+          $tovar = $gazelbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $gazelbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['niva']) {
+      foreach ($_SESSION['niva'] as $nivabuy):
+
+        if ($id == $nivabuy['id']) {
+          $tovar = $nivabuy['name'];
+          echo "<title>Заказ товара ";
+          echo $nivabuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['uaz_buxanka']) {
+      foreach ($_SESSION['uaz_buxanka'] as $uaz_buxankabuy):
+
+        if ($id == $uaz_buxankabuy['id']) {
+          $tovar = $uaz_buxankabuy['name'];
+          echo "<title>Заказ товара ";
+          echo $uaz_buxankabuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['uaz_patriot']) {
+      foreach ($_SESSION['uaz_patriot'] as $uaz_patriotbuy):
+
+        if ($id == $uaz_patriotbuy['id']) {
+          $tovar = $uaz_patriotbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $uaz_patriotbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['uaz_hunter']) {
+      foreach ($_SESSION['uaz_hunter'] as $uaz_hunterbuy):
+
+        if ($id == $uaz_hunterbuy['id']) {
+          $tovar = $uaz_hunterbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $uaz_hunterbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['universal']) {
+      foreach ($_SESSION['universal'] as $universalbuy):
+
+        if ($id == $universalbuy['id']) {
+          $tovar = $universalbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $universalbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
+    if ($_SESSION['stairs']) {
+      foreach ($_SESSION['stairs'] as $stairsbuy):
+
+        if ($id == $stairsbuy['id']) {
+          $tovar = $stairsbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $stairsbuy['name'];
           echo "</title>"; ?>
           <div class="good-message">
             <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
