@@ -175,7 +175,7 @@ $jeep = [
 $kia = [
   [
     'id' => 'B10805',
-    'name' => 'Багажник экспедиционный Б108.05 на KIA Sorento (2005) 1650х1150х120 с сеткой, на рейлинги',
+    'name' => 'Багажник экспедиционный на KIA Sorento (2005) 1650х1150х120 с сеткой, на рейлинги',
     'img1' => '/content/expiditions/img/KIA/B108.05/B108.05-01.jpg',
     'img2' => '/content/expiditions/img/KIA/B108.05/B108.05-02.jpg',
     'price' => '19 900 рублей',
@@ -229,10 +229,10 @@ $landrover = [
   [
     'id' => 'B1103',
     'name' => 'Багажник экспедиционный на Land Rover Defender 110 2500x1400x120 с сеткой и креплениями',
-    'img1' => '/content/expiditions/img/Land_Rover/B11.03/B28.03-01.jpg',
-    'img2' => '/content/expiditions/img/Land_Rover/B11.03/B28.03-02.jpg',
-    'img3' => '/content/expiditions/img/Land_Rover/B11.03/B28.03-03.jpg',
-    'img4' => '/content/expiditions/img/Land_Rover/B11.03/B28.03-04.jpg',
+    'img1' => '/content/expiditions/img/Land_Rover/B11.03/B11.03-01.jpg',
+    'img2' => '/content/expiditions/img/Land_Rover/B11.03/B11.03-02.jpg',
+    'img3' => '/content/expiditions/img/Land_Rover/B11.03/B11.03-03.jpg',
+    'img4' => '/content/expiditions/img/Land_Rover/B11.03/B11.03-04.jpg',
     'price' => '27 200 рублей',
     'item1' => 'габаритные размеры: 2500x1400x120 мм',
     'item2' => 'высота креплений 220 мм',
@@ -276,8 +276,8 @@ $mitsubishi = [
   [
     'id' => 'B9502',
     'name' => 'Багажник экспедиционный на Mitsubishi Pajero 2 (5 дв.) 2200х1250х120 с креплениями',
-    'img1' => '/content/expiditions/img/Mitsubishi/B96.03/B95.02-01.jpg',
-    'img2' => '/content/expiditions/img/Mitsubishi/B96.03/B95.02-02.jpg',
+    'img1' => '/content/expiditions/img/Mitsubishi/B96.03/B96.03-01.jpg',
+    'img2' => '/content/expiditions/img/Mitsubishi/B96.03/B96.03-02.jpg',
     'price' => '23 000 рублей',
     'item1' => 'габаритные размеры: 2200х1250х120 мм',
     'item2' => 'изготовлен из круглой трубы 20 мм и профиля 20х20, 20х40',
@@ -289,7 +289,7 @@ $mitsubishi = [
   [
     'id' => 'B12203',
     'name' => 'Багажник экспедиционный на Mitsubishi Delica PD8W 2100х1200х120 с сеткой и креплениями',
-    'img1' => '/content/expiditions/img/Mitsubishi/B96.03/B122.03-01.jpg',
+    'img1' => '/content/expiditions/img/Mitsubishi/B96.03/B96.03-01.jpg',
     'price' => '21 900 рублей',
     'item1' => 'габаритные размеры: 2100х1200x120 мм',
     'item2' => 'изготовлен из круглой трубы 20 мм и профиля 20х20, 20х40',
@@ -386,7 +386,7 @@ $mitsubishi = [
 $nissan = [
   [
     'id' => 'B31',
-    'name' => 'Багажник экспедиционный (корзина) Б31 на Nissan Patrol Y60/Y61',
+    'name' => 'Багажник экспедиционный (корзина) на Nissan Patrol Y60/Y61',
     'img1' => '/content/expiditions/img/Nissan/B31/B31-01.jpg',
     'price' => '20 300 рублей',
     'item1' => 'габаритные размеры: 2300х1200x120 мм',
@@ -739,8 +739,8 @@ $gazel = [
   [
     'id' => 'B3603',
     'name' => 'Багажник экспедиционный на Газель/Соболь 2300x1550x120 с сеткой и креплениями',
-    'img1' => '/content/expiditions/img/Gazel/B136.03/B136.03-01.jpg',
-    'img2' => '/content/expiditions/img/Gazel/B136.03/B136.03-02.jpg',
+    'img1' => '/content/expiditions/img/Gazel/B36.03/B36.03-01.jpg',
+    'img2' => '/content/expiditions/img/Gazel/B36.03/B36.03-02.jpg',
     'price' => '24 400 рублей',
     'item1' => 'габаритные размеры: 2300x1550x120 мм',
     'item2' => 'высота креплений 300 мм',
@@ -1275,8 +1275,8 @@ $stairs = [
   [
     'id' => 'RIFDEF60000',
     'name' => 'Лестница РИФ Land Rover Defender',
-    'img1' => '/content/expiditions/img/Stairs/RIFDEF-60000/RIFDEF-60000-01.jpg',
-    'img2' => '/content/expiditions/img/Stairs/RIFDEF-60000/RIFDEF-60000-02.jpg',
+    'img1' => '/content/expiditions/img/Stairs/RIFDEF-60000/RIFDEF-60000-01.jpeg',
+    'img2' => '/content/expiditions/img/Stairs/RIFDEF-60000/RIFDEF-60000-02.jpeg',
     'price' => '4 610 рублей',
     'item1' => 'Практичная лестница обеспечивает комфортный доступ на крышу внедорожника.',
     'item2' => 'Черное порошковое покрытие защищает от коррозии в любых условиях эксплуатации и не боится самых агрессивных реагентов. Гарантия 3 года при отсутствии механических повреждений.',
@@ -1285,7 +1285,7 @@ $stairs = [
   [
     'id' => 'RIF46960000',
     'name' => 'Лестница РИФ для УАЗ-469 (откидной борт)',
-    'img1' => '/content/expiditions/img/Stairs/RIF469-60000/RIF469-60000-01.jpg',
+    'img1' => '/content/expiditions/img/Stairs/RIF469-60000/RIF469-60000-01.jpeg',
     'price' => '3 590 рублей',
     'item1' => 'Практичная лестница обеспечивает комфортный доступ на крышу внедорожника.',
     'item2' => 'Черное порошковое покрытие защищает от коррозии в любых условиях эксплуатации и не боится самых агрессивных реагентов. Гарантия 3 года при отсутствии механических повреждений.',
@@ -1308,7 +1308,7 @@ $stairs = [
   [
     'id' => ' RIF46960002',
     'name' => 'Лестница РИФ для УАЗ Хантер под задний бампер РИФ с калиткой',
-    'img1' => '/content/expiditions/img/Stairs/RIF469-60002/RIF469-60002-01.jpg',
+    'img1' => '/content/expiditions/img/Stairs/RIF469-60002/RIF469-60002-01.jpeg',
     'price' => '4 230 рублей',
     'item1' => 'Данная лестница предназначена для установки на заднюю дверь автомобиля уаз хантер, с левой стороны по ходу движения автомобиля.',
     'item2' => 'Может быть установлена только при условии , что на штатном кронштейне нет запасного колеса. Подходит для бамперов с калиткой запасного колеса установленной справа.',
