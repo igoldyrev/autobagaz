@@ -408,7 +408,7 @@ $nissan = [
     'item6' => 'масса: 34 кг',
   ],
   [
-    'id' => 'B3101 ',
+    'id' => 'B3101',
     'name' => 'Багажник экспедиционный (корзина) с сеткой на Nissan Patrol Y60/Y61',
     'img1' => '/content/expiditions/img/Nissan/B31.01/B31.01-01.jpg',
     'price' => '20 900 рублей',
@@ -420,7 +420,7 @@ $nissan = [
     'item6' => 'масса: 40 кг',
   ],
   [
-    'id' => 'B2205 ',
+    'id' => 'B2205',
     'name' => 'Багажник экспедиционный на Nissan Terrano R50 1800х1200х120 с сеткой и креплениями на рейлинг',
     'img1' => '/content/expiditions/img/Nissan/B22.05/B22.05-01.jpg',
     'img2' => '/content/expiditions/img/Nissan/B22.05/B22.05-02.jpg',
@@ -434,7 +434,7 @@ $nissan = [
     'item6' => 'масса: 35 кг',
   ],
   [
-    'id' => 'B2203 ',
+    'id' => 'B2203',
     'name' => 'Багажник экспедиционный на Nissan Terrano R50 1900х1100х120 с сеткой и креплениями на крышу',
     'img1' => '/content/expiditions/img/Nissan/B22.03/B22.03-01.jpg',
     'img2' => '/content/expiditions/img/Nissan/B22.03/B22.03-02.jpg',
@@ -450,7 +450,7 @@ $nissan = [
     'item6' => 'масса: 32 кг',
   ],
   [
-    'id' => 'B12005 ',
+    'id' => 'B12005',
     'name' => 'Багажник экспедиционный на Nissan Pathfinder R51 2000х1250х120 с сеткой на рейлинги',
     'img1' => '/content/expiditions/img/Nissan/B120.05/B120.05-01.jpg',
     'img2' => '/content/expiditions/img/Nissan/B120.05/B120.05-02.jpg',
@@ -465,7 +465,7 @@ $nissan = [
     'item6' => 'масса: 35 кг',
   ],
   [
-    'id' => 'B2903 ',
+    'id' => 'B2903',
     'name' => 'Багажник экспедиционный на Nissan Patrol Y60/Y61 3 дв. 1600х1200х 120 с сеткой и креплениями',
     'img1' => '/content/expiditions/img/Nissan/B29.03/B29.03-01.jpg',
     'img2' => '/content/expiditions/img/Nissan/B29.03/B29.03-02.jpg',
@@ -479,7 +479,7 @@ $nissan = [
     'item6' => 'масса: 27 кг',
   ],
   [
-    'id' => 'B3103 ',
+    'id' => 'B3103',
     'name' => 'Багажник экспедиционный на Nissan Patrol Y60/Y61 5 дв. с сеткой и креплениями на водостоки',
     'img1' => '/content/expiditions/img/Nissan/B31.03/B31.03-01.jpg',
     'img2' => '/content/expiditions/img/Nissan/B31.03/B31.03-02.jpg',
