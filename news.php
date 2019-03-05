@@ -659,6 +659,39 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             <p class="text">г.Пермь ул.Дзержинского 15, тел: <a class="link" href="tel:+73422889929">2-88-99-29</a></p>
             <p class="text">г.Пермь ул.Тургенева 23, тел: <a class="link" href="tel:+73422889939">2-88-99-39</a></p>
           </div><?php
+        } elseif ($newspage == 'autobagaz_free') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[25][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[25][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[25][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">AutoBagaz РАЗДАЕТ!</h1>
+            <p class="text">Здравствуйте, уважаемые посетители и гости нашего магазина!!! </p>
+            <p class="text">Начинаем интересную акцию! AutoBagaz РАЗДАЕТ!</p>
+            <p class="text">Магазин "AutoBagaz" раздает БУ багажники! БЕСПЛАТНО!</p>
+            <p class="text">Перечень багажников и адресов где можно посмотреть на багажники и безвозмездно, то есть даром, забрать!</p>
+            <p class="text">г.Пермь ул.Спешилова 102/29</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Багажник на водосток - 1 шт;</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Багажник в штатные места - 1 шт;</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Багажник Калина/Гранта (атлант, бюджетка) - 1 шт;</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Багажник на гладкую крышу - 1 шт.</p>
+            <p class="text">г.Пермь ул.Дзержинского 15</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Багажник на рейлинг - 1 шт;</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Багажник на водосток - 2 шт;</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Прямоугольные дуги - 3 комплекта.</p>
+            <p class="text">Телефоны для связи <a class="link" href="tel:+73422889969">2-88-99-69</a>, <a class="link" href="tel:+73422889929">2-88-99-29</a></p>
+            <p class="text">Предупреждаем, багажное оборудование БУ и выдается исходя из списка багажников, которые участвуют в акции.</p>
+            <p class="text">Багажное оборудование может быть не комплектным.</p>
+            <p class="text">Монтаж БУ Багажников - ВЫ производите своими силами. (Менеджеры магазина, в этом не участвуют)</p>
+            <p class="text">Подробности уточняйте на месте или по телефону.</p>
+          </div><?php
         } ?>
     </div>
 </div>

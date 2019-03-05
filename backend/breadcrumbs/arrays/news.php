@@ -84,4 +84,24 @@ $news = [
     'name' => 'Итоги розыгрыша велокрепления от магазина Autobagaz',
     'link' => '/news/result_rozygryzh_velokreplenya',
   ],
+  [
+    'name' => 'Розыгрыш лыжных креплений от магазина "AutoBagaz"',
+    'link' => '/news/rozygryzh_lyzh_amos',
+  ],
+  [
+    'name' => 'Багажное оборудование в кредит и рассрочку',
+    'link' => '/news/tinkoff_credit',
+  ],
+  [
+    'name' => 'Итоги розыгрыша лыжного крепления от магазина Autobagaz',
+    'link' => '/news/result_rozygryzh_lyzh_2018',
+  ],
+  [
+    'name' => 'AutoBagaz ОБНОВЛЯЕТ!',
+    'link' => '/news/autobagaz_trade',
+  ],
+  [
+    'name' => 'AutoBagaz РАЗДАЕТ!',
+    'link' => '/news/autobagaz_free',
+  ],
 ];
