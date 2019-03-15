@@ -2,24 +2,24 @@
 $sales = [
   [
     'id' => 's1',
-    'name' => 'Велокрепление AMOS (для одного велосипеда) ',
-    'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/velo_amos_1x.jpg" alt="велокрепление AMOS (для одного велосипеда)">',
-    'price' => '1 500 рублей ',
-    'strike_price' => '2 200 рублей',
+    'name' => 'Носовая сумка TERRA DRIVE для автобоксов',
+    'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/terra_bug_nose.jpg" alt="Носовая сумка TERRA DRIVE для автобоксов">',
+    'price' => '2 200 рублей',
+    'strike_price' => '3 000 рублей',
   ],
   [
     'id' => 's2',
-    'name' => 'Велокрепление LUX Bike-1',
-    'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/lux_bike_1.jpg" alt="Велокрепление LUX Bike-1">',
-    'price' => '2 500 рублей',
-    'strike_price' => '3 500 рублей',
+    'name' => 'Основная сумка TERRA DRIVE для автобоксов',
+    'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/terra_bug.jpg" alt="Основная сумка TERRA DRIVE для автобоксов">',
+    'price' => '2 200 рублей',
+    'strike_price' => '3 000 рублей',
   ],
   [
     'id' => 's3',
-    'name' => 'Велокрепление Atlant Roof Rider',
-    'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/atlant_roof_rider.jpg" alt="Велокрепление Atlant Roof Rider">',
-    'price' => '4 300 рублей',
-    'strike_price' => '5 900 рублей',
+    'name' => 'Автобокс Vetlan 430М черный',
+    'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/vetlan_430m_black.jpg" alt="Автобокс Vetlan 430М черный">',
+    'price' => '10 500 рублей',
+    'strike_price' => '11 500 рублей',
   ],
 ];
 $_SESSION['sales'] = $sales;
