@@ -16,10 +16,10 @@ $sales = [
   ],
   [
     'id' => 's3',
-    'name' => 'Автобокс Vetlan 430М черный',
-    'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/vetlan_430m_black.jpg" alt="Автобокс Vetlan 430М черный">',
-    'price' => '10 500 рублей',
-    'strike_price' => '11 500 рублей',
+    'name' => 'Лыжное крепление Amos для 3-4-х пар лыж/2 сноуборда',
+    'img' => '<img class="sales__img" src="/content/lyzhnye-kreplenya/img/amos.jpg" alt="Лыжное крепление Amos для 3-4-х пар лыж">',
+    'price' => '2 500 рублей',
+    'strike_price' => '3 000 рублей',
   ],
 ];
 $_SESSION['sales'] = $sales;
