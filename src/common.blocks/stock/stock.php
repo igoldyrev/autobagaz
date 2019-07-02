@@ -17,7 +17,7 @@ if ($result = mysqli_query($connect, $query)) {
       echo '<a onclick="yaCounter40650914.reachGoal(\'banner_click\'); return true" class="stock__link" href="' . $row['news_link'] . '">Узнать подробности</a>';
             echo '</div>';
         echo '<div class="stock__block stock__block--two">';
-            echo '<img class="stock__image" src="/src/common.blocks/stock/img/inmax-box.jpg">';
+            echo '<img class="stock__image" src="/src/common.blocks/stock/img/magazine-bg.jpg">';
         echo '</div></div></div>';
     }
 }
