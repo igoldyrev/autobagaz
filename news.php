@@ -692,6 +692,34 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             <p class="text">Монтаж БУ Багажников - ВЫ производите своими силами. (Менеджеры магазина, в этом не участвуют)</p>
             <p class="text">Подробности уточняйте на месте или по телефону.</p>
           </div><?php
+        } elseif ($newspage == 'berezniki_shop') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[26][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[26][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[26][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Новый магазин "AutoBagaz" в Березниках</h1>
+            <p class="text">Здравствуйте, уважаемые посетители и гости нашего магазина!!! </p>
+            <p class="text">Прошло два с половиной года, за которые мы зарекомендовали себя как профессионалы своего дела, которые подберут Вам багажное оборудование, по Вашим потребностям. </p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Дешево и сердито-не вопрос. </p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Красиво и качественно- да, пожалуйста.</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> На любые нужды у нас всегда есть предложение.</p>
+            <p class="text">Сейчас мы хотим дать не только сервис, но еще и выбор-мы открываем филиал в Березниках!</p>
+            <p class="text">Это праздник!</p>
+            <p class="text">А в праздники принято дарить подарки!! </p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Первое-мы дарим на одну покупку скидку 10% от стоимости товара (действительно до 9 июля 2019) </p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Второе-любой десятый товар по чекам (в день)-мы дарим. (действительно до 9 августа 2019) </p>
+            <p class="text">Адрес нового магазина "AutoBagaz" - г.Березники Чуртанское шоссе 2</p>
+            <p class="text">Телефон для связи <a class="link" href="tel:+73422789949">+7 (342) 2 78 99 49</a></p>
+            <p class="text">Акция действует только в Березниках.</p>
+          </div><?php
         } ?>
     </div>
 </div>

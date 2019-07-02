@@ -104,4 +104,8 @@ $news = [
     'name' => 'AutoBagaz РАЗДАЕТ!',
     'link' => '/news/autobagaz_free',
   ],
+  [
+    'name' => 'Новый магазин "AutoBagaz" в Березниках',
+    'link' => '/news/berezniki_shop',
+  ],
 ];
