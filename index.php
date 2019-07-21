@@ -221,8 +221,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
           <p class="text">Позвонить в магазин: <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
                                                   href="tel:+73422889969"
                                                   class="link">+7 (342) 288 99 69</a></p>
-          <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79124897939"
-             class="contacts__link">+7 912 489 79 39 Валентин Сарафанов</a>
+          <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79194519402"
+             class="contacts__link">+7 919 451 94 02 Максим Некрасов</a>
         </div>
         <div class="img__wrap">
           <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_front.jpg" alt="autobagaz">
@@ -240,8 +240,6 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
                                                   href="tel:+73422889929" class="link">+7 (342) 288 99 29</a></p>
           <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79091004006"
              class="contacts__link">+7 909 100 40 06 Денис Зарубин</a>
-          <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79194519402"
-             class="contacts__link">+7 919 451 94 02 Максим Некрасов</a>
         </div>
         <div class="img__wrap">
           <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_dzerzhinskogo-3.jpg"
@@ -270,6 +268,22 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
         <div class="contacts__map">
           <script type="text/javascript" charset="utf-8" async
                   src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6a196e51bfb2806e4768bc830ccbc5c8947eba9b248b72778e9a4445adb50ebe&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+      </div>
+      <div class="contacts__shop">
+        <h4 class="title title-h4">г.Березники, Чуртанское шоссе, 2</h4>
+        <div class="contacts">
+          <p class="text">Позвонить в магазин: <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
+                                                  href="tel:+73422789949" class="link">+7 (342) 278 99 49</a></p>
+          <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" href="tel:+79124897939"
+             class="contacts__link">+7 912 489 79 39 Валентин Сарафанов</a>
+        </div>
+<!--        <div class="img__wrap">-->
+<!--          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_turgeneva.jpg" alt="autobagaz">-->
+<!--        </div>-->
+        <div class="contacts__map">
+          <script type="text/javascript" charset="utf-8" async
+                  src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9251bc687feaf1fc0ad6b395077fb03bbf132a23328bc8f8a25c78da2cedec66&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
       </div>
       <div class="contacts__shop">
