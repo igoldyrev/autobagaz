@@ -13,6 +13,21 @@
   </ItemGroup>
 
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Models\products\autoboxes\" />
+    <Folder Include="Models\products\velokreplenya\" />
+    <Folder Include="Models\products\kreplenyaDlyaLyzh\" />
+    <Folder Include="Models\products\reelings\" />
+    <Folder Include="Models\products\braslets\" />
+    <Folder Include="Models\products\farkops\" />
+    <Folder Include="Models\products\inno\" />
+    <Folder Include="Models\products\takelazh\" />
+    <Folder Include="Models\products\expiditions\" />
+    <Folder Include="Models\products\covers\" />
+  </ItemGroup>
+
+
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

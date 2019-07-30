@@ -12,7 +12,7 @@ namespace autobagaz.Controllers
     {
         private readonly AutobagazContext context;
 
-        public List<User> Users { get; set; }
+        //public List<User> Users { get; set; }
         public HomeController(AutobagazContext db)
         {
             context = db;
@@ -21,25 +21,10 @@ namespace autobagaz.Controllers
 
         public ActionResult Index()
         {
-            Users = context.Users.ToList();
+            //Users = context.Users.ToList();
 
-            //using (var context = new AutobagazContext())
-            //{
-            //    return View(context.Users);
-            //}
-            //{
-
-            //    List<User> _TList = new List<User>();
-
-            //    int pageSize = 10; // количество объектов на страницу
-            //    IEnumerable<User> materialPerPages = Users.Skip((page - 1) * pageSize).Take(pageSize);
-            //    PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = Users.Count };
-            //    IndexViewModel ivm = new IndexViewModel { PageInfo = pageInfo, User = materialPerPages };
-
-            return View(Users);
-            //}
-
-
+            //return View(Users);
+            return View();
         }
 
         public IActionResult Privacy()

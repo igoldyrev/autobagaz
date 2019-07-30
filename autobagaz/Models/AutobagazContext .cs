@@ -8,7 +8,11 @@ namespace autobagaz.Models
 {
     public class AutobagazContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<Autobagazhnik> Autobagazhnik { get; set; }
+        public DbSet<AutobagazhnikReelings> AutobagazhnikReelings { get; set; }
+        public DbSet<AutobagazhnikShtatnye> AutobagazhnikShtatnye { get; set; }
+        public DbSet<AutobagazhnikSmooth> AutobagazhnikSmooth { get; set; }
+        public DbSet<AutobagazhnikVodostok> AutobagazhnikVodostok { get; set; }
 
         public AutobagazContext(DbContextOptions<AutobagazContext> options)
             : base(options)
