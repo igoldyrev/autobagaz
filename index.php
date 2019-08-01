@@ -254,8 +254,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
                   src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9ce0f3ba2e36cfbb902238d75ab5fe2b20a6bc5e5c1d4eee55d146ebfa34dfc5&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
       </div>
-      <div class="contacts__shop" id="turgeneva">
-        <h4 class="title title-h4">г.Пермь, ул.Тургенева 23</h4>
+      <div class="contacts__shop" id="lebedeva">
+        <h4 class="title title-h4">г.Пермь, ул.Лебедева, 34</h4>
         <div class="contacts">
           <p class="text">Позвонить в магазин: <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
                                                   href="tel:+73422889939" class="link">+7 (342) 288 99 39</a></p>
@@ -263,11 +263,10 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
              class="contacts__link">+7 919 465 08 58 Юрий Надуялов</a>
         </div>
         <div class="img__wrap">
-          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_turgeneva.jpg" alt="autobagaz">
+          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_lebedeva.JPG" alt="autobagaz">
         </div>
         <div class="contacts__map">
-          <script type="text/javascript" charset="utf-8" async
-                  src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6a196e51bfb2806e4768bc830ccbc5c8947eba9b248b72778e9a4445adb50ebe&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6a196e51bfb2806e4768bc830ccbc5c8947eba9b248b72778e9a4445adb50ebe&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
       </div>
       <div class="contacts__shop">
