@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace autobagaz.Models
+namespace autobagaz
 {
     public class AutobagazContext : DbContext
     {

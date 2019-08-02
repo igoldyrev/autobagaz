@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace autobagaz
@@ -21,6 +20,11 @@ namespace autobagaz
         /// </summary>
         [Required]
         public string AUTOBAGAZ_USER_NAME { get; set; }
+        /// <summary>
+        /// Email Пользователя
+        /// </summary>
+        [Required]
+        public string AUTOBAGAZ_USER_EMAIL { get; set; }
         /// <summary>
         /// Пароль Пользователя
         /// </summary>
@@ -45,11 +49,17 @@ namespace autobagaz
         /// <summary>
         /// Дата регистрации/изменения пользователя
         /// </summary>
-        public DateTime AUTOBAGAZ_USER_DATE { get; set; }
+        [Required]
+        public string AUTOBAGAZ_USER_DATE { get; set; }
+        /// <summary>
+        /// ИД Статуса Пользователя
+        /// </summary>
+        [Required]
+        public int AUTOBAGAZ_USER_STATUS_ID { get; set; }
         /// <summary>
         /// Статус Пользователя
         /// </summary>public int RWEB_USER_STATUS { get; set; }
-        [ForeignKey("AUTOBAGAZ_USER_STATUS")]
+        [ForeignKey("AUTOBAGAZ_USER_STATUS_ID")]
         public virtual AUTOBAGAZ_STATUS AUTOBAGAZ_STATUS { get; set; }
     }
 }
