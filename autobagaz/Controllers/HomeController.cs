@@ -80,7 +80,6 @@ namespace autobagaz.Controllers
             }
         }
 
-
         public ActionResult Index()
         {
             //Users = context.Users.ToList();
