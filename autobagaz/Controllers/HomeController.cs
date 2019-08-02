@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using autobagaz.Models;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace autobagaz.Controllers
 {
@@ -51,14 +52,14 @@ namespace autobagaz.Controllers
                 context.AUTOBAGAZ_ROLE.Add(new AUTOBAGAZ_ROLE
                 {
                     AUTOBAGAZ_ROLE_ID = 1,
-                    AUTOBAGAZ_ROLE_NAME = "Администратор",
-                    AUTOBAGAZ_ROLE_DESCRIPTION = "Администратор системы"
+                    AUTOBAGAZ_ROLE_NAME = "admin",
+                    AUTOBAGAZ_ROLE_DESCRIPTION = "Администратор"
                 });
                 context.AUTOBAGAZ_ROLE.Add(new AUTOBAGAZ_ROLE
                 {
                     AUTOBAGAZ_ROLE_ID = 2,
-                    AUTOBAGAZ_ROLE_NAME = "Пользователь",
-                    AUTOBAGAZ_ROLE_DESCRIPTION = "Пользователь системы"
+                    AUTOBAGAZ_ROLE_NAME = "user",
+                    AUTOBAGAZ_ROLE_DESCRIPTION = "Пользователь"
                 });
                 context.SaveChanges();
             }
@@ -80,6 +81,7 @@ namespace autobagaz.Controllers
             }
         }
 
+       // [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             //Users = context.Users.ToList();

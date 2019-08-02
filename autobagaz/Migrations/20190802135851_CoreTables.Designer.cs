@@ -9,7 +9,7 @@ using autobagaz;
 namespace autobagaz.Migrations
 {
     [DbContext(typeof(AutobagazContext))]
-    [Migration("20190802103618_CoreTables")]
+    [Migration("20190802135851_CoreTables")]
     partial class CoreTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
