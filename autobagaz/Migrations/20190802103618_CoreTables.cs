@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace autobagaz.Migrations
@@ -12,7 +13,7 @@ namespace autobagaz.Migrations
                 columns: table => new
                 {
                     AUTOBAGAZ_ROLE_ID = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AUTOBAGAZ_ROLE_NAME = table.Column<string>(nullable: false),
                     AUTOBAGAZ_ROLE_DESCRIPTION = table.Column<string>(nullable: false)
                 },
@@ -26,7 +27,7 @@ namespace autobagaz.Migrations
                 columns: table => new
                 {
                     AUTOBAGAZ_STATUS_ID = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AUTOBAGAZ_STATUS_CODE = table.Column<string>(nullable: false),
                     AUTOBAGAZ_STATUS_NAME = table.Column<string>(nullable: false)
                 },
@@ -40,13 +41,14 @@ namespace autobagaz.Migrations
                 columns: table => new
                 {
                     AUTOBAGAZ_USER_ID = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AUTOBAGAZ_USER_NAME = table.Column<string>(nullable: false),
+                    AUTOBAGAZ_USER_EMAIL = table.Column<string>(nullable: false),
                     AUTOBAGAZ_USER_PASSWORD = table.Column<string>(nullable: false),
-                    AUTOBAGAZ_USER_IS_ACTIVE = table.Column<short>(nullable: false),
+                    AUTOBAGAZ_USER_IS_ACTIVE = table.Column<bool>(nullable: false),
                     AUTOBAGAZ_USER_ROLE_ID = table.Column<int>(nullable: false),
-                    AUTOBAGAZ_USER_DATE = table.Column<DateTime>(nullable: false),
-                    AUTOBAGAZ_USER_STATUS = table.Column<int>(nullable: true)
+                    AUTOBAGAZ_USER_DATE = table.Column<string>(nullable: false),
+                    AUTOBAGAZ_USER_STATUS_ID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,11 +60,11 @@ namespace autobagaz.Migrations
                         principalColumn: "AUTOBAGAZ_ROLE_ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AUTOBAGAZ_USERS_AUTOBAGAZ_STATUS_AUTOBAGAZ_USER_STATUS",
-                        column: x => x.AUTOBAGAZ_USER_STATUS,
+                        name: "FK_AUTOBAGAZ_USERS_AUTOBAGAZ_STATUS_AUTOBAGAZ_USER_STATUS_ID",
+                        column: x => x.AUTOBAGAZ_USER_STATUS_ID,
                         principalTable: "AUTOBAGAZ_STATUS",
                         principalColumn: "AUTOBAGAZ_STATUS_ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,7 +72,7 @@ namespace autobagaz.Migrations
                 columns: table => new
                 {
                     AUTOBAGAZHIK_ID = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AUTOBAGAZHIK_NAME = table.Column<string>(nullable: false),
                     AUTOBAGAZHIK_FILE_NAME = table.Column<string>(nullable: true),
                     AUTOBAGAZHIK_FILE_PATH = table.Column<string>(nullable: true),
@@ -101,7 +103,7 @@ namespace autobagaz.Migrations
                 columns: table => new
                 {
                     AUTOBAGAZHIK_REELINGS_ID = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AUTOBAGAZHIK_REELINGS_NAME = table.Column<string>(nullable: false),
                     AUTOBAGAZHIK_REELINGS_FILE_NAME = table.Column<string>(nullable: true),
                     AUTOBAGAZHIK_REELINGS_FILE_PATH = table.Column<string>(nullable: true),
@@ -132,7 +134,7 @@ namespace autobagaz.Migrations
                 columns: table => new
                 {
                     AUTOBAGAZHIK_SHTATNYE_ID = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AUTOBAGAZHIK_SHTATNYE_NAME = table.Column<string>(nullable: false),
                     AUTOBAGAZHIK_SHTATNYE_FILE_NAME = table.Column<string>(nullable: true),
                     AUTOBAGAZHIK_SHTATNYE_FILE_PATH = table.Column<string>(nullable: true),
@@ -163,7 +165,7 @@ namespace autobagaz.Migrations
                 columns: table => new
                 {
                     AUTOBAGAZHIK_SMOOTH_ID = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AUTOBAGAZHIK_SMOOTH_NAME = table.Column<string>(nullable: false),
                     AUTOBAGAZHIK_SMOOTH_FILE_NAME = table.Column<string>(nullable: true),
                     AUTOBAGAZHIK_SMOOTH_FILE_PATH = table.Column<string>(nullable: true),
@@ -194,7 +196,7 @@ namespace autobagaz.Migrations
                 columns: table => new
                 {
                     AUTOBAGAZHIK_VODOSTOK_ID = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AUTOBAGAZHIK_VODOSTOK_NAME = table.Column<string>(nullable: false),
                     AUTOBAGAZHIK_VODOSTOK_FILE_NAME = table.Column<string>(nullable: true),
                     AUTOBAGAZHIK_VODOSTOK_FILE_PATH = table.Column<string>(nullable: true),
@@ -226,9 +228,9 @@ namespace autobagaz.Migrations
                 column: "AUTOBAGAZ_USER_ROLE_ID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AUTOBAGAZ_USERS_AUTOBAGAZ_USER_STATUS",
+                name: "IX_AUTOBAGAZ_USERS_AUTOBAGAZ_USER_STATUS_ID",
                 table: "AUTOBAGAZ_USERS",
-                column: "AUTOBAGAZ_USER_STATUS");
+                column: "AUTOBAGAZ_USER_STATUS_ID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AUTOBAGAZHIK_AUTOBAGAZHIK_STATUS",

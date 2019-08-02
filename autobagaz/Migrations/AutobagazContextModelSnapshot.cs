@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using autobagaz.Models;
+using autobagaz;
 
 namespace autobagaz.Migrations
 {
@@ -14,7 +14,8 @@ namespace autobagaz.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("autobagaz.AUTOBAGAZ_ROLE", b =>
                 {
@@ -53,7 +54,11 @@ namespace autobagaz.Migrations
                     b.Property<int>("AUTOBAGAZ_USER_ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("AUTOBAGAZ_USER_DATE");
+                    b.Property<string>("AUTOBAGAZ_USER_DATE")
+                        .IsRequired();
+
+                    b.Property<string>("AUTOBAGAZ_USER_EMAIL")
+                        .IsRequired();
 
                     b.Property<bool>("AUTOBAGAZ_USER_IS_ACTIVE");
 
@@ -65,13 +70,13 @@ namespace autobagaz.Migrations
 
                     b.Property<int>("AUTOBAGAZ_USER_ROLE_ID");
 
-                    b.Property<int?>("AUTOBAGAZ_USER_STATUS");
+                    b.Property<int>("AUTOBAGAZ_USER_STATUS_ID");
 
                     b.HasKey("AUTOBAGAZ_USER_ID");
 
                     b.HasIndex("AUTOBAGAZ_USER_ROLE_ID");
 
-                    b.HasIndex("AUTOBAGAZ_USER_STATUS");
+                    b.HasIndex("AUTOBAGAZ_USER_STATUS_ID");
 
                     b.ToTable("AUTOBAGAZ_USERS");
                 });
@@ -230,7 +235,8 @@ namespace autobagaz.Migrations
 
                     b.HasOne("autobagaz.AUTOBAGAZ_STATUS", "AUTOBAGAZ_STATUS")
                         .WithMany()
-                        .HasForeignKey("AUTOBAGAZ_USER_STATUS");
+                        .HasForeignKey("AUTOBAGAZ_USER_STATUS_ID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("autobagaz.Autobagazhnik", b =>
