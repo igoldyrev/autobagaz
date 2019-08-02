@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Models\products\autoboxes\" />
+    <Folder Include="Models\products\velokreplenya\" />
+    <Folder Include="Models\products\kreplenyaDlyaLyzh\" />
+    <Folder Include="Models\products\reelings\" />
+    <Folder Include="Models\products\braslets\" />
+    <Folder Include="Models\products\farkops\" />
+    <Folder Include="Models\products\inno\" />
+    <Folder Include="Models\products\takelazh\" />
+    <Folder Include="Models\products\expiditions\" />
+    <Folder Include="Models\products\covers\" />
+  </ItemGroup>
+
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>
