@@ -11,6 +11,9 @@ namespace autobagaz
         public DbSet<AUTOBAGAZ_STATUS> AUTOBAGAZ_STATUS { get; set; }
         public DbSet<AUTOBAGAZ_ROLE> AUTOBAGAZ_ROLE { get; set; }
         public DbSet<AUTOBAGAZ_USER> AUTOBAGAZ_USER { get; set; }
+        public DbSet<City> AUTOBAGAZ_CITY { get; set; }
+        public DbSet<Shop> AUTOBAGAZ_SHOP { get; set; }
+        public DbSet<WorkTime> AUTOBAGAZ_WORKTIME { get; set; }
         public DbSet<Autobagazhnik> Autobagazhnik { get; set; }
         public DbSet<AutobagazhnikReelings> AutobagazhnikReelings { get; set; }
         public DbSet<AutobagazhnikShtatnye> AutobagazhnikShtatnye { get; set; }
