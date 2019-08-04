@@ -58,7 +58,7 @@ namespace autobagaz
         public int AUTOBAGAZ_USER_STATUS_ID { get; set; }
         /// <summary>
         /// Статус Пользователя
-        /// </summary>public int RWEB_USER_STATUS { get; set; }
+        /// </summary>
         [ForeignKey("AUTOBAGAZ_USER_STATUS_ID")]
         public virtual AUTOBAGAZ_STATUS AUTOBAGAZ_STATUS { get; set; }
     }

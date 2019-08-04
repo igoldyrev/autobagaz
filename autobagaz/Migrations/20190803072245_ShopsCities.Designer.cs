@@ -2,58 +2,22 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using autobagaz;
 
 namespace autobagaz.Migrations
 {
     [DbContext(typeof(AutobagazContext))]
-    partial class AutobagazContextModelSnapshot : ModelSnapshot
+    [Migration("20190803072245_ShopsCities")]
+    partial class ShopsCities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("autobagaz.AUTOBAGAZ_KOMISSION_GOOD", b =>
-                {
-                    b.Property<int>("AUTOBAGAZ_KOMISSION_GOOD_ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("AUTOBAGAZ_KOMISSION_DATE")
-                        .IsRequired();
-
-                    b.Property<string>("AUTOBAGAZ_KOMISSION_GOOD_NAME")
-                        .IsRequired();
-
-                    b.Property<string>("AUTOBAGAZ_KOMISSION_GOOD_PHOTO1");
-
-                    b.Property<string>("AUTOBAGAZ_KOMISSION_GOOD_PHOTO2");
-
-                    b.Property<string>("AUTOBAGAZ_KOMISSION_GOOD_PHOTO3");
-
-                    b.Property<string>("AUTOBAGAZ_KOMISSION_GOOD_PHOTO4");
-
-                    b.Property<string>("AUTOBAGAZ_KOMISSION_GOOD_PHOTO5");
-
-                    b.Property<string>("AUTOBAGAZ_KOMISSION_GOOD_PRICE");
-
-                    b.Property<string>("AUTOBAGAZ_KOMISSION_GOOD_TYPE");
-
-                    b.Property<int>("KOMISSION_STATUS_ID");
-
-                    b.Property<int>("KOMISSION_USER_ID");
-
-                    b.HasKey("AUTOBAGAZ_KOMISSION_GOOD_ID");
-
-                    b.HasIndex("KOMISSION_STATUS_ID");
-
-                    b.HasIndex("KOMISSION_USER_ID");
-
-                    b.ToTable("AUTOBAGAZ_KOMISSION_GOODS");
-                });
 
             modelBuilder.Entity("autobagaz.AUTOBAGAZ_ROLE", b =>
                 {
@@ -69,36 +33,6 @@ namespace autobagaz.Migrations
                     b.HasKey("AUTOBAGAZ_ROLE_ID");
 
                     b.ToTable("AUTOBAGAZ_ROLE");
-                });
-
-            modelBuilder.Entity("autobagaz.AUTOBAGAZ_SPECIAL_OFFER", b =>
-                {
-                    b.Property<int>("AUTOBAGAZ_SPECIAL_OFFER_ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("AUTOBAGAZ_SPECIAL_OFFER_DATE")
-                        .IsRequired();
-
-                    b.Property<string>("AUTOBAGAZ_SPECIAL_OFFER_NAME")
-                        .IsRequired();
-
-                    b.Property<string>("AUTOBAGAZ_SPECIAL_OFFER_OLDPRICE");
-
-                    b.Property<string>("AUTOBAGAZ_SPECIAL_OFFER_PHOTO");
-
-                    b.Property<string>("AUTOBAGAZ_SPECIAL_OFFER_PRICE");
-
-                    b.Property<int>("SPECIAL_OFFER_STATUS_ID");
-
-                    b.Property<int>("SPECIAL_OFFER_USER_ID");
-
-                    b.HasKey("AUTOBAGAZ_SPECIAL_OFFER_ID");
-
-                    b.HasIndex("SPECIAL_OFFER_STATUS_ID");
-
-                    b.HasIndex("SPECIAL_OFFER_USER_ID");
-
-                    b.ToTable("AUTOBAGAZ_SPECIAL_GOODS");
                 });
 
             modelBuilder.Entity("autobagaz.AUTOBAGAZ_STATUS", b =>
@@ -312,7 +246,7 @@ namespace autobagaz.Migrations
                     b.Property<int>("AUTOBAGAZ_SHOP_ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AUTOBAGAZ_CITY_ID");
+                    b.Property<int?>("AUTOBAGAZ_CITY_ID");
 
                     b.Property<string>("AUTOBAGAZ_SHOP_MAP");
 
@@ -355,32 +289,6 @@ namespace autobagaz.Migrations
                     b.HasKey("WORKTIME_ID");
 
                     b.ToTable("AUTOBAGAZ_WORKTIME");
-                });
-
-            modelBuilder.Entity("autobagaz.AUTOBAGAZ_KOMISSION_GOOD", b =>
-                {
-                    b.HasOne("autobagaz.AUTOBAGAZ_STATUS", "AUTOBAGAZ_STATUS")
-                        .WithMany()
-                        .HasForeignKey("KOMISSION_STATUS_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("autobagaz.AUTOBAGAZ_USER", "AUTOBAGAZ_USER")
-                        .WithMany()
-                        .HasForeignKey("KOMISSION_USER_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("autobagaz.AUTOBAGAZ_SPECIAL_OFFER", b =>
-                {
-                    b.HasOne("autobagaz.AUTOBAGAZ_STATUS", "AUTOBAGAZ_STATUS")
-                        .WithMany()
-                        .HasForeignKey("SPECIAL_OFFER_STATUS_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("autobagaz.AUTOBAGAZ_USER", "AUTOBAGAZ_USER")
-                        .WithMany()
-                        .HasForeignKey("SPECIAL_OFFER_USER_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("autobagaz.AUTOBAGAZ_USER", b =>
@@ -454,9 +362,8 @@ namespace autobagaz.Migrations
             modelBuilder.Entity("autobagaz.Shop", b =>
                 {
                     b.HasOne("autobagaz.City", "City")
-                        .WithMany()
-                        .HasForeignKey("AUTOBAGAZ_CITY_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany("Shops")
+                        .HasForeignKey("AUTOBAGAZ_CITY_ID");
                 });
 #pragma warning restore 612, 618
         }
