@@ -21,10 +21,5 @@ namespace autobagaz
         /// </summary>
         [Required]
         public string AUTOBAGAZ_CITY_NAME { get; set; }
-        public ICollection<Shop> Shops { get; set; }
-        public City()
-        {
-            Shops = new List<Shop>();
-        }
     }
 }

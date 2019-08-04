@@ -47,7 +47,11 @@ namespace autobagaz
         /// Код яндекс карты
         /// </summary>
         public string AUTOBAGAZ_SHOP_MAP { get; set; }
-        public int? AUTOBAGAZ_CITY_ID { get; set; }
-        public City City { get; set; }
+        /// <summary>
+        /// ИД города в котором находится магазин
+        /// </summary>
+        public int AUTOBAGAZ_CITY_ID { get; set; }
+        [ForeignKey("AUTOBAGAZ_CITY_ID")]
+        public virtual City City { get; set; }
     }
 }
