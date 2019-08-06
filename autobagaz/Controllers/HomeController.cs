@@ -79,6 +79,20 @@ namespace autobagaz.Controllers
                 });
                 context.SaveChanges();
             }
+
+            if (!context.AUTOBAGAZ_WORKTIME.Any())
+            {
+                context.AUTOBAGAZ_WORKTIME.Add( new WorkTime
+                {
+                    WORKTIME_ID = 1,
+                    WORKTIME_STARTTIME_WEEK = "10:00",
+                    WORKTIME_ENDTIME_WEEK = "19:00",
+                    WORKTIME_STARTTIME_WEEKEND = "10:00",
+                    WORKTIME_ENDTIME_WEEKEND = "18:00",
+                    WORKTIME_EMAIL = "autobagaz@yandex.ru"
+                });
+                context.SaveChanges();
+            }
         }
 
        // [Authorize(Roles = "admin")]
@@ -90,15 +104,24 @@ namespace autobagaz.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public ActionResult Contacts()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public ActionResult Sertificates()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+
+        public ActionResult Partners()
+        {
+            return View();
+        }
+
+        public ActionResult Sitemap()
+        {
+            return View();
         }
 
         #region AdditionalFunctions
