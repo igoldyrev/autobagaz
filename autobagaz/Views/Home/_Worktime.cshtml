@@ -1,0 +1,18 @@
+﻿@model IEnumerable<WorkTime>
+
+<h1 class="title title-h1">Компания Автобагаж</h1>
+<h2 class="title title-h2">Режим работы для всех магазинов:</h2>
+
+@foreach (var time in Model)
+{
+    <p class="text">Пн - Пт с @Html.DisplayFor(modelItem => time.WORKTIME_STARTTIME_WEEK) до @Html.DisplayFor(modelItem => time.WORKTIME_ENDTIME_WEEK)</p>
+    <p class="text">Сб - Вс с @Html.DisplayFor(modelItem => time.WORKTIME_STARTTIME_WEEKEND) до @Html.DisplayFor(modelItem => time.WORKTIME_ENDTIME_WEEKEND)</p>
+
+    <div class="contacts">
+        <a onclick="yaCounter40650914.reachGoal('write_mail'); return true" 
+           href="mailto:@Html.DisplayFor(modelItem => time.WORKTIME_EMAIL)" 
+           class="contacts__link">Написать нам на @Html.DisplayFor(modelItem => time.WORKTIME_EMAIL)
+        </a>
+    </div>
+
+}

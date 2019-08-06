@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using autobagaz.Models;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace autobagaz.Controllers
 {
@@ -14,6 +13,8 @@ namespace autobagaz.Controllers
         private readonly AutobagazContext context;
 
         //public List<User> Users { get; set; }
+        public List<WorkTime> WorkTime { get; set; }
+        public List<Shop> Shops{ get; set; }
         public HomeController(AutobagazContext db)
         {
             context = db;
@@ -104,9 +105,16 @@ namespace autobagaz.Controllers
             return View();
         }
 
+        public ActionResult Worktime()
+        {
+            WorkTime = context.AUTOBAGAZ_WORKTIME.ToList();
+            return PartialView("_Worktime", WorkTime);
+        }
+
         public ActionResult Contacts()
         {
-            return View();
+            Shops = context.AUTOBAGAZ_SHOP.Include(c => c.City).ToList();
+            return View(Shops);
         }
 
         public ActionResult Sertificates()
