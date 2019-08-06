@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace autobagaz.Controllers
 {
@@ -14,7 +15,7 @@ namespace autobagaz.Controllers
 
         //public List<User> Users { get; set; }
         public List<WorkTime> WorkTime { get; set; }
-        public List<Shop> Shops{ get; set; }
+        public List<City> Cities{ get; set; }
         public HomeController(AutobagazContext db)
         {
             context = db;
@@ -113,8 +114,11 @@ namespace autobagaz.Controllers
 
         public ActionResult Contacts()
         {
-            Shops = context.AUTOBAGAZ_SHOP.Include(c => c.City).ToList();
-            return View(Shops);
+            SelectList sities = new SelectList(context.AUTOBAGAZ_CITY, "AUTOBAGAZ_CITY_ID", "AUTOBAGAZ_CITY_NAME");
+            ViewBag.Cities = sities;
+
+            Cities = context.AUTOBAGAZ_CITY.Include(s => s.Shops).ToList();
+            return View(Cities);
         }
 
         public ActionResult Sertificates()

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<autobagaz.Shop>
+﻿@model IEnumerable<autobagaz.City>
 
 @{
     ViewData["Title"] = "Contacts";
@@ -7,78 +7,19 @@
 
 <h1>Contacts</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AUTOBAGAZ_SHOP_NAME)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AUTOBAGAZ_SHOP_PHONE)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AUTOBAGAZ_SHOP_PERSON)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AUTOBAGAZ_SHOP_PHOTO_URL1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AUTOBAGAZ_SHOP_PHOTO_URL2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AUTOBAGAZ_SHOP_PHOTO_URL3)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AUTOBAGAZ_SHOP_PHOTO_URL4)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AUTOBAGAZ_SHOP_MAP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AUTOBAGAZ_SHOP_NAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AUTOBAGAZ_SHOP_PHONE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AUTOBAGAZ_SHOP_PERSON)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AUTOBAGAZ_SHOP_PHOTO_URL1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AUTOBAGAZ_SHOP_PHOTO_URL2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AUTOBAGAZ_SHOP_PHOTO_URL3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AUTOBAGAZ_SHOP_PHOTO_URL4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AUTOBAGAZ_SHOP_MAP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City.AUTOBAGAZ_CITY_NAME)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AUTOBAGAZ_SHOP_ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AUTOBAGAZ_SHOP_ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AUTOBAGAZ_SHOP_ID">Delete</a>
-            </td>
-        </tr>
+@Html.DropDownListFor(model => model, ViewBag.Cities as SelectList, new { @class = "form__select   " })
+
+@foreach (var city in Model)
+{
+    
 }
+
+
+
+<table class="table">
+
+    <tbody>
+
+        
     </tbody>
 </table>
