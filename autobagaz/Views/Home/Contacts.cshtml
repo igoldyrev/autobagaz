@@ -7,19 +7,18 @@
 
 <h1>Contacts</h1>
 
-@Html.DropDownListFor(model => model, ViewBag.Cities as SelectList, new { @class = "form__select   " })
+@{await Html.RenderPartialAsync("_Worktime");}
+
+@*@Html.DropDownListFor(model => model, ViewBag.Cities as SelectList, new { @class = "form__select   " })*@
 
 @foreach (var city in Model)
 {
-    
+
 }
 
 
 
 <table class="table">
 
-    <tbody>
-
-        
-    </tbody>
+    <tbody></tbody>
 </table>

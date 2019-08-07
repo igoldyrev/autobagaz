@@ -14,7 +14,6 @@ namespace autobagaz.Controllers
         private readonly AutobagazContext context;
 
         //public List<User> Users { get; set; }
-        public List<WorkTime> WorkTime { get; set; }
         public List<City> Cities{ get; set; }
         public HomeController(AutobagazContext db)
         {
@@ -81,20 +80,6 @@ namespace autobagaz.Controllers
                 });
                 context.SaveChanges();
             }
-
-            if (!context.AUTOBAGAZ_WORKTIME.Any())
-            {
-                context.AUTOBAGAZ_WORKTIME.Add( new WorkTime
-                {
-                    WORKTIME_ID = 1,
-                    WORKTIME_STARTTIME_WEEK = "10:00",
-                    WORKTIME_ENDTIME_WEEK = "19:00",
-                    WORKTIME_STARTTIME_WEEKEND = "10:00",
-                    WORKTIME_ENDTIME_WEEKEND = "18:00",
-                    WORKTIME_EMAIL = "autobagaz@yandex.ru"
-                });
-                context.SaveChanges();
-            }
         }
 
        // [Authorize(Roles = "admin")]
@@ -104,12 +89,6 @@ namespace autobagaz.Controllers
 
             //return View(Users);
             return View();
-        }
-
-        public ActionResult Worktime()
-        {
-            WorkTime = context.AUTOBAGAZ_WORKTIME.ToList();
-            return PartialView("_Worktime", WorkTime);
         }
 
         public ActionResult Contacts()
