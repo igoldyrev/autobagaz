@@ -1,7 +1,12 @@
 ﻿.header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+
+    &__top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
     &__wrap {
         display: flex;
