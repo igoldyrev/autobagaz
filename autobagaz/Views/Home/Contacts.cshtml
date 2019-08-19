@@ -1,24 +1,23 @@
-﻿@model IEnumerable<autobagaz.City>
+﻿@using autobagaz
+@model autobagaz.PaginationViewModel
+@addTagHelper "*, autobagaz"
 
 @{
-    ViewData["Title"] = "Contacts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Contacts</h1>
-
 @{await Html.RenderPartialAsync("_Worktime");}
 
-@*@Html.DropDownListFor(model => model, ViewBag.Cities as SelectList, new { @class = "form__select   " })*@
 
-@foreach (var city in Model)
+
+@foreach (var city in Model.Shops)
 {
+    <p>@city.AUTOBAGAZ_SHOP_NAME</p>
+    <p>@city.City.AUTOBAGAZ_CITY_NAME</p>
+
+
 
 }
 
 
-
-<table class="table">
-
-    <tbody></tbody>
-</table>
+<pagination pagination="Model.Pagination" page-action="Contacts"></pagination>

@@ -13,8 +13,6 @@ namespace autobagaz.Controllers
     {
         private readonly AutobagazContext context;
 
-        //public List<User> Users { get; set; }
-        public List<City> Cities{ get; set; }
         public HomeController(AutobagazContext db)
         {
             context = db;
@@ -91,13 +89,22 @@ namespace autobagaz.Controllers
             return View();
         }
 
-        public ActionResult Contacts()
-        {
-            SelectList sities = new SelectList(context.AUTOBAGAZ_CITY, "AUTOBAGAZ_CITY_ID", "AUTOBAGAZ_CITY_NAME");
-            ViewBag.Cities = sities;
+        public ActionResult Contacts(int page = 1)
+        {         
+            int PageSize = 1; // количество объектов на страницу
 
-            Cities = context.AUTOBAGAZ_CITY.Include(s => s.Shops).ToList();
-            return View(Cities);
+            IQueryable<Shop> cities = context.AUTOBAGAZ_SHOP.Include(s => s.City);
+            var count = cities.Count();
+            var items = cities.Skip((page - 1) * PageSize).Take(PageSize).ToList();
+
+            Pagination pagination = new Pagination(count, page, PageSize);
+            PaginationViewModel pvm = new PaginationViewModel
+            {
+                Pagination = pagination,
+                Shops = items
+            };
+
+            return View(pvm);
         }
 
         public ActionResult Sertificates()
