@@ -1,0 +1,43 @@
+﻿.list {
+    list-style-type: none;
+
+    font: {
+        family: inherit;
+        size: 1em;
+        weight: inherit;
+        style: inherit;
+    }
+
+    line-height: inherit;
+    margin-left: 30px;
+
+    &__unsorted {
+        & li:before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: $subcolor;
+            margin-right: 5px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    &__decimal {
+        list-style-type: decimal;
+        font-family: inherit;
+        font-size: 1em;
+        font-weight: 400;
+        line-height: 24px;
+        margin-left: 30px;
+    }
+
+    @include adaptive(pad) {
+        font-size: 0.9em;
+    }
+
+    @include adaptive(mobile) {
+        font-size: 0.8em;
+    }
+}

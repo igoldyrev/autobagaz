@@ -1,0 +1,19 @@
+﻿.span {
+    font: {
+        family: inherit;
+        size: 1em;
+        weight: inherit;
+        style: inherit;
+    }
+
+    line-height: inherit;
+
+    @include adaptive(pad) {
+        font-size: 0.9em;
+    }
+
+    @include adaptive(mobile) {
+        font-size: 0.8em;
+        line-height: 20px;
+    }
+}

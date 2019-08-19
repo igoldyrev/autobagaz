@@ -1,0 +1,35 @@
+﻿.link {
+    font: {
+        family: inherit;
+        size: 1em;
+        weight: inherit;
+        style: inherit;
+    }
+
+    text-decoration: none;
+    line-height: inherit;
+    color: inherit;
+    box-shadow: inset 0 -1px $subcolor;
+    cursor: pointer;
+
+    &:hover {
+        color: $subcolor;
+        transition: 0.4s ease-in-out;
+    }
+
+    &:visited {
+        color: $primarycolor;
+    }
+
+    &:active {
+        color: $subcolor;
+    }
+
+    @include adaptive(pad) {
+        font-size: 0.9em;
+    }
+
+    @include adaptive(mobile) {
+        font-size: 0.8em;
+    }
+}

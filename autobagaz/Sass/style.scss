@@ -1,3 +1,11 @@
-﻿body {
-    min-height: 100%;
-}
+﻿@import "variables.scss";
+@import "mixins.scss";
+@import "clearfix.scss";
+@import "BaseStyles/body.scss";
+@import "BaseStyles/wrapper.scss";
+@import "BaseStyles/title.scss";
+@import "BaseStyles/text.scss";
+@import "BaseStyles/span.scss";
+@import "BaseStyles/list.scss";
+@import "BaseStyles/link.scss";
+@import "Components/header.scss";
