@@ -16,27 +16,26 @@
     <meta property="business:contact_data:website" content="https://autobagaz.ru">
     <meta property="og:url" content="https://autobagaz.ru">
     <meta property="og:site_name" content="Автобагаж">
-    
+
+    <link rel="stylesheet" href="~/fa/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/build/autobagaz.css" />
+
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?139"></script>
+    <script type="text/javascript">
+    VK.init({apiId: 5866168, onlyWidgets: true});
+    </script>
 </head>
 <body>
     <header class="header">
         @{await Html.RenderPartialAsync("_Header");}
         @{await Html.RenderPartialAsync("_Proposition");}
-
-        
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="wrapper">
+        @{await Html.RenderPartialAsync("_LeftNavigation");}
+        <main role="main" class="wrapper__content">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - autobagaz - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-
+    @{await Html.RenderPartialAsync("_Footer");}
 </body>
 </html>
