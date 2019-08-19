@@ -1,0 +1,56 @@
+﻿.proposition {
+    &__block {
+        text-align: center;
+
+        &:last-child {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__star {
+        color: $redcolor;
+        vertical-align: top;
+    }
+
+    &__text {
+        font: {
+            family: inherit;
+            size: 2em;
+            weight: 500;
+            style: inherit;
+        }
+
+        line-height: 36px;
+        color: $redcolor;
+
+        &--small {
+            font-weight: 300;
+            font-size: 1em;
+        }
+    }
+}
+
+@include adaptive(pad) {
+    .proposition {
+        &__text {
+            font-size: 1.5em;
+
+            &--small {
+                font-size: 0.9em;
+            }
+        }
+    }
+}
+
+@include adaptive(mobile) {
+    .proposition {
+        &__text {
+            font-size: 1em;
+            line-height: 24px;
+
+            &--small {
+                font-size: 0.8em;
+            }
+        }
+    }
+}
