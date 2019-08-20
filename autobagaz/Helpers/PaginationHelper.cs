@@ -38,6 +38,10 @@ namespace autobagaz
         TagBuilder CreateTag(int pageNumber, IUrlHelper urlHelper)
         {
             TagBuilder link = new TagBuilder("a");
+            if (this.Pagination.TotalPages == 1)
+            {
+                link.AddCssClass("pagination__link--notdpsplay");
+            }
             if (pageNumber == this.Pagination.PageNumber)
             {
                 link.AddCssClass("pagination__link pagination__link--active");

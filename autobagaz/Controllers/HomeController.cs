@@ -91,7 +91,7 @@ namespace autobagaz.Controllers
 
         public ActionResult Contacts(int page = 1)
         {         
-            int PageSize = 1; // количество объектов на страницу
+            int PageSize = 5; // количество объектов на страницу
 
             IQueryable<Shop> cities = context.AUTOBAGAZ_SHOP.Include(s => s.City);
             var count = cities.Count();
