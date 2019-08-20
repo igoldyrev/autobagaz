@@ -24,9 +24,13 @@ namespace autobagaz
         /// </summary>
         public string AUTOBAGAZ_SHOP_PHONE { get; set; }
         /// <summary>
-        /// Человек в магазине
+        /// Номер телефона менеджера в магазине
         /// </summary>
-        public string AUTOBAGAZ_SHOP_PERSON { get; set; }
+        public string AUTOBAGAZ_SHOP_PERSON_PHONE { get; set; }
+        /// <summary>
+        /// Имя менеджера в магазине
+        /// </summary>
+        public string AUTOBAGAZ_SHOP_PERSON_NAME { get; set; }
         /// <summary>
         /// Изображение Магазина 1
         /// </summary>
