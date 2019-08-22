@@ -13,7 +13,6 @@ namespace autobagaz
         public DbSet<AUTOBAGAZ_USER> AUTOBAGAZ_USER { get; set; }
         public DbSet<City> AUTOBAGAZ_CITY { get; set; }
         public DbSet<Shop> AUTOBAGAZ_SHOP { get; set; }
-        public DbSet<WorkTime> AUTOBAGAZ_WORKTIME { get; set; }
         public DbSet<AUTOBAGAZ_SPECIAL_OFFER> AUTOBAGAZ_SPECIAL_OFFER  { get; set; }
         public DbSet<AUTOBAGAZ_KOMISSION_GOOD> AUTOBAGAZ_KOMISSION_GOOD { get; set; }
         public DbSet<Autobagazhnik> Autobagazhnik { get; set; }

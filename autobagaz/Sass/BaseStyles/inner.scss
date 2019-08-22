@@ -1,0 +1,15 @@
+﻿.inner {
+    background-color: $lightgray;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+}
+
+@include adaptive(pad) {
+    border-radius: 5px;
+}
+
+@include adaptive(mobile) {
+    padding: 5px;
+    margin-bottom: 10px;
+}

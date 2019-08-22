@@ -1,0 +1,32 @@
+﻿.img {
+    width: 250px;
+    margin: 5px 15px;
+    border: 1px solid $mediumgray;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+}
+
+@include adaptive(pad) {
+    .img {
+        width: 160px;
+    }
+}
+
+@include adaptive(mobile) {
+    .img {
+        width: 100%;
+        margin: 0 0 15px;
+    }
+}
+
+img[src=""] {
+    display: none;
+}

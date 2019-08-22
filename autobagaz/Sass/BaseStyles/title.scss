@@ -1,0 +1,110 @@
+﻿.title {
+    font-family: $font-title;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.title-h1 {
+    font-size: 1.6em;
+    line-height: 40px;
+    color: inherit;
+}
+
+.title-h2 {
+    font-size: 1.4em;
+    line-height: 32px;
+    color: inherit;
+}
+
+.title-h3 {
+    font-size: 1.2em;
+    line-height: 24px;
+    color: inherit;
+}
+
+.title-h4 {
+    font-size: 1em;
+    line-height: 20px;
+    color: inherit;
+}
+
+.title-h5 {
+    font-size: 0.9em;
+    line-height: 20px;
+    color: inherit;
+}
+
+.title-h6 {
+    font-size: 0.9em;
+    line-height: 20px;
+    color: inherit;
+}
+
+@include adaptive(pad) {
+    .title {
+        margin-bottom: 10px;
+    }
+
+    .title-h1 {
+        font-size: 1.4em;
+        line-height: 30px;
+    }
+
+    .title-h2 {
+        font-size: 1.2em;
+        line-height: 26px;
+    }
+
+    .title-h3 {
+        font-size: 1em;
+        line-height: 22px;
+    }
+
+    .title-h4 {
+        font-size: 0.9em;
+        line-height: 20px;
+    }
+
+    .title-h5 {
+        line-height: 18px;
+    }
+
+    .title-h6 {
+        line-height: 18px;
+    }
+}
+
+@include adaptive(mobile) {
+    .title {
+        margin-bottom: 10px;
+    }
+
+    .title-h1 {
+        font-size: 1.2em;
+        line-height: 24px;
+    }
+
+    .title-h2 {
+        font-size: 1em;
+        line-height: 20px;
+    }
+
+    .title-h3 {
+        font-size: 0.9em;
+        line-height: 20px;
+    }
+
+    .title-h4 {
+        font-size: 0.9em;
+        line-height: 20px;
+    }
+
+    .title-h5 {
+        line-height: 18px;
+    }
+
+    .title-h6 {
+        line-height: 18px;
+    }
+}

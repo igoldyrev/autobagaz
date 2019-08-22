@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using autobagaz.Models;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace autobagaz.Controllers
 {
@@ -13,7 +13,6 @@ namespace autobagaz.Controllers
     {
         private readonly AutobagazContext context;
 
-        //public List<User> Users { get; set; }
         public HomeController(AutobagazContext db)
         {
             context = db;
@@ -90,15 +89,37 @@ namespace autobagaz.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public ActionResult Contacts(int page = 1)
+        {         
+            int PageSize = 5; // количество объектов на страницу
+
+            IQueryable<Shop> cities = context.AUTOBAGAZ_SHOP.Include(s => s.City);
+            var count = cities.Count();
+            var items = cities.Skip((page - 1) * PageSize).Take(PageSize).ToList();
+
+            Pagination pagination = new Pagination(count, page, PageSize);
+            PaginationViewModel pvm = new PaginationViewModel
+            {
+                Pagination = pagination,
+                Shops = items
+            };
+
+            return View(pvm);
+        }
+
+        public ActionResult Sertificates()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public ActionResult Partners()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+
+        public ActionResult Sitemap()
+        {
+            return View();
         }
 
         #region AdditionalFunctions
