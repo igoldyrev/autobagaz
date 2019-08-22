@@ -21,7 +21,7 @@
                    href="tel:@shop.AUTOBAGAZ_SHOP_PHONE"
                    class="link">@shop.AUTOBAGAZ_SHOP_PHONE</a>
             </p>
-            <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" 
+            <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
                href="tel:@shop.AUTOBAGAZ_SHOP_PERSON_PHONE"
                class="contacts__link">@shop.AUTOBAGAZ_SHOP_PERSON_PHONE @shop.AUTOBAGAZ_SHOP_PERSON_NAME</a>
             <div class="img__wrapper">
@@ -36,3 +36,5 @@
 }
 
 <pagination pagination="Model.Pagination" page-action="Contacts"></pagination>
+
+@{await Html.RenderPartialAsync("_Inn");}
