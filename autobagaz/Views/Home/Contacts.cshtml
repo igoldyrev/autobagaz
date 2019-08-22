@@ -12,26 +12,24 @@
 
 @foreach (var shop in Model.Shops)
 {
-    <div class="contacts__shop" id="@shop.AUTOBAGAZ_SHOP_ID">
+    <div class="inner" id="@shop.AUTOBAGAZ_SHOP_ID">
         <h3 class="title title-h3">@shop.City.AUTOBAGAZ_CITY_NAME, @shop.AUTOBAGAZ_SHOP_NAME</h3>
-        <div class="contacts">
-            <p class="text">
-                Позвонить в магазин:
-                <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
-                   href="tel:@shop.AUTOBAGAZ_SHOP_PHONE"
-                   class="link">@shop.AUTOBAGAZ_SHOP_PHONE</a>
-            </p>
+        <p class="text">
+            Позвонить в магазин:
             <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
-               href="tel:@shop.AUTOBAGAZ_SHOP_PERSON_PHONE"
-               class="contacts__link">@shop.AUTOBAGAZ_SHOP_PERSON_PHONE @shop.AUTOBAGAZ_SHOP_PERSON_NAME</a>
-            <div class="img__wrapper">
-                <img class="img" src="@shop.AUTOBAGAZ_SHOP_PHOTO_URL1" alt="@shop.AUTOBAGAZ_SHOP_NAME">
-                <img class="img" src="@shop.AUTOBAGAZ_SHOP_PHOTO_URL2" alt="@shop.AUTOBAGAZ_SHOP_NAME">
-                <img class="img" src="@shop.AUTOBAGAZ_SHOP_PHOTO_URL3" alt="@shop.AUTOBAGAZ_SHOP_NAME">
-                <img class="img" src="@shop.AUTOBAGAZ_SHOP_PHOTO_URL4" alt="@shop.AUTOBAGAZ_SHOP_NAME">
-            </div>
-            <a class="link" href="@shop.AUTOBAGAZ_SHOP_MAP" target="_blank">Смотреть на Яндекс картах</a>
+               href="tel:@shop.AUTOBAGAZ_SHOP_PHONE"
+               class="link">@shop.AUTOBAGAZ_SHOP_PHONE</a>
+        </p>
+        <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
+           href="tel:@shop.AUTOBAGAZ_SHOP_PERSON_PHONE"
+           class="link">@shop.AUTOBAGAZ_SHOP_PERSON_PHONE @shop.AUTOBAGAZ_SHOP_PERSON_NAME</a>
+        <div class="img__wrapper">
+            <img class="img" src="@shop.AUTOBAGAZ_SHOP_PHOTO_URL1" alt="@shop.AUTOBAGAZ_SHOP_NAME">
+            <img class="img" src="@shop.AUTOBAGAZ_SHOP_PHOTO_URL2" alt="@shop.AUTOBAGAZ_SHOP_NAME">
+            <img class="img" src="@shop.AUTOBAGAZ_SHOP_PHOTO_URL3" alt="@shop.AUTOBAGAZ_SHOP_NAME">
+            <img class="img" src="@shop.AUTOBAGAZ_SHOP_PHOTO_URL4" alt="@shop.AUTOBAGAZ_SHOP_NAME">
         </div>
+        <a class="link" href="@shop.AUTOBAGAZ_SHOP_MAP" target="_blank">Смотреть на Яндекс картах</a>
     </div>
 }
 
