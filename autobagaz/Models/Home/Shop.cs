@@ -18,19 +18,29 @@ namespace autobagaz
         /// <summary>
         /// Название/адрес магазина
         /// </summary>
+        [Required]
         public string AUTOBAGAZ_SHOP_NAME { get; set; }
         /// <summary>
         /// Телефон магазина
         /// </summary>
+        [Required]
         public string AUTOBAGAZ_SHOP_PHONE { get; set; }
         /// <summary>
-        /// Номер телефона менеджера в магазине
+        /// Номер телефона первого менеджера в магазине
         /// </summary>
-        public string AUTOBAGAZ_SHOP_PERSON_PHONE { get; set; }
+        public string AUTOBAGAZ_SHOP_PERSON_PHONE1 { get; set; }
         /// <summary>
-        /// Имя менеджера в магазине
+        /// Имя первого менеджера в магазине
         /// </summary>
-        public string AUTOBAGAZ_SHOP_PERSON_NAME { get; set; }
+        public string AUTOBAGAZ_SHOP_PERSON_NAME1 { get; set; }
+        /// <summary>
+        /// Номер телефона второго менеджера в магазине
+        /// </summary>
+        public string AUTOBAGAZ_SHOP_PERSON_PHONE2 { get; set; }
+        /// <summary>
+        /// Имя второго менеджера в магазине
+        /// </summary>
+        public string AUTOBAGAZ_SHOP_PERSON_NAME2 { get; set; }
         /// <summary>
         /// Изображение Магазина 1
         /// </summary>
