@@ -67,5 +67,23 @@ namespace autobagaz
         public int AUTOBAGAZ_CITY_ID { get; set; }
         [ForeignKey("AUTOBAGAZ_CITY_ID")]
         public virtual City City { get; set; }
+        /// <summary>
+        /// Дата изменения магазина
+        /// </summary>
+        public string AUTOBAGAZ_SHOP_DATE { get; set; }
+        /// <summary>
+        /// Статус магазина
+        /// </summary>
+        [Required]
+        public int AUTOBAGAZ_SHOP_STATUS_ID { get; set; }
+        [ForeignKey("AUTOBAGAZ_SHOP_STATUS_ID")]
+        public virtual AUTOBAGAZ_STATUS AUTOBAGAZ_STATUS { get; set; }
+        /// <summary>
+        /// Пользователь изменивший магазин
+        /// </summary>
+        [Required]
+        public int AUTOBAGAZ_SHOP_USER_ID { get; set; }
+        [ForeignKey("AUTOBAGAZ_SHOP_USER_ID")]
+        public virtual AUTOBAGAZ_USER AUTOBAGAZ_USER { get; set; }
     }
 }
