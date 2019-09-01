@@ -10,13 +10,13 @@
     {
         if (ViewBag.SuccessAdd == true)
         {
-            <div class="text__success">
+            <div class="good-message">
                 <p class='text'>Магазин успешно добавлен!</p>
             </div>
         }
 
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true, "", new { @class = "text__error" })
+        @Html.ValidationSummary(true, "", new { @class = "good-message good-message--wrong" })
 
         <p class="text">Сначала выберите город, в котором находится магазин. Если город отсутствует в списке, то добавьте его</p>
         @Html.LabelFor(m => m.AUTOBAGAZ_CITY_ID, "Выбор города:", htmlAttributes: new { @class = "form__label" })
