@@ -90,24 +90,23 @@
             <span asp-for="AUTOBAGAZ_SHOP_MAP" class="form__placeholder">Адрес Яндекс карты</span>
         </div>
 
-        <input type="submit" value="Добавить магазин" class="form__button" />
+        <input type="submit" value="Добавить магазин" class="button button__zakaz" />
     }
 </div>
 
-
 <div class="navlinks navlinks--center">
-    @Html.ActionLink("Вернуться назад", "Index", null, new { @class = "navlinks__link navlinks__link--add" })
+    @Html.ActionLink("Вернуться назад", "Index", null, null, new { @class = "navlinks__link navlinks__link--add" })
 </div>
 
 <script type="text/javascript">
     //todo попробовать переписать на чистом js
 
     $('.form__input').on('input', function () {
-    var $this = $(this);
-    if ($this.val() == '') {
-        $this.removeClass('form__input_filled');
-    } else {
-        $this.addClass('form__input_filled');
-    }
-});
+        var $this = $(this);
+        if ($this.val() == '') {
+            $this.removeClass('form__input_filled');
+        } else {
+            $this.addClass('form__input_filled');
+        }
+    });
 </script>

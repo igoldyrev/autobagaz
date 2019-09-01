@@ -1,0 +1,80 @@
+﻿.button {
+    font: {
+        family: $font;
+        size: 1em;
+        weight: 400;
+    }
+
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    &:hover {
+        transition: 0.4s ease-in-out;
+    }
+
+    &__zakaz {
+        border: 1px solid $subcolor;
+        background-color: $subcolor;
+        width: 100%;
+        height: 50px;
+
+        &:hover {
+            background-color: #0B610B;
+        }
+
+        &--gray {
+            border: 1px solid $buttongray;
+            background-color: $buttongray;
+
+            &:hover {
+                background-color: #999;
+            }
+        }
+
+        &--red {
+            border: 1px solid $redcolor;
+            background-color: $redcolor;
+
+            &:hover {
+                background-color: #B40404;
+            }
+        }
+    }
+
+    &__buy {
+        display: block;
+        width: 150px;
+        height: 40px;
+        border: 1px solid $subcolor;
+        background-color: $subcolor;
+
+        &:hover {
+            background-color: #0B610B;
+        }
+
+        &--gray {
+            border: 1px solid $buttongray;
+            background-color: $buttongray;
+
+            &:hover {
+                background-color: #999;
+            }
+        }
+
+        &--white {
+            border: 1px solid $subcolor;
+            background-color: #ffffff;
+            color: $subcolor;
+
+            &:hover {
+                background-color: $subcolor;
+                color: #fff;
+            }
+        }
+    }
+}
