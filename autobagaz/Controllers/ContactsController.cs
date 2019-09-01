@@ -69,8 +69,20 @@ namespace autobagaz.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddShop( Shop shop)
         {
+            if (shop.AUTOBAGAZ_SHOP_NAME == null)
+            {
+                ModelState.AddModelError("", "Поле Название магазина является обязательным");
+            }
+            else if (shop.AUTOBAGAZ_SHOP_PHONE == null)
+            {
+                ModelState.AddModelError("", "Поле Телефон магазина является обязательным");
+            }
+
             if (ModelState.IsValid)
             {
+                ViewBag.SuccessAdd = true;
+                shop.AUTOBAGAZ_SHOP_DATE = DateTime.Now.ToString("g");
+                shop.AUTOBAGAZ_SHOP_STATUS_ID = 1;
                 _context.Add(shop);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
