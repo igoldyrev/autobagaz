@@ -97,16 +97,3 @@
 <div class="navlinks navlinks--center">
     @Html.ActionLink("Вернуться назад", "Index", null, null, new { @class = "navlinks__link navlinks__link--add" })
 </div>
-
-<script type="text/javascript">
-    //todo попробовать переписать на чистом js
-
-    $('.form__input').on('input', function () {
-        var $this = $(this);
-        if ($this.val() == '') {
-            $this.removeClass('form__input_filled');
-        } else {
-            $this.addClass('form__input_filled');
-        }
-    });
-</script>
