@@ -80,15 +80,30 @@ namespace autobagaz.Controllers
 
             if (ModelState.IsValid)
             {
+                if (shop.AUTOBAGAZ_SHOP_PHOTO_URL1 == null)
+                {
+                    shop.AUTOBAGAZ_SHOP_PHOTO_URL1 = "";
+                }
+                else if (shop.AUTOBAGAZ_SHOP_PHOTO_URL2 == null)
+                {
+                    shop.AUTOBAGAZ_SHOP_PHOTO_URL2 = "";
+                }
+                else if (shop.AUTOBAGAZ_SHOP_PHOTO_URL3 == null)
+                {
+                    shop.AUTOBAGAZ_SHOP_PHOTO_URL3 = "";
+                }
+                else if (shop.AUTOBAGAZ_SHOP_PHOTO_URL4 == null)
+                {
+                    shop.AUTOBAGAZ_SHOP_PHOTO_URL4 = "";
+                }
                 ViewBag.SuccessAdd = true;
                 shop.AUTOBAGAZ_SHOP_DATE = DateTime.Now.ToString("g");
                 shop.AUTOBAGAZ_SHOP_STATUS_ID = 1;
+                shop.AUTOBAGAZ_SHOP_USER_ID = User.Identity.GetUserId<int>();
                 _context.Add(shop);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AUTOBAGAZ_SHOP_STATUS_ID"] = new SelectList(_context.AUTOBAGAZ_STATUS, "AUTOBAGAZ_STATUS_ID", "AUTOBAGAZ_STATUS_CODE", shop.AUTOBAGAZ_SHOP_STATUS_ID);
-            ViewData["AUTOBAGAZ_SHOP_USER_ID"] = new SelectList(_context.AUTOBAGAZ_USER, "AUTOBAGAZ_USER_ID", "AUTOBAGAZ_USER_DATE", shop.AUTOBAGAZ_SHOP_USER_ID);
             ViewData["AUTOBAGAZ_CITY_ID"] = new SelectList(_context.AUTOBAGAZ_CITY, "AUTOBAGAZ_CITY_ID", "AUTOBAGAZ_CITY_NAME", shop.AUTOBAGAZ_CITY_ID);
             return View(shop);
         }
