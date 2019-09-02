@@ -9,9 +9,10 @@
 
 <h2 class="title title-h2">Адреса магазинов:</h2>
 
-<p>
-    <a asp-action="AddShop">Create New</a>
-</p>
+@if (User.Identity.GetUserRole() == "admin")
+{
+    @Html.ActionLink("Добавить", "AddShop", null, null, new { @class = "button button__buy button__buy--white" })
+}
 
 @foreach (var shop in Model.Shops)
 {

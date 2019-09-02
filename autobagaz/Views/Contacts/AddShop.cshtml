@@ -1,7 +1,7 @@
 ﻿@model autobagaz.Shop
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Добавить магазин";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -32,7 +32,7 @@
 
         @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHONE, "Телефон магазина:", htmlAttributes: new { @class = "form__label" })
         <div class="form__input-wrap">
-            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHONE, new { htmlAttributes = new { @class = "form__input"} })
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHONE, new { htmlAttributes = new { @class = "form__input" } })
             <span asp-for="AUTOBAGAZ_SHOP_PHONE" class="form__placeholder">В формате +7 (342) 288 99 69</span>
         </div>
 
@@ -94,6 +94,7 @@
     }
 </div>
 
-<div class="navlinks navlinks--center">
-    @Html.ActionLink("Вернуться назад", "Index", null, null, new { @class = "navlinks__link navlinks__link--add" })
-</div>
+@if (User.Identity.GetUserRole() == "admin")
+{
+    @Html.ActionLink("Назад", "Index", null, null, new { @class = "button button__buy button__buy--white" })
+}

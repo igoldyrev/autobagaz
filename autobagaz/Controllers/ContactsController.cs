@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using autobagaz;
+using Microsoft.AspNetCore.Authorization;
 
 namespace autobagaz.Controllers
 {
@@ -19,6 +18,7 @@ namespace autobagaz.Controllers
         }
 
         // GET: Contacts
+        [AllowAnonymous]
         public async Task<IActionResult> Index(int page = 1)
         {
             int PageSize = 5; // количество объектов на страницу
@@ -58,6 +58,7 @@ namespace autobagaz.Controllers
         //}
 
         // GET: Contacts/AddShop
+        [Authorize(Roles = "admin")]
         public IActionResult AddShop()
         {
             ViewData["AUTOBAGAZ_CITY_ID"] = new SelectList(_context.AUTOBAGAZ_CITY, "AUTOBAGAZ_CITY_ID", "AUTOBAGAZ_CITY_NAME");
