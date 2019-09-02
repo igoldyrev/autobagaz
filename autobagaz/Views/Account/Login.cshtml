@@ -1,35 +1,29 @@
 ﻿@model autobagaz.LoginViewModel
 
 @{
-    ViewData["Title"] = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Войти";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
 
-<h1>Login</h1>
+    <div class="auth__wrapper">
+        <div class="auth__content">
+            <h1 class="title title-h1">@ViewData["Title"]</h1>
+            <div class="auth__form-wrap">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "auth__form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    Html.ValidationSummary(true, "", new { @class = "good-message good-message--wrong" });
 
-<h4>LoginViewModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Login">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="USERNAME" class="control-label"></label>
-                <input asp-for="USERNAME" class="form-control" />
-                <span asp-validation-for="USERNAME" class="text-danger"></span>
+                    <div class="form__input-wrap">
+                        @Html.EditorFor(m => m.USERNAME, new { htmlAttributes = new { @class = "form__input" } })
+                        <span asp-for="USERNAME" class="form__placeholder">Имя пользователя</span>
+                    </div>
+                    <div class="form__input-wrap">
+                        @Html.EditorFor(m => m.PASSWORD, new { htmlAttributes = new { @class = "form__input" } })
+                        <span asp-for="USERNAME" class="form__placeholder">Пароль</span>
+                    </div>
+                    <input type="submit" value="Войти" class="button button__zakaz" />
+                }
             </div>
-            <div class="form-group">
-                <label asp-for="PASSWORD" class="control-label"></label>
-                <input asp-for="PASSWORD" class="form-control" />
-                <span asp-validation-for="PASSWORD" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
