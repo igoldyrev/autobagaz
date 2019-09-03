@@ -93,10 +93,6 @@
         <input type="submit" value="Добавить магазин" class="button button__zakaz" />
     }
 </div>
-
-@if (User.Identity.GetUserRole() == "admin")
-{
-    <div class="button__wrap">
-        @Html.ActionLink("Назад", "Index", null, null, new { @class = "button button__buy button__buy--white button__buy--wide" })
-    </div>
-}
+<div class="button__wrap">
+    @Html.ActionLink("Назад", "Index", null, null, new { @class = "button button__buy button__buy--white button__buy--wide" })
+</div>

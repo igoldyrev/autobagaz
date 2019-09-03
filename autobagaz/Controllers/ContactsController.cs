@@ -36,27 +36,6 @@ namespace autobagaz.Controllers
             return View(pvm);
         }
 
-        // GET: Contacts/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var shop = await _context.AUTOBAGAZ_SHOP
-        //        .Include(s => s.AUTOBAGAZ_STATUS)
-        //        .Include(s => s.AUTOBAGAZ_USER)
-        //        .Include(s => s.City)
-        //        .FirstOrDefaultAsync(m => m.AUTOBAGAZ_SHOP_ID == id);
-        //    if (shop == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(shop);
-        //}
-
         // GET: Contacts/AddShop
         [Authorize(Roles = "admin")]
         public IActionResult AddShop()
@@ -110,6 +89,7 @@ namespace autobagaz.Controllers
         }
 
         // GET: Contacts/Edit/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> EditShop(int? id)
         {
             if (id == null)
@@ -122,18 +102,14 @@ namespace autobagaz.Controllers
             {
                 return NotFound();
             }
-            ViewData["AUTOBAGAZ_SHOP_STATUS_ID"] = new SelectList(_context.AUTOBAGAZ_STATUS, "AUTOBAGAZ_STATUS_ID", "AUTOBAGAZ_STATUS_CODE", shop.AUTOBAGAZ_SHOP_STATUS_ID);
-            ViewData["AUTOBAGAZ_SHOP_USER_ID"] = new SelectList(_context.AUTOBAGAZ_USER, "AUTOBAGAZ_USER_ID", "AUTOBAGAZ_USER_DATE", shop.AUTOBAGAZ_SHOP_USER_ID);
             ViewData["AUTOBAGAZ_CITY_ID"] = new SelectList(_context.AUTOBAGAZ_CITY, "AUTOBAGAZ_CITY_ID", "AUTOBAGAZ_CITY_NAME", shop.AUTOBAGAZ_CITY_ID);
             return View(shop);
         }
 
         // POST: Contacts/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AUTOBAGAZ_SHOP_ID,AUTOBAGAZ_SHOP_NAME,AUTOBAGAZ_SHOP_PHONE,AUTOBAGAZ_SHOP_PERSON_PHONE1,AUTOBAGAZ_SHOP_PERSON_NAME1,AUTOBAGAZ_SHOP_PERSON_PHONE2,AUTOBAGAZ_SHOP_PERSON_NAME2,AUTOBAGAZ_SHOP_PHOTO_URL1,AUTOBAGAZ_SHOP_PHOTO_URL2,AUTOBAGAZ_SHOP_PHOTO_URL3,AUTOBAGAZ_SHOP_PHOTO_URL4,AUTOBAGAZ_SHOP_MAP,AUTOBAGAZ_CITY_ID,AUTOBAGAZ_SHOP_DATE,AUTOBAGAZ_SHOP_STATUS_ID,AUTOBAGAZ_SHOP_USER_ID")] Shop shop)
+        public async Task<IActionResult> EditShop(int id, Shop shop)
         {
             if (id != shop.AUTOBAGAZ_SHOP_ID)
             {
@@ -144,6 +120,9 @@ namespace autobagaz.Controllers
             {
                 try
                 {
+                    shop.AUTOBAGAZ_SHOP_DATE = DateTime.Now.ToString("g");
+                    shop.AUTOBAGAZ_SHOP_STATUS_ID = 2;
+                    shop.AUTOBAGAZ_SHOP_USER_ID = User.Identity.GetUserId<int>();
                     _context.Update(shop);
                     await _context.SaveChangesAsync();
                 }
@@ -160,13 +139,12 @@ namespace autobagaz.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AUTOBAGAZ_SHOP_STATUS_ID"] = new SelectList(_context.AUTOBAGAZ_STATUS, "AUTOBAGAZ_STATUS_ID", "AUTOBAGAZ_STATUS_CODE", shop.AUTOBAGAZ_SHOP_STATUS_ID);
-            ViewData["AUTOBAGAZ_SHOP_USER_ID"] = new SelectList(_context.AUTOBAGAZ_USER, "AUTOBAGAZ_USER_ID", "AUTOBAGAZ_USER_DATE", shop.AUTOBAGAZ_SHOP_USER_ID);
             ViewData["AUTOBAGAZ_CITY_ID"] = new SelectList(_context.AUTOBAGAZ_CITY, "AUTOBAGAZ_CITY_ID", "AUTOBAGAZ_CITY_NAME", shop.AUTOBAGAZ_CITY_ID);
             return View(shop);
         }
 
         // GET: Contacts/Delete/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteShop(int? id)
         {
             if (id == null)
@@ -174,11 +152,7 @@ namespace autobagaz.Controllers
                 return NotFound();
             }
 
-            var shop = await _context.AUTOBAGAZ_SHOP
-                .Include(s => s.AUTOBAGAZ_STATUS)
-                .Include(s => s.AUTOBAGAZ_USER)
-                .Include(s => s.City)
-                .FirstOrDefaultAsync(m => m.AUTOBAGAZ_SHOP_ID == id);
+            var shop = await _context.AUTOBAGAZ_SHOP.FindAsync(id);
             if (shop == null)
             {
                 return NotFound();
@@ -188,13 +162,57 @@ namespace autobagaz.Controllers
         }
 
         // POST: Contacts/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteShop( int id, Shop shop)
         {
-            var shop = await _context.AUTOBAGAZ_SHOP.FindAsync(id);
-            _context.AUTOBAGAZ_SHOP.Remove(shop);
+            if (id != shop.AUTOBAGAZ_SHOP_ID)
+            {
+                return NotFound();
+            }
+
+            shop.AUTOBAGAZ_SHOP_DATE = DateTime.Now.ToString("g");
+            shop.AUTOBAGAZ_SHOP_STATUS_ID = 3;
+            shop.AUTOBAGAZ_SHOP_USER_ID = User.Identity.GetUserId<int>();
+            _context.Update(shop);
             await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> RestoreShop(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var shop = await _context.AUTOBAGAZ_SHOP.FindAsync(id);
+            if (shop == null)
+            {
+                return NotFound();
+            }
+
+            return View(shop);
+        }
+
+        // POST: Contacts/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RestoreConfirmed(int id, Shop shop)
+        {
+            if (id != shop.AUTOBAGAZ_SHOP_ID)
+            {
+                return NotFound();
+            }
+
+            shop.AUTOBAGAZ_SHOP_DATE = DateTime.Now.ToString("g");
+            shop.AUTOBAGAZ_SHOP_STATUS_ID = 1;
+            shop.AUTOBAGAZ_SHOP_USER_ID = User.Identity.GetUserId<int>();
+            _context.Update(shop);
+            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 

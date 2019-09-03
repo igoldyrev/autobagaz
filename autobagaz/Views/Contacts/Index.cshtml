@@ -39,10 +39,13 @@
         <img class="img" src="@shop.AUTOBAGAZ_SHOP_PHOTO_URL4" alt="@shop.AUTOBAGAZ_SHOP_NAME">
     </div>
     <a class="link" href="@shop.AUTOBAGAZ_SHOP_MAP" target="_blank">Смотреть на Яндекс картах</a>
-    <div class="button__wrap">
-        @Html.ActionLink("Редактировать", "EditShop", null, new { id = shop.AUTOBAGAZ_SHOP_ID }, new { @class = "button button__buy button__buy--white" })
-        @Html.ActionLink("Удалить", "DeleteShop", null, new { id = shop.AUTOBAGAZ_SHOP_ID }, new { @class = "button button__buy button__buy--red" })
-    </div>
+    @if (User.Identity.GetUserRole() == "admin")
+    {
+        <div class="button__wrap">
+            @Html.ActionLink("Редактировать", "EditShop", null, new { id = shop.AUTOBAGAZ_SHOP_ID }, new { @class = "button button__buy button__buy--white" })
+            @Html.ActionLink("Удалить", "DeleteShop", null, new { id = shop.AUTOBAGAZ_SHOP_ID }, new { @class = "button button__buy button__buy--red" })
+        </div>
+    }
 </div>
 }
 
