@@ -17,6 +17,10 @@
         transition: 0.4s ease-in-out;
     }
 
+    &__wrap {
+        margin-bottom: 15px;
+    }
+
     &__zakaz {
         border: 1px solid $subcolor;
         background-color: $subcolor;

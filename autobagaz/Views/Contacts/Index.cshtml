@@ -11,7 +11,9 @@
 
 @if (User.Identity.GetUserRole() == "admin")
 {
-    @Html.ActionLink("Добавить", "AddShop", null, null, new { @class = "button button__buy button__buy--white" })
+    <div class="button__wrap">
+        @Html.ActionLink("Добавить", "AddShop", null, null, new { @class = "button button__buy button__buy--white" })
+    </div>
 }
 
 @foreach (var shop in Model.Shops)

@@ -96,5 +96,7 @@
 
 @if (User.Identity.GetUserRole() == "admin")
 {
-    @Html.ActionLink("Назад", "Index", null, null, new { @class = "button button__buy button__buy--white" })
+    <div class="button__wrap">
+        @Html.ActionLink("Назад", "Index", null, null, new { @class = "button button__buy button__buy--white" })
+    </div>
 }
