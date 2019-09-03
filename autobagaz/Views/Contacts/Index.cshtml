@@ -12,7 +12,7 @@
 @if (User.Identity.GetUserRole() == "admin")
 {
     <div class="button__wrap">
-        @Html.ActionLink("Добавить", "AddShop", null, null, new { @class = "button button__buy button__buy--white" })
+        @Html.ActionLink("Добавить магазин", "AddShop", null, null, new { @class = "button button__buy button__buy--white button__buy--wide" })
     </div>
 }
 
