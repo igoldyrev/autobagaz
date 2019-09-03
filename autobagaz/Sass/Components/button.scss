@@ -18,6 +18,9 @@
     }
 
     &__wrap {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         margin-bottom: 15px;
     }
 
@@ -56,6 +59,11 @@
         height: 40px;
         border: 1px solid $subcolor;
         background-color: $subcolor;
+        margin: 0 7px;
+
+        &:last-child {
+            margin: 0 0 0 7px;
+        }
 
         &:hover {
             background-color: #0B610B;
@@ -83,6 +91,31 @@
 
         &--wide {
             width: 200px;
+        }
+
+        &--red {
+            border: 1px solid $redcolor;
+            background-color: $redcolor;
+
+            &:hover {
+                background-color: #B40404;
+            }
+        }
+    }
+}
+
+@include adaptive(pad) {
+    .button {
+        &__wrap {
+            flex-direction: column;
+        }
+    }
+}
+
+@include adaptive(mobile) {
+    .button {
+        &__wrap {
+            flex-direction: column;
         }
     }
 }

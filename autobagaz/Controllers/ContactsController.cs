@@ -110,7 +110,7 @@ namespace autobagaz.Controllers
         }
 
         // GET: Contacts/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> EditShop(int? id)
         {
             if (id == null)
             {
@@ -167,7 +167,7 @@ namespace autobagaz.Controllers
         }
 
         // GET: Contacts/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> DeleteShop(int? id)
         {
             if (id == null)
             {
