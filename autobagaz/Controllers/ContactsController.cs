@@ -64,15 +64,15 @@ namespace autobagaz.Controllers
                 {
                     shop.AUTOBAGAZ_SHOP_PHOTO_URL1 = "";
                 }
-                else if (shop.AUTOBAGAZ_SHOP_PHOTO_URL2 == null)
+                if (shop.AUTOBAGAZ_SHOP_PHOTO_URL2 == null)
                 {
                     shop.AUTOBAGAZ_SHOP_PHOTO_URL2 = "";
                 }
-                else if (shop.AUTOBAGAZ_SHOP_PHOTO_URL3 == null)
+                if (shop.AUTOBAGAZ_SHOP_PHOTO_URL3 == null)
                 {
                     shop.AUTOBAGAZ_SHOP_PHOTO_URL3 = "";
                 }
-                else if (shop.AUTOBAGAZ_SHOP_PHOTO_URL4 == null)
+                if (shop.AUTOBAGAZ_SHOP_PHOTO_URL4 == null)
                 {
                     shop.AUTOBAGAZ_SHOP_PHOTO_URL4 = "";
                 }
@@ -120,6 +120,23 @@ namespace autobagaz.Controllers
             {
                 try
                 {
+                    if (shop.AUTOBAGAZ_SHOP_PHOTO_URL1 == null)
+                    {
+                        shop.AUTOBAGAZ_SHOP_PHOTO_URL1 = "";
+                    }
+                    if (shop.AUTOBAGAZ_SHOP_PHOTO_URL2 == null)
+                    {
+                        shop.AUTOBAGAZ_SHOP_PHOTO_URL2 = "";
+                    }
+                    if (shop.AUTOBAGAZ_SHOP_PHOTO_URL3 == null)
+                    {
+                        shop.AUTOBAGAZ_SHOP_PHOTO_URL3 = "";
+                    }
+                    if (shop.AUTOBAGAZ_SHOP_PHOTO_URL4 == null)
+                    {
+                        shop.AUTOBAGAZ_SHOP_PHOTO_URL4 = "";
+                    }
+
                     shop.AUTOBAGAZ_SHOP_DATE = DateTime.Now.ToString("g");
                     shop.AUTOBAGAZ_SHOP_STATUS_ID = 2;
                     shop.AUTOBAGAZ_SHOP_USER_ID = User.Identity.GetUserId<int>();
