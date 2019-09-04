@@ -23,7 +23,9 @@ namespace autobagaz.Controllers
         {
             int PageSize = 5; // количество объектов на страницу
 
-            IQueryable<Shop> cities = _context.AUTOBAGAZ_SHOP.Include(s => s.City);
+            IQueryable<Shop> cities = _context.AUTOBAGAZ_SHOP
+                .Include(s => s.City)
+                .Where(s => s.AUTOBAGAZ_SHOP_STATUS_ID == 1 || s.AUTOBAGAZ_SHOP_STATUS_ID == 2);
             var count = cities.Count();
             var items = await cities.Skip((page - 1) * PageSize).Take(PageSize).ToListAsync();
 

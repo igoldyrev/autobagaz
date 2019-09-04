@@ -17,7 +17,7 @@
     </div>
 }
 
-@foreach (var shop in Model.Shops.Where(s => s.AUTOBAGAZ_SHOP_STATUS_ID != 3))
+@foreach (var shop in Model.Shops)
 {
 <div class="inner" id="@shop.AUTOBAGAZ_SHOP_ID">
     <h3 class="title title-h3">@shop.City.AUTOBAGAZ_CITY_NAME, @shop.AUTOBAGAZ_SHOP_NAME</h3>
