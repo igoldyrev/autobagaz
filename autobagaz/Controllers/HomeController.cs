@@ -89,24 +89,6 @@ namespace autobagaz.Controllers
             return View();
         }
 
-        public ActionResult Contacts(int page = 1)
-        {         
-            int PageSize = 5; // количество объектов на страницу
-
-            IQueryable<Shop> cities = context.AUTOBAGAZ_SHOP.Include(s => s.City);
-            var count = cities.Count();
-            var items = cities.Skip((page - 1) * PageSize).Take(PageSize).ToList();
-
-            Pagination pagination = new Pagination(count, page, PageSize);
-            PaginationViewModel pvm = new PaginationViewModel
-            {
-                Pagination = pagination,
-                Shops = items
-            };
-
-            return View(pvm);
-        }
-
         public ActionResult Sertificates()
         {
             return View();

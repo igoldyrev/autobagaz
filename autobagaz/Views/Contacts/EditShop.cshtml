@@ -1,0 +1,89 @@
+﻿@model autobagaz.Shop
+
+@{
+    ViewData["Title"] = "Редактировать магазин" + Model.AUTOBAGAZ_SHOP_NAME;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="form__container">
+    @using (Html.BeginForm("EditShop", "Contacts", FormMethod.Post, htmlAttributes: new { @class = "form" }))
+    {
+        if (ViewBag.SuccessAdd == true)
+        {
+            <div class="good-message">
+                <p class='text'>Магазин успешно добавлен!</p>
+            </div>
+        }
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "good-message good-message--wrong" })
+
+        @Html.HiddenFor(m => m.AUTOBAGAZ_SHOP_ID)
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_CITY_ID, "Выбор города:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.DropDownListFor(m => m.AUTOBAGAZ_CITY_ID, ViewBag.AUTOBAGAZ_CITY_ID as SelectList, new { @class = "form__input" })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_NAME, "Название магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_NAME, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHONE, "Телефон магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHONE, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PERSON_NAME1, "Первый менеждер магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PERSON_NAME1, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PERSON_PHONE1, "Телефон менеждера магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PERSON_PHONE1, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PERSON_NAME2, "Второй менеждер магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PERSON_NAME2, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PERSON_PHONE2, "Телефон второго менеждера магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PERSON_PHONE2, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL1, "Адрес изображения", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL1, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL2, "Адрес изображения", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL2, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL3, "Адрес изображения", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL3, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL4, "Адрес изображения", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL4, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_MAP, "Адрес Яндекс карты", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_MAP, new { htmlAttributes = new { @class = "form__input" } })
+        </div>
+
+        <input type="submit" value="Редактировать магазин" class="button button__zakaz" />
+
+    }
+</div>
+<div class="button__wrap button__wrap--center">
+    @Html.ActionLink("Назад", "Index", null, null, new { @class = "button button__buy button__buy--white button__buy--wide" })
+</div>

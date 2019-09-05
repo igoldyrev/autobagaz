@@ -1,0 +1,98 @@
+﻿@model autobagaz.Shop
+
+@{
+    ViewData["Title"] = "Добавить магазин";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="form__container">
+    @using (Html.BeginForm("AddShop", "Contacts", FormMethod.Post, htmlAttributes: new { @class = "form" }))
+    {
+        if (ViewBag.SuccessAdd == true)
+        {
+            <div class="good-message">
+                <p class='text'>Магазин успешно добавлен!</p>
+            </div>
+        }
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "good-message good-message--wrong" })
+
+        <p class="text">Сначала выберите город, в котором находится магазин. Если город отсутствует в списке, то добавьте его</p>
+        @Html.LabelFor(m => m.AUTOBAGAZ_CITY_ID, "Выбор города:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.DropDownListFor(m => m.AUTOBAGAZ_CITY_ID, ViewBag.AUTOBAGAZ_CITY_ID as SelectList, new { @class = "form__input" })
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_NAME, "Название магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_NAME, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_NAME" class="form__placeholder">Названием служит адрес магазина</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHONE, "Телефон магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHONE, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_PHONE" class="form__placeholder">В формате +7 (342) 288 99 69</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PERSON_NAME1, "Первый менеждер магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PERSON_NAME1, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_PERSON_NAME1" class="form__placeholder">Имя менеджера магазина</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PERSON_PHONE1, "Телефон менеждера магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PERSON_PHONE1, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_PERSON_PHONE1" class="form__placeholder">В формате +7 908 241 01 93</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PERSON_NAME2, "Второй менеждер магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PERSON_NAME2, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_PERSON_NAME2" class="form__placeholder">Необязательное поле</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PERSON_PHONE2, "Телефон второго менеждера магазина:", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PERSON_PHONE2, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_PERSON_PHONE2" class="form__placeholder">В формате +7 908 241 01 93</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL1, "Адрес изображения", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL1, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_PHOTO_URL1" class="form__placeholder">Адрес изображения</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL2, "Адрес изображения", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL2, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_PHOTO_URL2" class="form__placeholder">Адрес изображения</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL3, "Адрес изображения", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL3, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_PHOTO_URL3" class="form__placeholder">Адрес изображения</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL4, "Адрес изображения", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_PHOTO_URL4, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_PHOTO_URL4" class="form__placeholder">Адрес изображения</span>
+        </div>
+
+        @Html.LabelFor(m => m.AUTOBAGAZ_SHOP_MAP, "Адрес Яндекс карты", htmlAttributes: new { @class = "form__label" })
+        <div class="form__input-wrap">
+            @Html.EditorFor(m => m.AUTOBAGAZ_SHOP_MAP, new { htmlAttributes = new { @class = "form__input" } })
+            <span asp-for="AUTOBAGAZ_SHOP_MAP" class="form__placeholder">Адрес Яндекс карты</span>
+        </div>
+
+        <input type="submit" value="Добавить магазин" class="button button__zakaz" />
+    }
+</div>
+<div class="button__wrap button__wrap--center">
+    @Html.ActionLink("Назад", "Index", null, null, new { @class = "button button__buy button__buy--white button__buy--wide" })
+</div>

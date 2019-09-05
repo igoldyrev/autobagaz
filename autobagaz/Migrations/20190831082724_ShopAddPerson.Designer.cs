@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using autobagaz;
 
 namespace autobagaz.Migrations
 {
     [DbContext(typeof(AutobagazContext))]
-    partial class AutobagazContextModelSnapshot : ModelSnapshot
+    [Migration("20190831082724_ShopAddPerson")]
+    partial class ShopAddPerson
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -314,8 +316,6 @@ namespace autobagaz.Migrations
 
                     b.Property<int>("AUTOBAGAZ_CITY_ID");
 
-                    b.Property<string>("AUTOBAGAZ_SHOP_DATE");
-
                     b.Property<string>("AUTOBAGAZ_SHOP_MAP");
 
                     b.Property<string>("AUTOBAGAZ_SHOP_NAME")
@@ -340,17 +340,9 @@ namespace autobagaz.Migrations
 
                     b.Property<string>("AUTOBAGAZ_SHOP_PHOTO_URL4");
 
-                    b.Property<int>("AUTOBAGAZ_SHOP_STATUS_ID");
-
-                    b.Property<int>("AUTOBAGAZ_SHOP_USER_ID");
-
                     b.HasKey("AUTOBAGAZ_SHOP_ID");
 
                     b.HasIndex("AUTOBAGAZ_CITY_ID");
-
-                    b.HasIndex("AUTOBAGAZ_SHOP_STATUS_ID");
-
-                    b.HasIndex("AUTOBAGAZ_SHOP_USER_ID");
 
                     b.ToTable("AUTOBAGAZ_SHOP");
                 });
@@ -454,16 +446,6 @@ namespace autobagaz.Migrations
                     b.HasOne("autobagaz.City", "City")
                         .WithMany("Shops")
                         .HasForeignKey("AUTOBAGAZ_CITY_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("autobagaz.AUTOBAGAZ_STATUS", "AUTOBAGAZ_STATUS")
-                        .WithMany()
-                        .HasForeignKey("AUTOBAGAZ_SHOP_STATUS_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("autobagaz.AUTOBAGAZ_USER", "AUTOBAGAZ_USER")
-                        .WithMany()
-                        .HasForeignKey("AUTOBAGAZ_SHOP_USER_ID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
