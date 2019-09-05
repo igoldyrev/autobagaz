@@ -22,6 +22,10 @@
         justify-content: flex-end;
         align-items: center;
         margin-bottom: 15px;
+
+        &--center {
+            justify-content: center;
+        }
     }
 
     &__zakaz {

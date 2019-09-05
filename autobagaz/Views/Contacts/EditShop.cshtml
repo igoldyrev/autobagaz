@@ -1,7 +1,7 @@
 ﻿@model autobagaz.Shop
 
 @{
-    ViewData["Title"] = "Редактировать магазин";
+    ViewData["Title"] = "Редактировать магазин" + Model.AUTOBAGAZ_SHOP_NAME;
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -85,6 +85,6 @@
 
     }
 </div>
-<div class="button__wrap">
+<div class="button__wrap button__wrap--center">
     @Html.ActionLink("Назад", "Index", null, null, new { @class = "button button__buy button__buy--white button__buy--wide" })
 </div>
