@@ -38,6 +38,26 @@ namespace autobagaz.Controllers
             return View(pvm);
         }
 
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> Archive(int page = 1)
+        {
+            int PageSize = 5; // количество объектов на страницу
+
+            IQueryable<Shop> cities = _context.AUTOBAGAZ_SHOP
+                .Include(s => s.City)
+                .Where(s => s.AUTOBAGAZ_SHOP_STATUS_ID == 3);
+            var count = cities.Count();
+            var items = await cities.Skip((page - 1) * PageSize).Take(PageSize).ToListAsync();
+
+            Pagination pagination = new Pagination(count, page, PageSize);
+            PaginationViewModel pvm = new PaginationViewModel
+            {
+                Pagination = pagination,
+                Shops = items
+            };
+            return View(pvm);
+        }
+
         // GET: Contacts/AddShop
         [Authorize(Roles = "admin")]
         public IActionResult AddShop()
@@ -190,6 +210,22 @@ namespace autobagaz.Controllers
                 return NotFound();
             }
 
+            if (shop.AUTOBAGAZ_SHOP_PHOTO_URL1 == null)
+            {
+                shop.AUTOBAGAZ_SHOP_PHOTO_URL1 = "";
+            }
+            if (shop.AUTOBAGAZ_SHOP_PHOTO_URL2 == null)
+            {
+                shop.AUTOBAGAZ_SHOP_PHOTO_URL2 = "";
+            }
+            if (shop.AUTOBAGAZ_SHOP_PHOTO_URL3 == null)
+            {
+                shop.AUTOBAGAZ_SHOP_PHOTO_URL3 = "";
+            }
+            if (shop.AUTOBAGAZ_SHOP_PHOTO_URL4 == null)
+            {
+                shop.AUTOBAGAZ_SHOP_PHOTO_URL4 = "";
+            }
             shop.AUTOBAGAZ_SHOP_DATE = DateTime.Now.ToString("g");
             shop.AUTOBAGAZ_SHOP_STATUS_ID = 3;
             shop.AUTOBAGAZ_SHOP_USER_ID = User.Identity.GetUserId<int>();
@@ -216,16 +252,31 @@ namespace autobagaz.Controllers
             return View(shop);
         }
 
-        // POST: Contacts/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RestoreConfirmed(int id, Shop shop)
+        public async Task<IActionResult> RestoreShop(int id, Shop shop)
         {
             if (id != shop.AUTOBAGAZ_SHOP_ID)
             {
                 return NotFound();
             }
 
+            if (shop.AUTOBAGAZ_SHOP_PHOTO_URL1 == null)
+            {
+                shop.AUTOBAGAZ_SHOP_PHOTO_URL1 = "";
+            }
+            if (shop.AUTOBAGAZ_SHOP_PHOTO_URL2 == null)
+            {
+                shop.AUTOBAGAZ_SHOP_PHOTO_URL2 = "";
+            }
+            if (shop.AUTOBAGAZ_SHOP_PHOTO_URL3 == null)
+            {
+                shop.AUTOBAGAZ_SHOP_PHOTO_URL3 = "";
+            }
+            if (shop.AUTOBAGAZ_SHOP_PHOTO_URL4 == null)
+            {
+                shop.AUTOBAGAZ_SHOP_PHOTO_URL4 = "";
+            }
             shop.AUTOBAGAZ_SHOP_DATE = DateTime.Now.ToString("g");
             shop.AUTOBAGAZ_SHOP_STATUS_ID = 1;
             shop.AUTOBAGAZ_SHOP_USER_ID = User.Identity.GetUserId<int>();
