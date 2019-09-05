@@ -8,7 +8,17 @@
 <h1 class="title title-h1">@ViewData["Title"]</h1>
 <h2 class="title title-h2">Вы уверены, что хотите восстановить данный элемент?</h2>
 
-@*todo добавить краткую таблицу с информацией об удаляемом элементе*@
+<div class="table">
+    <div class="table__column"></div>
+    <ul class="table__header">
+        <li class="table__cell">Адрес магазина</li>
+    </ul>
+
+    <ul class="table__row">
+        <li data-label="Адрес магазина" class="table__cell table__cell--center">@Html.DisplayFor(model => model.AUTOBAGAZ_SHOP_NAME)</li>
+    </ul>
+
+</div>
 
 <div class="form__container">
     @using (Html.BeginForm("RestoreShop", "Contacts", FormMethod.Post, htmlAttributes: new { @class = "form" }))
@@ -31,6 +41,6 @@
         <input type="submit" value="Восстановить магазин" class="button button__zakaz" />
     }
 </div>
-<div class="button__wrap">
-    @Html.ActionLink("Назад", "Index", null, null, new { @class = "button button__buy button__buy--white button__buy--wide" })
+<div class="button__wrap button__wrap--center">
+    @Html.ActionLink("Назад", "Archive", null, null, new { @class = "button button__buy button__buy--white button__buy--wide" })
 </div>
