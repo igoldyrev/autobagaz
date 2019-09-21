@@ -765,12 +765,72 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
 
       $_SESSION['terradrivefour'] = $terradrivefour;
       $_SESSION['terradrivetwo'] = $terradrivetwo;
+      $_SESSION['$terradriveone'] = $terradriveone;
       $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
       echo "<h1 class='title title-h1'>Автомобильные боксы Terra Drive</h1>";
       echo "<p class='text'>Автомобильные боксы TERRA DRIVE — это качественные и недорогие автомобильные багажники.</p>";
       echo "<p class='text'>Прочные, стильные, а также, что немаловажно, добавляют Вашему автомобилю довольно существенное увеличение грузового пространства. Возможностей, которые предоставляет автомобильному путешественнику автобокс для автомобиля, множество. Прикрепив на крышу автомобиля автобокс TERRA DRIVE, у Вас появится возможность значимо увеличить его объем возимого багажа практически в 2 раза. Автомобильные боксы защищают ваш багаж от влаги, грязи и пыли. Надежно запираются на ключ.</p>";
       echo "<p class='text'>Автомобильные автобоксы TERRA DRIVE предназначены для перевозки груза на крыше легкового автомобиля. Они позволяют максимально увеличить полезный объем автомобиля и при этом, обтекаемая форма, которой обладают все автобоксы TERRA DRIVE, отнюдь не делает хуже аэродинамику авто, не приводит к потере скоростных характеристик. Особенно автобоксы актуальны для владельцев небольших автомобилей, любителей путешествий и активного отдыха (лыжи, сноуборды, рыбацкие снасти, ружья и т. д.), молодых родителей (детская коляска), а так же для авто с ГБО.</p>";
+
+      foreach ($terradriveone as $terraone): ?>
+        <div class="good">
+          <h2 class="title title-h2"><?php echo $terraone['title'] ?></h2>
+          <div class="img__wrap">
+            <?php echo $terraone['img1'];
+            echo $terraone['img2'];
+            echo $terraone['img3'];
+            echo $terraone['img4'];
+            echo $terraone['img5'];
+            echo $terraone['img6'];
+            echo $terraone['img7']; ?>
+          </div>
+          <div class="table">
+            <div class="table__column"></div>
+            <ul class="table__header">
+              <li class="table__cell">Характеристики</li>
+              <li class="table__cell">Значение</li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Грузоподьемность</li>
+              <li class="table__cell"><?php echo $terraone['carrying']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Объем</li>
+              <li class="table__cell"><?php echo $terraone['volume']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Открытие</li>
+              <li class="table__cell"><?php echo $terraone['lock']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Размеры внешние, см</li>
+              <li class="table__cell"><?php echo $terraone['size_outdoor']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Размеры внутренние, см</li>
+              <li class="table__cell"><?php echo $terraone['size_indoor']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Цвет днища</li>
+              <li class="table__cell"><?php echo $terraone['color_bottom']; ?></li>
+            </ul>
+          </div>
+          <p class="text" <?php echo $stylepriceautobox ?>>Цена: <strong><?php echo $terraone['price'] ?></strong></p>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $terraone['namecard'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $terraone['id']; ?>" class="button button__buy">Заказать</a>
+              <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
+                 href="/prokat/<?php echo $terraone['id']; ?>" class="button button__buy button__buy--prokat">Взять в
+                прокат</a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach;
 
       foreach ($terradrivefour as $terrafour): ?>
         <div class="good">

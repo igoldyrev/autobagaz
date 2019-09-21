@@ -352,6 +352,23 @@ $terradrivetwo = [
     'color_bottom' => 'Черный',
   ]
 ];
+$terradriveone = [
+  [
+    'id' => 'terradrive600glossyblack',
+    'name' => 'Автобокс Terra Drive 600 черный глянцевый c двусторонним открыванием',
+    'namecard' => 'Черный глянцевый c двусторонним открыванием',
+    'title' => 'Terra Drive 600 глянцевый',
+    'price' => '22 700 рублей',
+    'img1' => '<img class="img good__img" src="/content/autobox/img/terradrive/600/600_1.jpg" alt="Автобоксы Terra Drive 600">',
+    'img2' => '<img class="img good__img" src="/content/autobox/img/terradrive/600/600_2.jpg" alt="Автобоксы Terra Drive 600">',
+    'carrying' => '100 кг',
+    'volume' => '100 л',
+    'lock' => 'двустороннее',
+    'size_outdoor' => '232x86x39',
+    'size_indoor' => '227x82x35',
+    'color_bottom' => 'Черный',
+  ],
+];
 
 $bonus = [
   [

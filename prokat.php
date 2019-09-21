@@ -503,6 +503,16 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
           </div>
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
+        } elseif ($id == 'terradrive600glossyblack') {
+          $tovar = $_SESSION['$terradriveone'][0][name];
+          echo "<title>Взятие в прокат ";
+          echo $_SESSION['$terradriveone'][0][name];
+          echo "</title>";
+          $checkedbox = "checked"; ?>
+          <div class="good-message">
+            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
         } elseif ($id == 'bonusblack') {
           $tovar = $_SESSION['bonus'][0][name];
           echo "<title>Взятие в прокат ";
