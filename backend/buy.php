@@ -1315,23 +1315,23 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
       <div class="good-message">
         <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
       </div> <?php
-    } elseif ($id == 'bonusblack') {
-      $tovar = $_SESSION['bonus'][0][name];
-      echo "<title>Заказ товара ";
-      echo $_SESSION['bonus'][0][name];
-      echo "</title>"; ?>
-      <div class="good-message">
-        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
-      </div> <?php
-    } elseif ($id == 'bonusgray') {
-      $tovar = $_SESSION['bonus'][1][name];
-      echo "<title>Заказ товара ";
-      echo $_SESSION['bonus'][1][name];
-      echo "</title>"; ?>
-      <div class="good-message">
-        <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
-      </div> <?php
-    } 
+    }
+
+    if ($_SESSION['bonus']) {
+      foreach ($_SESSION['bonus'] as $bonusbuy):
+
+        if ($id == $bonusbuy['id']) {
+          $tovar = $bonusbuy['name'];
+          echo "<title>Заказ товара ";
+          echo $bonusbuy['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
 
     if ($_SESSION['reelings']) {
       foreach ($_SESSION['reelings'] as $reelingsbuy):

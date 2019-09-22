@@ -48,7 +48,7 @@ $level3 = [
     'link' => '/autobox/terradrive',
   ],
   [
-    'name' => 'Автомобильные боксы Bonus',
+    'name' => 'Автомобильные боксы Koffer',
     'link' => '/autobox/bonus',
   ],
   [
