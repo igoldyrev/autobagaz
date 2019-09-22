@@ -503,27 +503,38 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
           </div>
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
-        } elseif ($id == 'bonusblack') {
-          $tovar = $_SESSION['bonus'][0][name];
+        } elseif ($id == 'terradrive600glossyblack') {
+          $tovar = $_SESSION['$terradriveone'][0][name];
           echo "<title>Взятие в прокат ";
-          echo $_SESSION['bonus'][0][name];
+          echo $_SESSION['$terradriveone'][0][name];
           echo "</title>";
           $checkedbox = "checked"; ?>
           <div class="good-message">
             <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
           </div>
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
-        } elseif ($id == 'bonusgray') {
-          $tovar = $_SESSION['bonus'][1][name];
-          echo "<title>Взятие в прокат ";
-          echo $_SESSION['bonus'][1][name];
-          echo "</title>";
-          $checkedbox = "checked"; ?>
-          <div class="good-message">
-            <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
-          </div>
-          <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php");
-        } elseif ($id == 'reelingskrepysh') {
+        }
+
+        if ($_SESSION['bonus']) {
+          foreach ($_SESSION['bonus'] as $bonusprokat):
+            if ($id == $bonusprokat['id']) {
+              $tovar = $bonusprokat['name'];
+              echo "<title>Взятие в прокат ";
+              echo $bonusprokat['name'];
+              echo "</title>"; 
+              $checkedbox = "checked"; ?>
+              <div class="good-message">
+                <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+              </div>
+              <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php"); 
+            }
+          endforeach;
+        }
+
+      
+
+
+        elseif ($id == 'reelingskrepysh') {
           $tovar = $_SESSION['reelings'][0][name];
           echo "<title>Взятие в прокат ";
           echo $_SESSION['reelings'][0][name];
