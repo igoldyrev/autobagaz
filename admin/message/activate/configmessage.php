@@ -8,3 +8,4 @@ $checkedmsgon = 'none';
  $checkedpricebraslet = 'none';
  $checkedpricecovers = 'none';
 $checkedpriceexpidition = 'none';
+$checkedpriceporogi = 'none';

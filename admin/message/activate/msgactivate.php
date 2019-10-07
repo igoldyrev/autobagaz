@@ -41,6 +41,10 @@ if ($checkedmsgon == 'checked'){
   $checkedpriceexpidition = "checked";
 } elseif ($checkedpriceexpidition == 'none') {
   $checkedpriceexpidition = "";
+}elseif ($checkedpriceporogi == 'checked') {
+  $checkedpriceporogi = "checked";
+} elseif ($checkedpriceporogi == 'none') {
+  $checkedpriceporogi = "";
 } ?>
 
 <div class="admin__container">
@@ -95,6 +99,11 @@ if ($checkedmsgon == 'checked'){
                id="priceonexpidition" <?php echo $checkedpriceexpidition ?>>
         <label for="priceonexpidition" class="form__label--checkbox">Включить/выключить цены в разделе Экспедиционные
           багажники</label>
+      </div>
+      <div class="form__input-wrap clearfix">
+        <input type="checkbox" name="price_on_porogi" class="form__checkbox"
+               id="priceonporogi" <?php echo $checkedpriceporogi ?>>
+        <label for="priceonporogi" class="form__label--checkbox">Включить/выключить цены в разделе Пороги для автомобилей</label>
       </div>
       <input type="submit" class="button button__zakaz" value="Включить/выключить блоки">
     </form>

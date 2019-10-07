@@ -127,6 +127,18 @@ include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.
       $contents = file_get_contents($config);
       $contents .= "$checkedpriceexpidition = 'none';\n ";
       file_put_contents($config, $contents);
+    } if (isset($_POST['price_on_porogi']) == true) {
+      echo '<h2 class="title title-h2">Цены в разделе Пороги для автомобилей показываются</h2>';
+      $checkedpriceporogi = '$checkedpriceporogi';
+      $contents = file_get_contents($config);
+      $contents .= "$checkedpriceporogi = 'checked';\n ";
+      file_put_contents($config, $contents);
+    } elseif (isset($_POST['price_on_porogi']) == false) {
+      echo '<h2 class="title title-h2">Цены в разделе Экспедиционные багажники НЕ показываются</h2>';
+      $checkedpriceporogi = '$checkedpriceporogi';
+      $contents = file_get_contents($config);
+      $contents .= "$checkedpriceporogi = 'none';\n ";
+      file_put_contents($config, $contents);
     } ?>
     <div class="admin__link-wrap clearfix">
         <a class="admin__link" href="/admin/message/activate/msgactivate">Вернуться на предыдущую страницу</a>

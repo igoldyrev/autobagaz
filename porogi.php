@@ -52,7 +52,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/porogi/backend/array.php"); ?>
               <li class="table__cell"><?php echo $porog['type']; ?></li>
             </ul>
           </div>
-          <p class="text" <?php echo $stylepriceautobox ?>>Цена: <strong><?php echo $porog['price'] ?></strong></p>
+          <p class="text" <?php echo $stylepriceporogi ?>>Цена: <strong><?php echo $porog['price'] ?></strong></p>
           <div class="good__price">
             <div class="good__price-info">
               <p class="text"><?php echo $porog['name'] ?></p>
