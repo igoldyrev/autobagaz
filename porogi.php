@@ -34,6 +34,36 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/porogi/backend/array.php"); ?>
       echo "<p class='text'>Обеспечивают удобство посадки в автомобиль: будь то автомобиль с высоким или низким клиренсом – пороги сделают посадку в автомобиль проще и комфортнее, не изменяя при этом сам клиренс.</p>";
       echo "<p class='text'>Улучшают внешний вид автомобиля: автомобиль выглядит внушительнее и солиднее, особенно с алюминиевыми порогами.</p>";
     }
+
+    foreach ($porogiarray as $porog): ?>
+      <div class="good">
+          <h2 class="title title-h2"><?php echo $porog['name'] ?></h2>
+          <div class="img__wrap">
+            <?php echo $porog['img']; ?>
+          </div>
+          <div class="table">
+            <div class="table__column"></div>
+            <ul class="table__row">
+              <li class="table__cell">Материал</li>
+              <li class="table__cell"><?php echo $porog['material']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Вид порога</li>
+              <li class="table__cell"><?php echo $porog['type']; ?></li>
+            </ul>
+          </div>
+          <p class="text" <?php echo $stylepriceautobox ?>>Цена: <strong><?php echo $porog['price'] ?></strong></p>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $porog['name'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $porog['id']; ?>" class="button button__buy">Заказать</a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach;
     ?>
 
 
