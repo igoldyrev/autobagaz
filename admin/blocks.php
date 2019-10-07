@@ -48,3 +48,8 @@ if ($checkedpriceexpidition == 'checked') {
 } elseif ($checkedpriceexpidition == 'none') {
   $stylepriceexpidition = 'style="display: none; "';
 }
+if ($checkedpriceporogi == 'checked') {
+  $stylepriceporogi = 'style="display: block; "';
+} elseif ($checkedpriceporogi == 'none') {
+  $stylepriceporogi = 'style="display: none; "';
+}
