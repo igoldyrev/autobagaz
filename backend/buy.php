@@ -1482,6 +1482,21 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
         }
       endforeach;
     }
+
+    if ($_SESSION['porogi']) {
+      foreach ($_SESSION['porogi'] as $porog):
+
+        if ($id == $porog['id']) {
+          $tovar = $porog['name'];
+          echo "<title>Заказ товара ";
+          echo $porog['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
     
 
     $_SESSION['tovar'] = $tovar;

@@ -15,6 +15,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/porogi/backend/array.php"); ?>
     <?php
     $porogi = $_GET['porogi'];
     $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+    $_SESSION['porogi'] = $porogiarray;
 
     if (!isset($porogi)) {
       echo "<title> $titleconst";
