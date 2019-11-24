@@ -1483,6 +1483,21 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
       endforeach;
     }
 
+    if ($_SESSION['nobu']) {
+      foreach ($_SESSION['nobu'] as $nb):
+
+        if ($id == $nb['id']) {
+          $tovar = $nb['name'];
+          echo "<title>Заказ товара ";
+          echo $nb['name'];
+          echo "</title>"; ?>
+          <div class="good-message">
+            <?php echo "<p>Вы выбрали для заказа $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+          </div> <?php
+        }
+      endforeach;
+    }
+
     if ($_SESSION['porogi']) {
       foreach ($_SESSION['porogi'] as $porog):
 
@@ -1497,6 +1512,9 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.htm
         }
       endforeach;
     }
+
+
+
     
 
     $_SESSION['tovar'] = $tovar;

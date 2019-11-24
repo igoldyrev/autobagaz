@@ -531,6 +531,22 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
           endforeach;
         }
 
+        if ($_SESSION['nobu']) {
+          foreach ($_SESSION['nobu'] as $nb):
+            if ($id == $nb['id']) {
+              $tovar = $nb['name'];
+              echo "<title>Взятие в прокат ";
+              echo $nb['name'];
+              echo "</title>"; 
+              $checkedbox = "checked"; ?>
+              <div class="good-message">
+                <?php echo "<p class='text'>Вы выбрали для проката $tovar. Заполните форму ниже и мы с Вами свяжемся в ближайшее время.</p>"; ?>
+              </div>
+              <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/prokatform.php"); 
+            }
+          endforeach;
+        }
+
       
 
 
