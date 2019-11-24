@@ -535,7 +535,7 @@ $nobu = [
   ],
   [
     'id' => 'nobu_cross_white',
-	  'name' => 'Автобокс NOBU CROSS 380л серый',
+	  'name' => 'Автобокс NOBU CROSS 380л белый',
 	  'price' => '17 500 рублей',
     'img1' => '<img class="img good__img" src="/content/autobox/img/nobu/nobu_cross/nobu_cross_white_1.jpg" alt="Автобоксы NOBU">',
     'img2' => '<img class="img good__img" src="/content/autobox/img/nobu/nobu_cross/nobu_cross_white_2.jpg" alt="Автобоксы NOBU">',

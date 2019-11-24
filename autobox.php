@@ -113,6 +113,15 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
             <p class="text">Автобоксы Koffer Bonus</p>
           </div>
         </div>
+        <div class="catalog__item">
+          <a href="/autobox/nobu" class="catalog__item-link"></a>
+          <div class="catalog__image-wrap">
+            <img class="catalog__image" src="/content/autobox/img/logo/nobu.jpg" alt="Nobu">
+          </div>
+          <div class="catalog__text">
+            <p class="text">Автобоксы NOBU (Россия)</p>
+          </div>
+        </div>
       </div>
     <?php } elseif ($autobox == 'yuago') {
       echo "<title> $titleconst";
@@ -1087,7 +1096,6 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
       $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
       echo "<h1 class='title title-h1'>Автомобильные боксы Nobu</h1>";
-      echo "<p class='text'></p>";
 
       foreach ($nobu as $nobuitem): ?>
         <div class="good">
