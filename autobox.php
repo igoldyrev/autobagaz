@@ -113,6 +113,15 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
             <p class="text">Автобоксы Koffer Bonus</p>
           </div>
         </div>
+        <div class="catalog__item">
+          <a href="/autobox/nobu" class="catalog__item-link"></a>
+          <div class="catalog__image-wrap">
+            <img class="catalog__image" src="/content/autobox/img/logo/nobu.jpg" alt="Nobu">
+          </div>
+          <div class="catalog__text">
+            <p class="text">Автобоксы NOBU (Россия)</p>
+          </div>
+        </div>
       </div>
     <?php } elseif ($autobox == 'yuago') {
       echo "<title> $titleconst";
@@ -1066,6 +1075,78 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
                  href="/buy/<?php echo $bonusitem['id']; ?>" class="button button__buy">Заказать</a>
               <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
                  href="/prokat/<?php echo $bonusitem['id']; ?>" class="button button__buy button__buy--prokat">Взять в
+                прокат</a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach;
+      include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");
+    } elseif ($autobox == 'nobu') {
+      echo "<title> $titleconst";
+      echo $keywords[9][title];
+      echo "</title>";
+      echo "<meta name='description' content='";
+      echo $keywords[9][description];
+      echo "'/>";
+      echo "<meta name='keywords' content='";
+      echo $keywords[9][keywords];
+      echo "'/>";
+
+      $_SESSION['nobu'] = $nobu;
+      $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
+      echo "<h1 class='title title-h1'>Автомобильные боксы Nobu</h1>";
+
+      foreach ($nobu as $nobuitem): ?>
+        <div class="good">
+          <h2 class="title title-h2"><?php echo $nobuitem['name'] ?></h2>
+          <div class="img__wrap">
+            <?php echo $nobuitem['img1'];
+            echo $nobuitem['img2'];
+            echo $nobuitem['img3'];
+            echo $nobuitem['img4']; ?>
+          </div>
+          <div class="table">
+            <div class="table__column"></div>
+            <ul class="table__header">
+              <li class="table__cell">Характеристики</li>
+              <li class="table__cell">Значение</li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Размеры</li>
+              <li class="table__cell"><?php echo $nobuitem['size']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Материал</li>
+              <li class="table__cell"><?php echo $nobuitem['material']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Открытие</li>
+              <li class="table__cell"><?php echo $nobuitem['lock']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Крепление бокса</li>
+              <li class="table__cell"><?php echo $nobuitem['clamp']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Грузоподъемность бокса</li>
+              <li class="table__cell"><?php echo $nobuitem['carrying']; ?></li>
+            </ul>
+            <ul class="table__row">
+              <li class="table__cell">Цвет</li>
+              <li class="table__cell"><?php echo $nobuitem['color']; ?></li>
+            </ul>
+          </div>
+          <p class="text" <?php echo $stylepriceautobox ?>>Цена: <strong><?php echo $nobuitem['price'] ?></strong></p>
+          <div class="good__price">
+            <div class="good__price-info">
+              <p class="text"><?php echo $nobuitem['name'] ?></p>
+            </div>
+            <div class="good__buttons">
+              <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true"
+                 href="/buy/<?php echo $nobuitem['id']; ?>" class="button button__buy">Заказать</a>
+              <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
+                 href="/prokat/<?php echo $nobuitem['id']; ?>" class="button button__buy button__buy--prokat">Взять в
                 прокат</a>
             </div>
           </div>
