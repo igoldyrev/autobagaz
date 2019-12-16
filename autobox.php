@@ -32,7 +32,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
       echo "<p class='text'>Автобоксы являются простым и надежным средством увеличения вместительности автомобиля, и абсолютно незаменимы при возникновении необходимости перевозки грузов, требующих бережного обращения и надежной защиты от влаги, пыли и прочих негативных факторов окружающей среды. Изготовленные из современных высококачественных материалов, автомобильные боксы сочетают в себе высокую надежность крепления, оптимальные условия фиксации груза и необычайную легкость базовой конструкции, а система центрального замка с двухсторонним открыванием и многоточечным запиранием гарантирует безопасную эксплуатацию и высокую защиту от несанкционированного проникновения в бокс.</p>";
       echo "<h2 class='title title-h2'>Варианты автобоксов</h2>"; ?>
       <div class="catalog">
-        <div class="catalog__item">
+        <!-- <div class="catalog__item">
           <a href="/autobox/vetlan" class="catalog__item-link"></a>
           <div class="catalog__image-wrap">
             <img class="catalog__image" src="/content/autobox/img/logo/vetlan.png" alt="vetlan">
@@ -40,7 +40,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/content/autobox/backend/array.php"); ?>
           <div class="catalog__text">
             <p class="text">Автобоксы Ветлан (Пермь)</p>
           </div>
-        </div>
+        </div> -->
         <div class="catalog__item">
           <a href="/autobox/atlant" class="catalog__item-link"></a>
           <div class="catalog__image-wrap">
