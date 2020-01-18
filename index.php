@@ -253,11 +253,9 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
              class="contacts__link">+7 919 451 94 02 Максим Некрасов</a>
         </div>
         <div class="img__wrap">
-          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_dzerzhinskogo-3.jpg"
+          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_dzerzhinskogo-5.jpg"
                alt="autobagaz">
-          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_dzerzhinskogo-1.jpg"
-               alt="autobagaz">
-          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_dzerzhinskogo-2.jpg"
+          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_dzerzhinskogo-4.jpg"
                alt="autobagaz">
         </div>
         <div class="contacts__map">
