@@ -9,15 +9,13 @@
          href="tel:+73422889929">+7 342 288 99 29</a>
     </div>
     <div class="top-header-auth__shop">
-      <a class="top-header-auth__shop-address" href="/contacts#speshilova" title="Посмотреть на карте">г.Пермь, ул.
-        Спешилова
-        102/29</a>
+      <a class="top-header-auth__shop-address" href="/contacts#lodygina" title="Посмотреть на карте">г.Пермь, ул. Лодыгина 55</a>
       <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="top-header-auth__shop-phone"
          href="tel:+73422889969">+7 342 288 99 69</a>
     </div>
     <div class="top-header-auth__shop top-header-auth__shop-last top-header-auth__shop-last-child">
-      <a class="top-header-auth__shop-address" href="/contacts#speshilova" title="Посмотреть на карте">г.Пермь, ул.
-        Тургенева 23</a>
+      <a class="top-header-auth__shop-address" href="/contacts#lebedeva" title="Посмотреть на карте">г.Пермь, ул.
+        Лебедева 34</a>
       <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="top-header-auth__shop-phone"
          href="tel:+73422889939">+7 342 288 99 39 </a>
     </div>
