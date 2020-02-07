@@ -224,8 +224,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
            class="contacts__link">Написать нам на autobagaz@yandex.ru</a>
       </div>
       <h3 class="title title-h3">Адреса магазинов:</h3>
-      <div class="contacts__shop" id="speshilova">
-        <h4 class="title title-h4">г.Пермь, Ул. Спешилова 102/29</h4>
+      <div class="contacts__shop" id="lodygina">
+        <h4 class="title title-h4">г.Пермь, Ул. Лодыгина 55</h4>
         <div class="contacts">
           <p class="text">Позвонить в магазин: <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
                                                   href="tel:+73422889969"
@@ -234,12 +234,11 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
              class="contacts__link">+7 912 489 79 39 Валентин Сарафанов</a>
         </div>
         <div class="img__wrap">
-          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_front.jpg" alt="autobagaz">
-          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_speshilova.jpg" alt="autobagaz">
+          <!-- <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_front.jpg" alt="autobagaz">
+          <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_speshilova.jpg" alt="autobagaz"> -->
         </div>
         <div class="contacts__map">
-          <script type="text/javascript" charset="utf-8" async
-                  src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=dPv1vaWzXDrNMJs9tlKwl_50qOYIqktt&amp;width=100%&amp;height=250&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa1857253f4f68b336594b723fad5ea4ad882d4424c48504361f5735fa59bddfa&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
       </div>
       <div class="contacts__shop" id="dzerzhinskogo">
