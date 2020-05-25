@@ -720,6 +720,54 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
             <p class="text">Телефон для связи <a class="link" href="tel:+73422789949">+7 (342) 2 78 99 49</a></p>
             <p class="text">Акция действует только в Березниках.</p>
           </div><?php
+        } elseif ($newspage == '9_may_2020') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[27][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[27][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[27][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">С днем Великой победы!</h1>
+            <p class="text">Сеть магазинов "AutoBagaz" поздравляет ветеранов с праздником Великой победы!</p>
+
+            <p class="text"> 9 Мая — не только прекрасный весенний день, но и незабываемая, памятная дата — День Победы. Совсем мало осталось тех, кто имеет непосредственное отношение к этому празднику, кому лично мы должны сейчас поклониться в ноги и поблагодарить за мирное небо над нашими головами. Пожелаем же ветеранам здоровья и долголетия и пообещаем, что сделаем всё, чтобы наши дети никогда не узнали, что такое война. И мы приложим все усилия, чтобы сохранить память о тех, кто долгими верстами шел к этой победе. С праздником!</p>
+          </div><?php
+        } elseif ($newspage == 'inmax_antikrizsales') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[28][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[28][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[28][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Антикризисная цена на АВТОБОКСЫ</h1>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> БРЕНД: INMAX</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> ПРОИЗВОДСТВО: Россия</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> ВЕС: 13 Kg</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> МАТЕРИАЛ: АБС-пластик толщиной 5 мм</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> ОБЪЕМ: 460 литров.</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> ГАБАРИТЫ: 186х80х37 см.</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> ОТКРЫВАНИЕ: Двухстороннее.</p>
+            <p class="text">Цена: 14800 руб. из наличия. Ваша экономия: 2500 руб. (стоимость доставки, если заказывать через интернет)</p>
+            <p class="text">Акция действует на боксы серого и белого цвета.</p>
+            <p class="text">Боксы в наличии, можно посмотреть по следующим адресам:</p>
+            <p class="text"><a class="link" href="/contacts#lodygina">г.Пермь ул.Лодыгина 55</a></p>
+            <p class="text"><a class="link" href="/contacts#dzerzhinskogo">г.Пермь ул.Дзержинского 15</a></p>
+            <p class="text"><a class="link" href="/contacts#lebedeva">г.Пермь ул.Лебедева 34</a></p>
+             <p class="text"> Если возникли вопросы, то задавайте по телефонам: <a class="link" href="tel:+73422889929">288 99 29</a>,<a class="link" href="tel:+73422889939">288 99 39</a>, <a class="link" href="tel:+73422889969">288 99 69</a></p>
+             <p class="text">А также вы можете заказать бокс прямо сейчас на <a class="link" href="/autobox/inmax">этой</a> странице</p>
+          </div><?php
         } ?>
     </div>
 </div>
