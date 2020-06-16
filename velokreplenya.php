@@ -16,7 +16,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
         $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
         if (!isset($velokreplenya)) {
-            echo "<title> $titleconst"; echo $keywords[0][title]; echo "</title>";
+            echo "<title>"; echo $keywords[0][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[0][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>";
 
@@ -46,7 +46,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
                 </div>
             </div> <?php
         } elseif ($velokreplenya == 'krysha') {
-            echo "<title> $titleconst"; echo $keywords[1][title]; echo "</title>";
+            echo "<title>"; echo $keywords[1][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[1][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $keywords[1][keywords]; echo "'/>";
 
@@ -141,7 +141,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/velokreplenya/backend/array.php"); 
             </div> <?php
             include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/helpform.php");
         } elseif ($velokreplenya == 'farkop') {
-            echo "<title> $titleconst"; echo $keywords[2][title]; echo "</title>";
+            echo "<title>"; echo $keywords[2][title]; echo "</title>";
             echo "<meta name='description' content='"; echo $keywords[2][description]; echo "'/>";
             echo "<meta name='keywords' content='"; echo $keywords[2][keywords]; echo "'/>";
 
