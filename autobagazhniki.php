@@ -6,7 +6,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.h
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/content/autobagazhniki/backend/keywords.php");
-echo "<title> $titleconst"; echo $keywords[0][title]; echo "</title>";
+echo "<title>"; echo $keywords[0][title]; echo "</title>";
 echo "<meta name='description' content='"; echo $keywords[0][description];      echo "'/>";
 echo "<meta name='keywords' content='"; echo $keywords[0][keywords]; echo "'/>";
 include ($_SERVER["DOCUMENT_ROOT"]."/content/autobagazhniki/backend/array.php");
@@ -16,7 +16,8 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
 <div class="wrapper">
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/left-nav/left-nav.html"); ?>
     <div class="wrapper__content">
-        <h1 class="title title-h1">Автомобильные багажники</h1>
+        <h1 class="title title-h1">Где купить багажник в перми?</h1>
+        <h2 class="title title-h2">Купить багажник на крышу в перми</h2>
         <p class="text">Проблема перевозки крупногабаритных вещей периодически возникает у каждого автомобилиста. Длинномерные грузы, громоздкие коробки и поклажу неравномерной формы редко удается разместить в стандартном багажнике автомобиля, и они начинают скапливаться в салоне, занимая собой личное пространство пассажиров и водителя. Было создано множество средств для решения этой проблемы, но, пожалуй, самыми известными и привычными из них для нас являются багажники на крышу автомобиля.</p>
         <p class="text">Каждый день в нашем магазине есть 3-10 вариантов различных багажников на любой автомобиль. И для Вашего удобства мы разбили их на категории с обозначением минимальной цены.</p>
 
