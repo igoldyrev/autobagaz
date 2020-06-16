@@ -15,7 +15,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
     $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
     if (!isset($page)) {
-      echo "<title> $titleconst";
+      echo "<title>";
       echo $keywords[0][title];
       echo "</title>";
       echo "<meta name='description' content='";
@@ -171,6 +171,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
       </div>
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/reviews.php"); ?>
 
+      <h1 class="title title-h1">Купить багажник в Перми теперь не проблема</h1>
       <p class="text">Для многих современных людей автомобиль является не только свидетельством жизненного успеха, но и
         незаменимым помощником для перевозки грузов. Имея личное авто можно без проблем осуществить перевозку вещей в
         загородный дом или дачу или же снаряжения при занятиях активным отдыхом. Так, для осуществления грузоперевозок
