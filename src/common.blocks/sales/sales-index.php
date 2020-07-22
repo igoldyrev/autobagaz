@@ -16,14 +16,15 @@ $sales = [
   ],
   [
     'id' => 's3',
-    'name' => 'Велокрепление AMOS (для одного велосипеда) ',	
-    'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/velo_amos_1x.jpg" alt="велокрепление AMOS (для одного велосипеда)">',	
-    'price' => '1 500 рублей ',	
-    'strike_price' => '2 200 рублей',	
+    'name' => 'Велокрепление AMOS (для одного велосипеда) ',
+    'img' => '<img class="sales__img" src="/src/common.blocks/sales/img/velo_amos_1x.jpg" alt="велокрепление AMOS (для одного велосипеда)">',
+    'price' => '1 500 рублей ',
+    'strike_price' => '2 200 рублей',
   ],
 ];
 $_SESSION['sales'] = $sales;
 echo "<h2 class='title title-h2'>Специальные предложения</h2>"; ?>
+<h3 class="title title-h3">Купить багажник на крышу автомобиля по выгодной цене</h3>
 <div class="sales">
   <?php foreach ($sales as $sale): ?>
     <div class="sales__item">
