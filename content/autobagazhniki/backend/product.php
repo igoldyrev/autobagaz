@@ -30,7 +30,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
 
     if ($id == 'reelings') { ?>
       <title><?php echo $keywords[1][title]; ?></title>
-      <h2 class="title title-h2"><?php echo $product['name'] ?></h2>
+      <h1 class="title title-h1"><?php echo $product['name'] ?></h1>
       <p class="text">В нашем магазине есть несколько видов багажников на рейлинг, все они представлены ниже.</p>
 
       <?php foreach ($reelings as $reeling): ?>
@@ -42,7 +42,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <?php echo $reeling['img4'] ?>
           </div>
           <div class="product__info">
-            <h3 class="title title-h3"><?php echo $reeling['name'] ?></h3>
+            <h2 class="title title-h2"><?php echo $reeling['name'] ?></h2>
             <p class="text"><?php echo $reeling['desc'] ?></p>
             <div class="product__buttons">
               <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
@@ -57,7 +57,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
       include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");
     } elseif ($id == 'shtatnye') { ?>
       <title><?php echo $keywords[2][title]; ?></title>
-      <h2 class="title title-h2"><?php echo $product['name'] ?></h2>
+      <h1 class="title title-h1"><?php echo $product['name'] ?></h1>
       <p class="text">В нашем магазине есть несколько видов багажников на штатные места, все они представлены ниже.</p>
 
       <?php foreach ($shtatnye as $shtat): ?>
@@ -69,7 +69,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <?php echo $shtat['img4'] ?>
           </div>
           <div class="product__info">
-            <h3 class="title title-h3"><?php echo $shtat['name'] ?></h3>
+            <h2 class="title title-h2"><?php echo $shtat['name'] ?></h2>
             <p class="text"><?php echo $shtat['desc'] ?></p>
             <div class="product__buttons">
               <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
@@ -84,7 +84,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
       include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");
     } elseif ($id == 'smooth') { ?>
       <title><?php echo $keywords[3][title]; ?></title>
-      <h2 class="title title-h2"><?php echo $product['name'] ?></h2>
+      <h1 class="title title-h1"><?php echo $product['name'] ?></h1>
       <p class="text">В нашем магазине есть несколько видов багажников на плоскую крышу, все они представлены ниже.</p>
 
       <?php foreach ($smooth as $smoo): ?>
@@ -96,7 +96,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <?php echo $smoo['img4'] ?>
           </div>
           <div class="product__info">
-            <h3 class="title title-h3"><?php echo $smoo['name'] ?></h3>
+            <h2 class="title title-h2"><?php echo $smoo['name'] ?></h2>
             <p class="text"><?php echo $smoo['desc'] ?></p>
             <div class="product__buttons">
               <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
@@ -111,7 +111,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
       include($_SERVER["DOCUMENT_ROOT"] . "/backend/forms/helpform.php");
     } elseif ($id == 'vodostok') { ?>
       <title><?php echo $keywords[4][title]; ?></title>
-      <h2 class="title title-h2"><?php echo $product['name'] ?></h2>
+      <h1 class="title title-h1"><?php echo $product['name'] ?></h1>
       <p class="text">В нашем магазине есть несколько видов багажников на водосток, все они представлены ниже.</p>
 
       <?php foreach ($vodostok as $stok): ?>
@@ -123,7 +123,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI']; ?>
             <?php echo $stok['img4'] ?>
           </div>
           <div class="product__info">
-            <h3 class="title title-h3"><?php echo $stok['name'] ?></h3>
+            <h2 class="title title-h2"><?php echo $stok['name'] ?></h2>
             <p class="text"><?php echo $stok['desc'] ?></p>
             <div class="product__buttons">
               <a onclick="yaCounter40650914.reachGoal('click_prokat'); return true"
