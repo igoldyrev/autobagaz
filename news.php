@@ -768,6 +768,42 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
              <p class="text"> Если возникли вопросы, то задавайте по телефонам: <a class="link" href="tel:+73422889929">288 99 29</a>,<a class="link" href="tel:+73422889939">288 99 39</a>, <a class="link" href="tel:+73422889969">288 99 69</a></p>
              <p class="text">А также вы можете заказать бокс прямо сейчас на <a class="link" href="/autobox/inmax">этой</a> странице</p>
           </div><?php
+        } elseif ($newspage == 'one_semptember') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[29][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[29][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[29][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Всем привет</h1>
+            <p class="text">В этот день не только школы открывают свои двери. Но и мы рады приветствовать вас в нашем магазине.</p>
+            <p class="text">Сегодня с вами на связи команда компании AUTOBAGAZ.RU – ваши лучшие помощники в выборе надёжного и вместительного багажника на крышу. Наш дружный коллектив сложился во время многолетней работы. Вместе мы преодолели всевозможные трудности и даже короновирус не сломил нас. С тем же успехом, с которым мы развиваем нашу компанию, мы хотим делать ваши рабочие будни и дальние поездки комфортнее. Для этого мы сделаем всё возможное,чтобы подобрать лучший вариант багажника или автобокса для вас.
+            </p>
+            <p class="text">Немного о нас:</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Более 4 лет на рынке</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Наша компания – один из самых крупных продавцов автобагажников, автомобильных боксов в г.Пермь и за её пределами</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Широкий ассортимент автобоксов, рейлингов,автобогажников и не только.</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  3 Магазина в г.Пермь</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Мы всегда готовы оказать вам помощь в установке, выборе и ремонте автобагажников и автобоксов.</p>
+            <p class="text">Наши контакты и адреса:</p>
+            <p class="text"><a class="link" href="/contacts#lodygina">г.Пермь ул.Лодыгина 55</a></p>
+            <p class="text"><a class="link" href="/contacts#dzerzhinskogo">г.Пермь ул.Дзержинского 15</a></p>
+            <p class="text"><a class="link" href="/contacts#lebedeva">г.Пермь ул.Лебедева 34</a></p>
+            <p class="text">Мы в vk:</p>
+            <a class="link" href="https://vk.com/autobagaz" target="blank">vk.com/autobagaz</a>
+            <p class="text">Мы в instagram:</p>
+            <a class="link" href="https://www.instagram.com/autobagaz/" target="blank">instagram.com/autobagaz</a>
+            <p class="text"> Ждём вас в наших магазинах, где вам всегда окажут самые качественные услуги и помогут в выборе.</p>
+            <div class="img__wrap">
+              <img class="img good__img news__img" src="/content/news/010920/Sd9gv9eNJyc.jpg" alt="Autobagaz">
+            </div>
+          </div><?php
         } ?>
     </div>
 </div>
