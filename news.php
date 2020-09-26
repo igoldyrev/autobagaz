@@ -804,6 +804,28 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
               <img class="img good__img news__img" src="/content/news/010920/Sd9gv9eNJyc.jpg" alt="Autobagaz">
             </div>
           </div><?php
+        } elseif ($newspage == 'no_space') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[30][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[30][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[30][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Что делать если запас багажника иссяк ?</h1>
+            <p class="text">Как часто ты ловил себя на мысли, что места в твоём багажнике не хватало? Ведь у каждого из нас бывали ситуации, что просто не удавалось уместить всё внутри машины. Ты сразу начинаешь придумывать, что же тебе сделать? Бежишь за скотчем и примотать всё на крышу или ехать с открытым багажником, думаешь о том, чтобы вернуться второй раз.</p>
+            <p class="text">Но давайте посмотрим правде в глаза. Первый вариант максимально небезопасен как для наших вещей, так и для окружающих нас людей. А на второй не всегда есть время.</p>
+            <p class="text">Но как же тогда решить эту проблему?</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Вариант, который решит все ваши проблемы и поможет в сохранности доставить все необходимые вещи – багажник на крышу. И в этом тебе всегда готовы помочь мы AUTOBAGAZ.ru</p>
+            <div class="img__wrap">
+              <img class="img good__img news__img" src="/content/news/160920/CIW4TZKlFEw.jpg" alt="Autobagaz">
+            </div>
+          </div><?php
         } ?>
     </div>
 </div>
