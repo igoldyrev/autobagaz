@@ -896,6 +896,25 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
               <img class="img good__img news__img" src="/content/news/110920/dKiJFiW93bQ.jpg" alt="Autobagaz">
             </div>
           </div><?php
+        } elseif ($newspage == 'zapret') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[34][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[34][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[34][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Запрет на багажники</h1>
+            <p class="text">В последнее время в СМИ ходит информация о запрете багажников на крышу и прочего нештатного оборудования. Но так ли это? Правильно ли СМИ доносят до нас информацию?</p>
+            <p class="text">Для всех автолюбителей мы подготовили этот пост, чтобы развеять всё секреты и тайны вокруг этой темы.</p>
+            <p class="text">Запрет багажников и прочих нештатных дополнений действительно есть. Но относится ли он к тем приспособлениям, которые мы покупаем в профильных магазинах. Конечно нет. Данный закон был принят для борьбы с конструкциями, которые некоторые автолюбители могут устанавливать и собирать самостоятельно. Действительно, самодельные багажники могут стать причиной серьёзных аварий. И с такими конструкциями надо бороться. Ведь безопасность во время поездки – это то, что интересует каждого автомобилиста.</p>
+            <p class="text">А в выборе качественного и надёжного оборудования поможет вам AUTOBAGAZ.RU.</p>
+          </div><?php
         } ?>
     </div>
 </div>
