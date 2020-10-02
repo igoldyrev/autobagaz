@@ -849,6 +849,33 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
               <img class="img good__img news__img" src="/content/news/300920/HK2R73L2YPo.jpg" alt="Autobagaz">
             </div>
           </div><?php
+        } elseif ($newspage == 'koffer') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[32][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[32][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[32][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Не хватает места в багажнике?</h1>
+            <p class="text">Уже сломал голову и перепробывал все способы запихуть сумку в машину?</p>
+            <p class="text">Мы знаем как решить твой проблему. И этим решением станет Автобокс Koffer Bonus</p>
+            <p class="text">Почему стоит выбрать именно это решение:</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Огромная вместительность</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Быстро устанавливается</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Два цвета</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Доступная цена</p>
+            <p class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Надёжность</p>
+            <p class="text">Звони и забери автобокс, который сделает твои поездки комфортнее</p>
+            <div class="img__wrap">
+              <img class="img good__img news__img" src="/content/news/110920/omzu9r4xMBs.jpg" alt="Autobagaz">
+            </div>
+          </div><?php
         } ?>
     </div>
 </div>
