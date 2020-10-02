@@ -876,6 +876,26 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php"); ?>
               <img class="img good__img news__img" src="/content/news/110920/omzu9r4xMBs.jpg" alt="Autobagaz">
             </div>
           </div><?php
+        } elseif ($newspage == 'autumn_start') {
+          include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords_news.php");
+          echo "<title> $titleconst";
+          echo $news[33][title];
+          echo "</title>";
+          echo "<meta name='description' content='";
+          echo $news[33][description];
+          echo "'/>";
+          echo "<meta name='keywords' content='";
+          echo $news[33][keywords];
+          echo "'/>"; ?>
+
+          <div class="news__inner">
+            <h1 class="title title-h1">Осень полным ходом набирает обороты</h1>
+            <p class="text">Осень полным ходом набирает обороты, но любителей отдохнуть на природе меньше не становится. Но что делать, если летом ты мог уместить все вещи в один рюкзак, а теперь даже сложно представить, как ты разместишь всё в своём багажнике.</p>
+            <p class="text">AUTOBAGAZ.RU всегда готовы решить эту проблему и все другие с местом в вашем багажнике. Огромный ассортимент, профессиональная помощь и качественные услуги – это далеко не все наши плюсы.</p>
+            <div class="img__wrap">
+              <img class="img good__img news__img" src="/content/news/110920/dKiJFiW93bQ.jpg" alt="Autobagaz">
+            </div>
+          </div><?php
         } ?>
     </div>
 </div>
