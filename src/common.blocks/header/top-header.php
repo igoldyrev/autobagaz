@@ -9,7 +9,7 @@
          href="tel:+7 342 288 99 29">+7 342 288 99 29</a>
     </div>
     <div class="top-header__shop">
-      <a class="top-header__shop-address" href="/contacts#lodygina" title="Посмотреть на карте">г.Пермь, ул. Лодыгина 55</a>
+      <a class="top-header__shop-address" href="/contacts#vasileva" title="Посмотреть на карте">г.Пермь, ул. Васильева 1/3</a>
       <a onclick="yaCounter40650914.reachGoal('call_phone'); return true" class="top-header__shop-phone"
          href="tel:+7 342 288 99 69">+7 342 288 99 69</a>
     </div>

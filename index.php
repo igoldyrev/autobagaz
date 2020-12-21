@@ -225,8 +225,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
            class="contacts__link">Написать нам на autobagaz@yandex.ru</a>
       </div>
       <h3 class="title title-h3">Адреса магазинов:</h3>
-      <div class="contacts__shop" id="lodygina">
-        <h4 class="title title-h4">г.Пермь, Ул. Лодыгина 55</h4>
+      <div class="contacts__shop" id="vasileva">
+        <h4 class="title title-h4">г.Пермь, Ул. Васильева 1/3</h4>
         <div class="contacts">
           <p class="text">Позвонить в магазин: <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
                                                   href="tel:+73422889969"
@@ -239,7 +239,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
           <img class="img good__img" src="/content/index/img/contacts/shop_autobagaz_speshilova.jpg" alt="autobagaz"> -->
         </div>
         <div class="contacts__map">
-          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa1857253f4f68b336594b723fad5ea4ad882d4424c48504361f5735fa59bddfa&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A2578e7890deb5271f9fb0e9290ae1dcb2566971e137f7f2b5fed879b304a7557&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
       </div>
       <div class="contacts__shop" id="dzerzhinskogo">
