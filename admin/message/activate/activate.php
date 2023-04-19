@@ -139,7 +139,19 @@ include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.
       $contents = file_get_contents($config);
       $contents .= "$checkedpriceporogi = 'none';\n ";
       file_put_contents($config, $contents);
-    } ?>
+    } if (isset($_POST['price_on_reelings']) == true) {
+      echo '<h2 class="title title-h2">Цены в разделе Рейлинги показываются</h2>';
+      $checkedpricereelings = '$checkedpricereelings';
+      $contents = file_get_contents($config);
+      $contents .= "$checkedpricereelings = 'checked';\n ";
+      file_put_contents($config, $contents);
+    } elseif (isset($_POST['price_on_reelings']) == false) {
+      echo '<h2 class="title title-h2">Цены в разделе Рейлинги НЕ показываются</h2>';
+      $checkedpricereelings = '$checkedpricereelings';
+      $contents = file_get_contents($config);
+      $contents .= "$checkedpricereelings = 'none';\n ";
+      file_put_contents($config, $contents);
+    }?>
     <div class="admin__link-wrap clearfix">
         <a class="admin__link" href="/admin/message/activate/msgactivate">Вернуться на предыдущую страницу</a>
         <a class="admin__link" href="/admin/">Вернуться на главную админки</a>

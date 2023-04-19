@@ -53,3 +53,8 @@ if ($checkedpriceporogi == 'checked') {
 } elseif ($checkedpriceporogi == 'none') {
   $stylepriceporogi = 'style="display: none; "';
 }
+if ($checkedpricereelings == 'checked') {
+  $stylepricereelings = 'style="display: block; "';
+} elseif ($checkedpricereelings == 'none') {
+  $stylepricereelings = 'style="display: none; "';
+}

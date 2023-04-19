@@ -1,4 +1,4 @@
-<?php 
+<?php
 $checkedmsgon = 'none';
  $checkedstock = 'none';
  $checkedpricebagazh = 'none';
@@ -9,4 +9,4 @@ $checkedmsgon = 'none';
  $checkedpricecovers = 'none';
  $checkedpriceexpidition = 'none';
  $checkedpriceporogi = 'none';
- 
+ $checkedpricereelings = 'none';

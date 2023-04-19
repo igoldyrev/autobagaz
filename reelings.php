@@ -495,8 +495,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                     </div>
                     <div class="good__price">
                         <div class="good__price-inner">
-                            <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                            <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                            <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                            <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                         </div>
                         <div class="good__buttons">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -526,8 +526,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -557,8 +557,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -588,8 +588,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -619,8 +619,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -650,8 +650,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -681,8 +681,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -712,8 +712,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -743,8 +743,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -774,8 +774,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -805,8 +805,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -836,8 +836,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -867,8 +867,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -898,8 +898,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -929,8 +929,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -960,8 +960,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -991,8 +991,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1022,8 +1022,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1053,8 +1053,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1084,8 +1084,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1115,8 +1115,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1146,8 +1146,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1177,8 +1177,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1208,8 +1208,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1239,8 +1239,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1270,8 +1270,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1301,8 +1301,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1332,8 +1332,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1363,8 +1363,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1394,8 +1394,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>
@@ -1425,8 +1425,8 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/reelings/backend/keywords.php"); ?>
                         </div>
                         <div class="good__price">
                             <div class="good__price-inner">
-                                <p class="text">Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
-                                <p class="text">Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена без монтажа <strong><?php echo $item['price']; ?></strong></p>
+                                <p class="text" <?php echo $stylepricereelings ?>>Цена с монтажом <strong><?php echo $item['price_montazh']; ?></strong></p>
                             </div>
                             <div class="good__buttons">
                                 <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $item['id']; ?>" class="button button__buy" >Заказать</a>

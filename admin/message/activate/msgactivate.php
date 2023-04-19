@@ -105,6 +105,11 @@ if ($checkedmsgon == 'checked'){
                id="priceonporogi" <?php echo $checkedpriceporogi ?>>
         <label for="priceonporogi" class="form__label--checkbox">Включить/выключить цены в разделе Пороги для автомобилей</label>
       </div>
+      <div class="form__input-wrap clearfix">
+        <input type="checkbox" name="price_on_reelings" class="form__checkbox"
+               id="priceonreelings" <?php echo $checkedpricereelings ?>>
+        <label for="priceonreelings" class="form__label--checkbox">Включить/выключить цены в разделе Рейлинги</label>
+      </div>
       <input type="submit" class="button button__zakaz" value="Включить/выключить блоки">
     </form>
   </div>
