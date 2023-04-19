@@ -1,0 +1,42 @@
+.sertificates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__img {
+    width: 200px;
+
+    &--small {
+      width: 50px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  &__photos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+@include adaptive(mobile) {
+  .sertificates {
+    justify-content: space-between;
+
+    &__img {
+      width: 90%;
+    }
+
+    &__item {
+      width: 100%;
+    }
+  }
+}

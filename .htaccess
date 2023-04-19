@@ -22,6 +22,8 @@ RewriteRule ^(.*)$ $1.html
 RewriteRule ^autobagazhnik/([^/]+)/?$ /content/autobagazhniki/backend/product.php?id=$1
 RewriteRule ^expiditions/([^/]+)/?$ /content/expiditions/backend/product.php?id=$1
 
+RewriteRule ^autobox/vetlan /autobox [R=301,L]
+
 #Новости
 RewriteRule ^news/1 news.php?page=1
 RewriteRule ^news/2 news.php?page=2
