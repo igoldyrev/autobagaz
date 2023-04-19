@@ -3,7 +3,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation-mobile/navigation-mobile.html");
 include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
+//include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
 echo "<title> $titleconst"; echo $keywords[3][title]; echo "</title>";
@@ -19,7 +19,7 @@ echo "<meta name='keywords' content='"; echo $keywords[3][keywords]; echo "'/>";
       <div class="tabs__item special__tab-komm">Комиссионные товары</div>
     </div>
     <div class="special__tab special__sale special__tab--active">
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/sales/sales.php"); ?>
+<!--      --><?php //include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/sales/sales.php"); ?>
     </div>
 
     <div class="special__tab special__komm">

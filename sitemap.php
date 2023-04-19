@@ -4,7 +4,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/backend/blocks/metatags.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation-mobile/navigation-mobile.html");
 include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
+//include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
 	echo "<title> $titleconst"; echo $keywords[9][title]; echo "</title>";

@@ -2,7 +2,7 @@
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation-mobile/navigation-mobile.html");
 include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/header/header.html");
-include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
+//include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/proposition/proposition.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/src/common.blocks/navigation/navigation.html");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/breadcrumbs/breadcrumbs.php");
 include ($_SERVER["DOCUMENT_ROOT"]."/backend/keywords/keywords.php");
@@ -106,7 +106,7 @@ echo "<meta name='keywords' content='"; echo $keywords[5][keywords]; echo "'/>";
 
             <div class="guestbook__tab guestbook__rewiews-add">
                 <h2 class="title title-h2">Оставить свой отзыв о нас!</h2>
-                <?php include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/rewiewform.php"); ?>
+                <?php // include ($_SERVER["DOCUMENT_ROOT"]."/backend/forms/rewiewform.php"); ?>
             </div>
     </div>
 </div>

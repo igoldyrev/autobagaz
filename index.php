@@ -2,7 +2,7 @@
 include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/navigation-mobile/navigation-mobile.html");
 include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/header.html");
-include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/proposition/proposition.html");
+//include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/proposition/proposition.html");
 include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/navigation/navigation.html");
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/breadcrumbs/breadcrumbs.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
@@ -171,8 +171,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
       </div>
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/backend/reviews.php"); ?>
 
-      <h1 class="title title-h1">Купить багажники и автобоксы на крышу автомобиля в Перми</h1>
-      <h2 class="title title-h2">Где купить багажник в перми?</h2>
+      <h1 class="title title-h1">Купить багажник в Перми теперь не проблема</h1>
       <p class="text">Для многих современных людей автомобиль является не только свидетельством жизненного успеха, но и
         незаменимым помощником для перевозки грузов. Имея личное авто можно без проблем осуществить перевозку вещей в
         загородный дом или дачу или же снаряжения при занятиях активным отдыхом. Так, для осуществления грузоперевозок
@@ -264,7 +263,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
                   src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9ce0f3ba2e36cfbb902238d75ab5fe2b20a6bc5e5c1d4eee55d146ebfa34dfc5&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
       </div>
-      <div class="contacts__shop" id="lebedeva">
+      <!-- <div class="contacts__shop" id="lebedeva">
         <h4 class="title title-h4">г.Пермь, ул.Лебедева, 34</h4>
         <div class="contacts">
           <p class="text">Позвонить в магазин: <a onclick="yaCounter40650914.reachGoal('call_phone'); return true"
@@ -278,7 +277,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/keywords/keywords.php"); ?>
         <div class="contacts__map">
           <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6a196e51bfb2806e4768bc830ccbc5c8947eba9b248b72778e9a4445adb50ebe&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
-      </div>
+      </div> -->
       <div class="contacts__shop">
         <h4 class="title title-h4">Интернет-магазин</h4>
         <div class="contacts">
