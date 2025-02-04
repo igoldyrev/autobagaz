@@ -151,7 +151,19 @@ include($_SERVER["DOCUMENT_ROOT"] . "/src/common.blocks/header/top-header-admin.
       $contents = file_get_contents($config);
       $contents .= "$checkedpricereelings = 'none';\n ";
       file_put_contents($config, $contents);
-    }?>
+    } if (isset($_POST['price_on_inno']) == true) {
+        echo '<h2 class="title title-h2">Цены в разделе Автобоксы Inno показываются</h2>';
+        $checkedpriceinno = '$checkedpriceinno';
+        $contents = file_get_contents($config);
+        $contents .= "$checkedpriceinno = 'checked';\n ";
+        file_put_contents($config, $contents);
+      } elseif (isset($_POST['price_on_inno']) == false) {
+        echo '<h2 class="title title-h2">Цены в разделе Автобоксы Inno НЕ показываются</h2>';
+        $checkedpriceinno = '$checkedpriceinno';
+        $contents = file_get_contents($config);
+        $contents .= "$checkedpriceinno = 'none';\n ";
+        file_put_contents($config, $contents);
+      }?>
     <div class="admin__link-wrap clearfix">
         <a class="admin__link" href="/admin/message/activate/msgactivate">Вернуться на предыдущую страницу</a>
         <a class="admin__link" href="/admin/">Вернуться на главную админки</a>

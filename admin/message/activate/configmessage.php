@@ -10,3 +10,4 @@ $checkedmsgon = 'none';
  $checkedpriceexpidition = 'none';
  $checkedpriceporogi = 'none';
  $checkedpricereelings = 'none';
+ $checkedpriceinno = 'none';
