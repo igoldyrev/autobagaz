@@ -13,33 +13,26 @@ var InProduction = (process.env.NODE_ENV === 'production');
 
 module.exports = {
     entry: {
-
         autobagaz: [
-                './src/main.js',
-                './src/common.blocks/tabs/tabs.js',
-                './src/common.blocks/rewiew/rewiew__answer.js',
-                './src/common.blocks/modal-call/modal-call.js',
-                './src/common.blocks/gallery/gallery.js',
-          './src/common.blocks/header/top-header.js',
-          './src/common.blocks/sertificates/sertificates.js',
-                './src/library.blocks/img/img.js',
-                './src/style.scss'
-
+            './src/main.js',
+            './src/common.blocks/tabs/tabs.js',
+            './src/common.blocks/rewiew/rewiew__answer.js',
+            './src/common.blocks/modal-call/modal-call.js',
+            './src/common.blocks/gallery/gallery.js',
+            './src/common.blocks/header/top-header.js',
+            './src/common.blocks/sertificates/sertificates.js',
+            './src/library.blocks/img/img.js',
+            './src/style.scss'
         ],
-        //vendor: ['jquery']
-
     },
 
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js'
-
     },
 
     module: {
-
         rules: [
-
             {
                 test: /\.s[ac]ss$/,
                 use: ExtractTextPlugin.extract(
@@ -67,7 +60,6 @@ module.exports = {
             },
 
             {
-
                 test: /\.(svg|eot|ttf|woff|woff2)$/,
                 loader: 'file-loader',
                 options: {
@@ -76,21 +68,16 @@ module.exports = {
             },
 
             {
-
                 test: /\.(png|JPE?G|jpe?g|gif)$/,
                 loaders: [
                     {
-
                         loader: 'file-loader',
                         options: {
                             name: '[path]/[name].[ext]',
                         },
                     },
-
                     'img-loader'
-
                 ]
-
             },
 
             {
@@ -105,24 +92,6 @@ module.exports = {
 
         new ExtractTextPlugin('[name].css'),
 
-        /*new PurifyCSSPlugin({
-            // Give paths to parse for rules. These should be absolute!
-            paths: glob.sync([
-
-                path.join(__dirname, '*.html'),
-                path.join(__dirname, '*.php'),
-
-        ]),
-            minimize: InProduction
-
-        }),*/
-
-        // new CopyWebpackPlugin(
-        //     [
-        //         {from: '/img', to: 'img' }
-        //     ]
-        // ),
-
         new CleanWebpackPlugin(['build'], {
             root: __dirname,
             verbose: true,
@@ -133,9 +102,7 @@ module.exports = {
 
             minimize: InProduction
         })
-
     ]
-
 };
 
 if (InProduction) {
