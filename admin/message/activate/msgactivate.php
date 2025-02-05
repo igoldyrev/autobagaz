@@ -45,6 +45,14 @@ if ($checkedmsgon == 'checked'){
   $checkedpriceporogi = "checked";
 } elseif ($checkedpriceporogi == 'none') {
   $checkedpriceporogi = "";
+} elseif ($checkedpricereelings == 'checked') {
+  $checkedpricereelings = "checked";
+} elseif ($checkedpricereelings == 'none') {
+  $checkedpricereelings = "";
+} elseif ($checkedpriceinno == 'checked') {
+  $checkedpriceinno = "checked";
+} elseif ($checkedpriceinno == 'none') {
+  $checkedpriceinno = "";
 } ?>
 
 <div class="admin__container">
@@ -109,6 +117,11 @@ if ($checkedmsgon == 'checked'){
         <input type="checkbox" name="price_on_reelings" class="form__checkbox"
                id="priceonreelings" <?php echo $checkedpricereelings ?>>
         <label for="priceonreelings" class="form__label--checkbox">Включить/выключить цены в разделе Рейлинги</label>
+      </div>
+      <div class="form__input-wrap clearfix">
+        <input type="checkbox" name="price_on_inno" class="form__checkbox"
+               id="priceoninno" <?php echo $checkedpriceinno ?>>
+        <label for="priceoninno" class="form__label--checkbox">Включить/выключить цены в разделе Автобоксы Inno</label>
       </div>
       <input type="submit" class="button button__zakaz" value="Включить/выключить блоки">
     </form>

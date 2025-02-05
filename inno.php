@@ -170,19 +170,19 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/inno/backend/array.php"); ?>
                         echo "<p class='text'>"; echo $inno_box[0]['desc3']; echo "</p>"; ?>
                     </div>
                     <div class="good__price">
-                        <p class="text"><?php echo "Черный матовый: <strong>"; echo $inno_box[0]['price_black']; ?></strong></p>
+                        <p class="text">Черный матовый: <span <?php echo $stylepriceinno ?>><?php echo "<strong>"; echo $inno_box[0]['price_black']; ?></strong></span></p>
                         <div class="good__buttons">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[0]['id1']; ?>" class="button button__buy" >Заказать</a>
                         </div>
                     </div>
                     <div class="good__price">
-                        <p class="text"><?php echo "Серебристый матовый: <strong>"; echo $inno_box[0]['price_silver']; ?></strong></p>
+                        <p class="text">Серебристый матовый: <span <?php echo $stylepriceinno ?>><?php echo "<strong>"; echo $inno_box[0]['price_silver']; ?></strong></span></p>
                         <div class="good__buttons">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[0]['id2']; ?>" class="button button__buy" >Заказать</a>
                         </div>
                     </div>
                     <div class="good__price">
-                        <p class="text"><?php echo "Белый глянец: <strong>"; echo $inno_box[0]['price_white']; ?></strong></p>
+                        <p class="text">Белый глянец: <span <?php echo $stylepriceinno ?>><?php echo "<strong>"; echo $inno_box[0]['price_white']; ?></strong></span></p>
                         <div class="good__buttons">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[0]['id3']; ?>" class="button button__buy" >Заказать</a>
                         </div>
@@ -230,7 +230,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/inno/backend/array.php"); ?>
                         echo "<p class='text'>"; echo $inno_box[1]['desc3']; echo "</p>"; ?>
                     </div>
                     <div class="good__price">
-                        <p class="text"><?php echo "Черный матовый: <strong>"; echo $inno_box[1]['price']; ?></strong></p>
+                        <p class="text">Черный матовый: <span <?php echo $stylepriceinno ?>><?php echo "<strong>"; echo $inno_box[1]['price']; ?></strong></span></p>
                         <div class="good__buttons">
                             <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[1]['id']; ?>" class="button button__buy" >Заказать</a>
                         </div>
@@ -287,13 +287,13 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/inno/backend/array.php"); ?>
                     echo "<p class='text'>"; echo $inno_box[2]['desc2']; echo "</p>";
                     echo "<p class='text'>"; echo $inno_box[2]['desc3']; echo "</p>"; ?></div>
                 <div class="good__price">
-                    <p class="text"><?php echo "Черный глянец: <strong>"; echo $inno_box[2]['price']; ?></strong></p>
+                    <p class="text">Черный глянец: <span <?php echo $stylepriceinno ?>><?php echo "<strong>"; echo $inno_box[2]['price']; ?></strong></span></p>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[2]['id1']; ?>" class="button button__buy" >Заказать</a>
                     </div>
                 </div>
                 <div class="good__price">
-                    <p class="text"><?php echo "Серый глянец: <strong>"; echo $inno_box[2]['price']; ?></strong></p>
+                    <p class="text">Серый глянец: <span <?php echo $stylepriceinno ?>><?php echo "<strong>"; echo $inno_box[2]['price']; ?></strong></span></p>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[2]['id2']; ?>" class="button button__buy" >Заказать</a>
                     </div>
@@ -340,7 +340,7 @@ include ($_SERVER["DOCUMENT_ROOT"]."/content/inno/backend/array.php"); ?>
                     echo "<p class='text'>"; echo $inno_box[3]['desc2']; echo "</p>";
                     echo "<p class='text'>"; echo $inno_box[3]['desc3']; echo "</p>"; ?></div>
                 <div class="good__price">
-                    <p class="text"><?php echo "Белый глянец: <strong>"; echo $inno_box[3]['price']; ?></strong></p>
+                    <p class="text">Белый глянец: <span <?php echo $stylepriceinno ?>><?php echo "<strong>"; echo $inno_box[3]['price']; ?></strong></span></p>
                     <div class="good__buttons">
                         <a onclick="yaCounter40650914.reachGoal('click_zakaz'); return true" href="/buy/<?php echo $inno_box[3]['id']; ?>" class="button button__buy" >Заказать</a>
                     </div>

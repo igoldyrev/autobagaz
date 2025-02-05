@@ -58,3 +58,8 @@ if ($checkedpricereelings == 'checked') {
 } elseif ($checkedpricereelings == 'none') {
   $stylepricereelings = 'style="display: none; "';
 }
+if ($checkedpriceinno == 'checked') {
+    $stylepriceinno = 'style="display: inline-block; "';
+  } elseif ($checkedpriceinno == 'none') {
+    $stylepriceinno = 'style="display: none; "';
+  }
