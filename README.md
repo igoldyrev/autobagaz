@@ -1,4 +1,4 @@
-# Сайт магазина Автобагаж, Пермь [![Build Status](https://travis-ci.org/igoldyrev/autobagaz.svg?branch=master)](https://travis-ci.org/igoldyrev/autobagaz)
+# Сайт магазина Автобагаж, Пермь
 ## Установка 
 ```
 npm install
