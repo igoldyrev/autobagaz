@@ -1,0 +1,42 @@
+.records-placeholder {
+    box-sizing: border-box;
+    margin: 20px 0;
+    padding: 24px;
+    border: 1px dashed #b8c2b8;
+    background: #f8faf8;
+    color: #526052;
+    text-align: center;
+}
+
+.records-placeholder--list {
+    min-height: 92px;
+}
+
+.records-placeholder p {
+    margin: 0;
+}
+
+[data-placeholder] {
+    cursor: not-allowed;
+}
+
+.modal-call__close,
+.modal-call__button {
+    border: 0;
+}
+
+.form-placeholder {
+    margin: 12px 0 0;
+    color: #8b1e1e;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .navigation-mobile .navigation__list {
+        display: none;
+    }
+
+    .navigation-mobile .navigation__list.is-open {
+        display: block;
+    }
+}
