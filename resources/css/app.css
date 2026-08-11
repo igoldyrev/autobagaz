@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer base {
+    body {
+        margin: 0;
+        background: #f5f7fa;
+        color: #172033;
+        font-family: var(--font-sans);
+    }
+}
+
+@layer components {
+    .home {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding: 2rem;
+    }
+
+    .home__content {
+        width: min(100%, 42rem);
+        padding: clamp(2rem, 6vw, 4rem);
+        border: 1px solid #e2e7ef;
+        border-radius: 1.5rem;
+        background: #fff;
+        box-shadow: 0 1.5rem 4rem rgb(23 32 51 / 8%);
+    }
+
+    .home__eyebrow {
+        margin: 0 0 1rem;
+        color: #e34a21;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+    }
+
+    .home h1 {
+        margin: 0;
+        font-size: clamp(2.25rem, 7vw, 4.5rem);
+        font-weight: 750;
+        letter-spacing: -0.045em;
+        line-height: 0.98;
+    }
+
+    .home__description {
+        max-width: 36rem;
+        margin: 1.75rem 0;
+        color: #5d6677;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.7;
+    }
+
+    .home__status {
+        display: inline-flex;
+        padding: 0.55rem 0.9rem;
+        border-radius: 999px;
+        background: #eef1f5;
+        color: #3d4655;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+}
