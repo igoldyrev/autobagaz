@@ -1,6 +1,6 @@
 @php
     $catalog = [
-        ['title' => 'Автобагажники', 'image' => '/content/index/img/catalog/1_autobagazniki.jpg', 'alt' => 'Автобагажники'],
+        ['title' => 'Автобагажники', 'image' => '/content/index/img/catalog/1_autobagazniki.jpg', 'alt' => 'Автобагажники', 'url' => route('catalog.autobagazhniki.index')],
         ['title' => 'Автомобильные боксы', 'image' => '/content/index/img/catalog/2_autobox.jpg', 'alt' => 'Автомобильные боксы'],
         ['title' => 'Велокрепления', 'image' => '/content/index/img/catalog/3_velokreplenya.jpg', 'alt' => 'Велокрепления'],
         ['title' => 'Крепления для лыж и сноубордов', 'image' => '/content/index/img/catalog/4_lyzh_kreplenya.jpg', 'alt' => 'Крепления для лыж и сноубордов'],
@@ -168,7 +168,11 @@
         <div class="wrapper">
             <aside class="left-nav">
                 @foreach ($categories as $category)
-                    <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">{{ $category }}</a>
+                    <a
+                        href="{{ $category === 'Автобагажники' ? route('catalog.autobagazhniki.index') : '#' }}"
+                        class="left-nav__link"
+                        @if ($category !== 'Автобагажники') data-placeholder aria-disabled="true" @endif
+                    >{{ $category }}</a>
                 @endforeach
                 <a href="https://vk.com/autobagaz" class="left-nav__link" target="_blank" rel="noopener noreferrer">Мы ВКонтакте</a>
                 <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">Оставить отзыв о нашей работе</a>
@@ -180,7 +184,12 @@
                 <div class="catalog">
                     @foreach ($catalog as $item)
                         <div class="catalog__item">
-                            <a href="#" class="catalog__item-link" data-placeholder aria-disabled="true" aria-label="{{ $item['title'] }}"></a>
+                            <a
+                                href="{{ $item['url'] ?? '#' }}"
+                                class="catalog__item-link"
+                                @unless (isset($item['url'])) data-placeholder aria-disabled="true" @endunless
+                                aria-label="{{ $item['title'] }}"
+                            ></a>
                             <div class="catalog__image-wrap">
                                 <img class="catalog__image" src="{{ asset(ltrim($item['image'], '/')) }}" alt="{{ $item['alt'] }}">
                             </div>

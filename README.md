@@ -24,6 +24,18 @@ php artisan serve
 php artisan migrate
 ```
 
+Начальные категории каталога добавляются идемпотентным сидером:
+
+```bash
+php artisan db:seed --class=RoofRackCategorySeeder
+```
+
+На продакшене миграции и категории можно применить одной командой:
+
+```bash
+php artisan migrate --seed --force
+```
+
 ## Разработка
 
 ```bash

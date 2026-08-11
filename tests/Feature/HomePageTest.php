@@ -30,6 +30,7 @@ class HomePageTest extends TestCase
 
         $availableTargets = [
             route('home'),
+            route('catalog.autobagazhniki.index'),
             '#',
             '#mobile-menu',
             'mailto:autobagaz@yandex.ru',
