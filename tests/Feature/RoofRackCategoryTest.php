@@ -34,7 +34,9 @@ class RoofRackCategoryTest extends TestCase
             ->assertSee('Автобагажники по маркам автомобилей')
             ->assertSee('Audi')
             ->assertSee('Lada (ВАЗ)')
-            ->assertSee('Багажники на рейлинги');
+            ->assertSee('Багажники на рейлинги')
+            ->assertDontSee('Марка автомобиля')
+            ->assertDontSee('>Категория<', escape: false);
 
         $this->assertSame(81, substr_count($response->getContent(), 'data-category-card'));
     }
@@ -70,5 +72,25 @@ class RoofRackCategoryTest extends TestCase
         $category = CatalogCategory::query()->where('slug', 'audi')->firstOrFail();
 
         $this->assertFileExists(public_path($category->image_path));
+        $this->assertStringEndsWith('bagazhniki_dlya_audi-1.png', $category->image_path);
+    }
+
+    public function test_only_categories_without_provided_images_use_the_placeholder(): void
+    {
+        $placeholder = 'images/catalog/autobagazhniki/category-background.webp';
+        $expectedPlaceholderSlugs = ['forthing', 'omoda'];
+
+        $categories = CatalogCategory::query()
+            ->whereNotNull('parent_id')
+            ->get();
+
+        $this->assertEqualsCanonicalizing(
+            $expectedPlaceholderSlugs,
+            $categories->where('image_path', $placeholder)->pluck('slug')->all(),
+        );
+
+        foreach ($categories->where('image_path', '!=', $placeholder) as $category) {
+            $this->assertFileExists(public_path($category->image_path));
+        }
     }
 }

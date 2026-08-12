@@ -20,7 +20,7 @@
 
     <div class="catalog-category-hero">
         <img
-            class="catalog-category-hero__image"
+            class="catalog-category-hero__image {{ str_ends_with($currentCategory->image_path, 'category-background.webp') ? '' : 'catalog-category-hero__image--provided' }}"
             src="{{ asset($currentCategory->image_path) }}"
             alt="{{ $currentCategory->image_alt ?: $currentCategory->name }}"
             width="720"

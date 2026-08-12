@@ -16,23 +16,25 @@
 
     <div class="catalog-categories">
         @foreach ($categories as $category)
+            @php
+                $usesPlaceholder = str_ends_with($category->image_path, 'category-background.webp');
+            @endphp
             <a
-                class="catalog-category"
+                class="catalog-category {{ $usesPlaceholder ? 'catalog-category--placeholder' : 'catalog-category--image' }}"
                 href="{{ route('catalog.autobagazhniki.show', $category->slug) }}"
                 data-category-card
             >
                 <img
-                    class="catalog-category__image"
+                    class="catalog-category__image {{ $usesPlaceholder ? '' : 'catalog-category__image--provided' }}"
                     src="{{ asset($category->image_path) }}"
                     alt="{{ $category->image_alt ?: $category->name }}"
                     width="720"
                     height="480"
                     loading="lazy"
                 >
-                <span class="catalog-category__overlay" aria-hidden="true"></span>
-                <span class="catalog-category__kind">
-                    {{ $category->kind === 'vehicle_make' ? 'Марка автомобиля' : 'Категория' }}
-                </span>
+                @if ($usesPlaceholder)
+                    <span class="catalog-category__overlay" aria-hidden="true"></span>
+                @endif
                 <span class="catalog-category__name">{{ $category->name }}</span>
             </a>
         @endforeach
