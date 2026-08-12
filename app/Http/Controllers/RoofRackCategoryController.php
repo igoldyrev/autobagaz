@@ -24,8 +24,29 @@ class RoofRackCategoryController extends Controller
             ->active()
             ->where('slug', $category)
             ->firstOrFail();
+        $models = $currentCategory->children()
+            ->active()
+            ->where('kind', 'vehicle_model')
+            ->get();
 
-        return view('catalog.categories.show', compact('rootCategory', 'currentCategory'));
+        return view('catalog.categories.show', compact('rootCategory', 'currentCategory', 'models'));
+    }
+
+    public function showModel(string $category, string $model): View
+    {
+        $rootCategory = $this->rootCategory();
+        $currentCategory = $rootCategory->children()
+            ->active()
+            ->where('kind', 'vehicle_make')
+            ->where('slug', $category)
+            ->firstOrFail();
+        $currentModel = $currentCategory->children()
+            ->active()
+            ->where('kind', 'vehicle_model')
+            ->where('slug', $model)
+            ->firstOrFail();
+
+        return view('catalog.models.show', compact('rootCategory', 'currentCategory', 'currentModel'));
     }
 
     private function rootCategory(): CatalogCategory

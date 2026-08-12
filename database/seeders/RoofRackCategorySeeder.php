@@ -44,6 +44,38 @@ class RoofRackCategorySeeder extends Seeder
                 ],
             );
         }
+
+        $modelGroups = require database_path('data/roof_rack_models.php');
+        foreach ($modelGroups as $makeSlug => $models) {
+            $make = $rootCategory->children()
+                ->where('kind', 'vehicle_make')
+                ->where('slug', $makeSlug)
+                ->firstOrFail();
+
+            CatalogCategory::query()
+                ->where('parent_id', $make->id)
+                ->where('kind', 'vehicle_model')
+                ->whereNotIn('slug', array_column($models, 'slug'))
+                ->delete();
+
+            foreach ($models as $index => $model) {
+                CatalogCategory::query()->updateOrCreate(
+                    [
+                        'parent_id' => $make->id,
+                        'slug' => $model['slug'],
+                    ],
+                    [
+                        'kind' => 'vehicle_model',
+                        'name' => $model['name'],
+                        'description' => null,
+                        'image_path' => "images/catalog/autobagazhniki/models/{$makeSlug}/{$model['image']}",
+                        'image_alt' => "{$make->name} {$model['name']}",
+                        'sort_order' => $index + 1,
+                        'is_active' => true,
+                    ],
+                );
+            }
+        }
     }
 
     /**

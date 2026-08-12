@@ -34,8 +34,7 @@
     <body>
         <nav class="navigation-mobile" aria-label="Мобильная навигация">
             <ul class="navigation__list" id="mobile-menu">
-                <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Главная</a></li>
-                <li class="navigation__list-item"><a class="navigation__link" href="{{ route('catalog.autobagazhniki.index') }}">Автобагажники</a></li>
+                <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Каталог</a></li>
                 @foreach ($siteNavigation as $item)
                     <li class="navigation__list-item"><a class="navigation__link" href="#" data-placeholder aria-disabled="true">{{ $item }}</a></li>
                 @endforeach
@@ -78,8 +77,7 @@
 
         <nav class="navigation" aria-label="Основная навигация">
             <ul class="navigation__list">
-                <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Главная</a></li>
-                <li class="navigation__list-item"><a class="navigation__link" href="{{ route('catalog.autobagazhniki.index') }}" aria-current="page">Автобагажники</a></li>
+                <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Каталог</a></li>
                 @foreach ($siteNavigation as $item)
                     <li class="navigation__list-item"><a class="navigation__link" href="#" data-placeholder aria-disabled="true">{{ $item }}</a></li>
                 @endforeach
