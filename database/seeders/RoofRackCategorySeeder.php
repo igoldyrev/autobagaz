@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\CatalogCategory;
+use App\Models\VehicleMake;
+use App\Models\VehicleModel;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 
@@ -10,7 +12,7 @@ class RoofRackCategorySeeder extends Seeder
 {
     public function run(): void
     {
-        $rootCategory = CatalogCategory::query()->updateOrCreate(
+        $rootCategory = CatalogCategory::query()->firstOrCreate(
             [
                 'parent_id' => null,
                 'slug' => 'autobagazhniki',
@@ -28,44 +30,55 @@ class RoofRackCategorySeeder extends Seeder
 
         $categories = require database_path('data/roof_rack_categories.php');
         foreach ($categories as $index => $category) {
-            CatalogCategory::query()->updateOrCreate(
+            if ($category['kind'] === 'special') {
+                CatalogCategory::query()->firstOrCreate(
+                    [
+                        'parent_id' => $rootCategory->id,
+                        'slug' => $category['slug'],
+                    ],
+                    [
+                        'kind' => $category['kind'],
+                        'name' => $category['name'],
+                        'description' => $category['description'] ?? null,
+                        'image_path' => $this->imagePath($category),
+                        'image_alt' => $category['name'],
+                        'sort_order' => $index + 1,
+                        'is_active' => true,
+                    ],
+                );
+
+                continue;
+            }
+
+            $make = VehicleMake::query()->firstOrCreate(
+                ['slug' => $category['slug']],
                 [
-                    'parent_id' => $rootCategory->id,
-                    'slug' => $category['slug'],
-                ],
-                [
-                    'kind' => $category['kind'],
                     'name' => $category['name'],
                     'description' => $category['description'] ?? null,
                     'image_path' => $this->imagePath($category),
                     'image_alt' => $category['name'],
-                    'sort_order' => $index + 1,
                     'is_active' => true,
                 ],
             );
+
+            if (! $rootCategory->vehicleMakes()->whereKey($make->id)->exists()) {
+                $rootCategory->vehicleMakes()->attach($make->id, [
+                    'sort_order' => $index + 1,
+                ]);
+            }
         }
 
         $modelGroups = require database_path('data/roof_rack_models.php');
         foreach ($modelGroups as $makeSlug => $models) {
-            $make = $rootCategory->children()
-                ->where('kind', 'vehicle_make')
-                ->where('slug', $makeSlug)
-                ->firstOrFail();
-
-            CatalogCategory::query()
-                ->where('parent_id', $make->id)
-                ->where('kind', 'vehicle_model')
-                ->whereNotIn('slug', array_column($models, 'slug'))
-                ->delete();
+            $make = VehicleMake::query()->where('slug', $makeSlug)->firstOrFail();
 
             foreach ($models as $index => $model) {
-                CatalogCategory::query()->updateOrCreate(
+                VehicleModel::query()->firstOrCreate(
                     [
-                        'parent_id' => $make->id,
+                        'vehicle_make_id' => $make->id,
                         'slug' => $model['slug'],
                     ],
                     [
-                        'kind' => 'vehicle_model',
                         'name' => $model['name'],
                         'description' => null,
                         'image_path' => "images/catalog/autobagazhniki/models/{$makeSlug}/{$model['image']}",

@@ -1,5 +1,5 @@
 @php
-    $pageTitle = $currentCategory->kind === 'vehicle_make'
+    $pageTitle = $isVehicleMake
         ? "Багажники для автомобилей {$currentCategory->name}"
         : $currentCategory->name;
 @endphp

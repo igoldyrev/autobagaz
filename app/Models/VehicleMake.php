@@ -4,15 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class CatalogCategory extends Model
+class VehicleMake extends Model
 {
     protected $fillable = [
-        'parent_id',
-        'kind',
         'name',
         'slug',
         'description',
@@ -20,7 +17,6 @@ class CatalogCategory extends Model
         'image_alt',
         'meta_title',
         'meta_description',
-        'sort_order',
         'is_active',
     ];
 
@@ -31,21 +27,16 @@ class CatalogCategory extends Model
         ];
     }
 
-    public function parent(): BelongsTo
+    public function models(): HasMany
     {
-        return $this->belongsTo(self::class, 'parent_id');
-    }
-
-    public function children(): HasMany
-    {
-        return $this->hasMany(self::class, 'parent_id')
+        return $this->hasMany(VehicleModel::class)
             ->orderBy('sort_order')
             ->orderBy('name');
     }
 
-    public function vehicleMakes(): BelongsToMany
+    public function catalogCategories(): BelongsToMany
     {
-        return $this->belongsToMany(VehicleMake::class)
+        return $this->belongsToMany(CatalogCategory::class)
             ->withPivot('sort_order')
             ->withTimestamps();
     }

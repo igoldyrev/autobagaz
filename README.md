@@ -22,6 +22,7 @@ php artisan serve
 
 ```bash
 php artisan migrate
+php artisan storage:link
 ```
 
 Начальные категории каталога добавляются идемпотентным сидером:
@@ -35,6 +36,17 @@ php artisan db:seed --class=RoofRackCategorySeeder
 ```bash
 php artisan migrate --seed --force
 ```
+
+## Администратор
+
+После применения миграций создайте учётную запись администратора:
+
+```bash
+php artisan admin:create admin@example.com --name="Администратор"
+```
+
+Команда запросит пароль в интерактивном режиме. Страница входа доступна по
+адресу `/admin/login`. Публичная регистрация пользователей отключена.
 
 ## Разработка
 

@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Models\CatalogCategory;
+use App\Models\VehicleMake;
+use App\Models\VehicleModel;
 use Database\Seeders\RoofRackCategorySeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -20,13 +22,13 @@ class RoofRackCategoryTest extends TestCase
             ->where('slug', 'autobagazhniki')
             ->firstOrFail();
 
-        $this->assertSame(81, $rootCategory->children()->count());
-        $this->assertSame(78, $rootCategory->children()->where('kind', 'vehicle_make')->count());
+        $this->assertSame(3, $rootCategory->children()->count());
+        $this->assertSame(78, $rootCategory->vehicleMakes()->count());
         $this->assertSame(3, $rootCategory->children()->where('kind', 'special')->count());
-        $this->assertSame(852, CatalogCategory::query()->where('kind', 'vehicle_model')->count());
+        $this->assertSame(852, VehicleModel::query()->count());
 
-        foreach ($rootCategory->children()->where('kind', 'vehicle_make')->get() as $make) {
-            $this->assertGreaterThan(0, $make->children()->where('kind', 'vehicle_model')->count());
+        foreach ($rootCategory->vehicleMakes as $make) {
+            $this->assertGreaterThan(0, $make->models()->count());
         }
     }
 
@@ -56,9 +58,9 @@ class RoofRackCategoryTest extends TestCase
             ->assertDontSee('Нет записей')
             ->assertSee(route('catalog.autobagazhniki.model.show', ['audi', 'a4']));
 
-        $audi = CatalogCategory::query()->where('slug', 'audi')->firstOrFail();
+        $audi = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
 
-        $this->assertSame(16, $audi->children()->where('kind', 'vehicle_model')->count());
+        $this->assertSame(16, $audi->models()->count());
     }
 
     public function test_special_category_without_models_is_available(): void
@@ -97,23 +99,40 @@ class RoofRackCategoryTest extends TestCase
     {
         $this->get(route('catalog.autobagazhniki.show', 'unknown'))->assertNotFound();
 
-        CatalogCategory::query()->where('slug', 'audi')->update(['is_active' => false]);
+        VehicleMake::query()->where('slug', 'audi')->update(['is_active' => false]);
 
         $this->get(route('catalog.autobagazhniki.show', 'audi'))->assertNotFound();
     }
 
     public function test_category_seeder_is_idempotent(): void
     {
-        $count = CatalogCategory::query()->count();
+        $categoryCount = CatalogCategory::query()->count();
+        $makeCount = VehicleMake::query()->count();
+        $modelCount = VehicleModel::query()->count();
+        $audi = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
+        $rootCategory = CatalogCategory::query()->where('slug', 'autobagazhniki')->firstOrFail();
+        $audi->update(['name' => 'Audi edited']);
+        $rootCategory->vehicleMakes()->updateExistingPivot($audi->id, ['sort_order' => 999]);
+        $audi->models()->create([
+            'name' => 'Admin model',
+            'slug' => 'admin-model',
+            'sort_order' => 999,
+            'is_active' => true,
+        ]);
 
         $this->seed(RoofRackCategorySeeder::class);
 
-        $this->assertSame($count, CatalogCategory::query()->count());
+        $this->assertSame($categoryCount, CatalogCategory::query()->count());
+        $this->assertSame($makeCount, VehicleMake::query()->count());
+        $this->assertSame($modelCount + 1, VehicleModel::query()->count());
+        $this->assertSame('Audi edited', $audi->fresh()->name);
+        $this->assertSame(999, $rootCategory->vehicleMakes()->findOrFail($audi->id)->pivot->sort_order);
+        $this->assertTrue($audi->models()->where('slug', 'admin-model')->exists());
     }
 
     public function test_category_image_exists(): void
     {
-        $category = CatalogCategory::query()->where('slug', 'audi')->firstOrFail();
+        $category = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
 
         $this->assertFileExists(public_path($category->image_path));
         $this->assertStringEndsWith('bagazhniki_dlya_audi-1.png', $category->image_path);
@@ -121,7 +140,7 @@ class RoofRackCategoryTest extends TestCase
 
     public function test_vehicle_model_images_exist(): void
     {
-        foreach (CatalogCategory::query()->where('kind', 'vehicle_model')->get() as $model) {
+        foreach (VehicleModel::query()->get() as $model) {
             $this->assertFileExists(public_path($model->image_path));
             $this->assertStringContainsString('/models/', $model->image_path);
         }
@@ -132,9 +151,7 @@ class RoofRackCategoryTest extends TestCase
         $placeholder = 'images/catalog/autobagazhniki/category-background.webp';
         $expectedPlaceholderSlugs = ['forthing', 'omoda'];
 
-        $categories = CatalogCategory::query()
-            ->whereNotNull('parent_id')
-            ->get();
+        $categories = VehicleMake::query()->get();
 
         $this->assertEqualsCanonicalizing(
             $expectedPlaceholderSlugs,
