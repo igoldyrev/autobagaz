@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class VehicleModel extends Model
 {
@@ -31,6 +32,11 @@ class VehicleModel extends Model
     public function make(): BelongsTo
     {
         return $this->belongsTo(VehicleMake::class, 'vehicle_make_id');
+    }
+
+    public function products(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class);
     }
 
     public function scopeActive(Builder $query): Builder

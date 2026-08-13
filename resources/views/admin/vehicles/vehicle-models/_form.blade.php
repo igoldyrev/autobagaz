@@ -69,5 +69,5 @@
 
 <div class="form-actions">
     <button class="button button--primary button--inline" type="submit">Сохранить</button>
-    <a class="button button--secondary" href="{{ route('admin.roof-racks.vehicle-models.index', $vehicleMake) }}">Отмена</a>
+    <a class="button button--secondary" href="{{ route('admin.vehicles.vehicle-models.index', $vehicleMake) }}">Отмена</a>
 </div>

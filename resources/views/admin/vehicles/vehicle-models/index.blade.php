@@ -9,7 +9,7 @@
         <main class="admin-content admin-content--wide">
             @include('admin.partials.flash')
             <nav class="admin-breadcrumbs" aria-label="Хлебные крошки">
-                <a href="{{ route('admin.roof-racks.vehicle-makes.index') }}">Марки</a><span>/</span><span>{{ $vehicleMake->name }}</span>
+                <a href="{{ route('admin.vehicles.vehicle-makes.index') }}">Марки</a><span>/</span><span>{{ $vehicleMake->name }}</span>
             </nav>
 
             <div class="page-heading">
@@ -18,7 +18,7 @@
                     <h1>{{ $vehicleMake->name }}</h1>
                     <p class="admin-content__lead">Модели относятся к общему справочнику марки и могут использоваться во всех разделах сайта.</p>
                 </div>
-                <a class="button button--primary button--inline" href="{{ route('admin.roof-racks.vehicle-models.create', $vehicleMake) }}">Добавить модель</a>
+                <a class="button button--primary button--inline" href="{{ route('admin.vehicles.vehicle-models.create', $vehicleMake) }}">Добавить модель</a>
             </div>
 
             <form class="toolbar" method="GET">
@@ -26,7 +26,7 @@
                 <input id="search" name="search" type="search" value="{{ request('search') }}" placeholder="Поиск по названию или URL">
                 <button class="button button--secondary" type="submit">Найти</button>
                 @if (request()->filled('search'))
-                    <a class="text-link" href="{{ route('admin.roof-racks.vehicle-models.index', $vehicleMake) }}">Сбросить</a>
+                    <a class="text-link" href="{{ route('admin.vehicles.vehicle-models.index', $vehicleMake) }}">Сбросить</a>
                 @endif
             </form>
 
@@ -57,7 +57,7 @@
                                 <td><code>{{ $vehicleModel->slug }}</code></td>
                                 <td>{{ $vehicleModel->sort_order }}</td>
                                 <td><span class="status {{ $vehicleModel->is_active ? 'status--active' : 'status--inactive' }}">{{ $vehicleModel->is_active ? 'Опубликована' : 'Скрыта' }}</span></td>
-                                <td><a class="text-link" href="{{ route('admin.roof-racks.vehicle-models.edit', [$vehicleMake, $vehicleModel]) }}">Изменить</a></td>
+                                <td><a class="text-link" href="{{ route('admin.vehicles.vehicle-models.edit', [$vehicleMake, $vehicleModel]) }}">Изменить</a></td>
                             </tr>
                         @empty
                             <tr><td colspan="5" class="empty-state">Модели не найдены.</td></tr>

@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\CatalogCategoryController as AdminCatalogCategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductSectionController;
+use App\Http\Controllers\Admin\RoofRackProductController;
 use App\Http\Controllers\Admin\VehicleMakeController;
 use App\Http\Controllers\Admin\VehicleModelController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoofRackCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,16 +21,25 @@ Route::middleware('guest')->group(function () {
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', DashboardController::class)->name('dashboard');
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::get('products', ProductSectionController::class)->name('products.index');
+    Route::prefix('products/autobagazhniki')->name('products.roof-racks.')->group(function () {
+        Route::get('/', [RoofRackProductController::class, 'index'])->name('index');
+        Route::get('/create', [RoofRackProductController::class, 'create'])->name('create');
+        Route::post('/', [RoofRackProductController::class, 'store'])->name('store');
+        Route::get('/{product}/edit', [RoofRackProductController::class, 'edit'])->name('edit');
+        Route::put('/{product}', [RoofRackProductController::class, 'update'])->name('update');
+    });
+    Route::resource('catalog-categories', AdminCatalogCategoryController::class)->except(['show', 'destroy']);
 
-    Route::prefix('autobagazhniki')->name('roof-racks.')->group(function () {
-        Route::get('vehicle-makes/attach', [VehicleMakeController::class, 'attachForm'])->name('vehicle-makes.attach-form');
-        Route::post('vehicle-makes/attach', [VehicleMakeController::class, 'attach'])->name('vehicle-makes.attach');
-        Route::resource('vehicle-makes', VehicleMakeController::class)->except('show');
+    Route::prefix('vehicles')->name('vehicles.')->group(function () {
+        Route::resource('vehicle-makes', VehicleMakeController::class)->except(['show', 'destroy']);
         Route::resource('vehicle-makes.vehicle-models', VehicleModelController::class)
             ->except('show')
             ->names('vehicle-models');
     });
 });
+
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 Route::prefix('autobagazhniki')->name('catalog.autobagazhniki.')->group(function () {
     Route::get('/', [RoofRackCategoryController::class, 'index'])->name('index');

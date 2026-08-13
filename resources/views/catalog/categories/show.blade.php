@@ -40,6 +40,8 @@
                 </a>
             @endforeach
         </div>
+    @elseif ($products->isNotEmpty())
+        @include('catalog.products._grid', ['products' => $products])
     @else
         <div class="catalog-category-hero">
             <img

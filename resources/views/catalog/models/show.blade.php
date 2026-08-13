@@ -17,6 +17,9 @@
 
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
 
+    @if ($products->isNotEmpty())
+        @include('catalog.products._grid', ['products' => $products])
+    @else
     <div class="catalog-category-hero">
         <img
             class="catalog-category-hero__image catalog-category-hero__image--provided"
@@ -31,4 +34,5 @@
             <a class="link-green" href="{{ route('catalog.autobagazhniki.show', $currentCategory->slug) }}">Вернуться к моделям {{ $currentCategory->name }}</a>
         </div>
     </div>
+    @endif
 @endsection

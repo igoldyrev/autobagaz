@@ -144,3 +144,59 @@
         grid-template-columns: 1fr;
     }
 }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 18px;
+    margin-bottom: 36px;
+}
+
+.product-card { overflow: hidden; border: 1px solid #d8ded8; border-radius: 6px; background: #fff; }
+.product-card__image-link { display: grid; height: 190px; place-items: center; padding: 14px; background: #fafafa; }
+.product-card__image { max-width: 100%; max-height: 100%; object-fit: contain; }
+.product-card__no-image { color: #8a8f94; }
+.product-card__body { display: grid; gap: 8px; padding: 16px; }
+.product-card__name { color: #0a2a0a; font-family: "Roboto Slab", serif; font-size: 17px; font-weight: 700; text-decoration: none; }
+.product-card__stock { color: #687069; font-size: 13px; }
+.product-card__price { color: #d84a20; font-size: 20px; }
+
+.product-page__title { margin-bottom: 26px; }
+.product-page { display: grid; grid-template-columns: minmax(320px, 1.08fr) minmax(280px, .92fr); gap: 38px; align-items: start; margin-bottom: 42px; }
+.product-gallery { min-width: 0; }
+.product-gallery__main { display: grid; min-height: 430px; place-items: center; padding: 22px; border: 1px solid #d8ded8; border-radius: 5px; background: #fff; }
+.product-gallery__main img { display: block; max-width: 100%; max-height: 430px; object-fit: contain; }
+.product-gallery__thumbnails { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px; margin-top: 12px; }
+.product-gallery__thumbnail { display: grid; height: 82px; place-items: center; padding: 6px; border: 1px solid #d8ded8; border-radius: 4px; background: #fff; cursor: pointer; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.product-gallery__thumbnail:hover, .product-gallery__thumbnail:focus-visible, .product-gallery__thumbnail--active { border-color: #31852f; box-shadow: 0 0 0 2px rgb(49 133 47 / 14%); }
+.product-gallery__thumbnail img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+.product-gallery__empty { display: grid; min-height: 430px; place-items: center; border: 1px solid #d8ded8; border-radius: 5px; color: #7b827c; background: #fafafa; }
+.roof-rack-characteristics { width: 100%; margin-top: 24px; border: 1px solid #d8ded8; border-collapse: collapse; background: #fff; }
+.roof-rack-characteristics caption { padding: 0 0 12px; color: #0a2a0a; font-family: "Roboto Slab", serif; font-size: 20px; font-weight: 700; text-align: left; }
+.roof-rack-characteristics th, .roof-rack-characteristics td { padding: 12px 14px; border-bottom: 1px solid #e1e5e1; text-align: left; vertical-align: top; }
+.roof-rack-characteristics tr:last-child th, .roof-rack-characteristics tr:last-child td { border-bottom: 0; }
+.roof-rack-characteristics th { width: 48%; color: #3f4740; background: #f5f7f5; font-weight: 700; }
+.roof-rack-characteristics td { color: #1d251e; }
+.product-page__summary { padding: 26px 28px; border: 1px solid #d8ded8; border-radius: 5px; background: #fff; }
+.product-page__summary h2, .product-description h2, .product-compatibility h2 { margin: 0 0 20px; color: #0a2a0a; font-family: "Roboto Slab", serif; font-size: 22px; }
+.product-characteristics { margin: 0; }
+.product-characteristics > div { display: grid; grid-template-columns: minmax(145px, 44%) 1fr; gap: 18px; padding: 13px 0; border-bottom: 1px solid #e1e5e1; }
+.product-characteristics dt { color: #525a53; font-weight: 700; }
+.product-characteristics dd { margin: 0; color: #1d251e; }
+.product-characteristics__available { color: #18703c !important; font-weight: 700; }
+.product-characteristics__unavailable { color: #8a3030 !important; font-weight: 700; }
+.product-page__price { margin: 28px 0 0; color: #d84a20; font-size: 32px; font-weight: 800; }
+.product-description, .product-compatibility { margin-top: 34px; padding-top: 28px; border-top: 1px solid #d8ded8; }
+.product-description__content { max-width: 880px; white-space: normal; }
+.product-compatibility ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.product-compatibility li { padding: 7px 11px; border-radius: 4px; color: #315f32; background: #eef5ee; font-size: 14px; }
+
+@media (max-width: 720px) {
+    .product-page { grid-template-columns: 1fr; }
+    .product-gallery__main, .product-gallery__empty { min-height: 300px; }
+    .product-gallery__main img { max-height: 300px; }
+    .product-gallery__thumbnails { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .roof-rack-characteristics th { width: 52%; }
+    .product-page__summary { padding: 22px 18px; }
+    .product-characteristics > div { grid-template-columns: 1fr; gap: 5px; }
+}

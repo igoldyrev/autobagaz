@@ -19,7 +19,7 @@ class AdminVehicleDirectoryTest extends TestCase
 
     public function test_vehicle_make_admin_pages_are_protected(): void
     {
-        $this->get(route('admin.roof-racks.vehicle-makes.index'))
+        $this->get(route('admin.vehicles.vehicle-makes.index'))
             ->assertRedirect(route('login'));
     }
 
@@ -29,13 +29,13 @@ class AdminVehicleDirectoryTest extends TestCase
         $audi = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
 
         $this->actingAs($admin)
-            ->get(route('admin.roof-racks.vehicle-makes.index'))
+            ->get(route('admin.vehicles.vehicle-makes.index'))
             ->assertOk()
             ->assertSee('Марки автомобилей')
             ->assertSee('Audi');
 
         $this->actingAs($admin)
-            ->get(route('admin.roof-racks.vehicle-models.index', $audi))
+            ->get(route('admin.vehicles.vehicle-models.index', $audi))
             ->assertOk()
             ->assertSee('A4')
             ->assertSee('80/90');
@@ -46,10 +46,10 @@ class AdminVehicleDirectoryTest extends TestCase
         Storage::fake('public');
         $admin = User::factory()->create(['is_admin' => true]);
 
-        $response = $this->actingAs($admin)->post(route('admin.roof-racks.vehicle-makes.store'), [
+        $response = $this->actingAs($admin)->post(route('admin.vehicles.vehicle-makes.store'), [
             'name' => 'Новая Марка',
             'slug' => '',
-            'sort_order' => 500,
+            'catalog_category_ids' => [$this->rootCategory()->id],
             'is_active' => '1',
             'image' => UploadedFile::fake()->createWithContent(
                 'new-make.png',
@@ -62,9 +62,8 @@ class AdminVehicleDirectoryTest extends TestCase
         $vehicleMake = VehicleMake::query()->where('slug', 'novaia-marka')->firstOrFail();
         $rootCategory = $this->rootCategory();
 
-        $response->assertRedirect(route('admin.roof-racks.vehicle-makes.edit', $vehicleMake));
+        $response->assertRedirect(route('admin.vehicles.vehicle-makes.edit', $vehicleMake));
         $this->assertTrue($rootCategory->vehicleMakes()->whereKey($vehicleMake->id)->exists());
-        $this->assertSame(500, $rootCategory->vehicleMakes()->findOrFail($vehicleMake->id)->pivot->sort_order);
         Storage::disk('public')->assertExists(substr($vehicleMake->image_path, strlen('storage/')));
 
         $this->get(route('catalog.autobagazhniki.index'))
@@ -77,17 +76,16 @@ class AdminVehicleDirectoryTest extends TestCase
         $admin = User::factory()->create(['is_admin' => true]);
         $vehicleMake = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
 
-        $this->actingAs($admin)->put(route('admin.roof-racks.vehicle-makes.update', $vehicleMake), [
+        $this->actingAs($admin)->put(route('admin.vehicles.vehicle-makes.update', $vehicleMake), [
             'name' => 'Audi Updated',
             'slug' => 'audi-updated',
-            'sort_order' => 25,
+            'catalog_category_ids' => [$this->rootCategory()->id],
             'is_active' => '0',
         ])->assertRedirect();
 
         $vehicleMake->refresh();
         $this->assertSame('Audi Updated', $vehicleMake->name);
         $this->assertFalse($vehicleMake->is_active);
-        $this->assertSame(25, $this->rootCategory()->vehicleMakes()->findOrFail($vehicleMake->id)->pivot->sort_order);
         $this->get(route('catalog.autobagazhniki.show', 'audi-updated'))->assertNotFound();
     }
 
@@ -98,12 +96,25 @@ class AdminVehicleDirectoryTest extends TestCase
         $modelsCount = $vehicleMake->models()->count();
 
         $this->actingAs($admin)
-            ->delete(route('admin.roof-racks.vehicle-makes.destroy', $vehicleMake))
-            ->assertRedirect(route('admin.roof-racks.vehicle-makes.index'));
+            ->put(route('admin.vehicles.vehicle-makes.update', $vehicleMake), [
+                'name' => $vehicleMake->name,
+                'slug' => $vehicleMake->slug,
+                'is_active' => '1',
+                'catalog_category_ids' => [],
+            ])
+            ->assertRedirect();
 
         $this->assertDatabaseHas('vehicle_makes', ['id' => $vehicleMake->id]);
         $this->assertSame($modelsCount, VehicleModel::query()->where('vehicle_make_id', $vehicleMake->id)->count());
         $this->assertFalse($this->rootCategory()->vehicleMakes()->whereKey($vehicleMake->id)->exists());
+        $this->actingAs($admin)
+            ->get(route('admin.vehicles.vehicle-makes.index'))
+            ->assertOk()
+            ->assertSee('Audi')
+            ->assertSee('Не привязана');
+        $this->actingAs($admin)
+            ->get(route('admin.vehicles.vehicle-models.index', $vehicleMake))
+            ->assertOk();
         $this->get(route('catalog.autobagazhniki.show', 'audi'))->assertNotFound();
     }
 
@@ -113,18 +124,15 @@ class AdminVehicleDirectoryTest extends TestCase
         $vehicleMake = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
         $this->rootCategory()->vehicleMakes()->detach($vehicleMake->id);
 
-        $this->actingAs($admin)
-            ->get(route('admin.roof-racks.vehicle-makes.attach-form'))
-            ->assertOk()
-            ->assertSee('Audi');
-
-        $this->actingAs($admin)->post(route('admin.roof-racks.vehicle-makes.attach'), [
-            'vehicle_make_id' => $vehicleMake->id,
-            'sort_order' => 77,
-        ])->assertRedirect(route('admin.roof-racks.vehicle-makes.edit', $vehicleMake));
+        $this->actingAs($admin)->put(route('admin.vehicles.vehicle-makes.update', $vehicleMake), [
+            'name' => $vehicleMake->name,
+            'slug' => $vehicleMake->slug,
+            'is_active' => '1',
+            'catalog_category_ids' => [$this->rootCategory()->id],
+        ])->assertRedirect();
 
         $attachedMake = $this->rootCategory()->vehicleMakes()->findOrFail($vehicleMake->id);
-        $this->assertSame(77, $attachedMake->pivot->sort_order);
+        $this->assertGreaterThanOrEqual(1, $attachedMake->pivot->sort_order);
         $this->assertSame(1, VehicleMake::query()->where('slug', 'audi')->count());
     }
 
@@ -138,7 +146,14 @@ class AdminVehicleDirectoryTest extends TestCase
             'is_active' => true,
         ]);
 
-        $anotherSection->vehicleMakes()->attach($vehicleMake->id, ['sort_order' => 1]);
+        $admin = User::factory()->create(['is_admin' => true]);
+
+        $this->actingAs($admin)->put(route('admin.vehicles.vehicle-makes.update', $vehicleMake), [
+            'name' => $vehicleMake->name,
+            'slug' => $vehicleMake->slug,
+            'is_active' => '1',
+            'catalog_category_ids' => [$this->rootCategory()->id, $anotherSection->id],
+        ])->assertRedirect();
 
         $this->assertSame(2, $vehicleMake->catalogCategories()->count());
         $this->assertSame(1, VehicleMake::query()->where('slug', 'audi')->count());
@@ -150,7 +165,7 @@ class AdminVehicleDirectoryTest extends TestCase
         $admin = User::factory()->create(['is_admin' => true]);
         $vehicleMake = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
 
-        $this->actingAs($admin)->post(route('admin.roof-racks.vehicle-models.store', $vehicleMake), [
+        $this->actingAs($admin)->post(route('admin.vehicles.vehicle-models.store', $vehicleMake), [
             'name' => 'Test Model',
             'slug' => '',
             'sort_order' => 999,
@@ -162,7 +177,7 @@ class AdminVehicleDirectoryTest extends TestCase
             ->assertOk()
             ->assertSee('Test Model');
 
-        $this->actingAs($admin)->put(route('admin.roof-racks.vehicle-models.update', [$vehicleMake, $vehicleModel]), [
+        $this->actingAs($admin)->put(route('admin.vehicles.vehicle-models.update', [$vehicleMake, $vehicleModel]), [
             'name' => 'Updated Model',
             'slug' => 'updated-model',
             'sort_order' => 1000,
@@ -176,8 +191,8 @@ class AdminVehicleDirectoryTest extends TestCase
         ]);
 
         $this->actingAs($admin)
-            ->delete(route('admin.roof-racks.vehicle-models.destroy', [$vehicleMake, $vehicleModel]))
-            ->assertRedirect(route('admin.roof-racks.vehicle-models.index', $vehicleMake));
+            ->delete(route('admin.vehicles.vehicle-models.destroy', [$vehicleMake, $vehicleModel]))
+            ->assertRedirect(route('admin.vehicles.vehicle-models.index', $vehicleMake));
 
         $this->assertDatabaseMissing('vehicle_models', ['id' => $vehicleModel->id]);
     }
@@ -196,11 +211,11 @@ class AdminVehicleDirectoryTest extends TestCase
         ];
 
         $this->actingAs($admin)
-            ->post(route('admin.roof-racks.vehicle-models.store', $audi), $payload)
+            ->post(route('admin.vehicles.vehicle-models.store', $audi), $payload)
             ->assertSessionHasErrors('slug');
 
         $this->actingAs($admin)
-            ->post(route('admin.roof-racks.vehicle-models.store', $bmw), $payload)
+            ->post(route('admin.vehicles.vehicle-models.store', $bmw), $payload)
             ->assertSessionDoesntHaveErrors('slug');
 
         $this->assertDatabaseHas('vehicle_models', [

@@ -41,6 +41,7 @@ class RoofRackCategoryController extends Controller
 
         if ($currentCategory) {
             $models = $currentCategory->models()->active()->get();
+            $products = collect();
             $isVehicleMake = true;
         } else {
             $currentCategory = $rootCategory->children()
@@ -49,10 +50,15 @@ class RoofRackCategoryController extends Controller
                 ->where('slug', $category)
                 ->firstOrFail();
             $models = collect();
+            $products = $currentCategory->products()
+                ->active()
+                ->with('images')
+                ->orderBy('name')
+                ->get();
             $isVehicleMake = false;
         }
 
-        return view('catalog.categories.show', compact('rootCategory', 'currentCategory', 'models', 'isVehicleMake'));
+        return view('catalog.categories.show', compact('rootCategory', 'currentCategory', 'models', 'products', 'isVehicleMake'));
     }
 
     public function showModel(string $category, string $model): View
@@ -66,8 +72,13 @@ class RoofRackCategoryController extends Controller
             ->active()
             ->where('slug', $model)
             ->firstOrFail();
+        $products = $currentModel->products()
+            ->active()
+            ->with('images')
+            ->orderBy('name')
+            ->get();
 
-        return view('catalog.models.show', compact('rootCategory', 'currentCategory', 'currentModel'));
+        return view('catalog.models.show', compact('rootCategory', 'currentCategory', 'currentModel', 'products'));
     }
 
     private function rootCategory(): CatalogCategory

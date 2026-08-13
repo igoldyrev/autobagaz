@@ -17,12 +17,6 @@
         @error('slug') <p class="field__error">{{ $message }}</p> @enderror
     </div>
 
-    <div class="field">
-        <label for="sort_order">Порядок в разделе</label>
-        <input id="sort_order" name="sort_order" type="number" min="0" value="{{ old('sort_order', $sortOrder ?? $nextSortOrder ?? 0) }}" required>
-        @error('sort_order') <p class="field__error">{{ $message }}</p> @enderror
-    </div>
-
     <div class="field field--wide">
         <label for="description">Описание</label>
         <textarea id="description" name="description" rows="4">{{ old('description', $vehicleMake->description ?? '') }}</textarea>
@@ -65,9 +59,32 @@
         <input type="checkbox" name="is_active" value="1" @checked(old('is_active', $vehicleMake->is_active ?? true))>
         <span>Показывать марку на сайте</span>
     </label>
+
+    <fieldset class="field field--wide directory-sections">
+        <legend>Разделы каталога</legend>
+        <p class="field__hint">Отметьте типы товаров, для которых доступна эта марка. Справочник марки и её модели сохранятся, даже если не выбран ни один раздел.</p>
+        @php
+            $selectedCatalogSections = array_map(
+                'strval',
+                old('catalog_category_ids', isset($vehicleMake) ? $vehicleMake->catalogCategories->pluck('id')->all() : []),
+            );
+        @endphp
+        <div class="checkbox-list">
+            @forelse ($catalogSections as $catalogSection)
+                <label class="checkbox">
+                    <input type="checkbox" name="catalog_category_ids[]" value="{{ $catalogSection->id }}" @checked(in_array((string) $catalogSection->id, $selectedCatalogSections, true))>
+                    <span>{{ $catalogSection->name }}</span>
+                </label>
+            @empty
+                <p class="field__hint">Сначала создайте корневой раздел в справочнике «Разделы и категории».</p>
+            @endforelse
+        </div>
+        @error('catalog_category_ids') <p class="field__error">{{ $message }}</p> @enderror
+        @error('catalog_category_ids.*') <p class="field__error">{{ $message }}</p> @enderror
+    </fieldset>
 </div>
 
 <div class="form-actions">
     <button class="button button--primary button--inline" type="submit">Сохранить</button>
-    <a class="button button--secondary" href="{{ route('admin.roof-racks.vehicle-makes.index') }}">Отмена</a>
+    <a class="button button--secondary" href="{{ route('admin.vehicles.vehicle-makes.index') }}">Отмена</a>
 </div>

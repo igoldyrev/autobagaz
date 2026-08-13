@@ -14,13 +14,18 @@
             <div class="admin-grid">
                 <section class="admin-card">
                     <h2>Товары</h2>
-                    <p>Добавление и редактирование товаров будет доступно на следующем этапе.</p>
-                    <span class="status">Скоро</span>
+                    <p>Добавление товаров, цены, остатки, фотографии и привязки к каталогу.</p>
+                    <a class="button button--primary button--inline" href="{{ route('admin.products.index') }}">Управлять товарами</a>
                 </section>
                 <section class="admin-card">
-                    <h2>Категории</h2>
-                    <p>Управление марками и моделями автомобилей в разделе «Автобагажники».</p>
-                    <a class="button button--primary button--inline" href="{{ route('admin.roof-racks.vehicle-makes.index') }}">Перейти к разделу</a>
+                    <h2>Разделы и категории</h2>
+                    <p>Общее дерево каталога, порядок и статус публикации.</p>
+                    <a class="button button--primary button--inline" href="{{ route('admin.catalog-categories.index') }}">Открыть дерево</a>
+                </section>
+                <section class="admin-card">
+                    <h2>Марки и модели</h2>
+                    <p>Глобальный справочник марок и моделей для всех типов автомобильных товаров.</p>
+                    <a class="button button--primary button--inline" href="{{ route('admin.vehicles.vehicle-makes.index') }}">Перейти к справочнику</a>
                 </section>
             </div>
 

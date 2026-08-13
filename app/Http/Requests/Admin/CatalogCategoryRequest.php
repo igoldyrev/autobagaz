@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
-class VehicleMakeRequest extends FormRequest
+class CatalogCategoryRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,36 +17,38 @@ class VehicleMakeRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
+            'parent_id' => $this->input('parent_id') ?: null,
             'slug' => Str::slug($this->input('slug') ?: $this->input('name')),
             'is_active' => $this->boolean('is_active'),
-            'catalog_category_ids' => array_values(array_filter((array) $this->input('catalog_category_ids'))),
         ]);
     }
 
     public function rules(): array
     {
+        $category = $this->route('catalog_category');
+        $parentId = $this->input('parent_id');
+
         return [
+            'parent_id' => ['nullable', 'integer', 'exists:catalog_categories,id'],
+            'kind' => ['required', Rule::in(['section', 'category', 'special'])],
             'name' => ['required', 'string', 'max:255'],
             'slug' => [
                 'required',
                 'string',
                 'max:255',
                 'alpha_dash:ascii',
-                Rule::unique('vehicle_makes', 'slug')->ignore($this->route('vehicle_make')),
+                Rule::unique('catalog_categories', 'slug')
+                    ->where(fn (Builder $query): Builder => $parentId
+                        ? $query->where('parent_id', $parentId)
+                        : $query->whereNull('parent_id'))
+                    ->ignore($category),
             ],
             'description' => ['nullable', 'string'],
             'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,gif', 'max:4096'],
             'image_alt' => ['nullable', 'string', 'max:255'],
             'meta_title' => ['nullable', 'string', 'max:255'],
             'meta_description' => ['nullable', 'string'],
-            'catalog_category_ids' => ['array'],
-            'catalog_category_ids.*' => [
-                'integer',
-                'distinct',
-                Rule::exists('catalog_categories', 'id')->where(
-                    fn (Builder $query) => $query->whereNull('parent_id')->where('kind', 'section')
-                ),
-            ],
+            'sort_order' => ['required', 'integer', 'min:0', 'max:4294967295'],
             'is_active' => ['boolean'],
         ];
     }

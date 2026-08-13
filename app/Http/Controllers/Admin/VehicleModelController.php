@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\VehicleModelRequest;
-use App\Models\CatalogCategory;
 use App\Models\VehicleMake;
 use App\Models\VehicleModel;
 use App\Services\VehicleImageService;
@@ -19,7 +18,6 @@ class VehicleModelController extends Controller
 
     public function index(Request $request, VehicleMake $vehicleMake): View
     {
-        $this->ensureMakeBelongsToRoofRacks($vehicleMake);
         $vehicleModels = $vehicleMake->models()
             ->when($request->string('search')->isNotEmpty(), function ($query) use ($request): void {
                 $query->where(function ($query) use ($request): void {
@@ -30,20 +28,18 @@ class VehicleModelController extends Controller
             ->paginate(30)
             ->withQueryString();
 
-        return view('admin.roof-racks.vehicle-models.index', compact('vehicleMake', 'vehicleModels'));
+        return view('admin.vehicles.vehicle-models.index', compact('vehicleMake', 'vehicleModels'));
     }
 
     public function create(VehicleMake $vehicleMake): View
     {
-        $this->ensureMakeBelongsToRoofRacks($vehicleMake);
         $nextSortOrder = ((int) $vehicleMake->models()->max('sort_order')) + 1;
 
-        return view('admin.roof-racks.vehicle-models.create', compact('vehicleMake', 'nextSortOrder'));
+        return view('admin.vehicles.vehicle-models.create', compact('vehicleMake', 'nextSortOrder'));
     }
 
     public function store(VehicleModelRequest $request, VehicleMake $vehicleMake): RedirectResponse
     {
-        $this->ensureMakeBelongsToRoofRacks($vehicleMake);
         $data = $request->validated();
         $vehicleModel = $vehicleMake->models()->create([
             ...Arr::except($data, ['image']),
@@ -51,7 +47,7 @@ class VehicleModelController extends Controller
         ]);
 
         return redirect()
-            ->route('admin.roof-racks.vehicle-models.edit', [$vehicleMake, $vehicleModel])
+            ->route('admin.vehicles.vehicle-models.edit', [$vehicleMake, $vehicleModel])
             ->with('success', 'Модель автомобиля добавлена.');
     }
 
@@ -59,7 +55,7 @@ class VehicleModelController extends Controller
     {
         $this->ensureRelated($vehicleMake, $vehicleModel);
 
-        return view('admin.roof-racks.vehicle-models.edit', compact('vehicleMake', 'vehicleModel'));
+        return view('admin.vehicles.vehicle-models.edit', compact('vehicleMake', 'vehicleModel'));
     }
 
     public function update(VehicleModelRequest $request, VehicleMake $vehicleMake, VehicleModel $vehicleModel): RedirectResponse
@@ -85,24 +81,12 @@ class VehicleModelController extends Controller
         $vehicleModel->delete();
 
         return redirect()
-            ->route('admin.roof-racks.vehicle-models.index', $vehicleMake)
+            ->route('admin.vehicles.vehicle-models.index', $vehicleMake)
             ->with('success', 'Модель автомобиля удалена.');
     }
 
     private function ensureRelated(VehicleMake $vehicleMake, VehicleModel $vehicleModel): void
     {
-        $this->ensureMakeBelongsToRoofRacks($vehicleMake);
         abort_unless($vehicleModel->vehicle_make_id === $vehicleMake->id, 404);
-    }
-
-    private function ensureMakeBelongsToRoofRacks(VehicleMake $vehicleMake): void
-    {
-        $belongsToSection = CatalogCategory::query()
-            ->whereNull('parent_id')
-            ->where('slug', 'autobagazhniki')
-            ->whereHas('vehicleMakes', fn ($query) => $query->whereKey($vehicleMake->id))
-            ->exists();
-
-        abort_unless($belongsToSection, 404);
     }
 }

@@ -10,18 +10,17 @@
             @include('admin.partials.flash')
 
             <nav class="admin-breadcrumbs" aria-label="Хлебные крошки">
-                <a href="{{ route('admin.dashboard') }}">Главная</a><span>/</span><span>Автобагажники</span>
+                <a href="{{ route('admin.dashboard') }}">Главная</a><span>/</span><span>Справочник автомобилей</span>
             </nav>
 
             <div class="page-heading">
                 <div>
-                    <p class="eyebrow">Раздел каталога</p>
+                    <p class="eyebrow">Глобальный справочник</p>
                     <h1>Марки автомобилей</h1>
-                    <p class="admin-content__lead">Марки являются общим справочником сайта. Здесь настраивается их отображение в разделе «{{ $rootCategory->name }}».</p>
+                    <p class="admin-content__lead">Единый список марок и моделей для автобагажников, фаркопов, рейлингов и будущих типов товаров.</p>
                 </div>
                 <div class="heading-actions">
-                    <a class="button button--secondary" href="{{ route('admin.roof-racks.vehicle-makes.attach-form') }}">Привязать существующую</a>
-                    <a class="button button--primary button--inline" href="{{ route('admin.roof-racks.vehicle-makes.create') }}">Добавить марку</a>
+                    <a class="button button--primary button--inline" href="{{ route('admin.vehicles.vehicle-makes.create') }}">Добавить марку</a>
                 </div>
             </div>
 
@@ -30,7 +29,7 @@
                 <input id="search" name="search" type="search" value="{{ request('search') }}" placeholder="Поиск по названию или URL">
                 <button class="button button--secondary" type="submit">Найти</button>
                 @if (request()->filled('search'))
-                    <a class="text-link" href="{{ route('admin.roof-racks.vehicle-makes.index') }}">Сбросить</a>
+                    <a class="text-link" href="{{ route('admin.vehicles.vehicle-makes.index') }}">Сбросить</a>
                 @endif
             </form>
 
@@ -41,6 +40,7 @@
                             <th>Марка</th>
                             <th>URL</th>
                             <th>Моделей</th>
+                            <th>Разделы каталога</th>
                             <th>Статус</th>
                             <th><span class="visually-hidden">Действия</span></th>
                         </tr>
@@ -60,20 +60,29 @@
                                 </td>
                                 <td><code>{{ $vehicleMake->slug }}</code></td>
                                 <td>
-                                    <a class="text-link" href="{{ route('admin.roof-racks.vehicle-models.index', $vehicleMake) }}">
+                                    <a class="text-link" href="{{ route('admin.vehicles.vehicle-models.index', $vehicleMake) }}">
                                         {{ $vehicleMake->models_count }}
                                     </a>
+                                </td>
+                                <td>
+                                    <div class="entity-tags">
+                                        @forelse ($vehicleMake->catalogCategories as $catalogSection)
+                                            <span class="status status--active">{{ $catalogSection->name }}</span>
+                                        @empty
+                                            <span class="status status--inactive">Не привязана</span>
+                                        @endforelse
+                                    </div>
                                 </td>
                                 <td><span class="status {{ $vehicleMake->is_active ? 'status--active' : 'status--inactive' }}">{{ $vehicleMake->is_active ? 'Опубликована' : 'Скрыта' }}</span></td>
                                 <td>
                                     <div class="row-actions">
-                                        <a class="text-link" href="{{ route('admin.roof-racks.vehicle-models.index', $vehicleMake) }}">Модели</a>
-                                        <a class="text-link" href="{{ route('admin.roof-racks.vehicle-makes.edit', $vehicleMake) }}">Изменить</a>
+                                        <a class="text-link" href="{{ route('admin.vehicles.vehicle-models.index', $vehicleMake) }}">Модели</a>
+                                        <a class="text-link" href="{{ route('admin.vehicles.vehicle-makes.edit', $vehicleMake) }}">Изменить</a>
                                     </div>
                                 </td>
                             </tr>
                         @empty
-                            <tr><td colspan="5" class="empty-state">Марки не найдены.</td></tr>
+                            <tr><td colspan="6" class="empty-state">Марки не найдены.</td></tr>
                         @endforelse
                     </tbody>
                 </table>
