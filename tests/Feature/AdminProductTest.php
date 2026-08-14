@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\CatalogCategory;
 use App\Models\Product;
+use App\Models\RoofRackManufacturer;
 use App\Models\User;
 use App\Models\VehicleModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -45,12 +46,13 @@ class AdminProductTest extends TestCase
     public function test_roof_rack_form_has_search_fields_for_categories_and_vehicle_models(): void
     {
         $admin = User::factory()->create(['is_admin' => true]);
+        $manufacturer = RoofRackManufacturer::query()->create(['name' => 'Thule']);
         $product = Product::query()->create([
             'name' => 'Товар для редактирования',
             'slug' => 'searchable-product-form',
             'price' => 1000,
         ]);
-        $product->roofRack()->create();
+        $product->roofRack()->create(['manufacturer_id' => $manufacturer->id]);
 
         $this->actingAs($admin)
             ->get(route('admin.products.roof-racks.edit', $product))
@@ -59,6 +61,11 @@ class AdminProductTest extends TestCase
             ->assertSee('placeholder="Найти категорию"', escape: false)
             ->assertSee('data-select-search="vehicle_model_ids"', escape: false)
             ->assertSee('placeholder="Найти марку или модель"', escape: false)
+            ->assertSee('name="manufacturer_id"', escape: false)
+            ->assertSee('<option', escape: false)
+            ->assertSee('Thule')
+            ->assertDontSee('name="manufacturer"', escape: false)
+            ->assertSee(route('admin.products.roof-racks.manufacturers.index'))
             ->assertSee('/js/searchable-select.js', escape: false);
     }
 
@@ -68,12 +75,13 @@ class AdminProductTest extends TestCase
         $admin = User::factory()->create(['is_admin' => true]);
         $categories = CatalogCategory::query()->limit(2)->pluck('id')->all();
         $models = VehicleModel::query()->limit(3)->pluck('id')->all();
+        $manufacturer = RoofRackManufacturer::query()->create(['name' => 'Inter']);
 
         $response = $this->actingAs($admin)->post(route('admin.products.roof-racks.store'), [
             'name' => 'Багажник тестовый',
             'slug' => '',
             'price' => '15990.50',
-            'manufacturer' => 'Inter',
+            'manufacturer_id' => $manufacturer->id,
             'country_of_origin' => 'Россия',
             'product_model' => '5517+1002',
             'bar_length_cm' => '120',
@@ -94,7 +102,9 @@ class AdminProductTest extends TestCase
 
         $response->assertRedirect(route('admin.products.roof-racks.edit', $product));
         $this->assertSame('15990.50', $product->price);
-        $this->assertSame('Inter', $product->manufacturer);
+        $this->assertNull($product->manufacturer);
+        $this->assertSame($manufacturer->id, $product->roofRack->manufacturer_id);
+        $this->assertSame('Inter', $product->roofRack->manufacturer->name);
         $this->assertSame('Россия', $product->country_of_origin);
         $this->assertSame('5517+1002', $product->product_model);
         $this->assertSame('120.0', $product->roofRack->bar_length_cm);

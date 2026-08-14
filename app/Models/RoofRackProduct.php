@@ -12,6 +12,7 @@ class RoofRackProduct extends Model
     public $incrementing = false;
 
     protected $fillable = [
+        'manufacturer_id',
         'bar_length_cm',
         'load_capacity_kg',
         'installation_method',
@@ -30,6 +31,11 @@ class RoofRackProduct extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function manufacturer(): BelongsTo
+    {
+        return $this->belongsTo(RoofRackManufacturer::class, 'manufacturer_id');
     }
 
     public function hasCharacteristics(): bool

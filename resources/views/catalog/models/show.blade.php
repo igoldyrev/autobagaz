@@ -17,8 +17,9 @@
 
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
 
-    @if ($products->isNotEmpty())
-        @include('catalog.products._grid', ['products' => $products])
+    @if ($unfilteredProductCount > 0)
+        @include('catalog.products._filters', ['horizontal' => true])
+        @include('catalog.products._filtered_results')
     @else
     <div class="catalog-category-hero">
         <img

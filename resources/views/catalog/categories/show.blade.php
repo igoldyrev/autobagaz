@@ -19,7 +19,9 @@
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
 
     @if ($models->isNotEmpty())
-        <p class="text catalog-categories__intro">Выберите модель автомобиля {{ $currentCategory->name }}.</p>
+        @if ($unfilteredProductCount > 0)
+            @include('catalog.products._filters', ['horizontal' => true])
+        @endif
 
         <div class="catalog-categories">
             @foreach ($models as $model)
@@ -40,8 +42,11 @@
                 </a>
             @endforeach
         </div>
-    @elseif ($products->isNotEmpty())
-        @include('catalog.products._grid', ['products' => $products])
+        @if ($unfilteredProductCount > 0)
+            @include('catalog.products._filtered_results')
+        @endif
+    @elseif ($unfilteredProductCount > 0)
+        @include('catalog.products._filtered_list')
     @else
         <div class="catalog-category-hero">
             <img

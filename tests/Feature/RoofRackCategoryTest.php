@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Models\CatalogCategory;
+use App\Models\Product;
+use App\Models\RoofRackManufacturer;
 use App\Models\VehicleMake;
 use App\Models\VehicleModel;
 use Database\Seeders\RoofRackCategorySeeder;
@@ -38,7 +40,7 @@ class RoofRackCategoryTest extends TestCase
 
         $response
             ->assertOk()
-            ->assertSee('Автобагажники по маркам автомобилей')
+            ->assertSee('Багажники на крышу автомобиля')
             ->assertSee('Audi')
             ->assertSee('Lada (ВАЗ)')
             ->assertSee('Багажники на рейлинги')
@@ -93,6 +95,89 @@ class RoofRackCategoryTest extends TestCase
             ->assertSee(route('catalog.autobagazhniki.model.show', ['toyota', 'camry']));
 
         $this->assertSame(57, substr_count($response->getContent(), 'data-model-card'));
+    }
+
+    public function test_model_products_can_be_filtered_by_common_and_roof_rack_fields(): void
+    {
+        $a4 = VehicleModel::query()->whereHas('make', fn ($query) => $query->where('slug', 'audi'))->where('slug', 'a4')->firstOrFail();
+        $available = $this->createRoofRackProduct('Аэродинамический багажник', 'aero-rack', 12500, 'Thule', 3, 75, 'Аэродинамическая', 120);
+        $toOrder = $this->createRoofRackProduct('Прямоугольный багажник', 'square-rack', 18900, 'Amos', 0, 100, 'Прямоугольная', 130);
+        $a4->products()->attach([$available->id, $toOrder->id]);
+
+        $response = $this->get(route('catalog.autobagazhniki.model.show', ['audi', 'a4']));
+
+        $response
+            ->assertOk()
+            ->assertSee('Фильтры товаров')
+            ->assertSee('catalog-filters--horizontal', escape: false)
+            ->assertSee('Производитель')
+            ->assertSee('Цена, ₽')
+            ->assertSee('Товар')
+            ->assertSee('В наличии')
+            ->assertSee('Под заказ')
+            ->assertSee('Нагрузка, кг')
+            ->assertSee('Тип дуги')
+            ->assertSee('Длина дуги, см')
+            ->assertSee($available->name)
+            ->assertSee($toOrder->name);
+
+        $this->get(route('catalog.autobagazhniki.model.show', [
+            'audi',
+            'a4',
+            'manufacturer' => [(string) $available->roofRack->manufacturer_id],
+            'price_from' => 12000,
+            'price_to' => 13000,
+            'availability' => ['in_stock'],
+            'load_capacity' => ['75.0'],
+            'bar_type' => ['Аэродинамическая'],
+            'bar_length' => ['120.0'],
+        ]))
+            ->assertOk()
+            ->assertSee($available->name)
+            ->assertDontSee($toOrder->name)
+            ->assertSee('Найдено товаров: 1');
+
+        $this->get(route('catalog.autobagazhniki.model.show', [
+            'audi',
+            'a4',
+            'availability' => ['to_order'],
+        ]))
+            ->assertOk()
+            ->assertSee($toOrder->name)
+            ->assertSee('Под заказ')
+            ->assertDontSee($available->name);
+    }
+
+    public function test_make_page_collects_and_filters_products_from_all_its_models(): void
+    {
+        $audi = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
+        $models = $audi->models()->take(2)->get();
+        $aero = $this->createRoofRackProduct('Товар для первой модели', 'first-model-rack', 10000, 'Thule', 2, 75, 'Аэродинамическая', 120);
+        $square = $this->createRoofRackProduct('Товар для второй модели', 'second-model-rack', 15000, 'Amos', 0, 100, 'Прямоугольная', 130);
+        $models[0]->products()->attach($aero);
+        $models[1]->products()->attach($square);
+
+        $response = $this->get(route('catalog.autobagazhniki.show', 'audi'));
+
+        $response
+            ->assertOk()
+            ->assertDontSee('Товары для Audi')
+            ->assertSee($aero->name)
+            ->assertSee($square->name);
+
+        $this->assertLessThan(
+            strpos($response->getContent(), 'data-model-card'),
+            strpos($response->getContent(), 'Фильтры товаров'),
+        );
+
+        $this->get(route('catalog.autobagazhniki.show', [
+            'category' => 'audi',
+            'bar_type' => ['Прямоугольная'],
+        ]))
+            ->assertOk()
+            ->assertSee($square->name)
+            ->assertDontSee($aero->name)
+            ->assertSee('Найдено товаров: 1');
     }
 
     public function test_unknown_or_inactive_category_is_not_available(): void
@@ -161,5 +246,33 @@ class RoofRackCategoryTest extends TestCase
         foreach ($categories->where('image_path', '!=', $placeholder) as $category) {
             $this->assertFileExists(public_path($category->image_path));
         }
+    }
+
+    private function createRoofRackProduct(
+        string $name,
+        string $slug,
+        float $price,
+        string $manufacturer,
+        int $stock,
+        float $loadCapacity,
+        string $barType,
+        float $barLength,
+    ): Product {
+        $roofRackManufacturer = RoofRackManufacturer::query()->firstOrCreate(['name' => $manufacturer]);
+        $product = Product::query()->create([
+            'name' => $name,
+            'slug' => $slug,
+            'price' => $price,
+            'stock' => $stock,
+            'is_active' => true,
+        ]);
+        $product->roofRack()->create([
+            'manufacturer_id' => $roofRackManufacturer->id,
+            'load_capacity_kg' => $loadCapacity,
+            'bar_type' => $barType,
+            'bar_length_cm' => $barLength,
+        ]);
+
+        return $product;
     }
 }

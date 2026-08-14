@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CatalogCategoryController as AdminCatalogCategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductSectionController;
+use App\Http\Controllers\Admin\RoofRackManufacturerController;
 use App\Http\Controllers\Admin\RoofRackProductController;
 use App\Http\Controllers\Admin\VehicleMakeController;
 use App\Http\Controllers\Admin\VehicleModelController;
@@ -23,6 +24,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::get('products', ProductSectionController::class)->name('products.index');
     Route::prefix('products/autobagazhniki')->name('products.roof-racks.')->group(function () {
+        Route::resource('manufacturers', RoofRackManufacturerController::class)
+            ->except(['show', 'destroy'])
+            ->names('manufacturers');
         Route::get('/', [RoofRackProductController::class, 'index'])->name('index');
         Route::get('/create', [RoofRackProductController::class, 'create'])->name('create');
         Route::post('/', [RoofRackProductController::class, 'store'])->name('store');

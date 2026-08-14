@@ -87,7 +87,7 @@
             <dl class="product-characteristics">
                 <div>
                     <dt>Производитель</dt>
-                    <dd>{{ $product->manufacturer ?: 'Не указан' }}</dd>
+                    <dd>{{ $product->roofRack?->manufacturer?->name ?: ($product->manufacturer ?: 'Не указан') }}</dd>
                 </div>
                 <div>
                     <dt>Страна производства</dt>
@@ -99,8 +99,8 @@
                 </div>
                 <div>
                     <dt>Наличие</dt>
-                    <dd class="{{ $product->stock > 0 ? 'product-characteristics__available' : 'product-characteristics__unavailable' }}">
-                        {{ $product->stock > 0 ? $product->stock.' шт.' : 'Нет в наличии' }}
+                    <dd class="{{ $product->stock > 0 ? 'product-characteristics__available' : 'product-characteristics__to-order' }}">
+                        {{ $product->stock > 0 ? $product->stock.' шт.' : 'Под заказ' }}
                     </dd>
                 </div>
             </dl>

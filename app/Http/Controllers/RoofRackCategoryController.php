@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\CatalogCategory;
+use App\Models\Product;
 use App\Models\VehicleMake;
+use App\Services\CatalogProductFilter;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 class RoofRackCategoryController extends Controller
@@ -31,7 +36,7 @@ class RoofRackCategoryController extends Controller
         return view('catalog.categories.index', compact('rootCategory', 'categories'));
     }
 
-    public function show(string $category): View
+    public function show(Request $request, string $category, CatalogProductFilter $productFilter): View
     {
         $rootCategory = $this->rootCategory();
         $currentCategory = $rootCategory->vehicleMakes()
@@ -41,7 +46,11 @@ class RoofRackCategoryController extends Controller
 
         if ($currentCategory) {
             $models = $currentCategory->models()->active()->get();
-            $products = collect();
+            $productQuery = Product::query()
+                ->active()
+                ->whereHas('vehicleModels', fn (Builder $query) => $query
+                    ->active()
+                    ->where('vehicle_make_id', $currentCategory->id));
             $isVehicleMake = true;
         } else {
             $currentCategory = $rootCategory->children()
@@ -50,18 +59,27 @@ class RoofRackCategoryController extends Controller
                 ->where('slug', $category)
                 ->firstOrFail();
             $models = collect();
-            $products = $currentCategory->products()
+            $productQuery = Product::query()
                 ->active()
-                ->with('images')
-                ->orderBy('name')
-                ->get();
+                ->whereHas('categories', fn (Builder $query) => $query->whereKey($currentCategory->id));
             $isVehicleMake = false;
         }
 
-        return view('catalog.categories.show', compact('rootCategory', 'currentCategory', 'models', 'products', 'isVehicleMake'));
+        [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts($request, $productQuery, $productFilter);
+
+        return view('catalog.categories.show', compact(
+            'rootCategory',
+            'currentCategory',
+            'models',
+            'products',
+            'isVehicleMake',
+            'filterOptions',
+            'filters',
+            'unfilteredProductCount',
+        ));
     }
 
-    public function showModel(string $category, string $model): View
+    public function showModel(Request $request, string $category, string $model, CatalogProductFilter $productFilter): View
     {
         $rootCategory = $this->rootCategory();
         $currentCategory = $rootCategory->vehicleMakes()
@@ -72,13 +90,36 @@ class RoofRackCategoryController extends Controller
             ->active()
             ->where('slug', $model)
             ->firstOrFail();
-        $products = $currentModel->products()
-            ->active()
-            ->with('images')
+        [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
+            $request,
+            Product::query()
+                ->active()
+                ->whereHas('vehicleModels', fn (Builder $query) => $query->whereKey($currentModel->id)),
+            $productFilter,
+        );
+
+        return view('catalog.models.show', compact(
+            'rootCategory',
+            'currentCategory',
+            'currentModel',
+            'products',
+            'filterOptions',
+            'filters',
+            'unfilteredProductCount',
+        ));
+    }
+
+    /** @return array{0: Collection, 1: array<string, mixed>, 2: array<string, mixed>, 3: int} */
+    private function filteredProducts(Request $request, Builder $query, CatalogProductFilter $productFilter): array
+    {
+        $availableProducts = (clone $query)->with('roofRack.manufacturer')->orderBy('name')->get();
+        $filters = $productFilter->values($request);
+        $products = $productFilter->apply(clone $query, $filters)
+            ->with(['images', 'roofRack.manufacturer'])
             ->orderBy('name')
             ->get();
 
-        return view('catalog.models.show', compact('rootCategory', 'currentCategory', 'currentModel', 'products'));
+        return [$products, $productFilter->options($availableProducts), $filters, $availableProducts->count()];
     }
 
     private function rootCategory(): CatalogCategory

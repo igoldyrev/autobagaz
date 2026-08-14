@@ -14,7 +14,10 @@
                     <h1>Автобагажники</h1>
                     <p class="admin-content__lead">Список содержит только автобагажники. Их особенные характеристики хранятся отдельно от остальных типов товаров.</p>
                 </div>
-                <a class="button button--primary button--inline" href="{{ route('admin.products.roof-racks.create') }}">Добавить автобагажник</a>
+                <div class="heading-actions">
+                    <a class="button button--secondary" href="{{ route('admin.products.roof-racks.manufacturers.index') }}">Производители</a>
+                    <a class="button button--primary button--inline" href="{{ route('admin.products.roof-racks.create') }}">Добавить автобагажник</a>
+                </div>
             </div>
 
             <form class="toolbar" method="GET">

@@ -5,6 +5,7 @@
     $selectedCategories = array_map('intval', old('category_ids', isset($product) ? $product->categories->pluck('id')->all() : []));
     $selectedModels = array_map('intval', old('vehicle_model_ids', isset($product) ? $product->vehicleModels->pluck('id')->all() : []));
     $roofRack = isset($product) ? $product->roofRack : null;
+    $selectedManufacturerId = (string) old('manufacturer_id', $roofRack?->manufacturer_id ?? '');
 @endphp
 
 <div class="form-grid">
@@ -29,9 +30,19 @@
         @error('stock') <p class="field__error">{{ $message }}</p> @enderror
     </div>
     <div class="field">
-        <label for="manufacturer">Производитель</label>
-        <input id="manufacturer" name="manufacturer" type="text" value="{{ old('manufacturer', $product->manufacturer ?? '') }}" maxlength="255">
-        @error('manufacturer') <p class="field__error">{{ $message }}</p> @enderror
+        <label for="manufacturer_id">Производитель</label>
+        <select id="manufacturer_id" name="manufacturer_id">
+            <option value="">Не выбран</option>
+            @foreach ($roofRackManufacturers as $manufacturer)
+                <option
+                    value="{{ $manufacturer->id }}"
+                    @selected($selectedManufacturerId === (string) $manufacturer->id)
+                    @disabled(! $manufacturer->is_active && $selectedManufacturerId !== (string) $manufacturer->id)
+                >{{ $manufacturer->name }}{{ $manufacturer->is_active ? '' : ' (скрыт)' }}</option>
+            @endforeach
+        </select>
+        <p class="field__hint"><a class="text-link" href="{{ route('admin.products.roof-racks.manufacturers.index') }}">Открыть справочник производителей</a></p>
+        @error('manufacturer_id') <p class="field__error">{{ $message }}</p> @enderror
     </div>
     <div class="field">
         <label for="country_of_origin">Страна производства</label>

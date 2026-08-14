@@ -9,10 +9,7 @@
         <span class="breadcrumbs__text">{{ $rootCategory->name }}</span>
     </nav>
 
-    <h1 class="title title-h1">Автобагажники по маркам автомобилей</h1>
-    <p class="text catalog-categories__intro">
-        Выберите марку автомобиля или отдельную категорию, чтобы перейти к моделям автомобилей.
-    </p>
+    <h1 class="title title-h1">Багажники на крышу автомобиля</h1>
 
     <div class="catalog-categories">
         @foreach ($categories as $category)

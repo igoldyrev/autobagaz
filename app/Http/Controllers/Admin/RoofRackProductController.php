@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RoofRackProductRequest;
 use App\Models\CatalogCategory;
 use App\Models\Product;
+use App\Models\RoofRackManufacturer;
 use App\Models\VehicleMake;
 use App\Services\ProductImageService;
 use Illuminate\Http\RedirectResponse;
@@ -17,6 +18,7 @@ use Illuminate\View\View;
 class RoofRackProductController extends Controller
 {
     private const CHARACTERISTIC_FIELDS = [
+        'manufacturer_id',
         'bar_length_cm',
         'load_capacity_kg',
         'installation_method',
@@ -30,7 +32,7 @@ class RoofRackProductController extends Controller
     {
         $products = Product::query()
             ->whereHas('roofRack')
-            ->with(['images', 'roofRack'])
+            ->with(['images', 'roofRack.manufacturer'])
             ->withCount(['categories', 'vehicleModels'])
             ->when($request->string('search')->isNotEmpty(), function ($query) use ($request): void {
                 $query->where('name', 'like', '%'.$request->string('search').'%');
@@ -71,7 +73,7 @@ class RoofRackProductController extends Controller
     public function edit(Product $product): View
     {
         abort_unless($product->roofRack()->exists(), 404);
-        $product->load(['images', 'categories', 'vehicleModels', 'roofRack']);
+        $product->load(['images', 'categories', 'vehicleModels', 'roofRack.manufacturer']);
 
         return view('admin.products.edit', [...$this->formData(), 'product' => $product]);
     }
@@ -104,6 +106,7 @@ class RoofRackProductController extends Controller
             'rootCategory' => $rootCategory,
             'categories' => CatalogCategory::query()->with('parent')->whereIn('id', $categoryIds)->orderBy('name')->get(),
             'vehicleMakes' => VehicleMake::query()->with(['models' => fn ($query) => $query->orderBy('name')])->orderBy('name')->get(),
+            'roofRackManufacturers' => RoofRackManufacturer::query()->orderBy('name')->get(),
         ];
     }
 
