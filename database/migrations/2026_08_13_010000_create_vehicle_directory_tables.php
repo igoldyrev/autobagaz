@@ -47,7 +47,10 @@ return new class extends Migration
             $table->timestamps();
 
             $table->primary(['catalog_category_id', 'vehicle_make_id']);
-            $table->index(['catalog_category_id', 'sort_order']);
+            $table->index(
+                ['catalog_category_id', 'sort_order'],
+                'ccvm_category_sort_idx',
+            );
         });
 
         $this->migrateLegacyCategories();
