@@ -45,19 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
         callbackForm.querySelector('.form-placeholder')?.removeAttribute('hidden');
     });
 
-    const topHeader = document.querySelector('.top-header');
-    const topHeaderInner = document.querySelector('.top-header__inner');
-    const topHeaderLabel = document.querySelector('.top-header__address');
-    const shopAddress = document.querySelector('.top-header__shop-address');
-    const lastShop = document.querySelector('.top-header__shop-last');
-
-    window.addEventListener('scroll', () => {
-        const isCompact = window.scrollY > 50;
-
-        topHeader?.classList.toggle('top-header__height-30', isCompact);
-        topHeaderInner?.classList.toggle('top-header__center', isCompact);
-        topHeaderLabel?.classList.toggle('top-header__hidden', isCompact);
-        shopAddress?.classList.toggle('top-header__hidden', isCompact);
-        lastShop?.classList.toggle('top-header__shop-last-child', !isCompact);
-    });
 });

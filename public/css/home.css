@@ -31,7 +31,59 @@
     text-align: center;
 }
 
+.header__contacts {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 260px;
+    font-style: normal;
+    line-height: 24px;
+}
+
+.header__contacts-label {
+    font-weight: 500;
+}
+
+.header__contacts-phone {
+    margin-top: 4px;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+    .header__contacts {
+        min-width: 230px;
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .header__wrap {
+        align-items: center;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .header__inner {
+        justify-content: center;
+        width: 100%;
+        padding-top: 0;
+    }
+
+    .header__contacts {
+        min-width: 260px;
+    }
+}
+
 @media (max-width: 768px) {
+    .header__contacts {
+        min-width: 0;
+        margin: 12px 0;
+        text-align: center;
+    }
+
+    .header__info {
+        text-align: center;
+    }
+
     .navigation-mobile .navigation__list {
         display: none;
     }

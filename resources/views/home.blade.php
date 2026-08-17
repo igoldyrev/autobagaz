@@ -123,18 +123,6 @@
             </div>
         </nav>
 
-        <div class="top-header">
-            <div class="top-header__inner">
-                <span class="top-header__address">Наши адреса:</span>
-                <div class="top-header__shop top-header__shop-last top-header__shop-last-child">
-                    <a class="top-header__shop-address" href="#" data-placeholder aria-disabled="true" title="Раздел контактов пока не перенесён">
-                        г. Пермь, ул. Дзержинского, 15
-                    </a>
-                    <a class="top-header__shop-phone" href="tel:+73422889929">+7 342 288 99 29</a>
-                </div>
-            </div>
-        </div>
-
         <header class="header">
             <div class="header__wrap">
                 <div class="header__logo">
@@ -143,6 +131,11 @@
                     </a>
                 </div>
                 <div class="header__inner">
+                    <address class="header__contacts">
+                        <span class="header__contacts-label">Наш адрес:</span>
+                        <span class="header__contacts-address">г. Пермь, ул. Дзержинского, 15</span>
+                        <a class="link header__link header__contacts-phone" href="tel:+73422889929">+7 342 288 99 29</a>
+                    </address>
                     <div class="header__info">
                         <ul class="list header__list">
                             <li>Пн — Пт с 10:00 до 19:00</li>
