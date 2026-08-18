@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AutoBoxManufacturerController;
+use App\Http\Controllers\Admin\AutoBoxProductController;
 use App\Http\Controllers\Admin\CatalogCategoryController as AdminCatalogCategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductSectionController;
@@ -8,6 +10,7 @@ use App\Http\Controllers\Admin\RoofRackProductController;
 use App\Http\Controllers\Admin\VehicleMakeController;
 use App\Http\Controllers\Admin\VehicleModelController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\AutoBoxController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoofRackCategoryController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +27,16 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/', DashboardController::class)->name('dashboard');
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::get('products', ProductSectionController::class)->name('products.index');
+    Route::prefix('products/autobox')->name('products.auto-boxes.')->group(function () {
+        Route::resource('manufacturers', AutoBoxManufacturerController::class)
+            ->except(['show', 'destroy'])
+            ->names('manufacturers');
+        Route::get('/', [AutoBoxProductController::class, 'index'])->name('index');
+        Route::get('/create', [AutoBoxProductController::class, 'create'])->name('create');
+        Route::post('/', [AutoBoxProductController::class, 'store'])->name('store');
+        Route::get('/{product}/edit', [AutoBoxProductController::class, 'edit'])->name('edit');
+        Route::put('/{product}', [AutoBoxProductController::class, 'update'])->name('update');
+    });
     Route::prefix('products/autobagazhniki')->name('products.roof-racks.')->group(function () {
         Route::resource('manufacturers', RoofRackManufacturerController::class)
             ->except(['show', 'destroy'])
@@ -45,6 +58,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 });
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/autobox', AutoBoxController::class)->name('catalog.auto-boxes.index');
 
 Route::prefix('autobagazhniki')->name('catalog.autobagazhniki.')->group(function () {
     Route::get('/', [RoofRackCategoryController::class, 'index'])->name('index');

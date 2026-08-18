@@ -89,6 +89,19 @@ class RoofRackCategorySeeder extends Seeder
                 );
             }
         }
+
+        CatalogCategory::query()->firstOrCreate(
+            ['parent_id' => null, 'slug' => 'autobox'],
+            [
+                'kind' => 'section',
+                'name' => 'Автомобильные боксы',
+                'description' => 'Автомобильные боксы на крышу для безопасной и удобной перевозки багажа.',
+                'sort_order' => 1,
+                'is_active' => true,
+                'meta_title' => 'Автомобильные боксы на крышу в Перми',
+                'meta_description' => 'Каталог автомобильных боксов на крышу. Продажа автобоксов в Перми.',
+            ],
+        );
     }
 
     /**

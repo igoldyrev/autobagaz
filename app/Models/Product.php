@@ -53,6 +53,11 @@ class Product extends Model
         return $this->hasOne(RoofRackProduct::class);
     }
 
+    public function autoBox(): HasOne
+    {
+        return $this->hasOne(AutoBoxProduct::class);
+    }
+
     public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true);

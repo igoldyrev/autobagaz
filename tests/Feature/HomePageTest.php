@@ -32,6 +32,7 @@ class HomePageTest extends TestCase
             route('home'),
             route('rental'),
             route('catalog.autobagazhniki.index'),
+            route('catalog.auto-boxes.index'),
             '#',
             '#mobile-menu',
             'mailto:autobagaz@yandex.ru',

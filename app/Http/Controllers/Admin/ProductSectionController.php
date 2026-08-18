@@ -11,7 +11,8 @@ class ProductSectionController extends Controller
     public function __invoke(): View
     {
         $roofRackProductsCount = Product::query()->whereHas('roofRack')->count();
+        $autoBoxProductsCount = Product::query()->whereHas('autoBox')->count();
 
-        return view('admin.product-sections.index', compact('roofRackProductsCount'));
+        return view('admin.product-sections.index', compact('roofRackProductsCount', 'autoBoxProductsCount'));
     }
 }

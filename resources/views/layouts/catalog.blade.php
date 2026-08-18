@@ -8,7 +8,6 @@
         ['title' => 'Контакты'],
     ];
     $siteCategories = [
-        'Автомобильные боксы',
         'Велокрепления',
         'Крепления для лыж и сноубордов',
         'Рейлинги',
@@ -93,6 +92,7 @@
         <div class="wrapper">
             <aside class="left-nav">
                 <a href="{{ route('catalog.autobagazhniki.index') }}" class="left-nav__link {{ request()->routeIs('catalog.autobagazhniki.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.autobagazhniki.*')) aria-current="page" @endif>Автобагажники</a>
+                <a href="{{ route('catalog.auto-boxes.index') }}" class="left-nav__link {{ request()->routeIs('catalog.auto-boxes.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.auto-boxes.*')) aria-current="page" @endif>Автомобильные боксы</a>
                 @foreach ($siteCategories as $category)
                     <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">{{ $category }}</a>
                 @endforeach

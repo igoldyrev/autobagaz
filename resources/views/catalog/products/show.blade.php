@@ -81,13 +81,45 @@
                     </tbody>
                 </table>
             @endif
+
+            @if ($product->autoBox?->hasCharacteristics())
+                <table class="roof-rack-characteristics">
+                    <caption>Характеристики автомобильного бокса</caption>
+                    <tbody>
+                        @if (filled($product->autoBox->length_cm))
+                            <tr><th scope="row">Длина, см</th><td>{{ rtrim(rtrim(number_format((float) $product->autoBox->length_cm, 1, ',', ''), '0'), ',') }}</td></tr>
+                        @endif
+                        @if (filled($product->autoBox->width_cm))
+                            <tr><th scope="row">Ширина, см</th><td>{{ rtrim(rtrim(number_format((float) $product->autoBox->width_cm, 1, ',', ''), '0'), ',') }}</td></tr>
+                        @endif
+                        @if (filled($product->autoBox->height_cm))
+                            <tr><th scope="row">Высота, см</th><td>{{ rtrim(rtrim(number_format((float) $product->autoBox->height_cm, 1, ',', ''), '0'), ',') }}</td></tr>
+                        @endif
+                        @if (filled($product->autoBox->volume_l))
+                            <tr><th scope="row">Объём, л</th><td>{{ rtrim(rtrim(number_format((float) $product->autoBox->volume_l, 1, ',', ''), '0'), ',') }}</td></tr>
+                        @endif
+                        @if (filled($product->autoBox->load_capacity_kg))
+                            <tr><th scope="row">Грузоподъёмность, кг</th><td>{{ rtrim(rtrim(number_format((float) $product->autoBox->load_capacity_kg, 1, ',', ''), '0'), ',') }}</td></tr>
+                        @endif
+                        @if (filled($product->autoBox->opening_type))
+                            <tr><th scope="row">Тип открывания</th><td>{{ $product->autoBox->opening_type }}</td></tr>
+                        @endif
+                        @if (filled($product->autoBox->mounting_type))
+                            <tr><th scope="row">Тип крепления</th><td>{{ $product->autoBox->mounting_type }}</td></tr>
+                        @endif
+                        @if (filled($product->autoBox->box_color))
+                            <tr><th scope="row">Цвет</th><td>{{ $product->autoBox->box_color }}</td></tr>
+                        @endif
+                    </tbody>
+                </table>
+            @endif
         </section>
 
         <section class="product-page__summary" aria-label="Характеристики товара">
             <dl class="product-characteristics">
                 <div>
                     <dt>Производитель</dt>
-                    <dd>{{ $product->roofRack?->manufacturer?->name ?: ($product->manufacturer ?: 'Не указан') }}</dd>
+                    <dd>{{ $product->roofRack?->manufacturer?->name ?: ($product->autoBox?->manufacturer?->name ?: ($product->manufacturer ?: 'Не указан')) }}</dd>
                 </div>
                 <div>
                     <dt>Страна производства</dt>

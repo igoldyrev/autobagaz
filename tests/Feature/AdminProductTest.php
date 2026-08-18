@@ -73,7 +73,13 @@ class AdminProductTest extends TestCase
     {
         Storage::fake('public');
         $admin = User::factory()->create(['is_admin' => true]);
-        $categories = CatalogCategory::query()->limit(2)->pluck('id')->all();
+        $roofRackSection = CatalogCategory::query()->where('slug', 'autobagazhniki')->firstOrFail();
+        $categories = CatalogCategory::query()
+            ->whereKey($roofRackSection->id)
+            ->orWhere('parent_id', $roofRackSection->id)
+            ->limit(2)
+            ->pluck('id')
+            ->all();
         $models = VehicleModel::query()->limit(3)->pluck('id')->all();
         $manufacturer = RoofRackManufacturer::query()->create(['name' => 'Inter']);
 

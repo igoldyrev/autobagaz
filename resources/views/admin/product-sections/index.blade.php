@@ -21,13 +21,14 @@
                     <span class="product-section-card__count">{{ $roofRackProductsCount }} товаров</span>
                 </a>
 
-                <div class="product-section-card product-section-card--disabled">
+                <a class="product-section-card" href="{{ route('admin.products.auto-boxes.index') }}">
                     <div>
-                        <span class="product-section-card__eyebrow">Будущий раздел</span>
+                        <span class="product-section-card__eyebrow">Доступен</span>
                         <h2>Автомобильные боксы</h2>
-                        <p>Будет добавлен вместе со своей таблицей характеристик.</p>
+                        <p>Габариты, объём, нагрузка, открывание, крепление и цвет.</p>
                     </div>
-                </div>
+                    <span class="product-section-card__count">{{ $autoBoxProductsCount }} товаров</span>
+                </a>
 
                 <div class="product-section-card product-section-card--disabled">
                     <div>
