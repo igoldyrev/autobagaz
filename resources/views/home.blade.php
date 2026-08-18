@@ -59,7 +59,14 @@
         ],
     ];
 
-    $navigation = ['Прокат', 'Галерея', 'Спецпредложения', 'Новости и статьи', 'Отзывы о нас', 'Контакты'];
+    $navigation = [
+        ['title' => 'Прокат', 'url' => route('rental')],
+        ['title' => 'Галерея'],
+        ['title' => 'Спецпредложения'],
+        ['title' => 'Новости и статьи'],
+        ['title' => 'Отзывы о нас'],
+        ['title' => 'Контакты'],
+    ];
     $categories = array_column($catalog, 'title');
 @endphp
 
@@ -115,7 +122,9 @@
             <ul class="navigation__list" id="mobile-menu">
                 <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Каталог</a></li>
                 @foreach ($navigation as $item)
-                    <li class="navigation__list-item"><a class="navigation__link" href="#" data-placeholder aria-disabled="true">{{ $item }}</a></li>
+                    <li class="navigation__list-item">
+                        <a class="navigation__link" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" @endif>{{ $item['title'] }}</a>
+                    </li>
                 @endforeach
             </ul>
             <div class="navigation-mobile__link-wrap">
@@ -153,7 +162,9 @@
             <ul class="navigation__list">
                 <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Каталог</a></li>
                 @foreach ($navigation as $item)
-                    <li class="navigation__list-item"><a class="navigation__link" href="#" data-placeholder aria-disabled="true">{{ $item }}</a></li>
+                    <li class="navigation__list-item">
+                        <a class="navigation__link" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" @endif>{{ $item['title'] }}</a>
+                    </li>
                 @endforeach
             </ul>
         </nav>

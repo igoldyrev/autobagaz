@@ -13,6 +13,7 @@ use App\Http\Controllers\RoofRackCategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
+Route::view('/prokat', 'rental')->name('rental');
 
 Route::middleware('guest')->group(function () {
     Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])->name('login');

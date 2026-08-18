@@ -1,5 +1,12 @@
 @php
-    $siteNavigation = ['Прокат', 'Галерея', 'Спецпредложения', 'Новости и статьи', 'Отзывы о нас', 'Контакты'];
+    $siteNavigation = [
+        ['title' => 'Прокат', 'url' => route('rental')],
+        ['title' => 'Галерея'],
+        ['title' => 'Спецпредложения'],
+        ['title' => 'Новости и статьи'],
+        ['title' => 'Отзывы о нас'],
+        ['title' => 'Контакты'],
+    ];
     $siteCategories = [
         'Автомобильные боксы',
         'Велокрепления',
@@ -36,7 +43,9 @@
             <ul class="navigation__list" id="mobile-menu">
                 <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Каталог</a></li>
                 @foreach ($siteNavigation as $item)
-                    <li class="navigation__list-item"><a class="navigation__link" href="#" data-placeholder aria-disabled="true">{{ $item }}</a></li>
+                    <li class="navigation__list-item">
+                        <a class="navigation__link" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" @endif>{{ $item['title'] }}</a>
+                    </li>
                 @endforeach
             </ul>
             <div class="navigation-mobile__link-wrap">
@@ -74,14 +83,16 @@
             <ul class="navigation__list">
                 <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Каталог</a></li>
                 @foreach ($siteNavigation as $item)
-                    <li class="navigation__list-item"><a class="navigation__link" href="#" data-placeholder aria-disabled="true">{{ $item }}</a></li>
+                    <li class="navigation__list-item">
+                        <a class="navigation__link" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" @endif>{{ $item['title'] }}</a>
+                    </li>
                 @endforeach
             </ul>
         </nav>
 
         <div class="wrapper">
             <aside class="left-nav">
-                <a href="{{ route('catalog.autobagazhniki.index') }}" class="left-nav__link left-nav__link--active" aria-current="page">Автобагажники</a>
+                <a href="{{ route('catalog.autobagazhniki.index') }}" class="left-nav__link {{ request()->routeIs('catalog.autobagazhniki.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.autobagazhniki.*')) aria-current="page" @endif>Автобагажники</a>
                 @foreach ($siteCategories as $category)
                     <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">{{ $category }}</a>
                 @endforeach
