@@ -33,7 +33,7 @@ class RoofRackProductController extends Controller
         $products = Product::query()
             ->whereHas('roofRack')
             ->with(['images', 'roofRack.manufacturer'])
-            ->withCount(['categories', 'vehicleModels'])
+            ->withCount(['categories', 'vehicleModels', 'vehicleBodyTypes'])
             ->when($request->string('search')->isNotEmpty(), function ($query) use ($request): void {
                 $query->where('name', 'like', '%'.$request->string('search').'%');
             })
@@ -55,11 +55,12 @@ class RoofRackProductController extends Controller
         $data = $request->validated();
         $product = DB::transaction(function () use ($data, $request): Product {
             $product = Product::query()->create(Arr::except($data, [
-                'category_ids', 'vehicle_model_ids', 'images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS,
+                'category_ids', 'vehicle_model_ids', 'vehicle_body_type_ids', 'images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS,
             ]));
             $product->roofRack()->create(Arr::only($data, self::CHARACTERISTIC_FIELDS));
             $this->syncCategories($product, $data['category_ids']);
             $product->vehicleModels()->sync($data['vehicle_model_ids']);
+            $product->vehicleBodyTypes()->sync($data['vehicle_body_type_ids']);
             $this->images->store($product, $request->file('images', []));
 
             return $product;
@@ -73,7 +74,7 @@ class RoofRackProductController extends Controller
     public function edit(Product $product): View
     {
         abort_unless($product->roofRack()->exists(), 404);
-        $product->load(['images', 'categories', 'vehicleModels', 'roofRack.manufacturer']);
+        $product->load(['images', 'categories', 'vehicleModels', 'vehicleBodyTypes', 'roofRack.manufacturer']);
 
         return view('admin.products.edit', [...$this->formData(), 'product' => $product]);
     }
@@ -85,11 +86,12 @@ class RoofRackProductController extends Controller
 
         DB::transaction(function () use ($data, $request, $product): void {
             $product->update(Arr::except($data, [
-                'category_ids', 'vehicle_model_ids', 'images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS,
+                'category_ids', 'vehicle_model_ids', 'vehicle_body_type_ids', 'images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS,
             ]));
             $product->roofRack()->updateOrCreate([], Arr::only($data, self::CHARACTERISTIC_FIELDS));
             $this->syncCategories($product, $data['category_ids']);
             $product->vehicleModels()->sync($data['vehicle_model_ids']);
+            $product->vehicleBodyTypes()->sync($data['vehicle_body_type_ids']);
             $this->images->remove($product, $data['remove_image_ids']);
             $this->images->store($product, $request->file('images', []));
         });
@@ -105,7 +107,12 @@ class RoofRackProductController extends Controller
         return [
             'rootCategory' => $rootCategory,
             'categories' => CatalogCategory::query()->with('parent')->whereIn('id', $categoryIds)->orderBy('name')->get(),
-            'vehicleMakes' => VehicleMake::query()->with(['models' => fn ($query) => $query->orderBy('name')])->orderBy('name')->get(),
+            'vehicleMakes' => VehicleMake::query()
+                ->with(['models' => fn ($query) => $query
+                    ->orderBy('name')
+                    ->with(['bodyTypes' => fn ($bodyTypes) => $bodyTypes->orderBy('sort_order')->orderBy('source_name')])])
+                ->orderBy('name')
+                ->get(),
             'roofRackManufacturers' => RoofRackManufacturer::query()->orderBy('name')->get(),
         ];
     }

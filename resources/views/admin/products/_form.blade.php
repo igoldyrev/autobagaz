@@ -4,6 +4,7 @@
 @php
     $selectedCategories = array_map('intval', old('category_ids', isset($product) ? $product->categories->pluck('id')->all() : []));
     $selectedModels = array_map('intval', old('vehicle_model_ids', isset($product) ? $product->vehicleModels->pluck('id')->all() : []));
+    $selectedBodyTypes = array_map('intval', old('vehicle_body_type_ids', isset($product) ? $product->vehicleBodyTypes->pluck('id')->all() : []));
     $roofRack = isset($product) ? $product->roofRack : null;
     $selectedManufacturerId = (string) old('manufacturer_id', $roofRack?->manufacturer_id ?? '');
 @endphp
@@ -119,32 +120,61 @@
         @error('category_ids.*') <p class="field__error">{{ $message }}</p> @enderror
     </div>
 
-    <div class="field">
-        <label for="vehicle_model_ids">Модели автомобилей</label>
-        <div class="select-search">
-            <label class="visually-hidden" for="vehicle-model-search">Поиск по маркам и моделям автомобилей</label>
-            <input
-                id="vehicle-model-search"
-                type="search"
-                placeholder="Найти марку или модель"
-                autocomplete="off"
-                data-select-search="vehicle_model_ids"
-            >
-            <span class="select-search__result" data-select-search-result="vehicle_model_ids" aria-live="polite"></span>
+    <div class="field field--wide">
+        <span class="field__label">Модели автомобилей и типы кузова</span>
+        <div class="vehicle-fitment-picker" data-vehicle-fitment-picker>
+            <div class="vehicle-fitment-picker__toolbar">
+                <label class="visually-hidden" for="vehicle-fitment-search">Поиск по маркам, моделям, кузовам, годам и креплениям</label>
+                <input id="vehicle-fitment-search" type="search" placeholder="Марка, модель, кузов, год или крепление" autocomplete="off" data-fitment-search>
+                <span class="vehicle-fitment-picker__count" data-fitment-count aria-live="polite"></span>
+            </div>
+            <div class="vehicle-fitment-picker__tree" data-fitment-tree>
+                @foreach ($vehicleMakes as $vehicleMake)
+                    @php
+                        $makeSelected = $vehicleMake->models->contains(fn ($model) => in_array($model->id, $selectedModels, true)
+                            || $model->bodyTypes->contains(fn ($bodyType) => in_array($bodyType->id, $selectedBodyTypes, true)));
+                    @endphp
+                    <details class="fitment-make" data-fitment-make data-make-search="{{ $vehicleMake->name }}" @if ($makeSelected) open @endif>
+                        <summary>{{ $vehicleMake->name }}{{ $vehicleMake->is_active ? '' : ' (скрыта)' }}</summary>
+                        <div class="fitment-make__models">
+                            @foreach ($vehicleMake->models as $vehicleModel)
+                                @php
+                                    $modelSelected = in_array($vehicleModel->id, $selectedModels, true);
+                                    $bodySelected = $vehicleModel->bodyTypes->contains(fn ($bodyType) => in_array($bodyType->id, $selectedBodyTypes, true));
+                                @endphp
+                                <details class="fitment-model" data-fitment-model data-model-search="{{ $vehicleMake->name }} {{ $vehicleModel->name }}" @if ($modelSelected || $bodySelected) open @endif>
+                                    <summary>{{ $vehicleModel->name }}{{ $vehicleModel->is_active ? '' : ' (скрыта)' }}</summary>
+                                    <div class="fitment-model__options">
+                                        <label class="fitment-option fitment-option--whole" data-fitment-option data-search-text="{{ $vehicleMake->name }} {{ $vehicleModel->name }} вся модель">
+                                            <input type="checkbox" name="vehicle_model_ids[]" value="{{ $vehicleModel->id }}" @checked($modelSelected)>
+                                            <span>
+                                                <strong>Вся модель {{ $vehicleModel->name }}</strong>
+                                                <small>Для всех кузовов, годов и способов крепления</small>
+                                            </span>
+                                        </label>
+                                        @foreach ($vehicleModel->bodyTypes as $bodyType)
+                                            <label class="fitment-option" data-fitment-option data-search-text="{{ $vehicleMake->name }} {{ $vehicleModel->name }} {{ $bodyType->source_name }} {{ $bodyType->name }} {{ $bodyType->year_label }} {{ $bodyType->mounting_type }}">
+                                                <input type="checkbox" name="vehicle_body_type_ids[]" value="{{ $bodyType->id }}" @checked(in_array($bodyType->id, $selectedBodyTypes, true))>
+                                                <span>
+                                                    <strong>{{ $bodyType->source_name ?: $bodyType->name }}</strong>
+                                                    @if ($bodyType->year_label || $bodyType->mounting_type)
+                                                        <small>{{ collect([$bodyType->year_label, $bodyType->mounting_type])->filter()->join(' · ') }}</small>
+                                                    @endif
+                                                </span>
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                </details>
+                            @endforeach
+                        </div>
+                    </details>
+                @endforeach
+                <p class="vehicle-fitment-picker__empty" data-fitment-empty hidden>Ничего не найдено.</p>
+            </div>
         </div>
-        <select id="vehicle_model_ids" name="vehicle_model_ids[]" multiple size="10" data-searchable-select>
-            @foreach ($vehicleMakes as $vehicleMake)
-                <optgroup label="{{ $vehicleMake->name }}{{ $vehicleMake->is_active ? '' : ' (скрыта)' }}">
-                    @foreach ($vehicleMake->models as $vehicleModel)
-                        <option value="{{ $vehicleModel->id }}" @selected(in_array($vehicleModel->id, $selectedModels, true))>
-                            {{ $vehicleModel->name }}{{ $vehicleModel->is_active ? '' : ' (скрыта)' }}
-                        </option>
-                    @endforeach
-                </optgroup>
-            @endforeach
-        </select>
-        <p class="field__hint">Товар можно привязать к моделям разных марок.</p>
+        <p class="field__hint">Выберите «Вся модель», если багажник подходит ко всем вариантам. Иначе отметьте только точные кузовы с нужными годами и креплениями.</p>
         @error('vehicle_model_ids.*') <p class="field__error">{{ $message }}</p> @enderror
+        @error('vehicle_body_type_ids.*') <p class="field__error">{{ $message }}</p> @enderror
     </div>
 
     <div class="field field--wide">
@@ -177,6 +207,7 @@
 @once
     @push('scripts')
         <script src="{{ asset('js/searchable-select.js') }}" defer></script>
+        <script src="{{ asset('js/vehicle-fitment-picker.js') }}" defer></script>
     @endpush
 @endonce
 

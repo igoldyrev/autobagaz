@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class VehicleModel extends Model
 {
@@ -37,6 +38,13 @@ class VehicleModel extends Model
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);
+    }
+
+    public function bodyTypes(): HasMany
+    {
+        return $this->hasMany(VehicleBodyType::class)
+            ->orderBy('sort_order')
+            ->orderBy('name');
     }
 
     public function scopeActive(Builder $query): Builder

@@ -48,9 +48,16 @@ class RoofRackCategoryController extends Controller
             $models = $currentCategory->models()->active()->get();
             $productQuery = Product::query()
                 ->active()
-                ->whereHas('vehicleModels', fn (Builder $query) => $query
-                    ->active()
-                    ->where('vehicle_make_id', $currentCategory->id));
+                ->where(function (Builder $query) use ($currentCategory): void {
+                    $query->whereHas('vehicleModels', fn (Builder $models) => $models
+                        ->active()
+                        ->where('vehicle_make_id', $currentCategory->id))
+                        ->orWhereHas('vehicleBodyTypes', fn (Builder $bodyTypes) => $bodyTypes
+                            ->active()
+                            ->whereHas('vehicleModel', fn (Builder $models) => $models
+                                ->active()
+                                ->where('vehicle_make_id', $currentCategory->id)));
+                });
             $isVehicleMake = true;
         } else {
             $currentCategory = $rootCategory->children()
@@ -90,11 +97,17 @@ class RoofRackCategoryController extends Controller
             ->active()
             ->where('slug', $model)
             ->firstOrFail();
+        $bodyTypes = $currentModel->bodyTypes()->active()->get();
         [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
             $request,
             Product::query()
                 ->active()
-                ->whereHas('vehicleModels', fn (Builder $query) => $query->whereKey($currentModel->id)),
+                ->where(function (Builder $query) use ($currentModel): void {
+                    $query->whereHas('vehicleModels', fn (Builder $models) => $models->whereKey($currentModel->id))
+                        ->orWhereHas('vehicleBodyTypes', fn (Builder $bodyTypes) => $bodyTypes
+                            ->active()
+                            ->where('vehicle_model_id', $currentModel->id));
+                }),
             $productFilter,
         );
 
@@ -102,6 +115,53 @@ class RoofRackCategoryController extends Controller
             'rootCategory',
             'currentCategory',
             'currentModel',
+            'bodyTypes',
+            'products',
+            'filterOptions',
+            'filters',
+            'unfilteredProductCount',
+        ));
+    }
+
+    public function showBodyType(
+        Request $request,
+        string $category,
+        string $model,
+        string $bodyType,
+        CatalogProductFilter $productFilter,
+    ): View {
+        $rootCategory = $this->rootCategory();
+        $currentCategory = $rootCategory->vehicleMakes()
+            ->active()
+            ->where('slug', $category)
+            ->firstOrFail();
+        $currentModel = $currentCategory->models()
+            ->active()
+            ->where('slug', $model)
+            ->firstOrFail();
+        $currentBodyType = $currentModel->bodyTypes()
+            ->active()
+            ->where('slug', $bodyType)
+            ->firstOrFail();
+
+        [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
+            $request,
+            Product::query()
+                ->active()
+                ->where(function (Builder $query) use ($currentModel, $currentBodyType): void {
+                    $query->whereHas('vehicleModels', fn (Builder $models) => $models->whereKey($currentModel->id))
+                        ->orWhereHas('vehicleBodyTypes', fn (Builder $bodyTypes) => $bodyTypes
+                            ->active()
+                            ->whereKey($currentBodyType->id));
+                }),
+            $productFilter,
+        );
+
+        return view('catalog.body-types.show', compact(
+            'rootCategory',
+            'currentCategory',
+            'currentModel',
+            'currentBodyType',
             'products',
             'filterOptions',
             'filters',

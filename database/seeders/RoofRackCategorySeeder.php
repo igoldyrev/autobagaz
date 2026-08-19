@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CatalogCategory;
+use App\Models\VehicleBodyType;
 use App\Models\VehicleMake;
 use App\Models\VehicleModel;
 use Illuminate\Database\Seeder;
@@ -87,6 +88,29 @@ class RoofRackCategorySeeder extends Seeder
                         'is_active' => true,
                     ],
                 );
+            }
+        }
+
+        $bodyTypesPath = database_path('data/vehicle_body_types.json');
+        $bodyTypeGroups = File::exists($bodyTypesPath)
+            ? json_decode(File::get($bodyTypesPath), true, flags: JSON_THROW_ON_ERROR)
+            : [];
+
+        foreach ($bodyTypeGroups as $makeSlug => $modelGroups) {
+            $make = VehicleMake::query()->where('slug', $makeSlug)->firstOrFail();
+
+            foreach ($modelGroups as $modelSlug => $bodyTypes) {
+                $model = $make->models()->where('slug', $modelSlug)->firstOrFail();
+
+                foreach ($bodyTypes as $bodyType) {
+                    VehicleBodyType::query()->updateOrCreate(
+                        [
+                            'vehicle_model_id' => $model->id,
+                            'slug' => $bodyType['slug'],
+                        ],
+                        collect($bodyType)->except('vehicle_model_id')->all(),
+                    );
+                }
             }
         }
 

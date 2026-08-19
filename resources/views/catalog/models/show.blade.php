@@ -17,6 +17,32 @@
 
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
 
+    @if ($bodyTypes->isNotEmpty())
+        <section aria-label="Варианты кузова для {{ $currentModel->name }}">
+            <div class="catalog-categories vehicle-body-types-grid">
+                @foreach ($bodyTypes as $bodyType)
+                    <a
+                        class="catalog-category catalog-category--image vehicle-body-card {{ $bodyType->image_path ? '' : 'vehicle-body-card--without-image' }}"
+                        href="{{ route('catalog.autobagazhniki.body-type.show', [$currentCategory->slug, $currentModel->slug, $bodyType->slug]) }}"
+                        data-body-type-card
+                    >
+                        @if ($bodyType->image_path)
+                            <img
+                                class="catalog-category__image catalog-category__image--provided"
+                                src="{{ asset($bodyType->image_path) }}"
+                                alt="{{ $bodyType->image_alt ?: $currentCategory->name.' '.$currentModel->name.' — '.$bodyType->name }}"
+                                width="100"
+                                height="100"
+                                loading="lazy"
+                            >
+                        @endif
+                        <span class="catalog-category__name">{{ $bodyType->source_name ?: $bodyType->name }}</span>
+                    </a>
+                @endforeach
+            </div>
+        </section>
+    @endif
+
     @if ($unfilteredProductCount > 0)
         @include('catalog.products._filters', ['horizontal' => true])
         @include('catalog.products._filtered_results')

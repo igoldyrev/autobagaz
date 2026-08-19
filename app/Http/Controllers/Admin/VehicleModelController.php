@@ -19,6 +19,7 @@ class VehicleModelController extends Controller
     public function index(Request $request, VehicleMake $vehicleMake): View
     {
         $vehicleModels = $vehicleMake->models()
+            ->withCount('bodyTypes')
             ->when($request->string('search')->isNotEmpty(), function ($query) use ($request): void {
                 $query->where(function ($query) use ($request): void {
                     $search = '%'.$request->string('search').'%';
@@ -54,6 +55,7 @@ class VehicleModelController extends Controller
     public function edit(VehicleMake $vehicleMake, VehicleModel $vehicleModel): View
     {
         $this->ensureRelated($vehicleMake, $vehicleModel);
+        $vehicleModel->load('bodyTypes');
 
         return view('admin.vehicles.vehicle-models.edit', compact('vehicleMake', 'vehicleModel'));
     }

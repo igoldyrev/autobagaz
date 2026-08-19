@@ -148,12 +148,19 @@
         </section>
     @endif
 
-    @if ($product->vehicleModels->isNotEmpty())
+    @if ($product->vehicleModels->isNotEmpty() || $product->vehicleBodyTypes->isNotEmpty())
         <section class="product-compatibility" aria-labelledby="product-compatibility-title">
-            <h2 id="product-compatibility-title">Подходит для моделей</h2>
+            <h2 id="product-compatibility-title">Совместимость с автомобилями</h2>
             <ul>
                 @foreach ($product->vehicleModels as $vehicleModel)
-                    <li>{{ $vehicleModel->make->name }} {{ $vehicleModel->name }}</li>
+                    <li>{{ $vehicleModel->make->name }} {{ $vehicleModel->name }} — все кузовы</li>
+                @endforeach
+                @foreach ($product->vehicleBodyTypes as $bodyType)
+                    <li>
+                        {{ $bodyType->vehicleModel->make->name }}
+                        {{ $bodyType->source_name ?: $bodyType->vehicleModel->name.' '.$bodyType->name }}
+                        @if ($bodyType->mounting_type) — {{ $bodyType->mounting_type }} @endif
+                    </li>
                 @endforeach
             </ul>
         </section>

@@ -48,6 +48,11 @@ class Product extends Model
         return $this->belongsToMany(VehicleModel::class);
     }
 
+    public function vehicleBodyTypes(): BelongsToMany
+    {
+        return $this->belongsToMany(VehicleBodyType::class);
+    }
+
     public function roofRack(): HasOne
     {
         return $this->hasOne(RoofRackProduct::class);

@@ -59,14 +59,17 @@ class AdminProductTest extends TestCase
             ->assertOk()
             ->assertSee('data-select-search="category_ids"', escape: false)
             ->assertSee('placeholder="Найти категорию"', escape: false)
-            ->assertSee('data-select-search="vehicle_model_ids"', escape: false)
-            ->assertSee('placeholder="Найти марку или модель"', escape: false)
+            ->assertSee('data-vehicle-fitment-picker', escape: false)
+            ->assertSee('placeholder="Марка, модель, кузов, год или крепление"', escape: false)
+            ->assertSee('name="vehicle_body_type_ids[]"', escape: false)
+            ->assertSee('Вся модель')
             ->assertSee('name="manufacturer_id"', escape: false)
             ->assertSee('<option', escape: false)
             ->assertSee('Thule')
             ->assertDontSee('name="manufacturer"', escape: false)
             ->assertSee(route('admin.products.roof-racks.manufacturers.index'))
-            ->assertSee('/js/searchable-select.js', escape: false);
+            ->assertSee('/js/searchable-select.js', escape: false)
+            ->assertSee('/js/vehicle-fitment-picker.js', escape: false);
     }
 
     public function test_administrator_can_create_product_with_multiple_categories_models_and_images(): void
@@ -168,6 +171,49 @@ class AdminProductTest extends TestCase
         $this->assertDatabaseMissing('product_images', ['id' => $image->id]);
         Storage::disk('public')->assertMissing($path);
         $this->get('/products/new-name')->assertNotFound();
+    }
+
+    public function test_administrator_can_assign_a_roof_rack_to_an_exact_body_variant(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+        $vesta = VehicleModel::query()
+            ->whereHas('make', fn ($query) => $query->where('slug', 'lada-vaz'))
+            ->where('slug', 'vesta')
+            ->firstOrFail();
+        $sedan = $vesta->bodyTypes()->where('name', 'Седан')->firstOrFail();
+        $wagon = $vesta->bodyTypes()->where('name', 'Универсал')->firstOrFail();
+
+        $response = $this->actingAs($admin)->post(route('admin.products.roof-racks.store'), [
+            'name' => 'Багажник только для седана',
+            'slug' => 'rack-for-vesta-sedan',
+            'price' => 5000,
+            'stock' => 1,
+            'is_active' => '1',
+            'vehicle_body_type_ids' => [$sedan->id],
+        ]);
+
+        $response->assertSessionDoesntHaveErrors();
+        $product = Product::query()->where('slug', 'rack-for-vesta-sedan')->firstOrFail();
+
+        $this->assertTrue($product->vehicleBodyTypes()->whereKey($sedan->id)->exists());
+        $this->assertFalse($product->vehicleBodyTypes()->whereKey($wagon->id)->exists());
+        $this->assertSame(0, $product->vehicleModels()->count());
+
+        $this->actingAs($admin)
+            ->get(route('admin.products.roof-racks.edit', $product))
+            ->assertOk()
+            ->assertSee($sedan->source_name)
+            ->assertSee('name="vehicle_body_type_ids[]" value="'.$sedan->id.'" checked', escape: false);
+
+        $this->get(route('catalog.autobagazhniki.model.show', [$vesta->make->slug, $vesta->slug]))
+            ->assertOk()
+            ->assertSee($product->name);
+
+        $this->get(route('products.show', $product))
+            ->assertOk()
+            ->assertSee('Совместимость с автомобилями')
+            ->assertSee($sedan->source_name)
+            ->assertDontSee($wagon->source_name);
     }
 
     public function test_public_product_page_and_model_page_show_only_published_products(): void

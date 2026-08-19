@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\CatalogCategory;
 use App\Models\Product;
 use App\Models\RoofRackManufacturer;
+use App\Models\VehicleBodyType;
 use App\Models\VehicleMake;
 use App\Models\VehicleModel;
 use Database\Seeders\RoofRackCategorySeeder;
@@ -82,6 +83,106 @@ class RoofRackCategoryTest extends TestCase
 
         $this->get(route('catalog.autobagazhniki.model.show', ['audi', 'unknown']))
             ->assertNotFound();
+    }
+
+    public function test_model_page_lists_imported_body_types_with_local_images(): void
+    {
+        $response = $this->get(route('catalog.autobagazhniki.model.show', ['lada-vaz', 'vesta']));
+
+        $response
+            ->assertOk()
+            ->assertDontSee('Кузов, годы и крепление для Vesta')
+            ->assertSee('Седан')
+            ->assertSee('Универсал')
+            ->assertSee('2015-нв')
+            ->assertSee('интегрированные рейлинги')
+            ->assertDontSee('vehicle-fitment-meta', escape: false)
+            ->assertSee('data-body-type-card', escape: false);
+
+        $vesta = VehicleModel::query()
+            ->whereHas('make', fn ($query) => $query->where('slug', 'lada-vaz'))
+            ->where('slug', 'vesta')
+            ->firstOrFail();
+
+        $this->assertGreaterThanOrEqual(2, $vesta->bodyTypes()->count());
+
+        $bodyType = $vesta->bodyTypes()->firstOrFail();
+        $response->assertSee(route('catalog.autobagazhniki.body-type.show', [
+            'lada-vaz',
+            'vesta',
+            $bodyType->slug,
+        ]));
+    }
+
+    public function test_body_type_page_lists_only_products_compatible_with_the_selected_variant(): void
+    {
+        $vesta = VehicleModel::query()
+            ->whereHas('make', fn ($query) => $query->where('slug', 'lada-vaz'))
+            ->where('slug', 'vesta')
+            ->firstOrFail();
+        $sedan = $vesta->bodyTypes()->where('name', 'Седан')->firstOrFail();
+        $wagon = $vesta->bodyTypes()->where('name', 'Универсал')->firstOrFail();
+        $allBodies = $this->createRoofRackProduct('Для всех Vesta', 'all-vesta-bodies', 5000, 'Inter', 1, 75, 'Аэродинамическая', 120);
+        $sedanOnly = $this->createRoofRackProduct('Только для седана', 'vesta-sedan-only', 6000, 'Inter', 1, 75, 'Аэродинамическая', 120);
+        $wagonOnly = $this->createRoofRackProduct('Только для универсала', 'vesta-wagon-only', 7000, 'Inter', 1, 75, 'Аэродинамическая', 120);
+        $allBodies->vehicleModels()->attach($vesta);
+        $sedanOnly->vehicleBodyTypes()->attach($sedan);
+        $wagonOnly->vehicleBodyTypes()->attach($wagon);
+
+        $this->get(route('catalog.autobagazhniki.body-type.show', [
+            $vesta->make->slug,
+            $vesta->slug,
+            $sedan->slug,
+        ]))
+            ->assertOk()
+            ->assertSee($sedan->source_name)
+            ->assertSee('Кузов')
+            ->assertSee('Годы выпуска')
+            ->assertSee($allBodies->name)
+            ->assertSee($sedanOnly->name)
+            ->assertDontSee($wagonOnly->name);
+
+        $this->get(route('catalog.autobagazhniki.body-type.show', [
+            $vesta->make->slug,
+            $vesta->slug,
+            'unknown-body-type',
+        ]))->assertNotFound();
+    }
+
+    public function test_imported_body_type_images_exist(): void
+    {
+        $this->assertGreaterThan(1000, VehicleBodyType::query()->count());
+
+        foreach (VehicleBodyType::query()->get() as $bodyType) {
+            if ($bodyType->image_path) {
+                $this->assertFileExists(public_path($bodyType->image_path));
+            }
+        }
+    }
+
+    public function test_imported_fitment_variants_are_unique_per_source_card(): void
+    {
+        $duplicates = VehicleBodyType::query()
+            ->selectRaw('vehicle_model_id, source_url, count(*) as total')
+            ->whereNotNull('source_url')
+            ->groupBy('vehicle_model_id', 'source_url')
+            ->havingRaw('count(*) > 1')
+            ->count();
+
+        $this->assertSame(0, $duplicates);
+
+        $priora = VehicleModel::query()
+            ->whereHas('make', fn ($query) => $query->where('slug', 'lada-vaz'))
+            ->where('slug', 'priora')
+            ->firstOrFail();
+
+        $this->assertSame(1, $priora->bodyTypes()->where('source_name', 'Приора 4/5дв. Седан/Хэтчбек 2007-2018')->count());
+        $this->assertSame('Седан / Хэтчбек', $priora->bodyTypes()->where('source_name', 'Приора 4/5дв. Седан/Хэтчбек 2007-2018')->value('name'));
+
+        $response = $this->get(route('catalog.autobagazhniki.model.show', ['lada-vaz', 'priora']));
+
+        $response->assertOk()->assertSee('Приора 4/5дв. Седан/Хэтчбек 2007-2018');
+        $this->assertSame(2, substr_count($response->getContent(), 'data-body-type-card'));
     }
 
     public function test_models_are_available_for_other_vehicle_makes(): void

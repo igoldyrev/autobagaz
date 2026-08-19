@@ -49,7 +49,7 @@
                                 </td>
                                 <td>{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</td>
                                 <td>{{ $product->stock }}</td>
-                                <td>{{ $product->categories_count }} кат. / {{ $product->vehicle_models_count }} мод.</td>
+                                <td>{{ $product->categories_count }} кат. / {{ $product->vehicle_models_count }} мод. / {{ $product->vehicle_body_types_count }} куз.</td>
                                 <td><span class="status {{ $product->is_active ? 'status--active' : 'status--inactive' }}">{{ $product->is_active ? 'Опубликован' : 'Скрыт' }}</span></td>
                                 <td><a class="text-link" href="{{ route('admin.products.roof-racks.edit', $product) }}">Изменить</a></td>
                             </tr>
