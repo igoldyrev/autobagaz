@@ -51,7 +51,12 @@
                                 <td>{{ $product->stock }}</td>
                                 <td>{{ $product->categories_count }} кат. / {{ $product->vehicle_models_count }} мод. / {{ $product->vehicle_body_types_count }} куз.</td>
                                 <td><span class="status {{ $product->is_active ? 'status--active' : 'status--inactive' }}">{{ $product->is_active ? 'Опубликован' : 'Скрыт' }}</span></td>
-                                <td><a class="text-link" href="{{ route('admin.products.roof-racks.edit', $product) }}">Изменить</a></td>
+                                <td>
+                                    <div class="row-actions">
+                                        <a class="text-link" href="{{ route('admin.products.roof-racks.create', ['copy_fitment_from' => $product->id]) }}">Повторить применимость</a>
+                                        <a class="text-link" href="{{ route('admin.products.roof-racks.edit', $product) }}">Изменить</a>
+                                    </div>
+                                </td>
                             </tr>
                         @empty
                             <tr><td colspan="6" class="empty-state">Товары не найдены.</td></tr>

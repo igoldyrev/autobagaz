@@ -134,6 +134,34 @@ class AdminProductTest extends TestCase
         }
     }
 
+    public function test_administrator_can_start_a_product_with_fitment_copied_from_another_product(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+        $models = VehicleModel::query()->with('bodyTypes')->get();
+        $wholeModel = $models->firstOrFail();
+        $bodyType = $models->first(fn (VehicleModel $model) => $model->bodyTypes->isNotEmpty())
+            ?->bodyTypes
+            ->firstOrFail();
+        $source = Product::query()->create([
+            'name' => 'Товар-образец',
+            'slug' => 'fitment-copy-source',
+            'price' => 1000,
+        ]);
+        $source->roofRack()->create();
+        $source->vehicleModels()->attach($wholeModel);
+        $source->vehicleBodyTypes()->attach($bodyType);
+
+        $response = $this->actingAs($admin)->get(route('admin.products.roof-racks.create', [
+            'copy_fitment_from' => $source->id,
+        ]));
+
+        $response
+            ->assertOk()
+            ->assertSee('Выбор скопирован из «Товар-образец»')
+            ->assertSee('name="vehicle_model_ids[]" value="'.$wholeModel->id.'" checked', escape: false)
+            ->assertSee('name="vehicle_body_type_ids[]" value="'.$bodyType->id.'" checked', escape: false);
+    }
+
     public function test_administrator_can_update_hide_and_remove_product_image_without_deleting_product(): void
     {
         Storage::fake('public');

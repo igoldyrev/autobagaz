@@ -45,9 +45,28 @@ class RoofRackProductController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
-    public function create(): View
+    public function create(Request $request): View
     {
-        return view('admin.products.create', $this->formData());
+        $fitmentCopySource = null;
+
+        if ($request->filled('copy_fitment_from')) {
+            $fitmentCopySource = Product::query()
+                ->whereHas('roofRack')
+                ->with(['vehicleModels:id', 'vehicleBodyTypes:id'])
+                ->findOrFail($request->integer('copy_fitment_from'));
+        }
+
+        $fitmentCopyProducts = Product::query()
+            ->whereHas('roofRack')
+            ->withCount(['vehicleModels', 'vehicleBodyTypes'])
+            ->latest()
+            ->get(['id', 'name', 'created_at']);
+
+        return view('admin.products.create', [
+            ...$this->formData(),
+            'fitmentCopyProducts' => $fitmentCopyProducts,
+            'fitmentCopySource' => $fitmentCopySource,
+        ]);
     }
 
     public function store(RoofRackProductRequest $request): RedirectResponse

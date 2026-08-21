@@ -3,8 +3,14 @@
 
 @php
     $selectedCategories = array_map('intval', old('category_ids', isset($product) ? $product->categories->pluck('id')->all() : []));
-    $selectedModels = array_map('intval', old('vehicle_model_ids', isset($product) ? $product->vehicleModels->pluck('id')->all() : []));
-    $selectedBodyTypes = array_map('intval', old('vehicle_body_type_ids', isset($product) ? $product->vehicleBodyTypes->pluck('id')->all() : []));
+    $defaultModels = isset($product)
+        ? $product->vehicleModels->pluck('id')->all()
+        : (isset($fitmentCopySource) ? $fitmentCopySource->vehicleModels->pluck('id')->all() : []);
+    $defaultBodyTypes = isset($product)
+        ? $product->vehicleBodyTypes->pluck('id')->all()
+        : (isset($fitmentCopySource) ? $fitmentCopySource->vehicleBodyTypes->pluck('id')->all() : []);
+    $selectedModels = array_map('intval', old('vehicle_model_ids', $defaultModels));
+    $selectedBodyTypes = array_map('intval', old('vehicle_body_type_ids', $defaultBodyTypes));
     $roofRack = isset($product) ? $product->roofRack : null;
     $selectedManufacturerId = (string) old('manufacturer_id', $roofRack?->manufacturer_id ?? '');
 @endphp
