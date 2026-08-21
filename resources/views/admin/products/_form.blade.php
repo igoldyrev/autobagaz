@@ -11,6 +11,7 @@
         : (isset($fitmentCopySource) ? $fitmentCopySource->vehicleBodyTypes->pluck('id')->all() : []);
     $selectedModels = array_map('intval', old('vehicle_model_ids', $defaultModels));
     $selectedBodyTypes = array_map('intval', old('vehicle_body_type_ids', $defaultBodyTypes));
+    $selectedCompatibleAccessories = array_map('intval', old('compatibility_product_ids', isset($product) ? $product->compatibleAccessories->pluck('id')->all() : []));
     $roofRack = isset($product) ? $product->roofRack : null;
     $selectedManufacturerId = (string) old('manufacturer_id', $roofRack?->manufacturer_id ?? '');
 @endphp
@@ -20,6 +21,22 @@
         <label for="name">Название товара</label>
         <input id="name" name="name" type="text" value="{{ old('name', $product->name ?? '') }}" required>
         @error('name') <p class="field__error">{{ $message }}</p> @enderror
+    </div>
+
+    <div class="field field--wide">
+        <label for="compatibility_product_ids">Автомобильные боксы, совместимые с этим багажником</label>
+        <select id="compatibility_product_ids" name="compatibility_product_ids[]" multiple size="8" data-searchable-select>
+            @foreach ($compatibleAccessories as $accessory)
+                @php
+                    $accessoryManufacturer = $accessory->autoBox?->manufacturer?->name;
+                @endphp
+                <option value="{{ $accessory->id }}" @selected(in_array($accessory->id, $selectedCompatibleAccessories, true))>
+                    {{ $accessory->name }}{{ $accessoryManufacturer ? ' · '.$accessoryManufacturer : '' }}{{ $accessory->is_active ? '' : ' (скрыт)' }}
+                </option>
+            @endforeach
+        </select>
+        <p class="field__hint">Это непрямая совместимость: автобокс появится в подборе автомобиля, когда подходит хотя бы к одному автобагажнику для выбранного кузова.</p>
+        @error('compatibility_product_ids.*') <p class="field__error">{{ $message }}</p> @enderror
     </div>
     <div class="field field--wide">
         <label for="slug">Адрес страницы</label>
@@ -127,7 +144,7 @@
     </div>
 
     <div class="field field--wide">
-        <span class="field__label">Модели автомобилей и типы кузова</span>
+        <span class="field__label">Прямая совместимость с автомобилем</span>
         <div class="vehicle-fitment-picker" data-vehicle-fitment-picker>
             <div class="vehicle-fitment-picker__toolbar">
                 <label class="visually-hidden" for="vehicle-fitment-search">Поиск по маркам, моделям, кузовам, годам и креплениям</label>
@@ -178,7 +195,7 @@
                 <p class="vehicle-fitment-picker__empty" data-fitment-empty hidden>Ничего не найдено.</p>
             </div>
         </div>
-        <p class="field__hint">Выберите «Вся модель», если багажник подходит ко всем вариантам. Иначе отметьте только точные кузовы с нужными годами и креплениями.</p>
+        <p class="field__hint">Выберите «Вся модель», если багажник подходит ко всем вариантам. Иначе отметьте только точные кузовы с нужными годами и креплениями. Автобоксы из блока выше имеют непрямую совместимость — через этот автобагажник.</p>
         @error('vehicle_model_ids.*') <p class="field__error">{{ $message }}</p> @enderror
         @error('vehicle_body_type_ids.*') <p class="field__error">{{ $message }}</p> @enderror
     </div>

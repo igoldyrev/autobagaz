@@ -185,6 +185,7 @@
             </aside>
 
             <main class="wrapper__content">
+                @include('catalog.vehicle-fitment._picker', ['make' => null, 'model' => null, 'bodyType' => null])
                 <div class="catalog">
                     @foreach ($catalog as $item)
                         <div class="catalog__item">
@@ -305,5 +306,6 @@
         </footer>
 
         <script src="{{ asset('js/home.js') }}" defer></script>
+        @stack('scripts')
     </body>
 </html>

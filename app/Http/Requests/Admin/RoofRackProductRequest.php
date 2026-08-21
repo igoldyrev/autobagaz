@@ -31,6 +31,16 @@ class RoofRackProductRequest extends ProductRequest
             'installation_method' => ['nullable', 'string', 'max:255'],
             'bar_type' => ['nullable', 'string', 'max:255'],
             'rack_color' => ['nullable', 'string', 'max:255'],
+            'compatibility_product_ids' => ['array'],
+            'compatibility_product_ids.*' => [
+                'integer',
+                'distinct',
+                Rule::exists('products', 'id')->where(fn (QueryBuilder $query) => $query->whereExists(function (QueryBuilder $autoBox) {
+                    $autoBox->selectRaw('1')
+                        ->from('auto_box_products')
+                        ->whereColumn('auto_box_products.product_id', 'products.id');
+                })),
+            ],
         ];
     }
 }

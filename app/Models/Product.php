@@ -53,6 +53,28 @@ class Product extends Model
         return $this->belongsToMany(VehicleBodyType::class);
     }
 
+    /** Базовые товары, через которые этот аксессуар устанавливается на автомобиль. */
+    public function baseProducts(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            self::class,
+            'product_base_product',
+            'product_id',
+            'base_product_id',
+        )->withPivot('compatibility_type');
+    }
+
+    /** Аксессуары, совместимые с этим базовым товаром. */
+    public function compatibleAccessories(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            self::class,
+            'product_base_product',
+            'base_product_id',
+            'product_id',
+        )->withPivot('compatibility_type');
+    }
+
     public function roofRack(): HasOne
     {
         return $this->hasOne(RoofRackProduct::class);

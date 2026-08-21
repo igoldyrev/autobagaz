@@ -10,7 +10,7 @@ class AutoBoxProductRequest extends ProductRequest
     public function rules(): array
     {
         $rules = parent::rules();
-        unset($rules['manufacturer'], $rules['category_ids'], $rules['category_ids.*'], $rules['vehicle_model_ids'], $rules['vehicle_model_ids.*']);
+        unset($rules['manufacturer'], $rules['category_ids'], $rules['category_ids.*'], $rules['vehicle_model_ids'], $rules['vehicle_model_ids.*'], $rules['vehicle_body_type_ids'], $rules['vehicle_body_type_ids.*'], $rules['compatibility_product_ids'], $rules['compatibility_product_ids.*']);
         $currentManufacturerId = $this->route('product')?->autoBox?->manufacturer_id;
 
         return [

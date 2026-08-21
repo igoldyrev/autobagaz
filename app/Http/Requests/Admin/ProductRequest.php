@@ -21,6 +21,7 @@ class ProductRequest extends FormRequest
             'category_ids' => array_values(array_filter((array) $this->input('category_ids'))),
             'vehicle_model_ids' => array_values(array_filter((array) $this->input('vehicle_model_ids'))),
             'vehicle_body_type_ids' => array_values(array_filter((array) $this->input('vehicle_body_type_ids'))),
+            'compatibility_product_ids' => array_values(array_filter((array) $this->input('compatibility_product_ids'))),
             'remove_image_ids' => array_values(array_filter((array) $this->input('remove_image_ids'))),
         ]);
     }
@@ -45,6 +46,8 @@ class ProductRequest extends FormRequest
             'vehicle_model_ids.*' => ['integer', 'distinct', 'exists:vehicle_models,id'],
             'vehicle_body_type_ids' => ['array'],
             'vehicle_body_type_ids.*' => ['integer', 'distinct', 'exists:vehicle_body_types,id'],
+            'compatibility_product_ids' => ['array'],
+            'compatibility_product_ids.*' => ['integer', 'distinct', 'exists:products,id'],
             'images' => ['array', 'max:10'],
             'images.*' => ['image', 'mimes:jpg,jpeg,png,webp,gif', 'max:6144'],
             'remove_image_ids' => ['array'],

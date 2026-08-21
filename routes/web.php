@@ -14,11 +14,13 @@ use App\Http\Controllers\Admin\VehicleMakeController;
 use App\Http\Controllers\Admin\VehicleModelController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AutoBoxController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoofRackCategoryController;
+use App\Http\Controllers\VehicleFitmentController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home')->name('home');
+Route::get('/', HomeController::class)->name('home');
 Route::view('/prokat', 'rental')->name('rental');
 
 Route::middleware('guest')->group(function () {
@@ -80,6 +82,9 @@ Route::middleware(['auth', 'auth.session', 'admin'])->prefix('admin')->name('adm
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/autobox', AutoBoxController::class)->name('catalog.auto-boxes.index');
+Route::get('/podbor-avto', [VehicleFitmentController::class, 'index'])->name('catalog.vehicle-fitment.index');
+Route::get('/podbor-avto/models', [VehicleFitmentController::class, 'models'])->name('catalog.vehicle-fitment.models');
+Route::get('/podbor-avto/kuzova', [VehicleFitmentController::class, 'bodyTypes'])->name('catalog.vehicle-fitment.body-types');
 
 Route::prefix('autobagazhniki')->name('catalog.autobagazhniki.')->group(function () {
     Route::get('/', [RoofRackCategoryController::class, 'index'])->name('index');
