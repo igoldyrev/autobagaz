@@ -41,6 +41,7 @@ class AdminAuthenticationTest extends TestCase
         ])->assertRedirect(route('admin.dashboard'));
 
         $this->assertAuthenticatedAs($admin);
+        $this->assertNotNull($admin->fresh()->last_login_at);
 
         $this->get(route('admin.dashboard'))
             ->assertOk()
@@ -118,6 +119,133 @@ class AdminAuthenticationTest extends TestCase
             ->assertRedirect(route('login'));
 
         $this->assertGuest();
+    }
+
+    public function test_administrator_can_view_profile_security_page(): void
+    {
+        $admin = User::factory()->create([
+            'is_admin' => true,
+            'last_login_at' => now()->subHour(),
+        ]);
+
+        $this->actingAs($admin)
+            ->get(route('admin.profile.security.edit'))
+            ->assertOk()
+            ->assertSee('Безопасность')
+            ->assertSee('Личные данные');
+    }
+
+    public function test_administrator_can_view_profile_and_update_personal_data_in_settings(): void
+    {
+        $admin = User::factory()->create([
+            'is_admin' => true,
+            'name' => 'Старое имя',
+            'email' => 'old@example.com',
+            'last_login_at' => now()->subHour(),
+        ]);
+
+        $this->actingAs($admin)
+            ->get(route('admin.profile.show'))
+            ->assertOk()
+            ->assertSee('Мой профиль')
+            ->assertSee('Последний вход')
+            ->assertSee('Старое имя')
+            ->assertSee('old@example.com')
+            ->assertSee('Мой профиль')
+            ->assertSee('Настройки');
+
+        $this->actingAs($admin)
+            ->get(route('admin.profile.settings.edit'))
+            ->assertOk()
+            ->assertSee('Настройки профиля')
+            ->assertSee('Личные данные')
+            ->assertSee('Безопасность');
+
+        $this->actingAs($admin)
+            ->put(route('admin.profile.settings.update'), [
+                'name' => 'Новое имя',
+                'email' => 'new@example.com',
+                'phone' => '+7 900 123-45-67',
+            ])
+            ->assertRedirect(route('admin.profile.settings.edit'))
+            ->assertSessionHas('success', 'Личные данные сохранены.');
+
+        $admin->refresh();
+
+        $this->assertSame('Новое имя', $admin->name);
+        $this->assertSame('new@example.com', $admin->email);
+        $this->assertSame('+7 900 123-45-67', $admin->phone);
+    }
+
+    public function test_profile_email_must_be_unique(): void
+    {
+        User::factory()->create(['email' => 'occupied@example.com']);
+        $admin = User::factory()->create(['is_admin' => true, 'email' => 'admin@example.com']);
+
+        $this->actingAs($admin)
+            ->from(route('admin.profile.settings.edit'))
+            ->put(route('admin.profile.settings.update'), [
+                'name' => $admin->name,
+                'email' => 'occupied@example.com',
+                'phone' => '',
+            ])
+            ->assertRedirect(route('admin.profile.settings.edit'))
+            ->assertSessionHasErrors('email');
+
+        $this->assertSame('admin@example.com', $admin->fresh()->email);
+    }
+
+    public function test_administrator_can_change_password(): void
+    {
+        $admin = User::factory()->create([
+            'is_admin' => true,
+            'password' => 'current-password',
+        ]);
+
+        $this->actingAs($admin)
+            ->put(route('admin.profile.security.password.update'), [
+                'current_password' => 'current-password',
+                'password' => 'new-strong-password',
+                'password_confirmation' => 'new-strong-password',
+            ])
+            ->assertRedirect(route('admin.profile.security.edit'));
+
+        $this->assertTrue(Hash::check('new-strong-password', $admin->fresh()->password));
+    }
+
+    public function test_password_change_requires_current_password(): void
+    {
+        $admin = User::factory()->create([
+            'is_admin' => true,
+            'password' => 'current-password',
+        ]);
+
+        $this->actingAs($admin)
+            ->from(route('admin.profile.security.edit'))
+            ->put(route('admin.profile.security.password.update'), [
+                'current_password' => 'incorrect-password',
+                'password' => 'new-strong-password',
+                'password_confirmation' => 'new-strong-password',
+            ])
+            ->assertRedirect(route('admin.profile.security.edit'))
+            ->assertSessionHasErrors('current_password');
+
+        $this->assertTrue(Hash::check('current-password', $admin->fresh()->password));
+    }
+
+    public function test_administrator_can_terminate_other_sessions(): void
+    {
+        $admin = User::factory()->create([
+            'is_admin' => true,
+            'password' => 'current-password',
+        ]);
+
+        $this->actingAs($admin)
+            ->delete(route('admin.profile.security.sessions.destroy'), [
+                'current_password' => 'current-password',
+            ])
+            ->assertRedirect(route('admin.profile.security.edit'))
+            ->assertSessionHas('success', 'Другие активные сеансы завершены.');
     }
 
     public function test_admin_create_command_creates_administrator(): void

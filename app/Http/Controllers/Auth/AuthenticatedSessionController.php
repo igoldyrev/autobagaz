@@ -49,6 +49,7 @@ class AuthenticatedSessionController extends Controller
 
         RateLimiter::clear($key);
         $request->session()->regenerate();
+        $request->user()->forceFill(['last_login_at' => now()])->save();
 
         return redirect()->intended(route('admin.dashboard'));
     }

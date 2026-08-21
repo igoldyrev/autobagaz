@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Middleware\EnsureUserHasPermission;
 use App\Http\Middleware\EnsureUserIsAdmin;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Session\Middleware\AuthenticateSession;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -15,6 +17,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'admin' => EnsureUserIsAdmin::class,
+            'auth.session' => AuthenticateSession::class,
+            'permission' => EnsureUserHasPermission::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

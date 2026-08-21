@@ -47,6 +47,8 @@ class CreateAdminUser extends Command
                 'name' => $name,
                 'password' => $password,
                 'is_admin' => true,
+                'role' => User::ROLE_ADMINISTRATOR,
+                'permissions' => User::roleDefaultPermissions()[User::ROLE_ADMINISTRATOR],
             ],
         );
 
