@@ -90,8 +90,11 @@
         <link rel="stylesheet" href="{{ asset('css/autobagaz.css') }}">
         <link rel="stylesheet" href="{{ asset('src/fa/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin-toolbar.css') }}">
     </head>
     <body>
+        @include('admin.partials.site-toolbar')
+
         <div class="modal-call__overlay">
             <div class="modal-call" role="dialog" aria-modal="true" aria-labelledby="callback-title">
                 <button class="modal-call__close" type="button" aria-label="Закрыть">X</button>

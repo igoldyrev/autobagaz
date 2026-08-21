@@ -135,6 +135,35 @@ class AdminAuthenticationTest extends TestCase
             ->assertSee('Личные данные');
     }
 
+    public function test_administrator_sees_admin_toolbar_on_public_site(): void
+    {
+        $admin = User::factory()->create([
+            'is_admin' => true,
+            'name' => 'Илья',
+        ]);
+
+        $this->actingAs($admin)
+            ->get(route('home'))
+            ->assertOk()
+            ->assertSee('Панель администратора')
+            ->assertSee('Администрирование')
+            ->assertSee('Илья')
+            ->assertSee(route('admin.dashboard'))
+            ->assertSee(route('admin.profile.show'))
+            ->assertSee(route('admin.profile.settings.edit'));
+    }
+
+    public function test_regular_user_does_not_see_admin_toolbar_on_public_site(): void
+    {
+        $user = User::factory()->create(['is_admin' => false]);
+
+        $this->actingAs($user)
+            ->get(route('home'))
+            ->assertOk()
+            ->assertDontSee('Панель администратора')
+            ->assertDontSee('Администрирование');
+    }
+
     public function test_administrator_can_view_profile_and_update_personal_data_in_settings(): void
     {
         $admin = User::factory()->create([

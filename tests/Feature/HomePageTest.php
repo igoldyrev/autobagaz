@@ -16,6 +16,8 @@ class HomePageTest extends TestCase
             ->assertSee('Купить багажник в Перми теперь не проблема')
             ->assertSee('Нет записей')
             ->assertSee('/css/autobagaz.css', escape: false)
+            ->assertDontSee('Панель администратора')
+            ->assertDontSee('Администрирование')
             ->assertDontSee('href="/news"', escape: false);
 
         $this->assertSame(2, substr_count($response->getContent(), 'Нет записей'));

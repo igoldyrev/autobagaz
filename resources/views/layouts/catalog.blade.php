@@ -36,8 +36,11 @@
         <link rel="stylesheet" href="{{ asset('src/fa/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin-toolbar.css') }}">
     </head>
     <body>
+        @include('admin.partials.site-toolbar')
+
         <nav class="navigation-mobile" aria-label="Мобильная навигация">
             <ul class="navigation__list" id="mobile-menu">
                 <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Каталог</a></li>
