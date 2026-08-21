@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\Product;
 use App\Models\User;
-use App\Models\VehicleBodyType;
 use App\Models\VehicleModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;

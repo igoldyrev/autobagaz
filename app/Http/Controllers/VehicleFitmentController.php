@@ -94,7 +94,7 @@ class VehicleFitmentController extends Controller
     }
 
     /** @param Collection<int, Product> $baseProducts
-     *  @return Collection<int, Product>
+     * @return Collection<int, Product>
      */
     private function compatibleDependentProducts(Collection $baseProducts): Collection
     {
