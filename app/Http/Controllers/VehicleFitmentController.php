@@ -3,39 +3,66 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\VehicleBodyType;
+use App\Models\VehicleConfiguration;
 use App\Models\VehicleMake;
 use App\Models\VehicleModel;
-use Illuminate\Database\Eloquent\Builder;
+use App\Services\VehicleCatalogService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 class VehicleFitmentController extends Controller
 {
-    public function index(Request $request): View
+    public function index(Request $request, VehicleCatalogService $catalog): View
     {
-        $vehicleMakes = VehicleMake::query()->active()->orderBy('name')->get(['id', 'name']);
-        $make = $this->selectedMake($request);
-        $model = $this->selectedModel($request, $make);
-        $bodyType = $this->selectedBodyType($request, $model);
-
+        $vehicleMakes = $this->vehicleMakes();
+        $selectedVehicle = $request->attributes->get('vehicleConfiguration');
+        $selectedVehicleYear = $request->attributes->get('vehicleYear');
         $baseProducts = collect();
         $dependentProducts = collect();
+        $categoryResults = collect();
 
-        if ($model && $bodyType) {
-            $baseProducts = $this->compatibleBaseProducts($model, $bodyType);
-            $dependentProducts = $this->compatibleDependentProducts($baseProducts);
+        if ($selectedVehicle) {
+            $summary = $catalog->summary($selectedVehicle);
+            $roofRackIds = $summary['roof_rack_ids'];
+            $autoBoxIds = $summary['auto_box_ids'];
+            $baseProducts = Product::query()
+                ->whereKey($roofRackIds)
+                ->with(['images', 'roofRack.manufacturer'])
+                ->orderBy('name')
+                ->get();
+            $dependentProducts = Product::query()
+                ->whereKey($autoBoxIds)
+                ->with(['images', 'autoBox.manufacturer', 'categories'])
+                ->orderBy('name')
+                ->get();
+            $categoryResults = collect([
+                [
+                    'name' => 'Багажники',
+                    'count' => $summary['roof_rack_count'],
+                    'url' => route('catalog.autobagazhniki.index', array_filter([
+                        'vehicle_configuration_id' => $selectedVehicle->id,
+                        'vehicle_year' => $selectedVehicleYear,
+                    ])),
+                ],
+                [
+                    'name' => 'Автобоксы',
+                    'count' => $summary['auto_box_count'],
+                    'url' => route('catalog.auto-boxes.index', array_filter([
+                        'vehicle_configuration_id' => $selectedVehicle->id,
+                        'vehicle_year' => $selectedVehicleYear,
+                    ])),
+                ],
+            ]);
         }
 
         return view('catalog.vehicle-fitment.index', compact(
             'vehicleMakes',
-            'make',
-            'model',
-            'bodyType',
+            'selectedVehicle',
+            'selectedVehicleYear',
             'baseProducts',
             'dependentProducts',
+            'categoryResults',
         ));
     }
 
@@ -43,73 +70,75 @@ class VehicleFitmentController extends Controller
     {
         $make = VehicleMake::query()->active()->findOrFail($request->integer('make_id'));
 
-        return response()->json($make->models()->active()->get(['id', 'name']));
+        return response()->json($make->models()
+            ->active()
+            ->get(['id', 'name']));
     }
 
-    public function bodyTypes(Request $request): JsonResponse
+    public function configurations(Request $request): JsonResponse
     {
         $model = VehicleModel::query()->active()->findOrFail($request->integer('model_id'));
 
-        return response()->json($model->bodyTypes()->active()->get(['id', 'name', 'source_name', 'year_label', 'mounting_type']));
-    }
-
-    private function selectedMake(Request $request): ?VehicleMake
-    {
-        return $request->filled('make_id')
-            ? VehicleMake::query()->active()->findOrFail($request->integer('make_id'))
-            : null;
-    }
-
-    private function selectedModel(Request $request, ?VehicleMake $make): ?VehicleModel
-    {
-        if (! $make || ! $request->filled('model_id')) {
-            return null;
-        }
-
-        return $make->models()->active()->findOrFail($request->integer('model_id'));
-    }
-
-    private function selectedBodyType(Request $request, ?VehicleModel $model): ?VehicleBodyType
-    {
-        if (! $model || ! $request->filled('body_type_id')) {
-            return null;
-        }
-
-        return $model->bodyTypes()->active()->findOrFail($request->integer('body_type_id'));
-    }
-
-    /** @return Collection<int, Product> */
-    private function compatibleBaseProducts(VehicleModel $model, VehicleBodyType $bodyType): Collection
-    {
-        return Product::query()
+        $configurations = VehicleConfiguration::query()
             ->active()
-            ->whereHas('roofRack')
-            ->where(function (Builder $query) use ($model, $bodyType): void {
-                $query->whereHas('vehicleModels', fn (Builder $models) => $models->whereKey($model->id))
-                    ->orWhereHas('vehicleBodyTypes', fn (Builder $bodyTypes) => $bodyTypes->whereKey($bodyType->id));
-            })
-            ->with(['images', 'roofRack.manufacturer'])
-            ->orderBy('name')
-            ->get();
+            ->whereHas('generation', fn ($query) => $query
+                ->active()
+                ->where('vehicle_model_id', $model->id))
+            ->with(['generation:id,vehicle_model_id,name,year_from,year_to', 'bodyStyle:id,name', 'roofType:id,name'])
+            ->orderBy('sort_order')
+            ->orderBy('display_name')
+            ->get()
+            ->map(function (VehicleConfiguration $configuration): array {
+                $bodyworkLabel = $this->bodyworkLabel($configuration);
+
+                return [
+                    'id' => $configuration->id,
+                    'display_name' => $configuration->display_name,
+                    'year_from' => $configuration->year_from ?: $configuration->generation->year_from,
+                    'year_to' => $configuration->year_to ?: $configuration->generation->year_to,
+                    'generation' => [
+                        'id' => $configuration->generation->id,
+                        'name' => $configuration->generation->display_name,
+                    ],
+                    'body_style' => $configuration->bodyStyle
+                        ? ['id' => $configuration->bodyStyle->id, 'name' => $configuration->bodyStyle->name]
+                        : null,
+                    'roof_type' => $configuration->roofType
+                        ? ['id' => $configuration->roofType->id, 'name' => $configuration->roofType->name]
+                        : null,
+                    'bodywork' => [
+                        'key' => mb_strtolower($bodyworkLabel),
+                        'label' => $bodyworkLabel,
+                    ],
+                    'mounting' => [
+                        'label' => $this->mountingLabel($configuration),
+                    ],
+                ];
+            });
+
+        return response()->json($configurations);
     }
 
-    /** @param Collection<int, Product> $baseProducts
-     * @return Collection<int, Product>
-     */
-    private function compatibleDependentProducts(Collection $baseProducts): Collection
+    private function vehicleMakes()
     {
-        if ($baseProducts->isEmpty()) {
-            return collect();
+        return VehicleMake::query()
+            ->active()
+            ->orderBy('name')
+            ->get(['id', 'name']);
+    }
+
+    private function bodyworkLabel(VehicleConfiguration $configuration): string
+    {
+        $body = $configuration->bodyStyle?->name ?: $configuration->display_name;
+        if ($configuration->doors_count) {
+            $body .= ', '.$configuration->doors_count.' дв.';
         }
 
-        return Product::query()
-            ->active()
-            ->whereHas('autoBox')
-            ->whereHas('baseProducts', fn (Builder $baseProductsQuery) => $baseProductsQuery
-                ->whereIn('product_base_product.base_product_id', $baseProducts->modelKeys())
-                ->where('product_base_product.compatibility_type', 'via_base_product'))
-            ->with(['images', 'autoBox.manufacturer', 'categories'])
-            ->orderBy('name')
-            ->get();
+        return $body.' — '.$configuration->year_label;
+    }
+
+    private function mountingLabel(VehicleConfiguration $configuration): string
+    {
+        return $configuration->roofType?->name ?: 'Крепление не указано';
     }
 }

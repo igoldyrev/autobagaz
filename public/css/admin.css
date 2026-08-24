@@ -109,7 +109,17 @@ a { color: inherit; }
 .toolbar { display: flex; align-items: center; gap: 10px; margin: 30px 0 18px; }
 .toolbar input { width: min(100%, 360px); padding: 10px 13px; border: 1px solid #cfd2d7; border-radius: 9px; background: #fff; }
 .toolbar select { padding: 10px 13px; border: 1px solid #cfd2d7; border-radius: 9px; background: #fff; }
+.toolbar--fitment-configurations { display: grid; align-items: stretch; }
+.toolbar__filter-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.toolbar__filter-row select { width: 100%; min-width: 0; }
+.toolbar__search-row { display: flex; align-items: center; gap: 10px; }
+.toolbar__search-row input { width: min(100%, 480px); }
 .text-link { color: #315f91; font-size: 14px; text-decoration: none; }
+.admin-shortcuts { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 4px; }
+.admin-shortcuts--compact { margin-top: 10px; }
+.admin-shortcuts__link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #ccd8e6; border-radius: 9px; color: #274f7b; background: #f4f8fc; font-size: 15px; font-weight: 700; line-height: 1.25; text-decoration: none; transition: border-color .16s, background-color .16s, color .16s; }
+.admin-shortcuts__link::after { content: "→"; font-size: 16px; font-weight: 500; }
+.admin-shortcuts__link:hover, .admin-shortcuts__link:focus-visible { border-color: #8eaccb; color: #173f6a; background: #eaf2fa; }
 
 .table-wrap { overflow-x: auto; border: 1px solid #e0e2e5; border-radius: 12px; background: #fff; }
 .admin-table { width: 100%; border-collapse: collapse; }
@@ -214,6 +224,10 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 .product-section-card--disabled { background: #f7f7f8; opacity: .72; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; clip-path: inset(50%); }
 
+@media (max-width: 1000px) {
+    .toolbar__filter-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media (max-width: 640px) {
     .auth-card { padding: 28px 22px; }
     .admin-header { flex-wrap: wrap; align-items: flex-start; padding: 16px 20px; }
@@ -233,6 +247,9 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
     .profile-details > div:last-child { border-bottom: 0; }
     .field--wide { grid-column: auto; }
     .admin-form { padding: 22px 18px; }
+    .toolbar__filter-row { grid-template-columns: 1fr; }
+    .toolbar__search-row { align-items: stretch; flex-direction: column; }
+    .toolbar__search-row input, .toolbar__search-row .button { width: 100%; }
     .fitment-copy-panel__controls { grid-template-columns: 1fr; }
     .toolbar { align-items: stretch; flex-wrap: wrap; }
 }
@@ -263,33 +280,4 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 .vehicle-body-types-admin small {
     color: #656b75;
     line-height: 1.4;
-}
-
-.vehicle-fitment-picker { overflow: hidden; border: 1px solid #cfd2d7; border-radius: 10px; background: #fff; }
-.vehicle-fitment-picker__toolbar { display: flex; align-items: center; gap: 14px; padding: 12px; border-bottom: 1px solid #e3e5e8; background: #f8f8f9; }
-.vehicle-fitment-picker__toolbar input { flex: 1; min-width: 0; }
-.vehicle-fitment-picker__count { flex: 0 0 auto; color: #626973; font-size: 12px; white-space: nowrap; }
-.vehicle-fitment-picker__tree { max-height: 520px; overflow: auto; padding: 8px; }
-.fitment-make, .fitment-model { border-radius: 8px; }
-.fitment-make + .fitment-make { margin-top: 4px; }
-.fitment-make > summary, .fitment-model > summary { cursor: pointer; list-style-position: inside; }
-.fitment-make > summary { padding: 10px 12px; color: #2f353d; background: #f1f3f5; font-weight: 800; }
-.fitment-make__models { padding: 5px 0 8px 18px; }
-.fitment-model > summary { padding: 8px 10px; color: #404751; font-size: 14px; font-weight: 700; }
-.fitment-model__options { display: grid; gap: 3px; padding: 0 8px 8px 27px; }
-.fitment-option { display: flex; align-items: flex-start; gap: 9px; padding: 8px 10px; border-radius: 7px; color: #444b55; cursor: pointer; }
-.fitment-option:hover { background: #fff4ee; }
-.fitment-option input { flex: 0 0 auto; width: 16px; height: 16px; margin-top: 2px; accent-color: #df4b1f; }
-.fitment-option span { display: grid; gap: 2px; }
-.fitment-option strong { font-size: 13px; line-height: 1.4; }
-.fitment-option small { color: #747b85; font-size: 12px; line-height: 1.35; }
-.fitment-option--whole { border: 1px dashed #d7dade; background: #fafbfc; }
-.fitment-option--disabled { cursor: not-allowed; opacity: .45; }
-.vehicle-fitment-picker__empty { margin: 0; padding: 28px; color: #747b85; text-align: center; }
-
-@media (max-width: 640px) {
-    .vehicle-fitment-picker__toolbar { align-items: stretch; flex-direction: column; }
-    .vehicle-fitment-picker__count { white-space: normal; }
-    .fitment-make__models { padding-left: 8px; }
-    .fitment-model__options { padding-left: 14px; }
 }

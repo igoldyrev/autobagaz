@@ -10,7 +10,7 @@ class AutoBoxProductRequest extends ProductRequest
     public function rules(): array
     {
         $rules = parent::rules();
-        unset($rules['manufacturer'], $rules['category_ids'], $rules['category_ids.*'], $rules['vehicle_model_ids'], $rules['vehicle_model_ids.*'], $rules['vehicle_body_type_ids'], $rules['vehicle_body_type_ids.*'], $rules['compatibility_product_ids'], $rules['compatibility_product_ids.*']);
+        unset($rules['manufacturer'], $rules['category_ids'], $rules['category_ids.*']);
         $currentManufacturerId = $this->route('product')?->autoBox?->manufacturer_id;
 
         return [
@@ -44,6 +44,20 @@ class AutoBoxProductRequest extends ProductRequest
                 'Черный карбон',
                 'Черный матовый',
             ])],
+            'clamp_width_min_mm' => ['nullable', 'integer', 'min:1', 'max:1000'],
+            'clamp_width_max_mm' => ['nullable', 'integer', 'min:1', 'max:1000', 'gte:clamp_width_min_mm'],
+            'clamp_height_max_mm' => ['nullable', 'integer', 'min:1', 'max:1000'],
+            'crossbar_spacing_min_mm' => ['nullable', 'integer', 'min:1', 'max:5000'],
+            'crossbar_spacing_max_mm' => ['nullable', 'integer', 'min:1', 'max:5000', 'gte:crossbar_spacing_min_mm'],
+            'required_t_slot_width_mm' => ['nullable', 'integer', 'min:1', 'max:100'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'clamp_width_max_mm.gte' => 'Значение поля «Ширина дуги до, мм» должно быть не меньше :value.',
+            'crossbar_spacing_max_mm.gte' => 'Значение поля «Расстояние между дугами до, мм» должно быть не меньше :value.',
         ];
     }
 }

@@ -21,6 +21,12 @@ class AutoBoxProduct extends Model
         'opening_type',
         'mounting_type',
         'box_color',
+        'clamp_width_min_mm',
+        'clamp_width_max_mm',
+        'clamp_height_max_mm',
+        'crossbar_spacing_min_mm',
+        'crossbar_spacing_max_mm',
+        'required_t_slot_width_mm',
     ];
 
     protected function casts(): array
@@ -31,6 +37,12 @@ class AutoBoxProduct extends Model
             'height_cm' => 'decimal:1',
             'volume_l' => 'decimal:1',
             'load_capacity_kg' => 'decimal:1',
+            'clamp_width_min_mm' => 'integer',
+            'clamp_width_max_mm' => 'integer',
+            'clamp_height_max_mm' => 'integer',
+            'crossbar_spacing_min_mm' => 'integer',
+            'crossbar_spacing_max_mm' => 'integer',
+            'required_t_slot_width_mm' => 'integer',
         ];
     }
 
@@ -55,6 +67,12 @@ class AutoBoxProduct extends Model
             'opening_type',
             'mounting_type',
             'box_color',
+            'clamp_width_min_mm',
+            'clamp_width_max_mm',
+            'clamp_height_max_mm',
+            'crossbar_spacing_min_mm',
+            'crossbar_spacing_max_mm',
+            'required_t_slot_width_mm',
         ]))->contains(fn ($value): bool => filled($value));
     }
 }

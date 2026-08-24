@@ -6,14 +6,16 @@ use App\Models\CatalogCategory;
 use App\Models\Product;
 use App\Models\VehicleMake;
 use App\Services\CatalogProductFilter;
+use App\Services\VehicleCatalogService;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 class RoofRackCategoryController extends Controller
 {
-    public function index(): View
+    public function index(Request $request, CatalogProductFilter $productFilter): View
     {
         $rootCategory = $this->rootCategory();
         $specialCategories = $rootCategory->children()
@@ -33,7 +35,22 @@ class RoofRackCategoryController extends Controller
                 : $category->sort_order)
             ->values();
 
-        return view('catalog.categories.index', compact('rootCategory', 'categories'));
+        $selectedVehicle = $request->attributes->get('vehicleConfiguration');
+        $products = collect();
+        $filterOptions = [];
+        $filters = [];
+        $unfilteredProductCount = 0;
+        if ($selectedVehicle) {
+            [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
+                $request,
+                Product::query()->active()->whereHas('roofRack'),
+                $productFilter,
+            );
+        }
+
+        return view('catalog.categories.index', compact(
+            'rootCategory', 'categories', 'selectedVehicle', 'products', 'filterOptions', 'filters', 'unfilteredProductCount',
+        ));
     }
 
     public function show(Request $request, string $category, CatalogProductFilter $productFilter): View
@@ -48,16 +65,13 @@ class RoofRackCategoryController extends Controller
             $models = $currentCategory->models()->active()->get();
             $productQuery = Product::query()
                 ->active()
-                ->where(function (Builder $query) use ($currentCategory): void {
-                    $query->whereHas('vehicleModels', fn (Builder $models) => $models
+                ->whereHas('roofRack')
+                ->whereHas('fitments', fn (Builder $fitments) => $fitments
+                    ->active()
+                    ->where('fitment_product.status', 'active')
+                    ->whereHas('configurations.generation.vehicleModel', fn (Builder $models) => $models
                         ->active()
-                        ->where('vehicle_make_id', $currentCategory->id))
-                        ->orWhereHas('vehicleBodyTypes', fn (Builder $bodyTypes) => $bodyTypes
-                            ->active()
-                            ->whereHas('vehicleModel', fn (Builder $models) => $models
-                                ->active()
-                                ->where('vehicle_make_id', $currentCategory->id)));
-                });
+                        ->where('vehicle_make_id', $currentCategory->id)));
             $isVehicleMake = true;
         } else {
             $currentCategory = $rootCategory->children()
@@ -97,17 +111,22 @@ class RoofRackCategoryController extends Controller
             ->active()
             ->where('slug', $model)
             ->firstOrFail();
-        $bodyTypes = $currentModel->bodyTypes()->active()->get();
+        $generations = $currentModel->generations()
+            ->active()
+            ->whereHas('configurations', fn (Builder $configurations) => $configurations->active())
+            ->withCount(['configurations' => fn (Builder $configurations) => $configurations->active()])
+            ->get();
         [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
             $request,
             Product::query()
                 ->active()
-                ->where(function (Builder $query) use ($currentModel): void {
-                    $query->whereHas('vehicleModels', fn (Builder $models) => $models->whereKey($currentModel->id))
-                        ->orWhereHas('vehicleBodyTypes', fn (Builder $bodyTypes) => $bodyTypes
-                            ->active()
-                            ->where('vehicle_model_id', $currentModel->id));
-                }),
+                ->whereHas('roofRack')
+                ->whereHas('fitments', fn (Builder $fitments) => $fitments
+                    ->active()
+                    ->where('fitment_product.status', 'active')
+                    ->whereHas('configurations.generation', fn (Builder $generations) => $generations
+                        ->active()
+                        ->where('vehicle_model_id', $currentModel->id))),
             $productFilter,
         );
 
@@ -115,7 +134,7 @@ class RoofRackCategoryController extends Controller
             'rootCategory',
             'currentCategory',
             'currentModel',
-            'bodyTypes',
+            'generations',
             'products',
             'filterOptions',
             'filters',
@@ -123,13 +142,13 @@ class RoofRackCategoryController extends Controller
         ));
     }
 
-    public function showBodyType(
+    public function showGeneration(
         Request $request,
         string $category,
         string $model,
-        string $bodyType,
+        string $generation,
         CatalogProductFilter $productFilter,
-    ): View {
+    ): View|RedirectResponse {
         $rootCategory = $this->rootCategory();
         $currentCategory = $rootCategory->vehicleMakes()
             ->active()
@@ -139,29 +158,54 @@ class RoofRackCategoryController extends Controller
             ->active()
             ->where('slug', $model)
             ->firstOrFail();
-        $currentBodyType = $currentModel->bodyTypes()
+        $currentGeneration = $currentModel->generations()
             ->active()
-            ->where('slug', $bodyType)
-            ->firstOrFail();
+            ->where('slug', $generation)
+            ->first();
+
+        if (! $currentGeneration) {
+            $legacyConfiguration = $currentModel->generations()
+                ->whereHas('configurations', fn (Builder $configurations) => $configurations
+                    ->active()
+                    ->where('slug', $generation))
+                ->with(['configurations' => fn ($configurations) => $configurations
+                    ->active()
+                    ->where('slug', $generation)])
+                ->firstOrFail();
+
+            return redirect()->route('catalog.autobagazhniki.configuration.show', [
+                $currentCategory->slug,
+                $currentModel->slug,
+                $legacyConfiguration->slug,
+                $legacyConfiguration->configurations->first()->slug,
+            ], 301);
+        }
+
+        $configurations = $currentGeneration->configurations()
+            ->active()
+            ->with(['bodyStyle', 'roofType'])
+            ->get();
 
         [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
             $request,
             Product::query()
                 ->active()
-                ->where(function (Builder $query) use ($currentModel, $currentBodyType): void {
-                    $query->whereHas('vehicleModels', fn (Builder $models) => $models->whereKey($currentModel->id))
-                        ->orWhereHas('vehicleBodyTypes', fn (Builder $bodyTypes) => $bodyTypes
-                            ->active()
-                            ->whereKey($currentBodyType->id));
-                }),
+                ->whereHas('roofRack')
+                ->whereHas('fitments', fn (Builder $fitments) => $fitments
+                    ->active()
+                    ->where('fitment_product.status', 'active')
+                    ->whereHas('configurations', fn (Builder $configurations) => $configurations
+                        ->active()
+                        ->where('vehicle_generation_id', $currentGeneration->id))),
             $productFilter,
         );
 
-        return view('catalog.body-types.show', compact(
+        return view('catalog.generations.show', compact(
             'rootCategory',
             'currentCategory',
             'currentModel',
-            'currentBodyType',
+            'currentGeneration',
+            'configurations',
             'products',
             'filterOptions',
             'filters',
@@ -169,9 +213,51 @@ class RoofRackCategoryController extends Controller
         ));
     }
 
+    public function showConfiguration(
+        Request $request,
+        string $category,
+        string $model,
+        string $generation,
+        string $configuration,
+        CatalogProductFilter $productFilter,
+    ): View {
+        $rootCategory = $this->rootCategory();
+        $currentCategory = $rootCategory->vehicleMakes()->active()->where('slug', $category)->firstOrFail();
+        $currentModel = $currentCategory->models()->active()->where('slug', $model)->firstOrFail();
+        $currentGeneration = $currentModel->generations()->active()->where('slug', $generation)->firstOrFail();
+        $currentConfiguration = $currentGeneration->configurations()
+            ->active()
+            ->with(['bodyStyle', 'roofType'])
+            ->where('slug', $configuration)
+            ->firstOrFail();
+
+        [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
+            $request,
+            Product::query()
+                ->active()
+                ->whereHas('roofRack')
+                ->whereHas('fitments', fn (Builder $fitments) => $fitments
+                    ->active()
+                    ->where('fitment_product.status', 'active')
+                    ->whereHas('configurations', fn (Builder $configurations) => $configurations
+                        ->whereKey($currentConfiguration->id))),
+            $productFilter,
+        );
+
+        return view('catalog.configurations.show', compact(
+            'rootCategory', 'currentCategory', 'currentModel', 'currentGeneration', 'currentConfiguration',
+            'products', 'filterOptions', 'filters', 'unfilteredProductCount',
+        ));
+    }
+
     /** @return array{0: Collection, 1: array<string, mixed>, 2: array<string, mixed>, 3: int} */
     private function filteredProducts(Request $request, Builder $query, CatalogProductFilter $productFilter): array
     {
+        $selectedVehicle = $request->attributes->get('vehicleConfiguration');
+        if ($selectedVehicle) {
+            $query->whereKey(app(VehicleCatalogService::class)->compatibleRoofRackIds($selectedVehicle));
+        }
+
         $availableProducts = (clone $query)->with('roofRack.manufacturer')->orderBy('name')->get();
         $filters = $productFilter->values($request);
         $products = $productFilter->apply(clone $query, $filters)

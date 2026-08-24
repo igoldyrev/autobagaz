@@ -9,7 +9,31 @@
         <span class="breadcrumbs__text">{{ $rootCategory->name }}</span>
     </nav>
 
-    <h1 class="title title-h1">Багажники на крышу автомобиля</h1>
+    <h1 class="title title-h1">
+        {{ $selectedVehicle
+            ? 'Багажники для '.$selectedVehicle->labelForYear($selectedVehicleYear)
+            : 'Багажники на крышу автомобиля' }}
+    </h1>
+
+    @if ($selectedVehicle)
+        <section class="vehicle-filter-notice">
+            Показаны товары, совместимость которых подтверждена для выбранной конфигурации.
+            <a href="{{ route('catalog.vehicle-fitment.index') }}">Изменить автомобиль</a>
+        </section>
+
+        @if ($unfilteredProductCount > 0)
+            <div class="catalog-products-results--section">
+                @include('catalog.products._filters', ['horizontal' => true])
+                @include('catalog.products._filtered_results')
+            </div>
+        @else
+            <div class="records-placeholder records-placeholder--list">
+                <p>Для выбранного автомобиля подтверждённо совместимые багажники пока не добавлены.</p>
+            </div>
+        @endif
+
+        <h2 class="title title-h2">Подбор по марке автомобиля</h2>
+    @endif
 
     <div class="catalog-categories">
         @foreach ($categories as $category)

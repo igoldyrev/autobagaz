@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\CatalogCategory;
 use App\Models\Product;
 use App\Services\AutoBoxProductFilter;
+use App\Services\VehicleCatalogService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class AutoBoxController extends Controller
 {
-    public function __invoke(Request $request, AutoBoxProductFilter $productFilter): View
+    public function __invoke(Request $request, AutoBoxProductFilter $productFilter, VehicleCatalogService $vehicleCatalog): View
     {
         $section = CatalogCategory::query()
             ->active()
@@ -20,6 +21,10 @@ class AutoBoxController extends Controller
         $productQuery = Product::query()
             ->active()
             ->whereHas('autoBox');
+        $selectedVehicle = $request->attributes->get('vehicleConfiguration');
+        if ($selectedVehicle) {
+            $productQuery->whereKey($vehicleCatalog->compatibleAutoBoxIds($selectedVehicle));
+        }
         $availableProducts = (clone $productQuery)
             ->with(['autoBox.manufacturer'])
             ->orderBy('name')

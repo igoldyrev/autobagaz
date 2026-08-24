@@ -64,20 +64,17 @@
                 </div>
                 <div class="header__inner">
                     <address class="header__contacts">
-                        <span class="header__contacts-label">Наш адрес:</span>
-                        <span class="header__contacts-address">г. Пермь, ул. Дзержинского, 15</span>
+                        <span class="header__column-title">Наш адрес</span>
+                        <span class="header__column-text header__contacts-address">г. Пермь,<br>ул. Дзержинского, 15</span>
                         <a class="link header__link header__contacts-phone" href="tel:+73422889929">+7 342 288 99 29</a>
                     </address>
                     <div class="header__info">
-                        <ul class="list header__list">
-                            <li>Пн — Пт с 10:00 до 19:00</li>
-                            <li>Сб — Вс с 10:00 до 18:00</li>
-                        </ul>
-                        <ul class="list header__list">
-                            <li><a class="link header__link" href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a></li>
-                        </ul>
+                        <span class="header__column-title">Режим работы</span>
+                        <span class="header__column-text">Пн — Пт: 10:00–19:00<br>Сб — Вс: 10:00–18:00</span>
+                        <a class="link header__link" href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
                     </div>
                 </div>
+                <x-selected-vehicle />
             </div>
         </header>
 

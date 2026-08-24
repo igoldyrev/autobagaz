@@ -37,7 +37,7 @@
                             <th>Модель</th>
                             <th>URL</th>
                             <th>Порядок</th>
-                            <th>Варианты</th>
+                            <th>Поколения</th>
                             <th>Статус</th>
                             <th><span class="visually-hidden">Действия</span></th>
                         </tr>
@@ -57,7 +57,7 @@
                                 </td>
                                 <td><code>{{ $vehicleModel->slug }}</code></td>
                                 <td>{{ $vehicleModel->sort_order }}</td>
-                                <td>{{ $vehicleModel->body_types_count }}</td>
+                                <td><a class="text-link" href="{{ route('admin.vehicles.vehicle-generations.index', [$vehicleMake, $vehicleModel]) }}">{{ $vehicleModel->generations_count }}</a></td>
                                 <td><span class="status {{ $vehicleModel->is_active ? 'status--active' : 'status--inactive' }}">{{ $vehicleModel->is_active ? 'Опубликована' : 'Скрыта' }}</span></td>
                                 <td><a class="text-link" href="{{ route('admin.vehicles.vehicle-models.edit', [$vehicleMake, $vehicleModel]) }}">Изменить</a></td>
                             </tr>

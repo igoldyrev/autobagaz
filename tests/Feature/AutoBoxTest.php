@@ -240,4 +240,20 @@ class AutoBoxTest extends TestCase
             'box_color' => 'Розовый',
         ])->assertSessionHasErrors(['mounting_type', 'box_color']);
     }
+
+    public function test_auto_box_shows_mounting_range_validation_in_russian(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+
+        $this->actingAs($admin)->post(route('admin.products.auto-boxes.store'), [
+            'name' => 'Автобокс с неверным диапазоном',
+            'slug' => '',
+            'price' => 10000,
+            'stock' => 1,
+            'clamp_width_min_mm' => 120,
+            'clamp_width_max_mm' => 100,
+        ])->assertSessionHasErrors([
+            'clamp_width_max_mm' => 'Значение поля «Ширина дуги до, мм» должно быть не меньше 120.',
+        ]);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -12,6 +13,7 @@ class Product extends Model
 {
     protected $fillable = [
         'name',
+        'product_type_id',
         'slug',
         'price',
         'manufacturer',
@@ -38,41 +40,21 @@ class Product extends Model
             ->orderBy('id');
     }
 
+    public function productType(): BelongsTo
+    {
+        return $this->belongsTo(ProductType::class);
+    }
+
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(CatalogCategory::class);
     }
 
-    public function vehicleModels(): BelongsToMany
+    public function fitments(): BelongsToMany
     {
-        return $this->belongsToMany(VehicleModel::class);
-    }
-
-    public function vehicleBodyTypes(): BelongsToMany
-    {
-        return $this->belongsToMany(VehicleBodyType::class);
-    }
-
-    /** Базовые товары, через которые этот аксессуар устанавливается на автомобиль. */
-    public function baseProducts(): BelongsToMany
-    {
-        return $this->belongsToMany(
-            self::class,
-            'product_base_product',
-            'product_id',
-            'base_product_id',
-        )->withPivot('compatibility_type');
-    }
-
-    /** Аксессуары, совместимые с этим базовым товаром. */
-    public function compatibleAccessories(): BelongsToMany
-    {
-        return $this->belongsToMany(
-            self::class,
-            'product_base_product',
-            'base_product_id',
-            'product_id',
-        )->withPivot('compatibility_type');
+        return $this->belongsToMany(Fitment::class)
+            ->withPivot(['status', 'notes'])
+            ->withTimestamps();
     }
 
     public function roofRack(): HasOne

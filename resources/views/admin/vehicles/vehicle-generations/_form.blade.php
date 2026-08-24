@@ -1,0 +1,13 @@
+@csrf @if(isset($vehicleGeneration)) @method('PUT') @endif
+<div class="form-grid">
+<div class="field field--wide"><label for="name">Название поколения</label><input id="name" name="name" value="{{ old('name', $vehicleGeneration->name ?? '') }}" placeholder="Например: V поколение" required>@error('name')<p class="field__error">{{ $message }}</p>@enderror</div>
+<div class="field"><label for="slug">Код / URL</label><input id="slug" name="slug" value="{{ old('slug', $vehicleGeneration->slug ?? '') }}" placeholder="Заполнится автоматически">@error('slug')<p class="field__error">{{ $message }}</p>@enderror</div>
+<div class="field"><label for="sort_order">Порядок</label><input id="sort_order" name="sort_order" type="number" min="0" value="{{ old('sort_order', $vehicleGeneration->sort_order ?? $nextSortOrder ?? 0) }}" required></div>
+<div class="field"><label for="year_from">Год начала</label><input id="year_from" name="year_from" type="number" min="1885" max="2200" value="{{ old('year_from', $vehicleGeneration->year_from ?? '') }}">@error('year_from')<p class="field__error">{{ $message }}</p>@enderror</div>
+<div class="field"><label for="year_to">Год окончания</label><input id="year_to" name="year_to" type="number" min="1885" max="2200" value="{{ old('year_to', $vehicleGeneration->year_to ?? '') }}" placeholder="Пусто — выпускается сейчас">@error('year_to')<p class="field__error">{{ $message }}</p>@enderror</div>
+<div class="field"><label for="image">Изображение поколения</label><input id="image" name="image" type="file" accept="image/jpeg,image/png,image/webp">@error('image')<p class="field__error">{{ $message }}</p>@enderror</div>
+<div class="field"><label for="image_alt">Описание изображения</label><input id="image_alt" name="image_alt" value="{{ old('image_alt', $vehicleGeneration->image_alt ?? '') }}" placeholder="Например: Kia Sportage V поколения">@error('image_alt')<p class="field__error">{{ $message }}</p>@enderror</div>
+@if(isset($vehicleGeneration) && $vehicleGeneration->image_path)<div class="field field--wide"><span class="field__label">Текущее изображение</span><img src="{{ asset($vehicleGeneration->image_path) }}" alt="{{ $vehicleGeneration->image_alt }}" style="display:block;max-width:280px;max-height:180px;object-fit:contain"></div>@endif
+<label class="checkbox field--wide"><input type="checkbox" name="is_active" value="1" @checked(old('is_active', $vehicleGeneration->is_active ?? true))><span>Поколение активно</span></label>
+</div>
+<div class="form-actions"><button class="button button--primary button--inline">Сохранить</button><a class="button button--secondary" href="{{ route('admin.vehicles.vehicle-generations.index', [$vehicleMake, $vehicleModel]) }}">Отмена</a></div>

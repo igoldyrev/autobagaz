@@ -18,6 +18,11 @@ class RoofRackProduct extends Model
         'installation_method',
         'bar_type',
         'rack_color',
+        'bar_length_mm',
+        'bar_width_mm',
+        'bar_height_mm',
+        'profile_type',
+        't_slot_width_mm',
     ];
 
     protected function casts(): array
@@ -25,6 +30,10 @@ class RoofRackProduct extends Model
         return [
             'bar_length_cm' => 'decimal:1',
             'load_capacity_kg' => 'decimal:1',
+            'bar_length_mm' => 'integer',
+            'bar_width_mm' => 'integer',
+            'bar_height_mm' => 'integer',
+            't_slot_width_mm' => 'integer',
         ];
     }
 
@@ -46,6 +55,11 @@ class RoofRackProduct extends Model
             $this->installation_method,
             $this->bar_type,
             $this->rack_color,
+            $this->bar_length_mm,
+            $this->bar_width_mm,
+            $this->bar_height_mm,
+            $this->profile_type,
+            $this->t_slot_width_mm,
         ])->contains(fn ($value): bool => filled($value));
     }
 }

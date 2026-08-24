@@ -9,7 +9,8 @@
             <a href="{{ route('admin.catalog-categories.index') }}" @if (request()->routeIs('admin.catalog-categories.*')) aria-current="page" @endif>Разделы и категории</a>
         @endif
         @if (auth()->user()->hasPermission(App\Models\User::PERMISSION_VEHICLES))
-            <a href="{{ route('admin.vehicles.vehicle-makes.index') }}" @if (request()->routeIs('admin.vehicles.*')) aria-current="page" @endif>Марки и модели</a>
+            <a href="{{ route('admin.vehicles.vehicle-makes.index') }}" @if (request()->routeIs('admin.vehicles.*')) aria-current="page" @endif>Автомобили</a>
+            <a href="{{ route('admin.fitments.index') }}" @if (request()->routeIs('admin.fitments.*')) aria-current="page" @endif>Совместимость</a>
         @endif
         @if (auth()->user()->isSuperAdmin())
             <a href="{{ route('admin.users.index') }}" @if (request()->routeIs('admin.users.*')) aria-current="page" @endif>Пользователи</a>

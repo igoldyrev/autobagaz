@@ -49,25 +49,10 @@
         </div>
     @endif
 
-    @if (isset($vehicleModel) && $vehicleModel->bodyTypes->isNotEmpty())
+    @if (isset($vehicleModel))
         <div class="field field--wide">
-            <span class="field__label">Варианты кузова и крепления</span>
-            <div class="vehicle-body-types-admin">
-                @foreach ($vehicleModel->bodyTypes as $bodyType)
-                    <div class="entity-title">
-                        @if ($bodyType->image_path)
-                            <img src="{{ asset($bodyType->image_path) }}" alt="" width="64" height="64">
-                        @endif
-                        <span>
-                            <strong>{{ $bodyType->source_name ?: $bodyType->name }}</strong>
-                            @if ($bodyType->year_label || $bodyType->mounting_type)
-                                <small>{{ collect([$bodyType->year_label, $bodyType->mounting_type])->filter()->implode(' · ') }}</small>
-                            @endif
-                        </span>
-                    </div>
-                @endforeach
-            </div>
-            <p class="field__hint">Варианты с годами выпуска и типами креплений импортированы из справочника применимости автобагажников.</p>
+            <span class="field__label">Справочник поколений</span>
+            <div class="admin-shortcuts admin-shortcuts--compact"><a class="admin-shortcuts__link" href="{{ route('admin.vehicles.vehicle-generations.index', [$vehicleMake, $vehicleModel]) }}">Поколения и конфигурации ({{ $vehicleModel->generations->count() }})</a></div>
         </div>
     @endif
 

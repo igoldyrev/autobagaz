@@ -17,26 +17,27 @@
 
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
 
-    @if ($bodyTypes->isNotEmpty())
-        <section aria-label="Варианты кузова для {{ $currentModel->name }}">
+    @if ($generations->isNotEmpty())
+        <section aria-label="Поколения {{ $currentModel->name }}">
             <div class="catalog-categories vehicle-body-types-grid">
-                @foreach ($bodyTypes as $bodyType)
+                @foreach ($generations as $generation)
                     <a
-                        class="catalog-category catalog-category--image vehicle-body-card {{ $bodyType->image_path ? '' : 'vehicle-body-card--without-image' }}"
-                        href="{{ route('catalog.autobagazhniki.body-type.show', [$currentCategory->slug, $currentModel->slug, $bodyType->slug]) }}"
-                        data-body-type-card
+                        class="catalog-category catalog-category--image vehicle-body-card {{ $generation->image_path ? '' : 'vehicle-body-card--without-image' }}"
+                        href="{{ route('catalog.autobagazhniki.generation.show', [$currentCategory->slug, $currentModel->slug, $generation->slug]) }}"
+                        data-generation-card
                     >
-                        @if ($bodyType->image_path)
+                        @if ($generation->image_path)
                             <img
                                 class="catalog-category__image catalog-category__image--provided"
-                                src="{{ asset($bodyType->image_path) }}"
-                                alt="{{ $bodyType->image_alt ?: $currentCategory->name.' '.$currentModel->name.' — '.$bodyType->name }}"
+                                src="{{ asset($generation->image_path) }}"
+                                alt="{{ $generation->image_alt ?: $currentCategory->name.' '.$currentModel->name.' — '.$generation->display_name }}"
                                 width="100"
                                 height="100"
                                 loading="lazy"
                             >
                         @endif
-                        <span class="catalog-category__name">{{ $bodyType->source_name ?: $bodyType->name }}</span>
+                        <span class="catalog-category__name">{{ $generation->display_name }}@if($generation->display_name !== $generation->year_label) · {{ $generation->year_label }}@endif</span>
+                        <span>{{ $generation->configurations_count }} вариантов</span>
                     </a>
                 @endforeach
             </div>

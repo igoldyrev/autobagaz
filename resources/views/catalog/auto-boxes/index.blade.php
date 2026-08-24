@@ -11,6 +11,13 @@
 
     <h1 class="title title-h1">{{ $section->name }}</h1>
 
+    @if ($selectedVehicle)
+        <section class="vehicle-filter-notice">
+            Показаны автобоксы с подтверждённой технической совместимостью для {{ $selectedVehicle->labelForYear($selectedVehicleYear) }}.
+            <a href="{{ route('catalog.vehicle-fitment.index') }}">Изменить автомобиль</a>
+        </section>
+    @endif
+
     @if ($unfilteredProductCount > 0)
         <div class="catalog-products-results--section">
             @include('catalog.auto-boxes._filters', ['horizontal' => true])

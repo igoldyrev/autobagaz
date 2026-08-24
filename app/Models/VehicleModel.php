@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class VehicleModel extends Model
@@ -35,16 +34,11 @@ class VehicleModel extends Model
         return $this->belongsTo(VehicleMake::class, 'vehicle_make_id');
     }
 
-    public function products(): BelongsToMany
+    public function generations(): HasMany
     {
-        return $this->belongsToMany(Product::class);
-    }
-
-    public function bodyTypes(): HasMany
-    {
-        return $this->hasMany(VehicleBodyType::class)
+        return $this->hasMany(VehicleGeneration::class)
             ->orderBy('sort_order')
-            ->orderBy('name');
+            ->orderBy('year_from');
     }
 
     public function scopeActive(Builder $query): Builder

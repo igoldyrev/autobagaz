@@ -32,6 +32,9 @@ class AdminVehicleDirectoryTest extends TestCase
             ->get(route('admin.vehicles.vehicle-makes.index'))
             ->assertOk()
             ->assertSee('Марки автомобилей')
+            ->assertSee('admin-shortcuts__link', false)
+            ->assertSee('Типы кузова')
+            ->assertSee('Типы крыши')
             ->assertSee('Audi');
 
         $this->actingAs($admin)

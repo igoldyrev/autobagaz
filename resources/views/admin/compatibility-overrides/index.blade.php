@@ -1,0 +1,12 @@
+@extends('layouts.admin')
+@section('title', 'Исключения совместимости')
+@section('body')
+<div class="admin-shell">@include('admin.partials.header')<main class="admin-content admin-content--wide">@include('admin.partials.flash')
+<div class="page-heading"><div><p class="eyebrow">Совместимость</p><h1>Ручные исключения</h1><p class="admin-content__lead">Исключения имеют приоритет над автоматическими техническими правилами.</p></div><a class="button button--primary button--inline" href="{{ route('admin.compatibility-overrides.create') }}">Добавить исключение</a></div>
+<nav class="admin-shortcuts" aria-label="Инструменты совместимости"><a class="admin-shortcuts__link" href="{{ route('admin.compatibility.preview') }}">Проверить совместимость с объяснением</a><a class="admin-shortcuts__link" href="{{ route('admin.fitments.index') }}">Группы применяемости</a></nav>
+<form class="toolbar"><select name="status"><option value="">Все результаты</option><option value="compatible" @selected(request('status') === 'compatible')>Совместимо</option><option value="incompatible" @selected(request('status') === 'incompatible')>Несовместимо</option></select><button class="button button--secondary">Применить</button></form>
+<div class="table-wrap"><table class="admin-table"><thead><tr><th>Контекст</th><th>Базовый товар</th><th>Аксессуар</th><th>Результат</th><th>Причина</th><th>Статус</th><th></th></tr></thead><tbody>
+@forelse($overrides as $override)<tr><td>@if($override->vehicleConfiguration){{ $override->vehicleConfiguration->generation->vehicleModel->make->name }} {{ $override->vehicleConfiguration->generation->vehicleModel->name }}<br><small>{{ $override->vehicleConfiguration->display_name }}</small>@elseif($override->fitment){{ $override->fitment->code }}@elseВсе автомобили@endif</td><td>{{ $override->baseProduct->name }}</td><td>{{ $override->accessoryProduct?->name ?? 'Прямая применяемость' }}</td><td><strong>{{ $override->status }}</strong></td><td>{{ str($override->reason)->limit(100) }}</td><td>{{ $override->is_active ? 'Активно' : 'Отключено' }}</td><td><a class="text-link" href="{{ route('admin.compatibility-overrides.edit', $override) }}">Изменить</a></td></tr>@empty<tr><td colspan="7" class="empty-state">Исключения не найдены.</td></tr>@endforelse
+</tbody></table></div>@include('admin.partials.pagination', ['paginator' => $overrides])
+</main></div>
+@endsection

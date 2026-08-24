@@ -3,10 +3,15 @@
 namespace Tests\Feature;
 
 use App\Models\CatalogCategory;
+use App\Models\Fitment;
 use App\Models\Product;
 use App\Models\RoofRackManufacturer;
 use App\Models\User;
+use App\Models\VehicleBodyStyle;
+use App\Models\VehicleConfiguration;
+use App\Models\VehicleGeneration;
 use App\Models\VehicleModel;
+use App\Models\VehicleRoofType;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -43,7 +48,7 @@ class AdminProductTest extends TestCase
             ->assertSee(route('admin.products.roof-racks.create'));
     }
 
-    public function test_roof_rack_form_has_search_fields_for_categories_and_vehicle_models(): void
+    public function test_roof_rack_form_has_categories_and_only_fitment_based_applicability(): void
     {
         $admin = User::factory()->create(['is_admin' => true]);
         $manufacturer = RoofRackManufacturer::query()->create(['name' => 'Thule']);
@@ -59,20 +64,21 @@ class AdminProductTest extends TestCase
             ->assertOk()
             ->assertSee('data-select-search="category_ids"', escape: false)
             ->assertSee('placeholder="Найти категорию"', escape: false)
-            ->assertSee('data-vehicle-fitment-picker', escape: false)
-            ->assertSee('placeholder="Марка, модель, кузов, год или крепление"', escape: false)
-            ->assertSee('name="vehicle_body_type_ids[]"', escape: false)
-            ->assertSee('Вся модель')
+            ->assertSee('Группы применяемости')
+            ->assertDontSee('data-vehicle-fitment-picker', escape: false)
+            ->assertDontSee('name="vehicle_model_ids[]"', escape: false)
+            ->assertDontSee('name="vehicle_body_type_ids[]"', escape: false)
+            ->assertDontSee('name="compatibility_product_ids[]"', escape: false)
             ->assertSee('name="manufacturer_id"', escape: false)
             ->assertSee('<option', escape: false)
             ->assertSee('Thule')
             ->assertDontSee('name="manufacturer"', escape: false)
             ->assertSee(route('admin.products.roof-racks.manufacturers.index'))
             ->assertSee('/js/searchable-select.js', escape: false)
-            ->assertSee('/js/vehicle-fitment-picker.js', escape: false);
+            ->assertDontSee('/js/vehicle-fitment-picker.js', escape: false);
     }
 
-    public function test_administrator_can_create_product_with_multiple_categories_models_and_images(): void
+    public function test_administrator_can_create_product_with_multiple_categories_and_images(): void
     {
         Storage::fake('public');
         $admin = User::factory()->create(['is_admin' => true]);
@@ -83,7 +89,6 @@ class AdminProductTest extends TestCase
             ->limit(2)
             ->pluck('id')
             ->all();
-        $models = VehicleModel::query()->limit(3)->pluck('id')->all();
         $manufacturer = RoofRackManufacturer::query()->create(['name' => 'Inter']);
 
         $response = $this->actingAs($admin)->post(route('admin.products.roof-racks.store'), [
@@ -102,7 +107,6 @@ class AdminProductTest extends TestCase
             'stock' => 12,
             'is_active' => '1',
             'category_ids' => $categories,
-            'vehicle_model_ids' => $models,
             'images' => [$this->fakePng('first.png'), $this->fakePng('second.png')],
         ]);
 
@@ -126,7 +130,6 @@ class AdminProductTest extends TestCase
         $this->assertSame(12, $product->stock);
         $this->assertTrue($product->is_active);
         $this->assertEqualsCanonicalizing($categories, $product->categories()->pluck('catalog_categories.id')->all());
-        $this->assertEqualsCanonicalizing($models, $product->vehicleModels()->pluck('vehicle_models.id')->all());
         $this->assertCount(2, $product->images);
 
         foreach ($product->images as $image) {
@@ -134,32 +137,13 @@ class AdminProductTest extends TestCase
         }
     }
 
-    public function test_administrator_can_start_a_product_with_fitment_copied_from_another_product(): void
+    public function test_create_form_does_not_offer_legacy_fitment_copy(): void
     {
         $admin = User::factory()->create(['is_admin' => true]);
-        $models = VehicleModel::query()->with('bodyTypes')->get();
-        $wholeModel = $models->firstOrFail();
-        $bodyType = $models->first(fn (VehicleModel $model) => $model->bodyTypes->isNotEmpty())
-            ?->bodyTypes
-            ->firstOrFail();
-        $source = Product::query()->create([
-            'name' => 'Товар-образец',
-            'slug' => 'fitment-copy-source',
-            'price' => 1000,
-        ]);
-        $source->roofRack()->create();
-        $source->vehicleModels()->attach($wholeModel);
-        $source->vehicleBodyTypes()->attach($bodyType);
-
-        $response = $this->actingAs($admin)->get(route('admin.products.roof-racks.create', [
-            'copy_fitment_from' => $source->id,
-        ]));
-
-        $response
+        $this->actingAs($admin)->get(route('admin.products.roof-racks.create'))
             ->assertOk()
-            ->assertSee('Выбор скопирован из «Товар-образец»')
-            ->assertSee('name="vehicle_model_ids[]" value="'.$wholeModel->id.'" checked', escape: false)
-            ->assertSee('name="vehicle_body_type_ids[]" value="'.$bodyType->id.'" checked', escape: false);
+            ->assertDontSee('Повторить марки и модели другого товара')
+            ->assertSee('Сначала сохраните товар, затем добавьте его в нужную группу применяемости');
     }
 
     public function test_administrator_can_update_hide_and_remove_product_image_without_deleting_product(): void
@@ -184,7 +168,6 @@ class AdminProductTest extends TestCase
             'price' => '250.00',
             'stock' => 0,
             'category_ids' => [],
-            'vehicle_model_ids' => [],
             'remove_image_ids' => [$image->id],
             'bar_length_cm' => 135,
             'rack_color' => 'Серебристый',
@@ -201,15 +184,13 @@ class AdminProductTest extends TestCase
         $this->get('/products/new-name')->assertNotFound();
     }
 
-    public function test_administrator_can_assign_a_roof_rack_to_an_exact_body_variant(): void
+    public function test_product_applicability_is_managed_through_fitments(): void
     {
         $admin = User::factory()->create(['is_admin' => true]);
         $vesta = VehicleModel::query()
             ->whereHas('make', fn ($query) => $query->where('slug', 'lada-vaz'))
             ->where('slug', 'vesta')
             ->firstOrFail();
-        $sedan = $vesta->bodyTypes()->where('name', 'Седан')->firstOrFail();
-        $wagon = $vesta->bodyTypes()->where('name', 'Универсал')->firstOrFail();
 
         $response = $this->actingAs($admin)->post(route('admin.products.roof-racks.store'), [
             'name' => 'Багажник только для седана',
@@ -217,21 +198,19 @@ class AdminProductTest extends TestCase
             'price' => 5000,
             'stock' => 1,
             'is_active' => '1',
-            'vehicle_body_type_ids' => [$sedan->id],
         ]);
 
         $response->assertSessionDoesntHaveErrors();
         $product = Product::query()->where('slug', 'rack-for-vesta-sedan')->firstOrFail();
 
-        $this->assertTrue($product->vehicleBodyTypes()->whereKey($sedan->id)->exists());
-        $this->assertFalse($product->vehicleBodyTypes()->whereKey($wagon->id)->exists());
-        $this->assertSame(0, $product->vehicleModels()->count());
+        $configuration = $this->configurationFor($vesta, 'Седан');
+        $this->attachFitment($product, $configuration);
 
         $this->actingAs($admin)
             ->get(route('admin.products.roof-racks.edit', $product))
             ->assertOk()
-            ->assertSee($sedan->source_name)
-            ->assertSee('name="vehicle_body_type_ids[]" value="'.$sedan->id.'" checked', escape: false);
+            ->assertSee('TEST-'.$product->id.'-'.$configuration->id)
+            ->assertDontSee('name="vehicle_body_type_ids[]"', escape: false);
 
         $this->get(route('catalog.autobagazhniki.model.show', [$vesta->make->slug, $vesta->slug]))
             ->assertOk()
@@ -239,9 +218,8 @@ class AdminProductTest extends TestCase
 
         $this->get(route('products.show', $product))
             ->assertOk()
-            ->assertSee('Совместимость с автомобилями')
-            ->assertSee($sedan->source_name)
-            ->assertDontSee($wagon->source_name);
+            ->assertSee('Выберите автомобиль, чтобы проверить совместимость товара')
+            ->assertDontSee('Совместимость с автомобилями');
     }
 
     public function test_public_product_page_and_model_page_show_only_published_products(): void
@@ -265,8 +243,11 @@ class AdminProductTest extends TestCase
             'stock' => 1,
             'is_active' => false,
         ]);
-        $published->vehicleModels()->attach($model);
-        $hidden->vehicleModels()->attach($model);
+        $published->roofRack()->create();
+        $hidden->roofRack()->create();
+        $configuration = $this->configurationFor($model);
+        $this->attachFitment($published, $configuration);
+        $this->attachFitment($hidden, $configuration);
 
         $this->get(route('catalog.autobagazhniki.model.show', [$model->make->slug, $model->slug]))
             ->assertOk()
@@ -373,5 +354,42 @@ class AdminProductTest extends TestCase
             $name,
             base64_decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII='),
         );
+    }
+
+    private function configurationFor(VehicleModel $model, string $bodyStyleName = 'Кузов'): VehicleConfiguration
+    {
+        $generation = VehicleGeneration::query()->firstOrCreate(
+            ['vehicle_model_id' => $model->id, 'slug' => 'test-generation'],
+            ['name' => 'Тестовое поколение', 'year_from' => 2020, 'is_active' => true],
+        );
+        $bodyStyle = VehicleBodyStyle::query()->firstOrCreate(
+            ['slug' => 'test-'.$model->id.'-'.str($bodyStyleName)->slug()],
+            ['name' => $bodyStyleName, 'is_active' => true],
+        );
+        $roofType = VehicleRoofType::query()->firstOrCreate(
+            ['slug' => 'test-roof'],
+            ['name' => 'Гладкая крыша', 'is_active' => true],
+        );
+
+        return VehicleConfiguration::query()->create([
+            'vehicle_generation_id' => $generation->id,
+            'vehicle_body_style_id' => $bodyStyle->id,
+            'vehicle_roof_type_id' => $roofType->id,
+            'slug' => 'test-configuration-'.VehicleConfiguration::query()->count(),
+            'display_name' => $bodyStyleName === 'Кузов' ? 'Тестовая конфигурация' : $bodyStyleName,
+            'year_from' => 2020,
+            'is_active' => true,
+        ]);
+    }
+
+    private function attachFitment(Product $product, VehicleConfiguration $configuration): void
+    {
+        $fitment = Fitment::query()->create([
+            'code' => 'TEST-'.$product->id.'-'.$configuration->id,
+            'name' => 'Тестовая применяемость',
+            'is_active' => true,
+        ]);
+        $fitment->products()->attach($product, ['status' => 'active']);
+        $fitment->configurations()->attach($configuration);
     }
 }

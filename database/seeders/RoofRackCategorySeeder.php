@@ -3,11 +3,15 @@
 namespace Database\Seeders;
 
 use App\Models\CatalogCategory;
-use App\Models\VehicleBodyType;
+use App\Models\VehicleBodyStyle;
+use App\Models\VehicleConfiguration;
+use App\Models\VehicleGeneration;
 use App\Models\VehicleMake;
 use App\Models\VehicleModel;
+use App\Models\VehicleRoofType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class RoofRackCategorySeeder extends Seeder
 {
@@ -103,12 +107,60 @@ class RoofRackCategorySeeder extends Seeder
                 $model = $make->models()->where('slug', $modelSlug)->firstOrFail();
 
                 foreach ($bodyTypes as $bodyType) {
-                    VehicleBodyType::query()->updateOrCreate(
+                    [$yearFrom, $yearTo] = $this->yearRange($bodyType['year_label'] ?? null);
+                    $yearLabel = $bodyType['year_label'] ?: 'Годы не указаны';
+                    $generationSlug = Str::slug(str_replace('н.в.', 'present', $yearLabel)) ?: 'years-unknown';
+                    $generationReference = "vehicle-generation:{$makeSlug}/{$modelSlug}/{$generationSlug}";
+                    $generation = VehicleGeneration::query()->updateOrCreate(
+                        ['source' => 'vehicle_body_types_import', 'source_reference' => $generationReference],
                         [
                             'vehicle_model_id' => $model->id,
-                            'slug' => $bodyType['slug'],
+                            'name' => $yearLabel,
+                            'slug' => $generationSlug,
+                            'year_from' => $yearFrom,
+                            'year_to' => $yearTo,
+                            'sort_order' => $bodyType['sort_order'],
+                            'is_active' => $bodyType['is_active'],
                         ],
-                        collect($bodyType)->except('vehicle_model_id')->all(),
+                    );
+
+                    if (! $generation->image_path && $bodyType['image_path']) {
+                        $generation->update([
+                            'image_path' => $bodyType['image_path'],
+                            'image_alt' => $bodyType['image_alt'],
+                        ]);
+                    }
+
+                    $bodyStyle = ($bodyType['name'] ?? null) && $bodyType['name'] !== 'Кузов не указан'
+                        ? VehicleBodyStyle::query()->firstOrCreate(
+                            ['slug' => Str::slug($bodyType['name'])],
+                            ['name' => $bodyType['name'], 'is_active' => true],
+                        )
+                        : null;
+                    $roofType = $bodyType['mounting_type']
+                        ? VehicleRoofType::query()->firstOrCreate(
+                            ['slug' => Str::slug($bodyType['mounting_type'])],
+                            ['name' => $bodyType['mounting_type'], 'is_active' => true],
+                        )
+                        : null;
+
+                    VehicleConfiguration::query()->updateOrCreate(
+                        [
+                            'source' => 'vehicle_body_types_import',
+                            'source_reference' => "vehicle-configuration:{$makeSlug}/{$modelSlug}/{$bodyType['slug']}",
+                        ],
+                        [
+                            'vehicle_generation_id' => $generation->id,
+                            'vehicle_body_style_id' => $bodyStyle?->id,
+                            'vehicle_roof_type_id' => $roofType?->id,
+                            'slug' => $bodyType['slug'],
+                            'display_name' => $bodyType['source_name'] ?: $bodyType['name'],
+                            'year_from' => $yearFrom,
+                            'year_to' => $yearTo,
+                            'verification_status' => 'migrated',
+                            'sort_order' => $bodyType['sort_order'],
+                            'is_active' => $bodyType['is_active'],
+                        ],
                     );
                 }
             }
@@ -126,6 +178,23 @@ class RoofRackCategorySeeder extends Seeder
                 'meta_description' => 'Каталог автомобильных боксов на крышу. Продажа автобоксов в Перми.',
             ],
         );
+    }
+
+    /** @return array{0: ?int, 1: ?int} */
+    private function yearRange(?string $label): array
+    {
+        preg_match_all('/(?:19|20)\d{2}/', (string) $label, $matches);
+        $years = array_map('intval', $matches[0]);
+
+        if ($years === []) {
+            return [null, null];
+        }
+
+        if (str_starts_with(mb_strtolower(trim((string) $label)), 'до ')) {
+            return [null, $years[0]];
+        }
+
+        return [$years[0], count($years) > 1 ? $years[array_key_last($years)] : null];
     }
 
     /**

@@ -3,15 +3,6 @@
 
 @php
     $selectedCategories = array_map('intval', old('category_ids', isset($product) ? $product->categories->pluck('id')->all() : []));
-    $defaultModels = isset($product)
-        ? $product->vehicleModels->pluck('id')->all()
-        : (isset($fitmentCopySource) ? $fitmentCopySource->vehicleModels->pluck('id')->all() : []);
-    $defaultBodyTypes = isset($product)
-        ? $product->vehicleBodyTypes->pluck('id')->all()
-        : (isset($fitmentCopySource) ? $fitmentCopySource->vehicleBodyTypes->pluck('id')->all() : []);
-    $selectedModels = array_map('intval', old('vehicle_model_ids', $defaultModels));
-    $selectedBodyTypes = array_map('intval', old('vehicle_body_type_ids', $defaultBodyTypes));
-    $selectedCompatibleAccessories = array_map('intval', old('compatibility_product_ids', isset($product) ? $product->compatibleAccessories->pluck('id')->all() : []));
     $roofRack = isset($product) ? $product->roofRack : null;
     $selectedManufacturerId = (string) old('manufacturer_id', $roofRack?->manufacturer_id ?? '');
 @endphp
@@ -23,21 +14,6 @@
         @error('name') <p class="field__error">{{ $message }}</p> @enderror
     </div>
 
-    <div class="field field--wide">
-        <label for="compatibility_product_ids">Автомобильные боксы, совместимые с этим багажником</label>
-        <select id="compatibility_product_ids" name="compatibility_product_ids[]" multiple size="8" data-searchable-select>
-            @foreach ($compatibleAccessories as $accessory)
-                @php
-                    $accessoryManufacturer = $accessory->autoBox?->manufacturer?->name;
-                @endphp
-                <option value="{{ $accessory->id }}" @selected(in_array($accessory->id, $selectedCompatibleAccessories, true))>
-                    {{ $accessory->name }}{{ $accessoryManufacturer ? ' · '.$accessoryManufacturer : '' }}{{ $accessory->is_active ? '' : ' (скрыт)' }}
-                </option>
-            @endforeach
-        </select>
-        <p class="field__hint">Это непрямая совместимость: автобокс появится в подборе автомобиля, когда подходит хотя бы к одному автобагажнику для выбранного кузова.</p>
-        @error('compatibility_product_ids.*') <p class="field__error">{{ $message }}</p> @enderror
-    </div>
     <div class="field field--wide">
         <label for="slug">Адрес страницы</label>
         <input id="slug" name="slug" type="text" value="{{ old('slug', $product->slug ?? '') }}" placeholder="Заполнится автоматически">
@@ -76,7 +52,7 @@
     <div class="field field--wide">
         <label for="product_model">Модель товара</label>
         <input id="product_model" name="product_model" type="text" value="{{ old('product_model', $product->product_model ?? '') }}" maxlength="255">
-        <p class="field__hint">Например: 5517+1002. Не связано со списком моделей автомобилей ниже.</p>
+        <p class="field__hint">Например: 5517+1002.</p>
         @error('product_model') <p class="field__error">{{ $message }}</p> @enderror
     </div>
 
@@ -109,6 +85,17 @@
                 <input id="rack_color" name="rack_color" type="text" value="{{ old('rack_color', $roofRack?->rack_color ?? '') }}" maxlength="255">
                 @error('rack_color') <p class="field__error">{{ $message }}</p> @enderror
             </div>
+        </div>
+    </fieldset>
+    <fieldset class="field field--wide product-specific-fields">
+        <legend>Монтажный профиль для автоматической совместимости</legend>
+        <p class="field__hint">Все монтажные размеры хранятся в миллиметрах. Незаполненные обязательные параметры дадут результат «Недостаточно данных».</p>
+        <div class="form-grid product-specific-fields__grid">
+            <div class="field"><label for="bar_length_mm">Длина дуги, мм</label><input id="bar_length_mm" name="bar_length_mm" type="number" min="1" value="{{ old('bar_length_mm', $roofRack?->bar_length_mm ?? '') }}">@error('bar_length_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
+            <div class="field"><label for="bar_width_mm">Ширина профиля, мм</label><input id="bar_width_mm" name="bar_width_mm" type="number" min="1" value="{{ old('bar_width_mm', $roofRack?->bar_width_mm ?? '') }}">@error('bar_width_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
+            <div class="field"><label for="bar_height_mm">Высота профиля, мм</label><input id="bar_height_mm" name="bar_height_mm" type="number" min="1" value="{{ old('bar_height_mm', $roofRack?->bar_height_mm ?? '') }}">@error('bar_height_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
+            <div class="field"><label for="profile_type">Форма профиля</label><select id="profile_type" name="profile_type"><option value="">Не выбрана</option>@foreach(['rectangular' => 'Прямоугольная', 'aerodynamic' => 'Аэродинамическая', 'wing' => 'Крыловидная', 'other' => 'Другая'] as $value => $label)<option value="{{ $value }}" @selected(old('profile_type', $roofRack?->profile_type ?? '') === $value)>{{ $label }}</option>@endforeach</select></div>
+            <div class="field"><label for="t_slot_width_mm">Ширина T-паза, мм</label><input id="t_slot_width_mm" name="t_slot_width_mm" type="number" min="1" value="{{ old('t_slot_width_mm', $roofRack?->t_slot_width_mm ?? '') }}">@error('t_slot_width_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
         </div>
     </fieldset>
     <div class="field field--wide">
@@ -144,60 +131,19 @@
     </div>
 
     <div class="field field--wide">
-        <span class="field__label">Прямая совместимость с автомобилем</span>
-        <div class="vehicle-fitment-picker" data-vehicle-fitment-picker>
-            <div class="vehicle-fitment-picker__toolbar">
-                <label class="visually-hidden" for="vehicle-fitment-search">Поиск по маркам, моделям, кузовам, годам и креплениям</label>
-                <input id="vehicle-fitment-search" type="search" placeholder="Марка, модель, кузов, год или крепление" autocomplete="off" data-fitment-search>
-                <span class="vehicle-fitment-picker__count" data-fitment-count aria-live="polite"></span>
+        <span class="field__label">Группы применяемости</span>
+        @if (isset($product))
+            <div class="field__hint">
+                @forelse ($product->fitments as $fitment)
+                    <a class="text-link" href="{{ route('admin.fitments.edit', $fitment) }}">{{ $fitment->code }}</a>{{ $loop->last ? '' : ', ' }}
+                @empty
+                    не настроена
+                @endforelse
+                · <a class="text-link" href="{{ route('admin.fitments.index') }}">Открыть раздел совместимости</a>
             </div>
-            <div class="vehicle-fitment-picker__tree" data-fitment-tree>
-                @foreach ($vehicleMakes as $vehicleMake)
-                    @php
-                        $makeSelected = $vehicleMake->models->contains(fn ($model) => in_array($model->id, $selectedModels, true)
-                            || $model->bodyTypes->contains(fn ($bodyType) => in_array($bodyType->id, $selectedBodyTypes, true)));
-                    @endphp
-                    <details class="fitment-make" data-fitment-make data-make-search="{{ $vehicleMake->name }}" @if ($makeSelected) open @endif>
-                        <summary>{{ $vehicleMake->name }}{{ $vehicleMake->is_active ? '' : ' (скрыта)' }}</summary>
-                        <div class="fitment-make__models">
-                            @foreach ($vehicleMake->models as $vehicleModel)
-                                @php
-                                    $modelSelected = in_array($vehicleModel->id, $selectedModels, true);
-                                    $bodySelected = $vehicleModel->bodyTypes->contains(fn ($bodyType) => in_array($bodyType->id, $selectedBodyTypes, true));
-                                @endphp
-                                <details class="fitment-model" data-fitment-model data-model-search="{{ $vehicleMake->name }} {{ $vehicleModel->name }}" @if ($modelSelected || $bodySelected) open @endif>
-                                    <summary>{{ $vehicleModel->name }}{{ $vehicleModel->is_active ? '' : ' (скрыта)' }}</summary>
-                                    <div class="fitment-model__options">
-                                        <label class="fitment-option fitment-option--whole" data-fitment-option data-search-text="{{ $vehicleMake->name }} {{ $vehicleModel->name }} вся модель">
-                                            <input type="checkbox" name="vehicle_model_ids[]" value="{{ $vehicleModel->id }}" @checked($modelSelected)>
-                                            <span>
-                                                <strong>Вся модель {{ $vehicleModel->name }}</strong>
-                                                <small>Для всех кузовов, годов и способов крепления</small>
-                                            </span>
-                                        </label>
-                                        @foreach ($vehicleModel->bodyTypes as $bodyType)
-                                            <label class="fitment-option" data-fitment-option data-search-text="{{ $vehicleMake->name }} {{ $vehicleModel->name }} {{ $bodyType->source_name }} {{ $bodyType->name }} {{ $bodyType->year_label }} {{ $bodyType->mounting_type }}">
-                                                <input type="checkbox" name="vehicle_body_type_ids[]" value="{{ $bodyType->id }}" @checked(in_array($bodyType->id, $selectedBodyTypes, true))>
-                                                <span>
-                                                    <strong>{{ $bodyType->source_name ?: $bodyType->name }}</strong>
-                                                    @if ($bodyType->year_label || $bodyType->mounting_type)
-                                                        <small>{{ collect([$bodyType->year_label, $bodyType->mounting_type])->filter()->join(' · ') }}</small>
-                                                    @endif
-                                                </span>
-                                            </label>
-                                        @endforeach
-                                    </div>
-                                </details>
-                            @endforeach
-                        </div>
-                    </details>
-                @endforeach
-                <p class="vehicle-fitment-picker__empty" data-fitment-empty hidden>Ничего не найдено.</p>
-            </div>
-        </div>
-        <p class="field__hint">Выберите «Вся модель», если багажник подходит ко всем вариантам. Иначе отметьте только точные кузовы с нужными годами и креплениями. Автобоксы из блока выше имеют непрямую совместимость — через этот автобагажник.</p>
-        @error('vehicle_model_ids.*') <p class="field__error">{{ $message }}</p> @enderror
-        @error('vehicle_body_type_ids.*') <p class="field__error">{{ $message }}</p> @enderror
+        @else
+            <p class="field__hint">Сначала сохраните товар, затем добавьте его в нужную группу применяемости в разделе совместимости.</p>
+        @endif
     </div>
 
     <div class="field field--wide">
@@ -230,7 +176,6 @@
 @once
     @push('scripts')
         <script src="{{ asset('js/searchable-select.js') }}" defer></script>
-        <script src="{{ asset('js/vehicle-fitment-picker.js') }}" defer></script>
     @endpush
 @endonce
 

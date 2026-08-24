@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\AutoBoxProductRequest;
 use App\Models\AutoBoxManufacturer;
 use App\Models\CatalogCategory;
 use App\Models\Product;
+use App\Models\ProductType;
 use App\Services\ProductImageService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -26,6 +27,12 @@ class AutoBoxProductController extends Controller
         'opening_type',
         'mounting_type',
         'box_color',
+        'clamp_width_min_mm',
+        'clamp_width_max_mm',
+        'clamp_height_max_mm',
+        'crossbar_spacing_min_mm',
+        'crossbar_spacing_max_mm',
+        'required_t_slot_width_mm',
     ];
 
     public function __construct(private ProductImageService $images) {}
@@ -53,9 +60,10 @@ class AutoBoxProductController extends Controller
     {
         $data = $request->validated();
         $product = DB::transaction(function () use ($data, $request): Product {
-            $product = Product::query()->create(Arr::except($data, [
-                'images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS,
-            ]));
+            $product = Product::query()->create([
+                ...Arr::except($data, ['images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS]),
+                'product_type_id' => ProductType::query()->where('code', 'roof_box')->value('id'),
+            ]);
             $product->autoBox()->create(Arr::only($data, self::CHARACTERISTIC_FIELDS));
             $product->categories()->sync([$this->rootCategory()->id]);
             $this->images->store($product, $request->file('images', []));
@@ -81,9 +89,9 @@ class AutoBoxProductController extends Controller
 
         DB::transaction(function () use ($data, $request, $product): void {
             $product->update(Arr::except($data, ['images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS]));
+            $product->update(['product_type_id' => ProductType::query()->where('code', 'roof_box')->value('id')]);
             $product->autoBox()->updateOrCreate([], Arr::only($data, self::CHARACTERISTIC_FIELDS));
             $product->categories()->sync([$this->rootCategory()->id]);
-            $product->vehicleModels()->detach();
             $this->images->remove($product, $data['remove_image_ids']);
             $this->images->store($product, $request->file('images', []));
         });

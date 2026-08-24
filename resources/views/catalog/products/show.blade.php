@@ -138,6 +138,30 @@
             </dl>
 
             <p class="product-page__price">{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</p>
+
+            <section class="product-vehicle-compatibility {{ $compatibilityResult ? 'product-vehicle-compatibility--'.$compatibilityResult->status : 'product-vehicle-compatibility--empty' }}" aria-labelledby="product-vehicle-compatibility-title">
+                <h2 id="product-vehicle-compatibility-title">Совместимость</h2>
+                @if ($selectedVehicle && $compatibilityResult)
+                    <p class="product-vehicle-compatibility__label">Ваш автомобиль:</p>
+                    <strong class="product-vehicle-compatibility__vehicle">{{ $selectedVehicleLabel }}</strong>
+                    <p class="product-vehicle-compatibility__status">
+                        <span aria-hidden="true">●</span>
+                        @if ($compatibilityResult->status === App\Compatibility\CompatibilityResult::COMPATIBLE)
+                            Этот товар подходит
+                        @elseif ($compatibilityResult->status === App\Compatibility\CompatibilityResult::INCOMPATIBLE)
+                            Этот товар не подходит
+                        @else
+                            Совместимость пока не подтверждена
+                        @endif
+                    </p>
+                    @if ($compatibilityResult->status !== App\Compatibility\CompatibilityResult::COMPATIBLE)
+                        <a class="button button--secondary product-vehicle-compatibility__button" href="{{ $alternativesUrl }}">Показать подходящие аналоги</a>
+                    @endif
+                @else
+                    <p class="product-vehicle-compatibility__prompt">Выберите автомобиль, чтобы проверить совместимость товара.</p>
+                    <a class="button button--secondary product-vehicle-compatibility__button" href="{{ route('catalog.vehicle-fitment.index') }}">Выбрать автомобиль</a>
+                @endif
+            </section>
         </section>
     </div>
 
@@ -148,23 +172,6 @@
         </section>
     @endif
 
-    @if ($product->vehicleModels->isNotEmpty() || $product->vehicleBodyTypes->isNotEmpty())
-        <section class="product-compatibility" aria-labelledby="product-compatibility-title">
-            <h2 id="product-compatibility-title">Совместимость с автомобилями</h2>
-            <ul>
-                @foreach ($product->vehicleModels as $vehicleModel)
-                    <li>{{ $vehicleModel->make->name }} {{ $vehicleModel->name }} — все кузовы</li>
-                @endforeach
-                @foreach ($product->vehicleBodyTypes as $bodyType)
-                    <li>
-                        {{ $bodyType->vehicleModel->make->name }}
-                        {{ $bodyType->source_name ?: $bodyType->vehicleModel->name.' '.$bodyType->name }}
-                        @if ($bodyType->mounting_type) — {{ $bodyType->mounting_type }} @endif
-                    </li>
-                @endforeach
-            </ul>
-        </section>
-    @endif
 @endsection
 
 @push('scripts')

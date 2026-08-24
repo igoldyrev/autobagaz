@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RoofRackProductRequest;
 use App\Models\CatalogCategory;
 use App\Models\Product;
+use App\Models\ProductType;
 use App\Models\RoofRackManufacturer;
-use App\Models\VehicleMake;
 use App\Services\ProductImageService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -24,6 +24,11 @@ class RoofRackProductController extends Controller
         'installation_method',
         'bar_type',
         'rack_color',
+        'bar_length_mm',
+        'bar_width_mm',
+        'bar_height_mm',
+        'profile_type',
+        't_slot_width_mm',
     ];
 
     public function __construct(private ProductImageService $images) {}
@@ -33,7 +38,7 @@ class RoofRackProductController extends Controller
         $products = Product::query()
             ->whereHas('roofRack')
             ->with(['images', 'roofRack.manufacturer'])
-            ->withCount(['categories', 'vehicleModels', 'vehicleBodyTypes'])
+            ->withCount(['categories', 'fitments'])
             ->when($request->string('search')->isNotEmpty(), function ($query) use ($request): void {
                 $query->where('name', 'like', '%'.$request->string('search').'%');
             })
@@ -45,42 +50,23 @@ class RoofRackProductController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
-    public function create(Request $request): View
+    public function create(): View
     {
-        $fitmentCopySource = null;
-
-        if ($request->filled('copy_fitment_from')) {
-            $fitmentCopySource = Product::query()
-                ->whereHas('roofRack')
-                ->with(['vehicleModels:id', 'vehicleBodyTypes:id'])
-                ->findOrFail($request->integer('copy_fitment_from'));
-        }
-
-        $fitmentCopyProducts = Product::query()
-            ->whereHas('roofRack')
-            ->withCount(['vehicleModels', 'vehicleBodyTypes'])
-            ->latest()
-            ->get(['id', 'name', 'created_at']);
-
-        return view('admin.products.create', [
-            ...$this->formData(),
-            'fitmentCopyProducts' => $fitmentCopyProducts,
-            'fitmentCopySource' => $fitmentCopySource,
-        ]);
+        return view('admin.products.create', $this->formData());
     }
 
     public function store(RoofRackProductRequest $request): RedirectResponse
     {
         $data = $request->validated();
         $product = DB::transaction(function () use ($data, $request): Product {
-            $product = Product::query()->create(Arr::except($data, [
-                'category_ids', 'vehicle_model_ids', 'vehicle_body_type_ids', 'compatibility_product_ids', 'images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS,
-            ]));
+            $product = Product::query()->create([
+                ...Arr::except($data, [
+                    'category_ids', 'images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS,
+                ]),
+                'product_type_id' => ProductType::query()->where('code', 'roof_rack')->value('id'),
+            ]);
             $product->roofRack()->create(Arr::only($data, self::CHARACTERISTIC_FIELDS));
             $this->syncCategories($product, $data['category_ids']);
-            $product->vehicleModels()->sync($data['vehicle_model_ids']);
-            $product->vehicleBodyTypes()->sync($data['vehicle_body_type_ids']);
-            $this->syncCompatibleAccessories($product, $data['compatibility_product_ids']);
             $this->images->store($product, $request->file('images', []));
 
             return $product;
@@ -94,7 +80,7 @@ class RoofRackProductController extends Controller
     public function edit(Product $product): View
     {
         abort_unless($product->roofRack()->exists(), 404);
-        $product->load(['images', 'categories', 'vehicleModels', 'vehicleBodyTypes', 'compatibleAccessories', 'roofRack.manufacturer']);
+        $product->load(['images', 'categories', 'roofRack.manufacturer', 'fitments']);
 
         return view('admin.products.edit', [...$this->formData(), 'product' => $product]);
     }
@@ -106,13 +92,11 @@ class RoofRackProductController extends Controller
 
         DB::transaction(function () use ($data, $request, $product): void {
             $product->update(Arr::except($data, [
-                'category_ids', 'vehicle_model_ids', 'vehicle_body_type_ids', 'compatibility_product_ids', 'images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS,
+                'category_ids', 'images', 'remove_image_ids', ...self::CHARACTERISTIC_FIELDS,
             ]));
+            $product->update(['product_type_id' => ProductType::query()->where('code', 'roof_rack')->value('id')]);
             $product->roofRack()->updateOrCreate([], Arr::only($data, self::CHARACTERISTIC_FIELDS));
             $this->syncCategories($product, $data['category_ids']);
-            $product->vehicleModels()->sync($data['vehicle_model_ids']);
-            $product->vehicleBodyTypes()->sync($data['vehicle_body_type_ids']);
-            $this->syncCompatibleAccessories($product, $data['compatibility_product_ids']);
             $this->images->remove($product, $data['remove_image_ids']);
             $this->images->store($product, $request->file('images', []));
         });
@@ -128,18 +112,7 @@ class RoofRackProductController extends Controller
         return [
             'rootCategory' => $rootCategory,
             'categories' => CatalogCategory::query()->with('parent')->whereIn('id', $categoryIds)->orderBy('name')->get(),
-            'vehicleMakes' => VehicleMake::query()
-                ->with(['models' => fn ($query) => $query
-                    ->orderBy('name')
-                    ->with(['bodyTypes' => fn ($bodyTypes) => $bodyTypes->orderBy('sort_order')->orderBy('source_name')])])
-                ->orderBy('name')
-                ->get(),
             'roofRackManufacturers' => RoofRackManufacturer::query()->orderBy('name')->get(),
-            'compatibleAccessories' => Product::query()
-                ->whereHas('autoBox')
-                ->with('autoBox.manufacturer')
-                ->orderBy('name')
-                ->get(),
         ];
     }
 
@@ -161,20 +134,6 @@ class RoofRackProductController extends Controller
             ->whereNull('parent_id')
             ->where('slug', 'autobagazhniki')
             ->firstOrFail();
-    }
-
-    /** @param array<int|string> $accessoryIds */
-    private function syncCompatibleAccessories(Product $product, array $accessoryIds): void
-    {
-        $validIds = Product::query()
-            ->whereIn('id', array_map('intval', $accessoryIds))
-            ->whereHas('autoBox')
-            ->pluck('id')
-            ->all();
-
-        $product->compatibleAccessories()->syncWithPivotValues($validIds, [
-            'compatibility_type' => 'via_base_product',
-        ]);
     }
 
     /** @return array<int> */

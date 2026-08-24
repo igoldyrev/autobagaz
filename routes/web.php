@@ -3,15 +3,22 @@
 use App\Http\Controllers\Admin\AutoBoxManufacturerController;
 use App\Http\Controllers\Admin\AutoBoxProductController;
 use App\Http\Controllers\Admin\CatalogCategoryController as AdminCatalogCategoryController;
+use App\Http\Controllers\Admin\CompatibilityOverrideController;
+use App\Http\Controllers\Admin\CompatibilityPreviewController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FitmentController;
 use App\Http\Controllers\Admin\ProductSectionController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProfileSecurityController;
 use App\Http\Controllers\Admin\RoofRackManufacturerController;
 use App\Http\Controllers\Admin\RoofRackProductController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VehicleBodyStyleController;
+use App\Http\Controllers\Admin\VehicleConfigurationController;
+use App\Http\Controllers\Admin\VehicleGenerationController;
 use App\Http\Controllers\Admin\VehicleMakeController;
 use App\Http\Controllers\Admin\VehicleModelController;
+use App\Http\Controllers\Admin\VehicleRoofTypeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AutoBoxController;
 use App\Http\Controllers\HomeController;
@@ -71,11 +78,25 @@ Route::middleware(['auth', 'auth.session', 'admin'])->prefix('admin')->name('adm
     });
 
     Route::middleware('permission:vehicles.manage')->group(function () {
+        Route::get('compatibility/preview', CompatibilityPreviewController::class)->name('compatibility.preview');
+        Route::resource('compatibility-overrides', CompatibilityOverrideController::class)->except('show');
+        Route::get('fitments/{fitment}/configurations', [FitmentController::class, 'configurations'])->name('fitments.configurations');
+        Route::post('fitments/{fitment}/configurations', [FitmentController::class, 'updateConfigurations'])->name('fitments.configurations.update');
+        Route::get('fitments/{fitment}/preview', [FitmentController::class, 'preview'])->name('fitments.preview');
+        Route::resource('fitments', FitmentController::class)->except('show');
         Route::prefix('vehicles')->name('vehicles.')->group(function () {
+            Route::resource('vehicle-body-styles', VehicleBodyStyleController::class)->except('show');
+            Route::resource('vehicle-roof-types', VehicleRoofTypeController::class)->except('show');
             Route::resource('vehicle-makes', VehicleMakeController::class)->except(['show', 'destroy']);
             Route::resource('vehicle-makes.vehicle-models', VehicleModelController::class)
                 ->except('show')
                 ->names('vehicle-models');
+            Route::resource('vehicle-makes.vehicle-models.vehicle-generations', VehicleGenerationController::class)
+                ->except('show')
+                ->names('vehicle-generations');
+            Route::resource('vehicle-makes.vehicle-models.vehicle-generations.vehicle-configurations', VehicleConfigurationController::class)
+                ->except('show')
+                ->names('vehicle-configurations');
         });
     });
 });
@@ -84,11 +105,12 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 Route::get('/autobox', AutoBoxController::class)->name('catalog.auto-boxes.index');
 Route::get('/podbor-avto', [VehicleFitmentController::class, 'index'])->name('catalog.vehicle-fitment.index');
 Route::get('/podbor-avto/models', [VehicleFitmentController::class, 'models'])->name('catalog.vehicle-fitment.models');
-Route::get('/podbor-avto/kuzova', [VehicleFitmentController::class, 'bodyTypes'])->name('catalog.vehicle-fitment.body-types');
+Route::get('/podbor-avto/configurations', [VehicleFitmentController::class, 'configurations'])->name('catalog.vehicle-fitment.configurations');
 
 Route::prefix('autobagazhniki')->name('catalog.autobagazhniki.')->group(function () {
     Route::get('/', [RoofRackCategoryController::class, 'index'])->name('index');
     Route::get('/{category}', [RoofRackCategoryController::class, 'show'])->name('show');
     Route::get('/{category}/{model}', [RoofRackCategoryController::class, 'showModel'])->name('model.show');
-    Route::get('/{category}/{model}/{bodyType}', [RoofRackCategoryController::class, 'showBodyType'])->name('body-type.show');
+    Route::get('/{category}/{model}/{generation}/{configuration}', [RoofRackCategoryController::class, 'showConfiguration'])->name('configuration.show');
+    Route::get('/{category}/{model}/{generation}', [RoofRackCategoryController::class, 'showGeneration'])->name('generation.show');
 });

@@ -24,6 +24,11 @@
                 </div>
             </div>
 
+            <nav class="admin-shortcuts" aria-label="Справочники автомобилей">
+                <a class="admin-shortcuts__link" href="{{ route('admin.vehicles.vehicle-body-styles.index') }}">Типы кузова</a>
+                <a class="admin-shortcuts__link" href="{{ route('admin.vehicles.vehicle-roof-types.index') }}">Типы крыши</a>
+            </nav>
+
             <form class="toolbar" method="GET">
                 <label class="visually-hidden" for="search">Поиск марки</label>
                 <input id="search" name="search" type="search" value="{{ request('search') }}" placeholder="Поиск по названию или URL">

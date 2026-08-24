@@ -11,20 +11,34 @@
 
     @include('catalog.vehicle-fitment._picker')
 
-    @if ($bodyType)
+    @if ($selectedVehicle)
         <section class="vehicle-fitment-results" aria-label="Результаты подбора">
-            <h2>Товары для: {{ $make->name }} {{ $model->name }} — {{ $bodyType->source_name ?: $bodyType->name }}</h2>
+            <h2>Подходит для {{ $selectedVehicle->labelForYear($selectedVehicleYear) }}</h2>
+            <p class="vehicle-fitment-results__configuration">
+                {{ $selectedVehicle->generation->display_name }} · {{ $selectedVehicle->bodyStyle?->name ?: 'кузов не указан' }} · {{ $selectedVehicle->roofType?->name ?: 'крыша не указана' }}
+            </p>
 
-            <h2>Автобагажники</h2>
+            <div class="vehicle-result-categories">
+                @foreach ($categoryResults as $categoryResult)
+                    <a class="vehicle-result-category" href="{{ $categoryResult['url'] }}">
+                        <span>{{ $categoryResult['name'] }}</span>
+                        <strong>{{ $categoryResult['count'] }}</strong>
+                    </a>
+                @endforeach
+            </div>
+
+            <h2 id="roof-racks">Автобагажники</h2>
             @if ($baseProducts->isNotEmpty())
                 @include('catalog.products._grid', ['products' => $baseProducts])
             @else
-                <div class="records-placeholder records-placeholder--list"><p>Для этого автомобиля автобагажники пока не добавлены.</p></div>
+                <div class="records-placeholder records-placeholder--list"><p>Для этой конфигурации пока нет подтверждённо совместимых автобагажников.</p></div>
             @endif
 
+            <h2 id="auto-boxes">Автомобильные боксы</h2>
             @if ($dependentProducts->isNotEmpty())
-                <h2>Автомобильные боксы</h2>
                 @include('catalog.products._grid', ['products' => $dependentProducts])
+            @else
+                <div class="records-placeholder records-placeholder--list"><p>Для этой конфигурации пока нет автобоксов с подтверждённой совместимостью.</p></div>
             @endif
         </section>
     @endif
