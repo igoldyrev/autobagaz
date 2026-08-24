@@ -47,7 +47,12 @@ class AdminFitmentTest extends TestCase
             ->assertOk()
             ->assertSee('Статус проверки')
             ->assertSee('Требует проверки')
-            ->assertSee('Группа применяемости активна');
+            ->assertSee('Группа применяемости активна')
+            ->assertSee('Настроить автомобили')
+            ->assertSee('Добавлено конфигураций: 0')
+            ->assertSee('Открыть предпросмотр')
+            ->assertSee('fitment-form-action--vehicles', false)
+            ->assertSee('fitment-form-action--preview', false);
 
         $this->actingAs($admin)->post(route('admin.fitments.configurations.update', $fitment), [
             'action' => 'add', 'configuration_ids' => [$configuration->id],
@@ -77,7 +82,9 @@ class AdminFitmentTest extends TestCase
             ->assertSee('1 конфигураций × 1 товаров')
             ->assertSee($product->name)
             ->assertSee($generation->display_name)
-            ->assertSee($generation->name);
+            ->assertSee($generation->name)
+            ->assertSee('fitment-preview-table', false)
+            ->assertDontSee('>Проверка<', false);
 
         $this->actingAs($admin)->delete(route('admin.fitments.destroy', $fitment))->assertSessionHas('error');
 

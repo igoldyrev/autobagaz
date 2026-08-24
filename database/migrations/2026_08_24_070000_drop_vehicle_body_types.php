@@ -2,15 +2,28 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
     public function up(): void
     {
+        if (DB::getDriverName() === 'sqlite') {
+            Schema::table('vehicle_configurations', function (Blueprint $table): void {
+                $table->dropUnique('vehicle_configurations_legacy_vehicle_body_type_id_unique');
+                $table->dropConstrainedForeignId('legacy_vehicle_body_type_id');
+            });
+
+            Schema::dropIfExists('vehicle_body_types');
+
+            return;
+        }
+
         Schema::table('vehicle_configurations', function (Blueprint $table): void {
+            $table->dropForeign('vehicle_configurations_legacy_vehicle_body_type_id_foreign');
             $table->dropUnique('vehicle_configurations_legacy_vehicle_body_type_id_unique');
-            $table->dropConstrainedForeignId('legacy_vehicle_body_type_id');
+            $table->dropColumn('legacy_vehicle_body_type_id');
         });
 
         Schema::dropIfExists('vehicle_body_types');
