@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
@@ -20,6 +21,20 @@ class AdminUserManagementTest extends TestCase
             ->assertOk()
             ->assertSee('Пользователи')
             ->assertSee($superAdmin->email);
+    }
+
+    public function test_last_login_time_is_displayed_in_yekaterinburg_timezone(): void
+    {
+        $superAdmin = $this->superAdmin();
+
+        DB::table('users')->where('id', $superAdmin->id)->update([
+            'last_login_at' => '2026-08-25 10:00:00',
+        ]);
+
+        $this->actingAs($superAdmin)
+            ->get(route('admin.users.index'))
+            ->assertOk()
+            ->assertSee('25.08.2026 15:00');
     }
 
     public function test_regular_administrator_cannot_manage_users(): void

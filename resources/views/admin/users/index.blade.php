@@ -53,7 +53,7 @@
                                     @endif
                                 </td>
                                 <td class="table-secondary">
-                                    {{ $user->last_login_at?->timezone(config('app.timezone'))->format('d.m.Y H:i') ?? 'Не входил' }}
+                                    {{ $user->last_login_at?->timezone(config('app.display_timezone'))->format('d.m.Y H:i') ?? 'Не входил' }}
                                 </td>
                                 <td class="row-actions">
                                     <a class="text-link" href="{{ route('admin.users.edit', $user) }}">Настроить</a>

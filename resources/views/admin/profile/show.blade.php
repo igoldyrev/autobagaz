@@ -38,7 +38,7 @@
                         <dt>Последний вход</dt>
                         <dd>
                             @if ($user->last_login_at)
-                                {{ $user->last_login_at->timezone(config('app.timezone'))->translatedFormat('d F Y в H:i') }}
+                                {{ $user->last_login_at->timezone(config('app.display_timezone'))->translatedFormat('d F Y в H:i') }}
                             @else
                                 Пока нет данных о входах
                             @endif
