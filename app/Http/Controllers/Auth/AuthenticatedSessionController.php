@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminActivityLog;
+use App\Services\AdminActivityLogger;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +20,7 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request, AdminActivityLogger $activity): RedirectResponse
     {
         $credentials = $request->validate([
             'email' => ['required', 'string', 'email'],
@@ -49,13 +51,41 @@ class AuthenticatedSessionController extends Controller
 
         RateLimiter::clear($key);
         $request->session()->regenerate();
-        $request->user()->forceFill(['last_login_at' => now()])->save();
+        $loggedInAt = now();
+        $request->user()->forceFill([
+            'last_login_at' => $loggedInAt,
+            'last_seen_at' => $loggedInAt,
+        ])->save();
+        $request->session()->put([
+            'admin_authenticated_at' => $loggedInAt->timestamp,
+            'admin_last_seen_recorded_at' => $loggedInAt->timestamp,
+        ]);
+        $activity->record(
+            $request->user(),
+            AdminActivityLog::ACTION_LOGIN,
+            'Вошёл в панель управления',
+            'user',
+            $request->user()->id,
+            $request->user()->name,
+        );
 
         return redirect()->intended(route('admin.dashboard'));
     }
 
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request, AdminActivityLogger $activity): RedirectResponse
     {
+        $user = $request->user();
+        if ($user) {
+            $activity->record(
+                $user,
+                AdminActivityLog::ACTION_LOGOUT,
+                'Вышел из панели управления',
+                'user',
+                $user->id,
+                $user->name,
+            );
+        }
+
         Auth::logout();
 
         $request->session()->invalidate();

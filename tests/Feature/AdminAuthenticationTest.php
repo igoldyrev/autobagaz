@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\AdminActivityLog;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
@@ -42,6 +43,12 @@ class AdminAuthenticationTest extends TestCase
 
         $this->assertAuthenticatedAs($admin);
         $this->assertNotNull($admin->fresh()->last_login_at);
+        $this->assertNotNull($admin->fresh()->last_seen_at);
+        $this->assertDatabaseHas('admin_activity_logs', [
+            'user_id' => $admin->id,
+            'action' => AdminActivityLog::ACTION_LOGIN,
+            'description' => 'Вошёл в панель управления',
+        ]);
 
         $this->get(route('admin.dashboard'))
             ->assertOk()

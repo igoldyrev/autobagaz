@@ -2,7 +2,10 @@
 
 use App\Http\Middleware\EnsureUserHasPermission;
 use App\Http\Middleware\EnsureUserIsAdmin;
+use App\Http\Middleware\EnsureUserIsSuperAdmin;
+use App\Http\Middleware\RecordAdminActivity;
 use App\Http\Middleware\ResolveVehicleConfiguration;
+use App\Http\Middleware\TrackAdminPresence;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -20,8 +23,11 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->alias([
             'admin' => EnsureUserIsAdmin::class,
+            'admin.activity' => RecordAdminActivity::class,
+            'admin.presence' => TrackAdminPresence::class,
             'auth.session' => AuthenticateSession::class,
             'permission' => EnsureUserHasPermission::class,
+            'super_admin' => EnsureUserIsSuperAdmin::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

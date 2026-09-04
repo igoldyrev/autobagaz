@@ -20,6 +20,20 @@
                 @method('PUT')
                 @include('admin.users._form', ['submitLabel' => 'Сохранить изменения'])
             </form>
+
+            @unless (auth()->user()->is($user))
+                <section class="danger-zone" aria-labelledby="terminate-user-sessions-title">
+                    <div>
+                        <h2 id="terminate-user-sessions-title">Завершить все сеансы</h2>
+                        <p>Пользователь выйдет из админки на всех устройствах. Для следующего входа потребуется пароль.</p>
+                    </div>
+                    <form method="POST" action="{{ route('admin.users.sessions.destroy', $user) }}" onsubmit="return confirm('Завершить все сеансы этого пользователя?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="button button--danger" type="submit">Завершить сеансы</button>
+                    </form>
+                </section>
+            @endunless
         </main>
     </div>
 @endsection

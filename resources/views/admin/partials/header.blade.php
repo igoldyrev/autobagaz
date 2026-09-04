@@ -13,7 +13,7 @@
             <a href="{{ route('admin.fitments.index') }}" @if (request()->routeIs('admin.fitments.*')) aria-current="page" @endif>Совместимость</a>
         @endif
         @if (auth()->user()->isSuperAdmin())
-            <a href="{{ route('admin.users.index') }}" @if (request()->routeIs('admin.users.*')) aria-current="page" @endif>Пользователи</a>
+            <a href="{{ route('admin.users.index') }}" @if (request()->routeIs('admin.users.*', 'admin.activity.*')) aria-current="page" @endif>Пользователи</a>
         @endif
     </nav>
     <div class="admin-header__user">

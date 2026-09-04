@@ -114,6 +114,9 @@ a { color: inherit; }
 .toolbar__filter-row select { width: 100%; min-width: 0; }
 .toolbar__search-row { display: flex; align-items: center; gap: 10px; }
 .toolbar__search-row input { width: min(100%, 480px); }
+.activity-filters { flex-wrap: wrap; }
+.activity-filters label { display: grid; gap: 4px; color: #69717c; font-size: 11px; font-weight: 700; }
+.activity-filters label input { width: 160px; }
 .text-link { color: #315f91; font-size: 14px; text-decoration: none; }
 .admin-shortcuts { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 4px; }
 .admin-shortcuts--compact { margin-top: 10px; }
@@ -140,6 +143,10 @@ a { color: inherit; }
 .role-badge--super_admin { color: #7b3516; background: #ffeadf; }
 .role-badge--administrator { color: #315582; background: #e7f0fb; }
 .role-badge--content_manager { color: #17663a; background: #e7f6ed; }
+.activity-action { display: inline-flex; padding: 5px 9px; border-radius: 999px; color: #315582; background: #e7f0fb; font-size: 12px; font-weight: 750; white-space: nowrap; }
+.activity-action--deleted, .activity-action--sessions_terminated { color: #8e2323; background: #fff1f1; }
+.activity-action--created, .activity-action--login { color: #17663a; background: #e7f6ed; }
+.activity-action--logout { color: #626873; background: #eceef1; }
 .permission-summary { display: grid; gap: 4px; color: #59616c; font-size: 12px; }
 .entity-title { display: flex; align-items: center; gap: 12px; min-width: 170px; }
 .entity-title img, .entity-title__placeholder { flex: 0 0 48px; width: 48px; height: 48px; border: 1px solid #e2e4e7; border-radius: 8px; background: #fff; object-fit: contain; }

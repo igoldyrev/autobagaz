@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminActivityController;
 use App\Http\Controllers\Admin\AutoBoxManufacturerController;
 use App\Http\Controllers\Admin\AutoBoxProductController;
 use App\Http\Controllers\Admin\CatalogCategoryController as AdminCatalogCategoryController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Admin\ProfileSecurityController;
 use App\Http\Controllers\Admin\RoofRackManufacturerController;
 use App\Http\Controllers\Admin\RoofRackProductController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\UserSessionController;
 use App\Http\Controllers\Admin\VehicleBodyStyleController;
 use App\Http\Controllers\Admin\VehicleConfigurationController;
 use App\Http\Controllers\Admin\VehicleGenerationController;
@@ -35,7 +37,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/admin/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
 });
 
-Route::middleware(['auth', 'auth.session', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.activity'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', DashboardController::class)->name('dashboard');
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
@@ -47,6 +49,11 @@ Route::middleware(['auth', 'auth.session', 'admin'])->prefix('admin')->name('adm
 
     Route::middleware('permission:users.manage')->group(function () {
         Route::resource('users', UserController::class)->except(['show', 'destroy']);
+    });
+
+    Route::middleware('super_admin')->group(function () {
+        Route::get('activity', AdminActivityController::class)->name('activity.index');
+        Route::delete('users/{user}/sessions', UserSessionController::class)->name('users.sessions.destroy');
     });
 
     Route::middleware('permission:products.manage')->group(function () {
