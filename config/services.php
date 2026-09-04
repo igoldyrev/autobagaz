@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'daily_brief' => [
+        'token' => env('DAILY_BRIEF_MONITORING_TOKEN'),
+    ],
+
 ];

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AuthenticateDailyBrief;
 use App\Http\Middleware\EnsureUserHasPermission;
 use App\Http\Middleware\EnsureUserIsAdmin;
 use App\Http\Middleware\EnsureUserIsSuperAdmin;
@@ -22,6 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [ResolveVehicleConfiguration::class]);
 
         $middleware->alias([
+            'daily_brief.token' => AuthenticateDailyBrief::class,
             'admin' => EnsureUserIsAdmin::class,
             'admin.activity' => RecordAdminActivity::class,
             'admin.presence' => TrackAdminPresence::class,

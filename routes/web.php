@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\VehicleRoofTypeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AutoBoxController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Internal\AdminMonitoringController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoofRackCategoryController;
 use App\Http\Controllers\VehicleFitmentController;
@@ -31,6 +32,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::view('/prokat', 'rental')->name('rental');
+
+Route::get('/internal/daily-brief/admin-activity', AdminMonitoringController::class)
+    ->middleware(['daily_brief.token', 'throttle:30,1'])
+    ->name('internal.daily-brief.admin-activity');
 
 Route::middleware('guest')->group(function () {
     Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])->name('login');
