@@ -40,6 +40,8 @@ class AdminFitmentTest extends TestCase
             ->assertSee('admin-shortcuts__link', false)
             ->assertSee('Проверить совместимость')
             ->assertSee('Ручные исключения')
+            ->assertSee('Как работают группы применяемости')
+            ->assertSee('Поиск ниже фильтрует список только по названию или стабильному коду группы')
             ->assertDontSee('Все статусы проверки')
             ->assertDontSee('>Проверка<', false)
             ->assertDontSee('>Fitments<', false);
@@ -48,6 +50,8 @@ class AdminFitmentTest extends TestCase
             ->assertSee('Статус проверки')
             ->assertSee('Требует проверки')
             ->assertSee('Группа применяемости активна')
+            ->assertSee('Как заполнить группу')
+            ->assertSee('Каждый из них будет считаться подходящим ко всем автомобилям группы')
             ->assertSee('Настроить автомобили')
             ->assertSee('Добавлено конфигураций: 0')
             ->assertSee('Открыть предпросмотр')
@@ -76,6 +80,9 @@ class AdminFitmentTest extends TestCase
             ->get(route('admin.fitments.configurations', [$fitment, 'make_id' => $make->id, 'model_id' => $model->id]))
             ->assertOk()
             ->assertSee($configuration->display_name)
+            ->assertSee('Как выбрать автомобили')
+            ->assertSee('Фильтры применяются одновременно')
+            ->assertSee('Параметры сохраняются только для уже добавленных в группу автомобилей')
             ->assertSee('placeholder="Поиск по названию конфигурации"', false);
         $this->actingAs($admin)->get(route('admin.fitments.preview', $fitment))
             ->assertOk()
@@ -83,6 +90,8 @@ class AdminFitmentTest extends TestCase
             ->assertSee($product->name)
             ->assertSee($generation->display_name)
             ->assertSee($generation->name)
+            ->assertSee('Что показывает предпросмотр')
+            ->assertSee('Каждый показанный товар считается совместимым с каждым показанным автомобилем')
             ->assertSee('fitment-preview-table', false)
             ->assertDontSee('>Проверка<', false);
 

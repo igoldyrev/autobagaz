@@ -21,6 +21,8 @@
                 <a class="button button--primary button--inline" href="{{ route('admin.vehicles.vehicle-models.create', $vehicleMake) }}">Добавить модель</a>
             </div>
 
+            @include('admin.partials.help', ['title' => 'Работа с моделями', 'text' => 'На этой странице находятся только модели марки '.$vehicleMake->name.'. После создания модели откройте её поколения — совместимость не настраивается непосредственно на уровне модели.', 'items' => ['Поиск проверяет название и адрес модели.', 'Порядок определяет расположение моделей одной марки на сайте.', 'Скрытие модели сохраняет поколения и конфигурации.']])
+
             <form class="toolbar" method="GET">
                 <label class="visually-hidden" for="search">Поиск модели</label>
                 <input id="search" name="search" type="search" value="{{ request('search') }}" placeholder="Поиск по названию или URL">

@@ -6,6 +6,8 @@
     $selectedManufacturerId = (string) old('manufacturer_id', $autoBox?->manufacturer_id ?? '');
 @endphp
 
+@include('admin.partials.help', ['title' => 'Заполнение автомобильного бокса', 'text' => 'Сначала заполните общие данные и характеристики бокса, затем ограничения его крепления. Они используются для автоматической проверки совместимости с багажниками. Публикуйте товар после проверки карточки.', 'items' => ['Адрес страницы можно оставить пустым — он сформируется автоматически.', 'Габариты самого бокса указываются в сантиметрах, монтажные ограничения — в миллиметрах.', 'Если технический параметр неизвестен, оставьте его пустым, а не указывайте приблизительное значение.']])
+
 <div class="form-grid">
     <div class="field field--wide">
         <label for="name">Название товара</label>
@@ -129,14 +131,44 @@
 
     <fieldset class="field field--wide product-specific-fields">
         <legend>Ограничения крепления для автоматической совместимости</legend>
-        <p class="field__hint">Размеры задаются в миллиметрах. Для проверки нужны допустимая ширина и высота дуги, а также расстояние между поперечинами.</p>
+        <p class="field__hint">Это допустимые параметры багажника, на который можно установить автобокс, а не размеры самого бокса. Возьмите значения из инструкции или схемы крепления производителя. Все размеры указываются в миллиметрах; если параметр неизвестен, оставьте поле пустым — проверка покажет «Недостаточно данных».</p>
         <div class="form-grid product-specific-fields__grid">
-            <div class="field"><label for="clamp_width_min_mm">Ширина дуги от, мм</label><input id="clamp_width_min_mm" name="clamp_width_min_mm" type="number" min="1" value="{{ old('clamp_width_min_mm', $autoBox?->clamp_width_min_mm ?? '') }}">@error('clamp_width_min_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
-            <div class="field"><label for="clamp_width_max_mm">Ширина дуги до, мм</label><input id="clamp_width_max_mm" name="clamp_width_max_mm" type="number" min="1" value="{{ old('clamp_width_max_mm', $autoBox?->clamp_width_max_mm ?? '') }}">@error('clamp_width_max_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
-            <div class="field"><label for="clamp_height_max_mm">Высота дуги до, мм</label><input id="clamp_height_max_mm" name="clamp_height_max_mm" type="number" min="1" value="{{ old('clamp_height_max_mm', $autoBox?->clamp_height_max_mm ?? '') }}">@error('clamp_height_max_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
-            <div class="field"><label for="crossbar_spacing_min_mm">Расстояние между дугами от, мм</label><input id="crossbar_spacing_min_mm" name="crossbar_spacing_min_mm" type="number" min="1" value="{{ old('crossbar_spacing_min_mm', $autoBox?->crossbar_spacing_min_mm ?? '') }}">@error('crossbar_spacing_min_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
-            <div class="field"><label for="crossbar_spacing_max_mm">Расстояние между дугами до, мм</label><input id="crossbar_spacing_max_mm" name="crossbar_spacing_max_mm" type="number" min="1" value="{{ old('crossbar_spacing_max_mm', $autoBox?->crossbar_spacing_max_mm ?? '') }}">@error('crossbar_spacing_max_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
-            <div class="field"><label for="required_t_slot_width_mm">Необходимый T-паз, мм</label><input id="required_t_slot_width_mm" name="required_t_slot_width_mm" type="number" min="1" value="{{ old('required_t_slot_width_mm', $autoBox?->required_t_slot_width_mm ?? '') }}">@error('required_t_slot_width_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
+            <div class="field">
+                <label for="clamp_width_min_mm">Ширина дуги от, мм</label>
+                <input id="clamp_width_min_mm" name="clamp_width_min_mm" type="number" min="1" value="{{ old('clamp_width_min_mm', $autoBox?->clamp_width_min_mm ?? '') }}">
+                <p class="field__hint">Минимальная внешняя ширина дуги, которую может обхватить крепление.</p>
+                @error('clamp_width_min_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
+            <div class="field">
+                <label for="clamp_width_max_mm">Ширина дуги до, мм</label>
+                <input id="clamp_width_max_mm" name="clamp_width_max_mm" type="number" min="1" value="{{ old('clamp_width_max_mm', $autoBox?->clamp_width_max_mm ?? '') }}">
+                <p class="field__hint">Максимальная внешняя ширина дуги, которую может обхватить крепление.</p>
+                @error('clamp_width_max_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
+            <div class="field">
+                <label for="clamp_height_max_mm">Высота дуги до, мм</label>
+                <input id="clamp_height_max_mm" name="clamp_height_max_mm" type="number" min="1" value="{{ old('clamp_height_max_mm', $autoBox?->clamp_height_max_mm ?? '') }}">
+                <p class="field__hint">Максимальная внешняя высота дуги, допустимая для крепления.</p>
+                @error('clamp_height_max_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
+            <div class="field">
+                <label for="crossbar_spacing_min_mm">Расстояние между дугами от, мм</label>
+                <input id="crossbar_spacing_min_mm" name="crossbar_spacing_min_mm" type="number" min="1" value="{{ old('crossbar_spacing_min_mm', $autoBox?->crossbar_spacing_min_mm ?? '') }}">
+                <p class="field__hint">Минимальное расстояние между центрами передней и задней дуг.</p>
+                @error('crossbar_spacing_min_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
+            <div class="field">
+                <label for="crossbar_spacing_max_mm">Расстояние между дугами до, мм</label>
+                <input id="crossbar_spacing_max_mm" name="crossbar_spacing_max_mm" type="number" min="1" value="{{ old('crossbar_spacing_max_mm', $autoBox?->crossbar_spacing_max_mm ?? '') }}">
+                <p class="field__hint">Максимальное расстояние между центрами передней и задней дуг.</p>
+                @error('crossbar_spacing_max_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
+            <div class="field">
+                <label for="required_t_slot_width_mm">Необходимый T-паз, мм</label>
+                <input id="required_t_slot_width_mm" name="required_t_slot_width_mm" type="number" min="1" value="{{ old('required_t_slot_width_mm', $autoBox?->required_t_slot_width_mm ?? '') }}">
+                <p class="field__hint">Минимальная ширина T-паза, если бокс крепится через него. Для крепления без T-паза оставьте поле пустым.</p>
+                @error('required_t_slot_width_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
         </div>
     </fieldset>
 

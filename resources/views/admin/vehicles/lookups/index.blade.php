@@ -12,6 +12,7 @@
             <div><p class="eyebrow">{{ $eyebrow }}</p><h1>{{ $title }}</h1><p class="admin-content__lead">Нормализованный справочник для конфигураций автомобилей.</p></div>
             <a class="button button--primary button--inline" href="{{ route($routePrefix.'.create') }}">Добавить {{ $singular }}</a>
         </div>
+        @include('admin.partials.help', ['title' => 'Как используется справочник', 'text' => 'Значения выбираются в конфигурациях автомобилей и помогают точно разделять варианты с разной применяемостью. Используйте единые названия и не создавайте дубли.', 'items' => ['Поиск проверяет название записи.', 'Порядок определяет расположение значения в списках выбора.', 'Отключённая запись сохраняется в существующих конфигурациях, но недоступна для новых.']])
         <form class="toolbar" method="GET">
             <input name="search" type="search" value="{{ request('search') }}" placeholder="Поиск по названию">
             <button class="button button--secondary" type="submit">Найти</button>

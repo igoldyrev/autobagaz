@@ -1,5 +1,6 @@
 @csrf
 @if(isset($item)) @method('PUT') @endif
+@include('admin.partials.help', ['title' => 'Заполнение справочника', 'text' => 'Используйте короткое общепринятое название без вариантов написания. Код можно оставить пустым для автоматического формирования, а порядок задаёт место в списках выбора.', 'items' => []])
 <div class="form-grid">
     <div class="field field--wide"><label for="name">Название</label><input id="name" name="name" value="{{ old('name', $item->name ?? '') }}" required>@error('name')<p class="field__error">{{ $message }}</p>@enderror</div>
     <div class="field"><label for="slug">Код / URL</label><input id="slug" name="slug" value="{{ old('slug', $item->slug ?? '') }}" placeholder="Заполнится автоматически">@error('slug')<p class="field__error">{{ $message }}</p>@enderror</div>

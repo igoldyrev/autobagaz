@@ -1,6 +1,8 @@
 @csrf
 @if (isset($manufacturer)) @method('PUT') @endif
 
+@include('admin.partials.help', ['title' => 'Заполнение производителя', 'text' => 'Используйте официальное и единообразное название бренда. Активный производитель доступен в карточках автобагажников и связанных фильтрах; отключение не удаляет уже созданные товары.', 'items' => []])
+
 <div class="form-grid">
     <div class="field field--wide">
         <label for="name">Название</label>

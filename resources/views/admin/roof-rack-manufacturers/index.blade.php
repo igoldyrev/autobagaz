@@ -23,6 +23,8 @@
                 <a class="button button--primary button--inline" href="{{ route('admin.products.roof-racks.manufacturers.create') }}">Добавить производителя</a>
             </div>
 
+            @include('admin.partials.help', ['title' => 'Как работает справочник', 'text' => 'Здесь хранятся производители только автобагажников. Запись выбирается в карточке товара и используется в каталоге, фильтрах и группах применяемости.', 'items' => ['Поиск проверяет название производителя.', 'Скрытого производителя нельзя выбрать для нового товара, но существующие связи сохраняются.', 'Перед добавлением проверьте, нет ли производителя с другим написанием.']])
+
             <form class="toolbar" method="GET">
                 <label class="visually-hidden" for="search">Поиск производителя</label>
                 <input id="search" name="search" type="search" value="{{ request('search') }}" placeholder="Название производителя">

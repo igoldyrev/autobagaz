@@ -1,4 +1,5 @@
 @csrf @if(isset($vehicleConfiguration)) @method('PUT') @endif
+@include('admin.partials.help', ['title' => 'Заполнение конфигурации', 'text' => 'Название должно помогать отличить этот вариант в подборе и таблицах совместимости. Выберите кузов и тип крыши, особенно если от них зависит установка багажника.', 'items' => ['Годы конфигурации по умолчанию берутся из поколения, но их можно сузить.', 'Статус «проверено» ставьте только после сверки с надёжным источником.', 'Примечание используйте для внутренних уточнений, которые не входят в название.']])
 <div class="form-grid">
 <div class="field field--wide"><label for="display_name">Отображаемое название</label><input id="display_name" name="display_name" value="{{ old('display_name', $vehicleConfiguration->display_name ?? '') }}" placeholder="Кроссовер, интегрированные рейлинги" required>@error('display_name')<p class="field__error">{{ $message }}</p>@enderror</div>
 <div class="field"><label for="slug">Код / URL</label><input id="slug" name="slug" value="{{ old('slug', $vehicleConfiguration->slug ?? '') }}" placeholder="Заполнится автоматически">@error('slug')<p class="field__error">{{ $message }}</p>@enderror</div>

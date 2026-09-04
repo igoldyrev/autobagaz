@@ -7,6 +7,8 @@
     $selectedManufacturerId = (string) old('manufacturer_id', $roofRack?->manufacturer_id ?? '');
 @endphp
 
+@include('admin.partials.help', ['title' => 'Заполнение автобагажника', 'text' => 'Сначала заполните название, цену, остаток и основные характеристики. Категории управляют размещением в каталоге, а группы применяемости — подбором по автомобилю. Публикуйте товар после проверки карточки и совместимости.', 'items' => ['Адрес страницы можно оставить пустым — он сформируется автоматически.', 'Монтажные размеры берите из технической документации производителя.', 'После первого сохранения товар можно добавить в группы применяемости.']])
+
 <div class="form-grid">
     <div class="field field--wide">
         <label for="name">Название товара</label>
@@ -89,13 +91,37 @@
     </fieldset>
     <fieldset class="field field--wide product-specific-fields">
         <legend>Монтажный профиль для автоматической совместимости</legend>
-        <p class="field__hint">Все монтажные размеры хранятся в миллиметрах. Незаполненные обязательные параметры дадут результат «Недостаточно данных».</p>
+        <p class="field__hint">Укажите параметры поперечной дуги багажника по инструкции или схеме производителя. Система сравнивает ширину, высоту и T-паз дуги с креплением автобокса. Все размеры указываются в миллиметрах; если параметр неизвестен, оставьте поле пустым — проверка покажет «Недостаточно данных».</p>
         <div class="form-grid product-specific-fields__grid">
-            <div class="field"><label for="bar_length_mm">Длина дуги, мм</label><input id="bar_length_mm" name="bar_length_mm" type="number" min="1" value="{{ old('bar_length_mm', $roofRack?->bar_length_mm ?? '') }}">@error('bar_length_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
-            <div class="field"><label for="bar_width_mm">Ширина профиля, мм</label><input id="bar_width_mm" name="bar_width_mm" type="number" min="1" value="{{ old('bar_width_mm', $roofRack?->bar_width_mm ?? '') }}">@error('bar_width_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
-            <div class="field"><label for="bar_height_mm">Высота профиля, мм</label><input id="bar_height_mm" name="bar_height_mm" type="number" min="1" value="{{ old('bar_height_mm', $roofRack?->bar_height_mm ?? '') }}">@error('bar_height_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
-            <div class="field"><label for="profile_type">Форма профиля</label><select id="profile_type" name="profile_type"><option value="">Не выбрана</option>@foreach(['rectangular' => 'Прямоугольная', 'aerodynamic' => 'Аэродинамическая', 'wing' => 'Крыловидная', 'other' => 'Другая'] as $value => $label)<option value="{{ $value }}" @selected(old('profile_type', $roofRack?->profile_type ?? '') === $value)>{{ $label }}</option>@endforeach</select></div>
-            <div class="field"><label for="t_slot_width_mm">Ширина T-паза, мм</label><input id="t_slot_width_mm" name="t_slot_width_mm" type="number" min="1" value="{{ old('t_slot_width_mm', $roofRack?->t_slot_width_mm ?? '') }}">@error('t_slot_width_mm')<p class="field__error">{{ $message }}</p>@enderror</div>
+            <div class="field">
+                <label for="bar_length_mm">Длина дуги, мм</label>
+                <input id="bar_length_mm" name="bar_length_mm" type="number" min="1" value="{{ old('bar_length_mm', $roofRack?->bar_length_mm ?? '') }}">
+                <p class="field__hint">Полная длина одной поперечной дуги от края до края.</p>
+                @error('bar_length_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
+            <div class="field">
+                <label for="bar_width_mm">Ширина профиля, мм</label>
+                <input id="bar_width_mm" name="bar_width_mm" type="number" min="1" value="{{ old('bar_width_mm', $roofRack?->bar_width_mm ?? '') }}">
+                <p class="field__hint">Внешняя ширина поперечного сечения дуги.</p>
+                @error('bar_width_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
+            <div class="field">
+                <label for="bar_height_mm">Высота профиля, мм</label>
+                <input id="bar_height_mm" name="bar_height_mm" type="number" min="1" value="{{ old('bar_height_mm', $roofRack?->bar_height_mm ?? '') }}">
+                <p class="field__hint">Внешняя высота поперечного сечения дуги.</p>
+                @error('bar_height_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
+            <div class="field">
+                <label for="profile_type">Форма профиля</label>
+                <select id="profile_type" name="profile_type"><option value="">Не выбрана</option>@foreach(['rectangular' => 'Прямоугольная', 'aerodynamic' => 'Аэродинамическая', 'wing' => 'Крыловидная', 'other' => 'Другая'] as $value => $label)<option value="{{ $value }}" @selected(old('profile_type', $roofRack?->profile_type ?? '') === $value)>{{ $label }}</option>@endforeach</select>
+                <p class="field__hint">Форма поперечного сечения дуги.</p>
+            </div>
+            <div class="field">
+                <label for="t_slot_width_mm">Ширина T-паза, мм</label>
+                <input id="t_slot_width_mm" name="t_slot_width_mm" type="number" min="1" value="{{ old('t_slot_width_mm', $roofRack?->t_slot_width_mm ?? '') }}">
+                <p class="field__hint">Полезная ширина верхнего T-паза для установки аксессуаров. Если T-паза нет, оставьте поле пустым.</p>
+                @error('t_slot_width_mm')<p class="field__error">{{ $message }}</p>@enderror
+            </div>
         </div>
     </fieldset>
     <div class="field field--wide">

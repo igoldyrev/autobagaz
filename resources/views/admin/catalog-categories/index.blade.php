@@ -17,6 +17,8 @@
                 <a class="button button--primary button--inline" href="{{ route('admin.catalog-categories.create') }}">Добавить категорию</a>
             </div>
 
+            @include('admin.partials.help', ['title' => 'Как устроен каталог', 'text' => 'Разделы образуют верхний уровень каталога, обычные категории находятся внутри них, а спецкатегории используются для отдельных подборок. Родитель определяет положение записи в структуре.', 'items' => ['Поиск проверяет название и адрес страницы.', 'Порядок управляет расположением соседних записей: меньшее значение выводится раньше.', 'Скрытие сохраняет категорию и привязки товаров, но убирает её с сайта.']])
+
             <form class="toolbar" method="GET">
                 <label class="visually-hidden" for="search">Поиск</label>
                 <input id="search" name="search" type="search" value="{{ request('search') }}" placeholder="Название или URL">

@@ -29,6 +29,8 @@
                 <a class="admin-shortcuts__link" href="{{ route('admin.vehicles.vehicle-roof-types.index') }}">Типы крыши</a>
             </nav>
 
+            @include('admin.partials.help', ['title' => 'Как устроен справочник автомобилей', 'text' => 'Данные заполняются по порядку: марка → модель → поколение → конфигурация. Именно конечная конфигурация с кузовом и типом крыши выбирается в подборе и группах применяемости.', 'items' => ['Поиск на этой странице проверяет название и адрес марки.', 'Привязка к разделам каталога определяет, где марка доступна пользователю.', 'Скрытие марки сохраняет всю вложенную структуру, но убирает её с сайта.']])
+
             <form class="toolbar" method="GET">
                 <label class="visually-hidden" for="search">Поиск марки</label>
                 <input id="search" name="search" type="search" value="{{ request('search') }}" placeholder="Поиск по названию или URL">

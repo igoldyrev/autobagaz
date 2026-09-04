@@ -1,4 +1,5 @@
 @csrf @if(isset($vehicleGeneration)) @method('PUT') @endif
+@include('admin.partials.help', ['title' => 'Заполнение поколения', 'text' => 'Укажите общепринятое название и годы выпуска поколения. После сохранения откройте конфигурации и разделите варианты, если у них отличаются кузов, крыша или применяемость товаров.', 'items' => ['Год окончания оставьте пустым для текущего поколения.', 'Порядок управляет расположением поколений внутри модели.', 'Отключённое поколение сохраняется вместе со всеми конфигурациями.']])
 <div class="form-grid">
 <div class="field field--wide"><label for="name">Название поколения</label><input id="name" name="name" value="{{ old('name', $vehicleGeneration->name ?? '') }}" placeholder="Например: V поколение" required>@error('name')<p class="field__error">{{ $message }}</p>@enderror</div>
 <div class="field"><label for="slug">Код / URL</label><input id="slug" name="slug" value="{{ old('slug', $vehicleGeneration->slug ?? '') }}" placeholder="Заполнится автоматически">@error('slug')<p class="field__error">{{ $message }}</p>@enderror</div>

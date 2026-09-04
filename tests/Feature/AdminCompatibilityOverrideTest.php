@@ -23,6 +23,15 @@ class AdminCompatibilityOverrideTest extends TestCase
         $base = Product::query()->create(['name' => 'Override Base', 'slug' => 'override-base', 'price' => 1000, 'stock' => 1, 'is_active' => true]);
         $base->roofRack()->create();
 
+        $this->actingAs($admin)->get(route('admin.compatibility-overrides.index'))
+            ->assertOk()
+            ->assertSee('Когда нужны ручные исключения')
+            ->assertSee('Фильтр ниже показывает исключения только с выбранным принудительным результатом');
+        $this->actingAs($admin)->get(route('admin.compatibility-overrides.create'))
+            ->assertOk()
+            ->assertSee('Как задать область действия')
+            ->assertSee('Базовый багажник обязателен');
+
         $this->actingAs($admin)->post(route('admin.compatibility-overrides.store'), [
             'vehicle_configuration_id' => $configuration->id,
             'base_product_id' => $base->id,
@@ -38,6 +47,8 @@ class AdminCompatibilityOverrideTest extends TestCase
             'product_id' => $base->id,
         ]))
             ->assertOk()
+            ->assertSee('Как пользоваться проверкой')
+            ->assertSee('Базовый багажник необязателен и нужен только для проверки конкретной пары')
             ->assertSee('Результат: Совместимо')
             ->assertSee('обязательные условия установки выполнены')
             ->assertSee('Объяснение проверки')

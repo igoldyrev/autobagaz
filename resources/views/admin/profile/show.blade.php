@@ -16,6 +16,8 @@
                 <a class="button button--secondary button--inline" href="{{ route('admin.profile.settings.edit') }}">Настроить профиль</a>
             </div>
 
+            @include('admin.partials.help', ['title' => 'О профиле', 'text' => 'Здесь показаны ваши контактные данные, роль и последний вход. Имя, почту и телефон можно изменить в настройках, а пароль и другие активные сеансы — на вкладке безопасности.', 'items' => []])
+
             <section class="profile-card">
                 <div class="profile-card__heading">
                     <span class="profile-card__avatar" aria-hidden="true">{{ mb_strtoupper(mb_substr($user->name, 0, 1)) }}</span>
