@@ -15,10 +15,10 @@ use App\Models\VehicleModel;
 use App\Models\VehicleRoofType;
 use App\Services\VehicleCatalogService;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -53,7 +53,7 @@ class FitmentController extends Controller
             'created_by' => $request->user()->id,
             'updated_by' => $request->user()->id,
         ]);
-        $this->syncProducts($fitment, $data['product_ids']);
+        $this->syncProducts($fitment, $data['product_ids'] ?? []);
 
         return redirect()->route('admin.fitments.edit', $fitment)->with('success', 'Группа применяемости добавлена. Теперь настройте автомобили.');
     }
@@ -73,7 +73,7 @@ class FitmentController extends Controller
             'verified_at' => $data['verification_status'] === 'verified' ? ($fitment->verified_at ?: now()) : null,
             'updated_by' => $request->user()->id,
         ]);
-        $this->syncProducts($fitment, $data['product_ids']);
+        $this->syncProducts($fitment, $data['product_ids'] ?? []);
 
         return back()->with('success', 'Группа применяемости сохранена.');
     }

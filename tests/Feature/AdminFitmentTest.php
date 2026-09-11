@@ -142,6 +142,35 @@ class AdminFitmentTest extends TestCase
             ->assertSee('Будут скопированы автомобили и их монтажные параметры');
     }
 
+    public function test_administrator_can_save_fitment_without_products(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+        $fitment = Fitment::query()->create([
+            'code' => 'EMPTY-FITMENT',
+            'name' => 'Группа без товаров',
+            'verification_status' => 'draft',
+            'is_active' => true,
+        ]);
+
+        $this->actingAs($admin)->put(route('admin.fitments.update', $fitment), [
+            'code' => $fitment->code,
+            'name' => $fitment->name,
+            'verification_status' => 'draft',
+            'is_active' => '1',
+        ])->assertSessionDoesntHaveErrors();
+
+        $this->assertFalse($fitment->fresh()->products()->exists());
+
+        $this->actingAs($admin)->post(route('admin.fitments.store'), [
+            'code' => 'NEW-EMPTY-FITMENT',
+            'name' => 'Новая группа без товаров',
+            'verification_status' => 'draft',
+            'is_active' => '1',
+        ])->assertSessionDoesntHaveErrors();
+
+        $this->assertDatabaseHas('fitments', ['code' => 'NEW-EMPTY-FITMENT']);
+    }
+
     /** @return array{VehicleMake, VehicleModel, VehicleGeneration, VehicleConfiguration} */
     private function configuration(): array
     {
