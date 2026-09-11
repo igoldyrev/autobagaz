@@ -103,6 +103,45 @@ class AdminFitmentTest extends TestCase
         $this->assertFalse($fitment->configurations()->whereKey($configuration->id)->exists());
     }
 
+    public function test_administrator_can_copy_fitment_with_configurations_and_parameters(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+        [, , , $configuration] = $this->configuration();
+        $fitment = Fitment::query()->create([
+            'code' => 'ORIGINAL-FITMENT',
+            'name' => 'Исходная группа',
+            'source' => 'supplier',
+            'source_reference' => 'original-fitment',
+            'verification_status' => 'verified',
+            'is_active' => true,
+        ]);
+        $fitment->configurations()->attach($configuration, [
+            'crossbar_spacing_min_mm' => 550,
+            'crossbar_spacing_max_mm' => 900,
+            'max_dynamic_load_kg' => 75,
+        ]);
+
+        $this->actingAs($admin)->post(route('admin.fitments.copy', $fitment))
+            ->assertRedirect();
+
+        $copy = Fitment::query()->where('code', 'ORIGINAL-FITMENT-COPY')->firstOrFail();
+        $this->assertSame('Исходная группа (копия)', $copy->name);
+        $this->assertNull($copy->verified_at);
+        $this->assertSame('draft', $copy->verification_status);
+        $this->assertNull($copy->source);
+        $this->assertNull($copy->source_reference);
+        $this->assertTrue($copy->configurations()->whereKey($configuration->id)->exists());
+        $pivot = $copy->configurations()->whereKey($configuration->id)->firstOrFail()->pivot;
+        $this->assertSame(550, $pivot->crossbar_spacing_min_mm);
+        $this->assertSame(900, $pivot->crossbar_spacing_max_mm);
+        $this->assertEquals(75, $pivot->max_dynamic_load_kg);
+
+        $this->actingAs($admin)->get(route('admin.fitments.edit', $fitment))
+            ->assertOk()
+            ->assertSee('Копировать группу')
+            ->assertSee('Будут скопированы автомобили и их монтажные параметры');
+    }
+
     /** @return array{VehicleMake, VehicleModel, VehicleGeneration, VehicleConfiguration} */
     private function configuration(): array
     {

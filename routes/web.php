@@ -95,6 +95,7 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
         Route::get('fitments/{fitment}/configurations', [FitmentController::class, 'configurations'])->name('fitments.configurations');
         Route::post('fitments/{fitment}/configurations', [FitmentController::class, 'updateConfigurations'])->name('fitments.configurations.update');
         Route::get('fitments/{fitment}/preview', [FitmentController::class, 'preview'])->name('fitments.preview');
+        Route::post('fitments/{fitment}/copy', [FitmentController::class, 'copy'])->name('fitments.copy');
         Route::resource('fitments', FitmentController::class)->except('show');
         Route::prefix('vehicles')->name('vehicles.')->group(function () {
             Route::resource('vehicle-body-styles', VehicleBodyStyleController::class)->except('show');

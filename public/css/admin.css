@@ -118,6 +118,7 @@ a { color: inherit; }
 .activity-filters label { display: grid; gap: 4px; color: #69717c; font-size: 11px; font-weight: 700; }
 .activity-filters label input { width: 160px; }
 .text-link { color: #315f91; font-size: 14px; text-decoration: none; }
+.text-link--button { padding: 0; border: 0; background: transparent; cursor: pointer; }
 .admin-shortcuts { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 4px; }
 .admin-shortcuts--compact { margin-top: 10px; }
 .admin-shortcuts__link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #ccd8e6; border-radius: 9px; color: #274f7b; background: #f4f8fc; font-size: 15px; font-weight: 700; line-height: 1.25; text-decoration: none; transition: border-color .16s, background-color .16s, color .16s; }
@@ -152,6 +153,7 @@ a { color: inherit; }
 .entity-title img, .entity-title__placeholder { flex: 0 0 48px; width: 48px; height: 48px; border: 1px solid #e2e4e7; border-radius: 8px; background: #fff; object-fit: contain; }
 .entity-title__placeholder { display: grid; place-items: center; color: #df4b1f; background: #fff3ed; font-weight: 800; }
 .row-actions { display: flex; justify-content: flex-end; gap: 14px; white-space: nowrap; }
+.row-actions form { margin: 0; }
 .entity-tags { display: flex; flex-wrap: wrap; gap: 6px; min-width: 150px; }
 .empty-state { padding: 34px !important; color: #747b85; text-align: center !important; }
 

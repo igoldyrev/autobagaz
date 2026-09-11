@@ -15,9 +15,11 @@ use App\Models\VehicleModel;
 use App\Models\VehicleRoofType;
 use App\Services\VehicleCatalogService;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -84,6 +86,35 @@ class FitmentController extends Controller
         $fitment->delete();
 
         return redirect()->route('admin.fitments.index')->with('success', 'Группа применяемости удалена.');
+    }
+
+    public function copy(Request $request, Fitment $fitment): RedirectResponse
+    {
+        $copy = DB::transaction(function () use ($request, $fitment): Fitment {
+            $copy = $fitment->replicate(['code', 'verified_at', 'created_by', 'updated_by']);
+            $copy->code = $this->copyCode($fitment->code);
+            $copy->name = Str::limit($fitment->name.' (копия)', 255, '');
+            $copy->source = null;
+            $copy->source_reference = null;
+            $copy->verification_status = 'draft';
+            $copy->created_by = $request->user()->id;
+            $copy->updated_by = $request->user()->id;
+            $copy->save();
+
+            $configurations = $fitment->configurations()->get();
+            $copy->configurations()->attach($configurations->mapWithKeys(fn (VehicleConfiguration $configuration): array => [
+                $configuration->id => Arr::only($configuration->pivot->getAttributes(), [
+                    'notes', 'crossbar_spacing_min_mm', 'crossbar_spacing_max_mm', 'max_dynamic_load_kg',
+                ]),
+            ])->all());
+
+            return $copy;
+        });
+
+        return redirect()->route('admin.fitments.edit', $copy)->with(
+            'success',
+            'Создана копия группы. Автомобили и их монтажные параметры перенесены; товары в новую группу не добавлялись.'
+        );
     }
 
     public function configurations(Request $request, Fitment $fitment): View
@@ -164,6 +195,20 @@ class FitmentController extends Controller
         $values = collect($productIds)->mapWithKeys(fn ($id): array => [(int) $id => ['status' => 'active']])->all();
         $fitment->products()->sync($values);
         VehicleCatalogService::invalidate();
+    }
+
+    private function copyCode(string $code): string
+    {
+        $suffix = '-COPY';
+        $number = 1;
+
+        do {
+            $numberSuffix = $number === 1 ? '' : '-'.$number;
+            $candidate = Str::limit($code, 255 - strlen($suffix.$numberSuffix), '').$suffix.$numberSuffix;
+            $number++;
+        } while (Fitment::query()->where('code', $candidate)->exists());
+
+        return $candidate;
     }
 
     private function applyConfigurationFilters(Builder $query, Request $request): void
