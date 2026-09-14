@@ -17,7 +17,7 @@ class CompatibilityService
     {
         $product->loadMissing(['productType', 'roofRack', 'autoBox']);
         $strategy = $product->productType?->compatibility_strategy
-            ?? ($product->roofRack ? 'vehicle_fitment' : ($product->autoBox ? 'technical' : 'universal'));
+            ?? ($product->roofRack ? 'vehicle_fitment' : 'universal');
 
         return match ($strategy) {
             'vehicle_fitment' => $this->checkVehicleFitment($product, $context->vehicleConfiguration),

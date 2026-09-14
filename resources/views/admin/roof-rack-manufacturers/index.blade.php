@@ -8,12 +8,6 @@
         <main class="admin-content admin-content--wide">
             @include('admin.partials.flash')
 
-            <nav class="admin-breadcrumbs" aria-label="Хлебные крошки">
-                <a href="{{ route('admin.products.index') }}">Товары</a><span>→</span>
-                <a href="{{ route('admin.products.roof-racks.index') }}">Автобагажники</a><span>→</span>
-                <span>Производители</span>
-            </nav>
-
             <div class="page-heading">
                 <div>
                     <p class="eyebrow">Справочник автобагажников</p>

@@ -1,0 +1,3 @@
+@extends('layouts.admin')
+@section('title', 'Редактирование '.$manufacturer->name)
+@section('body')<div class="admin-shell">@include('admin.partials.header')<main class="admin-content admin-content--form">@include('admin.partials.flash')<p class="eyebrow">Справочник · Велокрепления</p><h1>{{ $manufacturer->name }}</h1><p class="admin-content__lead">Товаров этого производителя: {{ $manufacturer->bike_rack_products_count }}</p><form class="admin-form" method="POST" action="{{ route('admin.products.bike-racks.manufacturers.update', $manufacturer) }}">@include('admin.bike-rack-manufacturers._form')</form></main></div>@endsection

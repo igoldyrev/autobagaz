@@ -9,42 +9,77 @@
         <main class="admin-content">
             <p class="eyebrow">Панель управления</p>
             <h1>Добро пожаловать, {{ auth()->user()->name }}</h1>
-            <p class="admin-content__lead">Авторизация настроена. Здесь появятся инструменты управления товарами и категориями.</p>
 
             @include('admin.partials.help', ['title' => 'Как организована админка', 'text' => 'Рабочие разделы доступны по вашим правам. Обычно контент заполняется в последовательности: справочники и категории → товары → автомобили → совместимость.', 'items' => ['Начинайте со справочников, чтобы не создавать дубли прямо во время заполнения товара.', 'Скрытие записи обычно убирает её с сайта без удаления данных и связей.', 'Перед публикацией проверяйте карточку товара и результат совместимости.']])
 
-            <div class="admin-grid">
-                @if (auth()->user()->hasPermission(App\Models\User::PERMISSION_PRODUCTS))
-                <section class="admin-card">
-                    <h2>Товары</h2>
-                    <p>Добавление товаров, цены, остатки, фотографии и привязки к каталогу.</p>
-                    <a class="button button--primary button--inline" href="{{ route('admin.products.index') }}">Управлять товарами</a>
+            @if ($productStatistics)
+                <section class="dashboard-section" aria-labelledby="product-statistics-title">
+                    <div class="dashboard-section__heading">
+                        <h2 id="product-statistics-title">Статистика по товарам</h2>
+                        <span>Все / опубликовано</span>
+                    </div>
+                    <div class="dashboard-statistics">
+                        @foreach ($productStatistics as $statistic)
+                            <a class="dashboard-statistic" href="{{ $statistic['url'] }}">
+                                <span class="dashboard-statistic__label">{{ $statistic['label'] }}</span>
+                                <strong>{{ $statistic['total'] }}</strong>
+                                <span>Опубликовано: {{ $statistic['active'] }}</span>
+                            </a>
+                        @endforeach
+                    </div>
                 </section>
-                @endif
-                @if (auth()->user()->hasPermission(App\Models\User::PERMISSION_CATEGORIES))
-                <section class="admin-card">
-                    <h2>Разделы и категории</h2>
-                    <p>Общее дерево каталога, порядок и статус публикации.</p>
-                    <a class="button button--primary button--inline" href="{{ route('admin.catalog-categories.index') }}">Открыть дерево</a>
+            @endif
+
+            <div class="dashboard-workspace">
+                <section class="dashboard-panel" aria-labelledby="attention-title">
+                    <h2 id="attention-title">Требует внимания</h2>
+                    @forelse ($attentionItems as $item)
+                        <a class="dashboard-attention-item" href="{{ $item['url'] }}">
+                            <strong>{{ $item['count'] }}</strong>
+                            <span>{{ $item['label'] }}</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    @empty
+                        <p class="dashboard-panel__empty">Сейчас нет задач, требующих внимания.</p>
+                    @endforelse
                 </section>
-                @endif
-                @if (auth()->user()->hasPermission(App\Models\User::PERMISSION_VEHICLES))
-                <section class="admin-card">
-                    <h2>Марки и модели</h2>
-                    <p>Глобальный справочник марок и моделей для всех типов автомобильных товаров.</p>
-                    <a class="button button--primary button--inline" href="{{ route('admin.vehicles.vehicle-makes.index') }}">Перейти к справочнику</a>
+
+                <section class="dashboard-panel" aria-labelledby="quick-actions-title">
+                    <h2 id="quick-actions-title">Быстрые действия</h2>
+                    <div class="dashboard-actions">
+                        @if ($canManageProducts)
+                            <a class="button button--secondary button--inline" href="{{ route('admin.products.roof-racks.create') }}">Добавить багажник</a>
+                            <a class="button button--secondary button--inline" href="{{ route('admin.products.auto-boxes.create') }}">Добавить автобокс</a>
+                        @endif
+                        @if ($canManageVehicles)
+                            <a class="button button--secondary button--inline" href="{{ route('admin.compatibility.preview') }}">Проверить совместимость</a>
+                        @endif
+                        <a class="button button--secondary button--inline" href="{{ route('home') }}" target="_blank" rel="noopener">Открыть сайт ↗</a>
+                    </div>
                 </section>
-                @endif
+
                 @if (auth()->user()->isSuperAdmin())
-                <section class="admin-card">
-                    <h2>Пользователи</h2>
-                    <p>Учётные записи сотрудников, роли и индивидуальные права доступа.</p>
-                    <a class="button button--primary button--inline" href="{{ route('admin.users.index') }}">Управлять доступом</a>
-                </section>
+                    <section class="dashboard-panel dashboard-panel--activity" aria-labelledby="recent-activity-title">
+                        <div class="dashboard-panel__heading">
+                            <h2 id="recent-activity-title">Последние изменения</h2>
+                            <a class="text-link" href="{{ route('admin.activity.index') }}">Весь журнал</a>
+                        </div>
+                        @forelse ($recentActivities as $activity)
+                            <div class="dashboard-activity-item">
+                                <span>{{ $activity->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</span>
+                                <div>
+                                    <strong>{{ $activity->user_name }}</strong>
+                                    <p>{{ $activity->description }}</p>
+                                </div>
+                                <span class="activity-action activity-action--{{ $activity->action }}">{{ $activity->actionLabel() }}</span>
+                            </div>
+                        @empty
+                            <p class="dashboard-panel__empty">В журнале пока нет записей.</p>
+                        @endforelse
+                    </section>
                 @endif
             </div>
 
-            <a class="admin-content__site-link" href="{{ route('home') }}" target="_blank" rel="noopener">Открыть сайт ↗</a>
         </main>
     </div>
 @endsection

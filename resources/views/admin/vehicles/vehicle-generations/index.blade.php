@@ -2,7 +2,6 @@
 @section('title', 'Поколения '.$vehicleModel->name)
 @section('body')
 <div class="admin-shell">@include('admin.partials.header')<main class="admin-content admin-content--wide">@include('admin.partials.flash')
-<nav class="admin-breadcrumbs"><a href="{{ route('admin.vehicles.vehicle-makes.index') }}">Марки</a><span>/</span><a href="{{ route('admin.vehicles.vehicle-models.index', $vehicleMake) }}">{{ $vehicleMake->name }}</a><span>/</span><span>{{ $vehicleModel->name }}</span></nav>
 <div class="page-heading"><div><p class="eyebrow">Поколения</p><h1>{{ $vehicleMake->name }} {{ $vehicleModel->name }}</h1></div><a class="button button--primary button--inline" href="{{ route('admin.vehicles.vehicle-generations.create', [$vehicleMake, $vehicleModel]) }}">Добавить поколение</a></div>
 @include('admin.partials.help', ['title' => 'Работа с поколениями', 'text' => 'Поколение объединяет годы выпуска одной версии модели. Внутри поколения создаются конечные конфигурации с разными кузовами и типами крыши.', 'items' => ['Поиск проверяет только название поколения.', 'Пустой год окончания означает, что поколение выпускается сейчас.', 'Число конфигураций ведёт к вариантам, используемым в подборе совместимости.']])
 <form class="toolbar"><input name="search" value="{{ request('search') }}" placeholder="Поиск поколения"><button class="button button--secondary">Найти</button></form>

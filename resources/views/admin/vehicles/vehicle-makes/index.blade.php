@@ -9,10 +9,6 @@
         <main class="admin-content admin-content--wide">
             @include('admin.partials.flash')
 
-            <nav class="admin-breadcrumbs" aria-label="Хлебные крошки">
-                <a href="{{ route('admin.dashboard') }}">Главная</a><span>/</span><span>Справочник автомобилей</span>
-            </nav>
-
             <div class="page-heading">
                 <div>
                     <p class="eyebrow">Глобальный справочник</p>

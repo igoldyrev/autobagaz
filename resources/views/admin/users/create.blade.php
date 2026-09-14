@@ -7,9 +7,6 @@
         @include('admin.partials.header')
 
         <main class="admin-content admin-content--form">
-            <div class="admin-breadcrumbs">
-                <a href="{{ route('admin.users.index') }}">Пользователи</a><span>→</span><span>Новый пользователь</span>
-            </div>
             <h1>Новый пользователь</h1>
 
             @include('admin.partials.flash')

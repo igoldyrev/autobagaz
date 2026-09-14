@@ -13,7 +13,7 @@
 
     @if ($selectedVehicle)
         <section class="vehicle-filter-notice">
-            Показаны автобоксы с подтверждённой технической совместимостью для {{ $selectedVehicle->labelForYear($selectedVehicleYear) }}.
+            Автобоксы универсальны и подходят для {{ $selectedVehicle->labelForYear($selectedVehicleYear) }}.
             <a href="{{ route('catalog.vehicle-fitment.index') }}">Изменить автомобиль</a>
         </section>
     @endif

@@ -7,10 +7,6 @@
         @include('admin.partials.header')
         <main class="admin-content admin-content--form">
             @include('admin.partials.flash')
-            <nav class="admin-breadcrumbs" aria-label="Хлебные крошки">
-                <a href="{{ route('admin.vehicles.vehicle-makes.index') }}">Марки</a><span>/</span>
-                <a href="{{ route('admin.vehicles.vehicle-models.index', $vehicleMake) }}">{{ $vehicleMake->name }}</a><span>/</span><span>{{ $vehicleModel->name }}</span>
-            </nav>
             <p class="eyebrow">{{ $vehicleMake->name }}</p>
             <h1>{{ $vehicleModel->name }}</h1>
 

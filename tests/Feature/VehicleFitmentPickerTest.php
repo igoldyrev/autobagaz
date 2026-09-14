@@ -135,7 +135,7 @@ class VehicleFitmentPickerTest extends TestCase
 
         $box = $this->autoBox('Подходящий автобокс', 'compatible-auto-box', 60, 100, 35, 500, 800);
         $unrelatedRack = $this->roofRack('Неподходящий автобагажник', 'incompatible-roof-rack', 80, 25);
-        $unrelatedBox = $this->autoBox('Неподходящий автобокс', 'incompatible-auto-box', 20, 60, 20, 500, 800);
+        $unrelatedBox = $this->autoBox('Универсальный автобокс', 'universal-auto-box', 20, 60, 20, 500, 800);
 
         $response = $this->get(route('catalog.vehicle-fitment.index', [
             'vehicle_configuration_id' => $configuration->id,
@@ -147,8 +147,8 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertSee($rack->name)
             ->assertSee($box->name)
             ->assertDontSee($unrelatedRack->name)
-            ->assertDontSee($unrelatedBox->name)
-            ->assertSeeInOrder(['Багажники', '1', 'Автобоксы', '1']);
+            ->assertSee($unrelatedBox->name)
+            ->assertSeeInOrder(['Багажники', '1', 'Автобоксы', '2']);
 
         $this->get(route('catalog.autobagazhniki.index', ['vehicle_configuration_id' => $configuration->id]))
             ->assertOk()
@@ -160,7 +160,7 @@ class VehicleFitmentPickerTest extends TestCase
         $this->get(route('catalog.auto-boxes.index', ['vehicle_configuration_id' => $configuration->id]))
             ->assertOk()
             ->assertSee($box->name)
-            ->assertDontSee($unrelatedBox->name);
+            ->assertSee($unrelatedBox->name);
 
         $this->get(route('products.show', [
             'product' => $rack,

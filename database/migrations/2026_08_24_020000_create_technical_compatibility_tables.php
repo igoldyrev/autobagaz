@@ -21,7 +21,9 @@ return new class extends Migration
         $now = now();
         DB::table('product_types')->insert([
             ['code' => 'roof_rack', 'name' => 'Багажник на крышу', 'compatibility_strategy' => 'vehicle_fitment', 'is_active' => true, 'created_at' => $now, 'updated_at' => $now],
-            ['code' => 'roof_box', 'name' => 'Автомобильный бокс', 'compatibility_strategy' => 'technical', 'is_active' => true, 'created_at' => $now, 'updated_at' => $now],
+            ['code' => 'roof_box', 'name' => 'Автомобильный бокс', 'compatibility_strategy' => 'universal', 'is_active' => true, 'created_at' => $now, 'updated_at' => $now],
+            ['code' => 'bike_rack', 'name' => 'Велокрепление', 'compatibility_strategy' => 'universal', 'is_active' => true, 'created_at' => $now, 'updated_at' => $now],
+            ['code' => 'ski_rack', 'name' => 'Крепление для лыж и сноубордов', 'compatibility_strategy' => 'universal', 'is_active' => true, 'created_at' => $now, 'updated_at' => $now],
             ['code' => 'universal', 'name' => 'Универсальный аксессуар', 'compatibility_strategy' => 'universal', 'is_active' => true, 'created_at' => $now, 'updated_at' => $now],
         ]);
 

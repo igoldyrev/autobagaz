@@ -13,8 +13,10 @@ class ProductSectionController extends Controller
     {
         $roofRackProductsCount = Product::query()->whereHas('roofRack')->count();
         $autoBoxProductsCount = Product::query()->whereHas('autoBox')->count();
+        $bikeRackProductsCount = Product::query()->whereHas('bikeRack')->count();
+        $skiRackProductsCount = Product::query()->whereHas('skiRack')->count();
         $productTypes = ProductType::query()->orderBy('name')->get()->keyBy('code');
 
-        return view('admin.product-sections.index', compact('roofRackProductsCount', 'autoBoxProductsCount', 'productTypes'));
+        return view('admin.product-sections.index', compact('roofRackProductsCount', 'autoBoxProductsCount', 'bikeRackProductsCount', 'skiRackProductsCount', 'productTypes'));
     }
 }

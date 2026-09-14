@@ -31,11 +31,6 @@ class RoofRackProductRequest extends ProductRequest
             'installation_method' => ['nullable', 'string', 'max:255'],
             'bar_type' => ['nullable', 'string', 'max:255'],
             'rack_color' => ['nullable', 'string', 'max:255'],
-            'bar_length_mm' => ['nullable', 'integer', 'min:1', 'max:10000'],
-            'bar_width_mm' => ['nullable', 'integer', 'min:1', 'max:1000'],
-            'bar_height_mm' => ['nullable', 'integer', 'min:1', 'max:1000'],
-            'profile_type' => ['nullable', Rule::in(['rectangular', 'aerodynamic', 'wing', 'other'])],
-            't_slot_width_mm' => ['nullable', 'integer', 'min:1', 'max:100'],
         ];
     }
 }

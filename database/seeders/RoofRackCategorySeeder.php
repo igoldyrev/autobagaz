@@ -178,6 +178,24 @@ class RoofRackCategorySeeder extends Seeder
                 'meta_description' => 'Каталог автомобильных боксов на крышу. Продажа автобоксов в Перми.',
             ],
         );
+
+        CatalogCategory::query()->firstOrCreate(
+            ['parent_id' => null, 'slug' => 'velokrepleniya'],
+            [
+                'kind' => 'section',
+                'name' => 'Велокрепления',
+                'description' => 'Каталог велокреплений для перевозки велосипедов на автомобиле.',
+                'sort_order' => 2,
+                'is_active' => true,
+                'meta_title' => 'Велокрепления для автомобиля в Перми',
+                'meta_description' => 'Каталог велокреплений для перевозки велосипедов на автомобиле.',
+            ],
+        );
+
+        CatalogCategory::query()->firstOrCreate(
+            ['parent_id' => null, 'slug' => 'krepleniya-dlya-lyzh-i-snoubordov'],
+            ['kind' => 'section', 'name' => 'Крепления для лыж и сноубордов', 'description' => 'Каталог автомобильных креплений для лыж и сноубордов.', 'sort_order' => 3, 'is_active' => true, 'meta_title' => 'Крепления для лыж и сноубордов в Перми', 'meta_description' => 'Каталог креплений для лыж и сноубордов на автомобиль.'],
+        );
     }
 
     /** @return array{0: ?int, 1: ?int} */

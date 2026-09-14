@@ -32,34 +32,31 @@ class CompatibilityServiceTest extends TestCase
         $this->assertStringContainsString('технические параметры', $unknown->statusExplanation());
     }
 
-    public function test_it_explains_compatible_technical_pair(): void
+    public function test_auto_box_is_universally_compatible(): void
     {
         [$vehicle, $base, $box] = $this->compatibleContext();
 
         $result = app(CompatibilityService::class)->check($box, new CompatibilityContext($vehicle, $base));
 
         $this->assertSame(CompatibilityResult::COMPATIBLE, $result->status);
-        $this->assertSame($base->id, $result->matchedBaseProductId);
-        $this->assertStringContainsString('Ширина дуги 75 мм', implode(' ', $result->reasons));
-        $this->assertStringContainsString('пересекается', implode(' ', $result->reasons));
+        $this->assertNull($result->matchedBaseProductId);
+        $this->assertStringContainsString('универсальную стратегию', implode(' ', $result->reasons));
     }
 
-    public function test_known_failed_rule_is_incompatible_and_missing_data_is_unknown(): void
+    public function test_auto_box_does_not_require_technical_mounting_data(): void
     {
         [$vehicle, $base, $box] = $this->compatibleContext();
         $box->autoBox()->update(['clamp_width_max_mm' => 60]);
 
         $failed = app(CompatibilityService::class)->check($box->fresh(), new CompatibilityContext($vehicle, $base));
-        $this->assertSame(CompatibilityResult::INCOMPATIBLE, $failed->status);
-        $this->assertStringContainsString('не входит', implode(' ', $failed->reasons));
+        $this->assertSame(CompatibilityResult::COMPATIBLE, $failed->status);
 
         $box->autoBox()->update(['clamp_width_min_mm' => null, 'clamp_width_max_mm' => null]);
-        $unknown = app(CompatibilityService::class)->check($box->fresh(), new CompatibilityContext($vehicle, $base));
-        $this->assertSame(CompatibilityResult::UNKNOWN, $unknown->status);
-        $this->assertContains('ширина профиля или допустимый диапазон крепления', $unknown->missingData);
+        $withoutMountingData = app(CompatibilityService::class)->check($box->fresh(), new CompatibilityContext($vehicle, $base));
+        $this->assertSame(CompatibilityResult::COMPATIBLE, $withoutMountingData->status);
     }
 
-    public function test_manual_override_has_priority_over_technical_rules(): void
+    public function test_auto_box_ignores_pair_specific_override(): void
     {
         [$vehicle, $base, $box, $fitment] = $this->compatibleContext();
         $override = CompatibilityOverride::query()->create([
@@ -75,19 +72,18 @@ class CompatibilityServiceTest extends TestCase
 
         $result = app(CompatibilityService::class)->check($box, new CompatibilityContext($vehicle, $base));
 
-        $this->assertSame(CompatibilityResult::INCOMPATIBLE, $result->status);
-        $this->assertSame($override->id, $result->appliedOverrideId);
-        $this->assertStringContainsString('пятой двери', implode(' ', $result->reasons));
+        $this->assertSame(CompatibilityResult::COMPATIBLE, $result->status);
+        $this->assertNull($result->appliedOverrideId);
     }
 
-    public function test_service_can_find_compatible_base_automatically(): void
+    public function test_auto_box_does_not_need_a_compatible_base(): void
     {
         [$vehicle, $base, $box] = $this->compatibleContext();
 
         $result = app(CompatibilityService::class)->check($box, new CompatibilityContext($vehicle));
 
         $this->assertSame(CompatibilityResult::COMPATIBLE, $result->status);
-        $this->assertSame($base->id, $result->matchedBaseProductId);
+        $this->assertNull($result->matchedBaseProductId);
     }
 
     /** @return array{VehicleConfiguration, Product, Product, Fitment} */

@@ -7,7 +7,6 @@
     @include('admin.partials.header')
     <main class="admin-content admin-content--wide">
         @include('admin.partials.flash')
-        <nav class="admin-breadcrumbs"><a href="{{ route('admin.vehicles.vehicle-makes.index') }}">Автомобили</a><span>/</span><span>{{ $title }}</span></nav>
         <div class="page-heading">
             <div><p class="eyebrow">{{ $eyebrow }}</p><h1>{{ $title }}</h1><p class="admin-content__lead">Нормализованный справочник для конфигураций автомобилей.</p></div>
             <a class="button button--primary button--inline" href="{{ route($routePrefix.'.create') }}">Добавить {{ $singular }}</a>

@@ -7,9 +7,6 @@
         @include('admin.partials.header')
 
         <main class="admin-content admin-content--form">
-            <div class="admin-breadcrumbs">
-                <a href="{{ route('admin.users.index') }}">Пользователи</a><span>→</span><span>{{ $user->name }}</span>
-            </div>
             <h1>{{ $user->name }}</h1>
             <p class="admin-content__lead">Настройте роль, права доступа и при необходимости задайте новый пароль.</p>
 

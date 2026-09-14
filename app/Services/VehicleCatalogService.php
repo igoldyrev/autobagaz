@@ -65,16 +65,9 @@ class VehicleCatalogService
             ->whereHas('autoBox')
             ->with(['productType', 'autoBox'])
             ->get()
-            ->filter(function (Product $autoBox) use ($configuration, $roofRacks): bool {
-                foreach ($roofRacks as $roofRack) {
-                    $result = $this->compatibility->check($autoBox, new CompatibilityContext($configuration, $roofRack));
-                    if ($result->status === CompatibilityResult::COMPATIBLE) {
-                        return true;
-                    }
-                }
-
-                return false;
-            })
+            ->filter(fn (Product $autoBox): bool => $this->compatibility
+                ->check($autoBox, $context)
+                ->status === CompatibilityResult::COMPATIBLE)
             ->modelKeys();
         $roofRackIds = $roofRacks->modelKeys();
 

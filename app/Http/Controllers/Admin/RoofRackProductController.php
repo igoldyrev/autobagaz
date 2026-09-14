@@ -24,11 +24,6 @@ class RoofRackProductController extends Controller
         'installation_method',
         'bar_type',
         'rack_color',
-        'bar_length_mm',
-        'bar_width_mm',
-        'bar_height_mm',
-        'profile_type',
-        't_slot_width_mm',
     ];
 
     public function __construct(private ProductImageService $images) {}

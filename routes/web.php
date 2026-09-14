@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\AdminActivityController;
 use App\Http\Controllers\Admin\AutoBoxManufacturerController;
 use App\Http\Controllers\Admin\AutoBoxProductController;
+use App\Http\Controllers\Admin\BikeRackProductController;
+use App\Http\Controllers\Admin\BikeRackManufacturerController;
 use App\Http\Controllers\Admin\CatalogCategoryController as AdminCatalogCategoryController;
 use App\Http\Controllers\Admin\CompatibilityOverrideController;
 use App\Http\Controllers\Admin\CompatibilityPreviewController;
@@ -13,6 +15,8 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProfileSecurityController;
 use App\Http\Controllers\Admin\RoofRackManufacturerController;
 use App\Http\Controllers\Admin\RoofRackProductController;
+use App\Http\Controllers\Admin\SkiRackManufacturerController;
+use App\Http\Controllers\Admin\SkiRackProductController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserSessionController;
 use App\Http\Controllers\Admin\VehicleBodyStyleController;
@@ -23,10 +27,12 @@ use App\Http\Controllers\Admin\VehicleModelController;
 use App\Http\Controllers\Admin\VehicleRoofTypeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AutoBoxController;
+use App\Http\Controllers\BikeRackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Internal\AdminMonitoringController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoofRackCategoryController;
+use App\Http\Controllers\SkiRackController;
 use App\Http\Controllers\VehicleFitmentController;
 use Illuminate\Support\Facades\Route;
 
@@ -73,6 +79,20 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
             Route::get('/{product}/edit', [AutoBoxProductController::class, 'edit'])->name('edit');
             Route::put('/{product}', [AutoBoxProductController::class, 'update'])->name('update');
         });
+        Route::prefix('products/velokrepleniya')->name('products.bike-racks.')->group(function () {
+            Route::resource('manufacturers', BikeRackManufacturerController::class)
+                ->except(['show', 'destroy'])
+                ->names('manufacturers');
+            Route::get('/', [BikeRackProductController::class, 'index'])->name('index');
+            Route::get('/create', [BikeRackProductController::class, 'create'])->name('create');
+            Route::post('/', [BikeRackProductController::class, 'store'])->name('store');
+            Route::get('/{product}/edit', [BikeRackProductController::class, 'edit'])->name('edit');
+            Route::put('/{product}', [BikeRackProductController::class, 'update'])->name('update');
+        });
+        Route::prefix('products/lyzhnye-krepleniya')->name('products.ski-racks.')->group(function () {
+            Route::resource('manufacturers', SkiRackManufacturerController::class)->except(['show', 'destroy'])->names('manufacturers');
+            Route::get('/', [SkiRackProductController::class, 'index'])->name('index'); Route::get('/create', [SkiRackProductController::class, 'create'])->name('create'); Route::post('/', [SkiRackProductController::class, 'store'])->name('store'); Route::get('/{product}/edit', [SkiRackProductController::class, 'edit'])->name('edit'); Route::put('/{product}', [SkiRackProductController::class, 'update'])->name('update');
+        });
         Route::prefix('products/autobagazhniki')->name('products.roof-racks.')->group(function () {
             Route::resource('manufacturers', RoofRackManufacturerController::class)
                 ->except(['show', 'destroy'])
@@ -116,6 +136,8 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/autobox', AutoBoxController::class)->name('catalog.auto-boxes.index');
+Route::get('/velokrepleniya', BikeRackController::class)->name('catalog.bike-racks.index');
+Route::get('/krepleniya-dlya-lyzh-i-snoubordov', SkiRackController::class)->name('catalog.ski-racks.index');
 Route::get('/podbor-avto', [VehicleFitmentController::class, 'index'])->name('catalog.vehicle-fitment.index');
 Route::get('/podbor-avto/models', [VehicleFitmentController::class, 'models'])->name('catalog.vehicle-fitment.models');
 Route::get('/podbor-avto/configurations', [VehicleFitmentController::class, 'configurations'])->name('catalog.vehicle-fitment.configurations');

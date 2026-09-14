@@ -20,6 +20,8 @@ class ProductController extends Controller
             'productType',
             'roofRack.manufacturer',
             'autoBox.manufacturer',
+            'bikeRack.manufacturer',
+            'skiRack.manufacturer',
         ]);
 
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
@@ -62,7 +64,9 @@ class ProductController extends Controller
         ], fn ($value) => $value !== null);
 
         return route(
-            $product->autoBox ? 'catalog.auto-boxes.index' : 'catalog.autobagazhniki.index',
+            $product->autoBox
+                ? 'catalog.auto-boxes.index'
+                : ($product->bikeRack ? 'catalog.bike-racks.index' : ($product->skiRack ? 'catalog.ski-racks.index' : 'catalog.autobagazhniki.index')),
             $parameters,
         );
     }

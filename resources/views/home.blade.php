@@ -2,8 +2,8 @@
     $catalog = [
         ['title' => 'Автобагажники', 'image' => '/content/index/img/catalog/1_autobagazniki.jpg', 'alt' => 'Автобагажники', 'url' => route('catalog.autobagazhniki.index')],
         ['title' => 'Автомобильные боксы', 'image' => '/content/index/img/catalog/2_autobox.jpg', 'alt' => 'Автомобильные боксы', 'url' => route('catalog.auto-boxes.index')],
-        ['title' => 'Велокрепления', 'image' => '/content/index/img/catalog/3_velokreplenya.jpg', 'alt' => 'Велокрепления'],
-        ['title' => 'Крепления для лыж и сноубордов', 'image' => '/content/index/img/catalog/4_lyzh_kreplenya.jpg', 'alt' => 'Крепления для лыж и сноубордов'],
+        ['title' => 'Велокрепления', 'image' => '/content/index/img/catalog/3_velokreplenya.jpg', 'alt' => 'Велокрепления', 'url' => route('catalog.bike-racks.index')],
+        ['title' => 'Крепления для лыж и сноубордов', 'image' => '/content/index/img/catalog/4_lyzh_kreplenya.jpg', 'alt' => 'Крепления для лыж и сноубордов', 'url' => route('catalog.ski-racks.index')],
         ['title' => 'Рейлинги', 'image' => '/content/index/img/catalog/6_reelings.jpg', 'alt' => 'Рейлинги'],
         ['title' => 'Браслеты противоскольжения', 'image' => '/content/index/img/catalog/7_braslet.jpg', 'alt' => 'Браслеты противоскольжения'],
         ['title' => 'Фаркопы', 'image' => '/content/index/img/catalog/8_farkops.jpg', 'alt' => 'Фаркопы'],
@@ -173,9 +173,9 @@
             <aside class="left-nav">
                 @foreach ($categories as $category)
                     <a
-                        href="{{ $category === 'Автобагажники' ? route('catalog.autobagazhniki.index') : ($category === 'Автомобильные боксы' ? route('catalog.auto-boxes.index') : '#') }}"
+                        href="{{ $category === 'Автобагажники' ? route('catalog.autobagazhniki.index') : ($category === 'Автомобильные боксы' ? route('catalog.auto-boxes.index') : ($category === 'Велокрепления' ? route('catalog.bike-racks.index') : ($category === 'Крепления для лыж и сноубордов' ? route('catalog.ski-racks.index') : '#'))) }}"
                         class="left-nav__link"
-                        @if (! in_array($category, ['Автобагажники', 'Автомобильные боксы'], true)) data-placeholder aria-disabled="true" @endif
+                        @if (! in_array($category, ['Автобагажники', 'Автомобильные боксы', 'Велокрепления', 'Крепления для лыж и сноубордов'], true)) data-placeholder aria-disabled="true" @endif
                     >{{ $category }}</a>
                 @endforeach
                 <a href="https://vk.com/autobagaz" class="left-nav__link" target="_blank" rel="noopener noreferrer">Мы ВКонтакте</a>

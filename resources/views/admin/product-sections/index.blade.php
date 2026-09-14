@@ -11,7 +11,7 @@
             <h1>Типы товаров</h1>
             <p class="admin-content__lead">Каждый тип товаров управляется отдельно и хранит свои особенные характеристики в собственной таблице.</p>
 
-            @include('admin.partials.help', ['title' => 'С чего начать', 'text' => 'Выберите нужный тип товара: у багажников и автобоксов разные характеристики, производители и правила совместимости. Создавайте товар сразу в правильном разделе — перенос между типами не предусмотрен.', 'items' => ['В карточке товара заполните общие данные, профильные характеристики и фотографии.', 'Производители каждого типа ведутся в отдельном справочнике.', 'Совместимость багажников с автомобилями настраивается через группы применяемости.']])
+            @include('admin.partials.help', ['title' => 'С чего начать', 'text' => 'Выберите нужный тип товара: у багажников, автобоксов и велокреплений разные характеристики и правила совместимости. Создавайте товар сразу в правильном разделе — перенос между типами не предусмотрен.', 'items' => ['В карточке товара заполните общие данные, профильные характеристики и фотографии.', 'Производители багажников и автобоксов ведутся в отдельных справочниках.', 'Совместимость багажников с автомобилями настраивается через группы применяемости; автобоксы и велокрепления универсальны.']])
 
             <div class="product-section-grid">
                 <a class="product-section-card" href="{{ route('admin.products.roof-racks.index') }}">
@@ -34,14 +34,16 @@
                     <span class="product-section-card__count">{{ $autoBoxProductsCount }} товаров</span>
                 </a>
 
-                <div class="product-section-card product-section-card--disabled">
+                <a class="product-section-card" href="{{ route('admin.products.bike-racks.index') }}">
                     <div>
-                        <span class="product-section-card__eyebrow">Будущий раздел</span>
+                        <span class="product-section-card__eyebrow">Доступен</span>
                         <h2>Велокрепления</h2>
-                        <p>Будет добавлен отдельным модулем каталога.</p>
-                        <p>Для универсальных аксессуаров доступна стратегия <code>{{ $productTypes['universal']->compatibility_strategy }}</code>.</p>
+                        <p>Тип крепления, вместимость и грузоподъёмность.</p>
+                        <p><code>{{ $productTypes['bike_rack']->compatibility_strategy }}</code></p>
                     </div>
-                </div>
+                    <span class="product-section-card__count">{{ $bikeRackProductsCount }} товаров</span>
+                </a>
+                <a class="product-section-card" href="{{ route('admin.products.ski-racks.index') }}"><div><span class="product-section-card__eyebrow">Доступен</span><h2>Крепления для лыж и сноубордов</h2><p>Вместимость для лыж и сноубордов.</p><p><code>{{ $productTypes['ski_rack']->compatibility_strategy }}</code></p></div><span class="product-section-card__count">{{ $skiRackProductsCount }} товаров</span></a>
             </div>
         </main>
     </div>

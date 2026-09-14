@@ -38,7 +38,7 @@
             @if ($dependentProducts->isNotEmpty())
                 @include('catalog.products._grid', ['products' => $dependentProducts])
             @else
-                <div class="records-placeholder records-placeholder--list"><p>Для этой конфигурации пока нет автобоксов с подтверждённой совместимостью.</p></div>
+                <div class="records-placeholder records-placeholder--list"><p>В каталоге пока нет доступных автобоксов.</p></div>
             @endif
         </section>
     @endif

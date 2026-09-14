@@ -8,8 +8,6 @@
         ['title' => 'Контакты'],
     ];
     $siteCategories = [
-        'Велокрепления',
-        'Крепления для лыж и сноубордов',
         'Рейлинги',
         'Браслеты противоскольжения',
         'Фаркопы',
@@ -93,6 +91,8 @@
             <aside class="left-nav">
                 <a href="{{ route('catalog.autobagazhniki.index') }}" class="left-nav__link {{ request()->routeIs('catalog.autobagazhniki.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.autobagazhniki.*')) aria-current="page" @endif>Автобагажники</a>
                 <a href="{{ route('catalog.auto-boxes.index') }}" class="left-nav__link {{ request()->routeIs('catalog.auto-boxes.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.auto-boxes.*')) aria-current="page" @endif>Автомобильные боксы</a>
+                <a href="{{ route('catalog.bike-racks.index') }}" class="left-nav__link {{ request()->routeIs('catalog.bike-racks.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.bike-racks.*')) aria-current="page" @endif>Велокрепления</a>
+                <a href="{{ route('catalog.ski-racks.index') }}" class="left-nav__link {{ request()->routeIs('catalog.ski-racks.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.ski-racks.*')) aria-current="page" @endif>Крепления для лыж и сноубордов</a>
                 @foreach ($siteCategories as $category)
                     <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">{{ $category }}</a>
                 @endforeach

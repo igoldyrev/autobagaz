@@ -1,0 +1,10 @@
+@extends('layouts.admin')
+@section('title', 'Производители лыжных креплений')
+@section('body')
+<div class="admin-shell">@include('admin.partials.header')<main class="admin-content admin-content--wide">@include('admin.partials.flash')
+<div class="page-heading"><div><p class="eyebrow">Справочник лыжных креплений</p><h1>Производители</h1><p class="admin-content__lead">Справочник используется только товарами раздела «Крепления для лыж и сноубордов».</p></div><a class="button button--primary button--inline" href="{{ route('admin.products.ski-racks.manufacturers.create') }}">Добавить производителя</a></div>
+@include('admin.partials.help', ['title' => 'Как работает справочник', 'text' => 'Здесь хранятся производители только лыжных креплений. Запись выбирается в карточке товара и показывается покупателям.', 'items' => ['Поиск проверяет название производителя.', 'Скрытого производителя нельзя выбрать для нового товара, но существующие связи сохраняются.', 'Перед добавлением проверьте, нет ли производителя с другим написанием.']])
+<form class="toolbar" method="GET"><label class="visually-hidden" for="search">Поиск производителя</label><input id="search" name="search" type="search" value="{{request('search')}}" placeholder="Название производителя"><button class="button button--secondary" type="submit">Найти</button></form>
+<div class="table-wrap"><table class="admin-table"><thead><tr><th>Название</th><th>Товаров</th><th>Статус</th><th></th></tr></thead><tbody>@forelse($manufacturers as $m)<tr><td><strong>{{ $m->name }}</strong></td><td>{{ $m->ski_rack_products_count }}</td><td><span class="status {{ $m->is_active ? 'status--active' : 'status--inactive' }}">{{ $m->is_active ? 'Активен' : 'Скрыт' }}</span></td><td><a class="text-link" href="{{route('admin.products.ski-racks.manufacturers.edit',$m)}}">Изменить</a></td></tr>@empty<tr><td colspan="4" class="empty-state">Производители не найдены.</td></tr>@endforelse</tbody></table></div>@include('admin.partials.pagination',['paginator'=>$manufacturers])
+</main></div>
+@endsection

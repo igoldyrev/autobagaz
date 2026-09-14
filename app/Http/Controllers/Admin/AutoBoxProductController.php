@@ -27,12 +27,6 @@ class AutoBoxProductController extends Controller
         'opening_type',
         'mounting_type',
         'box_color',
-        'clamp_width_min_mm',
-        'clamp_width_max_mm',
-        'clamp_height_max_mm',
-        'crossbar_spacing_min_mm',
-        'crossbar_spacing_max_mm',
-        'required_t_slot_width_mm',
     ];
 
     public function __construct(private ProductImageService $images) {}

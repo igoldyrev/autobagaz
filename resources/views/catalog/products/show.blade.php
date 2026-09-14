@@ -113,13 +113,33 @@
                     </tbody>
                 </table>
             @endif
+
+            @if ($product->bikeRack?->hasCharacteristics())
+                <table class="roof-rack-characteristics">
+                    <caption>Характеристики велокрепления</caption>
+                    <tbody>
+                        @if (filled($product->bikeRack->mounting_type))
+                            <tr><th scope="row">Тип крепления</th><td>{{ $product->bikeRack->mounting_type }}</td></tr>
+                        @endif
+                        @if (filled($product->bikeRack->bike_capacity))
+                            <tr><th scope="row">Вместимость, велосипедов</th><td>{{ $product->bikeRack->bike_capacity }}</td></tr>
+                        @endif
+                        @if (filled($product->bikeRack->load_capacity_kg))
+                            <tr><th scope="row">Грузоподъёмность, кг</th><td>{{ rtrim(rtrim(number_format((float) $product->bikeRack->load_capacity_kg, 1, ',', ''), '0'), ',') }}</td></tr>
+                        @endif
+                    </tbody>
+                </table>
+            @endif
+            @if ($product->skiRack?->hasCharacteristics())
+                <table class="roof-rack-characteristics"><caption>Характеристики крепления для лыж и сноубордов</caption><tbody>@if(filled($product->skiRack->ski_pairs_capacity))<tr><th scope="row">Вместимость, пар лыж</th><td>{{ $product->skiRack->ski_pairs_capacity }}</td></tr>@endif @if(filled($product->skiRack->snowboard_capacity))<tr><th scope="row">Вместимость, сноубордов</th><td>{{ $product->skiRack->snowboard_capacity }}</td></tr>@endif</tbody></table>
+            @endif
         </section>
 
         <section class="product-page__summary" aria-label="Характеристики товара">
             <dl class="product-characteristics">
                 <div>
                     <dt>Производитель</dt>
-                    <dd>{{ $product->roofRack?->manufacturer?->name ?: ($product->autoBox?->manufacturer?->name ?: ($product->manufacturer ?: 'Не указан')) }}</dd>
+                    <dd>{{ $product->roofRack?->manufacturer?->name ?: ($product->autoBox?->manufacturer?->name ?: ($product->bikeRack?->manufacturer?->name ?: ($product->skiRack?->manufacturer?->name ?: ($product->manufacturer ?: 'Не указан')))) }}</dd>
                 </div>
                 <div>
                     <dt>Страна производства</dt>

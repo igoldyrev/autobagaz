@@ -67,6 +67,16 @@ class Product extends Model
         return $this->hasOne(AutoBoxProduct::class);
     }
 
+    public function bikeRack(): HasOne
+    {
+        return $this->hasOne(BikeRackProduct::class);
+    }
+
+    public function skiRack(): HasOne
+    {
+        return $this->hasOne(SkiRackProduct::class);
+    }
+
     public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true);

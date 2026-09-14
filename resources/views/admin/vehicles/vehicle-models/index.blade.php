@@ -8,10 +8,6 @@
 
         <main class="admin-content admin-content--wide">
             @include('admin.partials.flash')
-            <nav class="admin-breadcrumbs" aria-label="Хлебные крошки">
-                <a href="{{ route('admin.vehicles.vehicle-makes.index') }}">Марки</a><span>/</span><span>{{ $vehicleMake->name }}</span>
-            </nav>
-
             <div class="page-heading">
                 <div>
                     <p class="eyebrow">Модели автомобилей</p>

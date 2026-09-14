@@ -9,10 +9,6 @@
         <main class="admin-content admin-content--wide">
             @include('admin.partials.flash')
 
-            <nav class="admin-breadcrumbs">
-                <a href="{{ route('admin.users.index') }}">Пользователи</a><span>/</span><span>Журнал действий</span>
-            </nav>
-
             <div class="page-heading">
                 <div>
                     <p class="eyebrow">Контроль изменений</p>
