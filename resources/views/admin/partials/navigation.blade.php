@@ -23,7 +23,7 @@
 
     @if (auth()->user()->isSuperAdmin())
         <div class="admin-section-nav__group" role="group" aria-label="Администрирование">
-            <a href="{{ route('admin.users.index') }}" @if (request()->routeIs('admin.users.*', 'admin.activity.*')) aria-current="page" @endif>Пользователи</a>
+            <a href="{{ route('admin.users.index') }}" @if (request()->routeIs('admin.users.*')) aria-current="page" @endif>Пользователи</a>
         </div>
     @endif
 </nav>

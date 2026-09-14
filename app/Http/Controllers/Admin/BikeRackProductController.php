@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BikeRackProductRequest;
-use App\Models\CatalogCategory;
 use App\Models\BikeRackManufacturer;
+use App\Models\CatalogCategory;
 use App\Models\Product;
 use App\Models\ProductType;
 use App\Services\ProductImageService;

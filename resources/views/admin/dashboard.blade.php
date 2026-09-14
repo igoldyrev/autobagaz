@@ -58,26 +58,24 @@
                     </div>
                 </section>
 
-                @if (auth()->user()->isSuperAdmin())
-                    <section class="dashboard-panel dashboard-panel--activity" aria-labelledby="recent-activity-title">
-                        <div class="dashboard-panel__heading">
-                            <h2 id="recent-activity-title">Последние изменения</h2>
-                            <a class="text-link" href="{{ route('admin.activity.index') }}">Весь журнал</a>
-                        </div>
-                        @forelse ($recentActivities as $activity)
-                            <div class="dashboard-activity-item">
-                                <span>{{ $activity->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</span>
-                                <div>
-                                    <strong>{{ $activity->user_name }}</strong>
-                                    <p>{{ $activity->description }}</p>
-                                </div>
-                                <span class="activity-action activity-action--{{ $activity->action }}">{{ $activity->actionLabel() }}</span>
+                <section class="dashboard-panel dashboard-panel--activity" aria-labelledby="recent-activity-title">
+                    <div class="dashboard-panel__heading">
+                        <h2 id="recent-activity-title">Последние изменения</h2>
+                        <a class="text-link" href="{{ route('admin.activity.index') }}">Весь журнал</a>
+                    </div>
+                    @forelse ($recentActivities as $activity)
+                        <div class="dashboard-activity-item">
+                            <span>{{ $activity->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</span>
+                            <div>
+                                <strong>{{ $activity->user_name }}</strong>
+                                <p>{{ $activity->description }}</p>
                             </div>
-                        @empty
-                            <p class="dashboard-panel__empty">В журнале пока нет записей.</p>
-                        @endforelse
-                    </section>
-                @endif
+                            <span class="activity-action activity-action--{{ $activity->action }}">{{ $activity->actionLabel() }}</span>
+                        </div>
+                    @empty
+                        <p class="dashboard-panel__empty">В журнале пока нет записей.</p>
+                    @endforelse
+                </section>
             </div>
 
         </main>

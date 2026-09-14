@@ -20,23 +20,29 @@ class BikeRackManufacturerController extends Controller
         return view('admin.bike-rack-manufacturers.index', compact('manufacturers'));
     }
 
-    public function create(): View { return view('admin.bike-rack-manufacturers.create'); }
+    public function create(): View
+    {
+        return view('admin.bike-rack-manufacturers.create');
+    }
 
     public function store(BikeRackManufacturerRequest $request): RedirectResponse
     {
         $manufacturer = BikeRackManufacturer::query()->create($request->validated());
+
         return redirect()->route('admin.products.bike-racks.manufacturers.edit', $manufacturer)->with('success', 'Производитель добавлен.');
     }
 
     public function edit(BikeRackManufacturer $manufacturer): View
     {
         $manufacturer->loadCount('bikeRackProducts');
+
         return view('admin.bike-rack-manufacturers.edit', compact('manufacturer'));
     }
 
     public function update(BikeRackManufacturerRequest $request, BikeRackManufacturer $manufacturer): RedirectResponse
     {
         $manufacturer->update($request->validated());
+
         return back()->with('success', 'Изменения производителя сохранены.');
     }
 }

@@ -46,5 +46,4 @@ class AutoBoxProductRequest extends ProductRequest
             ])],
         ];
     }
-
 }

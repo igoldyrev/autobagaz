@@ -3,8 +3,8 @@
 use App\Http\Controllers\Admin\AdminActivityController;
 use App\Http\Controllers\Admin\AutoBoxManufacturerController;
 use App\Http\Controllers\Admin\AutoBoxProductController;
-use App\Http\Controllers\Admin\BikeRackProductController;
 use App\Http\Controllers\Admin\BikeRackManufacturerController;
+use App\Http\Controllers\Admin\BikeRackProductController;
 use App\Http\Controllers\Admin\CatalogCategoryController as AdminCatalogCategoryController;
 use App\Http\Controllers\Admin\CompatibilityOverrideController;
 use App\Http\Controllers\Admin\CompatibilityPreviewController;
@@ -57,13 +57,13 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
     Route::get('profile/security', [ProfileSecurityController::class, 'edit'])->name('profile.security.edit');
     Route::put('profile/security/password', [ProfileSecurityController::class, 'updatePassword'])->name('profile.security.password.update');
     Route::delete('profile/security/sessions', [ProfileSecurityController::class, 'destroyOtherSessions'])->name('profile.security.sessions.destroy');
+    Route::get('activity', AdminActivityController::class)->name('activity.index');
 
     Route::middleware('permission:users.manage')->group(function () {
         Route::resource('users', UserController::class)->except(['show', 'destroy']);
     });
 
     Route::middleware('super_admin')->group(function () {
-        Route::get('activity', AdminActivityController::class)->name('activity.index');
         Route::delete('users/{user}/sessions', UserSessionController::class)->name('users.sessions.destroy');
     });
 
@@ -91,7 +91,11 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
         });
         Route::prefix('products/lyzhnye-krepleniya')->name('products.ski-racks.')->group(function () {
             Route::resource('manufacturers', SkiRackManufacturerController::class)->except(['show', 'destroy'])->names('manufacturers');
-            Route::get('/', [SkiRackProductController::class, 'index'])->name('index'); Route::get('/create', [SkiRackProductController::class, 'create'])->name('create'); Route::post('/', [SkiRackProductController::class, 'store'])->name('store'); Route::get('/{product}/edit', [SkiRackProductController::class, 'edit'])->name('edit'); Route::put('/{product}', [SkiRackProductController::class, 'update'])->name('update');
+            Route::get('/', [SkiRackProductController::class, 'index'])->name('index');
+            Route::get('/create', [SkiRackProductController::class, 'create'])->name('create');
+            Route::post('/', [SkiRackProductController::class, 'store'])->name('store');
+            Route::get('/{product}/edit', [SkiRackProductController::class, 'edit'])->name('edit');
+            Route::put('/{product}', [SkiRackProductController::class, 'update'])->name('update');
         });
         Route::prefix('products/autobagazhniki')->name('products.roof-racks.')->group(function () {
             Route::resource('manufacturers', RoofRackManufacturerController::class)

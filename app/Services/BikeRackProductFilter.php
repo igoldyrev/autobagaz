@@ -58,11 +58,30 @@ class BikeRackProductFilter
         ];
     }
 
-    private function numericOptions(Collection $items, string $field): Collection { return $items->pluck($field)->filter(fn ($value) => $value !== null)->unique()->sort(SORT_NUMERIC)->values(); }
-    private function stringOptions(Collection $items, string $field): Collection { return $items->pluck($field)->filter(fn ($value) => filled($value))->unique()->sort(SORT_NATURAL | SORT_FLAG_CASE)->values(); }
+    private function numericOptions(Collection $items, string $field): Collection
+    {
+        return $items->pluck($field)->filter(fn ($value) => $value !== null)->unique()->sort(SORT_NUMERIC)->values();
+    }
+
+    private function stringOptions(Collection $items, string $field): Collection
+    {
+        return $items->pluck($field)->filter(fn ($value) => filled($value))->unique()->sort(SORT_NATURAL | SORT_FLAG_CASE)->values();
+    }
+
     /** @return array<int, string> */
-    private function strings(mixed $value): array { return collect(is_array($value) ? $value : ($value === null ? [] : [$value]))->filter(fn ($item) => is_string($item) || is_numeric($item))->map(fn ($item): string => trim((string) $item))->filter()->unique()->values()->all(); }
+    private function strings(mixed $value): array
+    {
+        return collect(is_array($value) ? $value : ($value === null ? [] : [$value]))->filter(fn ($item) => is_string($item) || is_numeric($item))->map(fn ($item): string => trim((string) $item))->filter()->unique()->values()->all();
+    }
+
     /** @return array<int, string> */
-    private function numbers(mixed $value): array { return collect($this->strings($value))->filter(fn (string $item): bool => is_numeric($item) && (float) $item >= 0)->values()->all(); }
-    private function number(mixed $value): ?string { return is_scalar($value) && is_numeric($value) && (float) $value >= 0 ? (string) $value : null; }
+    private function numbers(mixed $value): array
+    {
+        return collect($this->strings($value))->filter(fn (string $item): bool => is_numeric($item) && (float) $item >= 0)->values()->all();
+    }
+
+    private function number(mixed $value): ?string
+    {
+        return is_scalar($value) && is_numeric($value) && (float) $value >= 0 ? (string) $value : null;
+    }
 }

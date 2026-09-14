@@ -75,9 +75,7 @@ class DashboardController extends Controller
             'attentionItems' => $attentionItems,
             'canManageProducts' => $canManageProducts,
             'canManageVehicles' => $canManageVehicles,
-            'recentActivities' => $user->isSuperAdmin()
-                ? AdminActivityLog::query()->latest('created_at')->latest('id')->limit(5)->get()
-                : collect(),
+            'recentActivities' => AdminActivityLog::query()->latest('created_at')->latest('id')->limit(5)->get(),
         ]);
     }
 

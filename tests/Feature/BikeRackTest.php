@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Models\CatalogCategory;
 use App\Models\BikeRackManufacturer;
+use App\Models\CatalogCategory;
 use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\User;
