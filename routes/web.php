@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CompatibilityPreviewController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FitmentController;
 use App\Http\Controllers\Admin\ProductSectionController;
+use App\Http\Controllers\Admin\ProductPageInformationController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProfileSecurityController;
 use App\Http\Controllers\Admin\RoofRackManufacturerController;
@@ -69,6 +70,8 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
 
     Route::middleware('permission:products.manage')->group(function () {
         Route::get('products', ProductSectionController::class)->name('products.index');
+        Route::get('products/information', [ProductPageInformationController::class, 'edit'])->name('products.information.edit');
+        Route::put('products/information', [ProductPageInformationController::class, 'update'])->name('products.information.update');
         Route::prefix('products/autobox')->name('products.auto-boxes.')->group(function () {
             Route::resource('manufacturers', AutoBoxManufacturerController::class)
                 ->except(['show', 'destroy'])

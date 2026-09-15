@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Http\Middleware\ResolveVehicleConfiguration;
 use App\Models\Fitment;
 use App\Models\Product;
+use App\Models\ProductPageInformation;
 use App\Models\ProductType;
 use App\Models\User;
 use App\Models\VehicleBodyStyle;
@@ -170,6 +171,9 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertOk()
             ->assertSee('Ваш автомобиль:')
             ->assertSee('Подходит для вашей Lada (ВАЗ) Vesta')
+            ->assertSee('Подходит для 1 автомобиля')
+            ->assertSee($configuration->bodyStyle->name)
+            ->assertSee($configuration->roofType->name)
             ->assertDontSee('Совместимость с автомобилями');
 
         $this->get(route('products.show', [
@@ -193,6 +197,25 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertOk()
             ->assertCookieExpired(ResolveVehicleConfiguration::COOKIE_NAME)
             ->assertDontSee('selected-vehicle', escape: false);
+    }
+
+    public function test_product_page_displays_shared_purchase_information(): void
+    {
+        $product = $this->roofRack('Товар с условиями', 'product-with-information', 80, 25);
+        ProductPageInformation::query()->firstOrFail()->update([
+            'delivery_content' => 'Черновик доставки для Перми',
+            'payment_content' => 'Черновик оплаты',
+            'warranty_content' => 'Черновик гарантии',
+        ]);
+
+        $this->get(route('products.show', $product))
+            ->assertOk()
+            ->assertSee('Доставка')
+            ->assertSee('Оплата')
+            ->assertSee('Гарантия')
+            ->assertSee('Черновик доставки для Перми')
+            ->assertSee('Черновик оплаты')
+            ->assertSee('Черновик гарантии');
     }
 
     public function test_roof_rack_editor_uses_fitments_without_legacy_compatibility_fields(): void

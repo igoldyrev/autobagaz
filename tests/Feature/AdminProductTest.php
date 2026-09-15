@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\CatalogCategory;
 use App\Models\Fitment;
 use App\Models\Product;
+use App\Models\ProductPageInformation;
 use App\Models\RoofRackManufacturer;
 use App\Models\User;
 use App\Models\VehicleBodyStyle;
@@ -46,6 +47,30 @@ class AdminProductTest extends TestCase
             ->assertOk()
             ->assertSee('Список содержит только автобагажники')
             ->assertSee(route('admin.products.roof-racks.create'));
+    }
+
+    public function test_product_administrator_can_update_shared_purchase_information(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+
+        $this->actingAs($admin)
+            ->get(route('admin.products.information.edit'))
+            ->assertOk()
+            ->assertSee('Условия в карточках товаров')
+            ->assertSee('Доставка');
+
+        $this->actingAs($admin)
+            ->put(route('admin.products.information.update'), [
+                'delivery_content' => 'Новая доставка',
+                'payment_content' => 'Новая оплата',
+                'warranty_content' => 'Новая гарантия',
+            ])
+            ->assertRedirect(route('admin.products.information.edit'));
+
+        $information = ProductPageInformation::query()->firstOrFail();
+        $this->assertSame('Новая доставка', $information->delivery_content);
+        $this->assertSame('Новая оплата', $information->payment_content);
+        $this->assertSame('Новая гарантия', $information->warranty_content);
     }
 
     public function test_roof_rack_form_has_categories_and_only_fitment_based_applicability(): void

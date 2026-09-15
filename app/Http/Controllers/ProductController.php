@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Compatibility\CompatibilityContext;
 use App\Models\Product;
+use App\Models\ProductPageInformation;
 use App\Models\VehicleConfiguration;
 use App\Services\CompatibilityService;
 use Illuminate\Http\Request;
@@ -24,6 +25,33 @@ class ProductController extends Controller
             'skiRack.manufacturer',
         ]);
 
+        $compatibleVehicles = collect();
+        if ($product->roofRack) {
+            $product->load([
+                'fitments' => fn ($fitments) => $fitments
+                    ->active()
+                    ->wherePivot('status', 'active')
+                    ->with(['configurations' => fn ($configurations) => $configurations
+                        ->active()
+                        ->whereHas('generation', fn ($generations) => $generations
+                            ->active()
+                            ->whereHas('vehicleModel', fn ($models) => $models
+                                ->active()
+                                ->whereHas('make', fn ($makes) => $makes->active())))
+                        ->with(['generation.vehicleModel.make', 'bodyStyle', 'roofType'])]),
+            ]);
+            $compatibleVehicles = $product->fitments
+                ->flatMap(fn ($fitment) => $fitment->configurations)
+                ->unique('id')
+                ->sortBy(fn (VehicleConfiguration $configuration) => implode('|', [
+                    $configuration->generation->vehicleModel->make->name,
+                    $configuration->generation->vehicleModel->name,
+                    $configuration->year_label,
+                    $configuration->display_name,
+                ]))
+                ->values();
+        }
+
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
         $selectedVehicleYear = $request->attributes->get('vehicleYear');
         $compatibilityResult = $selectedVehicle
@@ -35,10 +63,26 @@ class ProductController extends Controller
         $alternativesUrl = $selectedVehicle
             ? $this->alternativesUrl($product, $selectedVehicle->id, $selectedVehicleYear)
             : null;
+        $compatibleVehiclesCountLabel = $this->vehicleCountLabel($compatibleVehicles->count());
+        $productPageInformation = ProductPageInformation::query()->firstOrFail();
 
         return view('catalog.products.show', compact(
-            'product', 'selectedVehicle', 'compatibilityResult', 'selectedVehicleLabel', 'alternativesUrl',
+            'product', 'selectedVehicle', 'compatibilityResult', 'selectedVehicleLabel', 'alternativesUrl', 'compatibleVehicles', 'compatibleVehiclesCountLabel', 'productPageInformation',
         ));
+    }
+
+    private function vehicleCountLabel(int $count): string
+    {
+        $lastTwoDigits = $count % 100;
+        if ($lastTwoDigits >= 11 && $lastTwoDigits <= 14) {
+            return 'автомобилей';
+        }
+
+        return match ($count % 10) {
+            1 => 'автомобиля',
+            2, 3, 4 => 'автомобиля',
+            default => 'автомобилей',
+        };
     }
 
     private function vehicleLabel(VehicleConfiguration $configuration, ?int $year): string

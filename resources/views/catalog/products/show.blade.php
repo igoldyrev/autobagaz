@@ -182,6 +182,24 @@
                     <a class="button button--secondary product-vehicle-compatibility__button" href="{{ route('catalog.vehicle-fitment.index') }}">Выбрать автомобиль</a>
                 @endif
             </section>
+
+            @if ($compatibleVehicles->isNotEmpty())
+                <details class="product-compatible-vehicles">
+                    <summary>
+                        <span>Подходит для {{ $compatibleVehicles->count() }} {{ $compatibleVehiclesCountLabel }}</span>
+                        <span class="product-compatible-vehicles__action">Показать список</span>
+                    </summary>
+                    <p class="product-compatible-vehicles__lead">Подтверждённые конфигурации автомобилей для этого багажника:</p>
+                    <ul class="product-compatible-vehicles__list">
+                        @foreach ($compatibleVehicles as $vehicle)
+                            <li>
+                                <strong>{{ $vehicle->generation->vehicleModel->make->name }} {{ $vehicle->generation->vehicleModel->name }}</strong>
+                                <span>{{ $vehicle->generation->display_name }} · {{ $vehicle->year_label }} · {{ $vehicle->bodyStyle?->name ?: 'кузов не указан' }} · {{ $vehicle->roofType?->name ?: 'крыша не указана' }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                </details>
+            @endif
         </section>
     </div>
 
@@ -192,8 +210,26 @@
         </section>
     @endif
 
+    <section class="product-information-tabs" data-product-information-tabs aria-label="Условия покупки">
+        <div class="product-information-tabs__controls" role="tablist" aria-label="Условия покупки">
+            <button id="product-delivery-tab" class="product-information-tabs__control" type="button" role="tab" aria-selected="true" aria-controls="product-delivery-panel">Доставка</button>
+            <button id="product-payment-tab" class="product-information-tabs__control" type="button" role="tab" aria-selected="false" aria-controls="product-payment-panel" tabindex="-1">Оплата</button>
+            <button id="product-warranty-tab" class="product-information-tabs__control" type="button" role="tab" aria-selected="false" aria-controls="product-warranty-panel" tabindex="-1">Гарантия</button>
+        </div>
+        <div id="product-delivery-panel" class="product-information-tabs__panel" role="tabpanel" aria-labelledby="product-delivery-tab">
+            {!! nl2br(e($productPageInformation->delivery_content)) !!}
+        </div>
+        <div id="product-payment-panel" class="product-information-tabs__panel" role="tabpanel" aria-labelledby="product-payment-tab" hidden>
+            {!! nl2br(e($productPageInformation->payment_content)) !!}
+        </div>
+        <div id="product-warranty-panel" class="product-information-tabs__panel" role="tabpanel" aria-labelledby="product-warranty-tab" hidden>
+            {!! nl2br(e($productPageInformation->warranty_content)) !!}
+        </div>
+    </section>
+
 @endsection
 
 @push('scripts')
     <script src="{{ asset('js/product-gallery.js') }}" defer></script>
+    <script src="{{ asset('js/product-information-tabs.js') }}" defer></script>
 @endpush

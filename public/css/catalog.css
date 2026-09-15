@@ -225,6 +225,12 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
 .product-page__price { margin: 28px 0 0; color: #d84a20; font-size: 32px; font-weight: 800; }
 .product-description { margin-top: 34px; padding-top: 28px; border-top: 1px solid #d8ded8; }
 .product-description__content { max-width: 880px; white-space: normal; }
+.product-information-tabs { margin-top: 34px; border: 1px solid #d8ded8; border-radius: 7px; background: #fff; }
+.product-information-tabs__controls { display: flex; gap: 4px; padding: 8px 10px 0; border-bottom: 1px solid #d8ded8; background: #f8faf8; }
+.product-information-tabs__control { padding: 10px 14px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: #4e574f; cursor: pointer; font: inherit; font-size: 15px; font-weight: 700; }
+.product-information-tabs__control[aria-selected="true"] { border-bottom-color: #18703c; color: #172019; }
+.product-information-tabs__control:focus-visible { outline: 2px solid #276b3a; outline-offset: -2px; }
+.product-information-tabs__panel { max-width: 880px; padding: 20px; color: #303831; font-size: 15px; line-height: 1.55; }
 .product-vehicle-compatibility { margin-top: 24px; padding: 18px 20px; border: 1px solid #d8ded8; border-radius: 7px; background: #f8faf8; }
 .product-vehicle-compatibility h2 { margin: 0 0 12px; font-size: 19px; }
 .product-vehicle-compatibility__label { margin: 0 0 3px; color: #687069; font-size: 14px; }
@@ -238,6 +244,13 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
 .product-vehicle-compatibility--unknown .product-vehicle-compatibility__status { color: #8a621c; }
 .product-vehicle-compatibility__prompt { margin: 0; color: #4e574f; line-height: 1.5; }
 .product-vehicle-compatibility__button { display: inline-flex; width: auto; margin-top: 16px; }
+.product-compatible-vehicles { margin-top: 16px; border: 1px solid #d8ded8; border-radius: 7px; background: #fff; }
+.product-compatible-vehicles summary { display: flex; justify-content: space-between; gap: 16px; padding: 16px 18px; color: #172019; cursor: pointer; font-weight: 800; }
+.product-compatible-vehicles__action { color: #276b3a; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.product-compatible-vehicles__lead { margin: 0; padding: 0 18px 12px; color: #4e574f; font-size: 14px; line-height: 1.45; }
+.product-compatible-vehicles__list { display: grid; gap: 10px; margin: 0; padding: 0 18px 18px; list-style: none; }
+.product-compatible-vehicles__list li { display: grid; gap: 2px; padding-top: 10px; border-top: 1px solid #edf0ed; font-size: 14px; line-height: 1.4; }
+.product-compatible-vehicles__list span { color: #525a53; }
 
 @media (max-width: 720px) {
     .product-page { grid-template-columns: 1fr; }
@@ -247,6 +260,8 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
     .roof-rack-characteristics th { width: 52%; }
     .product-page__summary { padding: 22px 18px; }
     .product-characteristics > div { grid-template-columns: 1fr; gap: 5px; }
+    .product-information-tabs__controls { overflow-x: auto; }
+    .product-information-tabs__control { flex: 0 0 auto; }
 }
 .vehicle-body-types-grid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
