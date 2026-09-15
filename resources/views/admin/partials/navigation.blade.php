@@ -14,6 +14,13 @@
         </div>
     @endif
 
+    @if (auth()->user()->hasPermission(App\Models\User::PERMISSION_ORDERS))
+        <div class="admin-section-nav__group" role="group" aria-label="Продажи">
+            <a href="{{ route('admin.orders.index') }}" @if (request()->routeIs('admin.orders.*')) aria-current="page" @endif>Заказы</a>
+            <a href="{{ route('admin.callback-requests.index') }}" @if (request()->routeIs('admin.callback-requests.*')) aria-current="page" @endif>Обратные звонки</a>
+        </div>
+    @endif
+
     @if (auth()->user()->hasPermission(App\Models\User::PERMISSION_VEHICLES))
         <div class="admin-section-nav__group" role="group" aria-label="Автомобили и совместимость">
             <a href="{{ route('admin.vehicles.vehicle-makes.index') }}" @if (request()->routeIs('admin.vehicles.*')) aria-current="page" @endif>Автомобили</a>

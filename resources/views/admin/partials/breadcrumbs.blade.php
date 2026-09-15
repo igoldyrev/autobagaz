@@ -53,6 +53,8 @@
         $items[] = ['label' => 'Исключения совместимости', 'url' => route('admin.compatibility-overrides.index')];
     } elseif (str_starts_with($routeName, 'admin.users.')) {
         $items[] = ['label' => 'Пользователи', 'url' => route('admin.users.index')];
+    } elseif (str_starts_with($routeName, 'admin.orders.')) {
+        $items[] = ['label' => 'Заказы', 'url' => route('admin.orders.index')];
     } elseif ($routeName === 'admin.activity.index') {
         $items[] = ['label' => 'Пользователи', 'url' => route('admin.users.index')];
         $items[] = ['label' => 'Журнал действий', 'url' => null];

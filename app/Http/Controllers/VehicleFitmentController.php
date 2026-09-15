@@ -20,12 +20,16 @@ class VehicleFitmentController extends Controller
         $selectedVehicleYear = $request->attributes->get('vehicleYear');
         $baseProducts = collect();
         $dependentProducts = collect();
+        $bikeRackProducts = collect();
+        $skiRackProducts = collect();
         $categoryResults = collect();
 
         if ($selectedVehicle) {
             $summary = $catalog->summary($selectedVehicle);
             $roofRackIds = $summary['roof_rack_ids'];
             $autoBoxIds = $summary['auto_box_ids'];
+            $bikeRackIds = $summary['bike_rack_ids'];
+            $skiRackIds = $summary['ski_rack_ids'];
             $baseProducts = Product::query()
                 ->whereKey($roofRackIds)
                 ->with(['images', 'roofRack.manufacturer'])
@@ -34,6 +38,16 @@ class VehicleFitmentController extends Controller
             $dependentProducts = Product::query()
                 ->whereKey($autoBoxIds)
                 ->with(['images', 'autoBox.manufacturer', 'categories'])
+                ->orderBy('name')
+                ->get();
+            $bikeRackProducts = Product::query()
+                ->whereKey($bikeRackIds)
+                ->with(['images', 'bikeRack.manufacturer'])
+                ->orderBy('name')
+                ->get();
+            $skiRackProducts = Product::query()
+                ->whereKey($skiRackIds)
+                ->with(['images', 'skiRack.manufacturer'])
                 ->orderBy('name')
                 ->get();
             $categoryResults = collect([
@@ -53,6 +67,22 @@ class VehicleFitmentController extends Controller
                         'vehicle_year' => $selectedVehicleYear,
                     ])),
                 ],
+                [
+                    'name' => 'Велокрепления',
+                    'count' => $summary['bike_rack_count'],
+                    'url' => route('catalog.bike-racks.index', array_filter([
+                        'vehicle_configuration_id' => $selectedVehicle->id,
+                        'vehicle_year' => $selectedVehicleYear,
+                    ])),
+                ],
+                [
+                    'name' => 'Крепления для лыж и сноубордов',
+                    'count' => $summary['ski_rack_count'],
+                    'url' => route('catalog.ski-racks.index', array_filter([
+                        'vehicle_configuration_id' => $selectedVehicle->id,
+                        'vehicle_year' => $selectedVehicleYear,
+                    ])),
+                ],
             ]);
         }
 
@@ -62,6 +92,8 @@ class VehicleFitmentController extends Controller
             'selectedVehicleYear',
             'baseProducts',
             'dependentProducts',
+            'bikeRackProducts',
+            'skiRackProducts',
             'categoryResults',
         ));
     }

@@ -2,18 +2,25 @@
     $pickerVehicle = $selectedVehicle ?? null;
     $pickerModel = $pickerVehicle?->generation?->vehicleModel;
     $pickerMake = $pickerModel?->make;
+    $isHero = $hero ?? false;
 @endphp
 
 <form
-    class="vehicle-picker"
+    id="vehicle-picker"
+    class="vehicle-picker {{ $isHero ? 'vehicle-picker--hero' : '' }}"
     method="get"
-    action="{{ route('catalog.vehicle-fitment.index') }}"
+    action="{{ $pickerAction ?? route('catalog.vehicle-fitment.index') }}"
     data-vehicle-picker
     data-selected-configuration="{{ $pickerVehicle?->id }}"
 >
     <div>
-        <h2 class="vehicle-picker__title">Подберите оборудование для автомобиля</h2>
-        <p class="vehicle-picker__lead">Выберите кузов с годами выпуска и доступный для него тип крепления.</p>
+        @if ($isHero)
+            <h1 class="vehicle-picker__title">Багажники и автобоксы для вашего автомобиля</h1>
+            <p class="vehicle-picker__lead">Подберём совместимое оборудование за минуту.</p>
+        @else
+            <h2 class="vehicle-picker__title">Подберите оборудование для автомобиля</h2>
+            <p class="vehicle-picker__lead">Выберите кузов с годами выпуска и доступный для него тип крепления.</p>
+        @endif
     </div>
     <div class="vehicle-picker__fields">
         <label>
@@ -37,11 +44,11 @@
             </select>
         </label>
         <label>
-            <span>Кузов и годы</span>
+            <span>{{ $isHero ? 'Год выпуска и кузов' : 'Кузов и годы' }}</span>
             <select required data-vehicle-bodywork disabled><option value="">Сначала выберите модель</option></select>
         </label>
         <label>
-            <span>Тип крепления</span>
+            <span>{{ $isHero ? 'Тип крыши' : 'Тип крепления' }}</span>
             <select required data-vehicle-mounting disabled><option value="">Сначала выберите кузов</option></select>
         </label>
         <input type="hidden" name="vehicle_configuration_id" value="{{ $pickerVehicle?->id }}" data-vehicle-configuration-input>

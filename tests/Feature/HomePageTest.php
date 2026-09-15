@@ -13,14 +13,19 @@ class HomePageTest extends TestCase
 
         $response
             ->assertOk()
-            ->assertSee('Купить багажник в Перми теперь не проблема')
-            ->assertSee('Нет записей')
+            ->assertSee('Багажники и автобоксы для вашего автомобиля')
+            ->assertSee('Популярные категории')
+            ->assertSee('Почему AutoBagaz')
+            ->assertSee('Крепления для активного отдыха')
             ->assertSee('/css/autobagaz.css', escape: false)
+            ->assertSee('/css/catalog.css', escape: false)
             ->assertDontSee('Панель администратора')
             ->assertDontSee('Администрирование')
+            ->assertDontSee('Фото установок')
+            ->assertDontSee('Пока нет опубликованных отзывов')
             ->assertDontSee('href="/news"', escape: false);
 
-        $this->assertSame(2, substr_count($response->getContent(), 'Нет записей'));
+        $this->assertSame(0, substr_count($response->getContent(), 'Нет записей'));
     }
 
     public function test_home_page_has_no_links_to_unavailable_pages(): void
@@ -35,7 +40,11 @@ class HomePageTest extends TestCase
             route('rental'),
             route('catalog.autobagazhniki.index'),
             route('catalog.auto-boxes.index'),
+            route('catalog.bike-racks.index'),
+            route('catalog.ski-racks.index'),
+            route('cart.index'),
             '#',
+            '#vehicle-picker',
             '#mobile-menu',
             'mailto:autobagaz@yandex.ru',
             'tel:+73422889929',

@@ -12,27 +12,29 @@ document.addEventListener('DOMContentLoaded', () => {
         menuButton.setAttribute('aria-expanded', String(isOpen));
     });
 
-    const modal = document.querySelector('.modal-call');
-    const overlay = document.querySelector('.modal-call__overlay');
-    const openButton = document.querySelector('.modal-call__button');
-    const closeButton = document.querySelector('.modal-call__close');
-    const callbackForm = document.querySelector('.js-modal-call-form');
+    const modal = document.querySelector('[data-callback-modal]');
+    const overlay = document.querySelector('[data-callback-overlay]');
+    const openButton = document.querySelector('[data-callback-open]');
+    const closeButton = document.querySelector('[data-callback-close]');
 
     const closeModal = () => {
-        modal?.classList.remove('modal-call--active');
-        overlay?.classList.remove('modal-call__overlay--active');
+        modal?.classList.remove('is-open');
+        modal?.setAttribute('aria-hidden', 'true');
+        overlay?.classList.remove('is-open');
+        document.body.classList.remove('callback-widget-open');
     };
 
     openButton?.addEventListener('click', () => {
-        modal?.classList.add('modal-call--active');
-        overlay?.classList.add('modal-call__overlay--active');
+        modal?.classList.add('is-open');
+        modal?.setAttribute('aria-hidden', 'false');
+        overlay?.classList.add('is-open');
+        document.body.classList.add('callback-widget-open');
+        modal?.querySelector('input[name="name"]')?.focus();
     });
 
     closeButton?.addEventListener('click', closeModal);
     overlay?.addEventListener('click', (event) => {
-        if (event.target === overlay) {
-            closeModal();
-        }
+        if (event.target === overlay) closeModal();
     });
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
@@ -40,9 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    callbackForm?.addEventListener('submit', (event) => {
-        event.preventDefault();
-        callbackForm.querySelector('.form-placeholder')?.removeAttribute('hidden');
-    });
+    if (modal?.classList.contains('is-open')) document.body.classList.add('callback-widget-open');
 
 });

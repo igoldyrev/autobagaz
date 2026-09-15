@@ -9,7 +9,7 @@
         <span class="breadcrumbs__text">Подбор по автомобилю</span>
     </nav>
 
-    @include('catalog.vehicle-fitment._picker')
+    @include('catalog.vehicle-fitment._picker', ['hero' => true])
 
     @if ($selectedVehicle)
         <section class="vehicle-fitment-results" aria-label="Результаты подбора">
@@ -39,6 +39,20 @@
                 @include('catalog.products._grid', ['products' => $dependentProducts])
             @else
                 <div class="records-placeholder records-placeholder--list"><p>В каталоге пока нет доступных автобоксов.</p></div>
+            @endif
+
+            <h2 id="bike-racks">Велокрепления</h2>
+            @if ($bikeRackProducts->isNotEmpty())
+                @include('catalog.products._grid', ['products' => $bikeRackProducts])
+            @else
+                <div class="records-placeholder records-placeholder--list"><p>В каталоге пока нет доступных велокреплений.</p></div>
+            @endif
+
+            <h2 id="ski-racks">Крепления для лыж и сноубордов</h2>
+            @if ($skiRackProducts->isNotEmpty())
+                @include('catalog.products._grid', ['products' => $skiRackProducts])
+            @else
+                <div class="records-placeholder records-placeholder--list"><p>В каталоге пока нет доступных креплений для лыж и сноубордов.</p></div>
             @endif
         </section>
     @endif

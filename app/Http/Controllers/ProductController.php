@@ -7,12 +7,13 @@ use App\Models\Product;
 use App\Models\ProductPageInformation;
 use App\Models\VehicleConfiguration;
 use App\Services\CompatibilityService;
+use App\Services\RecentlyViewedProductService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public function show(Request $request, Product $product, CompatibilityService $compatibility): View
+    public function show(Request $request, Product $product, CompatibilityService $compatibility, RecentlyViewedProductService $recentlyViewed): View
     {
         abort_unless($product->is_active, 404);
         $product->load([
@@ -65,6 +66,7 @@ class ProductController extends Controller
             : null;
         $compatibleVehiclesCountLabel = $this->vehicleCountLabel($compatibleVehicles->count());
         $productPageInformation = ProductPageInformation::query()->firstOrFail();
+        $recentlyViewed->remember($product);
 
         return view('catalog.products.show', compact(
             'product', 'selectedVehicle', 'compatibilityResult', 'selectedVehicleLabel', 'alternativesUrl', 'compatibleVehicles', 'compatibleVehiclesCountLabel', 'productPageInformation',

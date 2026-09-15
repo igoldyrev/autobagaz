@@ -30,6 +30,24 @@
                 </section>
             @endif
 
+            @if ($orderStatistics)
+                <section class="dashboard-section" aria-labelledby="order-statistics-title">
+                    <div class="dashboard-section__heading">
+                        <h2 id="order-statistics-title">Статистика по заказам</h2>
+                        <span>Количество / сумма</span>
+                    </div>
+                    <div class="dashboard-statistics">
+                        @foreach ($orderStatistics as $statistic)
+                            <a class="dashboard-statistic" href="{{ $statistic['url'] }}">
+                                <span class="dashboard-statistic__label">{{ $statistic['label'] }}</span>
+                                <strong>{{ $statistic['total'] }}</strong>
+                                <span>На сумму: {{ number_format($statistic['amount'], 2, ',', ' ') }} ₽</span>
+                            </a>
+                        @endforeach
+                    </div>
+                </section>
+            @endif
+
             <div class="dashboard-workspace">
                 <section class="dashboard-panel" aria-labelledby="attention-title">
                     <h2 id="attention-title">Требует внимания</h2>
@@ -53,6 +71,9 @@
                         @endif
                         @if ($canManageVehicles)
                             <a class="button button--secondary button--inline" href="{{ route('admin.compatibility.preview') }}">Проверить совместимость</a>
+                        @endif
+                        @if ($canManageOrders)
+                            <a class="button button--secondary button--inline" href="{{ route('admin.orders.index') }}">Открыть заказы</a>
                         @endif
                         <a class="button button--secondary button--inline" href="{{ route('home') }}" target="_blank" rel="noopener">Открыть сайт ↗</a>
                     </div>

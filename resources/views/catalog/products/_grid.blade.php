@@ -18,6 +18,10 @@
                 @endif
                 <strong class="product-card__price">{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</strong>
                 <span class="product-card__stock">{{ $product->stock > 0 ? 'В наличии: '.$product->stock.' шт.' : 'Под заказ' }}</span>
+                <form method="POST" action="{{ route('cart.store', $product) }}" class="product-card__cart-form">
+                    @csrf
+                    <button class="button button__buy product-card__buy" type="submit">В корзину</button>
+                </form>
             </div>
         </article>
     @endforeach

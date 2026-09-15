@@ -90,36 +90,13 @@
         <link rel="stylesheet" href="{{ asset('css/autobagaz.css') }}">
         <link rel="stylesheet" href="{{ asset('src/fa/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
         <link rel="stylesheet" href="{{ asset('css/admin-toolbar.css') }}">
     </head>
     <body>
         @include('admin.partials.site-toolbar')
 
-        <div class="modal-call__overlay">
-            <div class="modal-call" role="dialog" aria-modal="true" aria-labelledby="callback-title">
-                <button class="modal-call__close" type="button" aria-label="Закрыть">X</button>
-                <div class="modal-call__header">
-                    <h3 class="title title-h3" id="callback-title">Введите имя и телефон, и мы вам перезвоним!</h3>
-                </div>
-                <div class="modal-call__body">
-                    <form action="#" class="form js-modal-call-form">
-                        <span class="form__label">Ваше имя:</span>
-                        <div class="form__input-wrap">
-                            <input type="text" name="name" class="form__input form__input--call" placeholder="Введите ваше имя">
-                        </div>
-                        <span class="form__label">Ваш телефон:</span>
-                        <div class="form__input-wrap">
-                            <input type="tel" name="phone" class="form__input form__input--call" placeholder="Введите номер телефона">
-                        </div>
-                        <button class="button button__zakaz button__zakaz--call" type="submit">Перезвоните мне!</button>
-                        <p class="form-placeholder" hidden>Форма пока не подключена</p>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <button class="modal-call__button" type="button" aria-label="Заказать обратный звонок">
-            <i class="fa fa-phone fa-4x" aria-hidden="true"></i>
-        </button>
+        <x-callback-widget />
 
         <nav class="navigation-mobile" aria-label="Мобильная навигация">
             <ul class="navigation__list" id="mobile-menu">
@@ -154,7 +131,10 @@
                         <a class="link header__link" href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
                     </div>
                 </div>
-                <x-selected-vehicle />
+                <div class="header__actions">
+                    <x-cart-link />
+                    <x-selected-vehicle />
+                </div>
             </div>
         </header>
 
@@ -185,7 +165,11 @@
             </aside>
 
             <main class="wrapper__content">
-                @include('catalog.vehicle-fitment._picker', ['make' => null, 'model' => null, 'bodyType' => null])
+                <section class="home-section home-section--hero" aria-label="Подбор оборудования">
+                    @include('catalog.vehicle-fitment._picker', ['make' => null, 'model' => null, 'bodyType' => null, 'hero' => true])
+                </section>
+                <section class="home-section" aria-labelledby="popular-categories-title">
+                <h2 class="title title-h2" id="popular-categories-title">Популярные категории</h2>
                 <div class="catalog">
                     @foreach ($catalog as $item)
                         <div class="catalog__item">
@@ -204,8 +188,37 @@
                         </div>
                     @endforeach
                 </div>
+                </section>
 
-                <h2 class="title title-h2">Специальные предложения</h2>
+                <section class="home-section" aria-labelledby="vehicle-products-title">
+                    <h2 class="title title-h2" id="vehicle-products-title">Популярные товары для вашего автомобиля</h2>
+                    @if ($selectedVehicle && $homeProducts->isNotEmpty())
+                        <p class="vehicle-products__lead">Подходит для {{ $selectedVehicle->labelForYear($selectedVehicleYear) }}</p>
+                        @include('catalog.products._grid', ['products' => $homeProducts])
+                        <a class="link-green" href="{{ route('catalog.vehicle-fitment.index', array_filter(['vehicle_configuration_id' => $selectedVehicle->id, 'vehicle_year' => $selectedVehicleYear])) }}">Все подходящие товары</a>
+                    @elseif ($selectedVehicle)
+                        <div class="records-placeholder records-placeholder--list"><p>Для выбранного автомобиля пока нет подтверждённо совместимых товаров.</p></div>
+                    @else
+                        <div class="vehicle-products-empty">
+                            <span class="vehicle-products-empty__icon" aria-hidden="true"><i class="fa fa-car"></i></span>
+                            <div><p>Выберите автомобиль в форме выше — покажем багажники, боксы и крепления, которые точно подойдут.</p><a class="vehicle-products-empty__link" href="#vehicle-picker">Начать подбор</a></div>
+                        </div>
+                    @endif
+                </section>
+
+                <section class="home-section home-benefits" aria-labelledby="benefits-title">
+                    <h2 class="title title-h2" id="benefits-title">Почему AutoBagaz</h2>
+                    <ul class="home-benefits__list">
+                        <li><i class="fa fa-car" aria-hidden="true"></i><span>Подбираем оборудование именно под ваш автомобиль</span></li>
+                        <li><i class="fa fa-wrench" aria-hidden="true"></i><span>Устанавливаем оборудование в нашем сервисе</span></li>
+                        <li><i class="fa fa-shield" aria-hidden="true"></i><span>Даём гарантию на товары и работы</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i><span>Подскажем, что есть в наличии</span></li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i><span>Самовывоз в Перми, ул. Дзержинского, 15</span></li>
+                    </ul>
+                </section>
+
+                <section class="home-section" aria-labelledby="sales-title">
+                <h2 class="title title-h2" id="sales-title">Акции</h2>
                 <div class="sales">
                     @foreach ($sales as $sale)
                         <div class="sales__item">
@@ -224,12 +237,10 @@
                     @endforeach
                 </div>
                 <a href="#" class="link-green" data-placeholder aria-disabled="true">Все предложения</a>
+                </section>
 
-                <h2 class="title title-h2">Новости</h2>
-                <div class="records-placeholder records-placeholder--list"><p>Нет записей</p></div>
-                <a class="link-green" href="#" data-placeholder aria-disabled="true">Все новости</a>
-
-                <h2 class="title title-h2">Мы работаем со следующими брендами:</h2>
+                <section class="home-section" aria-labelledby="brands-title">
+                <h2 class="title title-h2" id="brands-title">Бренды</h2>
                 <div class="brands__wrap">
                     @foreach ($brands as $row)
                         <div class="brands">
@@ -239,47 +250,19 @@
                         </div>
                     @endforeach
                 </div>
+                </section>
 
-                <h2 class="title title-h2">Последние отзывы о нас</h2>
-                <div class="records-placeholder records-placeholder--list"><p>Нет записей</p></div>
-                <a href="#" class="link-green" data-placeholder aria-disabled="true">Смотреть все отзывы</a>
+                <section class="home-section home-seo" aria-labelledby="about-title">
+                    <h2 class="title title-h2" id="about-title">Багажники и автобоксы в Перми</h2>
+                    <p class="text">Автомобильный багажник помогает взять в поездку больше: вещи для дачи, туристическое снаряжение, лыжи или велосипеды. В AutoBagaz можно подобрать оборудование по марке, модели, году выпуска и типу крыши автомобиля — без риска купить несовместимый комплект.</p>
 
-                <h1 class="title title-h1">Купить багажник в Перми теперь не проблема</h1>
-                <p class="text">Для многих современных людей автомобиль является не только свидетельством жизненного успеха, но и
-                    незаменимым помощником для перевозки грузов. Имея личное авто можно без проблем осуществить перевозку вещей в
-                    загородный дом или дачу или же снаряжения при занятии активным отдыхом. Так, для осуществления грузоперевозок
-                    на легковом автомобиле существует багажник, устанавливаемый на крышу авто. Это может быть как простая и
-                    эстетичная конструкция, состоящая из двух дуг, так и более сложная, к примеру, автобокс или багажник для лодки.
-                    Наш магазин предлагает вашему вниманию автобагажники от известных мировых брендов. Если вам необходимо перевезти
-                    вещи или вы занимаетесь активным отдыхом — то вы попали по назначению. У нас вы сможете подобрать именно то, что
-                    вам нужно: автомобильные багажники, автомобильные боксы, которые станут незаменимыми помощниками при перевозке
-                    вещей и спортивного снаряжения. А для того, чтобы обеспечить вам комфорт и безопасность передвижения по зимней
-                    трассе, мы предлагаем вашему вниманию цепи противоскольжения от мировых производителей.</p>
+                    <h3 class="title title-h3">Багажники на крышу и автобоксы</h3>
+                    <p class="text">Базовый багажник состоит из опор и поперечин, на которые устанавливают автобокс, корзину или крепления для снаряжения. Автобокс защищает вещи от дождя и дорожной грязи, закрывается на ключ и освобождает место в салоне.</p>
 
-                <h3 class="title title-h3">Универсальные багажники</h3>
-                <p class="text">В наиболее простом варианте такой автобагажник представляет собой две параллельные дуги. Благодаря
-                    простоте и функциональности, данная конструкция предназначена для перевозки любых грузов, позволяя надежно
-                    закрепить предметы. Кроме стандартных вариантов, существует также корзина для авто. Универсальные модели
-                    автобагажников в основном предназначаются для иномарок и современных российских авто. Потому, если вам нужно
-                    подобрать багажник для отечественного автомобиля, то придется буквально «примерять» различные модели, дабы
-                    подобрать наиболее удобную и подходящую.</p>
+                    <h3 class="title title-h3">Крепления для активного отдыха</h3>
+                    <p class="text">Для велосипедов, лыж, сноубордов и другого снаряжения есть специализированные крепления. Поможем выбрать подходящий вариант, проверим совместимость с багажной системой и при необходимости установим оборудование в Перми. Также доступен прокат, если багажник или бокс нужен только на одну поездку.</p>
+                </section>
 
-                <h3 class="title title-h3">Автобоксы</h3>
-                <p class="text">Такие багажники представляют собой конструкции в виде кейсов, которые изготавливаются из прочного
-                    толстого пластика. Такая конструкция позволяет полностью обезопасить ваш груз от атмосферных осадков, уличной
-                    грязи и злоумышленников, поскольку устройство оснащается надежным замком.</p>
-
-                <h3 class="title title-h3">Специальные приспособления</h3>
-                <p class="text">К ним относится велокрепление, багажник для лодки и прочие всевозможные приспособления,
-                    специализированные под перевозку определённого вида грузов. Такие конструкции отлично подходят для тех, кто
-                    любит активный отдых или занимается определённым видом спорта. В данном случае, универсальный багажник окажется
-                    не очень удобным, а потому современные производители разработали ряд специальных приспособлений и насадок к
-                    ним, обеспечивающих комфортную и безопасную перевозку конкретного вида снаряжения. Всё большее количество людей
-                    в наши дни открывают для себя удобство и функциональность автобагажников. Современные конструкции совершенно не
-                    портят внешний вид вашего авто и выглядят эстетично, позволяя значительно расширить его функциональные
-                    возможности. К тому же у нас существует такая услуга, как прокат багажников и автобоксов, что будет отличным
-                    вариантом в том случае, если автобагажник нужен вам единоразово и вы не видите прямой необходимости в его
-                    покупке.</p>
             </main>
         </div>
 

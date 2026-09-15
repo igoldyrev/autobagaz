@@ -31,7 +31,8 @@ class VehicleFitmentPickerTest extends TestCase
 
         $this->get(route('home'))
             ->assertOk()
-            ->assertSee('Подберите оборудование для автомобиля')
+            ->assertSee('Багажники и автобоксы для вашего автомобиля')
+            ->assertSee('action="'.route('catalog.vehicle-fitment.index').'"', escape: false)
             ->assertSee('data-vehicle-configuration', escape: false)
             ->assertSee('data-vehicle-bodywork', escape: false)
             ->assertSee('data-vehicle-mounting', escape: false)
@@ -40,6 +41,30 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertDontSee('data-vehicle-body-style', escape: false)
             ->assertDontSee('data-vehicle-roof-type', escape: false)
             ->assertSee($configuration->generation->vehicleModel->make->name);
+    }
+
+    public function test_home_page_shows_compatible_products_for_selected_vehicle(): void
+    {
+        $configuration = $this->configuration();
+        $rack = $this->roofRack('Багажник для главной страницы', 'home-compatible-roof-rack', 80, 25);
+        $fitment = Fitment::query()->create([
+            'code' => 'HOME-FITMENT',
+            'name' => 'Применяемость для главной страницы',
+            'verification_status' => 'verified',
+            'is_active' => true,
+        ]);
+        $fitment->configurations()->attach($configuration, [
+            'crossbar_spacing_min_mm' => 600,
+            'crossbar_spacing_max_mm' => 900,
+        ]);
+        $fitment->products()->attach($rack, ['status' => 'active']);
+
+        $this->get(route('home', ['vehicle_configuration_id' => $configuration->id]))
+            ->assertOk()
+            ->assertSee('Популярные товары для вашего автомобиля')
+            ->assertSee('Подходит для '.$configuration->vehicle_label)
+            ->assertSee($rack->name)
+            ->assertSee('Все подходящие товары');
     }
 
     public function test_picker_returns_models_and_new_configurations(): void
@@ -101,6 +126,7 @@ class VehicleFitmentPickerTest extends TestCase
             'vehicle_year' => 2022,
         ]))
             ->assertOk()
+            ->assertSee('vehicle-picker--hero', escape: false)
             ->assertCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
             ->assertCookie(ResolveVehicleConfiguration::YEAR_COOKIE_NAME, '2022')
             ->assertSee('<strong>'.$configuration->vehicle_label.'</strong>', escape: false)
@@ -137,6 +163,8 @@ class VehicleFitmentPickerTest extends TestCase
         $box = $this->autoBox('Подходящий автобокс', 'compatible-auto-box', 60, 100, 35, 500, 800);
         $unrelatedRack = $this->roofRack('Неподходящий автобагажник', 'incompatible-roof-rack', 80, 25);
         $unrelatedBox = $this->autoBox('Универсальный автобокс', 'universal-auto-box', 20, 60, 20, 500, 800);
+        $bikeRack = $this->bikeRack('Подходящее велокрепление', 'compatible-bike-rack');
+        $skiRack = $this->skiRack('Подходящее крепление для лыж', 'compatible-ski-rack');
 
         $response = $this->get(route('catalog.vehicle-fitment.index', [
             'vehicle_configuration_id' => $configuration->id,
@@ -150,7 +178,9 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertSee($box->name)
             ->assertDontSee($unrelatedRack->name)
             ->assertSee($unrelatedBox->name)
-            ->assertSeeInOrder(['Багажники', '1', 'Автобоксы', '2']);
+            ->assertSee($bikeRack->name)
+            ->assertSee($skiRack->name)
+            ->assertSeeInOrder(['Багажники', '1', 'Автобоксы', '2', 'Велокрепления', '1', 'Крепления для лыж и сноубордов', '1']);
 
         $this->get(route('catalog.autobagazhniki.index', ['vehicle_configuration_id' => $configuration->id]))
             ->assertOk()
@@ -308,6 +338,22 @@ class VehicleFitmentPickerTest extends TestCase
             'crossbar_spacing_min_mm' => $minSpacing,
             'crossbar_spacing_max_mm' => $maxSpacing,
         ]);
+
+        return $product;
+    }
+
+    private function bikeRack(string $name, string $slug): Product
+    {
+        $product = $this->product($name, $slug, 'bike_rack');
+        $product->bikeRack()->create(['mounting_type' => 'На крышу', 'bike_capacity' => 2]);
+
+        return $product;
+    }
+
+    private function skiRack(string $name, string $slug): Product
+    {
+        $product = $this->product($name, $slug, 'ski_rack');
+        $product->skiRack()->create(['ski_pairs_capacity' => 4, 'snowboard_capacity' => 2]);
 
         return $product;
     }

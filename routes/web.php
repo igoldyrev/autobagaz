@@ -6,12 +6,14 @@ use App\Http\Controllers\Admin\AutoBoxProductController;
 use App\Http\Controllers\Admin\BikeRackManufacturerController;
 use App\Http\Controllers\Admin\BikeRackProductController;
 use App\Http\Controllers\Admin\CatalogCategoryController as AdminCatalogCategoryController;
+use App\Http\Controllers\Admin\CallbackRequestController as AdminCallbackRequestController;
 use App\Http\Controllers\Admin\CompatibilityOverrideController;
 use App\Http\Controllers\Admin\CompatibilityPreviewController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FitmentController;
-use App\Http\Controllers\Admin\ProductSectionController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProductPageInformationController;
+use App\Http\Controllers\Admin\ProductSectionController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProfileSecurityController;
 use App\Http\Controllers\Admin\RoofRackManufacturerController;
@@ -29,6 +31,9 @@ use App\Http\Controllers\Admin\VehicleRoofTypeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AutoBoxController;
 use App\Http\Controllers\BikeRackController;
+use App\Http\Controllers\CallbackRequestController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Internal\AdminMonitoringController;
 use App\Http\Controllers\ProductController;
@@ -112,6 +117,15 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
         });
     });
 
+    Route::middleware('permission:orders.manage')->group(function () {
+        Route::get('orders', [AdminOrderController::class, 'index'])->name('orders.index');
+        Route::get('orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
+        Route::put('orders/{order}', [AdminOrderController::class, 'update'])->name('orders.update');
+        Route::get('callback-requests', [AdminCallbackRequestController::class, 'index'])->name('callback-requests.index');
+        Route::get('callback-requests/{callbackRequest}', [AdminCallbackRequestController::class, 'show'])->name('callback-requests.show');
+        Route::put('callback-requests/{callbackRequest}', [AdminCallbackRequestController::class, 'update'])->name('callback-requests.update');
+    });
+
     Route::middleware('permission:categories.manage')->group(function () {
         Route::resource('catalog-categories', AdminCatalogCategoryController::class)->except(['show', 'destroy']);
     });
@@ -142,6 +156,14 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
 });
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::post('/callback', [CallbackRequestController::class, 'store'])->middleware('throttle:10,1')->name('callback.store');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/{product}', [CartController::class, 'store'])->middleware('throttle:30,1')->name('cart.store');
+Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
+Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::get('/checkout', [CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('/checkout', [CheckoutController::class, 'store'])->middleware('throttle:10,1')->name('checkout.store');
+Route::get('/checkout/{order}/success', [CheckoutController::class, 'success'])->name('checkout.success');
 Route::get('/autobox', AutoBoxController::class)->name('catalog.auto-boxes.index');
 Route::get('/velokrepleniya', BikeRackController::class)->name('catalog.bike-racks.index');
 Route::get('/krepleniya-dlya-lyzh-i-snoubordov', SkiRackController::class)->name('catalog.ski-racks.index');

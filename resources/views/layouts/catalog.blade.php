@@ -38,6 +38,7 @@
     </head>
     <body>
         @include('admin.partials.site-toolbar')
+        <x-callback-widget />
 
         <nav class="navigation-mobile" aria-label="Мобильная навигация">
             <ul class="navigation__list" id="mobile-menu">
@@ -72,7 +73,10 @@
                         <a class="link header__link" href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
                     </div>
                 </div>
-                <x-selected-vehicle />
+                <div class="header__actions">
+                    <x-cart-link />
+                    <x-selected-vehicle />
+                </div>
             </div>
         </header>
 

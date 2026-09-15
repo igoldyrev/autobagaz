@@ -32,6 +32,8 @@ class User extends Authenticatable
 
     public const PERMISSION_VEHICLES = 'vehicles.manage';
 
+    public const PERMISSION_ORDERS = 'orders.manage';
+
     /**
      * Get the attributes that should be cast.
      *
@@ -68,6 +70,7 @@ class User extends Authenticatable
             self::PERMISSION_PRODUCTS => 'Управление товарами и производителями',
             self::PERMISSION_CATEGORIES => 'Управление разделами и категориями',
             self::PERMISSION_VEHICLES => 'Управление марками и моделями автомобилей',
+            self::PERMISSION_ORDERS => 'Просмотр и обработка заказов',
         ];
     }
 

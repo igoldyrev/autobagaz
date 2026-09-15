@@ -158,6 +158,10 @@
             </dl>
 
             <p class="product-page__price">{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</p>
+            <form method="POST" action="{{ route('cart.store', $product) }}" class="product-page__buy">
+                @csrf
+                <button class="button button__buy" type="submit">В корзину</button>
+            </form>
 
             <section class="product-vehicle-compatibility {{ $compatibilityResult ? 'product-vehicle-compatibility--'.$compatibilityResult->status : 'product-vehicle-compatibility--empty' }}" aria-labelledby="product-vehicle-compatibility-title">
                 <h2 id="product-vehicle-compatibility-title">Совместимость</h2>
