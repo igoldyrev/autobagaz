@@ -153,6 +153,7 @@
 .product-card__no-image { color: #8a8f94; }
 .product-card__body { display: grid; gap: 8px; padding: 16px; }
 .product-card__name { color: #0a2a0a; font-family: "Roboto Slab", serif; font-size: 17px; font-weight: 700; text-decoration: none; }
+.product-card__compatibility { display: inline-flex; gap: 5px; align-items: baseline; color: #18703c; font-size: 13px; font-weight: 700; line-height: 1.35; }
 .product-card__stock { color: #687069; font-size: 13px; }
 .product-card__price { color: #d84a20; font-size: 20px; }
 

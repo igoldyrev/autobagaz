@@ -167,9 +167,9 @@
                     <p class="product-vehicle-compatibility__status">
                         <span aria-hidden="true">●</span>
                         @if ($compatibilityResult->status === App\Compatibility\CompatibilityResult::COMPATIBLE)
-                            Этот товар подходит
+                            Подходит для вашей {{ $selectedVehicleLabel }}
                         @elseif ($compatibilityResult->status === App\Compatibility\CompatibilityResult::INCOMPATIBLE)
-                            Этот товар не подходит
+                            Не подходит для выбранного автомобиля
                         @else
                             Совместимость пока не подтверждена
                         @endif

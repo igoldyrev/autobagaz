@@ -144,6 +144,7 @@ class VehicleFitmentPickerTest extends TestCase
         $response
             ->assertOk()
             ->assertSee('Подходит для '.$configuration->vehicle_label)
+            ->assertSee('Подходит для вашей '.$configuration->vehicle_label)
             ->assertSee($rack->name)
             ->assertSee($box->name)
             ->assertDontSee($unrelatedRack->name)
@@ -168,7 +169,7 @@ class VehicleFitmentPickerTest extends TestCase
         ]))
             ->assertOk()
             ->assertSee('Ваш автомобиль:')
-            ->assertSee('Этот товар подходит')
+            ->assertSee('Подходит для вашей Lada (ВАЗ) Vesta')
             ->assertDontSee('Совместимость с автомобилями');
 
         $this->get(route('products.show', [
@@ -176,7 +177,7 @@ class VehicleFitmentPickerTest extends TestCase
             'vehicle_configuration_id' => $configuration->id,
         ]))
             ->assertOk()
-            ->assertSee('Этот товар не подходит')
+            ->assertSee('Не подходит для выбранного автомобиля')
             ->assertSee('Показать подходящие аналоги')
             ->assertSee(route('catalog.autobagazhniki.index', [
                 'vehicle_configuration_id' => $configuration->id,

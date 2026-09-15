@@ -10,6 +10,12 @@
             </a>
             <div class="product-card__body">
                 <a class="product-card__name" href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
+                @if ($selectedVehicle)
+                    <span class="product-card__compatibility">
+                        <span aria-hidden="true">✓</span>
+                        Подходит для вашей {{ $selectedVehicle->labelForYear($selectedVehicleYear) }}
+                    </span>
+                @endif
                 <strong class="product-card__price">{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</strong>
                 <span class="product-card__stock">{{ $product->stock > 0 ? 'В наличии: '.$product->stock.' шт.' : 'Под заказ' }}</span>
             </div>
