@@ -63,6 +63,7 @@ class RoofRackCategoryController extends Controller
 
         if ($currentCategory) {
             $models = $currentCategory->models()->active()->get();
+            $popularModels = $this->popularModels($currentCategory, $models);
             $productQuery = Product::query()
                 ->active()
                 ->whereHas('roofRack')
@@ -80,6 +81,7 @@ class RoofRackCategoryController extends Controller
                 ->where('slug', $category)
                 ->firstOrFail();
             $models = collect();
+            $popularModels = collect();
             $productQuery = Product::query()
                 ->active()
                 ->whereHas('categories', fn (Builder $query) => $query->whereKey($currentCategory->id));
@@ -92,6 +94,7 @@ class RoofRackCategoryController extends Controller
             'rootCategory',
             'currentCategory',
             'models',
+            'popularModels',
             'products',
             'isVehicleMake',
             'filterOptions',
@@ -275,5 +278,21 @@ class RoofRackCategoryController extends Controller
             ->whereNull('parent_id')
             ->where('slug', 'autobagazhniki')
             ->firstOrFail();
+    }
+
+    /**
+     * Быстрые ссылки на наиболее востребованные модели поддерживаются отдельно
+     * от порядка полного справочника: сортировка в нём не означает популярность.
+     */
+    private function popularModels(VehicleMake $make, Collection $models): Collection
+    {
+        $popularModelNames = [
+            'toyota' => ['Camry', 'RAV 4', 'Corolla', 'Land Cruiser', 'Highlander'],
+        ];
+
+        return $models
+            ->keyBy('name')
+            ->only($popularModelNames[$make->slug] ?? [])
+            ->values();
     }
 }

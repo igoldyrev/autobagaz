@@ -35,6 +35,29 @@
         @endforelse
 
         @if ($items->isNotEmpty())
+            @if ($hasInstallationKit)
+                <section class="cart-installation-kit-confirmation" aria-labelledby="cart-installation-kit-confirmation-title">
+                    <h2 id="cart-installation-kit-confirmation-title">Полный комплект для установки собран</h2>
+                    <p>В корзине есть товар «<a href="{{ route('products.show', $roofRackAccessory) }}">{{ $roofRackAccessory->name }}</a>» и багажник на крышу.</p>
+                </section>
+            @elseif ($recommendedRoofRack)
+                <section class="cart-roof-rack-cross-sell" aria-labelledby="cart-roof-rack-cross-sell-title">
+                    <h2 id="cart-roof-rack-cross-sell-title">Всё необходимое для установки</h2>
+                    <p class="cart-roof-rack-cross-sell__vehicle">Для вашего автомобиля — совместимый багажник:</p>
+                    <p><strong><a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a></strong> · {{ number_format((float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</p>
+                    <form method="POST" action="{{ route('cart.store', $recommendedRoofRack) }}">
+                        @csrf
+                        <button class="button button__buy" type="submit">Добавить багажник</button>
+                    </form>
+                    <p class="cart-roof-rack-cross-sell__total">Итого с багажником: {{ number_format((float) $total + (float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</p>
+                </section>
+            @elseif ($roofRackAccessory)
+                <section class="cart-roof-rack-cross-sell" aria-labelledby="cart-roof-rack-cross-sell-title">
+                    <h2 id="cart-roof-rack-cross-sell-title">Для установки требуется багажник на крышу</h2>
+                    <p>«<a href="{{ route('products.show', $roofRackAccessory) }}">{{ $roofRackAccessory->name }}</a>» устанавливается на поперечины.</p>
+                    <a class="button button--secondary" href="{{ route('catalog.vehicle-fitment.index', ['redirect_to' => 'roof-racks']) }}">Подобрать совместимый багажник</a>
+                </section>
+            @endif
             <div class="cart-page__total">
                 <strong>Итого: <span data-cart-total>{{ number_format($total, 2, ',', ' ') }} ₽</span></strong>
                 <a class="button button__buy" href="{{ route('checkout.create') }}">Оформить заказ</a>

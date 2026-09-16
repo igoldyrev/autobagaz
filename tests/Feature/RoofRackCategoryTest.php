@@ -50,6 +50,7 @@ class RoofRackCategoryTest extends TestCase
             ->assertSee('Lada (ВАЗ)')
             ->assertSee('Багажники на рейлинги')
             ->assertDontSee('Марка автомобиля')
+            ->assertSee('data-brand-search', escape: false)
             ->assertDontSee('>Категория<', escape: false);
 
         $this->assertSame(81, substr_count($response->getContent(), 'data-category-card'));
@@ -68,6 +69,18 @@ class RoofRackCategoryTest extends TestCase
         $audi = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
 
         $this->assertSame(16, $audi->models()->count());
+    }
+
+    public function test_vehicle_make_page_has_a_searchable_collapsed_model_list(): void
+    {
+        $this->get(route('catalog.autobagazhniki.show', 'toyota'))
+            ->assertOk()
+            ->assertSee('data-model-search', escape: false)
+            ->assertSee('Все модели')
+            ->assertSee('data-model-list', escape: false)
+            ->assertSee('data-model-name="camry"', escape: false)
+            ->assertSee('Camry')
+            ->assertSee('RAV 4');
     }
 
     public function test_special_category_without_models_is_available(): void

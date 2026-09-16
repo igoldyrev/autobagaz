@@ -187,6 +187,32 @@
                 @endif
             </section>
 
+            @if ($requiresRoofRack)
+                <section class="product-roof-rack-cross-sell" aria-labelledby="product-roof-rack-cross-sell-title">
+                    @if ($selectedVehicle && $recommendedRoofRack)
+                        <h2 id="product-roof-rack-cross-sell-title">Всё необходимое для установки</h2>
+                        <p class="product-roof-rack-cross-sell__vehicle">{{ $selectedVehicleLabel }}</p>
+                        <dl class="product-roof-rack-cross-sell__kit">
+                            <div><dt><a href="{{ route('products.show', $product) }}">{{ $product->name }}</a></dt><dd>{{ number_format((float) $product->price, 2, ',', ' ') }} ₽ ✓</dd></div>
+                            <div><dt><a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a></dt><dd>{{ number_format((float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</dd></div>
+                        </dl>
+                        <form method="POST" action="{{ route('cart.store-kit', ['product' => $product, 'roofRack' => $recommendedRoofRack]) }}">
+                            @csrf
+                            <button class="button button__buy product-roof-rack-cross-sell__button" type="submit">Добавить комплект</button>
+                        </form>
+                        <p class="product-roof-rack-cross-sell__total">Итого: {{ number_format((float) $product->price + (float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</p>
+                    @else
+                        <h2 id="product-roof-rack-cross-sell-title">Требуется багажник на крышу</h2>
+                        <p>Этот товар устанавливается на поперечины багажника.</p>
+                        @if ($product->autoBox?->mounting_type)
+                            <p class="product-roof-rack-cross-sell__mounting">Тип крепления: {{ $product->autoBox->mounting_type }}</p>
+                        @endif
+                        <p class="product-roof-rack-cross-sell__lead">Нет поперечин? Подберите багажник для вашего автомобиля.</p>
+                        <a class="button button--secondary product-roof-rack-cross-sell__button" href="{{ route('catalog.vehicle-fitment.index', ['redirect_to' => 'roof-racks']) }}">Подобрать багажник →</a>
+                    @endif
+                </section>
+            @endif
+
             @if ($compatibleVehicles->isNotEmpty())
                 <details class="product-compatible-vehicles">
                     <summary>

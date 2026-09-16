@@ -50,7 +50,8 @@ class BikeRackTest extends TestCase
             ->assertSee('Характеристики велокрепления')
             ->assertSee('Thule')
             ->assertSee('На фаркоп')
-            ->assertSee('Вместимость, велосипедов');
+            ->assertSee('Вместимость, велосипедов')
+            ->assertDontSee('Требуется багажник на крышу');
     }
 
     public function test_bike_rack_type_and_section_are_available(): void
@@ -78,6 +79,18 @@ class BikeRackTest extends TestCase
             ->assertSee($matching->name)
             ->assertDontSee($other->name)
             ->assertSee('Найдено товаров: 1');
+    }
+
+    public function test_roof_mounted_bike_rack_offers_roof_rack_selection(): void
+    {
+        $product = $this->bikeRack('Велокрепление на крышу', 'bike-rack-cross-sell', null, 'На крышу', 1, 20, 15000, 1);
+
+        $this->get(route('products.show', $product))
+            ->assertOk()
+            ->assertSee('Требуется багажник на крышу')
+            ->assertSee('Этот товар устанавливается на поперечины багажника.')
+            ->assertSee('Нет поперечин? Подберите багажник для вашего автомобиля.')
+            ->assertSee(route('catalog.vehicle-fitment.index', ['redirect_to' => 'roof-racks']));
     }
 
     public function test_administrator_can_manage_bike_rack_manufacturers(): void

@@ -8,16 +8,25 @@ use App\Models\VehicleMake;
 use App\Models\VehicleModel;
 use App\Services\VehicleCatalogService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class VehicleFitmentController extends Controller
 {
-    public function index(Request $request, VehicleCatalogService $catalog): View
+    public function index(Request $request, VehicleCatalogService $catalog): View|RedirectResponse
     {
         $vehicleMakes = $this->vehicleMakes();
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
         $selectedVehicleYear = $request->attributes->get('vehicleYear');
+        $redirectTo = $request->string('redirect_to')->toString();
+
+        if ($selectedVehicle && $request->filled('vehicle_configuration_id') && $redirectTo === 'roof-racks') {
+            return redirect()->route('catalog.autobagazhniki.index', array_filter([
+                'vehicle_configuration_id' => $selectedVehicle->id,
+                'vehicle_year' => $selectedVehicleYear,
+            ]));
+        }
         $baseProducts = collect();
         $dependentProducts = collect();
         $bikeRackProducts = collect();
@@ -95,6 +104,7 @@ class VehicleFitmentController extends Controller
             'bikeRackProducts',
             'skiRackProducts',
             'categoryResults',
+            'redirectTo',
         ));
     }
 

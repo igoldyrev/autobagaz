@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 if (!response.ok) throw new Error('Unable to load models');
                 const models = await response.json();
-                setOptions(fields.model, models.map((model) => ({ value: model.id, label: model.name })), 'Выберите модель');
+                setOptions(fields.model, models.map((model) => ({ value: model.id, label: model.name })), 'Модель автомобиля');
             } catch (_) {
                 reset(fields.model, 'Не удалось загрузить список');
             }

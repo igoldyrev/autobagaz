@@ -26,7 +26,7 @@
         <label>
             <span>Марка</span>
             <select required data-vehicle-make>
-                <option value="">Выберите марку</option>
+                <option value="">Марка автомобиля</option>
                 @foreach ($vehicleMakes as $vehicleMake)
                     <option value="{{ $vehicleMake->id }}" @selected($pickerMake?->id === $vehicleMake->id)>{{ $vehicleMake->name }}</option>
                 @endforeach
@@ -35,7 +35,7 @@
         <label>
             <span>Модель</span>
             <select required data-vehicle-model @disabled(! $pickerMake)>
-                <option value="">Выберите модель</option>
+                <option value="">Модель автомобиля</option>
                 @if ($pickerMake)
                     @foreach ($pickerMake->models()->active()->get(['id', 'name']) as $vehicleModel)
                         <option value="{{ $vehicleModel->id }}" @selected($pickerModel?->id === $vehicleModel->id)>{{ $vehicleModel->name }}</option>
@@ -53,6 +53,9 @@
         </label>
         <input type="hidden" name="vehicle_configuration_id" value="{{ $pickerVehicle?->id }}" data-vehicle-configuration-input>
         <input type="hidden" name="vehicle_year" value="">
+        @if (($redirectTo ?? null) === 'roof-racks')
+            <input type="hidden" name="redirect_to" value="roof-racks">
+        @endif
         <button class="vehicle-picker__submit" type="submit" data-vehicle-submit @disabled(! $pickerVehicle)>Показать подходящие товары</button>
     </div>
     <p class="vehicle-picker__status" data-vehicle-status aria-live="polite"></p>

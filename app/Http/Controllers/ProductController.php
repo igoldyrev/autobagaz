@@ -8,12 +8,13 @@ use App\Models\ProductPageInformation;
 use App\Models\VehicleConfiguration;
 use App\Services\CompatibilityService;
 use App\Services\RecentlyViewedProductService;
+use App\Services\RoofRackRecommendationService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public function show(Request $request, Product $product, CompatibilityService $compatibility, RecentlyViewedProductService $recentlyViewed): View
+    public function show(Request $request, Product $product, CompatibilityService $compatibility, RecentlyViewedProductService $recentlyViewed, RoofRackRecommendationService $roofRackRecommendations): View
     {
         abort_unless($product->is_active, 404);
         $product->load([
@@ -64,12 +65,16 @@ class ProductController extends Controller
         $alternativesUrl = $selectedVehicle
             ? $this->alternativesUrl($product, $selectedVehicle->id, $selectedVehicleYear)
             : null;
+        $requiresRoofRack = $roofRackRecommendations->requiresRoofRack($product);
+        $recommendedRoofRack = $selectedVehicle && $requiresRoofRack
+            ? $roofRackRecommendations->recommend($product, $selectedVehicle)
+            : null;
         $compatibleVehiclesCountLabel = $this->vehicleCountLabel($compatibleVehicles->count());
         $productPageInformation = ProductPageInformation::query()->firstOrFail();
         $recentlyViewed->remember($product);
 
         return view('catalog.products.show', compact(
-            'product', 'selectedVehicle', 'compatibilityResult', 'selectedVehicleLabel', 'alternativesUrl', 'compatibleVehicles', 'compatibleVehiclesCountLabel', 'productPageInformation',
+            'product', 'selectedVehicle', 'compatibilityResult', 'selectedVehicleLabel', 'alternativesUrl', 'requiresRoofRack', 'recommendedRoofRack', 'compatibleVehicles', 'compatibleVehiclesCountLabel', 'productPageInformation',
         ));
     }
 

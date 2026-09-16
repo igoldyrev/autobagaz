@@ -44,4 +44,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (modal?.classList.contains('is-open')) document.body.classList.add('callback-widget-open');
 
+    document.querySelectorAll('[data-model-picker]').forEach((picker) => {
+        const search = picker.querySelector('[data-model-search]');
+        const list = picker.querySelector('[data-model-list]');
+        const cards = [...picker.querySelectorAll('[data-model-card]')];
+        const empty = picker.querySelector('[data-model-empty]');
+        const mobileViewport = window.matchMedia('(max-width: 640px)');
+
+        const updateListVisibility = () => {
+            list.open = !mobileViewport.matches || Boolean(search?.value.trim());
+        };
+
+        updateListVisibility();
+        mobileViewport.addEventListener('change', updateListVisibility);
+
+        search?.addEventListener('input', () => {
+            const query = search.value.trim().toLocaleLowerCase('ru-RU');
+            let matches = 0;
+
+            cards.forEach((card) => {
+                const visible = !query || card.dataset.modelName.includes(query);
+                card.hidden = !visible;
+                matches += Number(visible);
+            });
+
+            updateListVisibility();
+            empty.hidden = !query || matches > 0;
+        });
+    });
+
+    document.querySelectorAll('[data-brand-picker]').forEach((picker) => {
+        const search = picker.querySelector('[data-brand-search]');
+        const cards = [...picker.querySelectorAll('[data-category-card]')];
+        const empty = picker.querySelector('[data-brand-empty]');
+
+        search?.addEventListener('input', () => {
+            const query = search.value.trim().toLocaleLowerCase('ru-RU');
+            let matches = 0;
+
+            cards.forEach((card) => {
+                const visible = !query || card.dataset.brandName.includes(query);
+                card.hidden = !visible;
+                matches += Number(visible);
+            });
+
+            empty.hidden = !query || matches > 0;
+        });
+    });
+
 });

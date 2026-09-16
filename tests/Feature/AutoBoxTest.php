@@ -226,7 +226,12 @@ class AutoBoxTest extends TestCase
             ->assertSee('Высота, см')
             ->assertSee('Двухстороннее')
             ->assertSee('U-скоба')
-            ->assertSee('Черный карбон');
+            ->assertSee('Черный карбон')
+            ->assertSee('Требуется багажник на крышу')
+            ->assertSee('Этот товар устанавливается на поперечины багажника.')
+            ->assertSee('Тип крепления: U-скоба')
+            ->assertSee('Нет поперечин? Подберите багажник для вашего автомобиля.')
+            ->assertSee(route('catalog.vehicle-fitment.index', ['redirect_to' => 'roof-racks']));
     }
 
     public function test_auto_box_rejects_unknown_select_values(): void

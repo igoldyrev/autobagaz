@@ -144,6 +144,33 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertSee('Lada (ВАЗ) Vesta 2022');
     }
 
+    public function test_picker_can_redirect_to_roof_racks_after_selection(): void
+    {
+        $configuration = $this->configuration();
+
+        $this->get(route('catalog.vehicle-fitment.index', [
+            'vehicle_configuration_id' => $configuration->id,
+            'vehicle_year' => 2022,
+            'redirect_to' => 'roof-racks',
+        ]))
+            ->assertRedirect(route('catalog.autobagazhniki.index', [
+                'vehicle_configuration_id' => $configuration->id,
+                'vehicle_year' => 2022,
+            ]))
+            ->assertCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
+            ->assertCookie(ResolveVehicleConfiguration::YEAR_COOKIE_NAME, '2022');
+    }
+
+    public function test_picker_keeps_cross_sell_flow_open_for_saved_vehicle(): void
+    {
+        $configuration = $this->configuration();
+
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
+            ->get(route('catalog.vehicle-fitment.index', ['redirect_to' => 'roof-racks']))
+            ->assertOk()
+            ->assertSee('name="redirect_to" value="roof-racks"', escape: false);
+    }
+
     public function test_picker_shows_category_counts_and_only_confirmed_products(): void
     {
         $configuration = $this->configuration();
@@ -216,6 +243,46 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertSee(route('catalog.autobagazhniki.index', [
                 'vehicle_configuration_id' => $configuration->id,
             ]));
+
+        $this->get(route('products.show', [
+            'product' => $box,
+            'vehicle_configuration_id' => $configuration->id,
+        ]))
+            ->assertOk()
+            ->assertSee('Подходит для вашей Lada (ВАЗ) Vesta')
+            ->assertSee('Всё необходимое для установки')
+            ->assertSee($rack->name)
+            ->assertSee('Добавить комплект')
+            ->assertSee('Итого: 2 000,00 ₽')
+            ->assertSee(route('cart.store-kit', ['product' => $box, 'roofRack' => $rack]));
+
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
+            ->post(route('cart.store', $bikeRack))
+            ->assertRedirect(route('cart.index'));
+
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
+            ->get(route('cart.index'))
+            ->assertOk()
+            ->assertSee('Всё необходимое для установки')
+            ->assertSee($rack->name)
+            ->assertSee('Добавить багажник')
+            ->assertSee('Итого с багажником: 2 000,00 ₽');
+
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
+            ->post(route('cart.store-kit', ['product' => $box, 'roofRack' => $rack]))
+            ->assertRedirect(route('cart.index'));
+
+        $this->assertSame([
+            (string) $bikeRack->id => 1,
+            (string) $box->id => 1,
+            (string) $rack->id => 1,
+        ], session('cart.items'));
+
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
+            ->get(route('cart.index'))
+            ->assertOk()
+            ->assertSee('Полный комплект для установки собран')
+            ->assertDontSee('Подобрать совместимый багажник');
     }
 
     public function test_clear_query_removes_selected_vehicle_cookie(): void

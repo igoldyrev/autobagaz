@@ -35,29 +35,39 @@
         <h2 class="title title-h2">Подбор по марке автомобиля</h2>
     @endif
 
-    <div class="catalog-categories">
-        @foreach ($categories as $category)
-            @php
-                $usesPlaceholder = str_ends_with($category->image_path, 'category-background.webp');
-            @endphp
-            <a
-                class="catalog-category {{ $usesPlaceholder ? 'catalog-category--placeholder' : 'catalog-category--image' }}"
-                href="{{ route('catalog.autobagazhniki.show', $category->slug) }}"
-                data-category-card
-            >
-                <img
-                    class="catalog-category__image {{ $usesPlaceholder ? '' : 'catalog-category__image--provided' }}"
-                    src="{{ asset($category->image_path) }}"
-                    alt="{{ $category->image_alt ?: $category->name }}"
-                    width="720"
-                    height="480"
-                    loading="lazy"
+    <section class="brand-picker" data-brand-picker aria-label="Поиск марки автомобиля">
+        <label class="model-picker__search" for="brand-search">
+            <span class="sr-only">Поиск марки автомобиля</span>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input id="brand-search" type="search" placeholder="Начните вводить название марки" autocomplete="off" data-brand-search>
+        </label>
+        <p class="model-picker__empty" data-brand-empty hidden aria-live="polite">Марки по вашему запросу не найдены.</p>
+
+        <div class="catalog-categories brand-picker__grid">
+            @foreach ($categories as $category)
+                @php
+                    $usesPlaceholder = str_ends_with($category->image_path, 'category-background.webp');
+                @endphp
+                <a
+                    class="catalog-category {{ $usesPlaceholder ? 'catalog-category--placeholder' : 'catalog-category--image' }}"
+                    href="{{ route('catalog.autobagazhniki.show', $category->slug) }}"
+                    data-category-card
+                    data-brand-name="{{ mb_strtolower($category->name) }}"
                 >
-                @if ($usesPlaceholder)
-                    <span class="catalog-category__overlay" aria-hidden="true"></span>
-                @endif
-                <span class="catalog-category__name">{{ $category->name }}</span>
-            </a>
-        @endforeach
-    </div>
+                    <img
+                        class="catalog-category__image {{ $usesPlaceholder ? '' : 'catalog-category__image--provided' }}"
+                        src="{{ asset($category->image_path) }}"
+                        alt="{{ $category->image_alt ?: $category->name }}"
+                        width="720"
+                        height="480"
+                        loading="lazy"
+                    >
+                    @if ($usesPlaceholder)
+                        <span class="catalog-category__overlay" aria-hidden="true"></span>
+                    @endif
+                    <span class="catalog-category__name">{{ $category->name }}</span>
+                </a>
+            @endforeach
+        </div>
+    </section>
 @endsection

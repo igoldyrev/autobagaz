@@ -22,5 +22,12 @@ class SkiRackTest extends TestCase
         $other = Product::query()->create(['product_type_id' => ProductType::query()->where('code', 'ski_rack')->value('id'), 'name' => 'Крепление другое', 'slug' => 'ski-other', 'price' => 20000, 'stock' => 0, 'is_active' => true]);
         $other->skiRack()->create(['ski_pairs_capacity' => 6]);
         $this->get(route('catalog.ski-racks.index', ['manufacturer' => [(string) $manufacturer->id], 'ski_pairs' => ['4']]))->assertOk()->assertSee('Фильтры товаров')->assertSee($match->name)->assertDontSee($other->name);
+
+        $this->get(route('products.show', $match))
+            ->assertOk()
+            ->assertSee('Требуется багажник на крышу')
+            ->assertSee('Этот товар устанавливается на поперечины багажника.')
+            ->assertSee('Нет поперечин? Подберите багажник для вашего автомобиля.')
+            ->assertSee(route('catalog.vehicle-fitment.index', ['redirect_to' => 'roof-racks']));
     }
 }
