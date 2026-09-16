@@ -93,7 +93,7 @@ class AdminFitmentTest extends TestCase
             ->assertSee('Что показывает предпросмотр')
             ->assertSee('Каждый показанный товар считается совместимым с каждым показанным автомобилем')
             ->assertSee('fitment-preview-table', false)
-            ->assertDontSee('>Проверка<', false);
+            ->assertSee('>Проверка<', false);
 
         $this->actingAs($admin)->delete(route('admin.fitments.destroy', $fitment))->assertSessionHas('error');
 

@@ -172,7 +172,7 @@ class AdminProductTest extends TestCase
         $this->actingAs($admin)->get(route('admin.products.roof-racks.create'))
             ->assertOk()
             ->assertDontSee('Повторить марки и модели другого товара')
-            ->assertSee('Сначала сохраните товар, затем добавьте его в нужную группу применяемости');
+            ->assertSee('Сначала сохраните товар, затем добавьте его в нужные группы в разделе совместимости.');
     }
 
     public function test_administrator_can_update_hide_and_remove_product_image_without_deleting_product(): void
