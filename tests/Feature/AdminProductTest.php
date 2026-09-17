@@ -125,6 +125,8 @@ class AdminProductTest extends TestCase
             ->assertDontSee('name="compatibility_product_ids[]"', escape: false)
             ->assertSee('name="manufacturer_id"', escape: false)
             ->assertSee('name="badges[]"', escape: false)
+            ->assertSee('>Акция<', escape: false)
+            ->assertSee('name="is_on_sale"', escape: false)
             ->assertSee('<option', escape: false)
             ->assertSee('Thule')
             ->assertDontSee('name="manufacturer"', escape: false)
@@ -162,6 +164,11 @@ class AdminProductTest extends TestCase
             'stock' => 12,
             'is_active' => '1',
             'badges' => ['hit', 'optimal'],
+            'is_on_sale' => '1',
+            'old_price' => '18990.50',
+            'promotion_label' => 'Осенняя скидка',
+            'promotion_starts_at' => '2026-09-18T10:00',
+            'promotion_ends_at' => '2026-09-30T19:00',
             'category_ids' => $categories,
             'images' => [$this->fakePng('first.png'), $this->fakePng('second.png')],
         ]);
@@ -186,6 +193,11 @@ class AdminProductTest extends TestCase
         $this->assertSame(12, $product->stock);
         $this->assertTrue($product->is_active);
         $this->assertSame(['hit', 'optimal'], $product->badges);
+        $this->assertTrue($product->is_on_sale);
+        $this->assertSame('18990.50', $product->old_price);
+        $this->assertSame('Осенняя скидка', $product->promotion_label);
+        $this->assertSame('2026-09-18 10:00:00', $product->promotion_starts_at->format('Y-m-d H:i:s'));
+        $this->assertSame('2026-09-30 19:00:00', $product->promotion_ends_at->format('Y-m-d H:i:s'));
         $this->assertEqualsCanonicalizing($categories, $product->categories()->pluck('catalog_categories.id')->all());
         $this->assertCount(2, $product->images);
 

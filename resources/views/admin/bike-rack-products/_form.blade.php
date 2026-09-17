@@ -5,11 +5,12 @@
     $selectedManufacturerId = (string) old('manufacturer_id', $bikeRack?->manufacturer_id ?? '');
 @endphp
 
-@include('admin.partials.help', ['title' => 'Как заполнять карточку велокрепления', 'text' => 'Велокрепления универсальны: их не нужно связывать с автомобилями. Вкладки помогают отделить продающие данные от технических параметров.', 'items' => ['«Основное» — название, адрес страницы, цена, остаток, описание и публикация. Остаток 0 означает «Под заказ».', '«Характеристики» — производитель, страна, модель, способ крепления, вместимость и грузоподъёмность. Используйте подтверждённые данные производителя; не указывайте вместимость или нагрузку выше заявленной.', '«Фото» — изображения для галереи. Добавляйте до 10 файлов размером до 6 МБ за одну загрузку.', '«SEO» — заголовок и описание для поисковой выдачи. Пустые поля автоматически заменяются названием и описанием товара; заполняйте их уникальным, понятным покупателю текстом без обещаний, которые нельзя подтвердить.']])
+@include('admin.partials.help', ['title' => 'Как заполнять карточку велокрепления', 'text' => 'Велокрепления универсальны: их не нужно связывать с автомобилями. Вкладки помогают отделить продающие данные от технических параметров.', 'items' => ['«Основное» — название, адрес страницы, цена, остаток, описание и публикация. Остаток 0 означает «Под заказ».', '«Акция» — включите показ в разделе «Акции», укажите старую цену выше текущей и при необходимости срок действия. Акционный товар автоматически появляется на главной и странице акций, а после окончания срока скрывается.', '«Характеристики» — производитель, страна, модель, способ крепления, вместимость и грузоподъёмность. Используйте подтверждённые данные производителя; не указывайте вместимость или нагрузку выше заявленной.', '«Фото» — изображения для галереи. Добавляйте до 10 файлов размером до 6 МБ за одну загрузку.', '«SEO» — заголовок и описание для поисковой выдачи. Пустые поля автоматически заменяются названием и описанием товара; заполняйте их уникальным, понятным покупателю текстом без обещаний, которые нельзя подтвердить.']])
 
 <div class="product-editor" data-product-editor-tabs>
     <div class="product-editor__tabs" role="tablist" aria-label="Разделы карточки товара">
         <button id="bike-main-tab" class="product-editor__tab" type="button" role="tab" aria-selected="true" aria-controls="bike-main-panel">Основное</button>
+        <button id="bike-promotion-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="bike-promotion-panel" tabindex="-1">Акция</button>
         <button id="bike-specifications-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="bike-specifications-panel" tabindex="-1">Характеристики</button>
         <button id="bike-photos-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="bike-photos-panel" tabindex="-1">Фото</button>
         <button id="bike-seo-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="bike-seo-panel" tabindex="-1">SEO</button>
@@ -27,6 +28,11 @@
             <label class="checkbox field--wide"><input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->is_active ?? false))><span>Опубликовать товар на сайте</span><span class="field__hint">Скрытый товар остаётся в админке, но не показывается покупателям.</span></label>
             @include('admin.products._badges')
         </div>
+    </section>
+
+    <section id="bike-promotion-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="bike-promotion-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>Акция</h2><p>Старая цена и сроки показа товара в разделе «Акции».</p></div>
+        @include('admin.products._promotion')
     </section>
 
     <section id="bike-specifications-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="bike-specifications-tab" hidden>

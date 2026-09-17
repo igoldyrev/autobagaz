@@ -6,11 +6,12 @@
     $selectedManufacturerId = (string) old('manufacturer_id', $autoBox?->manufacturer_id ?? '');
 @endphp
 
-@include('admin.partials.help', ['title' => 'Как заполнять карточку автомобильного бокса', 'text' => 'Автобоксы имеют универсальную совместимость и не проверяются по автомобилю или багажнику. Публикуйте товар после проверки всех разделов.', 'items' => ['«Основное» — название, адрес страницы, цена, остаток и публикация. Остаток 0 означает «Под заказ».', '«Характеристики» — производитель, страна, модель, габариты, объём, грузоподъёмность, открывание, крепление и цвет. Заполняйте значения строго по спецификации производителя; габариты указывайте в сантиметрах.', '«Фото» — изображения для галереи. За одну загрузку можно добавить до 10 файлов, каждый размером до 6 МБ.', '«SEO» — заголовок и описание для поисковой выдачи. Если оставить их пустыми, сайт использует название и описание товара. Пишите уникальный заголовок и краткое описание с важными характеристиками, без неподтверждённых условий.']])
+@include('admin.partials.help', ['title' => 'Как заполнять карточку автомобильного бокса', 'text' => 'Автобоксы имеют универсальную совместимость и не проверяются по автомобилю или багажнику. Публикуйте товар после проверки всех разделов.', 'items' => ['«Основное» — название, адрес страницы, цена, остаток и публикация. Остаток 0 означает «Под заказ».', '«Акция» — включите показ в разделе «Акции», укажите старую цену выше текущей и при необходимости срок действия. Акционный товар автоматически появляется на главной и странице акций, а после окончания срока скрывается.', '«Характеристики» — производитель, страна, модель, габариты, объём, грузоподъёмность, открывание, крепление и цвет. Заполняйте значения строго по спецификации производителя; габариты указывайте в сантиметрах.', '«Фото» — изображения для галереи. За одну загрузку можно добавить до 10 файлов, каждый размером до 6 МБ.', '«SEO» — заголовок и описание для поисковой выдачи. Если оставить их пустыми, сайт использует название и описание товара. Пишите уникальный заголовок и краткое описание с важными характеристиками, без неподтверждённых условий.']])
 
 <div class="product-editor" data-product-editor-tabs>
     <div class="product-editor__tabs" role="tablist" aria-label="Разделы карточки товара">
         <button id="auto-box-main-tab" class="product-editor__tab" type="button" role="tab" aria-selected="true" aria-controls="auto-box-main-panel">Основное</button>
+        <button id="auto-box-promotion-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="auto-box-promotion-panel" tabindex="-1">Акция</button>
         <button id="auto-box-specifications-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="auto-box-specifications-panel" tabindex="-1">Характеристики</button>
         <button id="auto-box-photos-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="auto-box-photos-panel" tabindex="-1">Фото</button>
         <button id="auto-box-seo-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="auto-box-seo-panel" tabindex="-1">SEO</button>
@@ -47,6 +48,11 @@
     </label>
     @include('admin.products._badges')
         </div>
+    </section>
+
+    <section id="auto-box-promotion-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="auto-box-promotion-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>Акция</h2><p>Старая цена и сроки показа товара в разделе «Акции».</p></div>
+        @include('admin.products._promotion')
     </section>
 
     <section id="auto-box-specifications-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="auto-box-specifications-tab" hidden>

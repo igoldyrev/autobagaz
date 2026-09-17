@@ -14,27 +14,6 @@
         ['title' => 'Автомобильные пороги', 'image' => '/content/index/img/catalog/12_porogi.jpg', 'alt' => 'Автомобильные пороги'],
     ];
 
-    $sales = [
-        [
-            'name' => 'Носовая сумка TERRA DRIVE для автобоксов',
-            'image' => '/src/common.blocks/sales/img/terra_bug_nose.jpg',
-            'price' => '2 200 рублей',
-            'oldPrice' => '3 000 рублей',
-        ],
-        [
-            'name' => 'Основная сумка TERRA DRIVE для автобоксов',
-            'image' => '/src/common.blocks/sales/img/terra_bug.jpg',
-            'price' => '2 200 рублей',
-            'oldPrice' => '3 000 рублей',
-        ],
-        [
-            'name' => 'Лыжное крепление Amos для 3-4-х пар лыж/2 сноуборда',
-            'image' => '/content/lyzhnye-kreplenya/img/amos.jpg',
-            'price' => '2 500 рублей',
-            'oldPrice' => '3 000 рублей',
-        ],
-    ];
-
     $brands = [
         [
             ['/content/index/img/logos/mont_blanc.jpg', 'Mont Blanc'],
@@ -62,7 +41,7 @@
     $navigation = [
         ['title' => 'Прокат', 'url' => route('rental')],
         ['title' => 'Установка', 'url' => route('installation')],
-        ['title' => 'Акции'],
+        ['title' => 'Акции', 'url' => route('promotions.index')],
         ['title' => 'Контакты', 'url' => route('contacts')],
     ];
     $categories = array_column($catalog, 'title');
@@ -214,27 +193,36 @@
                     </ul>
                 </section>
 
+                @if ($sales->isNotEmpty())
                 <section class="home-section" aria-labelledby="sales-title">
                 <h2 class="title title-h2" id="sales-title">Акции</h2>
                 <div class="sales">
                     @foreach ($sales as $sale)
                         <div class="sales__item">
-                            <img class="sales__img" src="{{ asset(ltrim($sale['image'], '/')) }}" alt="{{ $sale['name'] }}">
+                            <a href="{{ route('products.show', $sale) }}">
+                                @if ($sale->images->first())
+                                    <img class="sales__img" src="{{ asset($sale->images->first()->path) }}" alt="{{ $sale->images->first()->alt ?: $sale->name }}" loading="lazy">
+                                @else
+                                    <span class="sales__img sales__img--placeholder">Нет фото</span>
+                                @endif
+                            </a>
                             <div class="sales__description">
-                                <h4 class="title title-h4">{{ $sale['name'] }}</h4>
+                                <h4 class="title title-h4"><a href="{{ route('products.show', $sale) }}">{{ $sale->name }}</a></h4>
+                                @if ($sale->promotion_label)<p class="sales__label">{{ $sale->promotion_label }}</p>@endif
                                 <div class="sales__item-price">
-                                    <p><span class="text">Новая цена: </span><span class="sales__price">{{ $sale['price'] }}</span></p>
-                                    <p><span class="text">Старая цена: </span><span class="sales__price sales__price--strike">{{ $sale['oldPrice'] }}</span></p>
+                                    <p><span class="text">Новая цена: </span><span class="sales__price">{{ number_format((float) $sale->price, 2, ',', ' ') }} ₽</span></p>
+                                    <p><span class="text">Старая цена: </span><span class="sales__price sales__price--strike">{{ number_format((float) $sale->old_price, 2, ',', ' ') }} ₽</span></p>
                                 </div>
                                 <div class="sales__item-button">
-                                    <a href="#" class="button button__buy" data-placeholder aria-disabled="true">Заказать</a>
+                                    <a href="{{ route('products.show', $sale) }}" class="button button__buy">К товару</a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
-                <a href="#" class="link-green" data-placeholder aria-disabled="true">Все предложения</a>
+                <a href="{{ route('promotions.index') }}" class="link-green">Все предложения</a>
                 </section>
+                @endif
 
                 <section class="home-section" aria-labelledby="brands-title">
                 <h2 class="title title-h2" id="brands-title">Бренды</h2>

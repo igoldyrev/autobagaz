@@ -29,6 +29,7 @@ class Product extends Model
         'meta_title',
         'meta_description',
         'price',
+        'old_price',
         'manufacturer',
         'country_of_origin',
         'product_model',
@@ -36,6 +37,10 @@ class Product extends Model
         'stock',
         'is_active',
         'badges',
+        'is_on_sale',
+        'promotion_label',
+        'promotion_starts_at',
+        'promotion_ends_at',
         'catalog_priority',
     ];
 
@@ -43,9 +48,13 @@ class Product extends Model
     {
         return [
             'price' => 'decimal:2',
+            'old_price' => 'decimal:2',
             'stock' => 'integer',
             'is_active' => 'boolean',
             'badges' => 'array',
+            'is_on_sale' => 'boolean',
+            'promotion_starts_at' => 'datetime',
+            'promotion_ends_at' => 'datetime',
             'catalog_priority' => 'integer',
         ];
     }
@@ -97,6 +106,27 @@ class Product extends Model
     public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true);
+    }
+
+    public function scopeOnSale(Builder $query): Builder
+    {
+        return $query
+            ->where('is_on_sale', true)
+            ->whereNotNull('old_price')
+            ->whereColumn('old_price', '>', 'price')
+            ->where(fn (Builder $query) => $query->whereNull('promotion_starts_at')->orWhere('promotion_starts_at', '<=', now()))
+            ->where(fn (Builder $query) => $query->whereNull('promotion_ends_at')->orWhere('promotion_ends_at', '>=', now()));
+    }
+
+    public function hasActivePromotion(): bool
+    {
+        $now = now();
+
+        return $this->is_on_sale
+            && $this->old_price !== null
+            && (float) $this->old_price > (float) $this->price
+            && ($this->promotion_starts_at === null || $this->promotion_starts_at->lessThanOrEqualTo($now))
+            && ($this->promotion_ends_at === null || $this->promotion_ends_at->greaterThanOrEqualTo($now));
     }
 
     public function getRouteKeyName(): string

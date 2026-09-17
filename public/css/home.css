@@ -907,6 +907,11 @@
     font-size: 13px;
 }
 
+.sales__description a { color: inherit; text-decoration: none; }
+.sales__description a:hover { color: #367347; text-decoration: underline; }
+.sales__img--placeholder { display: grid; min-height: 170px; place-items: center; color: #687069; background: #f2f5f2; }
+.sales__label { margin: 0 0 8px; color: #367347; font-size: 13px; font-weight: 700; }
+
 @media (min-width: 1150px) {
     .header__wrap {
         position: relative;

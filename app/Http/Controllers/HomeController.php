@@ -22,6 +22,16 @@ class HomeController extends Controller
 
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
         $homeProducts = collect();
+        $sales = Schema::hasColumns('products', ['old_price', 'is_on_sale', 'promotion_starts_at', 'promotion_ends_at'])
+            ? Product::query()
+                ->active()
+                ->onSale()
+                ->with('images')
+                ->orderByDesc('catalog_priority')
+                ->orderByDesc('promotion_starts_at')
+                ->limit(3)
+                ->get()
+            : collect();
 
         if ($selectedVehicle) {
             $summary = $catalog->summary($selectedVehicle);
@@ -37,6 +47,6 @@ class HomeController extends Controller
                 ->get();
         }
 
-        return view('home', compact('vehicleMakes', 'homeProducts'));
+        return view('home', compact('vehicleMakes', 'homeProducts', 'sales'));
     }
 }

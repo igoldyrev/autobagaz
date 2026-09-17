@@ -301,6 +301,15 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
 .installation-page__help p { margin: 0; color: #4e574f; line-height: 1.55; }
 .installation-page__help a { color: #17663a; font-weight: 700; }
 @media only screen and (max-width:767px) { .installation-page__grid { grid-template-columns: 1fr; } .installation-page__card, .installation-page__order, .installation-page__help { padding: 18px; } }
+.promotions-page { max-width: 1080px; margin: 0 auto; }
+.promotions-page__header { max-width: 700px; margin: 0 auto 26px; text-align: center; }
+.promotions-page__header .title { margin-bottom: 10px; }
+.promotions-page__header p { margin: 0; color: #4e574f; line-height: 1.55; }
+.promotions-page__empty { max-width: 520px; margin: 0 auto; padding: 34px 24px; border: 1px solid #d6e0d7; border-radius: 10px; background: #f8faf8; text-align: center; }
+.promotions-page__empty h2 { margin: 0 0 10px; color: #174d27; font-family: "Roboto Slab", serif; font-size: 22px; }
+.promotions-page__empty p { margin: 0; color: #4e574f; line-height: 1.5; }
+.product-card__old-price { color: #7d877e; font-size: 13px; text-decoration: line-through; }
+.product-card__promotion-label { color: #17663a; font-size: 13px; font-weight: 700; }
 .contacts-page__lead { margin: 0; color: #526052; line-height: 1.5; }
 .contacts-page__summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 26px; }
 .contacts-card { padding: 24px; border: 1px solid #d9e2da; border-radius: 12px; background: #fff; box-shadow: 0 6px 18px rgb(10 42 10 / 8%); }

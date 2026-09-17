@@ -19,6 +19,7 @@ class ProductRequest extends FormRequest
         $this->merge([
             'slug' => Str::slug($this->input('slug') ?: $this->input('name')),
             'is_active' => $this->boolean('is_active'),
+            'is_on_sale' => $this->boolean('is_on_sale'),
             'category_ids' => array_values(array_filter((array) $this->input('category_ids'))),
             'remove_image_ids' => array_values(array_filter((array) $this->input('remove_image_ids'))),
             'badges' => array_values(array_filter((array) $this->input('badges'))),
@@ -36,12 +37,17 @@ class ProductRequest extends FormRequest
             'meta_title' => ['nullable', 'string', 'max:255'],
             'meta_description' => ['nullable', 'string', 'max:500'],
             'price' => ['required', 'numeric', 'min:0', 'max:9999999999.99'],
+            'old_price' => ['nullable', 'numeric', 'min:0', 'max:9999999999.99'],
             'manufacturer' => ['nullable', 'string', 'max:255'],
             'country_of_origin' => ['nullable', 'string', 'max:255'],
             'product_model' => ['nullable', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'stock' => ['required', 'integer', 'min:0', 'max:4294967295'],
             'is_active' => ['boolean'],
+            'is_on_sale' => ['boolean'],
+            'promotion_label' => ['nullable', 'string', 'max:100'],
+            'promotion_starts_at' => ['nullable', 'date'],
+            'promotion_ends_at' => ['nullable', 'date'],
             'badges' => ['array', 'max:3'],
             'badges.*' => ['string', 'distinct', Rule::in(array_keys(Product::BADGES))],
             'catalog_priority' => ['integer', 'min:0', 'max:1000000'],
@@ -64,6 +70,24 @@ class ProductRequest extends FormRequest
 
             if (count($positioningBadges) > 1) {
                 $validator->errors()->add('badges', 'Можно выбрать только один позиционный бейдж: «Бюджетный», «Оптимальный» или «Премиум».');
+            }
+
+            if (! $this->boolean('is_on_sale')) {
+                return;
+            }
+
+            $oldPrice = $this->input('old_price');
+            $price = $this->input('price');
+            if ($oldPrice === null || $oldPrice === '') {
+                $validator->errors()->add('old_price', 'Для акции укажите старую цену.');
+            } elseif (is_numeric($oldPrice) && is_numeric($price) && (float) $oldPrice <= (float) $price) {
+                $validator->errors()->add('old_price', 'Старая цена должна быть выше текущей.');
+            }
+
+            $startsAt = $this->date('promotion_starts_at');
+            $endsAt = $this->date('promotion_ends_at');
+            if ($startsAt && $endsAt && $endsAt->lessThanOrEqualTo($startsAt)) {
+                $validator->errors()->add('promotion_ends_at', 'Дата окончания должна быть позже даты начала.');
             }
         });
     }

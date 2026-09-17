@@ -2,7 +2,7 @@
     $siteNavigation = [
         ['title' => 'Прокат', 'url' => route('rental')],
         ['title' => 'Установка', 'url' => route('installation')],
-        ['title' => 'Акции'],
+        ['title' => 'Акции', 'url' => route('promotions.index')],
         ['title' => 'Контакты', 'url' => route('contacts')],
     ];
     $siteCategories = [

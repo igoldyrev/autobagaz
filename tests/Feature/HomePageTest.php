@@ -40,6 +40,7 @@ class HomePageTest extends TestCase
             route('catalog.vehicle-fitment.index'),
             route('rental'),
             route('installation'),
+            route('promotions.index'),
             route('contacts'),
             route('catalog.autobagazhniki.index'),
             route('catalog.auto-boxes.index'),

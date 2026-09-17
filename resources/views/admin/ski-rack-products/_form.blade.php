@@ -6,11 +6,12 @@
     $manufacturerId = (string) old('manufacturer_id', $skiRack?->manufacturer_id ?? '');
 @endphp
 
-@include('admin.partials.help', ['title' => 'Как заполнять карточку лыжного крепления', 'text' => 'Лыжные крепления универсальны: их не нужно связывать с автомобилями. Заполняйте карточку последовательно по вкладкам.', 'items' => ['«Основное» — название, цена, остаток, описание и публикация. Остаток 0 означает «Под заказ».', '«Характеристики» — производитель, страна, модель и вместимость. Указывайте количество пар лыж и сноубордов по данным производителя.', '«Фото» — изображения для галереи. За одну загрузку допускается до 10 файлов, каждый до 6 МБ.', '«SEO» — адрес страницы, SEO-заголовок и SEO-описание. Адрес можно не заполнять: он сформируется из названия. Для поисковой выдачи используйте уникальный краткий текст с ключевыми характеристиками товара.']])
+@include('admin.partials.help', ['title' => 'Как заполнять карточку лыжного крепления', 'text' => 'Лыжные крепления универсальны: их не нужно связывать с автомобилями. Заполняйте карточку последовательно по вкладкам.', 'items' => ['«Основное» — название, цена, остаток, описание и публикация. Остаток 0 означает «Под заказ».', '«Акция» — включите показ в разделе «Акции», укажите старую цену выше текущей и при необходимости срок действия. Акционный товар автоматически появляется на главной и странице акций, а после окончания срока скрывается.', '«Характеристики» — производитель, страна, модель и вместимость. Указывайте количество пар лыж и сноубордов по данным производителя.', '«Фото» — изображения для галереи. За одну загрузку допускается до 10 файлов, каждый до 6 МБ.', '«SEO» — адрес страницы, SEO-заголовок и SEO-описание. Адрес можно не заполнять: он сформируется из названия. Для поисковой выдачи используйте уникальный краткий текст с ключевыми характеристиками товара.']])
 
 <div class="product-editor" data-product-editor-tabs>
     <div class="product-editor__tabs" role="tablist" aria-label="Разделы карточки товара">
         <button id="ski-main-tab" class="product-editor__tab" type="button" role="tab" aria-selected="true" aria-controls="ski-main-panel">Основное</button>
+        <button id="ski-promotion-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="ski-promotion-panel" tabindex="-1">Акция</button>
         <button id="ski-specifications-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="ski-specifications-panel" tabindex="-1">Характеристики</button>
         <button id="ski-photos-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="ski-photos-panel" tabindex="-1">Фото</button>
         <button id="ski-seo-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="ski-seo-panel" tabindex="-1">SEO</button>
@@ -27,6 +28,11 @@
             <label class="checkbox field--wide"><input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->is_active ?? false))><span>Опубликовать товар на сайте</span><span class="field__hint">Скрытый товар остаётся в админке, но не показывается покупателям.</span></label>
             @include('admin.products._badges')
         </div>
+    </section>
+
+    <section id="ski-promotion-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="ski-promotion-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>Акция</h2><p>Старая цена и сроки показа товара в разделе «Акции».</p></div>
+        @include('admin.products._promotion')
     </section>
 
     <section id="ski-specifications-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="ski-specifications-tab" hidden>

@@ -7,11 +7,12 @@
     $selectedManufacturerId = (string) old('manufacturer_id', $roofRack?->manufacturer_id ?? '');
 @endphp
 
-@include('admin.partials.help', ['title' => 'Как заполнять карточку автобагажника', 'text' => 'Вкладки разделяют коммерческие данные, технические параметры и публикацию. Заполняйте карточку по порядку и публикуйте только после проверки всех разделов.', 'items' => ['«Основное» — название, цена, остаток и публикация. Остаток 0 означает «Под заказ»; скрытый товар сохраняется в админке, но не виден покупателям.', '«Характеристики» — производитель, страна, модель, параметры дуг и категории. Используйте данные производителя и указывайте единицы измерения только в предназначенных числовых полях.', '«Фото» — изображения для галереи. Добавляйте товарные фотографии хорошего качества; за одну загрузку допускается до 10 файлов размером до 6 МБ.', '«SEO» — адрес страницы, заголовок и описание для поисковой выдачи. Адрес можно не заполнять: он сформируется из названия. SEO-заголовок должен кратко описывать товар, а SEO-описание — содержать ключевые свойства без повторов и рекламных обещаний.', '«Совместимость» — группы применяемости. Сначала сохраните новый товар, затем добавьте его в подходящие группы; не назначайте совместимость по предположению.']])
+@include('admin.partials.help', ['title' => 'Как заполнять карточку автобагажника', 'text' => 'Вкладки разделяют коммерческие данные, технические параметры и публикацию. Заполняйте карточку по порядку и публикуйте только после проверки всех разделов.', 'items' => ['«Основное» — название, цена, остаток и публикация. Остаток 0 означает «Под заказ»; скрытый товар сохраняется в админке, но не виден покупателям.', '«Акция» — включите показ в разделе «Акции», укажите старую цену выше текущей и при необходимости срок действия. Акционный товар автоматически появляется на главной и странице акций, а после окончания срока скрывается.', '«Характеристики» — производитель, страна, модель, параметры дуг и категории. Используйте данные производителя и указывайте единицы измерения только в предназначенных числовых полях.', '«Фото» — изображения для галереи. Добавляйте товарные фотографии хорошего качества; за одну загрузку допускается до 10 файлов размером до 6 МБ.', '«SEO» — адрес страницы, заголовок и описание для поисковой выдачи. Адрес можно не заполнять: он сформируется из названия. SEO-заголовок должен кратко описывать товар, а SEO-описание — содержать ключевые свойства без повторов и рекламных обещаний.', '«Совместимость» — группы применяемости. Сначала сохраните новый товар, затем добавьте его в подходящие группы; не назначайте совместимость по предположению.']])
 
 <div class="product-editor" data-product-editor-tabs>
     <div class="product-editor__tabs" role="tablist" aria-label="Разделы карточки товара">
         <button id="roof-rack-main-tab" class="product-editor__tab" type="button" role="tab" aria-selected="true" aria-controls="roof-rack-main-panel">Основное</button>
+        <button id="roof-rack-promotion-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="roof-rack-promotion-panel" tabindex="-1">Акция</button>
         <button id="roof-rack-specifications-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="roof-rack-specifications-panel" tabindex="-1">Характеристики</button>
         <button id="roof-rack-photos-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="roof-rack-photos-panel" tabindex="-1">Фото</button>
         <button id="roof-rack-seo-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="roof-rack-seo-panel" tabindex="-1">SEO</button>
@@ -46,6 +47,11 @@
     @include('admin.products._badges')
 
     </div>
+    </section>
+
+    <section id="roof-rack-promotion-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="roof-rack-promotion-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>Акция</h2><p>Старая цена и сроки показа товара в разделе «Акции».</p></div>
+        @include('admin.products._promotion')
     </section>
 
     <section id="roof-rack-specifications-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="roof-rack-specifications-tab" hidden>
