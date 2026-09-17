@@ -125,19 +125,20 @@
             </div>
         </header>
 
-        <div class="wrapper">
-            <aside class="left-nav">
-                @foreach ($categories as $category)
-                    <a
-                        href="{{ $category === 'Автобагажники' ? route('catalog.autobagazhniki.index') : ($category === 'Автомобильные боксы' ? route('catalog.auto-boxes.index') : ($category === 'Велокрепления' ? route('catalog.bike-racks.index') : ($category === 'Крепления для лыж и сноубордов' ? route('catalog.ski-racks.index') : '#'))) }}"
-                        class="left-nav__link"
-                        @if (! in_array($category, ['Автобагажники', 'Автомобильные боксы', 'Велокрепления', 'Крепления для лыж и сноубордов'], true)) data-placeholder aria-disabled="true" @endif
-                    >{{ $category }}</a>
-                @endforeach
-                <a href="https://vk.com/autobagaz" class="left-nav__link" target="_blank" rel="noopener noreferrer">Мы ВКонтакте</a>
-                <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">Оставить отзыв о нашей работе</a>
-                <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">Наши партнёры</a>
-                <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">Сертификаты и лицензии</a>
+        <div class="wrapper wrapper--with-categories">
+            <aside class="catalog-sidebar" aria-label="Навигация по каталогу">
+                <details class="catalog-sidebar__section" data-catalog-sidebar-section open>
+                    <summary>☰ Категории</summary>
+                    <nav class="catalog-sidebar__categories" aria-label="Категории каталога">
+                        @foreach ($categories as $category)
+                            <a
+                                href="{{ $category === 'Автобагажники' ? route('catalog.autobagazhniki.index') : ($category === 'Автомобильные боксы' ? route('catalog.auto-boxes.index') : ($category === 'Велокрепления' ? route('catalog.bike-racks.index') : ($category === 'Крепления для лыж и сноубордов' ? route('catalog.ski-racks.index') : '#'))) }}"
+                                class="left-nav__link"
+                                @if (! in_array($category, ['Автобагажники', 'Автомобильные боксы', 'Велокрепления', 'Крепления для лыж и сноубордов'], true)) data-placeholder aria-disabled="true" @endif
+                            >{{ $category }}</a>
+                        @endforeach
+                    </nav>
+                </details>
             </aside>
 
             <main class="wrapper__content">

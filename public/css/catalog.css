@@ -11,6 +11,62 @@
     max-width: 100%;
 }
 
+.wrapper--page .wrapper__content {
+    margin-left: 0;
+}
+
+.catalog-sidebar {
+    flex: 0 0 230px;
+    min-width: 0;
+}
+
+.catalog-sidebar__section {
+    margin: 0 0 20px;
+    border: 1px solid #d8ded8;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.catalog-sidebar__section > summary {
+    display: block;
+    padding: 14px 16px;
+    color: #0a2a0a;
+    cursor: pointer;
+    font-family: "Roboto Slab", serif;
+    font-size: 18px;
+    font-weight: 700;
+    list-style: none;
+}
+
+.catalog-sidebar__section > summary::-webkit-details-marker {
+    display: none;
+}
+
+.catalog-sidebar__categories {
+    padding: 0 8px 8px;
+}
+
+.catalog-sidebar .left-nav__link {
+    display: block;
+    padding: 9px 8px;
+    color: #263d27;
+    font-size: 14px;
+    line-height: 1.35;
+    text-decoration: none;
+}
+
+.catalog-sidebar .left-nav__link:hover,
+.catalog-sidebar .left-nav__link:focus-visible {
+    color: #0a2a0a;
+    background: #eef5ee;
+}
+
+.catalog-sidebar .left-nav__link--active {
+    border-radius: 4px;
+    color: #fff;
+    background: #0a2a0a;
+}
+
 .catalog-categories {
     box-sizing: border-box;
     width: 100%;
@@ -140,10 +196,6 @@
 }
 
 @media (min-width: 1280px) {
-    .wrapper > .left-nav {
-        flex: 0 0 200px;
-    }
-
     .wrapper > .wrapper__content {
         flex: 1 1 auto;
         width: auto;
@@ -271,6 +323,41 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
     .catalog-products-layout { grid-template-columns: 1fr; }
     .catalog-filters, .catalog-filters--horizontal { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; }
     .catalog-filters__header, .catalog-filters__submit { grid-column: 1 / -1; }
+}
+
+@media (max-width: 767px) {
+    .wrapper--with-categories {
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .wrapper--with-categories .wrapper__content {
+        margin-bottom: 0;
+    }
+
+    .catalog-sidebar {
+        width: auto;
+        margin: 0 15px 15px;
+    }
+
+    .catalog-sidebar__section {
+        margin: 0 0 8px;
+    }
+
+    .catalog-sidebar__section > summary {
+        padding: 11px 14px;
+        border-radius: 6px;
+        color: #245d33;
+        background: #eef5ee;
+        font-family: Roboto, Tahoma, sans-serif;
+        font-size: 15px;
+    }
+
+    .catalog-sidebar__section[open] > summary {
+        border-bottom: 1px solid #d8ded8;
+        border-radius: 6px 6px 0 0;
+    }
+
 }
 
 @media (max-width: 520px) {

@@ -241,6 +241,7 @@ class AutoBoxTest extends TestCase
         $this->get('/autobox')->assertOk()->assertSee('Terra Drive 480');
         $this->get(route('products.show', $product))
             ->assertOk()
+            ->assertDontSee('catalog-sidebar', escape: false)
             ->assertSee('Характеристики автомобильного бокса')
             ->assertSee('Длина, см')
             ->assertSee('Ширина, см')

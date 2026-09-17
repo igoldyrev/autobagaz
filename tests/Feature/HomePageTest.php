@@ -15,6 +15,8 @@ class HomePageTest extends TestCase
             ->assertOk()
             ->assertSee('Багажники и автобоксы для вашего автомобиля')
             ->assertSee('Популярные категории')
+            ->assertSee('catalog-sidebar', escape: false)
+            ->assertSee('☰ Категории')
             ->assertSee('Почему AutoBagaz')
             ->assertSee('Крепления для активного отдыха')
             ->assertSee('/css/autobagaz.css', escape: false)

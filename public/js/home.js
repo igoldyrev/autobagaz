@@ -51,6 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.matches) closeMobileMenu();
     });
 
+    const catalogSidebarSections = document.querySelectorAll('[data-catalog-sidebar-section]');
+    const catalogSidebarViewport = window.matchMedia('(max-width: 767px)');
+    const updateCatalogSidebar = () => {
+        catalogSidebarSections.forEach((section) => {
+            section.open = !catalogSidebarViewport.matches;
+        });
+    };
+
+    updateCatalogSidebar();
+    catalogSidebarViewport.addEventListener('change', updateCatalogSidebar);
+
     const modal = document.querySelector('[data-callback-modal]');
     const overlay = document.querySelector('[data-callback-overlay]');
     const openButtons = document.querySelectorAll('[data-callback-open]');

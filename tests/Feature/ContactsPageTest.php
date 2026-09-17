@@ -14,6 +14,8 @@ class ContactsPageTest extends TestCase
             ->assertSee('+7 (342) 288-99-29')
             ->assertSee('autobagaz@yandex.ru')
             ->assertSee('/content/contacts/shop_autobagaz_dzerzhinskogo-5.jpg', escape: false)
+            ->assertSee('catalog-sidebar', escape: false)
+            ->assertSee('☰ Категории')
             ->assertSee('112719345');
     }
 }

@@ -15,6 +15,18 @@
         'Авточехлы',
         'Автомобильные пороги',
     ];
+    $isCatalogPage = request()->routeIs(
+        'catalog.autobagazhniki.*',
+        'catalog.auto-boxes.*',
+        'catalog.bike-racks.*',
+        'catalog.ski-racks.*',
+    );
+    $hasCategoryMenu = $isCatalogPage || request()->routeIs(
+        'rental',
+        'installation',
+        'promotions.index',
+        'contacts',
+    );
 @endphp
 
 <!DOCTYPE html>
@@ -88,17 +100,23 @@
             </div>
         </header>
 
-        <div class="wrapper">
-            <aside class="left-nav">
-                <a href="{{ route('catalog.autobagazhniki.index') }}" class="left-nav__link {{ request()->routeIs('catalog.autobagazhniki.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.autobagazhniki.*')) aria-current="page" @endif>Автобагажники</a>
-                <a href="{{ route('catalog.auto-boxes.index') }}" class="left-nav__link {{ request()->routeIs('catalog.auto-boxes.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.auto-boxes.*')) aria-current="page" @endif>Автомобильные боксы</a>
-                <a href="{{ route('catalog.bike-racks.index') }}" class="left-nav__link {{ request()->routeIs('catalog.bike-racks.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.bike-racks.*')) aria-current="page" @endif>Велокрепления</a>
-                <a href="{{ route('catalog.ski-racks.index') }}" class="left-nav__link {{ request()->routeIs('catalog.ski-racks.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.ski-racks.*')) aria-current="page" @endif>Крепления для лыж и сноубордов</a>
-                @foreach ($siteCategories as $category)
-                    <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">{{ $category }}</a>
-                @endforeach
-                <a href="https://vk.com/autobagaz" class="left-nav__link" target="_blank" rel="noopener noreferrer">Мы ВКонтакте</a>
-            </aside>
+        <div class="wrapper {{ $hasCategoryMenu ? 'wrapper--with-categories' : 'wrapper--page' }}">
+            @if ($hasCategoryMenu)
+                <aside class="catalog-sidebar" aria-label="Навигация по каталогу">
+                    <details class="catalog-sidebar__section" data-catalog-sidebar-section open>
+                        <summary>☰ Категории</summary>
+                        <nav class="catalog-sidebar__categories" aria-label="Категории каталога">
+                            <a href="{{ route('catalog.autobagazhniki.index') }}" class="left-nav__link {{ request()->routeIs('catalog.autobagazhniki.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.autobagazhniki.*')) aria-current="page" @endif>Автобагажники</a>
+                            <a href="{{ route('catalog.auto-boxes.index') }}" class="left-nav__link {{ request()->routeIs('catalog.auto-boxes.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.auto-boxes.*')) aria-current="page" @endif>Автомобильные боксы</a>
+                            <a href="{{ route('catalog.bike-racks.index') }}" class="left-nav__link {{ request()->routeIs('catalog.bike-racks.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.bike-racks.*')) aria-current="page" @endif>Велокрепления</a>
+                            <a href="{{ route('catalog.ski-racks.index') }}" class="left-nav__link {{ request()->routeIs('catalog.ski-racks.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.ski-racks.*')) aria-current="page" @endif>Крепления для лыж и сноубордов</a>
+                            @foreach ($siteCategories as $category)
+                                <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">{{ $category }}</a>
+                            @endforeach
+                        </nav>
+                    </details>
+                </aside>
+            @endif
 
             <main class="wrapper__content">
                 @yield('content')
