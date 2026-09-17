@@ -68,7 +68,15 @@ class CheckoutController extends Controller
         Mail::to(config('orders.notification_email'))->queue(new OrderCreated($order));
         Mail::to($order->email)->queue(new OrderConfirmation($order));
 
-        return to_route('checkout.success', $order)->with('success', 'Заказ принят. Мы свяжемся с вами для подтверждения.');
+        return to_route('checkout.success', $order)
+            ->with('success', 'Заказ принят. Мы свяжемся с вами для подтверждения.')
+            ->with('metrika_goal', [
+                'name' => 'order_created',
+                'params' => [
+                    'order_price' => (float) $order->total,
+                    'currency' => 'RUB',
+                ],
+            ]);
     }
 
     public function success(Order $order): View

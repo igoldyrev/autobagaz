@@ -38,6 +38,7 @@ class HomePageTest extends TestCase
         $availableTargets = [
             route('home'),
             route('rental'),
+            route('contacts'),
             route('catalog.autobagazhniki.index'),
             route('catalog.auto-boxes.index'),
             route('catalog.bike-racks.index'),
@@ -68,7 +69,12 @@ class HomePageTest extends TestCase
         $document->loadHTML($response->getContent(), LIBXML_NOERROR | LIBXML_NOWARNING);
 
         foreach ($document->getElementsByTagName('img') as $image) {
-            $path = parse_url($image->getAttribute('src'), PHP_URL_PATH);
+            $source = $image->getAttribute('src');
+            if (parse_url($source, PHP_URL_HOST) !== null) {
+                continue;
+            }
+
+            $path = parse_url($source, PHP_URL_PATH);
 
             $this->assertFileExists(public_path(ltrim($path, '/')));
         }

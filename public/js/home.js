@@ -1,15 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const metrikaCounterId = Number(window.metrikaCounterId);
+    const reachMetrikaGoal = (goal, params) => {
+        if (! Number.isInteger(metrikaCounterId) || typeof window.ym !== 'function') return;
+
+        window.ym(metrikaCounterId, 'reachGoal', goal, params);
+    };
+
+    document.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href]');
+        if (! link) return;
+
+        const href = link.getAttribute('href')?.toLowerCase() ?? '';
+        if (href.startsWith('tel:')) reachMetrikaGoal('contact_phone');
+        if (href.startsWith('mailto:')) reachMetrikaGoal('contact_email');
+    });
+
     document.querySelectorAll('[data-placeholder]').forEach((link) => {
         link.addEventListener('click', (event) => event.preventDefault());
     });
 
     const menuButton = document.querySelector('#pull');
     const mobileMenu = document.querySelector('#mobile-menu');
+    const mobileMenuBackdrop = document.querySelector('[data-mobile-menu-close]');
+
+    const closeMobileMenu = ({ restoreFocus = false } = {}) => {
+        if (! mobileMenu?.classList.contains('is-open')) return;
+
+        mobileMenu.classList.remove('is-open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        mobileMenu.setAttribute('inert', '');
+        menuButton?.setAttribute('aria-expanded', 'false');
+        mobileMenuBackdrop?.classList.remove('is-open');
+        document.body.classList.remove('mobile-navigation-open');
+
+        if (restoreFocus) menuButton?.focus();
+    };
 
     menuButton?.addEventListener('click', (event) => {
         event.preventDefault();
         const isOpen = mobileMenu.classList.toggle('is-open');
         menuButton.setAttribute('aria-expanded', String(isOpen));
+        mobileMenu.setAttribute('aria-hidden', String(! isOpen));
+        mobileMenu.toggleAttribute('inert', ! isOpen);
+        mobileMenuBackdrop?.classList.toggle('is-open', isOpen);
+        document.body.classList.toggle('mobile-navigation-open', isOpen);
+    });
+
+    mobileMenuBackdrop?.addEventListener('click', () => closeMobileMenu());
+    window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+        if (event.matches) closeMobileMenu();
     });
 
     const modal = document.querySelector('[data-callback-modal]');
@@ -39,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             closeModal();
+            closeMobileMenu({ restoreFocus: true });
         }
     });
 

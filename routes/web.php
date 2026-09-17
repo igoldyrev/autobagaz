@@ -44,6 +44,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::view('/prokat', 'rental')->name('rental');
+Route::view('/contacts', 'contacts')->name('contacts');
 
 Route::get('/internal/daily-brief/admin-activity', AdminMonitoringController::class)
     ->middleware(['daily_brief.token', 'throttle:30,1'])

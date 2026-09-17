@@ -146,6 +146,50 @@
     font-size: 13px;
 }
 
+/* Primary navigation */
+.navigation__link:focus-visible,
+.navigation-mobile__toggle:focus-visible {
+    position: relative;
+    z-index: 1;
+    outline: 3px solid #fff;
+    outline-offset: -3px;
+}
+
+.navigation__link--active {
+    background-color: #367347;
+    box-shadow: inset 0 -3px 0 #fff;
+    font-weight: 500;
+}
+
+.navigation__link--placeholder {
+    opacity: .5;
+}
+
+@media (min-width: 1280px) {
+    .navigation {
+        width: min(1220px, 98%);
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgb(10 42 10 / 12%);
+    }
+
+    .navigation__list {
+        width: 100%;
+    }
+
+    .navigation__list-item {
+        display: flex;
+        flex: 1 1 0;
+    }
+
+    .navigation__link {
+        width: 100%;
+        padding: 0 12px;
+        font-size: .92em;
+        font-weight: 400;
+        white-space: nowrap;
+    }
+}
+
 .vehicle-picker {
     display: grid;
     gap: 18px;
@@ -589,16 +633,127 @@
         margin: 0;
     }
 
-    .navigation-mobile .navigation__list {
-        display: none;
-    }
-
-    .navigation-mobile .navigation__list.is-open {
-        display: block;
-    }
 }
 
 @media (max-width: 767px) {
+    .mobile-navigation-open {
+        overflow: hidden;
+    }
+
+    .navigation-mobile {
+        display: block;
+        width: 100%;
+        margin: 0;
+        background: #367347;
+    }
+
+    .navigation-mobile__toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 48px;
+        padding: 0 16px;
+        border: 0;
+        color: #fff;
+        background: transparent;
+        cursor: pointer;
+        font: inherit;
+        font-size: .95em;
+        font-weight: 700;
+    }
+
+    .mobile-navigation-open .navigation-mobile__toggle {
+        position: fixed;
+        z-index: 52;
+        top: 0;
+        left: 0;
+        width: min(86vw, 360px);
+    }
+
+    .navigation-mobile__icon,
+    .navigation-mobile__icon::before,
+    .navigation-mobile__icon::after {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 2px;
+        background: currentColor;
+        content: '';
+        transition: transform .2s ease;
+    }
+
+    .navigation-mobile__icon {
+        position: relative;
+    }
+
+    .navigation-mobile__icon::before,
+    .navigation-mobile__icon::after {
+        position: absolute;
+        left: 0;
+    }
+
+    .navigation-mobile__icon::before { top: -7px; }
+    .navigation-mobile__icon::after { top: 7px; }
+    .navigation-mobile__toggle[aria-expanded='true'] .navigation-mobile__icon { background: transparent; }
+    .navigation-mobile__toggle[aria-expanded='true'] .navigation-mobile__icon::before { top: 0; transform: rotate(45deg); }
+    .navigation-mobile__toggle[aria-expanded='true'] .navigation-mobile__icon::after { top: 0; transform: rotate(-45deg); }
+
+    .navigation-mobile .navigation__list {
+        position: fixed;
+        z-index: 51;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: min(86vw, 360px);
+        height: 100dvh;
+        margin: 0;
+        padding: 72px 0 20px;
+        overflow-y: auto;
+        background: #0a2a0a;
+        box-shadow: 12px 0 28px rgb(0 0 0 / 28%);
+        transform: translateX(-105%);
+        transition: transform .24s ease;
+    }
+
+    .navigation-mobile .navigation__list.is-open {
+        transform: translateX(0);
+    }
+
+    .navigation-mobile .navigation__list-item {
+        width: 100%;
+    }
+
+    .navigation-mobile .navigation__link {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 24px;
+        border-right: 0;
+        border-bottom: 1px solid rgb(255 255 255 / 18%);
+        box-sizing: border-box;
+        color: #fff;
+        line-height: 24px;
+        text-align: left;
+    }
+
+    .navigation-mobile__backdrop {
+        position: fixed;
+        z-index: 50;
+        inset: 0;
+        display: none;
+        width: 100%;
+        border: 0;
+        background: rgb(10 42 10 / 55%);
+        cursor: pointer;
+    }
+
+    .navigation-mobile__backdrop.is-open {
+        display: block;
+    }
+
     .breadcrumbs + .vehicle-picker {
         margin-top: 0;
     }

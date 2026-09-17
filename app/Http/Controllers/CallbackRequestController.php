@@ -16,6 +16,8 @@ class CallbackRequestController extends Controller
 
         Mail::to(config('orders.notification_email'))->queue(new CallbackRequested($callbackRequest));
 
-        return back()->with('callback_success', 'Заявка принята. Мы перезвоним вам в ближайшее время.');
+        return back()
+            ->with('callback_success', 'Заявка принята. Мы перезвоним вам в ближайшее время.')
+            ->with('metrika_goal', 'callback_sent');
     }
 }

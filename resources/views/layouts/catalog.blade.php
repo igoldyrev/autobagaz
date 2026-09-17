@@ -5,7 +5,7 @@
         ['title' => 'Спецпредложения'],
         ['title' => 'Новости и статьи'],
         ['title' => 'Отзывы о нас'],
-        ['title' => 'Контакты'],
+        ['title' => 'Контакты', 'url' => route('contacts')],
     ];
     $siteCategories = [
         'Рейлинги',
@@ -35,24 +35,29 @@
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
         <link rel="stylesheet" href="{{ asset('css/admin-toolbar.css') }}">
+        <x-metrika />
     </head>
     <body>
+        <x-metrika-noscript />
         @include('admin.partials.site-toolbar')
         <x-callback-widget />
 
         <nav class="navigation-mobile" aria-label="Мобильная навигация">
-            <ul class="navigation__list" id="mobile-menu">
-                <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Каталог</a></li>
+            <button class="navigation-mobile__toggle" id="pull" type="button" aria-controls="mobile-menu" aria-expanded="false">
+                <span>Меню</span>
+                <span class="navigation-mobile__icon" aria-hidden="true"></span>
+            </button>
+            <ul class="navigation__list" id="mobile-menu" aria-hidden="true" inert>
+                <li class="navigation__list-item"><a class="navigation__link {{ request()->routeIs('home') ? 'navigation__link--active' : '' }}" href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif>Каталог</a></li>
                 @foreach ($siteNavigation as $item)
                     <li class="navigation__list-item">
-                        <a class="navigation__link" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" @endif>{{ $item['title'] }}</a>
+                        @php($isCurrent = isset($item['url']) && request()->url() === $item['url'])
+                        <a class="navigation__link {{ $isCurrent ? 'navigation__link--active' : '' }} {{ ! isset($item['url']) ? 'navigation__link--placeholder' : '' }}" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" tabindex="-1" @elseif ($isCurrent) aria-current="page" @endif>{{ $item['title'] }}</a>
                     </li>
                 @endforeach
             </ul>
-            <div class="navigation-mobile__link-wrap">
-                <a class="navigation-mobile__link" id="pull" href="#mobile-menu" aria-expanded="false">Меню сайта</a>
-            </div>
         </nav>
+        <button class="navigation-mobile__backdrop" type="button" data-mobile-menu-close aria-label="Закрыть меню"></button>
 
         <header class="header">
             <div class="header__wrap">
@@ -82,10 +87,11 @@
 
         <nav class="navigation" aria-label="Основная навигация">
             <ul class="navigation__list">
-                <li class="navigation__list-item"><a class="navigation__link" href="{{ route('home') }}">Каталог</a></li>
+                <li class="navigation__list-item"><a class="navigation__link {{ request()->routeIs('home') ? 'navigation__link--active' : '' }}" href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif>Каталог</a></li>
                 @foreach ($siteNavigation as $item)
                     <li class="navigation__list-item">
-                        <a class="navigation__link" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" @endif>{{ $item['title'] }}</a>
+                        @php($isCurrent = isset($item['url']) && request()->url() === $item['url'])
+                        <a class="navigation__link {{ $isCurrent ? 'navigation__link--active' : '' }} {{ ! isset($item['url']) ? 'navigation__link--placeholder' : '' }}" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" tabindex="-1" @elseif ($isCurrent) aria-current="page" @endif>{{ $item['title'] }}</a>
                     </li>
                 @endforeach
             </ul>
@@ -117,7 +123,7 @@
             </div>
             <div class="footer__links">
                 <ul class="footer__list">
-                    <li class="footer__list-item"><a class="footer__link" href="#" data-placeholder aria-disabled="true">Контактная информация</a></li>
+                    <li class="footer__list-item"><a class="footer__link" href="{{ route('contacts') }}">Контактная информация</a></li>
                     <li class="footer__list-item"><a class="footer__link" href="#" data-placeholder aria-disabled="true">Новости</a></li>
                 </ul>
             </div>

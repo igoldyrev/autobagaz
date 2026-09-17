@@ -39,4 +39,8 @@ return [
         'token' => env('DAILY_BRIEF_MONITORING_TOKEN'),
     ],
 
+    'yandex_metrika' => [
+        'counter_id' => (int) env('YANDEX_METRIKA_COUNTER_ID', 112719345),
+    ],
+
 ];
