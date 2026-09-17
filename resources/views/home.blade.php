@@ -252,27 +252,7 @@
             </main>
         </div>
 
-        <footer class="footer">
-            <div class="footer__copyright">
-                <ul class="footer__list">
-                    <li class="footer__list-item"><a class="footer__link" href="{{ route('home') }}">© 2016–{{ now()->year }} AutoBagaz</a></li>
-                    <li class="footer__list-item"><a class="footer__link" href="#" data-placeholder aria-disabled="true">Карта сайта</a></li>
-                </ul>
-            </div>
-            <div class="footer__links">
-                <ul class="footer__list">
-                    <li class="footer__list-item"><a class="footer__link" href="#" data-placeholder aria-disabled="true">Оставить отзыв о нас</a></li>
-                    <li class="footer__list-item"><a class="footer__link" href="{{ route('contacts') }}">Контактная информация</a></li>
-                    <li class="footer__list-item"><a class="footer__link" href="#" data-placeholder aria-disabled="true">Новости</a></li>
-                    <li class="footer__list-item"><a class="footer__link" href="#" data-placeholder aria-disabled="true">Галерея работ</a></li>
-                </ul>
-            </div>
-            <div class="footer__social">
-                <ul class="footer__list">
-                    <li class="footer__list-item"><i class="fa fa-vk fa-1x" aria-hidden="true"></i><a class="footer__link" href="https://vk.com/autobagaz" target="_blank" rel="noopener noreferrer">Мы ВКонтакте</a></li>
-                </ul>
-            </div>
-        </footer>
+        <x-site-footer />
 
         <script src="{{ asset('js/home.js') }}" defer></script>
         @stack('scripts')
