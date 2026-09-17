@@ -146,6 +146,27 @@ class AutoBoxTest extends TestCase
             ->assertOk()
             ->assertSee($other->name)
             ->assertDontSee($matching->name);
+
+        $matching->update(['catalog_priority' => 10]);
+
+        $this->get(route('catalog.auto-boxes.index', ['sort' => 'popular']))
+            ->assertOk()
+            ->assertSeeInOrder([$matching->name, $other->name])
+            ->assertSee('Сортировать:')
+            ->assertSee('Популярные');
+
+        $this->get(route('catalog.auto-boxes.index', ['sort' => 'price_asc']))
+            ->assertOk()
+            ->assertSeeInOrder([$other->name, $matching->name]);
+
+        $this->get(route('catalog.auto-boxes.index', [
+            'manufacturer' => [(string) $terraDrive->id],
+            'price_from' => 28000,
+        ]))
+            ->assertOk()
+            ->assertSee('Terra Drive <span', escape: false)
+            ->assertSee('от 28 000 ₽')
+            ->assertSee('Сбросить всё');
     }
 
     public function test_administrator_can_create_and_edit_auto_box(): void

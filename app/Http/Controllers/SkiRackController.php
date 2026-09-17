@@ -16,7 +16,7 @@ class SkiRackController extends Controller
         $q = Product::query()->active()->whereHas('skiRack');
         $available = (clone $q)->with('skiRack.manufacturer')->orderBy('name')->get();
         $filters = $filter->values($r);
-        $products = $filter->apply(clone $q, $filters)->with(['images', 'skiRack.manufacturer'])->orderBy('name')->paginate(12)->withQueryString();
+        $products = $filter->applySorting($filter->apply(clone $q, $filters), $filters)->with(['images', 'skiRack.manufacturer'])->paginate(12)->withQueryString();
         $filterOptions = $filter->options($available);
         $unfilteredProductCount = $available->count();
 

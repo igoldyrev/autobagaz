@@ -9,10 +9,13 @@ use Illuminate\Support\Collection;
 
 class AutoBoxProductFilter
 {
+    use Concerns\SortsCatalogProducts;
+
     /** @return array<string, mixed> */
     public function values(Request $request): array
     {
         return [
+            'sort' => $this->sort($request->input('sort')),
             'manufacturers' => $this->numbers($request->input('manufacturer')),
             'price_from' => $this->number($request->input('price_from')),
             'price_to' => $this->number($request->input('price_to')),

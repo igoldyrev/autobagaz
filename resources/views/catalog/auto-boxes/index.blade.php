@@ -22,7 +22,7 @@
         <div class="catalog-products-results--section">
             @include('catalog.auto-boxes._filters', ['horizontal' => true])
             <div class="catalog-products-results">
-                <p class="catalog-products-results__count">Найдено товаров: {{ $products->total() }}</p>
+                @include('catalog.products._toolbar')
                 @if ($products->isNotEmpty())
                     @include('catalog.products._grid', ['products' => $products])
                     @include('catalog.products._pagination', ['paginator' => $products])

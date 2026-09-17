@@ -36,6 +36,7 @@ class Product extends Model
         'stock',
         'is_active',
         'badges',
+        'catalog_priority',
     ];
 
     protected function casts(): array
@@ -45,6 +46,7 @@ class Product extends Model
             'stock' => 'integer',
             'is_active' => 'boolean',
             'badges' => 'array',
+            'catalog_priority' => 'integer',
         ];
     }
 

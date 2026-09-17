@@ -1,9 +1,7 @@
 <form class="catalog-filters {{ ($horizontal ?? false) ? 'catalog-filters--horizontal' : '' }}" method="get" action="{{ url()->current() }}">
+    <input type="hidden" name="sort" value="{{ $filters['sort'] }}">
     <div class="catalog-filters__header">
         <h2>Фильтры товаров</h2>
-        @if (request()->query())
-            <a href="{{ url()->current() }}">Сбросить</a>
-        @endif
     </div>
 @if($filterOptions['manufacturers']->isNotEmpty())<fieldset class="catalog-filter"><legend>Производитель</legend>@foreach($filterOptions['manufacturers'] as $m)<label><input type="checkbox" name="manufacturer[]" value="{{$m->id}}" @checked(in_array((string)$m->id,$filters['manufacturers'],true))> {{$m->name}}</label>@endforeach</fieldset>@endif
 <fieldset class="catalog-filter catalog-filter--price"><legend>Цена, ₽</legend><label><span>от</span><input name="price_from" type="number" value="{{$filters['price_from']}}"></label><label><span>до</span><input name="price_to" type="number" value="{{$filters['price_to']}}"></label></fieldset>

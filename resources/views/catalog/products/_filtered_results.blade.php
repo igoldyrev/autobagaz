@@ -1,5 +1,5 @@
 <div class="catalog-products-results">
-    <p class="catalog-products-results__count">Найдено товаров: {{ $products->count() }}</p>
+    @include('catalog.products._toolbar')
     @if ($products->isNotEmpty())
         @include('catalog.products._grid', ['products' => $products])
     @else

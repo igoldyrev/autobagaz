@@ -25,9 +25,8 @@ class BikeRackController extends Controller
             ->orderBy('name')
             ->get();
         $filters = $productFilter->values($request);
-        $products = $productFilter->apply(clone $productQuery, $filters)
+        $products = $productFilter->applySorting($productFilter->apply(clone $productQuery, $filters), $filters)
             ->with(['images', 'bikeRack.manufacturer'])
-            ->orderBy('name')
             ->paginate(12)
             ->withQueryString();
         $filterOptions = $productFilter->options($availableProducts);

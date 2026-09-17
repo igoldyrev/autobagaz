@@ -1,9 +1,7 @@
 <form class="catalog-filters {{ ($horizontal ?? false) ? 'catalog-filters--horizontal' : '' }}" method="get" action="{{ url()->current() }}">
+    <input type="hidden" name="sort" value="{{ $filters['sort'] }}">
     <div class="catalog-filters__header">
         <h2>Фильтры товаров</h2>
-        @if (request()->query())
-            <a href="{{ url()->current() }}">Сбросить</a>
-        @endif
     </div>
 
     @if ($filterOptions['manufacturers']->isNotEmpty())

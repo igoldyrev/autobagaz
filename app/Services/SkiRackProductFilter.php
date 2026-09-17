@@ -8,9 +8,11 @@ use Illuminate\Support\Collection;
 
 class SkiRackProductFilter
 {
+    use Concerns\SortsCatalogProducts;
+
     public function values(Request $r): array
     {
-        return ['manufacturers' => $this->numbers($r->input('manufacturer')), 'price_from' => $this->number($r->input('price_from')), 'price_to' => $this->number($r->input('price_to')), 'availability' => array_values(array_intersect($this->strings($r->input('availability')), ['in_stock', 'to_order'])), 'ski_pairs' => $this->numbers($r->input('ski_pairs')), 'snowboards' => $this->numbers($r->input('snowboard'))];
+        return ['sort' => $this->sort($r->input('sort')), 'manufacturers' => $this->numbers($r->input('manufacturer')), 'price_from' => $this->number($r->input('price_from')), 'price_to' => $this->number($r->input('price_to')), 'availability' => array_values(array_intersect($this->strings($r->input('availability')), ['in_stock', 'to_order'])), 'ski_pairs' => $this->numbers($r->input('ski_pairs')), 'snowboards' => $this->numbers($r->input('snowboard'))];
     }
 
     public function apply(Builder $q, array $f): Builder

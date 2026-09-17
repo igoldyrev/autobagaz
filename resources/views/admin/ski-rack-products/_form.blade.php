@@ -22,6 +22,7 @@
             <div class="field field--wide"><label for="name">Название товара</label><input id="name" name="name" value="{{ old('name', $product->name ?? '') }}" required>@error('name')<p class="field__error">{{ $message }}</p>@enderror</div>
             <div class="field"><label for="price">Цена, ₽</label><input id="price" name="price" type="number" min="0" step="0.01" value="{{ old('price', $product->price ?? '0') }}" required>@error('price')<p class="field__error">{{ $message }}</p>@enderror</div>
             <div class="field"><label for="stock">Остаток, шт.</label><input id="stock" name="stock" type="number" min="0" step="1" value="{{ old('stock', $product->stock ?? 0) }}" required>@error('stock')<p class="field__error">{{ $message }}</p>@enderror</div>
+            @include('admin.products._catalog_priority')
             <div class="field field--wide"><label for="description">Описание</label><textarea id="description" name="description" rows="8">{{ old('description', $product->description ?? '') }}</textarea>@error('description')<p class="field__error">{{ $message }}</p>@enderror</div>
             <label class="checkbox field--wide"><input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->is_active ?? false))><span>Опубликовать товар на сайте</span><span class="field__hint">Скрытый товар остаётся в админке, но не показывается покупателям.</span></label>
             @include('admin.products._badges')

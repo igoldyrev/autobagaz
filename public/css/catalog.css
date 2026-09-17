@@ -194,6 +194,14 @@
 .product-card__price { color: #d84a20; font-size: 20px; }
 .product-card__cart-form { margin-top: auto; padding-top: 4px; }
 .product-card__buy { width: 100%; margin: 0; }
+.catalog-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.catalog-toolbar__sort { display: flex; align-items: center; gap: 8px; color: #4e574f; font-size: 14px; }
+.catalog-toolbar__sort select { min-height: 34px; padding: 5px 8px; border: 1px solid #c8d0ca; border-radius: 4px; background: #fff; }
+.catalog-toolbar__sort button { padding: 6px 9px; border: 1px solid #c8d0ca; border-radius: 4px; color: #275d35; background: #fff; font: inherit; cursor: pointer; }
+.catalog-active-filters { display: flex; flex-wrap: wrap; gap: 7px; margin: -4px 0 18px; }
+.catalog-active-filters a { padding: 5px 8px; border-radius: 999px; color: #275d35; background: #edf6ef; font-size: 13px; text-decoration: none; }
+.catalog-active-filters a:hover { background: #dfeee3; }
+.catalog-active-filters .catalog-active-filters__reset { color: #687069; background: transparent; text-decoration: underline; }
 .product-page__buy { margin-top: 22px; }
 .product-page__buy .button { width: 100%; margin: 0; }
 .product-service-highlights { display: grid; gap: 7px; margin: 18px 0 0; padding: 0; color: #36433a; font-size: 14px; list-style: none; }
@@ -229,7 +237,7 @@
 .checkout-form__honeypot { position: absolute; left: -10000px; }
 .checkout-success { padding: 36px; border: 1px solid #d8ded8; border-radius: 6px; text-align: center; }
 .checkout-success .button { width: auto; min-width: 240px; margin: 28px auto 0; }
-@media only screen and (max-width:767px) { .cart-item { grid-template-columns: 1fr; gap: 10px; } .cart-page__total, .checkout-form { grid-template-columns: 1fr; flex-direction: column; align-items: stretch; } .checkout-form__fields { padding-right: 22px; } }
+@media only screen and (max-width:767px) { .cart-item { grid-template-columns: 1fr; gap: 10px; } .cart-page__total, .checkout-form { grid-template-columns: 1fr; flex-direction: column; align-items: stretch; } .checkout-form__fields { padding-right: 22px; } .catalog-toolbar { align-items: flex-start; flex-direction: column; } .catalog-toolbar__sort { flex-wrap: wrap; } }
 
 .catalog-products-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 24px; align-items: start; margin-bottom: 36px; }
 .catalog-filters { padding: 18px; border: 1px solid #d8ded8; border-radius: 6px; background: #fff; }

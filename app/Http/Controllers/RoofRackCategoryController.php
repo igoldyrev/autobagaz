@@ -263,9 +263,8 @@ class RoofRackCategoryController extends Controller
 
         $availableProducts = (clone $query)->with('roofRack.manufacturer')->orderBy('name')->get();
         $filters = $productFilter->values($request);
-        $products = $productFilter->apply(clone $query, $filters)
+        $products = $productFilter->applySorting($productFilter->apply(clone $query, $filters), $filters)
             ->with(['images', 'roofRack.manufacturer'])
-            ->orderBy('name')
             ->get();
 
         return [$products, $productFilter->options($availableProducts), $filters, $availableProducts->count()];

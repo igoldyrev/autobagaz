@@ -37,6 +37,7 @@
         <input id="stock" name="stock" type="number" min="0" step="1" value="{{ old('stock', $product->stock ?? 0) }}" required>
         @error('stock') <p class="field__error">{{ $message }}</p> @enderror
     </div>
+    @include('admin.products._catalog_priority')
     <label class="checkbox field--wide">
         <input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->is_active ?? false))>
         <span>Опубликовать товар на сайте</span>

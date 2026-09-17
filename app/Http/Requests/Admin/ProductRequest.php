@@ -22,6 +22,7 @@ class ProductRequest extends FormRequest
             'category_ids' => array_values(array_filter((array) $this->input('category_ids'))),
             'remove_image_ids' => array_values(array_filter((array) $this->input('remove_image_ids'))),
             'badges' => array_values(array_filter((array) $this->input('badges'))),
+            'catalog_priority' => $this->integer('catalog_priority'),
         ]);
     }
 
@@ -43,6 +44,7 @@ class ProductRequest extends FormRequest
             'is_active' => ['boolean'],
             'badges' => ['array', 'max:3'],
             'badges.*' => ['string', 'distinct', Rule::in(array_keys(Product::BADGES))],
+            'catalog_priority' => ['integer', 'min:0', 'max:1000000'],
             'category_ids' => ['array'],
             'category_ids.*' => ['integer', 'distinct', 'exists:catalog_categories,id'],
             'images' => ['array', 'max:10'],
