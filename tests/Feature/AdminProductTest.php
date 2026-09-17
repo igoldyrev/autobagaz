@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\CatalogCategory;
 use App\Models\Fitment;
+use App\Models\InstallationService;
 use App\Models\Product;
 use App\Models\ProductPageInformation;
 use App\Models\RoofRackManufacturer;
@@ -73,6 +74,30 @@ class AdminProductTest extends TestCase
         $this->assertSame('Новая гарантия', $information->warranty_content);
     }
 
+    public function test_product_administrator_can_manage_installation_service(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+
+        $this->actingAs($admin)
+            ->get(route('admin.products.installation-service.edit'))
+            ->assertOk()
+            ->assertSee('Услуга установки');
+
+        $this->actingAs($admin)
+            ->put(route('admin.products.installation-service.update'), [
+                'name' => 'Установка багажной системы',
+                'price' => '3200.00',
+                'description' => 'По записи на удобное время.',
+                'is_available' => '1',
+            ])
+            ->assertRedirect(route('admin.products.installation-service.edit'));
+
+        $service = InstallationService::query()->firstOrFail();
+        $this->assertSame('Установка багажной системы', $service->name);
+        $this->assertSame('3200.00', $service->price);
+        $this->assertTrue($service->is_available);
+    }
+
     public function test_roof_rack_form_has_categories_and_only_fitment_based_applicability(): void
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -99,6 +124,7 @@ class AdminProductTest extends TestCase
             ->assertDontSee('name="vehicle_body_type_ids[]"', escape: false)
             ->assertDontSee('name="compatibility_product_ids[]"', escape: false)
             ->assertSee('name="manufacturer_id"', escape: false)
+            ->assertSee('name="badges[]"', escape: false)
             ->assertSee('<option', escape: false)
             ->assertSee('Thule')
             ->assertDontSee('name="manufacturer"', escape: false)
@@ -135,6 +161,7 @@ class AdminProductTest extends TestCase
             'description' => 'Описание товара',
             'stock' => 12,
             'is_active' => '1',
+            'badges' => ['hit', 'optimal'],
             'category_ids' => $categories,
             'images' => [$this->fakePng('first.png'), $this->fakePng('second.png')],
         ]);
@@ -158,6 +185,7 @@ class AdminProductTest extends TestCase
         $this->assertTrue($product->categories()->where('slug', 'autobagazhniki')->exists());
         $this->assertSame(12, $product->stock);
         $this->assertTrue($product->is_active);
+        $this->assertSame(['hit', 'optimal'], $product->badges);
         $this->assertEqualsCanonicalizing($categories, $product->categories()->pluck('catalog_categories.id')->all());
         $this->assertCount(2, $product->images);
 

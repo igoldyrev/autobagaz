@@ -163,6 +163,14 @@
                 <button class="button button__buy" type="submit">В корзину</button>
             </form>
 
+            <ul class="product-service-highlights" aria-label="Услуги магазина">
+                <li><span aria-hidden="true">🚚</span> Доставка</li>
+                <li><span aria-hidden="true">📍</span> Самовывоз в магазине</li>
+                @if ($installationService)
+                    <li><span aria-hidden="true">🔧</span> {{ $installationService->name }}</li>
+                @endif
+            </ul>
+
             <section class="product-vehicle-compatibility {{ $compatibilityResult ? 'product-vehicle-compatibility--'.$compatibilityResult->status : 'product-vehicle-compatibility--empty' }}" aria-labelledby="product-vehicle-compatibility-title">
                 <h2 id="product-vehicle-compatibility-title">Совместимость</h2>
                 @if ($selectedVehicle && $compatibilityResult)
@@ -192,15 +200,18 @@
                     @if ($selectedVehicle && $recommendedRoofRack)
                         <h2 id="product-roof-rack-cross-sell-title">Всё необходимое для установки</h2>
                         <p class="product-roof-rack-cross-sell__vehicle">{{ $selectedVehicleLabel }}</p>
-                        <dl class="product-roof-rack-cross-sell__kit">
-                            <div><dt><a href="{{ route('products.show', $product) }}">{{ $product->name }}</a></dt><dd>{{ number_format((float) $product->price, 2, ',', ' ') }} ₽ ✓</dd></div>
-                            <div><dt><a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a></dt><dd>{{ number_format((float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</dd></div>
-                        </dl>
-                        <form method="POST" action="{{ route('cart.store-kit', ['product' => $product, 'roofRack' => $recommendedRoofRack]) }}">
+                        <form method="POST" action="{{ route('cart.store-kit', ['product' => $product, 'roofRack' => $recommendedRoofRack]) }}" data-installation-kit data-kit-products-total="{{ (float) $product->price + (float) $recommendedRoofRack->price }}">
                             @csrf
+                            <dl class="product-roof-rack-cross-sell__kit">
+                                <div><dt><a href="{{ route('products.show', $product) }}">{{ $product->name }}</a></dt><dd>{{ number_format((float) $product->price, 2, ',', ' ') }} ₽ ✓</dd></div>
+                                <div><dt><a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a></dt><dd>{{ number_format((float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</dd></div>
+                                @if ($installationService)
+                                    <div class="product-roof-rack-cross-sell__service"><dt><label><input type="checkbox" name="installation_service" value="1" data-installation-service data-installation-service-price="{{ (float) $installationService->price }}"> Добавить: {{ $installationService->name }}</label>@if ($installationService->description)<small>{{ $installationService->description }}</small>@endif</dt><dd>{{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</dd></div>
+                                @endif
+                            </dl>
                             <button class="button button__buy product-roof-rack-cross-sell__button" type="submit">Добавить комплект</button>
+                            <p class="product-roof-rack-cross-sell__total" data-installation-kit-total>Итого: {{ number_format((float) $product->price + (float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</p>
                         </form>
-                        <p class="product-roof-rack-cross-sell__total">Итого: {{ number_format((float) $product->price + (float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</p>
                     @else
                         <h2 id="product-roof-rack-cross-sell-title">Требуется багажник на крышу</h2>
                         <p>Этот товар устанавливается на поперечины багажника.</p>
@@ -262,4 +273,5 @@
 @push('scripts')
     <script src="{{ asset('js/product-gallery.js') }}" defer></script>
     <script src="{{ asset('js/product-information-tabs.js') }}" defer></script>
+    <script src="{{ asset('js/installation-kit.js') }}" defer></script>
 @endpush

@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FitmentController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProductPageInformationController;
+use App\Http\Controllers\Admin\InstallationServiceController;
 use App\Http\Controllers\Admin\ProductSectionController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProfileSecurityController;
@@ -80,6 +81,8 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
         Route::get('products', ProductSectionController::class)->name('products.index');
         Route::get('products/information', [ProductPageInformationController::class, 'edit'])->name('products.information.edit');
         Route::put('products/information', [ProductPageInformationController::class, 'update'])->name('products.information.update');
+        Route::get('products/installation-service', [InstallationServiceController::class, 'edit'])->name('products.installation-service.edit');
+        Route::put('products/installation-service', [InstallationServiceController::class, 'update'])->name('products.installation-service.update');
         Route::prefix('products/autobox')->name('products.auto-boxes.')->group(function () {
             Route::resource('manufacturers', AutoBoxManufacturerController::class)
                 ->except(['show', 'destroy'])
@@ -166,6 +169,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/kit/{product}/{roofRack}', [CartController::class, 'storeKit'])->middleware('throttle:30,1')->name('cart.store-kit');
 Route::post('/cart/{product}', [CartController::class, 'store'])->middleware('throttle:30,1')->name('cart.store');
 Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
+Route::delete('/cart/installation-service', [CartController::class, 'destroyInstallationService'])->name('cart.installation-service.destroy');
 Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 Route::get('/checkout', [CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout', [CheckoutController::class, 'store'])->middleware('throttle:10,1')->name('checkout.store');

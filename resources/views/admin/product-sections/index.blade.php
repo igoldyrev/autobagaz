@@ -15,6 +15,7 @@
 
             <div class="admin-shortcuts admin-shortcuts--compact">
                 <a class="admin-shortcuts__link" href="{{ route('admin.products.information.edit') }}">Доставка, оплата и гарантия в карточках товаров</a>
+                <a class="admin-shortcuts__link" href="{{ route('admin.products.installation-service.edit') }}">Услуга установки</a>
             </div>
 
             <div class="product-section-grid">

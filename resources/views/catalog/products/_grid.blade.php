@@ -2,6 +2,13 @@
     @foreach ($products as $product)
         <article class="product-card">
             <a class="product-card__image-link" href="{{ route('products.show', $product) }}">
+                @if ($product->badges)
+                    <span class="product-card__badges" aria-label="Особенности товара">
+                        @foreach ($product->badges as $badge)
+                            <span class="product-card__badge product-card__badge--{{ $badge }}">{{ \App\Models\Product::BADGES[$badge] ?? $badge }}</span>
+                        @endforeach
+                    </span>
+                @endif
                 @if ($product->images->first())
                     <img class="product-card__image" src="{{ asset($product->images->first()->path) }}" alt="{{ $product->images->first()->alt ?: $product->name }}" loading="lazy">
                 @else

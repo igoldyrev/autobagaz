@@ -5,6 +5,7 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use App\Models\Product;
 
 class ProductRequest extends FormRequest
 {
@@ -20,6 +21,7 @@ class ProductRequest extends FormRequest
             'is_active' => $this->boolean('is_active'),
             'category_ids' => array_values(array_filter((array) $this->input('category_ids'))),
             'remove_image_ids' => array_values(array_filter((array) $this->input('remove_image_ids'))),
+            'badges' => array_values(array_filter((array) $this->input('badges'))),
         ]);
     }
 
@@ -39,6 +41,8 @@ class ProductRequest extends FormRequest
             'description' => ['nullable', 'string'],
             'stock' => ['required', 'integer', 'min:0', 'max:4294967295'],
             'is_active' => ['boolean'],
+            'badges' => ['array', 'max:3'],
+            'badges.*' => ['string', 'distinct', Rule::in(array_keys(Product::BADGES))],
             'category_ids' => ['array'],
             'category_ids.*' => ['integer', 'distinct', 'exists:catalog_categories,id'],
             'images' => ['array', 'max:10'],
@@ -46,5 +50,19 @@ class ProductRequest extends FormRequest
             'remove_image_ids' => ['array'],
             'remove_image_ids.*' => ['integer', 'distinct'],
         ];
+    }
+
+    public function withValidator($validator): void
+    {
+        $validator->after(function ($validator): void {
+            $positioningBadges = array_intersect(
+                (array) $this->input('badges'),
+                Product::POSITIONING_BADGES,
+            );
+
+            if (count($positioningBadges) > 1) {
+                $validator->errors()->add('badges', 'Можно выбрать только один позиционный бейдж: «Бюджетный», «Оптимальный» или «Премиум».');
+            }
+        });
     }
 }

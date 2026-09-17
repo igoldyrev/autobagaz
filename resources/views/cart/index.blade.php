@@ -35,6 +35,19 @@
         @endforelse
 
         @if ($items->isNotEmpty())
+            @if ($installationService)
+                <article class="cart-item cart-item--service">
+                    <span>{{ $installationService->name }}@if ($installationService->description)<small>{{ $installationService->description }}</small>@endif</span>
+                    <span>{{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</span>
+                    <span>Услуга</span>
+                    <strong>{{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</strong>
+                    <form method="POST" action="{{ route('cart.installation-service.destroy') }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="cart-item__remove" type="submit">Удалить</button>
+                    </form>
+                </article>
+            @endif
             @if ($hasInstallationKit)
                 <section class="cart-installation-kit-confirmation" aria-labelledby="cart-installation-kit-confirmation-title">
                     <h2 id="cart-installation-kit-confirmation-title">Полный комплект для установки собран</h2>

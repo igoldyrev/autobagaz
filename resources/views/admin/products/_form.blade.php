@@ -42,6 +42,7 @@
         <span>Опубликовать товар на сайте</span>
         <span class="field__hint">Скрытый товар остаётся в админке, но не показывается покупателям.</span>
     </label>
+    @include('admin.products._badges')
 
     </div>
     </section>

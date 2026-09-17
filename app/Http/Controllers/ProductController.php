@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Compatibility\CompatibilityContext;
 use App\Models\Product;
 use App\Models\ProductPageInformation;
+use App\Models\InstallationService;
 use App\Models\VehicleConfiguration;
 use App\Services\CompatibilityService;
 use App\Services\RecentlyViewedProductService;
@@ -71,10 +72,11 @@ class ProductController extends Controller
             : null;
         $compatibleVehiclesCountLabel = $this->vehicleCountLabel($compatibleVehicles->count());
         $productPageInformation = ProductPageInformation::query()->firstOrFail();
+        $installationService = InstallationService::query()->available()->first();
         $recentlyViewed->remember($product);
 
         return view('catalog.products.show', compact(
-            'product', 'selectedVehicle', 'compatibilityResult', 'selectedVehicleLabel', 'alternativesUrl', 'requiresRoofRack', 'recommendedRoofRack', 'compatibleVehicles', 'compatibleVehiclesCountLabel', 'productPageInformation',
+            'product', 'selectedVehicle', 'compatibilityResult', 'selectedVehicleLabel', 'alternativesUrl', 'requiresRoofRack', 'recommendedRoofRack', 'compatibleVehicles', 'compatibleVehiclesCountLabel', 'productPageInformation', 'installationService',
         ));
     }
 

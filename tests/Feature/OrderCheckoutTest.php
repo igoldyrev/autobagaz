@@ -7,6 +7,7 @@ use App\Mail\OrderConfirmation;
 use App\Mail\OrderCreated;
 use App\Models\CallbackRequest;
 use App\Models\Order;
+use App\Models\InstallationService;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -65,6 +66,38 @@ class OrderCheckoutTest extends TestCase
             ])
             ->assertRedirect(route('checkout.create'))
             ->assertSessionHasErrors('delivery_address');
+    }
+
+    public function test_customer_can_add_installation_service_to_order(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $service = InstallationService::query()->firstOrFail();
+        $this->post(route('cart.store', $product));
+        session(['cart.installation_service' => true]);
+
+        $this->get(route('cart.index'))
+            ->assertOk()
+            ->assertSee($service->name)
+            ->assertSee('12 500,00 ₽');
+
+        $this->post(route('checkout.store'), [
+            'customer_name' => 'Иван Петров',
+            'phone' => '+7 900 123-45-67',
+            'email' => 'ivan@example.com',
+            'delivery_method' => 'pickup',
+        ])->assertRedirect();
+
+        $order = Order::query()->firstOrFail();
+        $this->assertSame('12500.00', $order->total);
+        $this->assertDatabaseHas('order_items', [
+            'order_id' => $order->id,
+            'product_id' => null,
+            'product_name' => $service->name,
+            'unit_price' => '2500.00',
+            'quantity' => 1,
+            'total' => '2500.00',
+        ]);
     }
 
     public function test_cart_quantity_can_be_updated_without_page_redirect(): void

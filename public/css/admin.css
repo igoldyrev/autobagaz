@@ -283,6 +283,8 @@ a { color: inherit; }
 .directory-sections { margin: 0; padding: 20px; border: 1px solid #dfe1e4; border-radius: 10px; background: #fafbfc; }
 .directory-sections legend { padding: 0 7px; font-size: 15px; font-weight: 750; }
 .checkbox-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; margin-top: 8px; }
+.product-badges-editor { margin: 0; padding: 16px; border: 1px solid #dfe1e4; border-radius: 10px; }
+.product-badges-editor legend { padding: 0 6px; font-size: 14px; font-weight: 700; }
 .product-specific-fields > .field__hint { margin-bottom: 18px; }
 .product-specific-fields__grid { gap: 18px; }
 .image-manager legend { padding: 0 6px; font-size: 14px; font-weight: 700; }

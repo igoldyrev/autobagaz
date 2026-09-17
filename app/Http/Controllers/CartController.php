@@ -25,10 +25,12 @@ class CartController extends Controller
         $recommendedRoofRack = $selectedVehicle && $accessory && ! $hasRoofRack
             ? $roofRackRecommendations->recommend($accessory, $selectedVehicle)
             : null;
+        $installationService = $cart->selectedInstallationService();
 
         return view('cart.index', [
             'items' => $items,
-            'total' => $cart->total(),
+            'total' => $cart->total($installationService),
+            'installationService' => $installationService,
             'recentProducts' => $recentlyViewed->products(),
             'roofRackAccessory' => $accessory,
             'recommendedRoofRack' => $recommendedRoofRack,
@@ -58,6 +60,10 @@ class CartController extends Controller
         $cart->add($product);
         $cart->add($roofRack);
 
+        if ($request->boolean('installation_service')) {
+            $cart->addInstallationService();
+        }
+
         return to_route('cart.index')->with('success', 'Комплект добавлен в корзину.');
     }
 
@@ -82,5 +88,12 @@ class CartController extends Controller
         $cart->remove($product);
 
         return to_route('cart.index')->with('success', 'Товар удалён из корзины.');
+    }
+
+    public function destroyInstallationService(CartService $cart): RedirectResponse
+    {
+        $cart->removeInstallationService();
+
+        return to_route('cart.index')->with('success', 'Услуга установки удалена из корзины.');
     }
 }

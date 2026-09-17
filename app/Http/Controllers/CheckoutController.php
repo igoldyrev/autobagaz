@@ -6,6 +6,7 @@ use App\Http\Requests\CheckoutOrderRequest;
 use App\Mail\OrderConfirmation;
 use App\Mail\OrderCreated;
 use App\Models\Order;
+use App\Models\InstallationService;
 use App\Models\Product;
 use App\Services\CartService;
 use Illuminate\Http\RedirectResponse;
@@ -22,17 +23,20 @@ class CheckoutController extends Controller
             return to_route('cart.index')->with('error', 'Добавьте товар в корзину, чтобы оформить заказ.');
         }
 
-        return view('checkout.create', ['items' => $items, 'total' => $cart->total()]);
+        $installationService = $cart->selectedInstallationService();
+
+        return view('checkout.create', compact('items', 'installationService') + ['total' => $cart->total($installationService)]);
     }
 
     public function store(CheckoutOrderRequest $request, CartService $cart): RedirectResponse
     {
         $cartItems = $cart->contents();
+        $selectedInstallationService = $cart->selectedInstallationService();
         if ($cartItems->isEmpty()) {
             return to_route('cart.index')->with('error', 'Корзина пуста.');
         }
 
-        $order = DB::transaction(function () use ($request, $cartItems) {
+        $order = DB::transaction(function () use ($request, $cartItems, $selectedInstallationService) {
             $products = Product::query()->active()->lockForUpdate()
                 ->whereIn('id', $cartItems->pluck('product.id'))
                 ->get()->keyBy('id');
@@ -53,6 +57,20 @@ class CheckoutController extends Controller
                     'total' => $unitPrice * $item['quantity'],
                 ];
             });
+
+            if ($selectedInstallationService) {
+                $installationService = InstallationService::query()->available()->lockForUpdate()->first();
+
+                if ($installationService) {
+                    $items->push([
+                        'product_id' => null,
+                        'product_name' => $installationService->name,
+                        'unit_price' => (float) $installationService->price,
+                        'quantity' => 1,
+                        'total' => (float) $installationService->price,
+                    ]);
+                }
+            }
 
             $order = Order::query()->create([
                 ...$request->safe()->except('website'),

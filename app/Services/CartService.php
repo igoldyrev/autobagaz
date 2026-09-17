@@ -3,12 +3,15 @@
 namespace App\Services;
 
 use App\Models\Product;
+use App\Models\InstallationService;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 
 class CartService
 {
     private const SESSION_KEY = 'cart.items';
+
+    private const INSTALLATION_SERVICE_SESSION_KEY = 'cart.installation_service';
 
     public function add(Product $product, int $quantity = 1): void
     {
@@ -70,9 +73,37 @@ class CartService
         return $contents;
     }
 
-    public function total(): float
+    public function addInstallationService(): void
     {
-        return $this->contents()->sum('total');
+        if (InstallationService::query()->available()->exists()) {
+            Session::put(self::INSTALLATION_SERVICE_SESSION_KEY, true);
+        }
+    }
+
+    public function removeInstallationService(): void
+    {
+        Session::forget(self::INSTALLATION_SERVICE_SESSION_KEY);
+    }
+
+    public function selectedInstallationService(): ?InstallationService
+    {
+        if (! Session::get(self::INSTALLATION_SERVICE_SESSION_KEY, false)) {
+            return null;
+        }
+
+        $service = InstallationService::query()->available()->first();
+        if (! $service) {
+            $this->removeInstallationService();
+        }
+
+        return $service;
+    }
+
+    public function total(?InstallationService $installationService = null): float
+    {
+        $installationService ??= $this->selectedInstallationService();
+
+        return $this->contents()->sum('total') + ($installationService ? (float) $installationService->price : 0);
     }
 
     public function count(): int
@@ -83,6 +114,7 @@ class CartService
     public function clear(): void
     {
         Session::forget(self::SESSION_KEY);
+        $this->removeInstallationService();
     }
 
     /** @return array<string, int> */

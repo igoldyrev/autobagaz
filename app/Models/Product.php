@@ -11,6 +11,17 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
+    public const BADGES = [
+        'hit' => 'Хит',
+        'new' => 'Новинка',
+        'recommended' => 'Рекомендуем',
+        'budget' => 'Бюджетный',
+        'optimal' => 'Оптимальный',
+        'premium' => 'Премиум',
+    ];
+
+    public const POSITIONING_BADGES = ['budget', 'optimal', 'premium'];
+
     protected $fillable = [
         'name',
         'product_type_id',
@@ -24,6 +35,7 @@ class Product extends Model
         'description',
         'stock',
         'is_active',
+        'badges',
     ];
 
     protected function casts(): array
@@ -32,6 +44,7 @@ class Product extends Model
             'price' => 'decimal:2',
             'stock' => 'integer',
             'is_active' => 'boolean',
+            'badges' => 'array',
         ];
     }
 
