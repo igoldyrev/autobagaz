@@ -28,7 +28,8 @@ class DashboardController extends Controller
             $inactiveProducts = Product::query()->where('is_active', false)->count();
             $roofRacksWithoutFitments = Product::query()
                 ->whereHas('roofRack')
-                ->doesntHave('fitments')
+                ->where('is_active', true)
+                ->whereDoesntHave('fitments', fn ($query) => $query->active()->wherePivot('status', 'active'))
                 ->count();
 
             if ($productsWithoutImages > 0) {
@@ -50,20 +51,20 @@ class DashboardController extends Controller
             if ($roofRacksWithoutFitments > 0) {
                 $attentionItems[] = [
                     'count' => $roofRacksWithoutFitments,
-                    'label' => 'автобагажников без применяемости',
-                    'url' => route('admin.fitments.index'),
+                    'label' => 'опубликованных автобагажников без применяемости',
+                    'url' => route('admin.products.roof-racks.index', ['quality' => 'without_fitments']),
                 ];
             }
         }
 
         if ($canManageVehicles) {
-            $configurationsWithoutFitments = VehicleConfiguration::query()->doesntHave('fitments')->count();
+            $configurationsWithoutFitments = VehicleConfiguration::query()->whereDoesntHave('fitments', fn ($query) => $query->active())->count();
 
             if ($configurationsWithoutFitments > 0) {
                 $attentionItems[] = [
                     'count' => $configurationsWithoutFitments,
                     'label' => 'конфигураций без совместимости',
-                    'url' => route('admin.vehicles.vehicle-makes.index'),
+                    'url' => route('admin.vehicles.configurations.quality'),
                 ];
             }
         }

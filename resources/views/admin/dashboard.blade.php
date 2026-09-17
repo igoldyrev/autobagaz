@@ -70,6 +70,7 @@
                             <a class="button button--secondary button--inline" href="{{ route('admin.products.auto-boxes.create') }}">Добавить автобокс</a>
                         @endif
                         @if ($canManageVehicles)
+                            <a class="button button--secondary button--inline" href="{{ route('admin.compatibility.quality') }}">Качество применяемости</a>
                             <a class="button button--secondary button--inline" href="{{ route('admin.compatibility.preview') }}">Проверить совместимость</a>
                         @endif
                         @if ($canManageOrders)

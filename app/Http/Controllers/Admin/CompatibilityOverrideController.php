@@ -19,6 +19,18 @@ class CompatibilityOverrideController extends Controller
         $overrides = CompatibilityOverride::query()
             ->with(['vehicleConfiguration.generation.vehicleModel.make', 'fitment', 'baseProduct', 'accessoryProduct'])
             ->when($request->filled('status'), fn ($query) => $query->where('status', $request->string('status')))
+            ->when($request->string('quality')->value() === 'conflicts', function ($query): void {
+                $conflictIds = CompatibilityOverride::query()->effective()
+                    ->get(['id', 'vehicle_configuration_id', 'fitment_id', 'base_product_id', 'accessory_product_id', 'priority', 'status'])
+                    ->groupBy(fn (CompatibilityOverride $override) => implode(':', [
+                        $override->vehicle_configuration_id ?? 'all-vehicles', $override->fitment_id ?? 'all-fitments',
+                        $override->base_product_id, $override->accessory_product_id ?? 'no-accessory', $override->priority,
+                    ]))
+                    ->filter(fn ($group) => $group->pluck('status')->unique()->count() > 1)
+                    ->flatMap(fn ($group) => $group->pluck('id'));
+
+                $query->whereKey($conflictIds);
+            })
             ->latest()->paginate(30)->withQueryString();
 
         return view('admin.compatibility-overrides.index', compact('overrides'));

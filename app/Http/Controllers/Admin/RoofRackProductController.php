@@ -38,6 +38,8 @@ class RoofRackProductController extends Controller
                 $query->where('name', 'like', '%'.$request->string('search').'%');
             })
             ->when($request->filled('status'), fn ($query) => $query->where('is_active', $request->string('status') === 'active'))
+            ->when($request->string('quality')->value() === 'without_fitments', fn ($query) => $query->where('is_active', true)
+                ->whereDoesntHave('fitments', fn ($fitments) => $fitments->active()->wherePivot('status', 'active')))
             ->latest()
             ->paginate(30)
             ->withQueryString();

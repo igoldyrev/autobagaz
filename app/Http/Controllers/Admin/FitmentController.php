@@ -34,6 +34,9 @@ class FitmentController extends Controller
                 $search = '%'.$request->string('search').'%';
                 $query->where(fn (Builder $query) => $query->where('name', 'like', $search)->orWhere('code', 'like', $search));
             })
+            ->when($request->string('verification_status')->isNotEmpty(), fn (Builder $query) => $query->where('verification_status', $request->string('verification_status')))
+            ->when($request->string('quality')->value() === 'no_products', fn (Builder $query) => $query->active()->doesntHave('products'))
+            ->when($request->string('quality')->value() === 'no_configurations', fn (Builder $query) => $query->active()->doesntHave('configurations'))
             ->orderBy('name')->paginate(30)->withQueryString();
 
         return view('admin.fitments.index', compact('fitments'));

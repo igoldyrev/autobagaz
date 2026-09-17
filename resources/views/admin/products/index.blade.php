@@ -30,6 +30,10 @@
                     <option value="active" @selected(request('status') === 'active')>Опубликованные</option>
                     <option value="hidden" @selected(request('status') === 'hidden')>Скрытые</option>
                 </select>
+                <select name="quality" aria-label="Качество применяемости">
+                    <option value="">Все товары</option>
+                    <option value="without_fitments" @selected(request('quality') === 'without_fitments')>Без применяемости</option>
+                </select>
                 <button class="button button--secondary" type="submit">Применить</button>
             </form>
 

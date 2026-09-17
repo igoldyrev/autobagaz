@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CallbackRequestController as AdminCallbackRequest
 use App\Http\Controllers\Admin\CatalogCategoryController as AdminCatalogCategoryController;
 use App\Http\Controllers\Admin\CompatibilityOverrideController;
 use App\Http\Controllers\Admin\CompatibilityPreviewController;
+use App\Http\Controllers\Admin\CompatibilityQualityController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FitmentController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserSessionController;
 use App\Http\Controllers\Admin\VehicleBodyStyleController;
 use App\Http\Controllers\Admin\VehicleConfigurationController;
+use App\Http\Controllers\Admin\VehicleConfigurationQualityController;
 use App\Http\Controllers\Admin\VehicleGenerationController;
 use App\Http\Controllers\Admin\VehicleMakeController;
 use App\Http\Controllers\Admin\VehicleModelController;
@@ -132,6 +134,7 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
     });
 
     Route::middleware('permission:vehicles.manage')->group(function () {
+        Route::get('compatibility/quality', CompatibilityQualityController::class)->name('compatibility.quality');
         Route::get('compatibility/preview', CompatibilityPreviewController::class)->name('compatibility.preview');
         Route::resource('compatibility-overrides', CompatibilityOverrideController::class)->except('show');
         Route::get('fitments/{fitment}/configurations', [FitmentController::class, 'configurations'])->name('fitments.configurations');
@@ -139,6 +142,7 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
         Route::get('fitments/{fitment}/preview', [FitmentController::class, 'preview'])->name('fitments.preview');
         Route::post('fitments/{fitment}/copy', [FitmentController::class, 'copy'])->name('fitments.copy');
         Route::resource('fitments', FitmentController::class)->except('show');
+        Route::get('vehicles/configurations/quality', VehicleConfigurationQualityController::class)->name('vehicles.configurations.quality');
         Route::prefix('vehicles')->name('vehicles.')->group(function () {
             Route::resource('vehicle-body-styles', VehicleBodyStyleController::class)->except('show');
             Route::resource('vehicle-roof-types', VehicleRoofTypeController::class)->except('show');
