@@ -367,6 +367,11 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
 .product-vehicle-compatibility--unknown .product-vehicle-compatibility__status { color: #8a621c; }
 .product-vehicle-compatibility__prompt { margin: 0; color: #4e574f; line-height: 1.5; }
 .product-vehicle-compatibility__button { display: inline-flex; width: auto; margin-top: 16px; }
+.product-vehicle-compatibility__installation { margin-top: 16px; padding-top: 14px; border-top: 1px solid #cbdccf; }
+.product-vehicle-compatibility__installation h3 { margin: 0 0 5px; color: #174d27; font-size: 16px; }
+.product-vehicle-compatibility__installation p { margin: 0 0 8px; color: #4e574f; font-size: 13px; }
+.product-vehicle-compatibility__installation label { display: block; color: #172019; font-size: 14px; font-weight: 700; }
+.product-vehicle-compatibility__installation-button { min-width: 250px; justify-content: center; text-align: center; }
 .product-roof-rack-cross-sell { margin-top: 16px; padding: 18px 20px; border: 1px solid #b9d9c0; border-left: 4px solid #276b3a; border-radius: 7px; background: #f2faf4; }
 .product-roof-rack-cross-sell h2 { margin: 0 0 8px; color: #174d27; font-size: 18px; }
 .product-roof-rack-cross-sell p { margin: 0; color: #4e574f; line-height: 1.5; }

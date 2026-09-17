@@ -193,6 +193,17 @@
                     <p class="product-vehicle-compatibility__prompt">Выберите автомобиль, чтобы проверить совместимость товара.</p>
                     <a class="button button--secondary product-vehicle-compatibility__button" href="{{ route('catalog.vehicle-fitment.index') }}">Выбрать автомобиль</a>
                 @endif
+                @if ($product->roofRack && $installationService)
+                    <section class="product-vehicle-compatibility__installation" aria-labelledby="product-installation-service-title">
+                        <h3 id="product-installation-service-title">{{ $installationService->name }}</h3>
+                        @if ($installationService->description)<p>{{ $installationService->description }}</p>@endif
+                        <form method="POST" action="{{ route('cart.store', $product) }}">
+                            @csrf
+                            <label><input type="checkbox" name="installation_service" value="1"> Добавить установку — {{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</label>
+                            <button class="button button__buy product-vehicle-compatibility__button product-vehicle-compatibility__installation-button" type="submit">Добавить в корзину</button>
+                        </form>
+                    </section>
+                @endif
             </section>
 
             @if ($requiresRoofRack)
@@ -206,7 +217,7 @@
                                 <div><dt><a href="{{ route('products.show', $product) }}">{{ $product->name }}</a></dt><dd>{{ number_format((float) $product->price, 2, ',', ' ') }} ₽ ✓</dd></div>
                                 <div><dt><a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a></dt><dd>{{ number_format((float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</dd></div>
                                 @if ($installationService)
-                                    <div class="product-roof-rack-cross-sell__service"><dt><label><input type="checkbox" name="installation_service" value="1" data-installation-service data-installation-service-price="{{ (float) $installationService->price }}"> Добавить: {{ $installationService->name }}</label>@if ($installationService->description)<small>{{ $installationService->description }}</small>@endif</dt><dd>{{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</dd></div>
+                                    <div class="product-roof-rack-cross-sell__service"><dt><label><input type="checkbox" name="installation_service" value="1" data-installation-service data-installation-service-price="{{ (float) $installationService->price }}"> {{ $installationService->name }}</label>@if ($installationService->description)<small>{{ $installationService->description }}</small>@endif</dt><dd>{{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</dd></div>
                                 @endif
                             </dl>
                             <button class="button button__buy product-roof-rack-cross-sell__button" type="submit">Добавить комплект</button>

@@ -100,6 +100,27 @@ class OrderCheckoutTest extends TestCase
         ]);
     }
 
+    public function test_customer_can_add_roof_rack_with_installation_service(): void
+    {
+        $roofRack = $this->product();
+        $roofRack->roofRack()->create();
+        $service = InstallationService::query()->firstOrFail();
+
+        $this->get(route('products.show', $roofRack))
+            ->assertOk()
+            ->assertSee($service->name)
+            ->assertSee('Добавить установку')
+            ->assertSee(route('cart.store', $roofRack));
+
+        $this->post(route('cart.store', $roofRack), ['installation_service' => '1'])
+            ->assertRedirect(route('cart.index'));
+
+        $this->get(route('cart.index'))
+            ->assertOk()
+            ->assertSee($roofRack->name)
+            ->assertSee($service->name);
+    }
+
     public function test_cart_quantity_can_be_updated_without_page_redirect(): void
     {
         $product = $this->product();

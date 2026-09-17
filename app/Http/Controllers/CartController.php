@@ -44,6 +44,10 @@ class CartController extends Controller
 
         $cart->add($product, $request->integer('quantity', 1));
 
+        if ($request->boolean('installation_service') && $product->roofRack) {
+            $cart->addInstallationService();
+        }
+
         return to_route('cart.index')->with('success', 'Товар добавлен в корзину.');
     }
 
