@@ -1,10 +1,8 @@
 @php
     $siteNavigation = [
         ['title' => 'Прокат', 'url' => route('rental')],
-        ['title' => 'Галерея'],
-        ['title' => 'Спецпредложения'],
-        ['title' => 'Новости и статьи'],
-        ['title' => 'Отзывы о нас'],
+        ['title' => 'Установка', 'url' => route('installation')],
+        ['title' => 'Акции'],
         ['title' => 'Контакты', 'url' => route('contacts')],
     ];
     $siteCategories = [
@@ -42,6 +40,14 @@
         @include('admin.partials.site-toolbar')
         <x-callback-widget />
 
+        <div class="site-topbar">
+            <div class="site-topbar__content">
+                <span>📍 Пермь, ул. Дзержинского, 15</span>
+                <span>Пн–Пт 10:00–19:00 · Сб–Вс 10:00–18:00</span>
+                <a href="tel:+73422889929">☎ +7 342 288 99 29</a>
+            </div>
+        </div>
+
         <nav class="navigation-mobile" aria-label="Мобильная навигация">
             <button class="navigation-mobile__toggle" id="pull" type="button" aria-controls="mobile-menu" aria-expanded="false">
                 <span>Меню</span>
@@ -49,6 +55,7 @@
             </button>
             <ul class="navigation__list" id="mobile-menu" aria-hidden="true" inert>
                 <li class="navigation__list-item"><a class="navigation__link {{ request()->routeIs('home') ? 'navigation__link--active' : '' }}" href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif>Каталог</a></li>
+                <li class="navigation__list-item"><a class="navigation__link {{ request()->routeIs('catalog.vehicle-fitment.*') ? 'navigation__link--active' : '' }}" href="{{ route('catalog.vehicle-fitment.index') }}">🚗 Подбор по авто</a></li>
                 @foreach ($siteNavigation as $item)
                     <li class="navigation__list-item">
                         @php($isCurrent = isset($item['url']) && request()->url() === $item['url'])
@@ -66,36 +73,20 @@
                         <img src="{{ asset('src/common.blocks/header/img/logo.jpg') }}" class="header__img" alt="Автобагаж">
                     </a>
                 </div>
-                <div class="header__inner">
-                    <address class="header__contacts">
-                        <span class="header__column-title">Наш адрес</span>
-                        <span class="header__column-text header__contacts-address">г. Пермь,<br>ул. Дзержинского, 15</span>
-                        <a class="link header__link header__contacts-phone" href="tel:+73422889929">+7 342 288 99 29</a>
-                    </address>
-                    <div class="header__info">
-                        <span class="header__column-title">Режим работы</span>
-                        <span class="header__column-text">Пн — Пт: 10:00–19:00<br>Сб — Вс: 10:00–18:00</span>
-                        <a class="link header__link" href="mailto:autobagaz@yandex.ru">autobagaz@yandex.ru</a>
-                    </div>
-                </div>
+                <nav class="header-navigation" aria-label="Основная навигация">
+                    <a class="header-navigation__link {{ request()->routeIs('home') ? 'header-navigation__link--active' : '' }}" href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif>Каталог</a>
+                    <a class="header-navigation__link header-navigation__link--vehicle {{ request()->routeIs('catalog.vehicle-fitment.*') ? 'header-navigation__link--active' : '' }}" href="{{ route('catalog.vehicle-fitment.index') }}">🚗 Подбор по авто</a>
+                    @foreach ($siteNavigation as $item)
+                        @php($isCurrent = isset($item['url']) && request()->url() === $item['url'])
+                        <a class="header-navigation__link {{ $isCurrent ? 'header-navigation__link--active' : '' }} {{ ! isset($item['url']) ? 'header-navigation__link--placeholder' : '' }}" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" tabindex="-1" @elseif ($isCurrent) aria-current="page" @endif>{{ $item['title'] }}</a>
+                    @endforeach
+                </nav>
                 <div class="header__actions">
-                    <x-cart-link />
                     <x-selected-vehicle />
+                    <x-cart-link />
                 </div>
             </div>
         </header>
-
-        <nav class="navigation" aria-label="Основная навигация">
-            <ul class="navigation__list">
-                <li class="navigation__list-item"><a class="navigation__link {{ request()->routeIs('home') ? 'navigation__link--active' : '' }}" href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif>Каталог</a></li>
-                @foreach ($siteNavigation as $item)
-                    <li class="navigation__list-item">
-                        @php($isCurrent = isset($item['url']) && request()->url() === $item['url'])
-                        <a class="navigation__link {{ $isCurrent ? 'navigation__link--active' : '' }} {{ ! isset($item['url']) ? 'navigation__link--placeholder' : '' }}" href="{{ $item['url'] ?? '#' }}" @if (! isset($item['url'])) data-placeholder aria-disabled="true" tabindex="-1" @elseif ($isCurrent) aria-current="page" @endif>{{ $item['title'] }}</a>
-                    </li>
-                @endforeach
-            </ul>
-        </nav>
 
         <div class="wrapper">
             <aside class="left-nav">

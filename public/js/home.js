@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.querySelector('[data-callback-modal]');
     const overlay = document.querySelector('[data-callback-overlay]');
-    const openButton = document.querySelector('[data-callback-open]');
+    const openButtons = document.querySelectorAll('[data-callback-open]');
     const closeButton = document.querySelector('[data-callback-close]');
 
     const closeModal = () => {
@@ -63,13 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.remove('callback-widget-open');
     };
 
-    openButton?.addEventListener('click', () => {
+    openButtons.forEach((openButton) => openButton.addEventListener('click', () => {
+        const goal = openButton.dataset.metrikaGoal;
+        if (goal) reachMetrikaGoal(goal);
+
         modal?.classList.add('is-open');
         modal?.setAttribute('aria-hidden', 'false');
         overlay?.classList.add('is-open');
         document.body.classList.add('callback-widget-open');
         modal?.querySelector('input[name="name"]')?.focus();
-    });
+    }));
 
     closeButton?.addEventListener('click', closeModal);
     overlay?.addEventListener('click', (event) => {

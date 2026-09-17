@@ -37,7 +37,9 @@ class HomePageTest extends TestCase
 
         $availableTargets = [
             route('home'),
+            route('catalog.vehicle-fitment.index'),
             route('rental'),
+            route('installation'),
             route('contacts'),
             route('catalog.autobagazhniki.index'),
             route('catalog.auto-boxes.index'),
