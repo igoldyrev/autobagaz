@@ -18,7 +18,7 @@ class CompatibilityQualityController extends Controller
             'metrics' => [
                 [
                     'count' => Product::query()->whereHas('roofRack')->where('is_active', true)
-                        ->whereDoesntHave('fitments', fn ($query) => $query->active()->wherePivot('status', 'active'))->count(),
+                        ->whereDoesntHave('fitments', fn ($query) => $query->active()->where('fitment_product.status', 'active'))->count(),
                     'label' => 'опубликованных автобагажников без применяемости',
                     'description' => 'Товар не будет показан как подходящий при подборе по автомобилю.',
                     'url' => route('admin.products.roof-racks.index', ['quality' => 'without_fitments']),

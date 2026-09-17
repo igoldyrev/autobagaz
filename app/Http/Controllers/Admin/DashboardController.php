@@ -29,7 +29,7 @@ class DashboardController extends Controller
             $roofRacksWithoutFitments = Product::query()
                 ->whereHas('roofRack')
                 ->where('is_active', true)
-                ->whereDoesntHave('fitments', fn ($query) => $query->active()->wherePivot('status', 'active'))
+                ->whereDoesntHave('fitments', fn ($query) => $query->active()->where('fitment_product.status', 'active'))
                 ->count();
 
             if ($productsWithoutImages > 0) {

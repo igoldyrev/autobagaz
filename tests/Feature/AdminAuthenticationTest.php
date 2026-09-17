@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\AdminActivityLog;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
@@ -30,6 +31,11 @@ class AdminAuthenticationTest extends TestCase
 
     public function test_administrator_can_log_in_and_view_dashboard(): void
     {
+        $queries = [];
+        DB::listen(static function ($query) use (&$queries): void {
+            $queries[] = $query->sql;
+        });
+
         $admin = User::factory()->create([
             'email' => 'admin@example.com',
             'password' => 'strong-password',
@@ -53,6 +59,11 @@ class AdminAuthenticationTest extends TestCase
         $this->get(route('admin.dashboard'))
             ->assertOk()
             ->assertSee($admin->name);
+
+        $fitmentQuery = collect($queries)->first(static fn (string $query): bool => str_contains($query, 'fitment_product'));
+        $this->assertNotNull($fitmentQuery);
+        $this->assertStringContainsString('fitment_product', $fitmentQuery);
+        $this->assertStringNotContainsString('pivot', $fitmentQuery);
     }
 
     public function test_invalid_credentials_do_not_authenticate_user(): void
