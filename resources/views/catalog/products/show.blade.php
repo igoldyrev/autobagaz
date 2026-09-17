@@ -1,7 +1,7 @@
 @extends('layouts.catalog')
 
-@section('title', $product->name)
-@section('meta_description', str($product->description)->stripTags()->limit(155))
+@section('title', $product->meta_title ?: $product->name)
+@section('meta_description', $product->meta_description ?: str($product->description)->stripTags()->limit(155))
 
 @section('content')
     <nav class="breadcrumbs" aria-label="Хлебные крошки">

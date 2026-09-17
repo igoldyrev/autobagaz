@@ -6,9 +6,19 @@
     $selectedManufacturerId = (string) old('manufacturer_id', $autoBox?->manufacturer_id ?? '');
 @endphp
 
-@include('admin.partials.help', ['title' => 'Заполнение автомобильного бокса', 'text' => 'Заполните общие данные и характеристики бокса, затем опубликуйте карточку после проверки.', 'items' => ['Адрес страницы можно оставить пустым — он сформируется автоматически.', 'Габариты самого бокса указываются в сантиметрах.', 'Автобоксы имеют универсальную совместимость и не проверяются по автомобилю или багажнику.']])
+@include('admin.partials.help', ['title' => 'Как заполнять карточку автомобильного бокса', 'text' => 'Автобоксы имеют универсальную совместимость и не проверяются по автомобилю или багажнику. Публикуйте товар после проверки всех разделов.', 'items' => ['«Основное» — название, адрес страницы, цена, остаток и публикация. Остаток 0 означает «Под заказ».', '«Характеристики» — производитель, страна, модель, габариты, объём, грузоподъёмность, открывание, крепление и цвет. Заполняйте значения строго по спецификации производителя; габариты указывайте в сантиметрах.', '«Фото» — изображения для галереи. За одну загрузку можно добавить до 10 файлов, каждый размером до 6 МБ.', '«SEO» — заголовок и описание для поисковой выдачи. Если оставить их пустыми, сайт использует название и описание товара. Пишите уникальный заголовок и краткое описание с важными характеристиками, без неподтверждённых условий.']])
 
-<div class="form-grid">
+<div class="product-editor" data-product-editor-tabs>
+    <div class="product-editor__tabs" role="tablist" aria-label="Разделы карточки товара">
+        <button id="auto-box-main-tab" class="product-editor__tab" type="button" role="tab" aria-selected="true" aria-controls="auto-box-main-panel">Основное</button>
+        <button id="auto-box-specifications-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="auto-box-specifications-panel" tabindex="-1">Характеристики</button>
+        <button id="auto-box-photos-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="auto-box-photos-panel" tabindex="-1">Фото</button>
+        <button id="auto-box-seo-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="auto-box-seo-panel" tabindex="-1">SEO</button>
+    </div>
+
+    <section id="auto-box-main-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="auto-box-main-tab">
+        <div class="product-editor__panel-heading"><h2>Основное</h2><p>Название, цена, наличие, производитель и публикация.</p></div>
+        <div class="form-grid">
     <div class="field field--wide">
         <label for="name">Название товара</label>
         <input id="name" name="name" type="text" value="{{ old('name', $product->name ?? '') }}" required>
@@ -29,6 +39,17 @@
         <input id="stock" name="stock" type="number" min="0" step="1" value="{{ old('stock', $product->stock ?? 0) }}" required>
         @error('stock') <p class="field__error">{{ $message }}</p> @enderror
     </div>
+    <label class="checkbox field--wide">
+        <input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->is_active ?? false))>
+        <span>Опубликовать товар на сайте</span>
+        <span class="field__hint">Скрытый товар остаётся в админке, но не показывается покупателям.</span>
+    </label>
+        </div>
+    </section>
+
+    <section id="auto-box-specifications-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="auto-box-specifications-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>Характеристики</h2><p>Габариты и технические параметры автомобильного бокса.</p></div>
+        <div class="form-grid">
     <div class="field">
         <label for="manufacturer_id">Производитель</label>
         <select id="manufacturer_id" name="manufacturer_id">
@@ -54,7 +75,6 @@
         <input id="product_model" name="product_model" type="text" value="{{ old('product_model', $product->product_model ?? '') }}" maxlength="255">
         @error('product_model') <p class="field__error">{{ $message }}</p> @enderror
     </div>
-
     <fieldset class="field field--wide product-specific-fields">
         <legend>Характеристики автомобильного бокса</legend>
         <div class="form-grid product-specific-fields__grid">
@@ -134,6 +154,12 @@
         <textarea id="description" name="description" rows="8">{{ old('description', $product->description ?? '') }}</textarea>
         @error('description') <p class="field__error">{{ $message }}</p> @enderror
     </div>
+        </div>
+    </section>
+
+    <section id="auto-box-photos-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="auto-box-photos-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>Фото</h2><p>Изображения для галереи карточки товара.</p></div>
+        <div class="form-grid">
     <div class="field field--wide">
         <label for="images">Фотографии</label>
         <input id="images" name="images[]" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
@@ -155,11 +181,23 @@
         </fieldset>
     @endif
 
-    <label class="checkbox field--wide">
-        <input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->is_active ?? false))>
-        <span>Опубликовать товар на сайте</span>
-    </label>
+        </div>
+    </section>
+
+    <section id="auto-box-seo-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="auto-box-seo-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>SEO</h2><p>Если поля оставить пустыми, используются название и описание товара.</p></div>
+        <div class="form-grid">
+            <div class="field field--wide"><label for="meta_title">SEO-заголовок</label><input id="meta_title" name="meta_title" maxlength="255" value="{{ old('meta_title', $product->meta_title ?? '') }}">@error('meta_title')<p class="field__error">{{ $message }}</p>@enderror</div>
+            <div class="field field--wide"><label for="meta_description">SEO-описание</label><textarea id="meta_description" name="meta_description" rows="4" maxlength="500">{{ old('meta_description', $product->meta_description ?? '') }}</textarea>@error('meta_description')<p class="field__error">{{ $message }}</p>@enderror</div>
+        </div>
+    </section>
 </div>
+
+@once
+    @push('scripts')
+        <script src="{{ asset('js/product-editor-tabs.js') }}" defer></script>
+    @endpush
+@endonce
 
 <div class="form-actions">
     <button class="button button--primary button--inline" type="submit">Сохранить</button>

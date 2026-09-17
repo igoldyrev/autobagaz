@@ -30,6 +30,8 @@ class ProductRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'slug' => ['required', 'string', 'max:255', 'alpha_dash:ascii', Rule::unique('products', 'slug')->ignore($product)],
+            'meta_title' => ['nullable', 'string', 'max:255'],
+            'meta_description' => ['nullable', 'string', 'max:500'],
             'price' => ['required', 'numeric', 'min:0', 'max:9999999999.99'],
             'manufacturer' => ['nullable', 'string', 'max:255'],
             'country_of_origin' => ['nullable', 'string', 'max:255'],

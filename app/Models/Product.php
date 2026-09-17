@@ -15,6 +15,8 @@ class Product extends Model
         'name',
         'product_type_id',
         'slug',
+        'meta_title',
+        'meta_description',
         'price',
         'manufacturer',
         'country_of_origin',

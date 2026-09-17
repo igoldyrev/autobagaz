@@ -7,34 +7,48 @@
     $selectedManufacturerId = (string) old('manufacturer_id', $roofRack?->manufacturer_id ?? '');
 @endphp
 
-@include('admin.partials.help', ['title' => 'Заполнение автобагажника', 'text' => 'Заполните данные для карточки товара и каталога. Группы применяемости определяют, для каких автомобилей багажник будет показан как подходящий.', 'items' => ['Адрес страницы можно оставить пустым — он сформируется из названия.', 'После первого сохранения добавьте товар в группы применяемости.', 'Публикуйте товар после проверки карточки, фотографий и совместимости.']])
+@include('admin.partials.help', ['title' => 'Как заполнять карточку автобагажника', 'text' => 'Вкладки разделяют коммерческие данные, технические параметры и публикацию. Заполняйте карточку по порядку и публикуйте только после проверки всех разделов.', 'items' => ['«Основное» — название, цена, остаток и публикация. Остаток 0 означает «Под заказ»; скрытый товар сохраняется в админке, но не виден покупателям.', '«Характеристики» — производитель, страна, модель, параметры дуг и категории. Используйте данные производителя и указывайте единицы измерения только в предназначенных числовых полях.', '«Фото» — изображения для галереи. Добавляйте товарные фотографии хорошего качества; за одну загрузку допускается до 10 файлов размером до 6 МБ.', '«SEO» — адрес страницы, заголовок и описание для поисковой выдачи. Адрес можно не заполнять: он сформируется из названия. SEO-заголовок должен кратко описывать товар, а SEO-описание — содержать ключевые свойства без повторов и рекламных обещаний.', '«Совместимость» — группы применяемости. Сначала сохраните новый товар, затем добавьте его в подходящие группы; не назначайте совместимость по предположению.']])
 
-<div class="form-grid">
+<div class="product-editor" data-product-editor-tabs>
+    <div class="product-editor__tabs" role="tablist" aria-label="Разделы карточки товара">
+        <button id="roof-rack-main-tab" class="product-editor__tab" type="button" role="tab" aria-selected="true" aria-controls="roof-rack-main-panel">Основное</button>
+        <button id="roof-rack-specifications-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="roof-rack-specifications-panel" tabindex="-1">Характеристики</button>
+        <button id="roof-rack-photos-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="roof-rack-photos-panel" tabindex="-1">Фото</button>
+        <button id="roof-rack-seo-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="roof-rack-seo-panel" tabindex="-1">SEO</button>
+        <button id="roof-rack-compatibility-tab" class="product-editor__tab" type="button" role="tab" aria-selected="false" aria-controls="roof-rack-compatibility-panel" tabindex="-1">Совместимость</button>
+    </div>
+
+    <section id="roof-rack-main-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="roof-rack-main-tab">
+        <div class="product-editor__panel-heading"><h2>Основное</h2><p>Название, стоимость, наличие, описание и публикация.</p></div>
+        <div class="form-grid">
     <div class="field field--wide">
         <label for="name">Название товара</label>
         <input id="name" name="name" type="text" value="{{ old('name', $product->name ?? '') }}" required>
         <p class="field__hint">Показывается в заголовке карточки и в списках каталога.</p>
         @error('name') <p class="field__error">{{ $message }}</p> @enderror
     </div>
-
-    <div class="field field--wide">
-        <label for="slug">Адрес страницы</label>
-        <input id="slug" name="slug" type="text" value="{{ old('slug', $product->slug ?? '') }}" placeholder="Заполнится автоматически">
-        <p class="field__hint">Часть ссылки на карточку товара. Если оставить пустым, формируется из названия.</p>
-        @error('slug') <p class="field__error">{{ $message }}</p> @enderror
-    </div>
     <div class="field">
         <label for="price">Цена, ₽</label>
         <input id="price" name="price" type="number" min="0" step="0.01" value="{{ old('price', $product->price ?? '0.00') }}" required>
-        <p class="field__hint">Показывается в карточке и в каталоге.</p>
         @error('price') <p class="field__error">{{ $message }}</p> @enderror
     </div>
     <div class="field">
         <label for="stock">Остаток, шт.</label>
         <input id="stock" name="stock" type="number" min="0" step="1" value="{{ old('stock', $product->stock ?? 0) }}" required>
-        <p class="field__hint">Показывается в карточке как наличие; 0 означает «Под заказ».</p>
         @error('stock') <p class="field__error">{{ $message }}</p> @enderror
     </div>
+    <label class="checkbox field--wide">
+        <input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->is_active ?? false))>
+        <span>Опубликовать товар на сайте</span>
+        <span class="field__hint">Скрытый товар остаётся в админке, но не показывается покупателям.</span>
+    </label>
+
+    </div>
+    </section>
+
+    <section id="roof-rack-specifications-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="roof-rack-specifications-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>Характеристики</h2><p>Технические данные и принадлежность к разделам каталога.</p></div>
+        <div class="form-grid">
     <div class="field">
         <label for="manufacturer_id">Производитель</label>
         <select id="manufacturer_id" name="manufacturer_id">
@@ -132,6 +146,12 @@
         @error('category_ids.*') <p class="field__error">{{ $message }}</p> @enderror
     </div>
 
+        </div>
+    </section>
+
+    <section id="roof-rack-compatibility-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="roof-rack-compatibility-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>Совместимость</h2><p>Группы применяемости определяют, для каких автомобилей товар показывается как подходящий.</p></div>
+        <div class="form-grid">
     <div class="field field--wide">
         <span class="field__label">Группы применяемости</span>
         @if (isset($product))
@@ -149,6 +169,12 @@
         @endif
     </div>
 
+        </div>
+    </section>
+
+    <section id="roof-rack-photos-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="roof-rack-photos-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>Фото</h2><p>Изображения для галереи карточки товара.</p></div>
+        <div class="form-grid">
     <div class="field field--wide">
         <label for="images">Фотографии</label>
         <input id="images" name="images[]" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
@@ -170,16 +196,23 @@
         </fieldset>
     @endif
 
-    <label class="checkbox field--wide">
-        <input type="checkbox" name="is_active" value="1" @checked(old('is_active', $product->is_active ?? false))>
-        <span>Опубликовать товар на сайте</span>
-        <span class="field__hint">Скрытый товар остаётся в админке, но не показывается покупателям.</span>
-    </label>
+        </div>
+    </section>
+
+    <section id="roof-rack-seo-panel" class="product-editor__panel" role="tabpanel" aria-labelledby="roof-rack-seo-tab" hidden>
+        <div class="product-editor__panel-heading"><h2>SEO</h2><p>Если поля SEO оставить пустыми, используются название и описание товара.</p></div>
+        <div class="form-grid">
+            <div class="field field--wide"><label for="slug">Адрес страницы</label><input id="slug" name="slug" type="text" value="{{ old('slug', $product->slug ?? '') }}" placeholder="Заполнится автоматически"><p class="field__hint">Часть ссылки на карточку товара.</p>@error('slug') <p class="field__error">{{ $message }}</p> @enderror</div>
+            <div class="field field--wide"><label for="meta_title">SEO-заголовок</label><input id="meta_title" name="meta_title" type="text" maxlength="255" value="{{ old('meta_title', $product->meta_title ?? '') }}">@error('meta_title') <p class="field__error">{{ $message }}</p> @enderror</div>
+            <div class="field field--wide"><label for="meta_description">SEO-описание</label><textarea id="meta_description" name="meta_description" rows="4" maxlength="500">{{ old('meta_description', $product->meta_description ?? '') }}</textarea>@error('meta_description') <p class="field__error">{{ $message }}</p> @enderror</div>
+        </div>
+    </section>
 </div>
 
 @once
     @push('scripts')
         <script src="{{ asset('js/searchable-select.js') }}" defer></script>
+        <script src="{{ asset('js/product-editor-tabs.js') }}" defer></script>
     @endpush
 @endonce
 
