@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\Product;
 use App\Models\InstallationService;
+use App\Models\Product;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 

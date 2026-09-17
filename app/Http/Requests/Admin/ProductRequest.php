@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Models\Product;
 
 class ProductRequest extends FormRequest
 {

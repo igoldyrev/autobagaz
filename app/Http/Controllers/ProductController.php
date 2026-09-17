@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Compatibility\CompatibilityContext;
+use App\Models\InstallationService;
 use App\Models\Product;
 use App\Models\ProductPageInformation;
-use App\Models\InstallationService;
 use App\Models\VehicleConfiguration;
 use App\Services\CompatibilityService;
 use App\Services\RecentlyViewedProductService;
