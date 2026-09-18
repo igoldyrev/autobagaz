@@ -253,6 +253,7 @@
         </div>
 
         <x-site-footer />
+        <x-cookie-notice />
 
         <script src="{{ asset('js/home.js') }}" defer></script>
         @stack('scripts')

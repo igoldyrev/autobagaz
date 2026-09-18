@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (event) => event.preventDefault());
     });
 
+    const cookieNotice = document.querySelector('[data-cookie-notice]');
+    document.querySelector('[data-cookie-notice-close]')?.addEventListener('click', () => {
+        document.cookie = 'autobagaz_cookie_notice=accepted; max-age=2592000; path=/; SameSite=Lax';
+        cookieNotice?.remove();
+    });
+
     const menuButton = document.querySelector('#pull');
     const mobileMenu = document.querySelector('#mobile-menu');
     const mobileMenuBackdrop = document.querySelector('[data-mobile-menu-close]');

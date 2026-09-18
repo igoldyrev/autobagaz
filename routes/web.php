@@ -52,6 +52,10 @@ Route::view('/prokat', 'rental')->name('rental');
 Route::get('/ustanovka', InstallationController::class)->name('installation');
 Route::get('/akcii', PromotionController::class)->name('promotions.index');
 Route::view('/contacts', 'contacts')->name('contacts');
+Route::view('/dostavka-i-oplata', 'delivery-and-payment')->name('delivery-payment');
+Route::view('/garantiya', 'warranty')->name('warranty');
+Route::view('/politika-konfidentsialnosti', 'privacy-policy')->name('privacy-policy');
+Route::view('/soglasie-na-obrabotku-personalnykh-dannykh', 'personal-data-consent')->name('personal-data-consent');
 
 Route::get('/internal/daily-brief/admin-activity', AdminMonitoringController::class)
     ->middleware(['daily_brief.token', 'throttle:30,1'])

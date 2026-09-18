@@ -15,10 +15,10 @@
             <h2 class="footer__title" id="footer-customers-title">Покупателям</h2>
             <ul class="footer__list">
                 <li><a class="footer__link" href="{{ route('catalog.vehicle-fitment.index') }}">🚗 Подбор по автомобилю</a></li>
-                <li><a class="footer__link footer__link--placeholder" href="#" data-placeholder aria-disabled="true" tabindex="-1">Доставка и оплата</a></li>
+                <li><a class="footer__link" href="{{ route('delivery-payment') }}">Доставка и оплата</a></li>
                 <li><a class="footer__link" href="{{ route('installation') }}">Установка</a></li>
                 <li><a class="footer__link" href="{{ route('rental') }}">Прокат</a></li>
-                <li><a class="footer__link footer__link--placeholder" href="#" data-placeholder aria-disabled="true" tabindex="-1">Гарантия и возврат</a></li>
+                <li><a class="footer__link" href="{{ route('warranty') }}">Гарантия</a></li>
             </ul>
         </section>
 
@@ -26,10 +26,7 @@
             <h2 class="footer__title" id="footer-company-title">AutoBagaz</h2>
             <ul class="footer__list">
                 <li><a class="footer__link" href="{{ route('contacts') }}">Контакты</a></li>
-                <li><a class="footer__link footer__link--placeholder" href="#" data-placeholder aria-disabled="true" tabindex="-1">Галерея работ</a></li>
-                <li><a class="footer__link footer__link--placeholder" href="#" data-placeholder aria-disabled="true" tabindex="-1">Отзывы</a></li>
                 <li><a class="footer__link" href="{{ route('promotions.index') }}">Акции</a></li>
-                <li><a class="footer__link footer__link--placeholder" href="#" data-placeholder aria-disabled="true" tabindex="-1">Статьи</a></li>
             </ul>
         </section>
 
@@ -47,9 +44,8 @@
     <div class="footer__bottom">
         <span>© 2016–{{ now()->year }} AutoBagaz</span>
         <div class="footer__legal">
-            <a class="footer__link footer__link--placeholder" href="#" data-placeholder aria-disabled="true" tabindex="-1">Политика конфиденциальности</a>
-            <a class="footer__link footer__link--placeholder" href="#" data-placeholder aria-disabled="true" tabindex="-1">Публичная оферта</a>
-            <a class="footer__link footer__link--placeholder" href="#" data-placeholder aria-disabled="true" tabindex="-1">Согласие на обработку персональных данных</a>
+            <a class="footer__link" href="{{ route('privacy-policy') }}">Политика конфиденциальности</a>
+            <a class="footer__link" href="{{ route('personal-data-consent') }}">Согласие на обработку персональных данных</a>
         </div>
     </div>
 </footer>

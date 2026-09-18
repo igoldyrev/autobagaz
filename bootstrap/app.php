@@ -20,6 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->encryptCookies(except: ['autobagaz_cookie_notice']);
         $middleware->web(append: [ResolveVehicleConfiguration::class]);
 
         $middleware->alias([
