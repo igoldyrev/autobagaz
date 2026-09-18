@@ -79,7 +79,7 @@ class OrderCheckoutTest extends TestCase
         $this->get(route('cart.index'))
             ->assertOk()
             ->assertSee($service->name)
-            ->assertSee('12 500,00 ₽');
+            ->assertSee('12 500 ₽');
 
         $this->post(route('checkout.store'), [
             'customer_name' => 'Иван Петров',
@@ -211,7 +211,7 @@ class OrderCheckoutTest extends TestCase
             ->assertSee('Статистика по заказам')
             ->assertSee('Новый')
             ->assertSee('Завершён')
-            ->assertSee('На сумму: 20 000,00 ₽')
+            ->assertSee('На сумму: 20 000 ₽')
             ->assertSee(route('admin.orders.index', ['status' => Order::STATUS_NEW]), false);
     }
 

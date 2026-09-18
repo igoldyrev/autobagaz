@@ -41,7 +41,7 @@
                             <a class="dashboard-statistic" href="{{ $statistic['url'] }}">
                                 <span class="dashboard-statistic__label">{{ $statistic['label'] }}</span>
                                 <strong>{{ $statistic['total'] }}</strong>
-                                <span>На сумму: {{ number_format($statistic['amount'], 2, ',', ' ') }} ₽</span>
+                                <span>На сумму: {{ number_format($statistic['amount'], 0, ',', ' ') }} ₽</span>
                             </a>
                         @endforeach
                     </div>

@@ -253,7 +253,7 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertSee('Всё необходимое для установки')
             ->assertSee($rack->name)
             ->assertSee('Добавить комплект')
-            ->assertSee('Итого: 2 000,00 ₽')
+            ->assertSee('Итого: 2 000 ₽')
             ->assertSee(route('cart.store-kit', ['product' => $box, 'roofRack' => $rack]));
 
         $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
@@ -266,7 +266,7 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertSee('Всё необходимое для установки')
             ->assertSee($rack->name)
             ->assertSee('Добавить багажник')
-            ->assertSee('Итого с багажником: 2 000,00 ₽');
+            ->assertSee('Итого с багажником: 2 000 ₽');
 
         $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
             ->post(route('cart.store-kit', ['product' => $box, 'roofRack' => $rack]))

@@ -4,7 +4,7 @@
 <h2>Состав заказа</h2>
 <ul>
 @foreach ($order->items as $item)
-    <li>{{ $item->product_name }} × {{ $item->quantity }} — {{ number_format((float) $item->total, 2, ',', ' ') }} ₽</li>
+    <li>{{ $item->product_name }} × {{ $item->quantity }} — {{ number_format((float) $item->total, 0, ',', ' ') }} ₽</li>
 @endforeach
 </ul>
-<p><strong>Итого: {{ number_format((float) $order->total, 2, ',', ' ') }} ₽</strong></p>
+<p><strong>Итого: {{ number_format((float) $order->total, 0, ',', ' ') }} ₽</strong></p>

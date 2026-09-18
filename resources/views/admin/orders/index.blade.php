@@ -23,7 +23,7 @@
             </div>
             <div class="table-wrap"><table class="admin-table"><thead><tr><th>Номер</th><th>Дата</th><th>Клиент</th><th>Получение</th><th>Сумма</th><th>Статус</th></tr></thead><tbody>
                 @forelse ($orders as $order)
-                    <tr><td><a class="text-link" href="{{ route('admin.orders.show', $order) }}">{{ $order->number }}</a></td><td>{{ $order->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</td><td><strong>{{ $order->customer_name }}</strong><br><a href="tel:{{ $order->phone }}">{{ $order->phone }}</a><br><a href="mailto:{{ $order->email }}">{{ $order->email }}</a></td><td>{{ $order->deliveryMethodLabel() }}</td><td>{{ number_format((float) $order->total, 2, ',', ' ') }} ₽</td><td><span class="status">{{ $order->statusLabel() }}</span></td></tr>
+                    <tr><td><a class="text-link" href="{{ route('admin.orders.show', $order) }}">{{ $order->number }}</a></td><td>{{ $order->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</td><td><strong>{{ $order->customer_name }}</strong><br><a href="tel:{{ $order->phone }}">{{ $order->phone }}</a><br><a href="mailto:{{ $order->email }}">{{ $order->email }}</a></td><td>{{ $order->deliveryMethodLabel() }}</td><td>{{ number_format((float) $order->total, 0, ',', ' ') }} ₽</td><td><span class="status">{{ $order->statusLabel() }}</span></td></tr>
                 @empty
                     <tr><td colspan="6" class="empty-state">Заказов пока нет.</td></tr>
                 @endforelse

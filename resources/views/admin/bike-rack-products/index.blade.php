@@ -39,7 +39,7 @@
                                 <td>{{ $product->bikeRack->manufacturer?->name ?: '—' }}</td>
                                 <td>{{ $product->bikeRack->mounting_type ?: '—' }}</td>
                                 <td>{{ $product->bikeRack->bike_capacity ?: '—' }}</td>
-                                <td>{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</td>
+                                <td>{{ number_format((float) $product->price, 0, ',', ' ') }} ₽</td>
                                 <td>{{ $product->stock }}</td>
                                 <td><span class="status {{ $product->is_active ? 'status--active' : 'status--inactive' }}">{{ $product->is_active ? 'Опубликован' : 'Скрыт' }}</span></td>
                                 <td><a class="text-link" href="{{ route('admin.products.bike-racks.edit', $product) }}">Изменить</a></td>

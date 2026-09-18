@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const formatPrice = (value) => `${new Intl.NumberFormat('ru-RU', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     }).format(value)} ₽`;
 
     const totalElement = document.querySelector('[data-cart-total]');

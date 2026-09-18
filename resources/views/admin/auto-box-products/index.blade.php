@@ -50,7 +50,7 @@
                                     </div>
                                 </td>
                                 <td>{{ $product->autoBox->manufacturer?->name ?: '—' }}</td>
-                                <td>{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</td>
+                                <td>{{ number_format((float) $product->price, 0, ',', ' ') }} ₽</td>
                                 <td>{{ $product->stock }}</td>
                                 <td>{{ filled($product->autoBox->volume_l) ? rtrim(rtrim(number_format((float) $product->autoBox->volume_l, 1, ',', ''), '0'), ',').' л' : '—' }}</td>
                                 <td><span class="status {{ $product->is_active ? 'status--active' : 'status--inactive' }}">{{ $product->is_active ? 'Опубликован' : 'Скрыт' }}</span></td>

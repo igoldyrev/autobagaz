@@ -16,14 +16,14 @@
         @forelse ($items as $item)
             <article class="cart-item" data-cart-item data-unit-price="{{ $item['product']->price }}">
                 <a href="{{ route('products.show', $item['product']) }}">{{ $item['product']->name }}</a>
-                <span>{{ number_format((float) $item['product']->price, 2, ',', ' ') }} ₽</span>
+                <span>{{ number_format((float) $item['product']->price, 0, ',', ' ') }} ₽</span>
                 <form method="POST" action="{{ route('cart.update', $item['product']) }}" class="cart-item__quantity" data-cart-quantity-form>
                     @csrf
                     @method('PATCH')
                     <label for="quantity-{{ $item['product']->id }}">Количество</label>
                     <input id="quantity-{{ $item['product']->id }}" name="quantity" type="number" min="1" max="100" value="{{ $item['quantity'] }}" data-cart-quantity>
                 </form>
-                <strong data-cart-line-total>{{ number_format($item['total'], 2, ',', ' ') }} ₽</strong>
+                <strong data-cart-line-total>{{ number_format($item['total'], 0, ',', ' ') }} ₽</strong>
                 <form method="POST" action="{{ route('cart.destroy', $item['product']) }}">
                     @csrf
                     @method('DELETE')
@@ -38,9 +38,9 @@
             @if ($installationService)
                 <article class="cart-item cart-item--service">
                     <span>{{ $installationService->name }}@if ($installationService->description)<small>{{ $installationService->description }}</small>@endif</span>
-                    <span>{{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</span>
+                    <span>{{ number_format((float) $installationService->price, 0, ',', ' ') }} ₽</span>
                     <span>Услуга</span>
-                    <strong>{{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</strong>
+                    <strong>{{ number_format((float) $installationService->price, 0, ',', ' ') }} ₽</strong>
                     <form method="POST" action="{{ route('cart.installation-service.destroy') }}">
                         @csrf
                         @method('DELETE')
@@ -57,12 +57,12 @@
                 <section class="cart-roof-rack-cross-sell" aria-labelledby="cart-roof-rack-cross-sell-title">
                     <h2 id="cart-roof-rack-cross-sell-title">Всё необходимое для установки</h2>
                     <p class="cart-roof-rack-cross-sell__vehicle">Для вашего автомобиля — совместимый багажник:</p>
-                    <p><strong><a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a></strong> · {{ number_format((float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</p>
+                    <p><strong><a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a></strong> · {{ number_format((float) $recommendedRoofRack->price, 0, ',', ' ') }} ₽</p>
                     <form method="POST" action="{{ route('cart.store', $recommendedRoofRack) }}">
                         @csrf
                         <button class="button button__buy" type="submit">Добавить багажник</button>
                     </form>
-                    <p class="cart-roof-rack-cross-sell__total">Итого с багажником: {{ number_format((float) $total + (float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</p>
+                    <p class="cart-roof-rack-cross-sell__total">Итого с багажником: {{ number_format((float) $total + (float) $recommendedRoofRack->price, 0, ',', ' ') }} ₽</p>
                 </section>
             @elseif ($roofRackAccessory)
                 <section class="cart-roof-rack-cross-sell" aria-labelledby="cart-roof-rack-cross-sell-title">
@@ -72,7 +72,7 @@
                 </section>
             @endif
             <div class="cart-page__total">
-                <strong>Итого: <span data-cart-total>{{ number_format($total, 2, ',', ' ') }} ₽</span></strong>
+                <strong>Итого: <span data-cart-total>{{ number_format($total, 0, ',', ' ') }} ₽</span></strong>
                 <a class="button button__buy" href="{{ route('checkout.create') }}">Оформить заказ</a>
             </div>
         @endif

@@ -10,12 +10,12 @@
             <div class="checkout-form__summary">
                 <h2>Ваш заказ</h2>
                 @foreach ($items as $item)
-                    <p><span>{{ $item['product']->name }} × {{ $item['quantity'] }}</span><strong>{{ number_format($item['total'], 2, ',', ' ') }} ₽</strong></p>
+                    <p><span>{{ $item['product']->name }} × {{ $item['quantity'] }}</span><strong>{{ number_format($item['total'], 0, ',', ' ') }} ₽</strong></p>
                 @endforeach
                 @if ($installationService)
-                    <p><span>{{ $installationService->name }}</span><strong>{{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</strong></p>
+                    <p><span>{{ $installationService->name }}</span><strong>{{ number_format((float) $installationService->price, 0, ',', ' ') }} ₽</strong></p>
                 @endif
-                <p class="checkout-form__total"><span>Итого</span><strong>{{ number_format($total, 2, ',', ' ') }} ₽</strong></p>
+                <p class="checkout-form__total"><span>Итого</span><strong>{{ number_format($total, 0, ',', ' ') }} ₽</strong></p>
             </div>
             <div class="checkout-form__fields">
                 <div class="field">

@@ -211,8 +211,8 @@
                                 <h4 class="title title-h4"><a href="{{ route('products.show', $sale) }}">{{ $sale->name }}</a></h4>
                                 @if ($sale->promotion_label)<p class="sales__label">{{ $sale->promotion_label }}</p>@endif
                                 <div class="sales__item-price">
-                                    <p><span class="text">Новая цена: </span><span class="sales__price">{{ number_format((float) $sale->price, 2, ',', ' ') }} ₽</span></p>
-                                    <p><span class="text">Старая цена: </span><span class="sales__price sales__price--strike">{{ number_format((float) $sale->old_price, 2, ',', ' ') }} ₽</span></p>
+                                    <p><span class="text">Новая цена: </span><span class="sales__price">{{ number_format((float) $sale->price, 0, ',', ' ') }} ₽</span></p>
+                                    <p><span class="text">Старая цена: </span><span class="sales__price sales__price--strike">{{ number_format((float) $sale->old_price, 0, ',', ' ') }} ₽</span></p>
                                 </div>
                                 <div class="sales__item-button">
                                     <a href="{{ route('products.show', $sale) }}" class="button button__buy">К товару</a>

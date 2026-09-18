@@ -1,3 +1,13 @@
+@php
+    $filtersShouldCollapse = isset($unfilteredProductCount)
+        && $unfilteredProductCount <= 3
+        && request()->except(['page', 'sort']) === [];
+@endphp
+
+@if ($filtersShouldCollapse)
+    <details class="catalog-filters-disclosure">
+        <summary>Фильтры товаров</summary>
+@endif
 <form class="catalog-filters {{ ($horizontal ?? false) ? 'catalog-filters--horizontal' : '' }}" method="get" action="{{ url()->current() }}">
     <input type="hidden" name="sort" value="{{ $filters['sort'] }}">
     <div class="catalog-filters__header">
@@ -54,3 +64,6 @@
 
     <button class="catalog-filters__submit" type="submit">Показать</button>
 </form>
+@if ($filtersShouldCollapse)
+    </details>
+@endif

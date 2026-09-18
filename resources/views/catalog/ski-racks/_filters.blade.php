@@ -1,3 +1,12 @@
+@php
+    $filtersShouldCollapse = $unfilteredProductCount <= 3
+        && request()->except(['page', 'sort']) === [];
+@endphp
+
+@if ($filtersShouldCollapse)
+    <details class="catalog-filters-disclosure">
+        <summary>Фильтры товаров</summary>
+@endif
 <form class="catalog-filters {{ ($horizontal ?? false) ? 'catalog-filters--horizontal' : '' }}" method="get" action="{{ url()->current() }}">
     <input type="hidden" name="sort" value="{{ $filters['sort'] }}">
     <div class="catalog-filters__header">
@@ -10,3 +19,6 @@
 @if($filterOptions['snowboards']->isNotEmpty())<fieldset class="catalog-filter"><legend>Вместимость, сноубордов</legend>@foreach($filterOptions['snowboards'] as $value)<label><input type="checkbox" name="snowboard[]" value="{{$value}}" @checked(in_array((string)$value,$filters['snowboards'],true))> {{$value}}</label>@endforeach</fieldset>@endif
     <button class="catalog-filters__submit" type="submit">Показать</button>
 </form>
+@if ($filtersShouldCollapse)
+    </details>
+@endif

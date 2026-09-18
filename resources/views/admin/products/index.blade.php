@@ -53,7 +53,7 @@
                                         <strong>{{ $product->name }}</strong>
                                     </div>
                                 </td>
-                                <td>{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</td>
+                                <td>{{ number_format((float) $product->price, 0, ',', ' ') }} ₽</td>
                                 <td>{{ $product->stock }}</td>
                                 <td>{{ $product->categories_count }} кат. / {{ $product->fitments_count }} гр. применяемости</td>
                                 <td><span class="status {{ $product->is_active ? 'status--active' : 'status--inactive' }}">{{ $product->is_active ? 'Опубликован' : 'Скрыт' }}</span></td>

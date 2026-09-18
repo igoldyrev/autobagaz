@@ -47,9 +47,10 @@ class AutoBoxTest extends TestCase
             ->assertSee('Автобокс 01')
             ->assertDontSee('Автобокс 13')
             ->assertDontSee('Скрытый автобокс')
-            ->assertSee('Каким бы просторным ни был автомобиль')
-            ->assertSee('Автобоксы являются простым и надежным средством')
-            ->assertSeeInOrder(['Автобокс 01', 'Каким бы просторным ни был автомобиль'])
+            ->assertSee('Как выбрать автобокс')
+            ->assertSee('До 350 л')
+            ->assertSee('Помочь с выбором')
+            ->assertSeeInOrder(['Автобокс 01', 'Как выбрать автобокс'])
             ->assertSee('/autobox?page=2', escape: false);
 
         $this->get('/autobox?page=2')

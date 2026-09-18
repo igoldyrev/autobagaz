@@ -336,7 +336,7 @@ class AdminProductTest extends TestCase
             ->assertSee('TEST-100')
             ->assertSee('Наличие')
             ->assertSee('1 шт.')
-            ->assertSeeInOrder(['Производитель', '1 000,00 ₽', 'Описание']);
+            ->assertSeeInOrder(['Производитель', '1 000 ₽', 'Описание']);
 
         $this->get('/products/hidden-product')->assertNotFound();
     }

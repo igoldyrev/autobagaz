@@ -21,7 +21,7 @@ class SkiRackTest extends TestCase
         $match->skiRack()->create(['manufacturer_id' => $manufacturer->id, 'ski_pairs_capacity' => 4, 'snowboard_capacity' => 2]);
         $other = Product::query()->create(['product_type_id' => ProductType::query()->where('code', 'ski_rack')->value('id'), 'name' => 'Крепление другое', 'slug' => 'ski-other', 'price' => 20000, 'stock' => 0, 'is_active' => true]);
         $other->skiRack()->create(['ski_pairs_capacity' => 6]);
-        $this->get(route('catalog.ski-racks.index', ['manufacturer' => [(string) $manufacturer->id], 'ski_pairs' => ['4']]))->assertOk()->assertSee('Фильтры товаров')->assertSee($match->name)->assertDontSee($other->name);
+        $this->get(route('catalog.ski-racks.index', ['manufacturer' => [(string) $manufacturer->id], 'ski_pairs' => ['4']]))->assertOk()->assertSee('Фильтры товаров')->assertSee('Как выбрать крепление для лыж и сноубордов')->assertSee('Помочь с выбором')->assertSee($match->name)->assertDontSee($other->name);
 
         $this->get(route('products.show', $match))
             ->assertOk()

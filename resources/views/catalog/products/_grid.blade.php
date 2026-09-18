@@ -23,12 +23,12 @@
                         Подходит для вашей {{ $selectedVehicle->labelForYear($selectedVehicleYear) }}
                     </span>
                 @endif
-                <strong class="product-card__price">{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</strong>
+                <strong class="product-card__price">{{ number_format((float) $product->price, 0, ',', ' ') }} ₽</strong>
                 @if ($product->hasActivePromotion())
                     @if ($product->promotion_label)
                         <span class="product-card__promotion-label">{{ $product->promotion_label }}</span>
                     @endif
-                    <span class="product-card__old-price">{{ number_format((float) $product->old_price, 2, ',', ' ') }} ₽</span>
+                    <span class="product-card__old-price">{{ number_format((float) $product->old_price, 0, ',', ' ') }} ₽</span>
                 @endif
                 <span class="product-card__stock">{{ $product->stock > 0 ? 'В наличии: '.$product->stock.' шт.' : 'Под заказ' }}</span>
                 <form method="POST" action="{{ route('cart.store', $product) }}" class="product-card__cart-form">

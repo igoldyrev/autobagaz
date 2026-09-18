@@ -12,7 +12,7 @@
                 <h2>Клиент</h2><p>{{ $order->customer_name }} · <a href="tel:{{ $order->phone }}">{{ $order->phone }}</a> · <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p>
                 <h2>Получение</h2><p>{{ $order->deliveryMethodLabel() }}@if($order->delivery_address) · {{ $order->delivery_address }}@endif</p>
                 @if($order->comment)<h2>Комментарий</h2><p>{{ $order->comment }}</p>@endif
-                <h2>Товары</h2><ul>@foreach($order->items as $item)<li>{{ $item->product_name }} × {{ $item->quantity }} — {{ number_format((float) $item->total, 2, ',', ' ') }} ₽</li>@endforeach</ul><p><strong>Итого: {{ number_format((float) $order->total, 2, ',', ' ') }} ₽</strong></p>
+                <h2>Товары</h2><ul>@foreach($order->items as $item)<li>{{ $item->product_name }} × {{ $item->quantity }} — {{ number_format((float) $item->total, 0, ',', ' ') }} ₽</li>@endforeach</ul><p><strong>Итого: {{ number_format((float) $order->total, 0, ',', ' ') }} ₽</strong></p>
                 <form method="POST" action="{{ route('admin.orders.update', $order) }}" class="toolbar order-status-toolbar">
                     @csrf
                     @method('PUT')

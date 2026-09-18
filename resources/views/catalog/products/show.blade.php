@@ -157,7 +157,7 @@
                 </div>
             </dl>
 
-            <p class="product-page__price">{{ number_format((float) $product->price, 2, ',', ' ') }} ₽</p>
+            <p class="product-page__price">{{ number_format((float) $product->price, 0, ',', ' ') }} ₽</p>
             <form method="POST" action="{{ route('cart.store', $product) }}" class="product-page__buy">
                 @csrf
                 <button class="button button__buy" type="submit">В корзину</button>
@@ -199,7 +199,7 @@
                         @if ($installationService->description)<p>{{ $installationService->description }}</p>@endif
                         <form method="POST" action="{{ route('cart.store', $product) }}">
                             @csrf
-                            <label><input type="checkbox" name="installation_service" value="1"> Добавить установку — {{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</label>
+                            <label><input type="checkbox" name="installation_service" value="1"> Добавить установку — {{ number_format((float) $installationService->price, 0, ',', ' ') }} ₽</label>
                             <button class="button button__buy product-vehicle-compatibility__button product-vehicle-compatibility__installation-button" type="submit">Добавить в корзину</button>
                         </form>
                     </section>
@@ -214,14 +214,14 @@
                         <form method="POST" action="{{ route('cart.store-kit', ['product' => $product, 'roofRack' => $recommendedRoofRack]) }}" data-installation-kit data-kit-products-total="{{ (float) $product->price + (float) $recommendedRoofRack->price }}">
                             @csrf
                             <dl class="product-roof-rack-cross-sell__kit">
-                                <div><dt><a href="{{ route('products.show', $product) }}">{{ $product->name }}</a></dt><dd>{{ number_format((float) $product->price, 2, ',', ' ') }} ₽ ✓</dd></div>
-                                <div><dt><a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a></dt><dd>{{ number_format((float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</dd></div>
+                                <div><dt><a href="{{ route('products.show', $product) }}">{{ $product->name }}</a></dt><dd>{{ number_format((float) $product->price, 0, ',', ' ') }} ₽ ✓</dd></div>
+                                <div><dt><a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a></dt><dd>{{ number_format((float) $recommendedRoofRack->price, 0, ',', ' ') }} ₽</dd></div>
                                 @if ($installationService)
-                                    <div class="product-roof-rack-cross-sell__service"><dt><label><input type="checkbox" name="installation_service" value="1" data-installation-service data-installation-service-price="{{ (float) $installationService->price }}"> {{ $installationService->name }}</label>@if ($installationService->description)<small>{{ $installationService->description }}</small>@endif</dt><dd>{{ number_format((float) $installationService->price, 2, ',', ' ') }} ₽</dd></div>
+                                    <div class="product-roof-rack-cross-sell__service"><dt><label><input type="checkbox" name="installation_service" value="1" data-installation-service data-installation-service-price="{{ (float) $installationService->price }}"> {{ $installationService->name }}</label>@if ($installationService->description)<small>{{ $installationService->description }}</small>@endif</dt><dd>{{ number_format((float) $installationService->price, 0, ',', ' ') }} ₽</dd></div>
                                 @endif
                             </dl>
                             <button class="button button__buy product-roof-rack-cross-sell__button" type="submit">Добавить комплект</button>
-                            <p class="product-roof-rack-cross-sell__total" data-installation-kit-total>Итого: {{ number_format((float) $product->price + (float) $recommendedRoofRack->price, 2, ',', ' ') }} ₽</p>
+                            <p class="product-roof-rack-cross-sell__total" data-installation-kit-total>Итого: {{ number_format((float) $product->price + (float) $recommendedRoofRack->price, 0, ',', ' ') }} ₽</p>
                         </form>
                     @else
                         <h2 id="product-roof-rack-cross-sell-title">Требуется багажник на крышу</h2>

@@ -44,6 +44,9 @@ class BikeRackTest extends TestCase
         $this->get(route('catalog.bike-racks.index'))
             ->assertOk()
             ->assertSee('Фильтры товаров')
+            ->assertSee('catalog-filters-disclosure', escape: false)
+            ->assertSee('Как выбрать велокрепление')
+            ->assertSee('Помочь с выбором')
             ->assertSee($product->name);
         $this->get(route('products.show', $product))
             ->assertOk()

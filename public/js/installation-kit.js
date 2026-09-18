@@ -9,8 +9,7 @@ document.querySelectorAll('[data-installation-kit]').forEach((form) => {
     const productsTotal = Number(form.dataset.kitProductsTotal);
     const servicePrice = Number(checkbox.dataset.installationServicePrice);
     const formatPrice = (price) => new Intl.NumberFormat('ru-RU', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
     }).format(price)+' ₽';
 
     checkbox.addEventListener('change', () => {
