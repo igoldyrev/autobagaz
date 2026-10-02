@@ -1,4 +1,4 @@
-php_value upload_max_filesize 6M
+php_value upload_max_filesize 8M
 php_value post_max_size 70M
 
 <IfModule mod_rewrite.c>
