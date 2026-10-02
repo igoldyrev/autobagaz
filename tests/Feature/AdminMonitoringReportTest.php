@@ -11,6 +11,7 @@ use App\Models\ProductType;
 use App\Models\User;
 use App\Models\VehicleConfiguration;
 use App\Models\VehicleMake;
+use App\Services\AdminMonitoringReport;
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -188,6 +189,8 @@ class AdminMonitoringReportTest extends TestCase
         ));
 
         $response->assertOk()
+            ->assertJsonPath('schema_version', AdminMonitoringReport::SCHEMA_VERSION)
+            ->assertJsonPath('source', AdminMonitoringReport::SOURCE)
             ->assertJsonPath('orders.by_status.new.count', 1)
             ->assertJsonPath('orders.by_status.new.amount', '100.00')
             ->assertJsonPath('orders.by_status.in_progress.count', 1)
@@ -209,6 +212,45 @@ class AdminMonitoringReportTest extends TestCase
             ->assertJsonMissing(['customer_name' => 'Иван Иванов'])
             ->assertJsonMissing(['phone' => '+70000000000'])
             ->assertJsonMissing(['description' => 'Комментарий покупателя']);
+
+        $response->assertJsonStructure([
+            'schema_version',
+            'source',
+            'state',
+            'generated_at',
+            'period' => ['date', 'timezone', 'starts_at', 'ends_at'],
+            'site' => ['available', 'database'],
+            'orders' => [
+                'by_status' => [
+                    'new' => ['label', 'count', 'amount'],
+                    'in_progress' => ['label', 'count', 'amount'],
+                    'confirmed' => ['label', 'count', 'amount'],
+                    'completed' => ['label', 'count', 'amount'],
+                    'cancelled' => ['label', 'count', 'amount'],
+                ],
+                'created_for_day' => ['count', 'amount'],
+                'awaiting_processing',
+            ],
+            'callback_requests' => ['new', 'unclosed'],
+            'products' => [
+                'total',
+                'published',
+                'hidden',
+                'without_images',
+                'published_roof_racks_without_fitments',
+            ],
+            'vehicle_configurations' => ['without_compatibility'],
+            'administrators',
+            'activity' => ['changes_for_day', 'recent_changes'],
+        ]);
+
+        $schema = json_decode(
+            file_get_contents(base_path('docs/integrations/autobagaz-project-snapshot-v1.schema.json')),
+            true,
+            512,
+            JSON_THROW_ON_ERROR,
+        );
+        $this->assertEqualsCanonicalizing($schema['required'], array_keys($response->json()));
 
         $this->assertStringNotContainsString('buyer@example.test', $response->getContent());
         $this->assertStringNotContainsString('+70000000000', $response->getContent());

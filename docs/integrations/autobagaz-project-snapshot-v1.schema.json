@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:autobagaz:project-snapshot:1.0",
+  "title": "Autobagaz Project Snapshot v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source",
+    "state",
+    "generated_at",
+    "period",
+    "site",
+    "orders",
+    "callback_requests",
+    "products",
+    "vehicle_configurations",
+    "administrators",
+    "activity"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "source": { "const": "autobagaz" },
+    "state": { "enum": ["ok", "degraded", "error"] },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "period": { "$ref": "#/$defs/period" },
+    "site": { "$ref": "#/$defs/site" },
+    "orders": { "$ref": "#/$defs/orders" },
+    "callback_requests": { "$ref": "#/$defs/callbackRequests" },
+    "products": { "$ref": "#/$defs/products" },
+    "vehicle_configurations": { "$ref": "#/$defs/vehicleConfigurations" },
+    "administrators": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/administrator" }
+    },
+    "activity": { "$ref": "#/$defs/activity" }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "nullableDateTime": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ]
+    },
+    "nonNegativeInteger": { "type": "integer", "minimum": 0 },
+    "money": { "type": "string", "pattern": "^[0-9]+\\.[0-9]{2}$" },
+    "period": {
+      "type": "object",
+      "required": ["date", "timezone", "starts_at", "ends_at"],
+      "properties": {
+        "date": { "type": "string", "format": "date" },
+        "timezone": { "type": "string", "minLength": 1 },
+        "starts_at": { "type": "string", "format": "date-time" },
+        "ends_at": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": true
+    },
+    "site": {
+      "type": "object",
+      "required": ["available", "database"],
+      "properties": {
+        "available": { "type": "boolean" },
+        "database": { "enum": ["ok", "error"] }
+      },
+      "additionalProperties": true
+    },
+    "orderStatus": {
+      "type": "object",
+      "required": ["label", "count", "amount"],
+      "properties": {
+        "label": { "type": "string" },
+        "count": { "$ref": "#/$defs/nonNegativeInteger" },
+        "amount": { "$ref": "#/$defs/money" }
+      },
+      "additionalProperties": true
+    },
+    "orders": {
+      "type": "object",
+      "required": ["by_status", "created_for_day", "awaiting_processing"],
+      "properties": {
+        "by_status": {
+          "type": "object",
+          "required": ["new", "in_progress", "confirmed", "completed", "cancelled"],
+          "properties": {
+            "new": { "$ref": "#/$defs/orderStatus" },
+            "in_progress": { "$ref": "#/$defs/orderStatus" },
+            "confirmed": { "$ref": "#/$defs/orderStatus" },
+            "completed": { "$ref": "#/$defs/orderStatus" },
+            "cancelled": { "$ref": "#/$defs/orderStatus" }
+          },
+          "additionalProperties": true
+        },
+        "created_for_day": {
+          "type": "object",
+          "required": ["count", "amount"],
+          "properties": {
+            "count": { "$ref": "#/$defs/nonNegativeInteger" },
+            "amount": { "$ref": "#/$defs/money" }
+          },
+          "additionalProperties": true
+        },
+        "awaiting_processing": { "$ref": "#/$defs/nonNegativeInteger" }
+      },
+      "additionalProperties": true
+    },
+    "callbackRequests": {
+      "type": "object",
+      "required": ["new", "unclosed"],
+      "properties": {
+        "new": { "$ref": "#/$defs/nonNegativeInteger" },
+        "unclosed": { "$ref": "#/$defs/nonNegativeInteger" }
+      },
+      "additionalProperties": true
+    },
+    "products": {
+      "type": "object",
+      "required": [
+        "total",
+        "published",
+        "hidden",
+        "without_images",
+        "published_roof_racks_without_fitments"
+      ],
+      "properties": {
+        "total": { "$ref": "#/$defs/nonNegativeInteger" },
+        "published": { "$ref": "#/$defs/nonNegativeInteger" },
+        "hidden": { "$ref": "#/$defs/nonNegativeInteger" },
+        "without_images": { "$ref": "#/$defs/nonNegativeInteger" },
+        "published_roof_racks_without_fitments": { "$ref": "#/$defs/nonNegativeInteger" }
+      },
+      "additionalProperties": true
+    },
+    "vehicleConfigurations": {
+      "type": "object",
+      "required": ["without_compatibility"],
+      "properties": {
+        "without_compatibility": { "$ref": "#/$defs/nonNegativeInteger" }
+      },
+      "additionalProperties": true
+    },
+    "change": {
+      "type": "object",
+      "required": ["action", "description", "subject_type", "subject_name", "occurred_at"],
+      "properties": {
+        "action": { "enum": ["created", "updated", "deleted", "sessions_terminated"] },
+        "description": { "type": "string" },
+        "subject_type": { "type": ["string", "null"] },
+        "subject_name": { "type": ["string", "null"] },
+        "occurred_at": { "$ref": "#/$defs/nullableDateTime" }
+      },
+      "additionalProperties": true
+    },
+    "administrator": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "role",
+        "role_label",
+        "last_login_at",
+        "last_seen_at",
+        "changes_count",
+        "changes"
+      ],
+      "properties": {
+        "id": { "type": "integer", "minimum": 1 },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "role_label": { "type": "string" },
+        "last_login_at": { "$ref": "#/$defs/nullableDateTime" },
+        "last_seen_at": { "$ref": "#/$defs/nullableDateTime" },
+        "changes_count": { "$ref": "#/$defs/nonNegativeInteger" },
+        "changes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/change" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "recentChange": {
+      "allOf": [
+        { "$ref": "#/$defs/change" },
+        {
+          "type": "object",
+          "required": ["administrator"],
+          "properties": {
+            "administrator": {
+              "type": "object",
+              "required": ["id", "name"],
+              "properties": {
+                "id": { "type": ["integer", "null"], "minimum": 1 },
+                "name": { "type": "string" }
+              },
+              "additionalProperties": true
+            }
+          }
+        }
+      ]
+    },
+    "activity": {
+      "type": "object",
+      "required": ["changes_for_day", "recent_changes"],
+      "properties": {
+        "changes_for_day": { "$ref": "#/$defs/nonNegativeInteger" },
+        "recent_changes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/recentChange" }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

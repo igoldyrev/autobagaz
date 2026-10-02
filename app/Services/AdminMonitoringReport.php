@@ -15,6 +15,10 @@ use InvalidArgumentException;
 
 class AdminMonitoringReport
 {
+    public const SCHEMA_VERSION = '1.0';
+
+    public const SOURCE = 'autobagaz';
+
     /** @var list<string> */
     private const CHANGE_ACTIONS = [
         AdminActivityLog::ACTION_CREATED,
@@ -53,6 +57,8 @@ class AdminMonitoringReport
         $administrators = $this->administrators($start, $end, $changesLimit);
 
         return [
+            'schema_version' => self::SCHEMA_VERSION,
+            'source' => self::SOURCE,
             'state' => 'ok',
             'generated_at' => CarbonImmutable::now($timezone)->toIso8601String(),
             'period' => [

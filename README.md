@@ -60,3 +60,10 @@ composer run dev
 php artisan test
 vendor/bin/pint --test
 ```
+
+## Monitoring API
+
+Read-only снимок состояния проекта доступен по защищённому endpoint
+`GET /internal/monitoring/project-snapshot`. Версионированный контракт, параметры
+запроса и правила совместимости описаны в
+[`docs/integrations/project-snapshot-v1.md`](docs/integrations/project-snapshot-v1.md).
