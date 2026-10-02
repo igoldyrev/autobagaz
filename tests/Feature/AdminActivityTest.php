@@ -12,7 +12,7 @@ class AdminActivityTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_administrator_can_view_activity_log_but_cannot_terminate_user_sessions(): void
+    public function test_only_super_administrator_can_view_activity_log_and_terminate_user_sessions(): void
     {
         $administrator = User::factory()->create([
             'is_admin' => true,
@@ -21,8 +21,11 @@ class AdminActivityTest extends TestCase
         ]);
         $target = User::factory()->create(['is_admin' => true]);
 
-        $this->actingAs($administrator)->get(route('admin.activity.index'))->assertOk();
+        $this->actingAs($administrator)->get(route('admin.activity.index'))->assertForbidden();
         $this->actingAs($administrator)->delete(route('admin.users.sessions.destroy', $target))->assertForbidden();
+
+        $superAdministrator = $this->superAdmin();
+        $this->actingAs($superAdministrator)->get(route('admin.activity.index'))->assertOk();
     }
 
     public function test_admin_presence_is_recorded_and_throttled(): void

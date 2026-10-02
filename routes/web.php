@@ -61,6 +61,10 @@ Route::get('/internal/daily-brief/admin-activity', AdminMonitoringController::cl
     ->middleware(['daily_brief.token', 'throttle:30,1'])
     ->name('internal.daily-brief.admin-activity');
 
+Route::get('/internal/monitoring/project-snapshot', AdminMonitoringController::class)
+    ->middleware(['daily_brief.token', 'throttle:30,1'])
+    ->name('internal.monitoring.project-snapshot');
+
 Route::middleware('guest')->group(function () {
     Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('/admin/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
@@ -75,13 +79,12 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
     Route::get('profile/security', [ProfileSecurityController::class, 'edit'])->name('profile.security.edit');
     Route::put('profile/security/password', [ProfileSecurityController::class, 'updatePassword'])->name('profile.security.password.update');
     Route::delete('profile/security/sessions', [ProfileSecurityController::class, 'destroyOtherSessions'])->name('profile.security.sessions.destroy');
-    Route::get('activity', AdminActivityController::class)->name('activity.index');
-
     Route::middleware('permission:users.manage')->group(function () {
         Route::resource('users', UserController::class)->except(['show', 'destroy']);
     });
 
     Route::middleware('super_admin')->group(function () {
+        Route::get('activity', AdminActivityController::class)->name('activity.index');
         Route::delete('users/{user}/sessions', UserSessionController::class)->name('users.sessions.destroy');
     });
 
