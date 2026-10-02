@@ -259,6 +259,7 @@ class RoofRackCategoryTest extends TestCase
             ->assertOk()
             ->assertSee('Фильтры товаров')
             ->assertSee('catalog-filters--horizontal', escape: false)
+            ->assertSee('data-catalog-filters-toggle', escape: false)
             ->assertSee('Производитель')
             ->assertSee('Цена, ₽')
             ->assertSee('Товар')

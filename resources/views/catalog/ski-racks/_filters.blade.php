@@ -1,12 +1,3 @@
-@php
-    $filtersShouldCollapse = $unfilteredProductCount <= 3
-        && request()->except(['page', 'sort']) === [];
-@endphp
-
-@if ($filtersShouldCollapse)
-    <details class="catalog-filters-disclosure">
-        <summary>Фильтры товаров</summary>
-@endif
 <form class="catalog-filters {{ ($horizontal ?? false) ? 'catalog-filters--horizontal' : '' }}" method="get" action="{{ url()->current() }}">
     <input type="hidden" name="sort" value="{{ $filters['sort'] }}">
     <div class="catalog-filters__header">
@@ -17,8 +8,5 @@
 <fieldset class="catalog-filter"><legend>Товар</legend><label><input type="checkbox" name="availability[]" value="in_stock" @checked(in_array('in_stock',$filters['availability'],true))> В наличии</label><label><input type="checkbox" name="availability[]" value="to_order" @checked(in_array('to_order',$filters['availability'],true))> Под заказ</label></fieldset>
 @if($filterOptions['ski_pairs']->isNotEmpty())<fieldset class="catalog-filter"><legend>Вместимость, пар лыж</legend>@foreach($filterOptions['ski_pairs'] as $value)<label><input type="checkbox" name="ski_pairs[]" value="{{$value}}" @checked(in_array((string)$value,$filters['ski_pairs'],true))> {{$value}}</label>@endforeach</fieldset>@endif
 @if($filterOptions['snowboards']->isNotEmpty())<fieldset class="catalog-filter"><legend>Вместимость, сноубордов</legend>@foreach($filterOptions['snowboards'] as $value)<label><input type="checkbox" name="snowboard[]" value="{{$value}}" @checked(in_array((string)$value,$filters['snowboards'],true))> {{$value}}</label>@endforeach</fieldset>@endif
-    <button class="catalog-filters__submit" type="submit">Показать</button>
+    @include('catalog.products._filter_actions')
 </form>
-@if ($filtersShouldCollapse)
-    </details>
-@endif

@@ -8,6 +8,7 @@ use App\Models\InstallationService;
 use App\Models\Product;
 use App\Models\ProductPageInformation;
 use App\Models\RoofRackManufacturer;
+use App\Models\SkiRackManufacturer;
 use App\Models\User;
 use App\Models\VehicleBodyStyle;
 use App\Models\VehicleConfiguration;
@@ -204,6 +205,35 @@ class AdminProductTest extends TestCase
         foreach ($product->images as $image) {
             Storage::disk('public')->assertExists(substr($image->path, strlen('storage/')));
         }
+    }
+
+    public function test_administrator_can_create_ski_rack_with_image(): void
+    {
+        Storage::fake('public');
+        $admin = User::factory()->create(['is_admin' => true]);
+        $manufacturer = SkiRackManufacturer::query()->create(['name' => 'Thule']);
+
+        $response = $this->actingAs($admin)->post(route('admin.products.ski-racks.store'), [
+            'name' => 'Лыжное крепление тестовое',
+            'slug' => '',
+            'price' => '15990.50',
+            'manufacturer_id' => $manufacturer->id,
+            'country_of_origin' => 'Швеция',
+            'product_model' => 'SnowPack',
+            'ski_pairs_capacity' => 4,
+            'snowboard_capacity' => 2,
+            'stock' => 3,
+            'is_active' => '1',
+            'images' => [$this->fakePng('ski-rack.png')],
+        ]);
+
+        $response->assertSessionDoesntHaveErrors();
+        $product = Product::query()->where('name', 'Лыжное крепление тестовое')->firstOrFail();
+
+        $response->assertRedirect(route('admin.products.ski-racks.edit', $product));
+        $this->assertSame($manufacturer->id, $product->skiRack->manufacturer_id);
+        $this->assertCount(1, $product->images);
+        Storage::disk('public')->assertExists(substr($product->images->first()->path, strlen('storage/')));
     }
 
     public function test_create_form_does_not_offer_legacy_fitment_copy(): void

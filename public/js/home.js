@@ -68,6 +68,46 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCatalogSidebar();
     catalogSidebarViewport.addEventListener('change', updateCatalogSidebar);
 
+    const tabletFiltersViewport = window.matchMedia('(max-width: 820px)');
+    const mobileFiltersViewport = window.matchMedia('(max-width: 520px)');
+
+    document.querySelectorAll('.catalog-filters--horizontal').forEach((filters) => {
+        const groups = [...filters.querySelectorAll(':scope > .catalog-filter')];
+        const toggle = filters.querySelector('[data-catalog-filters-toggle]');
+        let expanded = false;
+
+        if (! toggle) return;
+
+        const visibleGroupCount = () => {
+            if (mobileFiltersViewport.matches) return 1;
+            if (tabletFiltersViewport.matches) return 2;
+
+            return 3;
+        };
+
+        const updateFilters = () => {
+            const limit = visibleGroupCount();
+            const hasMore = groups.length > limit;
+
+            groups.forEach((group, index) => {
+                group.hidden = hasMore && ! expanded && index >= limit;
+            });
+
+            toggle.hidden = ! hasMore;
+            toggle.setAttribute('aria-expanded', String(expanded));
+            toggle.textContent = expanded ? 'Скрыть' : 'Показать еще';
+        };
+
+        toggle.addEventListener('click', () => {
+            expanded = ! expanded;
+            updateFilters();
+        });
+
+        tabletFiltersViewport.addEventListener('change', updateFilters);
+        mobileFiltersViewport.addEventListener('change', updateFilters);
+        updateFilters();
+    });
+
     const modal = document.querySelector('[data-callback-modal]');
     const overlay = document.querySelector('[data-callback-overlay]');
     const openButtons = document.querySelectorAll('[data-callback-open]');
