@@ -182,8 +182,8 @@ Route::post('/cart/{product}', [CartController::class, 'store'])->middleware('th
 Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/cart/installation-service', [CartController::class, 'destroyInstallationService'])->name('cart.installation-service.destroy');
 Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
-Route::get('/checkout', [CheckoutController::class, 'create'])->name('checkout.create');
-Route::post('/checkout', [CheckoutController::class, 'store'])->middleware('throttle:10,1')->name('checkout.store');
+Route::get('/checkout', [CheckoutController::class, 'create'])->block(10, 10)->name('checkout.create');
+Route::post('/checkout', [CheckoutController::class, 'store'])->middleware('throttle:10,1')->block(10, 10)->name('checkout.store');
 Route::get('/checkout/{order}/success', [CheckoutController::class, 'success'])->name('checkout.success');
 Route::get('/autobox', AutoBoxController::class)->name('catalog.auto-boxes.index');
 Route::get('/velokrepleniya', BikeRackController::class)->name('catalog.bike-racks.index');

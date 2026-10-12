@@ -7,6 +7,7 @@
         <h1 class="title title-h1">Оформление заказа</h1>
         <form method="POST" action="{{ route('checkout.store') }}" class="checkout-form">
             @csrf
+            <input type="hidden" name="checkout_token" value="{{ $checkoutToken }}">
             <div class="checkout-form__summary">
                 <h2>Ваш заказ</h2>
                 @foreach ($items as $item)
@@ -18,6 +19,7 @@
                 <p class="checkout-form__total"><span>Итого</span><strong>{{ number_format($total, 0, ',', ' ') }} ₽</strong></p>
             </div>
             <div class="checkout-form__fields">
+                @error('checkout_token')<p class="field__error" role="alert">{{ $message }}</p>@enderror
                 <div class="field">
                     <label for="customer_name">Имя</label>
                     <input id="customer_name" name="customer_name" value="{{ old('customer_name') }}" autocomplete="name" required>

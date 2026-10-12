@@ -10,6 +10,19 @@
             @include('admin.partials.help', ['title' => 'Работа с заказом', 'text' => 'Сначала свяжитесь с покупателем по телефону или email, чтобы подтвердить заказ. Затем выберите актуальный статус и сохраните его — это изменит состояние заказа в общем списке.', 'items' => ['«Новый» — заказ ещё не взят в работу.', '«В работе» — менеджер уточняет детали или проверяет наличие.', '«Подтверждён» — покупатель согласовал заказ и условия получения.', '«Завершён» и «Отменён» — финальные статусы для закрытия работы с заказом.']])
             <div class="admin-card order-details">
                 <h2>Клиент</h2><p>{{ $order->customer_name }} · <a href="tel:{{ $order->phone }}">{{ $order->phone }}</a> · <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p>
+                <h2>Автомобиль</h2>
+                @if ($order->vehicle_snapshot)
+                    <p><strong>{{ $order->vehicle_snapshot['label'] }}</strong></p>
+                    <dl>
+                        @foreach (['generation' => 'Поколение', 'configuration' => 'Конфигурация', 'body_style' => 'Кузов', 'roof_type' => 'Крыша'] as $key => $label)
+                            @if (! empty($order->vehicle_snapshot[$key]))
+                                <dt>{{ $label }}</dt><dd>{{ $order->vehicle_snapshot[$key] }}</dd>
+                            @endif
+                        @endforeach
+                    </dl>
+                @else
+                    <p>Не указан</p>
+                @endif
                 <h2>Получение</h2><p>{{ $order->deliveryMethodLabel() }}@if($order->delivery_address) · {{ $order->delivery_address }}@endif</p>
                 @if($order->comment)<h2>Комментарий</h2><p>{{ $order->comment }}</p>@endif
                 <h2>Товары</h2><ul>@foreach($order->items as $item)<li>{{ $item->product_name }} × {{ $item->quantity }} — {{ number_format((float) $item->total, 0, ',', ' ') }} ₽</li>@endforeach</ul><p><strong>Итого: {{ number_format((float) $order->total, 0, ',', ' ') }} ₽</strong></p>

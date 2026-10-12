@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Http\Middleware\ResolveVehicleConfiguration;
 use App\Mail\CallbackRequested;
 use App\Mail\OrderConfirmation;
 use App\Mail\OrderCreated;
@@ -10,8 +11,16 @@ use App\Models\InstallationService;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\VehicleBodyStyle;
+use App\Models\VehicleConfiguration;
+use App\Models\VehicleGeneration;
+use App\Models\VehicleMake;
+use App\Models\VehicleModel;
+use App\Models\VehicleRoofType;
+use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class OrderCheckoutTest extends TestCase
@@ -32,6 +41,7 @@ class OrderCheckoutTest extends TestCase
             ->assertSee('Оформить заказ');
 
         $this->post(route('checkout.store'), [
+            'checkout_token' => $this->checkoutToken(),
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
@@ -56,9 +66,11 @@ class OrderCheckoutTest extends TestCase
     public function test_delivery_address_is_required_for_delivery(): void
     {
         $this->post(route('cart.store', $this->product()));
+        $checkoutToken = $this->checkoutToken();
 
         $this->from(route('checkout.create'))
             ->post(route('checkout.store'), [
+                'checkout_token' => $checkoutToken,
                 'customer_name' => 'Иван Петров',
                 'phone' => '+7 900 123-45-67',
                 'email' => 'ivan@example.com',
@@ -82,6 +94,7 @@ class OrderCheckoutTest extends TestCase
             ->assertSee('12 500 ₽');
 
         $this->post(route('checkout.store'), [
+            'checkout_token' => $this->checkoutToken(),
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
@@ -160,6 +173,7 @@ class OrderCheckoutTest extends TestCase
         $product->update(['price' => 12500]);
 
         $this->post(route('checkout.store'), [
+            'checkout_token' => $this->checkoutToken(),
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
@@ -183,6 +197,213 @@ class OrderCheckoutTest extends TestCase
             ->assertRedirect(route('admin.orders.show', $order));
 
         $this->assertSame(Order::STATUS_CONFIRMED, $order->fresh()->status);
+    }
+
+    public function test_checkout_reuses_token_across_tabs_and_refreshes(): void
+    {
+        $this->post(route('cart.store', $this->product()));
+        $token = $this->checkoutToken();
+
+        $this->assertSame($token, $this->checkoutToken());
+        $this->get(route('checkout.create'))->assertSee('value="'.$token.'"', false);
+    }
+
+    public function test_repeated_submission_returns_existing_order_without_sending_more_emails(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $data = $this->checkoutData($this->checkoutToken());
+
+        $this->post(route('checkout.store'), $data)->assertRedirect();
+        $order = Order::query()->sole();
+
+        $this->post(route('checkout.store'), $data)
+            ->assertRedirect(route('checkout.success', $order));
+
+        // A request that started concurrently may still contain the original cart.
+        $this->withSession(['cart.items' => [(string) $product->id => 1]])
+            ->post(route('checkout.store'), $data)
+            ->assertRedirect(route('checkout.success', $order));
+
+        $this->assertDatabaseCount('orders', 1);
+        $this->assertDatabaseCount('order_items', 1);
+        Mail::assertQueued(OrderCreated::class, 1);
+        Mail::assertQueued(OrderConfirmation::class, 1);
+    }
+
+    public function test_new_checkout_after_completed_order_gets_new_token(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $firstToken = $this->checkoutToken();
+        $this->post(route('checkout.store'), $this->checkoutData($firstToken))->assertRedirect();
+
+        $this->post(route('cart.store', $product));
+        $secondToken = $this->checkoutToken();
+        $this->assertNotSame($firstToken, $secondToken);
+
+        $this->post(route('checkout.store'), $this->checkoutData($firstToken))
+            ->assertSessionHasErrors('checkout_token');
+        $this->assertDatabaseCount('orders', 1);
+
+        $this->post(route('checkout.store'), $this->checkoutData($secondToken))->assertRedirect();
+        $this->assertDatabaseCount('orders', 2);
+    }
+
+    public function test_checkout_requires_token_issued_to_current_session(): void
+    {
+        Mail::fake();
+        $this->post(route('cart.store', $this->product()));
+        $token = $this->checkoutToken();
+
+        foreach ([null, 'invalid-token', (string) Str::uuid()] as $invalidToken) {
+            $data = $this->checkoutData($token);
+            $data['checkout_token'] = $invalidToken;
+            $this->post(route('checkout.store'), $data)->assertSessionHasErrors('checkout_token');
+        }
+
+        $this->withSession(['checkout.token' => (string) Str::uuid()])
+            ->post(route('checkout.store'), $this->checkoutData($token))
+            ->assertSessionHasErrors('checkout_token');
+
+        $this->assertDatabaseCount('orders', 0);
+        Mail::assertNothingQueued();
+    }
+
+    public function test_invalid_order_can_be_corrected_without_changing_checkout_token(): void
+    {
+        Mail::fake();
+        $this->post(route('cart.store', $this->product()));
+        $token = $this->checkoutToken();
+        $data = $this->checkoutData($token);
+        $data['delivery_method'] = 'delivery';
+
+        $this->post(route('checkout.store'), $data)->assertSessionHasErrors('delivery_address');
+        $this->assertDatabaseCount('orders', 0);
+        $this->assertSame($token, $this->checkoutToken());
+
+        $data['delivery_address'] = 'Пермь, ул. Пример, 1';
+        $this->post(route('checkout.store'), $data)->assertRedirect();
+        $this->assertDatabaseCount('orders', 1);
+    }
+
+    public function test_database_prevents_duplicate_checkout_tokens(): void
+    {
+        $token = (string) Str::uuid();
+        $order = $this->order('AB-000001', Order::STATUS_NEW);
+        $order->update(['checkout_token' => $token]);
+
+        $this->expectException(UniqueConstraintViolationException::class);
+
+        Order::query()->create([
+            ...$this->checkoutData($token),
+            'total' => 10000,
+        ]);
+    }
+
+    public function test_order_saves_selected_vehicle_and_displays_snapshot_in_admin(): void
+    {
+        Mail::fake();
+        $vehicle = $this->vehicle();
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $vehicle->id)
+            ->withCookie(ResolveVehicleConfiguration::YEAR_COOKIE_NAME, '2023');
+        $this->post(route('cart.store', $this->product()));
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))
+            ->assertRedirect();
+
+        $order = Order::query()->sole();
+        $this->assertSame([
+            'configuration_id' => $vehicle->id,
+            'label' => 'Тестовая марка Тестовая модель 2023',
+            'make' => 'Тестовая марка',
+            'model' => 'Тестовая модель',
+            'generation' => 'II поколение',
+            'configuration' => 'Универсал с рейлингами',
+            'body_style' => 'Универсал',
+            'roof_type' => 'Интегрированные рейлинги',
+            'year' => 2023,
+        ], $order->vehicle_snapshot);
+
+        $vehicle->generation->vehicleModel->make->update(['name' => 'Новое название марки']);
+        $vehicle->delete();
+
+        $admin = User::factory()->create(['is_admin' => true]);
+        $this->actingAs($admin)->get(route('admin.orders.index'))
+            ->assertOk()->assertSee('Тестовая марка Тестовая модель 2023');
+        $this->get(route('admin.orders.show', $order))
+            ->assertOk()
+            ->assertSee('Тестовая марка Тестовая модель 2023')
+            ->assertSee('II поколение')
+            ->assertSee('Универсал с рейлингами')
+            ->assertSee('Интегрированные рейлинги')
+            ->assertDontSee('Новое название марки');
+    }
+
+    public function test_order_without_selected_vehicle_has_no_snapshot(): void
+    {
+        Mail::fake();
+        $this->post(route('cart.store', $this->product()));
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()) + [
+            'vehicle_snapshot' => ['label' => 'Подставленный автомобиль'],
+        ])
+            ->assertRedirect();
+
+        $order = Order::query()->sole();
+        $this->assertNull($order->vehicle_snapshot);
+        $admin = User::factory()->create(['is_admin' => true]);
+        $this->actingAs($admin)->get(route('admin.orders.index'))->assertOk()->assertSee('Не указан');
+        $this->get(route('admin.orders.show', $order))->assertOk()->assertSee('Не указан');
+    }
+
+    public function test_checkout_honeypot_rejects_order_without_consuming_token(): void
+    {
+        Mail::fake();
+        $this->post(route('cart.store', $this->product()));
+        $token = $this->checkoutToken();
+
+        $this->post(route('checkout.store'), $this->checkoutData($token) + ['website' => 'spam'])
+            ->assertSessionHasErrors('website');
+
+        $this->assertDatabaseCount('orders', 0);
+        $this->assertSame($token, $this->checkoutToken());
+        Mail::assertNothingQueued();
+    }
+
+    public function test_checkout_with_empty_cart_does_not_create_order(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $token = $this->checkoutToken();
+        $this->delete(route('cart.destroy', $product));
+
+        $this->post(route('checkout.store'), $this->checkoutData($token))
+            ->assertRedirect(route('cart.index'));
+
+        $this->assertDatabaseCount('orders', 0);
+        Mail::assertNothingQueued();
+    }
+
+    public function test_order_ignores_unavailable_vehicle_and_invalid_year(): void
+    {
+        Mail::fake();
+        $vehicle = $this->vehicle();
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $vehicle->id)
+            ->withCookie(ResolveVehicleConfiguration::YEAR_COOKIE_NAME, '1900');
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))->assertRedirect();
+
+        $order = Order::query()->sole();
+        $this->assertNull($order->vehicle_snapshot['year']);
+        $this->assertSame('Тестовая марка Тестовая модель 2021–2025', $order->vehicle_snapshot['label']);
+
+        $vehicle->update(['is_active' => false]);
+        $this->post(route('cart.store', $product));
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))->assertRedirect();
+        $this->assertNull(Order::query()->latest('id')->firstOrFail()->vehicle_snapshot);
     }
 
     public function test_administrator_can_filter_orders_by_status(): void
@@ -264,5 +485,41 @@ class OrderCheckoutTest extends TestCase
         return Product::query()->create([
             'name' => 'Тестовый автобокс', 'slug' => 'test-autobox', 'price' => 10000, 'stock' => 1, 'is_active' => true,
         ]);
+    }
+
+    private function checkoutToken(): string
+    {
+        return $this->get(route('checkout.create'))->assertOk()->viewData('checkoutToken');
+    }
+
+    /** @return array<string, string> */
+    private function checkoutData(string $token): array
+    {
+        return [
+            'checkout_token' => $token,
+            'customer_name' => 'Иван Петров',
+            'phone' => '+7 900 123-45-67',
+            'email' => 'ivan@example.com',
+            'delivery_method' => 'pickup',
+        ];
+    }
+
+    private function vehicle(): VehicleConfiguration
+    {
+        $make = VehicleMake::query()->create(['name' => 'Тестовая марка', 'slug' => 'checkout-make', 'is_active' => true]);
+        $model = VehicleModel::query()->create(['vehicle_make_id' => $make->id, 'name' => 'Тестовая модель', 'slug' => 'checkout-model', 'is_active' => true]);
+        $generation = VehicleGeneration::query()->create([
+            'vehicle_model_id' => $model->id, 'name' => 'II поколение', 'slug' => 'checkout-generation',
+            'year_from' => 2021, 'year_to' => 2025, 'is_active' => true,
+        ]);
+        $body = VehicleBodyStyle::query()->create(['name' => 'Универсал', 'slug' => 'checkout-wagon', 'is_active' => true]);
+        $roof = VehicleRoofType::query()->create(['name' => 'Интегрированные рейлинги', 'slug' => 'checkout-rails', 'is_active' => true]);
+
+        return VehicleConfiguration::query()->create([
+            'vehicle_generation_id' => $generation->id,
+            'vehicle_body_style_id' => $body->id,
+            'vehicle_roof_type_id' => $roof->id,
+            'slug' => 'checkout-configuration', 'display_name' => 'Универсал с рейлингами', 'is_active' => true,
+        ])->load(['generation.vehicleModel.make', 'bodyStyle', 'roofType']);
     }
 }
