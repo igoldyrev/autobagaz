@@ -32,7 +32,7 @@ class RoofRackCategoryTest extends TestCase
         $this->assertSame(3, $rootCategory->children()->count());
         $this->assertSame(78, $rootCategory->vehicleMakes()->count());
         $this->assertSame(3, $rootCategory->children()->where('kind', 'special')->count());
-        $this->assertSame(852, VehicleModel::query()->count());
+        $this->assertSame(858, VehicleModel::query()->count());
 
         foreach ($rootCategory->vehicleMakes as $make) {
             $this->assertGreaterThan(0, $make->models()->count());
