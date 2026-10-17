@@ -84,7 +84,7 @@ class RequestedVehicleConfigurationsTest extends TestCase
     public function test_generated_images_are_displayed_in_admin_generation_forms(): void
     {
         $this->actingAs(User::factory()->create(['is_admin' => true]));
-        $configurations = VehicleConfiguration::query()->where('source', 'manual_request')->get();
+        $configurations = VehicleConfiguration::query()->where('source_reference', 'like', '2026-10-15:%')->get();
         $this->assertCount(13, $configurations);
 
         foreach ($configurations as $configuration) {

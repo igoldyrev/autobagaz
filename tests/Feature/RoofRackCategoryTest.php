@@ -30,9 +30,9 @@ class RoofRackCategoryTest extends TestCase
             ->firstOrFail();
 
         $this->assertSame(3, $rootCategory->children()->count());
-        $this->assertSame(78, $rootCategory->vehicleMakes()->count());
+        $this->assertSame(87, $rootCategory->vehicleMakes()->count());
         $this->assertSame(3, $rootCategory->children()->where('kind', 'special')->count());
-        $this->assertSame(858, VehicleModel::query()->count());
+        $this->assertSame(879, VehicleModel::query()->count());
 
         foreach ($rootCategory->vehicleMakes as $make) {
             $this->assertGreaterThan(0, $make->models()->count());
@@ -53,7 +53,7 @@ class RoofRackCategoryTest extends TestCase
             ->assertSee('data-brand-search', escape: false)
             ->assertDontSee('>Категория<', escape: false);
 
-        $this->assertSame(81, substr_count($response->getContent(), 'data-category-card'));
+        $this->assertSame(90, substr_count($response->getContent(), 'data-category-card'));
     }
 
     public function test_audi_category_page_lists_models(): void
@@ -241,7 +241,7 @@ class RoofRackCategoryTest extends TestCase
             ->assertSee('Camry')
             ->assertSee(route('catalog.autobagazhniki.model.show', ['toyota', 'camry']));
 
-        $this->assertSame(57, substr_count($response->getContent(), 'data-model-card'));
+        $this->assertSame(58, substr_count($response->getContent(), 'data-model-card'));
     }
 
     public function test_model_products_can_be_filtered_by_common_and_roof_rack_fields(): void
