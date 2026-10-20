@@ -63,6 +63,6 @@
 
 @once
     @push('scripts')
-        <script src="{{ asset('js/vehicle-picker.js') }}" defer></script>
+        <script src="{{ asset('js/vehicle-picker.js') }}?v={{ filemtime(public_path('js/vehicle-picker.js')) }}" defer></script>
     @endpush
 @endonce
