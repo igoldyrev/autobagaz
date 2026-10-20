@@ -198,7 +198,7 @@
                         <p>Для установки необходимы поперечины указанного багажника.</p>
                     @endif
                     @if ($compatibilityResult->status !== App\Compatibility\CompatibilityResult::COMPATIBLE)
-                        <a class="button button--secondary product-vehicle-compatibility__button" href="{{ $alternativesUrl }}">Показать подходящие аналоги</a>
+                        <a class="button button__buy product-vehicle-compatibility__button product-roof-rack-cross-sell__button" href="{{ $alternativesUrl }}">Показать подходящие аналоги</a>
                     @endif
                 @else
                     <p class="product-vehicle-compatibility__prompt">Выберите автомобиль, чтобы проверить совместимость товара.</p>
