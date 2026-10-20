@@ -202,7 +202,7 @@
                     @endif
                 @else
                     <p class="product-vehicle-compatibility__prompt">Выберите автомобиль, чтобы проверить совместимость товара.</p>
-                    <a class="button button--secondary product-vehicle-compatibility__button" href="{{ route('catalog.vehicle-fitment.index') }}">Выбрать автомобиль</a>
+                    <a class="button button__buy product-vehicle-compatibility__button product-roof-rack-cross-sell__button" href="{{ route('catalog.vehicle-fitment.index') }}">Выбрать автомобиль</a>
                 @endif
                 @if ($product->roofRack && $installationService)
                     <section class="product-vehicle-compatibility__installation" aria-labelledby="product-installation-service-title">
