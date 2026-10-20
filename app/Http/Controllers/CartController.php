@@ -19,10 +19,12 @@ class CartController extends Controller
         $items = $cart->contents();
         $products = $items->pluck('product');
         $products->each(fn (Product $product) => $product->load(['autoBox', 'bikeRack', 'skiRack', 'roofRack']));
-        $accessory = $products->first(fn (Product $product): bool => $roofRackRecommendations->requiresRoofRack($product));
+        $roofRackAccessories = $products->filter(fn (Product $product): bool => $roofRackRecommendations->requiresRoofRack($product));
+        $accessory = $roofRackAccessories->first();
+        $ownsCrossbars = $roofRackRecommendations->ownsCrossbars();
         $hasRoofRack = $products->contains(fn (Product $product): bool => $product->roofRack !== null);
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
-        $recommendedRoofRack = $selectedVehicle && $accessory && ! $hasRoofRack
+        $recommendedRoofRack = $selectedVehicle && $accessory && ! $hasRoofRack && ! $ownsCrossbars
             ? $roofRackRecommendations->recommend($accessory, $selectedVehicle)
             : null;
         $installationService = $cart->selectedInstallationService();
@@ -33,9 +35,19 @@ class CartController extends Controller
             'installationService' => $installationService,
             'recentProducts' => $recentlyViewed->products(),
             'roofRackAccessory' => $accessory,
+            'roofRackAccessories' => $roofRackAccessories,
+            'ownsCrossbars' => $ownsCrossbars,
             'recommendedRoofRack' => $recommendedRoofRack,
             'hasInstallationKit' => $accessory !== null && $hasRoofRack,
         ]);
+    }
+
+    public function updateCrossbars(Request $request, RoofRackRecommendationService $recommendations): RedirectResponse
+    {
+        $request->validate(['owns_crossbars' => ['required', 'boolean']]);
+        $recommendations->setOwnCrossbars($request->boolean('owns_crossbars'));
+
+        return to_route('cart.index');
     }
 
     public function store(CartItemRequest $request, Product $product, CartService $cart): RedirectResponse

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartCountElement = document.querySelector('.header__cart-count');
 
     const recalculate = () => {
-        let total = 0;
+        let total = Number(document.querySelector('[data-cart-installation-price]')?.dataset.cartInstallationPrice ?? 0);
 
         document.querySelectorAll('[data-cart-item]').forEach((item) => {
             const quantity = Number(item.querySelector('[data-cart-quantity]').value);

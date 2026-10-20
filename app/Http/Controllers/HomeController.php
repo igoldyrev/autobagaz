@@ -42,7 +42,7 @@ class HomeController extends Controller
 
             $homeProducts = Product::query()
                 ->whereKey($productIds)
-                ->with('images')
+                ->with(['images', 'autoBox'])
                 ->orderBy('name')
                 ->get();
         }

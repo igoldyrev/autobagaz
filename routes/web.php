@@ -175,8 +175,10 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
 });
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::post('/products/{product}/crossbars', [ProductController::class, 'updateCrossbars'])->name('products.crossbars.update');
 Route::post('/callback', [CallbackRequestController::class, 'store'])->middleware('throttle:10,1')->name('callback.store');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/crossbars', [CartController::class, 'updateCrossbars'])->name('cart.crossbars.update');
 Route::post('/cart/kit/{product}/{roofRack}', [CartController::class, 'storeKit'])->middleware('throttle:30,1')->name('cart.store-kit');
 Route::post('/cart/{product}', [CartController::class, 'store'])->middleware('throttle:30,1')->name('cart.store');
 Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');

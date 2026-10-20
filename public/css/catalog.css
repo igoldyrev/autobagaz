@@ -241,7 +241,14 @@
 .product-card__no-image { color: #8a8f94; }
 .product-card__body { display: flex; flex: 1 1 auto; flex-direction: column; gap: 8px; padding: 16px; }
 .product-card__name { color: #0a2a0a; font-family: "Roboto Slab", serif; font-size: 17px; font-weight: 700; text-decoration: none; }
+.product-card__characteristics { display: grid; gap: 4px; color: #4e574f; font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
 .product-card__compatibility { display: inline-flex; gap: 5px; align-items: baseline; color: #18703c; font-size: 13px; font-weight: 700; line-height: 1.35; }
+.product-card__compatibility--conditional { color: #8a621c; }
+.product-card__compatibility--with-rack { display: block; }
+.product-card__compatibility a { color: inherit; }
+.crossbar-preference { margin-top: 16px; }
+.crossbar-requirements ul { padding-left: 20px; color: #4e574f; line-height: 1.5; }
+.cart-item__installation-condition { grid-column: 1 / -1; margin: 0; color: #8a621c; font-size: 13px; }
 .product-card__stock { color: #687069; font-size: 13px; }
 .product-card__price { color: #d84a20; font-size: 20px; }
 .product-card__cart-form { margin-top: auto; padding-top: 4px; }
@@ -262,6 +269,8 @@
 .order-flash { padding: 12px 16px; border-radius: 6px; }
 .order-flash--success { color: #17663a; background: #e7f6ed; }
 .order-flash--error { color: #a62424; background: #fff0ef; }
+.order-note { margin: 12px 0 0; color: #4e574f; font-size: 14px; line-height: 1.5; }
+.order-note a { color: #275d35; }
 .cart-item { display: grid; grid-template-columns: minmax(180px, 1fr) auto auto auto auto; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid #d8ded8; }
 .cart-item > a { color: #0a2a0a; font-weight: 700; text-decoration: none; }
 .cart-item__quantity { display: flex; align-items: center; gap: 8px; }
@@ -276,6 +285,8 @@
 .checkout-form__summary, .checkout-form__fields { padding: 22px; border: 1px solid #d8ded8; border-radius: 6px; background: #fff; }
 .checkout-form__summary h2 { margin-top: 0; }
 .checkout-form__summary p { display: flex; justify-content: space-between; gap: 16px; margin: 12px 0; font-size: 15px; }
+.checkout-form__summary .order-note { display: block; font-size: 14px; }
+.checkout-form [data-delivery-info][hidden] { display: none !important; }
 .checkout-form__total { padding-top: 12px; border-top: 1px solid #d8ded8; font-size: 18px !important; }
 .checkout-form__fields { display: grid; gap: 16px; padding-right: 32px; }
 .checkout-form__fields .field { display: grid; gap: 7px; }

@@ -14,7 +14,7 @@ class PromotionController extends Controller
             ? Product::query()
                 ->active()
                 ->onSale()
-                ->with('images')
+                ->with(['images', 'autoBox'])
                 ->orderByDesc('catalog_priority')
                 ->orderByDesc('promotion_starts_at')
                 ->paginate(24)

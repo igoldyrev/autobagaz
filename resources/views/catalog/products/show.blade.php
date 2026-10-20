@@ -171,21 +171,32 @@
                 @endif
             </ul>
 
-            <section class="product-vehicle-compatibility {{ $compatibilityResult ? 'product-vehicle-compatibility--'.$compatibilityResult->status : 'product-vehicle-compatibility--empty' }}" aria-labelledby="product-vehicle-compatibility-title">
+            <section class="product-vehicle-compatibility {{ $requiresTowbar || ($requiresRoofRack && $ownsCrossbars) ? 'product-vehicle-compatibility--unknown' : ($compatibilityResult ? 'product-vehicle-compatibility--'.$compatibilityResult->status : 'product-vehicle-compatibility--empty') }}" aria-labelledby="product-vehicle-compatibility-title">
                 <h2 id="product-vehicle-compatibility-title">Совместимость</h2>
-                @if ($selectedVehicle && $compatibilityResult)
+                @if ($requiresTowbar)
+                    <p class="product-vehicle-compatibility__status">Для установки необходим совместимый фаркоп</p>
+                    <p>Совместимость с фаркопом вашего автомобиля пока не подтверждена. Уточните требования к фаркопу перед покупкой.</p>
+                @elseif ($requiresRoofRack && $ownsCrossbars)
+                    <p class="product-vehicle-compatibility__status">Совместимость с вашими поперечинами пока не подтверждена</p>
+                @elseif ($selectedVehicle && $compatibilityResult)
                     <p class="product-vehicle-compatibility__label">Ваш автомобиль:</p>
                     <strong class="product-vehicle-compatibility__vehicle">{{ $selectedVehicleLabel }}</strong>
                     <p class="product-vehicle-compatibility__status">
                         <span aria-hidden="true">●</span>
                         @if ($compatibilityResult->status === App\Compatibility\CompatibilityResult::COMPATIBLE)
                             Подходит для вашей {{ $selectedVehicleLabel }}
+                            @if ($product->autoBox && $recommendedRoofRack)
+                                с багажником <a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a>
+                            @endif
                         @elseif ($compatibilityResult->status === App\Compatibility\CompatibilityResult::INCOMPATIBLE)
                             Не подходит для выбранного автомобиля
                         @else
                             Совместимость пока не подтверждена
                         @endif
                     </p>
+                    @if ($product->autoBox && $recommendedRoofRack)
+                        <p>Для установки необходимы поперечины указанного багажника.</p>
+                    @endif
                     @if ($compatibilityResult->status !== App\Compatibility\CompatibilityResult::COMPATIBLE)
                         <a class="button button--secondary product-vehicle-compatibility__button" href="{{ $alternativesUrl }}">Показать подходящие аналоги</a>
                     @endif
@@ -208,7 +219,10 @@
 
             @if ($requiresRoofRack)
                 <section class="product-roof-rack-cross-sell" aria-labelledby="product-roof-rack-cross-sell-title">
-                    @if ($selectedVehicle && $recommendedRoofRack)
+                    @if ($ownsCrossbars)
+                        <h2 id="product-roof-rack-cross-sell-title">Установка на собственные поперечины</h2>
+                        @include('catalog.products._crossbar_requirements', ['accessory' => $product])
+                    @elseif ($selectedVehicle && $recommendedRoofRack)
                         <h2 id="product-roof-rack-cross-sell-title">Всё необходимое для установки</h2>
                         <p class="product-roof-rack-cross-sell__vehicle">{{ $selectedVehicleLabel }}</p>
                         <form method="POST" action="{{ route('cart.store-kit', ['product' => $product, 'roofRack' => $recommendedRoofRack]) }}" data-installation-kit data-kit-products-total="{{ (float) $product->price + (float) $recommendedRoofRack->price }}">
@@ -232,6 +246,7 @@
                         <p class="product-roof-rack-cross-sell__lead">Нет поперечин? Подберите багажник для вашего автомобиля.</p>
                         <a class="button button--secondary product-roof-rack-cross-sell__button" href="{{ route('catalog.vehicle-fitment.index', ['redirect_to' => 'roof-racks']) }}">Подобрать багажник →</a>
                     @endif
+                    @include('catalog.products._crossbar_preference', ['crossbarPreferenceAction' => route('products.crossbars.update', $product)])
                 </section>
             @endif
 

@@ -14,6 +14,7 @@ use App\Models\VehicleGeneration;
 use App\Models\VehicleMake;
 use App\Models\VehicleModel;
 use App\Models\VehicleRoofType;
+use App\Services\RoofRackRecommendationService;
 use App\Services\VehicleCatalogService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Schema;
@@ -353,6 +354,109 @@ class VehicleFitmentPickerTest extends TestCase
         $rack->update(['is_active' => false]);
 
         $this->assertSame(0, $catalog->summary($configuration)['roof_rack_count']);
+    }
+
+    public function test_towbar_rack_requires_a_towbar_instead_of_unconditional_vehicle_confirmation(): void
+    {
+        $configuration = $this->configuration();
+        $product = $this->product('Крепление на фаркоп', 'towbar-condition', 'bike_rack');
+        $product->bikeRack()->create(['mounting_type' => 'На фаркоп']);
+
+        foreach ([route('products.show', $product), route('catalog.bike-racks.index')] as $url) {
+            $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
+                ->get($url)
+                ->assertOk()
+                ->assertSee('Для установки необходим совместимый фаркоп')
+                ->assertDontSee('Подходит для вашей')
+                ->assertDontSee('У меня уже есть поперечины');
+        }
+
+        $this->post(route('products.crossbars.update', $product), ['owns_crossbars' => '1'])->assertNotFound();
+        $this->post(route('cart.store', $product))->assertRedirect(route('cart.index'));
+        $this->get(route('cart.index'))->assertOk()->assertSee('Для установки необходим совместимый фаркоп');
+    }
+
+    public function test_own_crossbars_selection_is_shared_by_all_roof_accessories_and_can_be_reset(): void
+    {
+        $box = $this->autoBox('Бокс для своих дуг', 'own-crossbars-box', 60, 100, 35, 500, 800);
+        $box->autoBox->update(['required_t_slot_width_mm' => 20, 'mounting_type' => 'U-скоба']);
+        $bike = $this->bikeRack('Велокрепление для своих дуг', 'own-crossbars-bike');
+        $ski = $this->skiRack('Лыжное крепление для своих дуг', 'own-crossbars-ski');
+
+        $this->post(route('products.crossbars.update', $box), ['owns_crossbars' => '1'])
+            ->assertRedirect(route('products.show', $box))
+            ->assertSessionHas(RoofRackRecommendationService::OWN_CROSSBARS_SESSION_KEY, true);
+
+        foreach ([$box, $bike, $ski] as $product) {
+            $this->get(route('products.show', $product))
+                ->assertOk()
+                ->assertSee('Установка на собственные поперечины')
+                ->assertSee('Совместимость с ними пока не подтверждена')
+                ->assertSee('Подобрать багажник')
+                ->assertDontSee('Добавить комплект')
+                ->assertDontSee('У меня уже есть поперечины');
+            $this->post(route('cart.store', $product))->assertRedirect(route('cart.index'));
+        }
+
+        $this->get(route('cart.index'))
+            ->assertOk()
+            ->assertSee($box->name)->assertSee($bike->name)->assertSee($ski->name)
+            ->assertSee('Ширина профиля: от 60 до 100 мм.')
+            ->assertSee('Высота профиля: до 35 мм.')
+            ->assertSee('Расстояние между поперечинами: от 500 до 800 мм.')
+            ->assertSee('Ширина T-паза: не менее 20 мм.')
+            ->assertSee('Тип крепления: U-скоба.')
+            ->assertDontSee('Итого с багажником');
+
+        foreach (['catalog.auto-boxes.index', 'catalog.bike-racks.index', 'catalog.ski-racks.index'] as $route) {
+            $this->get(route($route))->assertOk()
+                ->assertSee('Совместимость с вашими поперечинами пока не подтверждена');
+        }
+
+        $this->post(route('cart.crossbars.update'), ['owns_crossbars' => '0'])
+            ->assertRedirect(route('cart.index'))
+            ->assertSessionHas(RoofRackRecommendationService::OWN_CROSSBARS_SESSION_KEY, false);
+        $this->get(route('products.show', $ski))->assertOk()
+            ->assertSee('У меня уже есть поперечины')
+            ->assertDontSee('Установка на собственные поперечины');
+    }
+
+    public function test_own_crossbars_hides_a_recommendation_and_restores_it_without_changing_the_cart(): void
+    {
+        $configuration = $this->configuration();
+        $rack = $this->roofRack('Рекомендованные дуги', 'conditional-rack', 80, 25);
+        $fitment = Fitment::query()->create(['code' => 'CROSSBARS', 'name' => 'Поперечины', 'is_active' => true]);
+        $fitment->configurations()->attach($configuration);
+        $fitment->products()->attach($rack, ['status' => 'active']);
+        $box = $this->autoBox('Бокс с условием', 'conditional-box', 60, 100, 35, 500, 800);
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id);
+
+        foreach ([route('products.show', $box), route('catalog.auto-boxes.index')] as $url) {
+            $this->get($url)->assertOk()
+                ->assertSee('с багажником <a href="'.route('products.show', $rack).'">'.$rack->name.'</a>', false)
+                ->assertSee('Для установки необходимы поперечины указанного багажника.');
+        }
+
+        $this->post(route('cart.store', $box));
+        $this->get(route('cart.index'))->assertOk()->assertSee('Добавить багажник');
+        $this->post(route('cart.crossbars.update'), ['owns_crossbars' => '1'])->assertRedirect(route('cart.index'));
+        $this->get(route('cart.index'))->assertOk()
+            ->assertSee('Установка на собственные поперечины')->assertDontSee('Добавить багажник');
+        $this->get(route('products.show', $box))->assertOk()
+            ->assertSee('Совместимость с вашими поперечинами пока не подтверждена')
+            ->assertDontSee('Добавить комплект')->assertDontSee('Подходит для вашей');
+        $this->assertEquals([$box->id => 1], session('cart.items'));
+
+        $this->post(route('products.crossbars.update', $box), ['owns_crossbars' => '0']);
+        $this->get(route('products.show', $box))->assertOk()->assertSee('Добавить комплект');
+        $this->get(route('cart.index'))->assertOk()->assertSee('Добавить багажник');
+    }
+
+    public function test_crossbars_preference_rejects_invalid_values(): void
+    {
+        $this->post(route('cart.crossbars.update'), ['owns_crossbars' => 'yes'])
+            ->assertSessionHasErrors('owns_crossbars');
+        $this->assertNull(session(RoofRackRecommendationService::OWN_CROSSBARS_SESSION_KEY));
     }
 
     private function configuration(): VehicleConfiguration

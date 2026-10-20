@@ -41,7 +41,7 @@ class VehicleFitmentController extends Controller
             $skiRackIds = $summary['ski_rack_ids'];
             $baseProducts = Product::query()
                 ->whereKey($roofRackIds)
-                ->with(['images', 'roofRack.manufacturer'])
+                ->with(['images', 'roofRack.manufacturer', 'autoBox'])
                 ->orderBy('name')
                 ->get();
             $dependentProducts = Product::query()
@@ -51,12 +51,12 @@ class VehicleFitmentController extends Controller
                 ->get();
             $bikeRackProducts = Product::query()
                 ->whereKey($bikeRackIds)
-                ->with(['images', 'bikeRack.manufacturer'])
+                ->with(['images', 'bikeRack.manufacturer', 'autoBox'])
                 ->orderBy('name')
                 ->get();
             $skiRackProducts = Product::query()
                 ->whereKey($skiRackIds)
-                ->with(['images', 'skiRack.manufacturer'])
+                ->with(['images', 'skiRack.manufacturer', 'autoBox'])
                 ->orderBy('name')
                 ->get();
             $categoryResults = collect([

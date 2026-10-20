@@ -31,8 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const needsAddress = document.querySelector('input[name="delivery_method"]:checked')?.value === 'delivery';
         address.hidden = !needsAddress;
         address.querySelector('input').required = needsAddress;
+        document.querySelectorAll('[data-delivery-info]').forEach((note) => {
+            note.hidden = (note.dataset.deliveryInfo === 'delivery') !== needsAddress;
+        });
     };
 
     options.forEach((option) => option.addEventListener('change', updateAddressVisibility));
     updateAddressVisibility();
+    window.addEventListener('pageshow', updateAddressVisibility);
 });

@@ -10,6 +10,7 @@ use App\Models\VehicleConfiguration;
 use App\Services\CompatibilityService;
 use App\Services\RecentlyViewedProductService;
 use App\Services\RoofRackRecommendationService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -67,7 +68,9 @@ class ProductController extends Controller
             ? $this->alternativesUrl($product, $selectedVehicle->id, $selectedVehicleYear)
             : null;
         $requiresRoofRack = $roofRackRecommendations->requiresRoofRack($product);
-        $recommendedRoofRack = $selectedVehicle && $requiresRoofRack
+        $requiresTowbar = $roofRackRecommendations->requiresTowbar($product);
+        $ownsCrossbars = $roofRackRecommendations->ownsCrossbars();
+        $recommendedRoofRack = $selectedVehicle && $requiresRoofRack && ! $ownsCrossbars
             ? $roofRackRecommendations->recommend($product, $selectedVehicle)
             : null;
         $compatibleVehiclesCountLabel = $this->vehicleCountLabel($compatibleVehicles->count());
@@ -76,8 +79,17 @@ class ProductController extends Controller
         $recentlyViewed->remember($product);
 
         return view('catalog.products.show', compact(
-            'product', 'selectedVehicle', 'compatibilityResult', 'selectedVehicleLabel', 'alternativesUrl', 'requiresRoofRack', 'recommendedRoofRack', 'compatibleVehicles', 'compatibleVehiclesCountLabel', 'productPageInformation', 'installationService',
+            'product', 'selectedVehicle', 'compatibilityResult', 'selectedVehicleLabel', 'alternativesUrl', 'requiresRoofRack', 'requiresTowbar', 'ownsCrossbars', 'recommendedRoofRack', 'compatibleVehicles', 'compatibleVehiclesCountLabel', 'productPageInformation', 'installationService',
         ));
+    }
+
+    public function updateCrossbars(Request $request, Product $product, RoofRackRecommendationService $recommendations): RedirectResponse
+    {
+        abort_unless($product->is_active && $recommendations->requiresRoofRack($product), 404);
+        $request->validate(['owns_crossbars' => ['required', 'boolean']]);
+        $recommendations->setOwnCrossbars($request->boolean('owns_crossbars'));
+
+        return to_route('products.show', $product);
     }
 
     private function vehicleCountLabel(int $count): string

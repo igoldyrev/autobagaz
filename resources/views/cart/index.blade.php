@@ -29,6 +29,9 @@
                     @method('DELETE')
                     <button class="cart-item__remove" type="submit">Удалить</button>
                 </form>
+                @if ($item['product']->bikeRack?->mounting_type === 'На фаркоп')
+                    <p class="cart-item__installation-condition">Для установки необходим совместимый фаркоп</p>
+                @endif
             </article>
         @empty
             <p class="cart-page__empty">В корзине пока нет товаров.</p>
@@ -36,7 +39,7 @@
 
         @if ($items->isNotEmpty())
             @if ($installationService)
-                <article class="cart-item cart-item--service">
+                <article class="cart-item cart-item--service" data-cart-installation-price="{{ (float) $installationService->price }}">
                     <span>{{ $installationService->name }}@if ($installationService->description)<small>{{ $installationService->description }}</small>@endif</span>
                     <span>{{ number_format((float) $installationService->price, 0, ',', ' ') }} ₽</span>
                     <span>Услуга</span>
@@ -47,8 +50,18 @@
                         <button class="cart-item__remove" type="submit">Удалить</button>
                     </form>
                 </article>
+                @include('checkout._installation_notice')
             @endif
-            @if ($hasInstallationKit)
+            @if ($ownsCrossbars && $roofRackAccessories->isNotEmpty())
+                <section class="cart-roof-rack-cross-sell" aria-labelledby="cart-own-crossbars-title">
+                    <h2 id="cart-own-crossbars-title">Установка на собственные поперечины</h2>
+                    @foreach ($roofRackAccessories as $accessory)
+                        <h3><a href="{{ route('products.show', $accessory) }}">{{ $accessory->name }}</a></h3>
+                        @include('catalog.products._crossbar_requirements', ['accessory' => $accessory])
+                    @endforeach
+                    @include('catalog.products._crossbar_preference', ['crossbarPreferenceAction' => route('cart.crossbars.update')])
+                </section>
+            @elseif ($hasInstallationKit)
                 <section class="cart-installation-kit-confirmation" aria-labelledby="cart-installation-kit-confirmation-title">
                     <h2 id="cart-installation-kit-confirmation-title">Полный комплект для установки собран</h2>
                     <p>В корзине есть товар «<a href="{{ route('products.show', $roofRackAccessory) }}">{{ $roofRackAccessory->name }}</a>» и багажник на крышу.</p>
@@ -63,18 +76,21 @@
                         <button class="button button__buy" type="submit">Добавить багажник</button>
                     </form>
                     <p class="cart-roof-rack-cross-sell__total">Итого с багажником: {{ number_format((float) $total + (float) $recommendedRoofRack->price, 0, ',', ' ') }} ₽</p>
+                    @include('catalog.products._crossbar_preference', ['crossbarPreferenceAction' => route('cart.crossbars.update')])
                 </section>
             @elseif ($roofRackAccessory)
                 <section class="cart-roof-rack-cross-sell" aria-labelledby="cart-roof-rack-cross-sell-title">
                     <h2 id="cart-roof-rack-cross-sell-title">Для установки требуется багажник на крышу</h2>
                     <p>«<a href="{{ route('products.show', $roofRackAccessory) }}">{{ $roofRackAccessory->name }}</a>» устанавливается на поперечины.</p>
                     <a class="button button--secondary" href="{{ route('catalog.vehicle-fitment.index', ['redirect_to' => 'roof-racks']) }}">Подобрать совместимый багажник</a>
+                    @include('catalog.products._crossbar_preference', ['crossbarPreferenceAction' => route('cart.crossbars.update')])
                 </section>
             @endif
             <div class="cart-page__total">
-                <strong>Итого: <span data-cart-total>{{ number_format($total, 0, ',', ' ') }} ₽</span></strong>
+                <strong>Товары и услуги: <span data-cart-total>{{ number_format($total, 0, ',', ' ') }} ₽</span></strong>
                 <a class="button button__buy" href="{{ route('checkout.create') }}">Оформить заказ</a>
             </div>
+            <p class="order-note">Доставка, если потребуется, рассчитывается отдельно.</p>
         @endif
 
         @if ($recentProducts->isNotEmpty())

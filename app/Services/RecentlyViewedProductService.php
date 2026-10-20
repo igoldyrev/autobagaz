@@ -40,7 +40,7 @@ class RecentlyViewedProductService
 
         $products = Product::query()
             ->active()
-            ->with('images')
+            ->with(['images', 'autoBox'])
             ->whereIn('id', $productIds)
             ->get()
             ->keyBy('id');
