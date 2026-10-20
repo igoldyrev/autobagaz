@@ -433,7 +433,7 @@ class VehicleFitmentPickerTest extends TestCase
 
         foreach ([route('products.show', $box), route('catalog.auto-boxes.index')] as $url) {
             $this->get($url)->assertOk()
-                ->assertSee('с багажником <a href="'.route('products.show', $rack).'">'.$rack->name.'</a>', false)
+                ->assertSee('href="'.route('products.show', $rack).'">'.$rack->name.'</a>', false)
                 ->assertSee('Для установки необходимы поперечины указанного багажника.');
         }
 

@@ -63,15 +63,19 @@
                 @elseif ($usesOwnCrossbars)
                     <span class="product-card__compatibility product-card__compatibility--conditional">Совместимость с вашими поперечинами пока не подтверждена</span>
                 @elseif ($selectedVehicle)
-                    <span class="product-card__compatibility {{ $matchingRoofRack ? 'product-card__compatibility--with-rack' : '' }}">
+                    <span class="product-card__compatibility">
                         <span aria-hidden="true">✓</span>
-                        Подходит для вашей {{ $selectedVehicle->labelForYear($selectedVehicleYear) }}
-                        @if ($matchingRoofRack)
-                            с багажником <a href="{{ route('products.show', $matchingRoofRack) }}">{{ $matchingRoofRack->name }}</a>
-                        @endif
+                        <span>
+                            Подходит для вашей {{ $selectedVehicle->labelForYear($selectedVehicleYear) }}
+                            @if ($matchingRoofRack) с указанным багажником @endif
+                        </span>
                     </span>
                     @if ($matchingRoofRack)
-                        <span class="product-card__stock">Для установки необходимы поперечины указанного багажника.</span>
+                        <div class="product-card__installation">
+                            <span class="product-card__stock">Подходящий багажник</span>
+                            <a class="product-card__rack-link" href="{{ route('products.show', $matchingRoofRack) }}">{{ $matchingRoofRack->name }}</a>
+                            <span class="product-card__stock">Для установки необходимы поперечины указанного багажника.</span>
+                        </div>
                     @endif
                 @endif
                 <strong class="product-card__price">{{ number_format((float) $product->price, 0, ',', ' ') }} ₽</strong>

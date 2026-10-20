@@ -244,8 +244,9 @@
 .product-card__characteristics { display: grid; gap: 4px; color: #4e574f; font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
 .product-card__compatibility { display: inline-flex; gap: 5px; align-items: baseline; color: #18703c; font-size: 13px; font-weight: 700; line-height: 1.35; }
 .product-card__compatibility--conditional { color: #8a621c; }
-.product-card__compatibility--with-rack { display: block; }
-.product-card__compatibility a { color: inherit; }
+.product-card__installation { display: grid; gap: 6px; padding: 10px 12px; border-radius: 6px; background: #f2f6f2; line-height: 1.4; }
+.product-card__rack-link { color: #18703c; font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.product-card__rack-link:hover, .product-card__rack-link:focus-visible { color: #0a2a0a; text-decoration-thickness: 2px; }
 .crossbar-preference { margin-top: 16px; }
 .crossbar-requirements ul { padding-left: 20px; color: #4e574f; line-height: 1.5; }
 .cart-item__installation-condition { grid-column: 1 / -1; margin: 0; color: #8a621c; font-size: 13px; }
