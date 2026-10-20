@@ -177,19 +177,39 @@ document.addEventListener('DOMContentLoaded', () => {
         const search = picker.querySelector('[data-brand-search]');
         const cards = [...picker.querySelectorAll('[data-category-card]')];
         const empty = picker.querySelector('[data-brand-empty]');
+        const toggle = picker.querySelector('[data-brand-toggle]');
+        const mobileViewport = window.matchMedia('(max-width: 640px)');
+        let expanded = false;
 
-        search?.addEventListener('input', () => {
-            const query = search.value.trim().toLocaleLowerCase('ru-RU');
+        const updateCards = () => {
+            const query = search?.value.trim().toLocaleLowerCase('ru-RU') || '';
+            const limit = mobileViewport.matches ? 4 : 12;
             let matches = 0;
 
-            cards.forEach((card) => {
-                const visible = !query || card.dataset.brandName.includes(query);
+            cards.forEach((card, index) => {
+                const visible = query
+                    ? card.dataset.brandName.includes(query)
+                    : !toggle || expanded || index < limit;
                 card.hidden = !visible;
                 matches += Number(visible);
             });
 
             empty.hidden = !query || matches > 0;
+            if (toggle) {
+                toggle.hidden = Boolean(query) || cards.length <= limit;
+                toggle.setAttribute('aria-expanded', String(expanded));
+                toggle.textContent = expanded ? 'Свернуть марки' : 'Показать все марки';
+            }
+        };
+
+        search?.addEventListener('input', updateCards);
+        toggle?.addEventListener('click', () => {
+            expanded = !expanded;
+            updateCards();
+            if (!expanded) picker.scrollIntoView({ block: 'start' });
         });
+        mobileViewport.addEventListener('change', updateCards);
+        updateCards();
     });
 
 });

@@ -73,6 +73,48 @@ class RoofRackCategoryTest extends TestCase
         $response->assertSeeInOrder(['data-brand-name="brilliance"', 'data-brand-name="byd"'], escape: false);
     }
 
+    public function test_catalog_without_a_vehicle_lists_paginated_roof_racks_and_preserves_filters(): void
+    {
+        Product::query()->update(['is_active' => false]);
+        for ($number = 1; $number <= 14; $number++) {
+            $this->createRoofRackProduct('Багажник '.$number, 'catalog-rack-'.$number, $number * 1000, 'LUX', 1, 75, 'Аэродинамическая', 120);
+        }
+        Product::query()->create(['name' => 'Посторонний товар', 'slug' => 'unrelated', 'price' => 100, 'stock' => 1, 'is_active' => true]);
+
+        $response = $this->get(route('catalog.autobagazhniki.index', ['sort' => 'price_asc', 'price_from' => 1000]));
+        $response->assertOk()
+            ->assertSeeInOrder(['Подбор по марке автомобиля', 'Каталог автобагажников', 'Как выбрать багажник на крышу'])
+            ->assertSee('чтобы проверить совместимость')
+            ->assertSee('data-brand-toggle', escape: false)
+            ->assertDontSee('Подходит для вашей')
+            ->assertDontSee('Посторонний товар');
+        $products = $response->viewData('products');
+        $this->assertSame(14, $products->total());
+        $this->assertCount(12, $products);
+        $this->assertSame('Багажник 1', $products->first()->name);
+        $this->assertSame('Багажник 12', $products->last()->name);
+
+        $this->get($products->nextPageUrl())->assertOk()
+            ->assertViewHas('products', fn ($page) => $page->count() === 2 && $page->first()->name === 'Багажник 13')
+            ->assertViewHas('filters', fn ($filters) => $filters['sort'] === 'price_asc' && $filters['price_from'] === '1000');
+
+        $this->get(route('catalog.autobagazhniki.index', ['price_from' => 13000, 'price_to' => 14000, 'sort' => 'price_desc', 'bar_type' => ['Аэродинамическая']]))
+            ->assertOk()
+            ->assertViewHas('products', fn ($page) => $page->total() === 2 && $page->first()->name === 'Багажник 14');
+        $this->get(route('catalog.autobagazhniki.index', ['price_from' => 15000]))
+            ->assertOk()->assertSee('По выбранным параметрам товаров не найдено');
+    }
+
+    public function test_empty_catalog_keeps_brand_picker_and_selection_guide(): void
+    {
+        Product::query()->update(['is_active' => false]);
+
+        $this->get(route('catalog.autobagazhniki.index'))->assertOk()
+            ->assertSee('В этом разделе пока нет товаров.')
+            ->assertSee('Подбор по марке автомобиля')
+            ->assertSee('Как выбрать багажник на крышу');
+    }
+
     public function test_audi_category_page_lists_models(): void
     {
         $this->get(route('catalog.autobagazhniki.show', 'audi'))

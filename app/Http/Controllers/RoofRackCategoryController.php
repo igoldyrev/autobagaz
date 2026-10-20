@@ -10,6 +10,7 @@ use App\Services\VehicleCatalogService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
@@ -30,17 +31,12 @@ class RoofRackCategoryController extends Controller
         $categories = $specialCategories->concat($vehicleMakes)->values();
 
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
-        $products = collect();
-        $filterOptions = [];
-        $filters = [];
-        $unfilteredProductCount = 0;
-        if ($selectedVehicle) {
-            [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
-                $request,
-                Product::query()->active()->whereHas('roofRack'),
-                $productFilter,
-            );
-        }
+        [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
+            $request,
+            Product::query()->active()->whereHas('roofRack'),
+            $productFilter,
+            perPage: 12,
+        );
 
         return view('catalog.categories.index', compact(
             'rootCategory', 'categories', 'selectedVehicle', 'products', 'filterOptions', 'filters', 'unfilteredProductCount',
@@ -247,8 +243,8 @@ class RoofRackCategoryController extends Controller
         ));
     }
 
-    /** @return array{0: Collection, 1: array<string, mixed>, 2: array<string, mixed>, 3: int} */
-    private function filteredProducts(Request $request, Builder $query, CatalogProductFilter $productFilter): array
+    /** @return array{0: Collection|LengthAwarePaginator, 1: array<string, mixed>, 2: array<string, mixed>, 3: int} */
+    private function filteredProducts(Request $request, Builder $query, CatalogProductFilter $productFilter, ?int $perPage = null): array
     {
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
         if ($selectedVehicle) {
@@ -258,8 +254,10 @@ class RoofRackCategoryController extends Controller
         $availableProducts = (clone $query)->with('roofRack.manufacturer')->orderBy('name')->get();
         $filters = $productFilter->values($request);
         $products = $productFilter->applySorting($productFilter->apply(clone $query, $filters), $filters)
-            ->with(['images', 'roofRack.manufacturer', 'autoBox'])
-            ->get();
+            ->with(['images', 'roofRack.manufacturer', 'autoBox']);
+        $products = $perPage
+            ? $products->paginate($perPage)->withQueryString()->fragment('roof-rack-products')
+            : $products->get();
 
         return [$products, $productFilter->options($availableProducts), $filters, $availableProducts->count()];
     }

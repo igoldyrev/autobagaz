@@ -22,9 +22,10 @@
         </section>
 
         @if ($unfilteredProductCount > 0)
-            <div class="catalog-products-results--section">
+            <div class="catalog-products-results--section" id="roof-rack-products">
                 @include('catalog.products._filters', ['horizontal' => true])
                 @include('catalog.products._filtered_results')
+                @include('catalog.products._pagination', ['paginator' => $products])
             </div>
         @else
             <div class="records-placeholder records-placeholder--list">
@@ -32,10 +33,12 @@
             </div>
         @endif
 
-        <h2 class="title title-h2">Подбор по марке автомобиля</h2>
+    @else
+        <p class="text catalog-intro">Багажник подбирается под модель, год выпуска и тип крыши автомобиля. Выберите марку или воспользуйтесь <a href="{{ route('catalog.vehicle-fitment.index') }}">подбором по автомобилю</a>.</p>
     @endif
 
     <section class="brand-picker" data-brand-picker aria-label="Поиск марки автомобиля">
+        <h2 class="title title-h2">Подбор по марке автомобиля</h2>
         <label class="model-picker__search" for="brand-search">
             <span class="sr-only">Поиск марки автомобиля</span>
             <i class="fa fa-search" aria-hidden="true"></i>
@@ -43,7 +46,7 @@
         </label>
         <p class="model-picker__empty" data-brand-empty hidden aria-live="polite">Марки по вашему запросу не найдены.</p>
 
-        <div class="catalog-categories brand-picker__grid">
+        <div class="catalog-categories brand-picker__grid" id="roof-rack-brands">
             @foreach ($categories as $category)
                 @php
                     $usesPlaceholder = str_ends_with($category->image_path, 'category-background.webp');
@@ -69,5 +72,33 @@
                 </a>
             @endforeach
         </div>
+        <button class="brand-picker__toggle" type="button" data-brand-toggle aria-expanded="false" aria-controls="roof-rack-brands" hidden>Показать все марки</button>
+    </section>
+
+    @unless ($selectedVehicle)
+        <section id="roof-rack-products" aria-labelledby="roof-rack-products-title">
+            <h2 class="title title-h2" id="roof-rack-products-title">Каталог автобагажников</h2>
+            <p class="text catalog-intro">Ниже представлен общий ассортимент. <a href="{{ route('catalog.vehicle-fitment.index') }}">Выберите автомобиль</a>, чтобы проверить совместимость.</p>
+            @if ($unfilteredProductCount > 0)
+                <div class="catalog-products-results--section">
+                    @include('catalog.products._filters', ['horizontal' => true])
+                    @include('catalog.products._filtered_results')
+                    @include('catalog.products._pagination', ['paginator' => $products])
+                </div>
+            @else
+                <div class="records-placeholder records-placeholder--list"><p>В этом разделе пока нет товаров.</p></div>
+            @endif
+        </section>
+    @endunless
+
+    <section class="catalog-selection-guide" aria-labelledby="roof-racks-selection-guide-title">
+        <h2 class="title title-h3" id="roof-racks-selection-guide-title">Как выбрать багажник на крышу</h2>
+        <dl class="catalog-selection-guide__options">
+            <div><dt>Тип крыши</dt><dd>гладкая крыша, штатные места, открытые или интегрированные рейлинги требуют разных креплений. Учитывайте модель и год выпуска автомобиля.</dd></div>
+            <div><dt>Тип дуг</dt><dd>прямоугольные дуги — базовый вариант. Аэродинамические и крыловидные профили обычно создают меньше шума. Проверьте совместимость профиля с креплением бокса или другого оборудования.</dd></div>
+            <div><dt>Комплектность</dt><dd>уточните, входят ли в комплект поперечины, опоры и установочный комплект для вашего автомобиля.</dd></div>
+        </dl>
+        <p class="text">Перед установкой проверьте допустимую нагрузку на крышу по инструкции автомобиля и ограничения багажной системы. В общий вес входят сам багажник, установленное оборудование и груз; ориентируйтесь на наименьший из допустимых пределов.</p>
+        <a class="link-green catalog-selection-guide__action" href="{{ route('contacts') }}">Помочь с подбором</a>
     </section>
 @endsection
