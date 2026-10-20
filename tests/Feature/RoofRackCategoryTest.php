@@ -56,6 +56,23 @@ class RoofRackCategoryTest extends TestCase
         $this->assertSame(90, substr_count($response->getContent(), 'data-category-card'));
     }
 
+    public function test_vehicle_makes_are_alphabetical_regardless_of_pivot_sort_order(): void
+    {
+        $root = CatalogCategory::query()->where('slug', 'autobagazhniki')->firstOrFail();
+        $audi = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
+        $zeekr = VehicleMake::query()->where('slug', 'zeekr')->firstOrFail();
+        $root->vehicleMakes()->updateExistingPivot($audi->id, ['sort_order' => 999]);
+        $root->vehicleMakes()->updateExistingPivot($zeekr->id, ['sort_order' => 0]);
+
+        $response = $this->get(route('catalog.autobagazhniki.index'))->assertOk();
+        $makes = $response->viewData('categories')->filter(fn ($category) => $category instanceof VehicleMake);
+        $expected = $root->vehicleMakes()->active()->pluck('name')->all();
+        natcasesort($expected);
+
+        $this->assertSame(array_values($expected), $makes->pluck('name')->values()->all());
+        $response->assertSeeInOrder(['data-brand-name="brilliance"', 'data-brand-name="byd"'], escape: false);
+    }
+
     public function test_audi_category_page_lists_models(): void
     {
         $this->get(route('catalog.autobagazhniki.show', 'audi'))

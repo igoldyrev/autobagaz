@@ -39,6 +39,26 @@ class OctoberVehicleConfigurationsTest extends TestCase
         }
     }
 
+    public function test_new_vehicle_makes_use_logos_and_repair_preserves_custom_images(): void
+    {
+        $logos = json_decode(file_get_contents(database_path('data/vehicle_make_logos.json')), true, flags: JSON_THROW_ON_ERROR);
+        foreach ($logos as $slug => $logo) {
+            $this->assertDatabaseHas('vehicle_makes', ['slug' => $slug, 'image_path' => $logo['image_path']]);
+            $this->assertFileExists(public_path($logo['image_path']));
+        }
+
+        DB::table('vehicle_makes')->where('slug', 'zeekr')->update([
+            'image_path' => 'images/catalog/autobagazhniki/models/zeekr/009-2022-generated.webp',
+        ]);
+        DB::table('vehicle_makes')->where('slug', 'belgee')->update(['image_path' => 'storage/custom-logo.png']);
+        $migration = require database_path('migrations/2026_10_20_000000_replace_vehicle_make_photos_with_logos.php');
+        $migration->up();
+        $migration->up();
+
+        $this->assertDatabaseHas('vehicle_makes', ['slug' => 'zeekr', 'image_path' => $logos['zeekr']['image_path']]);
+        $this->assertDatabaseHas('vehicle_makes', ['slug' => 'belgee', 'image_path' => 'storage/custom-logo.png']);
+    }
+
     public function test_repeated_import_preserves_records_and_administrator_edits(): void
     {
         $tables = ['vehicle_makes', 'vehicle_models', 'vehicle_generations', 'vehicle_body_styles', 'vehicle_roof_types', 'vehicle_configurations'];

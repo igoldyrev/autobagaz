@@ -1,0 +1,38 @@
+{
+    "faw": {
+        "image_path": "images/catalog/autobagazhniki/brands/faw-logo.png",
+        "source_url": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/faw.png"
+    },
+    "gac": {
+        "image_path": "images/catalog/autobagazhniki/brands/gac-logo.png",
+        "source_url": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/gac-group.png"
+    },
+    "jetta": {
+        "image_path": "images/catalog/autobagazhniki/brands/jetta-logo.png",
+        "source_url": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/jetta.png"
+    },
+    "lixiang": {
+        "image_path": "images/catalog/autobagazhniki/brands/lixiang-logo.png",
+        "source_url": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/li-auto.png"
+    },
+    "zeekr": {
+        "image_path": "images/catalog/autobagazhniki/brands/zeekr-logo.png",
+        "source_url": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/zeekr.png"
+    },
+    "belgee": {
+        "image_path": "images/catalog/autobagazhniki/brands/belgee-logo.svg",
+        "source_url": "https://belgee.ru/images/logo.svg"
+    },
+    "jaecoo": {
+        "image_path": "images/catalog/autobagazhniki/brands/jaecoo-logo.svg",
+        "source_url": "https://jaecoo.ru/images/logo.svg"
+    },
+    "sollers": {
+        "image_path": "images/catalog/autobagazhniki/brands/sollers-logo.png",
+        "source_url": "https://sollers-auto.com/img/common/logo_en.png"
+    },
+    "voyah": {
+        "image_path": "images/catalog/autobagazhniki/brands/voyah-logo.svg",
+        "source_url": "https://cdn-assets.trx.tradedealer.ru/builds/voyah/91ee31799e/CXMz/app_build/images/logo.svg"
+    }
+}

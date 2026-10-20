@@ -24,16 +24,10 @@ class RoofRackCategoryController extends Controller
             ->get();
         $vehicleMakes = $rootCategory->vehicleMakes()
             ->active()
-            ->orderByPivot('sort_order')
-            ->orderBy('name')
-            ->get();
+            ->get()
+            ->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE);
 
-        $categories = $specialCategories
-            ->concat($vehicleMakes)
-            ->sortBy(fn (CatalogCategory|VehicleMake $category): int => $category instanceof VehicleMake
-                ? $category->pivot->sort_order
-                : $category->sort_order)
-            ->values();
+        $categories = $specialCategories->concat($vehicleMakes)->values();
 
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
         $products = collect();
