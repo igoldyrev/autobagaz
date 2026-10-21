@@ -28,6 +28,8 @@
     "callback_requests": { "$ref": "#/$defs/callbackRequests" },
     "products": { "$ref": "#/$defs/products" },
     "vehicle_configurations": { "$ref": "#/$defs/vehicleConfigurations" },
+    "notifications": { "$ref": "#/$defs/notifications" },
+    "site_errors": { "$ref": "#/$defs/siteErrors" },
     "administrators": {
       "type": "array",
       "items": { "$ref": "#/$defs/administrator" }
@@ -36,6 +38,30 @@
   },
   "additionalProperties": true,
   "$defs": {
+    "notifications": {
+      "type": "object",
+      "required": ["pending", "queued", "failed_notifications", "overdue", "failed_jobs"],
+      "properties": {
+        "pending": { "$ref": "#/$defs/nonNegativeInteger" },
+        "queued": { "$ref": "#/$defs/nonNegativeInteger" },
+        "failed_notifications": { "$ref": "#/$defs/nonNegativeInteger" },
+        "overdue": { "$ref": "#/$defs/nonNegativeInteger" },
+        "failed_jobs": {
+          "oneOf": [{ "$ref": "#/$defs/nonNegativeInteger" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": true
+    },
+    "siteErrors": {
+      "type": "object",
+      "required": ["groups", "occurrences", "last_at"],
+      "properties": {
+        "groups": { "$ref": "#/$defs/nonNegativeInteger" },
+        "occurrences": { "$ref": "#/$defs/nonNegativeInteger" },
+        "last_at": { "$ref": "#/$defs/nullableDateTime" }
+      },
+      "additionalProperties": true
+    },
     "nullableDateTime": {
       "oneOf": [
         { "type": "string", "format": "date-time" },

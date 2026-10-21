@@ -14,3 +14,5 @@ Schedule::call(fn () => AdminActivityLog::query()->olderThanRetentionPeriod()->d
     ->name('prune-admin-activity-log');
 
 Schedule::command('orders:dispatch-notifications')->everyMinute()->withoutOverlapping();
+
+Schedule::command('telegram:monitor-notifications')->everyFiveMinutes()->withoutOverlapping();

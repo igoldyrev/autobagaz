@@ -35,6 +35,12 @@ return [
         ],
     ],
 
+    'telegram' => [
+        'bot_token' => env('TELEGRAM_BOT_TOKEN'),
+        'alert_chat_ids' => env('TELEGRAM_ALERT_CHAT_IDS'),
+        'error_cache_store' => env('TELEGRAM_ERROR_CACHE_STORE', 'file'),
+    ],
+
     'daily_brief' => [
         'token' => env('DAILY_BRIEF_MONITORING_TOKEN'),
     ],

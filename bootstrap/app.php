@@ -5,8 +5,10 @@ use App\Http\Middleware\EnsureUserHasPermission;
 use App\Http\Middleware\EnsureUserIsAdmin;
 use App\Http\Middleware\EnsureUserIsSuperAdmin;
 use App\Http\Middleware\RecordAdminActivity;
+use App\Http\Middleware\RecordServerErrors;
 use App\Http\Middleware\ResolveVehicleConfiguration;
 use App\Http\Middleware\TrackAdminPresence;
+use App\Services\TelegramSiteErrors;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -20,6 +22,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->prepend(RecordServerErrors::class);
         $middleware->encryptCookies(except: ['autobagaz_cookie_notice']);
         $middleware->web(append: [ResolveVehicleConfiguration::class]);
 
@@ -34,6 +37,18 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
+        $exceptions->report(function (Throwable $exception): void {
+            app(TelegramSiteErrors::class)->record($exception);
+            if (app()->bound('request')) {
+                $request = app('request');
+                if ($request->attributes->has(RecordServerErrors::REPORTED_EXCEPTIONS)) {
+                    $reported = $request->attributes->get(RecordServerErrors::REPORTED_EXCEPTIONS, []);
+                    $reported[] = $exception;
+                    $request->attributes->set(RecordServerErrors::REPORTED_EXCEPTIONS, $reported);
+                }
+            }
+        });
+
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*'),
         );

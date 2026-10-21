@@ -55,11 +55,13 @@ class AdminMonitoringReport
         $changesLimit = min(max($changesLimit, 1), 10);
 
         $administrators = $this->administrators($start, $end, $changesLimit);
+        $notificationStatus = new OrderNotificationStatus;
+        $notifications = $notificationStatus->build();
 
         return [
             'schema_version' => self::SCHEMA_VERSION,
             'source' => self::SOURCE,
-            'state' => 'ok',
+            'state' => $notificationStatus->needsAttention($notifications) ? 'degraded' : 'ok',
             'generated_at' => CarbonImmutable::now($timezone)->toIso8601String(),
             'period' => [
                 'date' => $targetDate->toDateString(),
@@ -73,6 +75,8 @@ class AdminMonitoringReport
             ],
             'orders' => $this->orders($start, $end),
             'callback_requests' => $this->callbackRequests(),
+            'notifications' => $notifications,
+            'site_errors' => app(TelegramSiteErrors::class)->snapshot(),
             'products' => $this->products(),
             'vehicle_configurations' => $this->vehicleConfigurations(),
             'administrators' => $administrators,

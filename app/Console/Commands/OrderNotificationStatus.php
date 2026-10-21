@@ -2,9 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\OrderNotification;
+use App\Services\OrderNotificationStatus as NotificationStatus;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 
 class OrderNotificationStatus extends Command
 {
@@ -12,7 +11,7 @@ class OrderNotificationStatus extends Command
 
     protected $description = 'Report notification backlog and failed jobs; exit nonzero when attention is needed';
 
-    public function handle(): int
+    public function handle(NotificationStatus $status): int
     {
         $maxAge = filter_var($this->option('max-age'), FILTER_VALIDATE_INT);
         if ($maxAge === false || $maxAge < 1) {
@@ -21,20 +20,10 @@ class OrderNotificationStatus extends Command
             return self::INVALID;
         }
 
-        $unsent = OrderNotification::query()->whereNull('sent_at');
-        $failedJobs = config('queue.failed.driver') === 'database-uuids'
-            ? DB::connection(config('queue.failed.database'))->table(config('queue.failed.table'))->count()
-            : null;
-        $payload = [
-            'pending' => (clone $unsent)->whereNull('queued_at')->count(),
-            'queued' => (clone $unsent)->whereNotNull('queued_at')->whereNull('failed_at')->count(),
-            'failed_notifications' => (clone $unsent)->whereNotNull('failed_at')->count(),
-            'overdue' => (clone $unsent)->where('created_at', '<=', now()->subMinutes($maxAge))->count(),
-            'failed_jobs' => $failedJobs,
-        ];
+        $payload = $status->build($maxAge);
         $this->line(json_encode($payload, JSON_THROW_ON_ERROR));
 
-        return $payload['failed_notifications'] || $payload['overdue'] || $failedJobs
+        return $status->needsAttention($payload)
             ? self::FAILURE : self::SUCCESS;
     }
 }

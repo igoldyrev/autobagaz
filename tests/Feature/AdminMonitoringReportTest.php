@@ -6,15 +6,18 @@ use App\Models\AdminActivityLog;
 use App\Models\CallbackRequest;
 use App\Models\Fitment;
 use App\Models\Order;
+use App\Models\OrderNotification;
 use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\User;
 use App\Models\VehicleConfiguration;
 use App\Models\VehicleMake;
 use App\Services\AdminMonitoringReport;
+use App\Services\TelegramSiteErrors;
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class AdminMonitoringReportTest extends TestCase
@@ -250,7 +253,7 @@ class AdminMonitoringReportTest extends TestCase
             512,
             JSON_THROW_ON_ERROR,
         );
-        $this->assertEqualsCanonicalizing($schema['required'], array_keys($response->json()));
+        $this->assertEqualsCanonicalizing(array_keys($schema['properties']), array_keys($response->json()));
 
         $this->assertStringNotContainsString('buyer@example.test', $response->getContent());
         $this->assertStringNotContainsString('+70000000000', $response->getContent());
@@ -264,6 +267,61 @@ class AdminMonitoringReportTest extends TestCase
         $this->artisan('monitoring:admin-summary', ['--date' => now()->toDateString(), '--limit' => 1])
             ->expectsOutputToContain('"administrators"')
             ->assertSuccessful();
+    }
+
+    public function test_notification_monitoring_detects_backlog_and_recovery_without_exposing_recipients(): void
+    {
+        config(['services.daily_brief.token' => 'test-monitoring-token']);
+        $url = route('internal.monitoring.project-snapshot');
+        $notification = OrderNotification::query()->create([
+            'type' => 'order_confirmation',
+            'recipient' => 'private-buyer@example.test',
+            'queued_at' => now(),
+        ]);
+        $this->withToken('test-monitoring-token')->getJson($url)
+            ->assertOk()->assertJsonPath('state', 'ok')
+            ->assertJsonPath('notifications.queued', 1)
+            ->assertJsonPath('notifications.overdue', 0);
+
+        $this->travel(16)->minutes();
+        $response = $this->withToken('test-monitoring-token')->getJson($url)
+            ->assertOk()->assertJsonPath('state', 'degraded')
+            ->assertJsonPath('notifications.overdue', 1);
+        $this->assertStringNotContainsString('private-buyer@example.test', $response->getContent());
+
+        $notification->update(['sent_at' => now()]);
+        $this->withToken('test-monitoring-token')->getJson($url)
+            ->assertOk()->assertJsonPath('state', 'ok')
+            ->assertJsonPath('notifications.queued', 0)
+            ->assertJsonPath('notifications.overdue', 0);
+    }
+
+    public function test_notification_monitoring_reports_failed_jobs_without_exposing_exceptions(): void
+    {
+        config(['services.daily_brief.token' => 'test-monitoring-token']);
+        DB::table('failed_jobs')->insert([
+            'uuid' => 'failed-notification-test',
+            'connection' => 'database',
+            'queue' => 'default',
+            'payload' => 'private payload',
+            'exception' => 'private SMTP exception',
+            'failed_at' => now(),
+        ]);
+        $response = $this->withToken('test-monitoring-token')->getJson(route('internal.monitoring.project-snapshot'))
+            ->assertOk()->assertJsonPath('state', 'degraded')
+            ->assertJsonPath('notifications.failed_jobs', 1);
+        $this->assertStringNotContainsString('private SMTP exception', $response->getContent());
+        $this->assertStringNotContainsString('private payload', $response->getContent());
+    }
+
+    public function test_site_error_counters_are_available_without_telegram_credentials_or_private_details(): void
+    {
+        config(['services.daily_brief.token' => 'test-monitoring-token', 'services.telegram.bot_token' => null]);
+        app(TelegramSiteErrors::class)->record(new \RuntimeException('private error message'));
+        $response = $this->withToken('test-monitoring-token')->getJson(route('internal.monitoring.project-snapshot'))
+            ->assertOk()->assertJsonPath('site_errors.groups', 1)
+            ->assertJsonPath('site_errors.occurrences', 1);
+        $this->assertStringNotContainsString('private error message', $response->getContent());
     }
 
     private function createOrder(string $status, string $total, CarbonInterface $createdAt): Order
