@@ -29,6 +29,7 @@ class TelegramNotificationsTest extends TestCase
         parent::setUp();
         config([
             'services.telegram.bot_token' => 'test-bot-token',
+            'services.telegram.proxy_url' => null,
             'services.telegram.alert_chat_ids' => '303',
             'services.telegram.error_cache_store' => 'array',
             'orders.notification_emails' => 'manager@example.test',
@@ -99,7 +100,7 @@ class TelegramNotificationsTest extends TestCase
 
     public function test_http_exception_does_not_expose_bot_token_in_failed_job_exception(): void
     {
-        Http::fake(fn () => throw new ConnectionException('https://api.telegram.org/bottest-bot-token/sendMessage'));
+        Http::fake(fn () => throw new ConnectionException('https://api.telegram.org/bottest-bot-token/sendMessage via socks5h://user:proxy-password@proxy.example:1080'));
         try {
             app(TelegramNotifications::class)->send('101', 'test');
             $this->fail('Expected a sanitized exception.');
@@ -107,6 +108,7 @@ class TelegramNotificationsTest extends TestCase
             $this->assertSame('Telegram API connection failed.', $exception->getMessage());
             $this->assertNull($exception->getPrevious());
             $this->assertStringNotContainsString('test-bot-token', (string) $exception);
+            $this->assertStringNotContainsString('proxy-password', (string) $exception);
         }
     }
 
@@ -239,6 +241,22 @@ class TelegramNotificationsTest extends TestCase
         $this->assertSame(0, app(TelegramSiteErrors::class)->snapshot()['occurrences']);
         $this->artisan('telegram:monitor-notifications')->assertSuccessful();
         Http::assertNothingSent();
+    }
+
+    public function test_proxy_is_applied_only_to_telegram_requests(): void
+    {
+        $proxy = 'socks5h://user:proxy-password@proxy.example:1080';
+        config(['services.telegram.proxy_url' => $proxy]);
+        $observed = [];
+        Http::fake(function ($request, $options) use (&$observed) {
+            $observed[$request->url()] = $options['proxy'] ?? null;
+
+            return Http::response(['ok' => true, 'result' => []]);
+        });
+        app(TelegramNotifications::class)->send('303', 'test');
+        Http::get('https://example.test/health');
+        $this->assertSame($proxy, $observed['https://api.telegram.org/bottest-bot-token/sendMessage']);
+        $this->assertNotSame($proxy, $observed['https://example.test/health']);
     }
 
     private function order(): Order

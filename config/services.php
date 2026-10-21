@@ -37,6 +37,7 @@ return [
 
     'telegram' => [
         'bot_token' => env('TELEGRAM_BOT_TOKEN'),
+        'proxy_url' => env('TELEGRAM_PROXY_URL'),
         'alert_chat_ids' => env('TELEGRAM_ALERT_CHAT_IDS'),
         'error_cache_store' => env('TELEGRAM_ERROR_CACHE_STORE', 'file'),
     ],

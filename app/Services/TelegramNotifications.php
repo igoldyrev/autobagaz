@@ -63,10 +63,14 @@ class TelegramNotifications
         }
 
         try {
-            $response = Http::connectTimeout(5)->timeout(15)
-                ->post('https://api.telegram.org/bot'.$token.'/'.$method, $parameters);
+            $request = Http::connectTimeout(5)->timeout(15);
+            $proxy = config('services.telegram.proxy_url');
+            if ($proxy) {
+                $request->withOptions(['proxy' => $proxy]);
+            }
+            $response = $request->post('https://api.telegram.org/bot'.$token.'/'.$method, $parameters);
         } catch (Throwable) {
-            // HTTP exception messages contain the bot token in the request URL.
+            // HTTP exceptions may contain the bot token and proxy credentials.
             throw new RuntimeException('Telegram API connection failed.');
         }
 
