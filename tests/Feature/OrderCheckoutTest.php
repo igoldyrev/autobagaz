@@ -3,12 +3,14 @@
 namespace Tests\Feature;
 
 use App\Http\Middleware\ResolveVehicleConfiguration;
+use App\Jobs\SendOrderNotification;
 use App\Mail\CallbackRequested;
 use App\Mail\OrderConfirmation;
 use App\Mail\OrderCreated;
 use App\Models\CallbackRequest;
 use App\Models\InstallationService;
 use App\Models\Order;
+use App\Models\OrderNotification;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\VehicleBodyStyle;
@@ -17,10 +19,14 @@ use App\Models\VehicleGeneration;
 use App\Models\VehicleMake;
 use App\Models\VehicleModel;
 use App\Models\VehicleRoofType;
+use App\Services\OrderNotifications;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use RuntimeException;
 use Tests\TestCase;
 
 class OrderCheckoutTest extends TestCase
@@ -58,8 +64,8 @@ class OrderCheckoutTest extends TestCase
         $this->assertSame('10000.00', $order->total);
         $this->assertSame($product->name, $order->items->sole()->product_name);
         $this->assertSame('10000.00', $order->items->sole()->unit_price);
-        Mail::assertQueued(OrderCreated::class, fn (OrderCreated $mail) => $mail->order->is($order));
-        Mail::assertQueued(OrderConfirmation::class, fn (OrderConfirmation $mail) => $mail->order->is($order));
+        Mail::assertSent(OrderCreated::class, fn (OrderCreated $mail) => $mail->order->is($order));
+        Mail::assertSent(OrderConfirmation::class, fn (OrderConfirmation $mail) => $mail->order->is($order));
         $this->assertEmpty(session('cart.items', []));
     }
 
@@ -228,8 +234,8 @@ class OrderCheckoutTest extends TestCase
 
         $this->assertDatabaseCount('orders', 1);
         $this->assertDatabaseCount('order_items', 1);
-        Mail::assertQueued(OrderCreated::class, 1);
-        Mail::assertQueued(OrderConfirmation::class, 1);
+        Mail::assertSent(OrderCreated::class, 1);
+        Mail::assertSent(OrderConfirmation::class, 1);
     }
 
     public function test_new_checkout_after_completed_order_gets_new_token(): void
@@ -269,7 +275,7 @@ class OrderCheckoutTest extends TestCase
             ->assertSessionHasErrors('checkout_token');
 
         $this->assertDatabaseCount('orders', 0);
-        Mail::assertNothingQueued();
+        Mail::assertNothingOutgoing();
     }
 
     public function test_invalid_order_can_be_corrected_without_changing_checkout_token(): void
@@ -368,7 +374,7 @@ class OrderCheckoutTest extends TestCase
 
         $this->assertDatabaseCount('orders', 0);
         $this->assertSame($token, $this->checkoutToken());
-        Mail::assertNothingQueued();
+        Mail::assertNothingOutgoing();
     }
 
     public function test_checkout_with_empty_cart_does_not_create_order(): void
@@ -383,7 +389,7 @@ class OrderCheckoutTest extends TestCase
             ->assertRedirect(route('cart.index'));
 
         $this->assertDatabaseCount('orders', 0);
-        Mail::assertNothingQueued();
+        Mail::assertNothingOutgoing();
     }
 
     public function test_order_ignores_unavailable_vehicle_and_invalid_year(): void
@@ -448,7 +454,7 @@ class OrderCheckoutTest extends TestCase
         $this->assertSame('Иван Петров', $callbackRequest->name);
         $this->assertSame('+7 900 123-45-67', $callbackRequest->phone);
         $this->assertSame(CallbackRequest::STATUS_NEW, $callbackRequest->status);
-        Mail::assertQueued(CallbackRequested::class, fn (CallbackRequested $mail) => $mail->callbackRequest->is($callbackRequest));
+        Mail::assertSent(CallbackRequested::class, fn (CallbackRequested $mail) => $mail->callbackRequest->is($callbackRequest));
     }
 
     public function test_administrator_can_process_callback_request(): void
@@ -465,6 +471,178 @@ class OrderCheckoutTest extends TestCase
             ->assertRedirect(route('admin.callback-requests.show', $callbackRequest));
 
         $this->assertSame(CallbackRequest::STATUS_IN_PROGRESS, $callbackRequest->fresh()->status);
+    }
+
+    public function test_queue_failure_does_not_fail_checkout_or_block_other_notification(): void
+    {
+        Mail::fake();
+        $attempts = 0;
+        Bus::shouldReceive('dispatch')->twice()->andReturnUsing(function (SendOrderNotification $job) use (&$attempts) {
+            if (++$attempts === 1) {
+                throw new RuntimeException('Queue unavailable');
+            }
+
+            $job->handle();
+        });
+        $this->post(route('cart.store', $this->product()));
+        $data = $this->checkoutData($this->checkoutToken());
+
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.success', 1));
+        $this->assertDatabaseCount('orders', 1);
+        $this->assertEmpty(session('cart.items', []));
+        $this->assertDatabaseHas('order_notifications', ['type' => 'order_created', 'queued_at' => null, 'sent_at' => null]);
+        Mail::assertSent(OrderConfirmation::class, 1);
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.success', 1));
+        $this->assertDatabaseCount('order_notifications', 2);
+    }
+
+    public function test_customer_notification_queue_failure_keeps_order_successful(): void
+    {
+        Mail::fake();
+        $attempts = 0;
+        Bus::shouldReceive('dispatch')->twice()->andReturnUsing(function (SendOrderNotification $job) use (&$attempts) {
+            if (++$attempts === 2) {
+                throw new RuntimeException('Queue unavailable');
+            }
+
+            $job->handle();
+        });
+        $this->post(route('cart.store', $this->product()));
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))
+            ->assertRedirect(route('checkout.success', 1));
+
+        Mail::assertSent(OrderCreated::class, 1);
+        $this->assertDatabaseHas('order_notifications', ['type' => 'order_confirmation', 'queued_at' => null, 'sent_at' => null]);
+    }
+
+    public function test_pending_notifications_can_be_recovered_without_resending_delivered_mail(): void
+    {
+        Mail::fake();
+        $order = $this->order('AB-000001', Order::STATUS_NEW);
+        app(OrderNotifications::class)->recordOrder($order);
+        $notification = OrderNotification::query()->firstOrFail();
+        (new SendOrderNotification($notification->id))->handle();
+
+        $this->artisan('orders:dispatch-notifications')->assertSuccessful();
+        $this->artisan('orders:dispatch-notifications')->assertSuccessful();
+        (new SendOrderNotification($notification->id))->handle();
+
+        Mail::assertSent(OrderCreated::class, 1);
+        Mail::assertSent(OrderConfirmation::class, 1);
+        $this->assertSame(2, OrderNotification::query()->whereNotNull('sent_at')->count());
+    }
+
+    public function test_database_queue_stores_separate_jobs_and_recovery_does_not_duplicate_them(): void
+    {
+        config(['queue.default' => 'database']);
+        Mail::fake();
+        $this->post(route('cart.store', $this->product()));
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))->assertRedirect();
+
+        $this->assertDatabaseCount('jobs', 2);
+        $this->assertSame(2, OrderNotification::query()->whereNotNull('queued_at')->whereNull('sent_at')->count());
+        $this->artisan('orders:dispatch-notifications')->assertSuccessful();
+        $this->assertDatabaseCount('jobs', 2);
+        $this->artisan('queue:work', ['connection' => 'database', '--once' => true])->assertSuccessful();
+        $this->artisan('queue:work', ['connection' => 'database', '--once' => true])->assertSuccessful();
+        $this->assertDatabaseCount('jobs', 0);
+        Mail::assertSent(OrderCreated::class, 1);
+        Mail::assertSent(OrderConfirmation::class, 1);
+    }
+
+    public function test_manager_recipient_list_is_deduplicated_and_sent_separately(): void
+    {
+        Mail::fake();
+        config(['orders.notification_emails' => ' One@example.com, two@example.com,one@example.com, ']);
+        $this->post(route('cart.store', $this->product()));
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))->assertRedirect();
+
+        Mail::assertSent(OrderCreated::class, 2);
+        Mail::assertSent(OrderCreated::class, fn ($mail) => $mail->hasTo('one@example.com') && count($mail->to) === 1);
+        Mail::assertSent(OrderCreated::class, fn ($mail) => $mail->hasTo('two@example.com') && count($mail->to) === 1);
+        $this->assertDatabaseCount('order_notifications', 3);
+    }
+
+    public function test_callback_queue_failure_keeps_request_and_notification(): void
+    {
+        Bus::shouldReceive('dispatch')->once()->andThrow(new RuntimeException('Queue unavailable'));
+        $this->from(route('home'))->post(route('callback.store'), ['name' => 'Иван', 'phone' => '+7 900 123-45-67'])
+            ->assertRedirect(route('home'))->assertSessionHas('callback_success');
+
+        $this->assertDatabaseCount('callback_requests', 1);
+        $this->assertDatabaseHas('order_notifications', ['type' => 'callback_requested', 'queued_at' => null]);
+    }
+
+    public function test_delivery_failure_remains_retryable_and_is_visible_after_final_failure(): void
+    {
+        $order = $this->order('AB-000001', Order::STATUS_NEW);
+        app(OrderNotifications::class)->recordOrder($order);
+        $notification = OrderNotification::query()->firstOrFail();
+        $notification->update(['queued_at' => now()]);
+        $job = new SendOrderNotification($notification->id);
+        Mail::shouldReceive('getDefaultDriver')->andReturn('array');
+        Mail::shouldReceive('to')->once()->andThrow(new RuntimeException('SMTP unavailable'));
+
+        try {
+            $job->handle();
+            $this->fail('Delivery exception must reach the worker for retry.');
+        } catch (RuntimeException $exception) {
+            $this->assertSame('SMTP unavailable', $exception->getMessage());
+        }
+        $this->assertNull($notification->fresh()->sent_at);
+        $job->failed(new RuntimeException('SMTP unavailable'));
+        $this->assertNotNull($notification->fresh()->failed_at);
+        $this->artisan('orders:notification-status')->assertFailed();
+
+        Mail::fake();
+        $job->handle();
+        $this->assertNotNull($notification->fresh()->sent_at);
+        $this->assertNull($notification->fresh()->failed_at);
+        Mail::assertSent(OrderCreated::class, 1);
+    }
+
+    public function test_worker_retries_smtp_failures_and_records_exhausted_job(): void
+    {
+        config(['queue.default' => 'database']);
+        $order = $this->order('AB-000001', Order::STATUS_NEW);
+        app(OrderNotifications::class)->recordOrder($order);
+        app(OrderNotifications::class)->dispatchPending(limit: 1);
+        $notification = OrderNotification::query()->firstOrFail();
+        Mail::shouldReceive('to')->twice()->andThrow(new RuntimeException('SMTP unavailable'));
+
+        $this->artisan('queue:work', ['connection' => 'database', '--once' => true])->assertSuccessful();
+        $queued = DB::table('jobs')->first();
+        $this->assertSame(1, $queued->attempts);
+        $this->assertGreaterThanOrEqual(now()->timestamp + 59, $queued->available_at);
+        $this->assertNull($notification->fresh()->sent_at);
+        $this->assertNull($notification->fresh()->failed_at);
+        $this->assertDatabaseCount('failed_jobs', 0);
+
+        DB::table('jobs')->update(['attempts' => 4, 'available_at' => now()->timestamp]);
+        $this->artisan('queue:work', ['connection' => 'database', '--once' => true])->assertSuccessful();
+        $this->assertDatabaseCount('jobs', 0);
+        $this->assertDatabaseCount('failed_jobs', 1);
+        $this->assertNotNull($notification->fresh()->failed_at);
+
+        Mail::shouldReceive('getDefaultDriver')->andReturn('array');
+        Mail::fake();
+        $uuid = DB::table('failed_jobs')->value('uuid');
+        $this->artisan('queue:retry', ['id' => [$uuid]])->assertSuccessful();
+        $this->artisan('queue:work', ['connection' => 'database', '--once' => true])->assertSuccessful();
+        $this->assertDatabaseCount('failed_jobs', 0);
+        $this->assertNotNull($notification->fresh()->sent_at);
+        $this->assertNull($notification->fresh()->failed_at);
+        Mail::assertSent(OrderCreated::class, 1);
+    }
+
+    public function test_notification_monitoring_detects_old_pending_notifications(): void
+    {
+        $this->artisan('orders:notification-status')->assertSuccessful();
+        $order = $this->order('AB-000001', Order::STATUS_NEW);
+        app(OrderNotifications::class)->recordOrder($order);
+        $this->travel(16)->minutes();
+        $this->artisan('orders:notification-status')->assertFailed();
+        $this->artisan('orders:notification-status', ['--max-age' => 30])->assertSuccessful();
     }
 
     private function order(string $number, string $status): Order

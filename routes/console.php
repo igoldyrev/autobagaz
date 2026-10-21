@@ -12,3 +12,5 @@ Artisan::command('inspire', function () {
 Schedule::call(fn () => AdminActivityLog::query()->olderThanRetentionPeriod()->delete())
     ->dailyAt('03:00')
     ->name('prune-admin-activity-log');
+
+Schedule::command('orders:dispatch-notifications')->everyMinute()->withoutOverlapping();

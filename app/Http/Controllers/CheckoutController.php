@@ -3,18 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckoutOrderRequest;
-use App\Mail\OrderConfirmation;
-use App\Mail\OrderCreated;
 use App\Models\InstallationService;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\VehicleConfiguration;
 use App\Services\CartService;
+use App\Services\OrderNotifications;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -37,7 +35,7 @@ class CheckoutController extends Controller
         return view('checkout.create', compact('items', 'installationService', 'checkoutToken') + ['total' => $cart->total($installationService)]);
     }
 
-    public function store(CheckoutOrderRequest $request, CartService $cart): RedirectResponse
+    public function store(CheckoutOrderRequest $request, CartService $cart, OrderNotifications $notifications): RedirectResponse
     {
         $checkoutToken = $request->validated('checkout_token');
         $existingOrder = Order::query()->where('checkout_token', $checkoutToken)->first();
@@ -52,7 +50,7 @@ class CheckoutController extends Controller
         }
 
         try {
-            $order = DB::transaction(function () use ($request, $cartItems, $selectedInstallationService) {
+            $order = DB::transaction(function () use ($request, $cartItems, $selectedInstallationService, $notifications) {
                 $products = Product::query()->active()->lockForUpdate()
                     ->whereIn('id', $cartItems->pluck('product.id'))
                     ->get()->keyBy('id');
@@ -95,6 +93,7 @@ class CheckoutController extends Controller
                 ]);
                 $order->update(['number' => sprintf('AB-%06d', $order->id)]);
                 $order->items()->createMany($items->all());
+                $notifications->recordOrder($order);
 
                 return $order->load('items');
             });
@@ -109,8 +108,7 @@ class CheckoutController extends Controller
         }
 
         $cart->clear();
-        Mail::to(config('orders.notification_email'))->queue(new OrderCreated($order));
-        Mail::to($order->email)->queue(new OrderConfirmation($order));
+        $notifications->dispatchPending(orderId: $order->id);
 
         return to_route('checkout.success', $order)
             ->with('success', 'Заказ принят. Мы свяжемся с вами для подтверждения.')

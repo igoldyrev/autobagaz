@@ -3,18 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CallbackRequestStoreRequest;
-use App\Mail\CallbackRequested;
 use App\Models\CallbackRequest;
+use App\Services\OrderNotifications;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class CallbackRequestController extends Controller
 {
-    public function store(CallbackRequestStoreRequest $request): RedirectResponse
+    public function store(CallbackRequestStoreRequest $request, OrderNotifications $notifications): RedirectResponse
     {
-        $callbackRequest = CallbackRequest::query()->create($request->safe()->except('website'));
+        $callbackRequest = DB::transaction(function () use ($request, $notifications) {
+            $callbackRequest = CallbackRequest::query()->create($request->safe()->except('website'));
+            $notifications->recordCallback($callbackRequest);
 
-        Mail::to(config('orders.notification_email'))->queue(new CallbackRequested($callbackRequest));
+            return $callbackRequest;
+        });
+
+        $notifications->dispatchPending(callbackId: $callbackRequest->id);
 
         return back()
             ->with('callback_success', 'Заявка принята. Мы перезвоним вам в ближайшее время.')
