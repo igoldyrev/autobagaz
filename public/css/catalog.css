@@ -290,6 +290,10 @@
 .checkout-form { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(320px, 1fr); gap: 32px; align-items: start; }
 .checkout-form__summary, .checkout-form__fields { padding: 22px; border: 1px solid #d8ded8; border-radius: 6px; background: #fff; }
 .checkout-form__summary h2 { margin-top: 0; }
+.checkout-form__summary strong { flex-shrink: 0; white-space: nowrap; }
+.checkout-form__summary [data-checkout-changes] { padding: 12px; margin-bottom: 16px; border: 1px solid #c8d0c8; border-radius: 4px; background: #f4f7f3; }
+.checkout-form__summary [data-checkout-changes] ul { padding-left: 20px; }
+.checkout-form__summary [data-checkout-changes] li { margin: 8px 0; }
 .checkout-form__summary p { display: flex; justify-content: space-between; gap: 16px; margin: 12px 0; font-size: 15px; }
 .checkout-form__summary .order-note { display: block; font-size: 14px; }
 .checkout-form [data-delivery-info][hidden] { display: none !important; }

@@ -73,6 +73,101 @@ class CartService
         return $contents;
     }
 
+    /**
+     * Read checkout conditions without silently removing unavailable cart entries.
+     * With locking enabled, these same conditions must be used to create the order.
+     *
+     * @return array<string, array{name: string, price: int, quantity: int, stock: int|null, product_id: int|null}>
+     */
+    public function checkoutSnapshot(bool $lock = false): array
+    {
+        $quantities = $this->rawItems();
+        $query = Product::query()->whereIn('id', array_keys($quantities))->orderBy('id');
+        $products = ($lock ? $query->lockForUpdate() : $query)->get();
+        $snapshot = [];
+
+        foreach ($products as $product) {
+            if (! $product->is_active) {
+                continue;
+            }
+
+            $snapshot['product:'.$product->id] = [
+                'name' => $product->name,
+                'price' => $this->priceInKopecks($product->price),
+                'quantity' => $quantities[$product->id],
+                'stock' => $product->stock,
+                'product_id' => $product->id,
+            ];
+        }
+
+        if (Session::get(self::INSTALLATION_SERVICE_SESSION_KEY, false)) {
+            $query = InstallationService::query()->orderBy('id');
+            $services = ($lock ? $query->lockForUpdate() : $query)->get();
+            $service = $services->first(fn (InstallationService $service) => $service->is_available);
+            if ($service && $snapshot !== []) {
+                $snapshot['installation:'.$service->id] = [
+                    'name' => $service->name,
+                    'price' => $this->priceInKopecks($service->price),
+                    'quantity' => 1,
+                    'stock' => null,
+                    'product_id' => null,
+                ];
+            }
+        }
+
+        return $snapshot;
+    }
+
+    public function checkoutChanges(array $previous, array $current): array
+    {
+        $changes = [];
+        foreach ($previous as $key => $before) {
+            $after = $current[$key] ?? null;
+            $name = $before['name'];
+            if ($after === null) {
+                if ($before['product_id'] !== null) {
+                    $available = Product::query()->active()->whereKey($before['product_id'])->exists();
+                    $changes[] = $name.($available ? ' — удалён из корзины.' : ' — больше недоступен.');
+                } else {
+                    $available = InstallationService::query()->available()->whereKey(substr($key, strlen('installation:')))->exists();
+                    $changes[] = $name.($available ? ' — услуга установки удалена из корзины.' : ' — больше недоступна.');
+                }
+
+                continue;
+            }
+            if ($before['name'] !== $after['name']) {
+                $changes[] = $name.' — новое название: '.$after['name'].'.';
+            }
+            if ($before['price'] !== $after['price']) {
+                $changes[] = $name.' — цена: '.$this->formatCheckoutPrice($before['price']).' → '.$this->formatCheckoutPrice($after['price']).'.';
+            }
+            if ($before['quantity'] !== $after['quantity']) {
+                $changes[] = $name.' — количество: '.$before['quantity'].' → '.$after['quantity'].'.';
+            }
+            if ($before['stock'] !== $after['stock']) {
+                $availability = fn ($stock) => $stock > 0 ? 'в наличии '.$stock.' шт.' : 'под заказ';
+                $changes[] = $name.' — наличие: '.$availability($before['stock']).' → '.rtrim($availability($after['stock']), '.').'.';
+            }
+        }
+        foreach (array_diff_key($current, $previous) as $item) {
+            $changes[] = $item['name'].' — добавлено: '.$item['quantity'].' шт., '.$this->formatCheckoutPrice($item['price']).' за единицу.';
+        }
+
+        return $changes;
+    }
+
+    private function priceInKopecks(string $price): int
+    {
+        [$rubles, $kopecks] = explode('.', $price.'.00');
+
+        return (int) $rubles * 100 + (int) str_pad($kopecks, 2, '0');
+    }
+
+    private function formatCheckoutPrice(int $kopecks): string
+    {
+        return number_format($kopecks / 100, 2, ',', ' ').' ₽';
+    }
+
     public function addInstallationService(): void
     {
         if (InstallationService::query()->available()->exists()) {

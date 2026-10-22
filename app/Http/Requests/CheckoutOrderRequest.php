@@ -2,8 +2,12 @@
 
 namespace App\Http\Requests;
 
+use Closure;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Validation\Rule;
+use JsonException;
 
 class CheckoutOrderRequest extends FormRequest
 {
@@ -18,6 +22,16 @@ class CheckoutOrderRequest extends FormRequest
     {
         return [
             'checkout_token' => ['required', 'uuid', Rule::in([$this->session()->get(self::TOKEN_SESSION_KEY)])],
+            'checkout_snapshot' => ['bail', 'required', 'string', 'max:65536', function (string $attribute, mixed $value, Closure $fail) {
+                try {
+                    $snapshot = json_decode(Crypt::decryptString($value), true, 512, JSON_THROW_ON_ERROR);
+                    if (($snapshot['token'] ?? null) !== $this->input('checkout_token') || ! is_array($snapshot['items'] ?? null)) {
+                        $fail('Обновите страницу оформления заказа и подтвердите состав и сумму.');
+                    }
+                } catch (DecryptException|JsonException $exception) {
+                    $fail('Обновите страницу оформления заказа и подтвердите состав и сумму.');
+                }
+            }],
             'customer_name' => ['required', 'string', 'max:120'],
             'phone' => ['required', 'string', 'max:32', 'regex:/^[0-9+()\\s-]{7,32}$/'],
             'email' => ['required', 'email:rfc', 'max:255'],
@@ -31,6 +45,7 @@ class CheckoutOrderRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'checkout_snapshot.required' => 'Обновите страницу оформления заказа и подтвердите состав и сумму.',
             'checkout_token.required' => 'Обновите страницу оформления заказа и попробуйте снова.',
             'checkout_token.uuid' => 'Обновите страницу оформления заказа и попробуйте снова.',
             'checkout_token.in' => 'Эта форма оформления устарела. Обновите страницу и попробуйте снова.',

@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.checkout-form');
     const submitButton = form?.querySelector('button[type="submit"]');
+    const submitLabel = submitButton?.textContent;
+    const initiallyDisabled = submitButton?.disabled;
     let submitting = false;
+
+    document.querySelector('[data-checkout-changes]')?.focus();
 
     form?.addEventListener('submit', (event) => {
         if (submitting) {
@@ -19,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('pageshow', () => {
         submitting = false;
         if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Оформить заказ';
+            submitButton.disabled = initiallyDisabled;
+            submitButton.textContent = submitLabel;
         }
     });
 

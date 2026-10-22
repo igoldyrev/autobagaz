@@ -8,22 +8,30 @@
         <form method="POST" action="{{ route('checkout.store') }}" class="checkout-form">
             @csrf
             <input type="hidden" name="checkout_token" value="{{ $checkoutToken }}">
+            <input type="hidden" name="checkout_snapshot" value="{{ $checkoutSnapshot }}">
             <div class="checkout-form__summary">
-                <h2>Ваш заказ</h2>
-                @foreach ($items as $item)
-                    <p><span>{{ $item['product']->name }} × {{ $item['quantity'] }}</span><strong>{{ number_format($item['total'], 0, ',', ' ') }} ₽</strong></p>
-                @endforeach
-                <p><span>Товары</span><strong>{{ number_format($items->sum('total'), 0, ',', ' ') }} ₽</strong></p>
-                @if ($installationService)
-                    <p><span>{{ $installationService->name }}</span><strong>{{ number_format((float) $installationService->price, 0, ',', ' ') }} ₽</strong></p>
+                @if ($changes)
+                    <div role="alert" tabindex="-1" data-checkout-changes>
+                        <h2>Условия заказа изменились</h2>
+                        <ul>@foreach ($changes as $change)<li>{{ $change }}</li>@endforeach</ul>
+                        <p>Проверьте новый состав и сумму. Заказ ещё не создан.</p>
+                    </div>
                 @endif
-                <p class="checkout-form__total"><span>Товары и услуги</span><strong>{{ number_format($total, 0, ',', ' ') }} ₽</strong></p>
+                @if ($snapshot === [])
+                    <p role="alert">В заказе не осталось доступных товаров. <a href="{{ route('cart.index') }}">Вернуться в корзину</a></p>
+                @endif
+                <h2>Ваш заказ</h2>
+                @foreach ($snapshot as $item)
+                    <p><span>{{ $item['name'] }} × {{ $item['quantity'] }} ({{ number_format($item['price'] / 100, 2, ',', ' ') }} ₽ за единицу)@if ($item['product_id'] !== null) — {{ $item['stock'] > 0 ? 'В наличии: '.$item['stock'].' шт.' : 'Под заказ' }}@endif</span><strong>{{ number_format($item['price'] * $item['quantity'] / 100, 2, ',', ' ') }} ₽</strong></p>
+                @endforeach
+                <p class="checkout-form__total"><span>{{ $changes ? 'Новая сумма товаров и услуг' : 'Товары и услуги' }}</span><strong>{{ number_format($total / 100, 2, ',', ' ') }} ₽</strong></p>
                 <div aria-live="polite">
                     <p class="order-note" data-delivery-info="delivery" @if (old('delivery_method', 'pickup') !== 'delivery') hidden @endif>Стоимость доставки пока не рассчитана и в указанную сумму не включена. Менеджер согласует её при подтверждении заказа.</p>
                     <p class="order-note" data-delivery-info="pickup" @if (old('delivery_method', 'pickup') === 'delivery') hidden @endif>Самовывоз из магазина — без платы за доставку.</p>
                 </div>
             </div>
             <div class="checkout-form__fields">
+                @error('checkout_snapshot')<p class="field__error" role="alert">{{ $message }}</p>@enderror
                 @error('checkout_token')<p class="field__error" role="alert">{{ $message }}</p>@enderror
                 <div class="field">
                     <label for="customer_name">Имя</label>
@@ -67,7 +75,7 @@
                     <input id="website" name="website" tabindex="-1" autocomplete="off">
                 </div>
                 <p class="order-note">После отправки заказа менеджер свяжется с вами для подтверждения наличия, стоимости и способа получения. Порядок оплаты согласуем при подтверждении заказа.</p>
-                <button class="button button__buy" type="submit">Оформить заказ</button>
+                <button class="button button__buy" type="submit" @disabled($snapshot === [])>{{ $changes ? 'Подтвердить изменения и оформить заказ' : 'Оформить заказ' }}</button>
             </div>
         </form>
     </section>

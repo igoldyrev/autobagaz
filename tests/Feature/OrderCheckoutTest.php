@@ -33,6 +33,8 @@ class OrderCheckoutTest extends TestCase
 {
     use RefreshDatabase;
 
+    private string $checkoutSnapshot = '';
+
     public function test_customer_can_add_product_to_cart_and_place_delivery_order(): void
     {
         Mail::fake();
@@ -48,6 +50,7 @@ class OrderCheckoutTest extends TestCase
 
         $this->post(route('checkout.store'), [
             'checkout_token' => $this->checkoutToken(),
+            'checkout_snapshot' => $this->checkoutSnapshot,
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
@@ -77,6 +80,7 @@ class OrderCheckoutTest extends TestCase
         $this->from(route('checkout.create'))
             ->post(route('checkout.store'), [
                 'checkout_token' => $checkoutToken,
+                'checkout_snapshot' => $this->checkoutSnapshot,
                 'customer_name' => 'Иван Петров',
                 'phone' => '+7 900 123-45-67',
                 'email' => 'ivan@example.com',
@@ -101,6 +105,7 @@ class OrderCheckoutTest extends TestCase
 
         $this->post(route('checkout.store'), [
             'checkout_token' => $this->checkoutToken(),
+            'checkout_snapshot' => $this->checkoutSnapshot,
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
@@ -180,6 +185,7 @@ class OrderCheckoutTest extends TestCase
 
         $this->post(route('checkout.store'), [
             'checkout_token' => $this->checkoutToken(),
+            'checkout_snapshot' => $this->checkoutSnapshot,
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
@@ -205,6 +211,228 @@ class OrderCheckoutTest extends TestCase
             ->assertRedirect(route('admin.orders.show', $order));
 
         $this->assertSame(Order::STATUS_CONFIRMED, $order->fresh()->status);
+    }
+
+    public function test_changed_price_requires_confirmation_and_retries_return_the_same_order(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $token = $this->checkoutToken();
+        $original = $this->checkoutData($token);
+        $original['comment'] = 'Позвонить вечером';
+        $original['delivery_method'] = 'delivery';
+        $original['delivery_address'] = 'Пермь, Ленина, 1';
+        $product->update(['price' => '12500.50']);
+
+        // Repeated submissions of the old form must not accept new conditions.
+        foreach ([1, 2] as $attempt) {
+            $this->post(route('checkout.store'), $original)->assertRedirect(route('checkout.create'));
+            $this->assertDatabaseCount('orders', 0);
+        }
+        Mail::assertNothingOutgoing();
+        $this->assertDatabaseCount('order_notifications', 0);
+
+        $page = $this->get(route('checkout.create'))->assertOk()
+            ->assertSee('10 000,00 ₽ → 12 500,50 ₽')
+            ->assertSee('Новая сумма товаров и услуг')
+            ->assertSee('Подтвердить изменения и оформить заказ')
+            ->assertSee('Позвонить вечером')->assertSee('Пермь, Ленина, 1');
+        $this->assertSame($token, $page->viewData('checkoutToken'));
+        $confirmed = array_replace($original, ['checkout_snapshot' => $page->viewData('checkoutSnapshot')]);
+
+        $this->post(route('checkout.store'), $confirmed)->assertRedirect();
+        $order = Order::query()->sole();
+        $this->assertSame('12500.50', $order->total);
+        $this->get(route('checkout.success', $order))->assertOk()->assertSee('12 500,50 ₽');
+        $this->assertSame('12500.50', $order->items->sole()->unit_price);
+        foreach ([$confirmed, $original, $confirmed] as $retry) {
+            $this->post(route('checkout.store'), $retry)->assertRedirect(route('checkout.success', $order));
+        }
+        $this->assertDatabaseCount('orders', 1);
+        $this->assertDatabaseCount('order_items', 1);
+        Mail::assertSent(OrderCreated::class, 1);
+        Mail::assertSent(OrderConfirmation::class, 1);
+    }
+
+    public function test_price_decrease_and_changes_after_reconfirmation_require_another_confirmation(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $data = $this->checkoutData($this->checkoutToken());
+        foreach (['9000.00', '8500.25'] as $price) {
+            $product->update(['price' => $price]);
+            $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+            $this->assertDatabaseCount('orders', 0);
+            $page = $this->get(route('checkout.create'))->assertOk()->assertSee('Условия заказа изменились');
+            $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        }
+        $this->post(route('checkout.store'), $data)->assertRedirect();
+        $this->assertSame('8500.25', Order::query()->sole()->total);
+    }
+
+    public function test_cart_quantity_and_new_items_are_explicitly_reconfirmed(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $data = $this->checkoutData($this->checkoutToken());
+        $this->patch(route('cart.update', $product), ['quantity' => 3]);
+        $extra = Product::query()->create([
+            'name' => 'Дополнительный товар', 'slug' => 'extra', 'price' => '0.10', 'stock' => 2, 'is_active' => true,
+        ]);
+        $this->post(route('cart.store', $extra));
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+        $this->assertDatabaseCount('orders', 0);
+        $page = $this->get(route('checkout.create'))->assertOk()
+            ->assertSee('количество: 1 → 3')->assertSee('Дополнительный товар — добавлено');
+        $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        $this->post(route('checkout.store'), $data)->assertRedirect();
+        $this->assertSame('30000.10', Order::query()->sole()->total);
+        $this->assertDatabaseCount('order_items', 2);
+    }
+
+    public function test_unavailable_item_is_reported_even_if_cart_has_already_cleaned_it(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $extra = Product::query()->create([
+            'name' => 'Оставшийся товар', 'slug' => 'remaining', 'price' => 100, 'stock' => 2, 'is_active' => true,
+        ]);
+        $this->post(route('cart.store', $product));
+        $this->post(route('cart.store', $extra));
+        $data = $this->checkoutData($this->checkoutToken());
+        $product->update(['is_active' => false]);
+        $this->get(route('cart.index'))->assertOk();
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+        $this->assertDatabaseCount('orders', 0);
+        $page = $this->get(route('checkout.create'))->assertOk()->assertSee($product->name.' — больше недоступен');
+        $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        $this->post(route('checkout.store'), $data)->assertRedirect();
+        $this->assertSame($extra->id, Order::query()->sole()->items->sole()->product_id);
+    }
+
+    public function test_stock_change_to_backorder_requires_confirmation_without_forbidding_order(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $data = $this->checkoutData($this->checkoutToken());
+        $product->update(['stock' => 0]);
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+        $this->assertDatabaseCount('orders', 0);
+        $page = $this->get(route('checkout.create'))->assertOk()->assertSee('наличие: в наличии 1 шт. → под заказ');
+        $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        $this->post(route('checkout.store'), $data)->assertRedirect();
+        $this->assertDatabaseCount('orders', 1);
+    }
+
+    public function test_installation_price_and_unavailability_are_reconfirmed(): void
+    {
+        Mail::fake();
+        $this->post(route('cart.store', $this->product()));
+        $service = InstallationService::query()->firstOrFail();
+        session(['cart.installation_service' => true]);
+        $data = $this->checkoutData($this->checkoutToken());
+        $service->update(['price' => '3000.00']);
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+        $page = $this->get(route('checkout.create'))->assertOk()->assertSee('2 500,00 ₽ → 3 000,00 ₽');
+        $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        $service->update(['is_available' => false]);
+        $this->get(route('cart.index'))->assertOk();
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+        $this->assertDatabaseCount('orders', 0);
+        $page = $this->get(route('checkout.create'))->assertOk()->assertSee($service->name.' — больше недоступна');
+        $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        $this->post(route('checkout.store'), $data)->assertRedirect();
+        $this->assertDatabaseCount('order_items', 1);
+        $this->assertSame('10000.00', Order::query()->sole()->total);
+    }
+
+    public function test_opening_another_tab_does_not_accept_changes_in_the_first_tab(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $firstTab = $this->checkoutData($this->checkoutToken());
+        $product->update(['price' => 12000]);
+        $secondTab = $this->checkoutData($this->checkoutToken());
+        $this->post(route('checkout.store'), $firstTab)->assertRedirect(route('checkout.create'));
+        $this->assertDatabaseCount('orders', 0);
+        $this->post(route('checkout.store'), $secondTab)->assertRedirect();
+        $this->assertDatabaseCount('orders', 1);
+    }
+
+    public function test_missing_tampered_and_foreign_snapshots_cannot_create_order(): void
+    {
+        Mail::fake();
+        $this->post(route('cart.store', $this->product()));
+        $data = $this->checkoutData($this->checkoutToken());
+        foreach ([null, 'tampered', substr($data['checkout_snapshot'], 0, -4).'AAAA'] as $snapshot) {
+            $this->post(route('checkout.store'), array_replace($data, ['checkout_snapshot' => $snapshot]))
+                ->assertSessionHasErrors('checkout_snapshot');
+        }
+        session(['checkout.token' => (string) Str::uuid()]);
+        $data['checkout_token'] = session('checkout.token');
+        $this->post(route('checkout.store'), $data)->assertSessionHasErrors('checkout_snapshot');
+        $this->assertDatabaseCount('orders', 0);
+        Mail::assertNothingOutgoing();
+    }
+
+    public function test_validation_errors_do_not_hide_new_price_or_accept_it_implicitly(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $data = $this->checkoutData($this->checkoutToken());
+        $product->update(['price' => 11000]);
+        $data['delivery_method'] = 'delivery';
+        $this->from(route('checkout.create'))->post(route('checkout.store'), $data)
+            ->assertSessionHasErrors('delivery_address');
+        $page = $this->get(route('checkout.create'))->assertOk()
+            ->assertSee('10 000,00 ₽ → 11 000,00 ₽')
+            ->assertSee('Подтвердить изменения и оформить заказ');
+        $this->assertDatabaseCount('orders', 0);
+        $data['delivery_address'] = 'Пермь, Ленина, 1';
+        $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        $this->post(route('checkout.store'), $data)->assertRedirect();
+        $this->assertSame('11000.00', Order::query()->sole()->total);
+    }
+
+    public function test_selected_installation_addition_and_removal_require_confirmation(): void
+    {
+        Mail::fake();
+        $this->post(route('cart.store', $this->product()));
+        $data = $this->checkoutData($this->checkoutToken());
+        session(['cart.installation_service' => true]);
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+        $page = $this->get(route('checkout.create'))->assertOk()->assertSee(' — добавлено: 1 шт.');
+        $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        $this->delete(route('cart.installation-service.destroy'));
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+        $page = $this->get(route('checkout.create'))->assertOk()->assertSee('услуга установки удалена из корзины');
+        $this->assertDatabaseCount('orders', 0);
+        $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        $this->post(route('checkout.store'), $data)->assertRedirect();
+        $this->assertDatabaseCount('order_items', 1);
+    }
+
+    public function test_disabled_last_product_is_reported_and_cannot_be_confirmed_as_empty_order(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $data = $this->checkoutData($this->checkoutToken());
+        $product->update(['is_active' => false]);
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+        $page = $this->get(route('checkout.create'))->assertOk()
+            ->assertSee($product->name.' — больше недоступен.')
+            ->assertSee('В заказе не осталось доступных товаров.');
+        $data['checkout_snapshot'] = $page->viewData('checkoutSnapshot');
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.create'));
+        $this->assertDatabaseCount('orders', 0);
+        Mail::assertNothingOutgoing();
     }
 
     public function test_checkout_reuses_token_across_tabs_and_refreshes(): void
@@ -388,7 +616,11 @@ class OrderCheckoutTest extends TestCase
         $this->delete(route('cart.destroy', $product));
 
         $this->post(route('checkout.store'), $this->checkoutData($token))
-            ->assertRedirect(route('cart.index'));
+            ->assertRedirect(route('checkout.create'));
+
+        $this->get(route('checkout.create'))->assertOk()
+            ->assertSee('В заказе не осталось доступных товаров.')
+            ->assertSee('disabled', false);
 
         $this->assertDatabaseCount('orders', 0);
         Mail::assertNothingOutgoing();
@@ -669,7 +901,10 @@ class OrderCheckoutTest extends TestCase
 
     private function checkoutToken(): string
     {
-        return $this->get(route('checkout.create'))->assertOk()->viewData('checkoutToken');
+        $response = $this->get(route('checkout.create'))->assertOk();
+        $this->checkoutSnapshot = $response->viewData('checkoutSnapshot');
+
+        return $response->viewData('checkoutToken');
     }
 
     /** @return array<string, string> */
@@ -677,6 +912,7 @@ class OrderCheckoutTest extends TestCase
     {
         return [
             'checkout_token' => $token,
+            'checkout_snapshot' => $this->checkoutSnapshot,
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
