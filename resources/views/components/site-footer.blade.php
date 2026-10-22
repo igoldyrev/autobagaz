@@ -46,6 +46,9 @@
         <div class="footer__legal">
             <a class="footer__link" href="{{ route('privacy-policy') }}">Политика обработки персональных данных</a>
             <a class="footer__link" href="{{ route('personal-data-consent') }}">Согласие на обработку персональных данных</a>
+            @if ((int) config('services.yandex_metrika.counter_id') > 0)
+                <button class="footer__link footer__analytics-settings" type="button" data-analytics-settings hidden>Настройки аналитики</button>
+            @endif
         </div>
     </div>
 </footer>

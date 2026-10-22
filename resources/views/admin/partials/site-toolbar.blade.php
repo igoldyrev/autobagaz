@@ -1,6 +1,6 @@
 @auth
     @if (auth()->user()->is_admin)
-        <aside class="site-admin-bar" aria-label="Панель администратора">
+        <aside class="site-admin-bar ym-hide-content" aria-label="Панель администратора">
             <div class="site-admin-bar__inner">
                 <a class="site-admin-bar__logo" href="{{ route('home') }}" aria-label="Автобагаж — главная">
                     <img src="{{ asset('src/common.blocks/header/img/logo.jpg') }}" alt="Автобагаж">

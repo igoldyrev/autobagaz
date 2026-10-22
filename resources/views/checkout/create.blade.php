@@ -5,7 +5,7 @@
 @section('content')
     <section class="checkout-page">
         <h1 class="title title-h1">Оформление заказа</h1>
-        <form method="POST" action="{{ route('checkout.store') }}" class="checkout-form">
+        <form method="POST" action="{{ route('checkout.store') }}" class="checkout-form ym-hide-content">
             @csrf
             <input type="hidden" name="checkout_token" value="{{ $checkoutToken }}">
             <input type="hidden" name="checkout_snapshot" value="{{ $checkoutSnapshot }}">

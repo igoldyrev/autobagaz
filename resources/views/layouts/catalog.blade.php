@@ -42,7 +42,7 @@
         <link rel="icon" href="{{ asset('favicon.ico') }}">
         <link rel="stylesheet" href="{{ asset('css/autobagaz.css') }}">
         <link rel="stylesheet" href="{{ asset('src/fa/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/home.css') }}?v={{ filemtime(public_path('css/home.css')) }}">
         <link rel="stylesheet" href="{{ asset('css/catalog.css') }}?v={{ filemtime(public_path('css/catalog.css')) }}">
         <link rel="stylesheet" href="{{ asset('css/admin-toolbar.css') }}">
         <x-metrika />

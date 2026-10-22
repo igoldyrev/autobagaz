@@ -23,7 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->prepend(RecordServerErrors::class);
-        $middleware->encryptCookies(except: ['autobagaz_cookie_notice']);
+        $middleware->encryptCookies(except: ['autobagaz_cookie_notice', 'autobagaz_analytics_consent']);
         $middleware->web(append: [ResolveVehicleConfiguration::class]);
 
         $middleware->alias([

@@ -247,7 +247,7 @@
         <x-site-footer />
         <x-cookie-notice />
 
-        <script src="{{ asset('js/home.js') }}" defer></script>
+        <script src="{{ asset('js/home.js') }}?v={{ filemtime(public_path('js/home.js')) }}" defer></script>
         @stack('scripts')
     </body>
 </html>

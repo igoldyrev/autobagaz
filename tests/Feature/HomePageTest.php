@@ -28,7 +28,7 @@ class HomePageTest extends TestCase
             ->assertDontSee('Пока нет опубликованных отзывов')
             ->assertDontSee('href="/news"', escape: false);
 
-        $response->assertSee('Мы используем cookie');
+        $response->assertSee('Разрешить Яндекс Метрику и Webvisor?');
 
         $this->assertSame(0, substr_count($response->getContent(), 'Нет записей'));
     }
@@ -51,6 +51,7 @@ class HomePageTest extends TestCase
             route('delivery-payment'),
             route('warranty'),
             route('privacy-policy'),
+            route('privacy-policy').'#analytics',
             route('personal-data-consent'),
             route('catalog.autobagazhniki.index'),
             route('catalog.auto-boxes.index'),
@@ -91,12 +92,24 @@ class HomePageTest extends TestCase
         }
     }
 
-    public function test_cookie_notice_is_not_shown_after_acceptance(): void
+    public function test_old_cookie_notice_acceptance_does_not_enable_analytics(): void
     {
         $this->withCookie('autobagaz_cookie_notice', 'accepted')
             ->get('/')
             ->assertOk()
-            ->assertDontSee('Мы используем cookie');
+            ->assertSee('data-analytics-accept', false)
+            ->assertSee('data-analytics-reject', false)
+            ->assertDontSee('https://mc.yandex.ru');
+    }
+
+    public function test_disabled_counter_has_no_analytics_controls_or_remote_pixel(): void
+    {
+        config(['services.yandex_metrika.counter_id' => 0]);
+        $this->get('/')->assertOk()
+            ->assertDontSee('metrika-config', false)
+            ->assertDontSee('data-analytics-accept', false)
+            ->assertDontSee('data-analytics-settings', false)
+            ->assertDontSee('https://mc.yandex.ru');
     }
 
     public function test_home_page_images_are_available(): void

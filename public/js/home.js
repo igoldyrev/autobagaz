@@ -1,10 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const metrikaCounterId = Number(window.metrikaCounterId);
-    const reachMetrikaGoal = (goal, params) => {
-        if (! Number.isInteger(metrikaCounterId) || typeof window.ym !== 'function') return;
-
-        window.ym(metrikaCounterId, 'reachGoal', goal, params);
-    };
+    const reachMetrikaGoal = (goal, params) => window.autobagazAnalytics?.reachGoal(goal, params);
 
     document.addEventListener('click', (event) => {
         const link = event.target.closest('a[href]');
@@ -17,12 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-placeholder]').forEach((link) => {
         link.addEventListener('click', (event) => event.preventDefault());
-    });
-
-    const cookieNotice = document.querySelector('[data-cookie-notice]');
-    document.querySelector('[data-cookie-notice-close]')?.addEventListener('click', () => {
-        document.cookie = 'autobagaz_cookie_notice=accepted; max-age=2592000; path=/; SameSite=Lax';
-        cookieNotice?.remove();
     });
 
     const menuButton = document.querySelector('#pull');

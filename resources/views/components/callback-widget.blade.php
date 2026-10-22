@@ -10,7 +10,7 @@
     <h2 class="callback-widget__title" id="callback-title">Заказать обратный звонок</h2>
     <p class="callback-widget__lead">Оставьте контакты — менеджер перезвонит вам в ближайшее время.</p>
 
-    <form method="POST" action="{{ route('callback.store') }}" class="callback-widget__form">
+    <form method="POST" action="{{ route('callback.store') }}" class="callback-widget__form ym-hide-content">
         @csrf
         <div class="callback-widget__field">
             <label for="callback-name">Ваше имя</label>

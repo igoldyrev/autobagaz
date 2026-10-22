@@ -3,7 +3,7 @@
 @section('title', 'Заказ принят')
 
 @section('content')
-    <section class="checkout-success">
+    <section class="checkout-success ym-hide-content">
         <h1 class="title title-h1">Заказ принят</h1>
         <p>Заказ № {{ $order->number }} сохранён. Мы свяжемся с вами для подтверждения.</p>
         <p class="order-note">Менеджер подтвердит наличие, стоимость и способ получения заказа. Условия и способ оплаты согласуем при подтверждении заказа.</p>
