@@ -111,6 +111,14 @@ def main():
             target.rename(completed)
             print("Verified backup: " + str(completed), flush=True)
             print("Tables: " + str(len(manifest["tables"])) + "; rows: " + str(sum(manifest["tables"].values())), flush=True)
+            # Acknowledge only a downloaded and checksum-verified complete snapshot.
+            # The API checks the snapshot age, not merely this acknowledgement time.
+            status = temp / "last-verified-backup.json"
+            status.write_text(json.dumps({
+                "snapshot_at": manifest["created_at"],
+                "last_verified_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            }))
+            sftp(["put " + quote(status) + " " + quote(REMOTE + "/storage/app/deploy/last-verified-backup.json")])
             # Delete only this run's temporary server artifacts after verification.
             sftp(["rm " + quote(remote_dir + "/" + name) for name in artifact_names] + ["rmdir " + quote(remote_dir)])
             # Keep one latest snapshot per day/week/month, excluding incomplete runs.

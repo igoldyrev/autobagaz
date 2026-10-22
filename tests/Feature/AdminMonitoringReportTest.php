@@ -14,6 +14,7 @@ use App\Models\VehicleConfiguration;
 use App\Models\VehicleMake;
 use App\Services\AdminMonitoringReport;
 use App\Services\MonitoringHeartbeats;
+use App\Services\MonitoringInfrastructure;
 use App\Services\TelegramSiteErrors;
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
@@ -24,6 +25,13 @@ use Tests\TestCase;
 class AdminMonitoringReportTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->mock(MonitoringInfrastructure::class)
+            ->shouldReceive('snapshot')->andReturn(['state' => 'ok']);
+    }
 
     protected function tearDown(): void
     {

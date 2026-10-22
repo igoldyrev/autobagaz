@@ -59,6 +59,7 @@ class AdminMonitoringReport
         $notificationStatus = new OrderNotificationStatus;
         $notifications = $notificationStatus->build();
         $scheduledTasks = app(MonitoringHeartbeats::class)->snapshot();
+        $infrastructure = app(MonitoringInfrastructure::class)->snapshot();
         $sentForDay = OrderNotification::query()->whereBetween('sent_at', [$start->utc(), $end->utc()])
             ->selectRaw('type, COUNT(*) as aggregate_count')->groupBy('type')->pluck('aggregate_count', 'type');
         $lastSentAt = OrderNotification::query()->max('sent_at');
@@ -66,7 +67,7 @@ class AdminMonitoringReport
         return [
             'schema_version' => self::SCHEMA_VERSION,
             'source' => self::SOURCE,
-            'state' => $notificationStatus->needsAttention($notifications) || $scheduledTasks['state'] !== 'ok' ? 'degraded' : 'ok',
+            'state' => $notificationStatus->needsAttention($notifications) || $scheduledTasks['state'] !== 'ok' || $infrastructure['state'] !== 'ok' ? 'degraded' : 'ok',
             'generated_at' => CarbonImmutable::now($timezone)->toIso8601String(),
             'period' => [
                 'date' => $targetDate->toDateString(),
@@ -82,6 +83,7 @@ class AdminMonitoringReport
             'callback_requests' => $this->callbackRequests(),
             'notifications' => $notifications,
             'scheduled_tasks' => $scheduledTasks,
+            'infrastructure' => $infrastructure,
             'delivery' => [
                 'last_sent_at' => $lastSentAt ? CarbonImmutable::parse($lastSentAt, 'UTC')->toIso8601String() : null,
                 'sent_for_day' => [

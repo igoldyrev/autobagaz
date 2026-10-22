@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\OrderNotification;
 use App\Services\MonitoringHeartbeats;
+use App\Services\MonitoringInfrastructure;
 use App\Services\OrderNotifications;
 use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
@@ -13,6 +14,13 @@ use Tests\TestCase;
 class MonitoringHeartbeatsTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->mock(MonitoringInfrastructure::class)
+            ->shouldReceive('snapshot')->andReturn(['state' => 'ok']);
+    }
 
     public function test_api_detects_missing_stale_and_recovered_tasks_without_refreshing_them(): void
     {

@@ -32,6 +32,7 @@
     "site_errors": { "$ref": "#/$defs/siteErrors" },
     "scheduled_tasks": { "$ref": "#/$defs/scheduledTasks" },
     "delivery": { "$ref": "#/$defs/delivery" },
+    "infrastructure": { "$ref": "#/$defs/infrastructure" },
     "administrators": {
       "type": "array",
       "items": { "$ref": "#/$defs/administrator" }
@@ -40,6 +41,33 @@
   },
   "additionalProperties": true,
   "$defs": {
+    "infrastructure": {
+      "type": "object",
+      "required": ["state", "disk", "backup"],
+      "properties": {
+        "state": { "enum": ["ok", "degraded"] },
+        "disk": {
+          "type": "object",
+          "required": ["scope", "state", "free_bytes", "min_free_bytes"],
+          "properties": {
+            "scope": { "const": "filesystem" },
+            "state": { "enum": ["ok", "low", "unknown"] },
+            "free_bytes": { "type": ["integer", "null"], "minimum": 0 },
+            "min_free_bytes": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "backup": {
+          "type": "object",
+          "required": ["state", "snapshot_at", "last_verified_at", "max_age_seconds"],
+          "properties": {
+            "state": { "enum": ["ok", "stale", "never", "invalid"] },
+            "snapshot_at": { "$ref": "#/$defs/nullableDateTime" },
+            "last_verified_at": { "$ref": "#/$defs/nullableDateTime" },
+            "max_age_seconds": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
     "scheduledTasks": {
       "type": "object",
       "required": [
