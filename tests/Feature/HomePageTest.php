@@ -18,6 +18,7 @@ class HomePageTest extends TestCase
             ->assertSee('catalog-sidebar', escape: false)
             ->assertSee('☰ Категории')
             ->assertSee('Почему AutoBagaz')
+            ->assertSee('Мы работаем с такими брендами')
             ->assertSee('Крепления для активного отдыха')
             ->assertSee('/css/autobagaz.css', escape: false)
             ->assertSee('/css/catalog.css', escape: false)
@@ -100,20 +101,27 @@ class HomePageTest extends TestCase
 
     public function test_home_page_images_are_available(): void
     {
-        $response = $this->get('/');
+        $response = $this->get('/')->assertOk();
         $document = new DOMDocument;
 
         $document->loadHTML($response->getContent(), LIBXML_NOERROR | LIBXML_NOWARNING);
 
+        $assetHost = parse_url(asset('/'), PHP_URL_HOST);
+        $checkedImages = 0;
+
         foreach ($document->getElementsByTagName('img') as $image) {
             $source = $image->getAttribute('src');
-            if (parse_url($source, PHP_URL_HOST) !== null) {
+            $host = parse_url($source, PHP_URL_HOST);
+            if ($host !== null && $host !== $assetHost) {
                 continue;
             }
 
             $path = parse_url($source, PHP_URL_PATH);
 
-            $this->assertFileExists(public_path(ltrim($path, '/')));
+            $this->assertFileExists(public_path(ltrim($path, '/')), 'Изображение недоступно: '.$source);
+            $checkedImages++;
         }
+
+        $this->assertGreaterThan(0, $checkedImages, 'На главной странице не найдено изображений для проверки.');
     }
 }

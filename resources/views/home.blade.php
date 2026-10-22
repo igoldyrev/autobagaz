@@ -15,27 +15,21 @@
     ];
 
     $brands = [
-        [
-            ['/content/index/img/logos/mont_blanc.jpg', 'Mont Blanc'],
-            ['/content/index/img/logos/lux.png', 'Lux'],
-            ['/content/index/img/logos/atlant.png', 'Атлант'],
-            ['/content/index/img/logos/amos.jpg', 'Amos'],
-            ['/content/index/img/logos/yuago.png', 'Yuago'],
-        ],
-        [
-            ['/content/index/img/logos/vetlan.png', 'Vetlan'],
-            ['/content/index/img/logos/turino.jpg', 'Turino'],
-            ['/content/autobox/img/logo/koffer.jpg', 'Koffer'],
-            ['/content/index/img/logos/menabo.jpg', 'Menabo'],
-            ['/content/autobox/img/logo/terradrive.png', 'Terra Drive'],
-        ],
-        [
-            ['/content/index/img/logos/myravei.png', 'Муравей'],
-            ['/content/index/img/logos/inno.jpg', 'Inno'],
-            ['/content/index/img/logos/whispbar.png', 'Whispbar'],
-            ['/content/index/img/logos/yakima.png', 'Yakima'],
-            ['/content/index/img/logos/atera.png', 'Atera'],
-        ],
+        ['mont-blanc', 'Mont Blanc'],
+        ['lux', 'Lux'],
+        ['atlant', 'Атлант'],
+        ['amos', 'Amos'],
+        ['yuago', 'Yuago'],
+        ['vetlan', 'Vetlan'],
+        ['pt-group', 'PT GROUP'],
+        ['koffer', 'Koffer'],
+        ['menabo', 'Menabo'],
+        ['terra-drive', 'Terra Drive'],
+        ['muravey', 'Муравей'],
+        ['inno', 'Inno'],
+        ['whispbar', 'Whispbar'],
+        ['yakima', 'Yakima'],
+        ['atera', 'Atera'],
     ];
 
     $navigation = [
@@ -66,7 +60,7 @@
         <link rel="icon" href="{{ asset('favicon.ico') }}">
         <link rel="stylesheet" href="{{ asset('css/autobagaz.css') }}">
         <link rel="stylesheet" href="{{ asset('src/fa/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/home.css') }}?v={{ filemtime(public_path('css/home.css')) }}">
         <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
         <link rel="stylesheet" href="{{ asset('css/admin-toolbar.css') }}">
         <x-metrika />
@@ -226,16 +220,14 @@
                 @endif
 
                 <section class="home-section" aria-labelledby="brands-title">
-                <h2 class="title title-h2" id="brands-title">Бренды</h2>
-                <div class="brands__wrap">
-                    @foreach ($brands as $row)
-                        <div class="brands">
-                            @foreach ($row as [$image, $alt])
-                                <img src="{{ asset(ltrim($image, '/')) }}" alt="{{ $alt }}" width="150">
-                            @endforeach
-                        </div>
-                    @endforeach
-                </div>
+                    <h2 class="title title-h2" id="brands-title">Мы работаем с такими брендами</h2>
+                    <ul class="brand-grid" aria-label="Бренды производителей">
+                        @foreach ($brands as [$logo, $name])
+                            <li class="brand-grid__item">
+                                <img src="{{ asset('content/brands/'.$logo.'.webp') }}" alt="{{ $name }}" width="320" height="120" loading="lazy" decoding="async">
+                            </li>
+                        @endforeach
+                    </ul>
                 </section>
 
                 <section class="home-section home-seo" aria-labelledby="about-title">
