@@ -13,7 +13,7 @@
                 <p class="admin-content__lead">В архиве с {{ $callbackRequest->archived_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}. @if ($callbackRequest->anonymized_at) Контактные данные удалены {{ $callbackRequest->anonymized_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}. @else Контактные данные ожидают удаления. @endif</p>
             @endif
             @unless ($callbackRequest->anonymized_at)
-                @include('admin.partials.processing-panel', ['record' => $callbackRequest, 'updateUrl' => route('admin.callback-requests.update', $callbackRequest)])
+                @include('admin.partials.processing-panel', ['record' => $callbackRequest, 'assigneeExpanded' => true, 'updateUrl' => route('admin.callback-requests.update', $callbackRequest)])
             @endunless
             <section class="admin-card order-details">
                 <h2>Клиент</h2>
