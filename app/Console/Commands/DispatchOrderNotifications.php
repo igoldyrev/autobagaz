@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\OrderNotification;
+use App\Services\MonitoringHeartbeats;
 use App\Services\OrderNotifications;
 use Illuminate\Console\Command;
 
@@ -24,7 +25,12 @@ class DispatchOrderNotifications extends Command
         $count = $notifications->dispatchPending($limit);
         $this->components->info("Dispatched: {$count}");
 
-        return OrderNotification::query()->whereNull('queued_at')->whereNull('sent_at')->exists()
-            ? self::FAILURE : self::SUCCESS;
+        if (OrderNotification::query()->whereNull('queued_at')->whereNull('sent_at')->exists()) {
+            return self::FAILURE;
+        }
+
+        app(MonitoringHeartbeats::class)->succeed('dispatch_notifications');
+
+        return self::SUCCESS;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\AdminActivityLog;
+use App\Services\MonitoringHeartbeats;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schedule;
@@ -16,3 +17,7 @@ Schedule::call(fn () => AdminActivityLog::query()->olderThanRetentionPeriod()->d
 Schedule::command('orders:dispatch-notifications')->everyMinute()->withoutOverlapping();
 
 Schedule::command('telegram:monitor-notifications')->everyFiveMinutes()->withoutOverlapping();
+
+Schedule::call(fn () => app(MonitoringHeartbeats::class)->succeed('scheduler'))
+    ->everyMinute()
+    ->name('monitoring:scheduler-heartbeat');

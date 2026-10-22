@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\VehicleConfiguration;
 use App\Models\VehicleMake;
 use App\Services\AdminMonitoringReport;
+use App\Services\MonitoringHeartbeats;
 use App\Services\TelegramSiteErrors;
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
@@ -35,6 +36,8 @@ class AdminMonitoringReportTest extends TestCase
     {
         config(['services.daily_brief.token' => 'test-monitoring-token']);
         CarbonImmutable::setTestNow(CarbonImmutable::parse('2026-09-04 12:00:00', 'Asia/Yekaterinburg'));
+
+        $this->healthyScheduledTasks();
 
         $activeAdmin = User::factory()->create([
             'name' => 'Ирина',
@@ -272,6 +275,7 @@ class AdminMonitoringReportTest extends TestCase
     public function test_notification_monitoring_detects_backlog_and_recovery_without_exposing_recipients(): void
     {
         config(['services.daily_brief.token' => 'test-monitoring-token']);
+        $this->healthyScheduledTasks();
         $url = route('internal.monitoring.project-snapshot');
         $notification = OrderNotification::query()->create([
             'type' => 'order_confirmation',
@@ -290,6 +294,7 @@ class AdminMonitoringReportTest extends TestCase
         $this->assertStringNotContainsString('private-buyer@example.test', $response->getContent());
 
         $notification->update(['sent_at' => now()]);
+        $this->healthyScheduledTasks();
         $this->withToken('test-monitoring-token')->getJson($url)
             ->assertOk()->assertJsonPath('state', 'ok')
             ->assertJsonPath('notifications.queued', 0)
@@ -322,6 +327,13 @@ class AdminMonitoringReportTest extends TestCase
             ->assertOk()->assertJsonPath('site_errors.groups', 1)
             ->assertJsonPath('site_errors.occurrences', 1);
         $this->assertStringNotContainsString('private error message', $response->getContent());
+    }
+
+    private function healthyScheduledTasks(): void
+    {
+        foreach (array_keys(MonitoringHeartbeats::TASKS) as $task) {
+            app(MonitoringHeartbeats::class)->succeed($task);
+        }
     }
 
     private function createOrder(string $status, string $total, CarbonInterface $createdAt): Order

@@ -30,6 +30,8 @@
     "vehicle_configurations": { "$ref": "#/$defs/vehicleConfigurations" },
     "notifications": { "$ref": "#/$defs/notifications" },
     "site_errors": { "$ref": "#/$defs/siteErrors" },
+    "scheduled_tasks": { "$ref": "#/$defs/scheduledTasks" },
+    "delivery": { "$ref": "#/$defs/delivery" },
     "administrators": {
       "type": "array",
       "items": { "$ref": "#/$defs/administrator" }
@@ -38,6 +40,88 @@
   },
   "additionalProperties": true,
   "$defs": {
+    "scheduledTasks": {
+      "type": "object",
+      "required": [
+        "state",
+        "tasks"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "ok",
+            "degraded"
+          ]
+        },
+        "tasks": {
+          "type": "object",
+          "required": [
+            "scheduler",
+            "dispatch_notifications",
+            "notification_monitor"
+          ],
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "last_succeeded_at",
+              "max_age_seconds",
+              "state"
+            ],
+            "properties": {
+              "last_succeeded_at": {
+                "$ref": "#/$defs/nullableDateTime"
+              },
+              "max_age_seconds": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "state": {
+                "enum": [
+                  "ok",
+                  "stale",
+                  "never"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "required": [
+        "last_sent_at",
+        "sent_for_day"
+      ],
+      "properties": {
+        "last_sent_at": {
+          "$ref": "#/$defs/nullableDateTime"
+        },
+        "sent_for_day": {
+          "type": "object",
+          "required": [
+            "total",
+            "order_created",
+            "order_confirmation",
+            "callback_requested"
+          ],
+          "properties": {
+            "total": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "order_created": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "order_confirmation": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "callback_requested": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            }
+          }
+        }
+      }
+    },
     "notifications": {
       "type": "object",
       "required": ["pending", "queued", "failed_notifications", "overdue", "failed_jobs"],

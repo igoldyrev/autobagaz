@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\AdminActivityLog;
 use App\Models\CallbackRequest;
 use App\Models\Order;
+use App\Models\OrderNotification;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\VehicleConfiguration;
@@ -57,11 +58,15 @@ class AdminMonitoringReport
         $administrators = $this->administrators($start, $end, $changesLimit);
         $notificationStatus = new OrderNotificationStatus;
         $notifications = $notificationStatus->build();
+        $scheduledTasks = app(MonitoringHeartbeats::class)->snapshot();
+        $sentForDay = OrderNotification::query()->whereBetween('sent_at', [$start->utc(), $end->utc()])
+            ->selectRaw('type, COUNT(*) as aggregate_count')->groupBy('type')->pluck('aggregate_count', 'type');
+        $lastSentAt = OrderNotification::query()->max('sent_at');
 
         return [
             'schema_version' => self::SCHEMA_VERSION,
             'source' => self::SOURCE,
-            'state' => $notificationStatus->needsAttention($notifications) ? 'degraded' : 'ok',
+            'state' => $notificationStatus->needsAttention($notifications) || $scheduledTasks['state'] !== 'ok' ? 'degraded' : 'ok',
             'generated_at' => CarbonImmutable::now($timezone)->toIso8601String(),
             'period' => [
                 'date' => $targetDate->toDateString(),
@@ -76,6 +81,16 @@ class AdminMonitoringReport
             'orders' => $this->orders($start, $end),
             'callback_requests' => $this->callbackRequests(),
             'notifications' => $notifications,
+            'scheduled_tasks' => $scheduledTasks,
+            'delivery' => [
+                'last_sent_at' => $lastSentAt ? CarbonImmutable::parse($lastSentAt, 'UTC')->toIso8601String() : null,
+                'sent_for_day' => [
+                    'total' => (int) $sentForDay->sum(),
+                    'order_created' => (int) ($sentForDay['order_created'] ?? 0),
+                    'order_confirmation' => (int) ($sentForDay['order_confirmation'] ?? 0),
+                    'callback_requested' => (int) ($sentForDay['callback_requested'] ?? 0),
+                ],
+            ],
             'site_errors' => app(TelegramSiteErrors::class)->snapshot(),
             'products' => $this->products(),
             'vehicle_configurations' => $this->vehicleConfigurations(),

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Services\MonitoringHeartbeats;
 use App\Services\OrderNotificationStatus;
 use App\Services\TelegramNotificationMonitor;
 use App\Services\TelegramNotifications;
@@ -32,6 +33,8 @@ class MonitorTelegramNotifications extends Command
 
             return self::FAILURE;
         }
+
+        app(MonitoringHeartbeats::class)->succeed('notification_monitor');
 
         return self::SUCCESS;
     }
