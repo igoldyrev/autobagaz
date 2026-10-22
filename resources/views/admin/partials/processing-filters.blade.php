@@ -11,7 +11,7 @@
             <option value="{{ $manager->id }}" @selected((string) request('assignee_id') === (string) $manager->id)>{{ $manager->name }}</option>
         @endforeach
     </select></label>
-    <label><input type="checkbox" name="mine" value="1" @checked(request()->boolean('mine'))> Только мои</label>
-    <button type="submit" class="button button--secondary">Показать</button>
-    <a class="text-link" href="{{ $indexUrl }}">Сбросить</a>
+    <label class="checkbox processing-filters__mine"><input type="checkbox" name="mine" value="1" @checked(request()->boolean('mine'))> Только мои</label>
+    <button type="submit" class="button button--secondary button--inline">Показать</button>
+    <a class="button button--secondary button--inline" href="{{ $indexUrl }}">Сбросить</a>
 </form>

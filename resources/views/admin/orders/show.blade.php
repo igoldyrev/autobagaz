@@ -8,7 +8,7 @@
             @include('admin.partials.flash')
             <div class="page-heading"><div><p class="eyebrow">Заказ</p><h1>{{ $order->number }}</h1><p class="admin-content__lead">{{ $order->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</p></div></div>
             <a class="text-link" href="{{ route('admin.orders.index') }}">← К списку заказов</a>
-            @include('admin.partials.processing-panel', ['record' => $order, 'updateUrl' => route('admin.orders.update', $order)])
+            @include('admin.partials.processing-panel', ['record' => $order, 'assigneeExpanded' => true, 'updateUrl' => route('admin.orders.update', $order)])
             <div class="admin-card order-details">
                 <h2>Клиент</h2><p>{{ $order->customer_name }} · <a href="tel:{{ $order->phone }}">{{ $order->phone }}</a> · <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p>
                 <h2>Автомобиль</h2>

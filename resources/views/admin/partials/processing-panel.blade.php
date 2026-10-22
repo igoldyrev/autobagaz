@@ -27,8 +27,10 @@
     </div>
     @error('status')<p class="field__error">{{ $message }}</p>@enderror
     @error('expected_status')<p class="field__error">{{ $message }}</p>@enderror
+    @unless ($assigneeExpanded ?? false)
     <details class="processing-assignee-picker" @if($errors->has('assignee_id')) open @endif>
         <summary class="text-link">Изменить ответственного</summary>
+    @endunless
         <form method="POST" action="{{ $updateUrl }}" class="processing-assignee">
             @csrf @method('PUT')
             <label class="field"><span>Назначить ответственного</span><select name="assignee_id" required>
@@ -39,6 +41,8 @@
             </select></label>
             <button type="submit" class="button button--secondary">Назначить</button>
         </form>
+    @unless ($assigneeExpanded ?? false)
     </details>
+    @endunless
     @error('assignee_id')<p class="field__error">{{ $message }}</p>@enderror
 </section>

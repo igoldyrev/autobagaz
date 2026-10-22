@@ -387,7 +387,8 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 /* Order and callback processing */
 .processing-filters { flex-wrap: wrap; align-items: end; gap: 16px; }
 .processing-filters .field { min-width: 180px; margin: 0; }
-.processing-filters > label:not(.field) { align-self: center; }
+.processing-filters .processing-filters__mine { align-self: flex-end; min-height: 44px; white-space: nowrap; cursor: pointer; }
+.processing-filters > .button { min-height: 44px; }
 .processing-panel, .order-details, .processing-history { margin-top: 24px; padding: 24px; }
 .processing-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
 .processing-status { white-space: nowrap; }
@@ -421,5 +422,5 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
     .processing-assignee .field { max-width: none; }
 }
 
-.processing-filters input[type="checkbox"] { width: 16px; height: 16px; padding: 0; }
+.processing-filters input[type="checkbox"] { flex: 0 0 16px; width: 16px; height: 16px; margin: 0; padding: 0; }
 .order-details p, .processing-history p { min-height: 0; }
