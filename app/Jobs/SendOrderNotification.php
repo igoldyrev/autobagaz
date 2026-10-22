@@ -40,6 +40,15 @@ class SendOrderNotification implements ShouldQueue
                 return;
             }
 
+            if ($notification->type === 'callback_requested') {
+                $callback = CallbackRequest::query()->find($notification->callback_request_id);
+                if (! $callback || $callback->anonymized_at || $callback->created_at->lessThanOrEqualTo(now()->subDays(90))) {
+                    $notification->delete();
+
+                    return;
+                }
+            }
+
             $mail = match ($notification->type) {
                 'order_created' => new OrderCreated(Order::query()->findOrFail($notification->order_id)),
                 'order_confirmation' => new OrderConfirmation(Order::query()->findOrFail($notification->order_id)),

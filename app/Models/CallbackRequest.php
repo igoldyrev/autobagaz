@@ -17,7 +17,12 @@ class CallbackRequest extends Model
 
     public const STATUS_CANCELLED = 'cancelled';
 
-    protected $fillable = ['assignee_id', 'name', 'phone', 'status'];
+    protected $fillable = ['consent_accepted_at', 'consent_version', 'consent_text', 'assignee_id', 'name', 'phone', 'status'];
+
+    protected function casts(): array
+    {
+        return ['consent_accepted_at' => 'datetime', 'archived_at' => 'datetime', 'anonymized_at' => 'datetime'];
+    }
 
     /** @return array<string, string> */
     public static function statusLabels(): array

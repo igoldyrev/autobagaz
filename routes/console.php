@@ -21,3 +21,5 @@ Schedule::command('telegram:monitor-notifications')->everyFiveMinutes()->without
 Schedule::call(fn () => app(MonitoringHeartbeats::class)->succeed('scheduler'))
     ->everyMinute()
     ->name('monitoring:scheduler-heartbeat');
+
+Schedule::command('callbacks:archive')->hourly()->withoutOverlapping();

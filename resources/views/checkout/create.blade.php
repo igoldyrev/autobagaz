@@ -75,6 +75,7 @@
                     <input id="website" name="website" tabindex="-1" autocomplete="off">
                 </div>
                 <p class="order-note">После отправки заказа менеджер свяжется с вами для подтверждения наличия, стоимости и способа получения. Порядок оплаты согласуем при подтверждении заказа.</p>
+                <x-personal-data-consent id="checkout-consent" />
                 <button class="button button__buy" type="submit" @disabled($snapshot === [])>{{ $changes ? 'Подтвердить изменения и оформить заказ' : 'Оформить заказ' }}</button>
             </div>
         </form>

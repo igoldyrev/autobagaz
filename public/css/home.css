@@ -1194,3 +1194,9 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+.personal-data-consent { font-size: 13px; line-height: 1.5; }
+.personal-data-consent__label { display: flex; align-items: flex-start; gap: 8px; }
+.personal-data-consent__label input[type="checkbox"] { flex: 0 0 auto; width: auto; margin: 4px 0 0; padding: 0; }
+.personal-data-consent a { color: #275d35; text-decoration: underline; }
+.personal-data-consent__error { color: #a12622; margin: 6px 0 0; }

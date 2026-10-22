@@ -20,11 +20,11 @@ class Order extends Model
 
     public const STATUS_CANCELLED = 'cancelled';
 
-    protected $fillable = ['assignee_id', 'number', 'customer_name', 'phone', 'email', 'delivery_method', 'delivery_address', 'comment', 'status', 'total', 'checkout_token', 'vehicle_snapshot'];
+    protected $fillable = ['consent_accepted_at', 'consent_version', 'consent_text', 'assignee_id', 'number', 'customer_name', 'phone', 'email', 'delivery_method', 'delivery_address', 'comment', 'status', 'total', 'checkout_token', 'vehicle_snapshot'];
 
     protected function casts(): array
     {
-        return ['total' => 'decimal:2', 'vehicle_snapshot' => 'array'];
+        return ['consent_accepted_at' => 'datetime', 'total' => 'decimal:2', 'vehicle_snapshot' => 'array'];
     }
 
     public function items(): HasMany

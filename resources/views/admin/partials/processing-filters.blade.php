@@ -12,6 +12,9 @@
         @endforeach
     </select></label>
     <label class="checkbox processing-filters__mine"><input type="checkbox" name="mine" value="1" @checked(request()->boolean('mine'))> Только мои</label>
+    @if ($showArchiveFilter ?? false)
+        <label class="checkbox processing-filters__mine"><input type="checkbox" name="archived" value="1" @checked(request()->boolean('archived'))> Архив заявок</label>
+    @endif
     <button type="submit" class="button button--secondary button--inline">Показать</button>
     <a class="button button--secondary button--inline" href="{{ $indexUrl }}">Сбросить</a>
 </form>

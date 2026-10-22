@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CallbackRequestStoreRequest;
 use App\Models\CallbackRequest;
 use App\Services\OrderNotifications;
+use App\Support\PersonalDataConsent;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +14,10 @@ class CallbackRequestController extends Controller
     public function store(CallbackRequestStoreRequest $request, OrderNotifications $notifications): RedirectResponse
     {
         $callbackRequest = DB::transaction(function () use ($request, $notifications) {
-            $callbackRequest = CallbackRequest::query()->create($request->safe()->except('website'));
+            $callbackRequest = CallbackRequest::query()->create([
+                ...$request->safe()->except(['website', 'personal_data_consent', 'consent_version']),
+                ...PersonalDataConsent::attributes(),
+            ]);
             $notifications->recordCallback($callbackRequest);
 
             return $callbackRequest;

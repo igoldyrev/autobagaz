@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\VehicleConfiguration;
 use App\Services\CartService;
 use App\Services\OrderNotifications;
+use App\Support\PersonalDataConsent;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\RedirectResponse;
@@ -85,7 +86,8 @@ class CheckoutController extends Controller
                 ]);
 
                 $order = Order::query()->create([
-                    ...$request->safe()->except(['website', 'checkout_snapshot']),
+                    ...$request->safe()->except(['website', 'checkout_snapshot', 'personal_data_consent', 'consent_version']),
+                    ...PersonalDataConsent::attributes(),
                     'total' => number_format(array_sum(array_map(fn (array $item) => $item['price'] * $item['quantity'], $snapshot)) / 100, 2, '.', ''),
                     'vehicle_snapshot' => $this->vehicleSnapshot($request),
                 ]);

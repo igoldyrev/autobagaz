@@ -71,7 +71,7 @@ class DashboardController extends Controller
 
         if ($canManageOrders) {
             $newOrders = Order::query()->where('status', Order::STATUS_NEW)->count();
-            $newCallbackRequests = CallbackRequest::query()->where('status', CallbackRequest::STATUS_NEW)->count();
+            $newCallbackRequests = CallbackRequest::query()->whereNull('archived_at')->where('status', CallbackRequest::STATUS_NEW)->count();
             if ($newOrders > 0) {
                 $attentionItems[] = [
                     'count' => $newOrders,

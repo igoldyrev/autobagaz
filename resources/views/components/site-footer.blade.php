@@ -44,7 +44,7 @@
     <div class="footer__bottom">
         <span>© 2016–{{ now()->year }} AutoBagaz</span>
         <div class="footer__legal">
-            <a class="footer__link" href="{{ route('privacy-policy') }}">Политика конфиденциальности</a>
+            <a class="footer__link" href="{{ route('privacy-policy') }}">Политика обработки персональных данных</a>
             <a class="footer__link" href="{{ route('personal-data-consent') }}">Согласие на обработку персональных данных</a>
         </div>
     </div>

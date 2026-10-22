@@ -29,6 +29,9 @@ class OrderWorkflow
     {
         DB::transaction(function () use ($record, $actor, $data) {
             $locked = $record->newQuery()->lockForUpdate()->findOrFail($record->id);
+            if ($locked instanceof CallbackRequest && $locked->anonymized_at) {
+                throw ValidationException::withMessages(['status' => 'Контактные данные заявки удалены. Изменение обработки недоступно.']);
+            }
             $changes = [];
 
             if (isset($data['status'])) {

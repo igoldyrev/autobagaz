@@ -26,6 +26,7 @@
             <label for="callback-website">Сайт</label>
             <input id="callback-website" name="website" type="text" tabindex="-1" autocomplete="off">
         </div>
+        <x-personal-data-consent id="callback-consent" error-bag="callback" />
         <button class="callback-widget__submit" type="submit">Жду звонка</button>
     </form>
 </section>

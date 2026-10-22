@@ -34,6 +34,7 @@
                 </tbody></table></div>
                 <p class="processing-total"><strong>Итого: {{ number_format((float) $order->total, 0, ',', ' ') }} ₽</strong></p>
             </div>
+            @include('admin.partials.personal-data-consent', ['record' => $order])
             @include('admin.partials.processing-history')
         </main>
     </div>

@@ -79,7 +79,7 @@ class HomePageTest extends TestCase
         $pages = [
             '/dostavka-i-oplata' => 'Доставка и оплата',
             '/garantiya' => 'Гарантия',
-            '/politika-konfidentsialnosti' => 'Политика конфиденциальности',
+            '/politika-konfidentsialnosti' => 'Политика обработки персональных данных',
             '/soglasie-na-obrabotku-personalnykh-dannykh' => 'Согласие на обработку персональных данных',
         ];
 

@@ -20,6 +20,7 @@ use App\Models\VehicleMake;
 use App\Models\VehicleModel;
 use App\Models\VehicleRoofType;
 use App\Services\OrderNotifications;
+use App\Support\PersonalDataConsent;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Bus;
@@ -51,6 +52,8 @@ class OrderCheckoutTest extends TestCase
         $this->post(route('checkout.store'), [
             'checkout_token' => $this->checkoutToken(),
             'checkout_snapshot' => $this->checkoutSnapshot,
+            'personal_data_consent' => '1',
+            'consent_version' => PersonalDataConsent::VERSION,
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
@@ -61,6 +64,9 @@ class OrderCheckoutTest extends TestCase
 
         $order = Order::query()->firstOrFail();
         $this->assertSame('AB-000001', $order->number);
+        $this->assertNotNull($order->consent_accepted_at);
+        $this->assertSame(PersonalDataConsent::VERSION, $order->consent_version);
+        $this->assertStringContainsString('Сроки хранения и порядок прекращения обработки', $order->consent_text);
         $this->assertSame('delivery', $order->delivery_method);
         $this->assertSame('ivan@example.com', $order->email);
         $this->assertSame('Пермь, ул. Пример, 1', $order->delivery_address);
@@ -81,6 +87,8 @@ class OrderCheckoutTest extends TestCase
             ->post(route('checkout.store'), [
                 'checkout_token' => $checkoutToken,
                 'checkout_snapshot' => $this->checkoutSnapshot,
+                'personal_data_consent' => '1',
+                'consent_version' => PersonalDataConsent::VERSION,
                 'customer_name' => 'Иван Петров',
                 'phone' => '+7 900 123-45-67',
                 'email' => 'ivan@example.com',
@@ -106,6 +114,8 @@ class OrderCheckoutTest extends TestCase
         $this->post(route('checkout.store'), [
             'checkout_token' => $this->checkoutToken(),
             'checkout_snapshot' => $this->checkoutSnapshot,
+            'personal_data_consent' => '1',
+            'consent_version' => PersonalDataConsent::VERSION,
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
@@ -186,6 +196,8 @@ class OrderCheckoutTest extends TestCase
         $this->post(route('checkout.store'), [
             'checkout_token' => $this->checkoutToken(),
             'checkout_snapshot' => $this->checkoutSnapshot,
+            'personal_data_consent' => '1',
+            'consent_version' => PersonalDataConsent::VERSION,
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
@@ -681,7 +693,7 @@ class OrderCheckoutTest extends TestCase
         Mail::fake();
 
         $this->from(route('home'))
-            ->post(route('callback.store'), ['name' => 'Иван Петров', 'phone' => '+7 900 123-45-67'])
+            ->post(route('callback.store'), ['name' => 'Иван Петров', 'phone' => '+7 900 123-45-67', 'personal_data_consent' => '1', 'consent_version' => PersonalDataConsent::VERSION])
             ->assertRedirect(route('home'));
 
         $callbackRequest = CallbackRequest::query()->sole();
@@ -800,7 +812,7 @@ class OrderCheckoutTest extends TestCase
     public function test_callback_queue_failure_keeps_request_and_notification(): void
     {
         Bus::shouldReceive('dispatch')->once()->andThrow(new RuntimeException('Queue unavailable'));
-        $this->from(route('home'))->post(route('callback.store'), ['name' => 'Иван', 'phone' => '+7 900 123-45-67'])
+        $this->from(route('home'))->post(route('callback.store'), ['name' => 'Иван', 'phone' => '+7 900 123-45-67', 'personal_data_consent' => '1', 'consent_version' => PersonalDataConsent::VERSION])
             ->assertRedirect(route('home'))->assertSessionHas('callback_success');
 
         $this->assertDatabaseCount('callback_requests', 1);
@@ -879,6 +891,31 @@ class OrderCheckoutTest extends TestCase
         $this->artisan('orders:notification-status', ['--max-age' => 30])->assertSuccessful();
     }
 
+    public function test_checkout_requires_explicit_consent_to_current_version_and_ignores_forged_evidence(): void
+    {
+        Mail::fake();
+        $this->post(route('cart.store', $this->product()));
+        $data = $this->checkoutData($this->checkoutToken());
+        $this->get(route('checkout.create'))->assertSee('id="checkout-consent"', false)
+            ->assertDontSee('id="checkout-consent" name="personal_data_consent" type="checkbox" value="1" required checked', false);
+
+        foreach ([null, '0', 'false'] as $value) {
+            $this->post(route('checkout.store'), array_replace($data, ['personal_data_consent' => $value]))
+                ->assertSessionHasErrors('personal_data_consent');
+        }
+        foreach ([null, 'outdated'] as $version) {
+            $this->post(route('checkout.store'), array_replace($data, ['consent_version' => $version]))
+                ->assertSessionHasErrors('consent_version');
+        }
+        $this->assertDatabaseCount('orders', 0);
+        $this->travelTo(now()->startOfSecond());
+        $this->post(route('checkout.store'), $data + ['consent_accepted_at' => '2000-01-01', 'consent_text' => 'Forged'])
+            ->assertSessionDoesntHaveErrors()->assertRedirect();
+        $order = Order::query()->sole();
+        $this->assertTrue($order->consent_accepted_at->equalTo(now()));
+        $this->assertSame(PersonalDataConsent::attributes()['consent_text'], $order->consent_text);
+    }
+
     private function order(string $number, string $status): Order
     {
         return Order::query()->create([
@@ -913,6 +950,8 @@ class OrderCheckoutTest extends TestCase
         return [
             'checkout_token' => $token,
             'checkout_snapshot' => $this->checkoutSnapshot,
+            'personal_data_consent' => '1',
+            'consent_version' => PersonalDataConsent::VERSION,
             'customer_name' => 'Иван Петров',
             'phone' => '+7 900 123-45-67',
             'email' => 'ivan@example.com',
