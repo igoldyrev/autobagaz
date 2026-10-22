@@ -85,6 +85,12 @@ class User extends Authenticatable
         ];
     }
 
+    public function canReopenOrders(): bool
+    {
+        return $this->is_admin && $this->hasPermission(self::PERMISSION_ORDERS)
+            && ($this->isSuperAdmin() || in_array($this->role, [self::ROLE_ADMINISTRATOR, self::ROLE_USER, null, ''], true));
+    }
+
     public function isSuperAdmin(): bool
     {
         return $this->role === self::ROLE_SUPER_ADMIN;

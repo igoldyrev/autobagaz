@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasProcessingWorkflow;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
+    use HasProcessingWorkflow;
+
     public const STATUS_NEW = 'new';
 
     public const STATUS_IN_PROGRESS = 'in_progress';
@@ -17,7 +20,7 @@ class Order extends Model
 
     public const STATUS_CANCELLED = 'cancelled';
 
-    protected $fillable = ['number', 'customer_name', 'phone', 'email', 'delivery_method', 'delivery_address', 'comment', 'status', 'total', 'checkout_token', 'vehicle_snapshot'];
+    protected $fillable = ['assignee_id', 'number', 'customer_name', 'phone', 'email', 'delivery_method', 'delivery_address', 'comment', 'status', 'total', 'checkout_token', 'vehicle_snapshot'];
 
     protected function casts(): array
     {
@@ -49,5 +52,16 @@ class Order extends Model
     public function deliveryMethodLabel(): string
     {
         return $this->delivery_method === 'delivery' ? 'Доставка' : 'Самовывоз';
+    }
+
+    /** @return array<string, string> */
+    protected function processingActions(): array
+    {
+        return [self::STATUS_CONFIRMED => 'Подтвердить заказ'];
+    }
+
+    protected function cancelActionLabel(): string
+    {
+        return 'Отменить заказ';
     }
 }

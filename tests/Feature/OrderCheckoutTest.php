@@ -199,7 +199,9 @@ class OrderCheckoutTest extends TestCase
 
         $this->actingAs($admin)->get(route('admin.orders.index'))
             ->assertOk()->assertSee($order->number)->assertSee('Новый');
-        $this->actingAs($admin)->put(route('admin.orders.update', $order), ['status' => Order::STATUS_CONFIRMED])
+        $this->actingAs($admin)->put(route('admin.orders.update', $order), ['status' => Order::STATUS_IN_PROGRESS, 'expected_status' => Order::STATUS_NEW])
+            ->assertRedirect(route('admin.orders.show', $order));
+        $this->put(route('admin.orders.update', $order), ['status' => Order::STATUS_CONFIRMED, 'expected_status' => Order::STATUS_IN_PROGRESS])
             ->assertRedirect(route('admin.orders.show', $order));
 
         $this->assertSame(Order::STATUS_CONFIRMED, $order->fresh()->status);
@@ -467,7 +469,7 @@ class OrderCheckoutTest extends TestCase
             ->assertOk()
             ->assertSee($callbackRequest->name);
         $this->actingAs($admin)
-            ->put(route('admin.callback-requests.update', $callbackRequest), ['status' => CallbackRequest::STATUS_IN_PROGRESS])
+            ->put(route('admin.callback-requests.update', $callbackRequest), ['status' => CallbackRequest::STATUS_IN_PROGRESS, 'expected_status' => CallbackRequest::STATUS_NEW])
             ->assertRedirect(route('admin.callback-requests.show', $callbackRequest));
 
         $this->assertSame(CallbackRequest::STATUS_IN_PROGRESS, $callbackRequest->fresh()->status);

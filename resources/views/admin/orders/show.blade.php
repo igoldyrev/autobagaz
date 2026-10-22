@@ -7,7 +7,8 @@
         <main class="admin-content">
             @include('admin.partials.flash')
             <div class="page-heading"><div><p class="eyebrow">Заказ</p><h1>{{ $order->number }}</h1><p class="admin-content__lead">{{ $order->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</p></div></div>
-            @include('admin.partials.help', ['title' => 'Работа с заказом', 'text' => 'Сначала свяжитесь с покупателем по телефону или email, чтобы подтвердить заказ. Затем выберите актуальный статус и сохраните его — это изменит состояние заказа в общем списке.', 'items' => ['«Новый» — заказ ещё не взят в работу.', '«В работе» — менеджер уточняет детали или проверяет наличие.', '«Подтверждён» — покупатель согласовал заказ и условия получения.', '«Завершён» и «Отменён» — финальные статусы для закрытия работы с заказом.']])
+            <a class="text-link" href="{{ route('admin.orders.index') }}">← К списку заказов</a>
+            @include('admin.partials.processing-panel', ['record' => $order, 'updateUrl' => route('admin.orders.update', $order)])
             <div class="admin-card order-details">
                 <h2>Клиент</h2><p>{{ $order->customer_name }} · <a href="tel:{{ $order->phone }}">{{ $order->phone }}</a> · <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p>
                 <h2>Автомобиль</h2>
@@ -25,21 +26,15 @@
                 @endif
                 <h2>Получение</h2><p>{{ $order->deliveryMethodLabel() }}@if($order->delivery_address) · {{ $order->delivery_address }}@endif</p>
                 @if($order->comment)<h2>Комментарий</h2><p>{{ $order->comment }}</p>@endif
-                <h2>Товары</h2><ul>@foreach($order->items as $item)<li>{{ $item->product_name }} × {{ $item->quantity }} — {{ number_format((float) $item->total, 0, ',', ' ') }} ₽</li>@endforeach</ul><p><strong>Итого: {{ number_format((float) $order->total, 0, ',', ' ') }} ₽</strong></p>
-                <form method="POST" action="{{ route('admin.orders.update', $order) }}" class="toolbar order-status-toolbar">
-                    @csrf
-                    @method('PUT')
-                    <span>Статус</span>
-                    <details class="order-status-picker">
-                        <summary>{{ $order->statusLabel() }}</summary>
-                        <div class="order-status-picker__menu">
-                            @foreach(App\Models\Order::statusLabels() as $value => $label)
-                                <button type="submit" name="status" value="{{ $value }}" @if ($order->status === $value) aria-current="true" @endif>{{ $label }}</button>
-                            @endforeach
-                        </div>
-                    </details>
-                </form>
+                <h2>Товары</h2>
+                <div class="table-wrap"><table class="admin-table"><thead><tr><th>Товар</th><th>Цена</th><th>Количество</th><th>Сумма</th></tr></thead><tbody>
+                    @foreach ($order->items as $item)
+                        <tr><td>{{ $item->product_name }}</td><td>{{ number_format((float) $item->unit_price, 0, ',', ' ') }} ₽</td><td>{{ $item->quantity }}</td><td>{{ number_format((float) $item->total, 0, ',', ' ') }} ₽</td></tr>
+                    @endforeach
+                </tbody></table></div>
+                <p class="processing-total"><strong>Итого: {{ number_format((float) $order->total, 0, ',', ' ') }} ₽</strong></p>
             </div>
+            @include('admin.partials.processing-history')
         </main>
     </div>
 @endsection

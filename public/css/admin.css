@@ -383,3 +383,43 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
     color: #656b75;
     line-height: 1.4;
 }
+
+/* Order and callback processing */
+.processing-filters { flex-wrap: wrap; align-items: end; gap: 16px; }
+.processing-filters .field { min-width: 180px; margin: 0; }
+.processing-filters > label:not(.field) { align-self: center; }
+.processing-panel, .order-details, .processing-history { margin-top: 24px; padding: 24px; }
+.processing-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.processing-status { white-space: nowrap; }
+.processing-status--new { color: #855a06; background: #fff4d6; }
+.processing-status--in_progress { color: #2158a0; background: #eaf2ff; }
+.processing-status--confirmed { color: #6541a0; background: #f1eaff; }
+.processing-status--completed { color: #216846; background: #e7f5ed; }
+.processing-status--cancelled { color: #a22222; background: #fceaea; }
+.processing-steps { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 24px 0; list-style: none; counter-reset: processing-step; }
+.processing-steps li { padding: 8px 12px; border: 1px solid #e0e2e5; border-radius: 8px; color: #626b76; counter-increment: processing-step; }
+.processing-steps li::before { content: counter(processing-step) '. '; }
+.processing-steps li[aria-current] { border-color: #2158a0; color: #2158a0; background: #eaf2ff; font-weight: 700; }
+.processing-actions { flex-wrap: wrap; }
+.processing-actions form { margin: 0; }
+.processing-assignee-picker { margin-top: 20px; }
+.processing-assignee-picker > summary { cursor: pointer; }
+.processing-assignee { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e0e2e5; }
+.processing-assignee .field { flex: 1; min-width: 180px; max-width: 360px; margin: 0; }
+.order-details h2 { margin-top: 24px; font-size: 20px; }
+.order-details h2:first-child { margin-top: 0; }
+.order-details p { overflow-wrap: anywhere; }
+.processing-total { text-align: right; font-size: 20px; }
+.processing-history h2 { margin: 0; font-size: 20px; }
+.processing-history ul { list-style: none; padding: 0; }
+.processing-history li { padding: 16px 0; border-bottom: 1px solid #e0e2e5; overflow-wrap: anywhere; }
+.processing-history time { color: #626b76; }
+.processing-history li p { margin-bottom: 0; }
+@media (max-width: 600px) {
+    .processing-panel, .order-details, .processing-history { padding: 18px; }
+    .processing-filters .field, .processing-filters > .button { width: 100%; }
+    .processing-assignee .field { max-width: none; }
+}
+
+.processing-filters input[type="checkbox"] { width: 16px; height: 16px; padding: 0; }
+.order-details p, .processing-history p { min-height: 0; }

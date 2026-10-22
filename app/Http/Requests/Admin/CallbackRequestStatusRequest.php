@@ -15,6 +15,10 @@ class CallbackRequestStatusRequest extends FormRequest
 
     public function rules(): array
     {
-        return ['status' => ['required', Rule::in(array_keys(CallbackRequest::statusLabels()))]];
+        return [
+            'status' => ['required_without:assignee_id', Rule::in(array_keys(CallbackRequest::statusLabels()))],
+            'expected_status' => ['required_with:status', Rule::in(array_keys(CallbackRequest::statusLabels()))],
+            'assignee_id' => ['required_without:status', 'integer', 'exists:users,id'],
+        ];
     }
 }
