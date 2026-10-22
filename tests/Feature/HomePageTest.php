@@ -28,7 +28,7 @@ class HomePageTest extends TestCase
             ->assertDontSee('Пока нет опубликованных отзывов')
             ->assertDontSee('href="/news"', escape: false);
 
-        $response->assertSee('Разрешить Яндекс Метрику и Webvisor?');
+        $response->assertSee('Мы используем cookie, чтобы сайт работал корректно и становился удобнее.');
 
         $this->assertSame(0, substr_count($response->getContent(), 'Нет записей'));
     }
