@@ -12,7 +12,6 @@
     <article class="information-page">
         <header class="information-page__header">
             <h1 class="title title-h1">Политика обработки персональных данных</h1>
-            <p>Редакция от 22.10.2026.</p>
         </header>
         <section class="information-page__section">
             <h2>1. Оператор персональных данных</h2>

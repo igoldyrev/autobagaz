@@ -1,7 +1,9 @@
 <article class="information-page">
     <header class="information-page__header">
         <h1 class="title title-h1">Согласие на обработку персональных данных</h1>
-        <p>Редакция от 22.10.2026. Версия: 2026-10-22-2.</p>
+        @if ($showRevision ?? true)
+            <p>Редакция от 22.10.2026. Версия: 2026-10-22-2.</p>
+        @endif
     </header>
     <section class="information-page__section">
         <h2>1. Субъект согласия и оператор</h2>

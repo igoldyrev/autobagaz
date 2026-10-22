@@ -9,5 +9,5 @@
         <span class="breadcrumbs__text">Согласие на обработку персональных данных</span>
     </nav>
 
-    @include(App\Support\PersonalDataConsent::view())
+    @include(App\Support\PersonalDataConsent::view(), ['showRevision' => false])
 @endsection
