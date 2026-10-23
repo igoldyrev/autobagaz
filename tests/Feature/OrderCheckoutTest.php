@@ -230,7 +230,7 @@ class OrderCheckoutTest extends TestCase
             ->assertDontSee('Онлайн-оплата пока недоступна:');
         $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))->assertRedirect();
         $order = Order::query()->sole();
-        $this->get(route('checkout.success', $order))->assertOk()
+        $this->get($order->customerUrl())->assertOk()
             ->assertSee('Отправка заявки не резервирует товар.')
             ->assertSee('Онлайн-оплата пока недоступна:');
         $email = (new OrderConfirmation($order))->render();
@@ -324,10 +324,10 @@ class OrderCheckoutTest extends TestCase
         $this->post(route('checkout.store'), $confirmed)->assertRedirect();
         $order = Order::query()->sole();
         $this->assertSame('12500.50', $order->total);
-        $this->get(route('checkout.success', $order))->assertOk()->assertSee('12 500,50 ₽');
+        $this->get($order->customerUrl())->assertOk()->assertSee('12 500,50 ₽');
         $this->assertSame('12500.50', $order->items->sole()->unit_price);
         foreach ([$confirmed, $original, $confirmed] as $retry) {
-            $this->post(route('checkout.store'), $retry)->assertRedirect(route('checkout.success', $order));
+            $this->post(route('checkout.store'), $retry)->assertRedirect(route('checkout.thanks'));
         }
         $this->assertDatabaseCount('orders', 1);
         $this->assertDatabaseCount('order_items', 1);
@@ -515,6 +515,47 @@ class OrderCheckoutTest extends TestCase
         Mail::assertNothingOutgoing();
     }
 
+    public function test_checkout_goal_is_only_rendered_once_on_the_token_free_thanks_page(): void
+    {
+        Mail::fake();
+        config(['services.yandex_metrika.counter_id' => 123456]);
+        $this->post(route('cart.store', $this->product()));
+        $data = $this->checkoutData($this->checkoutToken());
+
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.thanks'));
+        $order = Order::query()->sole();
+        $this->get(route('home'))->assertDontSee('"order_created"', false);
+        $this->get(route('checkout.thanks'))->assertOk()
+            ->assertHeader('Cache-Control', 'no-store, private')
+            ->assertHeader('Referrer-Policy', 'no-referrer')
+            ->assertHeader('X-Robots-Tag', 'noindex, nofollow')
+            ->assertViewHas('checkoutGoal', [
+                'name' => 'order_created', 'params' => ['order_price' => 10000.0, 'currency' => 'RUB'],
+            ])
+            ->assertSee('"goal":"order_created"', false)
+            ->assertSee('"params":{"order_price":10000,"currency":"RUB"}', false)
+            ->assertSee(route('checkout.open-order'), false)
+            ->assertDontSee($order->access_token)
+            ->assertDontSee($order->checkout_token)
+            ->assertDontSee($order->number)
+            ->assertDontSee($order->email)
+            ->assertDontSee($order->phone)
+            ->assertDontSee($order->customer_name);
+
+        $this->get(route('checkout.thanks'))->assertOk()
+            ->assertViewHas('checkoutGoal', null)->assertDontSee('"order_created"', false);
+        $this->get(route('checkout.open-order'))->assertRedirect($order->customerUrl())
+            ->assertHeader('Cache-Control', 'no-store, private')
+            ->assertHeader('Referrer-Policy', 'no-referrer');
+        $this->get($order->customerUrl())->assertOk()->assertDontSee('metrika-config', false);
+
+        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.thanks'));
+        $this->get(route('checkout.thanks'))->assertOk()
+            ->assertViewHas('checkoutGoal', null)->assertDontSee('"order_created"', false);
+        $this->assertDatabaseCount('orders', 1);
+        Mail::assertSent(OrderConfirmation::class, 1);
+    }
+
     public function test_checkout_reuses_token_across_tabs_and_refreshes(): void
     {
         $this->post(route('cart.store', $this->product()));
@@ -535,12 +576,12 @@ class OrderCheckoutTest extends TestCase
         $order = Order::query()->sole();
 
         $this->post(route('checkout.store'), $data)
-            ->assertRedirect(route('checkout.success', $order));
+            ->assertRedirect(route('checkout.thanks'));
 
         // A request that started concurrently may still contain the original cart.
         $this->withSession(['cart.items' => [(string) $product->id => 1]])
             ->post(route('checkout.store'), $data)
-            ->assertRedirect(route('checkout.success', $order));
+            ->assertRedirect(route('checkout.thanks'));
 
         $this->assertDatabaseCount('orders', 1);
         $this->assertDatabaseCount('order_items', 1);
@@ -801,12 +842,14 @@ class OrderCheckoutTest extends TestCase
         $this->post(route('cart.store', $this->product()));
         $data = $this->checkoutData($this->checkoutToken());
 
-        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.success', 1));
+        $response = $this->post(route('checkout.store'), $data);
+        $response->assertRedirect(route('checkout.thanks'));
         $this->assertDatabaseCount('orders', 1);
         $this->assertEmpty(session('cart.items', []));
         $this->assertDatabaseHas('order_notifications', ['type' => 'order_created', 'queued_at' => null, 'sent_at' => null]);
         Mail::assertSent(OrderConfirmation::class, 1);
-        $this->post(route('checkout.store'), $data)->assertRedirect(route('checkout.success', 1));
+        $response = $this->post(route('checkout.store'), $data);
+        $response->assertRedirect(route('checkout.thanks'));
         $this->assertDatabaseCount('order_notifications', 2);
     }
 
@@ -822,8 +865,8 @@ class OrderCheckoutTest extends TestCase
             $job->handle();
         });
         $this->post(route('cart.store', $this->product()));
-        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))
-            ->assertRedirect(route('checkout.success', 1));
+        $response = $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()));
+        $response->assertRedirect(route('checkout.thanks'));
 
         Mail::assertSent(OrderCreated::class, 1);
         $this->assertDatabaseHas('order_notifications', ['type' => 'order_confirmation', 'queued_at' => null, 'sent_at' => null]);

@@ -9,3 +9,6 @@
 @endforeach
 </ul>
 <p><strong>Итого: {{ number_format((float) $order->total, 0, ',', ' ') }} ₽</strong></p>
+
+<p><a href="{{ $order->customerUrl() }}">Открыть заказ</a></p>
+<p>Сохраните эту ссылку и не передавайте её другим людям: она открывает доступ к заказу.</p>

@@ -12,6 +12,7 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -60,7 +61,7 @@ class CheckoutController extends Controller
         $checkoutToken = $request->validated('checkout_token');
         $existingOrder = Order::query()->where('checkout_token', $checkoutToken)->first();
         if ($existingOrder) {
-            return to_route('checkout.success', $existingOrder);
+            return $this->redirectToThanks($request, $existingOrder);
         }
 
         $confirmed = json_decode(Crypt::decryptString($request->validated('checkout_snapshot')), true, 512, JSON_THROW_ON_ERROR)['items'];
@@ -71,7 +72,7 @@ class CheckoutController extends Controller
                 // Another submission may have completed while we waited for the product locks.
                 $existingOrder = Order::query()->where('checkout_token', $request->validated('checkout_token'))->first();
                 if ($existingOrder) {
-                    return to_route('checkout.success', $existingOrder);
+                    return $this->redirectToThanks($request, $existingOrder);
                 }
                 if ($snapshot !== $confirmed || $snapshot === []) {
                     return $snapshot;
@@ -104,7 +105,7 @@ class CheckoutController extends Controller
                 throw $exception;
             }
 
-            return to_route('checkout.success', $existingOrder);
+            return $this->redirectToThanks($request, $existingOrder);
         }
 
         if ($order instanceof RedirectResponse) {
@@ -121,20 +122,49 @@ class CheckoutController extends Controller
         $cart->clear();
         $notifications->dispatchPending(orderId: $order->id);
 
-        return to_route('checkout.success', $order)
-            ->with('success', 'Заказ принят. Мы свяжемся с вами для подтверждения.')
-            ->with('metrika_goal', [
-                'name' => 'order_created',
-                'params' => [
-                    'order_price' => (float) $order->total,
-                    'currency' => 'RUB',
-                ],
-            ]);
+        $request->session()->put('checkout.created_order_id', $order->id);
+
+        return $this->redirectToThanks($request, $order);
     }
 
-    public function success(Order $order): View
+    public function thanks(Request $request): Response
     {
-        return view('checkout.success', compact('order'));
+        $order = $this->sessionOrder($request);
+        $checkoutGoal = $request->session()->pull('checkout.created_order_id') === $order->id
+            ? ['name' => 'order_created', 'params' => ['order_price' => (float) $order->total, 'currency' => 'RUB']]
+            : null;
+
+        return response()->view('checkout.thanks', compact('checkoutGoal'))
+            ->header('Cache-Control', 'private, no-store')
+            ->header('Referrer-Policy', 'no-referrer')
+            ->header('X-Robots-Tag', 'noindex, nofollow');
+    }
+
+    public function openOrder(Request $request): RedirectResponse
+    {
+        return redirect()->to($this->sessionOrder($request)->customerUrl())
+            ->header('Cache-Control', 'private, no-store')
+            ->header('Referrer-Policy', 'no-referrer');
+    }
+
+    private function sessionOrder(Request $request): Order
+    {
+        return Order::query()->findOrFail($request->session()->get('checkout.completed_order_id'));
+    }
+
+    private function redirectToThanks(Request $request, Order $order): RedirectResponse
+    {
+        $request->session()->put('checkout.completed_order_id', $order->id);
+
+        return to_route('checkout.thanks');
+    }
+
+    public function success(Order $order): Response
+    {
+        return response()->view('checkout.success', compact('order'))
+            ->header('Cache-Control', 'private, no-store')
+            ->header('Referrer-Policy', 'no-referrer')
+            ->header('X-Robots-Tag', 'noindex, nofollow');
     }
 
     /** @return array<string, int|string|null>|null */

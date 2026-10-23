@@ -22,6 +22,20 @@ class Order extends Model
 
     protected $fillable = ['consent_accepted_at', 'consent_version', 'consent_text', 'assignee_id', 'number', 'customer_name', 'phone', 'email', 'delivery_method', 'delivery_address', 'comment', 'status', 'total', 'checkout_token', 'vehicle_snapshot'];
 
+    protected $hidden = ['access_token', 'checkout_token'];
+
+    protected static function booted(): void
+    {
+        static::creating(function (Order $order): void {
+            $order->access_token = bin2hex(random_bytes(32));
+        });
+    }
+
+    public function customerUrl(): string
+    {
+        return route('checkout.success', ['order' => $this->access_token]);
+    }
+
     protected function casts(): array
     {
         return ['consent_accepted_at' => 'datetime', 'total' => 'decimal:2', 'vehicle_snapshot' => 'array'];

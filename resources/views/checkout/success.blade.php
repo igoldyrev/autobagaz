@@ -1,6 +1,7 @@
 @extends('layouts.catalog')
 
 @section('title', 'Заказ принят')
+@section('robots', 'noindex,nofollow')
 
 @section('content')
     <section class="checkout-success ym-hide-content">

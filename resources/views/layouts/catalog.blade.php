@@ -34,7 +34,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-        <meta name="robots" content="index,follow">
+        <meta name="robots" content="@yield('robots', 'index,follow')">
         <meta name="description" content="@yield('meta_description', 'Каталог автомобильных багажников по маркам автомобилей.')">
 
         <title>@yield('title', 'Автобагажники') | autobagaz.ru</title>
@@ -45,7 +45,7 @@
         <link rel="stylesheet" href="{{ asset('css/home.css') }}?v={{ filemtime(public_path('css/home.css')) }}">
         <link rel="stylesheet" href="{{ asset('css/catalog.css') }}?v={{ filemtime(public_path('css/catalog.css')) }}">
         <link rel="stylesheet" href="{{ asset('css/admin-toolbar.css') }}">
-        <x-metrika />
+        <x-metrika :checkout-goal="$checkoutGoal ?? null" />
     </head>
     <body>
         <x-metrika-noscript />
