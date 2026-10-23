@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\VehicleConfiguration;
 use App\Services\CartService;
 use App\Services\OrderNotifications;
+use App\Support\OrderCheckoutTerms;
 use App\Support\PersonalDataConsent;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Database\UniqueConstraintViolationException;
@@ -91,6 +92,7 @@ class CheckoutController extends Controller
                     ...PersonalDataConsent::attributes(),
                     'total' => number_format(array_sum(array_map(fn (array $item) => $item['price'] * $item['quantity'], $snapshot)) / 100, 2, '.', ''),
                     'vehicle_snapshot' => $this->vehicleSnapshot($request),
+                    'checkout_terms' => OrderCheckoutTerms::snapshot(),
                 ]);
                 $order->update(['number' => sprintf('AB-%06d', $order->id)]);
                 $order->items()->createMany($items->all());

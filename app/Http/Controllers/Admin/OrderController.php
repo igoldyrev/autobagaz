@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\OrderStatusRequest;
+use App\Http\Requests\Admin\OrderTermsRequest;
 use App\Models\Order;
+use App\Services\OrderTerms;
 use App\Services\OrderWorkflow;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -27,7 +29,21 @@ class OrderController extends Controller
 
     public function show(Order $order): View
     {
-        return view('admin.orders.show', ['order' => $order->load('items.product', 'assignee'), 'managers' => app(OrderWorkflow::class)->managers(), 'history' => app(OrderWorkflow::class)->history($order)]);
+        return view('admin.orders.show', [
+            'order' => $order->load('items.product', 'assignee'),
+            'managers' => app(OrderWorkflow::class)->managers(),
+            'history' => app(OrderWorkflow::class)->history($order),
+            'latestTerms' => $order->termsVersions()->first(),
+            'acceptedTerms' => $order->termsVersions()->whereNotNull('accepted_at')->first(),
+            'termsVersions' => $order->termsVersions()->paginate(10, ['*'], 'terms_page')->withQueryString(),
+        ]);
+    }
+
+    public function storeTerms(OrderTermsRequest $request, Order $order): RedirectResponse
+    {
+        app(OrderTerms::class)->propose($order, $request->user(), $request->validated());
+
+        return to_route('admin.orders.show', $order)->with('success', 'Предложение условий сохранено. Согласие покупателя ещё не получено.');
     }
 
     public function update(OrderStatusRequest $request, Order $order): RedirectResponse

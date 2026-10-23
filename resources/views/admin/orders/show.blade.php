@@ -24,16 +24,26 @@
                 @else
                     <p>Не указан</p>
                 @endif
-                <h2>Получение</h2><p>{{ $order->deliveryMethodLabel() }}@if($order->delivery_address) · {{ $order->delivery_address }}@endif</p>
+                <h2>Исходная заявка: получение</h2><p>{{ $order->deliveryMethodLabel() }}@if($order->delivery_address) · {{ $order->delivery_address }}@endif</p>
                 @if($order->comment)<h2>Комментарий</h2><p>{{ $order->comment }}</p>@endif
-                <h2>Товары</h2>
+                <h2>Исходная заявка: товары</h2>
                 <div class="table-wrap"><table class="admin-table"><thead><tr><th>Товар</th><th>Цена</th><th>Количество</th><th>Сумма</th></tr></thead><tbody>
                     @foreach ($order->items as $item)
-                        <tr><td>{{ $item->product_name }}</td><td>{{ number_format((float) $item->unit_price, 0, ',', ' ') }} ₽</td><td>{{ $item->quantity }}</td><td>{{ number_format((float) $item->total, 0, ',', ' ') }} ₽</td></tr>
+                        <tr><td>{{ $item->product_name }}</td><td>{{ number_format((float) $item->unit_price, 2, ',', ' ') }} ₽</td><td>{{ $item->quantity }}</td><td>{{ number_format((float) $item->total, 2, ',', ' ') }} ₽</td></tr>
                     @endforeach
                 </tbody></table></div>
-                <p class="processing-total"><strong>Итого: {{ number_format((float) $order->total, 0, ',', ' ') }} ₽</strong></p>
+                <p class="processing-total"><strong>Сумма исходной заявки: {{ number_format((float) $order->total, 2, ',', ' ') }} ₽</strong></p>
             </div>
+            <section class="admin-card">
+                <h2>Условия при оформлении</h2>
+                @if ($order->checkout_terms)
+                    <p>Версия {{ $order->checkout_terms['version'] }}</p>
+                    @foreach ($order->checkout_terms['notices'] as $notice)<p>{{ $notice }}</p>@endforeach
+                @else
+                    <p>Текст условий при оформлении этого заказа не был сохранён. Текущие условия сайта не подставляются задним числом.</p>
+                @endif
+            </section>
+            @include('admin.orders._terms')
             @include('admin.partials.personal-data-consent', ['record' => $order])
             @include('admin.partials.processing-history')
         </main>

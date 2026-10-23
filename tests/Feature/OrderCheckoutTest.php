@@ -20,6 +20,7 @@ use App\Models\VehicleMake;
 use App\Models\VehicleModel;
 use App\Models\VehicleRoofType;
 use App\Services\OrderNotifications;
+use App\Support\OrderCheckoutTerms;
 use App\Support\PersonalDataConsent;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -64,6 +65,7 @@ class OrderCheckoutTest extends TestCase
 
         $order = Order::query()->firstOrFail();
         $this->assertSame('AB-000001', $order->number);
+        $this->assertSame(OrderCheckoutTerms::snapshot(), $order->checkout_terms);
         $this->assertNotNull($order->consent_accepted_at);
         $this->assertSame(PersonalDataConsent::VERSION, $order->consent_version);
         $this->assertStringContainsString('Сроки хранения и порядок прекращения обработки', $order->consent_text);
