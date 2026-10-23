@@ -43,6 +43,7 @@ class OrderWorkflow
                 throw ValidationException::withMessages(['status' => 'Контактные данные заявки удалены. Изменение обработки недоступно.']);
             }
             $changes = [];
+            $previousStatus = $locked->status;
 
             if (isset($data['status'])) {
                 if ($locked->status !== $data['expected_status']) {
@@ -90,6 +91,9 @@ class OrderWorkflow
             app(AdminActivityLogger::class)->record($actor, AdminActivityLog::ACTION_UPDATED, implode('. ', $changes),
                 $locked instanceof Order ? 'order' : 'callback_request', $locked->id,
                 $locked instanceof Order ? $locked->number : $locked->name);
+            if ($locked instanceof Order && app(OrderNotifications::class)->recordStatusChange($locked, $previousStatus)) {
+                DB::afterCommit(fn () => app(OrderNotifications::class)->dispatchPending(orderId: $locked->id));
+            }
         });
     }
 }

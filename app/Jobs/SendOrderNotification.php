@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\Mail\CallbackRequested;
 use App\Mail\OrderConfirmation;
 use App\Mail\OrderCreated;
+use App\Mail\OrderStatusChanged;
 use App\Models\CallbackRequest;
 use App\Models\Order;
 use App\Models\OrderNotification;
@@ -53,7 +54,9 @@ class SendOrderNotification implements ShouldQueue
                 'order_created' => new OrderCreated(Order::query()->findOrFail($notification->order_id)),
                 'order_confirmation' => new OrderConfirmation(Order::query()->findOrFail($notification->order_id)),
                 'callback_requested' => new CallbackRequested(CallbackRequest::query()->findOrFail($notification->callback_request_id)),
-                default => throw new LogicException('Unknown order notification type.'),
+                default => in_array($notification->type, OrderNotification::STATUS_TYPES, true) && is_array($notification->payload)
+                    ? new OrderStatusChanged($notification->type, $notification->payload, Order::query()->findOrFail($notification->order_id)->customerUrl())
+                    : throw new LogicException('Unknown order notification type or missing event snapshot.'),
             };
 
             Mail::to($notification->recipient)->sendNow($mail);
