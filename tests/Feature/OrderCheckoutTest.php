@@ -171,6 +171,64 @@ class OrderCheckoutTest extends TestCase
         $this->assertSame([strval($product->id) => 3], session('cart.items'));
     }
 
+    public function test_cart_and_checkout_show_quantity_distribution_for_current_stock(): void
+    {
+        $product = $this->product();
+        foreach ([0, -2, 3, 5, 8] as $stock) {
+            $product->update(['stock' => $stock]);
+            $this->post(route('cart.store', $product));
+            $this->patch(route('cart.update', $product), ['quantity' => 5])->assertRedirect();
+            $available = min(5, max(0, $stock));
+            foreach (['cart.index', 'checkout.create'] as $route) {
+                $page = $this->get(route($route))->assertOk();
+                $page->assertSee('data-cart-available>'.$available.'</span>', false)
+                    ->assertSee('data-cart-backorder>'.(5 - $available).'</span>', false);
+                $html = $page->getContent();
+                $this->assertMatchesRegularExpression(
+                    '/data-cart-stock-warning'.($available === 5 ? '\s+hidden' : '\s*>').'/', $html
+                );
+            }
+        }
+    }
+
+    public function test_cart_update_returns_fresh_stock_and_allows_up_to_100_backordered_units(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        $product->update(['stock' => 0]);
+        $this->patchJson(route('cart.update', $product), ['quantity' => 100])
+            ->assertOk()->assertJson(['stock' => 0, 'cart_count' => 100]);
+        $this->patch(route('cart.update', $product), ['quantity' => 101])->assertSessionHasErrors('quantity');
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))
+            ->assertSessionDoesntHaveErrors()->assertRedirect();
+        $this->assertSame(100, Order::query()->sole()->items->sole()->quantity);
+        $this->assertSame(0, $product->fresh()->stock);
+    }
+
+    public function test_request_terms_are_visible_throughout_checkout_and_in_customer_email(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product));
+        foreach (['cart.index', 'checkout.create', 'delivery-payment'] as $route) {
+            $this->get(route($route))->assertOk()
+                ->assertSee('Отправка заявки не резервирует товар.')
+                ->assertSee('Наличие, стоимость и сроки поставки подтверждает менеджер.')
+                ->assertSee('Условия и способ оплаты уточнит менеджер.')
+                ->assertSee('получение всех товаров вместе или доступной части отдельно');
+        }
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))->assertRedirect();
+        $order = Order::query()->sole();
+        $this->get(route('checkout.success', $order))->assertOk()
+            ->assertSee('Отправка заявки не резервирует товар.')
+            ->assertSee('Условия и способ оплаты уточнит менеджер.');
+        $email = (new OrderConfirmation($order))->render();
+        $this->assertStringContainsString('Отправка заявки не резервирует товар.', $email);
+        $this->assertStringContainsString('Наличие, стоимость и сроки поставки подтверждает менеджер.', $email);
+        $this->assertStringContainsString('Условия и способ оплаты уточнит менеджер.', $email);
+    }
+
     public function test_cart_shows_recently_viewed_products(): void
     {
         $firstProduct = $this->product();

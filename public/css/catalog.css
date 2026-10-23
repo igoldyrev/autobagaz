@@ -279,6 +279,9 @@
 .order-note a { color: #275d35; }
 .cart-item { display: grid; grid-template-columns: minmax(180px, 1fr) auto auto auto auto; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid #d8ded8; }
 .cart-item > a { color: #0a2a0a; font-weight: 700; text-decoration: none; }
+.cart-item__availability { grid-column: 1 / -1; margin: 0; font-size: 14px; line-height: 1.5; }
+.order-availability-warning { display: block; color: #8a621c; }
+.order-availability-warning[hidden] { display: none; }
 .cart-item__quantity { display: flex; align-items: center; gap: 8px; }
 .cart-item__quantity label { font-size: 13px; }
 .cart-item__quantity input { width: 58px; padding: 7px; border: 1px solid #c8d0c8; border-radius: 4px; }

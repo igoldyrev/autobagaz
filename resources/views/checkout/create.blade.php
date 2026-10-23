@@ -22,7 +22,7 @@
                 @endif
                 <h2>Ваш заказ</h2>
                 @foreach ($snapshot as $item)
-                    <p><span>{{ $item['name'] }} × {{ $item['quantity'] }} ({{ number_format($item['price'] / 100, 2, ',', ' ') }} ₽ за единицу)@if ($item['product_id'] !== null) — {{ $item['stock'] > 0 ? 'В наличии: '.$item['stock'].' шт.' : 'Под заказ' }}@endif</span><strong>{{ number_format($item['price'] * $item['quantity'] / 100, 2, ',', ' ') }} ₽</strong></p>
+                    <p><span>{{ $item['name'] }} × {{ $item['quantity'] }} ({{ number_format($item['price'] / 100, 2, ',', ' ') }} ₽ за единицу)@if ($item['product_id'] !== null) — @include('checkout._availability', ['quantity' => $item['quantity'], 'stock' => $item['stock']])@endif</span><strong>{{ number_format($item['price'] * $item['quantity'] / 100, 2, ',', ' ') }} ₽</strong></p>
                 @endforeach
                 <p class="checkout-form__total"><span>{{ $changes ? 'Новая сумма товаров и услуг' : 'Товары и услуги' }}</span><strong>{{ number_format($total / 100, 2, ',', ' ') }} ₽</strong></p>
                 <div aria-live="polite">
@@ -74,7 +74,7 @@
                     <label for="website">Сайт</label>
                     <input id="website" name="website" tabindex="-1" autocomplete="off">
                 </div>
-                <p class="order-note">После отправки заказа менеджер свяжется с вами для подтверждения наличия, стоимости и способа получения. Порядок оплаты согласуем при подтверждении заказа.</p>
+                @include('checkout._request_notice')
                 <x-personal-data-consent id="checkout-consent" />
                 <button class="button button__buy" type="submit" @disabled($snapshot === [])>{{ $changes ? 'Подтвердить изменения и оформить заказ' : 'Оформить заказ' }}</button>
             </div>

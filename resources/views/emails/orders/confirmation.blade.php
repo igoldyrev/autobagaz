@@ -1,6 +1,7 @@
 <h1>Заказ {{ $order->number }} принят</h1>
 <p>Здравствуйте, {{ $order->customer_name }}!</p>
 <p>Мы получили ваш заказ и свяжемся с вами по телефону для подтверждения.</p>
+@include('checkout._request_notice')
 <h2>Состав заказа</h2>
 <ul>
 @foreach ($order->items as $item)

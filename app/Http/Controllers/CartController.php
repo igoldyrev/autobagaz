@@ -91,6 +91,7 @@ class CartController extends Controller
         if ($request->expectsJson()) {
             return response()->json([
                 'line_total' => (float) $product->price * $quantity,
+                'stock' => $product->stock,
                 'cart_total' => $cart->total(),
                 'cart_count' => $cart->count(),
             ]);
