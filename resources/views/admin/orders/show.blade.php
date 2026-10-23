@@ -28,7 +28,7 @@
                     <p>Не указан</p>
                 @endif
                 <h2>Исходная заявка: получение</h2><p>{{ $order->deliveryMethodLabel() }}@if($order->delivery_address) · {{ $order->delivery_address }}@endif</p>
-                @if($order->comment)<h2>Комментарий</h2><p>{{ $order->comment }}</p>@endif
+                @if($order->comment)<h2>Комментарий покупателя</h2><p>{{ $order->comment }}</p>@endif
                 <h2>Исходная заявка: товары</h2>
                 <div class="table-wrap"><table class="admin-table"><thead><tr><th>Товар</th><th>Цена</th><th>Количество</th><th>Сумма</th></tr></thead><tbody>
                     @foreach ($order->items as $item)

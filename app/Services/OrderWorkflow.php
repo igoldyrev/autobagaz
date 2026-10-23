@@ -62,12 +62,18 @@ class OrderWorkflow
                         throw ValidationException::withMessages(['fulfillment_confirmed' => 'Подтвердите получение всего заказа покупателем или завершение установки в магазине.']);
                     }
                 }
+                if ($target === 'cancelled' && trim($data['cancellation_reason'] ?? '') === '') {
+                    throw ValidationException::withMessages(['cancellation_reason' => 'Укажите причину отмены.']);
+                }
                 $previousLabel = $locked->statusLabel();
                 if ($target === 'in_progress' && ! $locked->assignee_id) {
                     $data['assignee_id'] = $actor->id;
                 }
                 $locked->status = $target;
                 $changes[] = 'Статус: «'.$previousLabel.'» → «'.$locked->statusLabel().'»';
+                if ($target === 'cancelled') {
+                    $changes[] = 'Причина отмены: '.trim($data['cancellation_reason']);
+                }
                 if ($locked instanceof Order && $target === Order::STATUS_COMPLETED) {
                     $changes[] = 'Менеджер подтвердил получение всего заказа покупателем или завершение установки в магазине';
                 }
@@ -82,6 +88,10 @@ class OrderWorkflow
                     $changes[] = 'Ответственный: «'.($locked->assignee?->name ?? 'Не назначен').'» → «'.$assignee->name.'»';
                     $locked->assignee_id = $assignee->id;
                 }
+            }
+
+            if (trim($data['internal_comment'] ?? '') !== '') {
+                $changes[] = 'Внутренний комментарий: '.trim($data['internal_comment']);
             }
 
             if ($changes === []) {

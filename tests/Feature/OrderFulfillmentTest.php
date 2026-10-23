@@ -40,7 +40,7 @@ class OrderFulfillmentTest extends TestCase
         $this->transition($order, $manager, 'shipped')->assertSessionDoesntHaveErrors();
         $this->assertSame('shipped', $order->fresh()->status);
         $this->get($order->customerUrl())->assertSee('Отправлен')->assertSee('Ожидаем получения покупателем');
-        $this->transition($order, $manager, 'cancelled')->assertSessionHasErrors('status');
+        $this->transition($order, $manager, 'cancelled', ['cancellation_reason' => 'Покупатель отказался'])->assertSessionHasErrors('status');
         $this->transition($order, $manager, 'in_progress')->assertSessionHasErrors('status');
         $this->transition($order, $manager, 'completed')->assertSessionHasErrors('fulfillment_confirmed');
         $this->transition($order, $manager, 'completed', ['fulfillment_confirmed' => '1'])->assertSessionDoesntHaveErrors();

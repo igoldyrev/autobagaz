@@ -13,12 +13,24 @@ class CallbackRequestStatusRequest extends FormRequest
         return true;
     }
 
+    public function messages(): array
+    {
+        return [
+            'internal_comment.required_without_all' => 'Введите внутренний комментарий.',
+            'internal_comment.max' => 'Комментарий не должен превышать 2000 символов.',
+            'cancellation_reason.required_if' => 'Укажите причину отмены.',
+            'cancellation_reason.max' => 'Причина отмены не должна превышать 2000 символов.',
+        ];
+    }
+
     public function rules(): array
     {
         return [
-            'status' => ['required_without:assignee_id', Rule::in(array_keys(CallbackRequest::statusLabels()))],
+            'status' => ['required_without_all:assignee_id,internal_comment', Rule::in(array_keys(CallbackRequest::statusLabels()))],
             'expected_status' => ['required_with:status', Rule::in(array_keys(CallbackRequest::statusLabels()))],
-            'assignee_id' => ['required_without:status', 'integer', 'exists:users,id'],
+            'internal_comment' => ['required_without_all:status,assignee_id', 'nullable', 'string', 'max:2000'],
+            'cancellation_reason' => ['required_if:status,cancelled', 'nullable', 'string', 'max:2000'],
+            'assignee_id' => ['required_without_all:status,internal_comment', 'integer', 'exists:users,id'],
         ];
     }
 }

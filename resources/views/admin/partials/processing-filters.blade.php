@@ -1,4 +1,8 @@
 <form method="GET" class="toolbar processing-filters">
+    @if ($showOrderSearch ?? false)
+        <label class="field processing-filters__search"><span>Поиск заказа</span><input type="search" name="search" value="{{ request('search') }}" maxlength="120" placeholder="Номер, телефон или email"></label>
+        @error('search')<p class="field__error">{{ $message }}</p>@enderror
+    @endif
     <label class="field"><span>Статус</span><select name="status">
         <option value="">Все статусы</option>
         @foreach ($statusLabels as $value => $label)

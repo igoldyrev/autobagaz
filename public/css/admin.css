@@ -392,6 +392,7 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 /* Order and callback processing */
 .processing-filters { flex-wrap: wrap; align-items: end; gap: 16px; }
 .processing-filters .field { min-width: 180px; margin: 0; }
+.processing-filters .processing-filters__search { flex: 1 1 280px; }
 .processing-filters .processing-filters__mine { align-self: flex-end; min-height: 44px; white-space: nowrap; cursor: pointer; }
 .processing-filters > .button { min-height: 44px; }
 .processing-panel, .order-details, .processing-history { margin-top: 24px; padding: 24px; }
@@ -411,6 +412,13 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 .processing-steps li[aria-current] { border-color: #2158a0; color: #2158a0; background: #eaf2ff; font-weight: 700; }
 .processing-actions { flex-wrap: wrap; }
 .processing-actions form { margin: 0; }
+.processing-cancellation { flex-basis: 100%; min-width: 0; }
+.processing-cancellation > summary { width: fit-content; cursor: pointer; color: #a72929; }
+.processing-cancellation form { max-width: 600px; margin-top: 12px; padding: 16px; border: 1px solid #edcdcd; border-radius: 9px; background: #fffafa; }
+.processing-comment { margin-top: 24px; padding-top: 20px; border-top: 1px solid #e0e2e5; }
+.processing-comment .field { max-width: 720px; }
+.processing-comment .admin-content__lead { margin: 8px 0 12px; }
+.processing-comment textarea, .processing-cancellation textarea { box-sizing: border-box; }
 .processing-assignee-picker { margin-top: 20px; }
 .processing-assignee-picker > summary { cursor: pointer; }
 .processing-assignee { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e0e2e5; }
@@ -423,7 +431,7 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 .processing-history ul { list-style: none; padding: 0; }
 .processing-history li { padding: 16px 0; border-bottom: 1px solid #e0e2e5; overflow-wrap: anywhere; }
 .processing-history time { color: #626b76; }
-.processing-history li p { margin-bottom: 0; }
+.processing-history li p { margin-bottom: 0; white-space: pre-wrap; }
 @media (max-width: 600px) {
     .processing-panel, .order-details, .processing-history { padding: 18px; }
     .processing-filters .field, .processing-filters > .button { width: 100%; }

@@ -17,10 +17,34 @@ class OrderController extends Controller
 {
     public function index(Request $request): View
     {
+        $filters = $request->validate(['search' => ['nullable', 'string', 'max:120']]);
+        $search = trim($filters['search'] ?? '');
+        $pattern = '%'.str_replace(['!', '%', '_'], ['!!', '!%', '!_'], mb_strtolower($search)).'%';
+        $phoneDigits = preg_match('/^[+0-9()\s-]+$/', $search) ? preg_replace('/\D/', '', $search) : '';
+
+        if (strlen($phoneDigits) === 11 && in_array($phoneDigits[0], ['7', '8'], true)) {
+            $phoneDigits = substr($phoneDigits, 1);
+        }
+
         $orders = Order::query()->with('assignee', 'acceptedTermsVersion')
             ->when($request->filled('status'), fn ($query) => $query->where('status', $request->input('status')))
             ->when($request->boolean('mine'), fn ($query) => $query->where('assignee_id', $request->user()->id))
             ->when(! $request->boolean('mine') && $request->filled('assignee_id'), fn ($query) => $query->where('assignee_id', $request->input('assignee_id')))
+            ->when($search !== '', function ($query) use ($pattern, $phoneDigits) {
+                $query->where(function ($query) use ($pattern, $phoneDigits) {
+                    $query->whereRaw("LOWER(number) LIKE ? ESCAPE '!'", [$pattern])
+                        ->orWhereRaw("LOWER(email) LIKE ? ESCAPE '!'", [$pattern]);
+                    if ($phoneDigits !== '') {
+                        $phoneSql = 'phone';
+                        $bindings = [];
+                        foreach (['+', '(', ')', '-', ' ', "\t", "\r", "\n", "\v", "\f"] as $separator) {
+                            $phoneSql = "REPLACE($phoneSql, ?, '')";
+                            $bindings[] = $separator;
+                        }
+                        $query->orWhereRaw($phoneSql.' LIKE ?', [...$bindings, '%'.$phoneDigits.'%']);
+                    }
+                });
+            })
             ->latest()
             ->paginate(30)
             ->withQueryString();

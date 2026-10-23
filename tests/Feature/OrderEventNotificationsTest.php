@@ -42,7 +42,7 @@ class OrderEventNotificationsTest extends TestCase
         }
         $this->assertSame('shipped', $order->fresh()->status);
         $cancelled = $this->order();
-        $this->transition($cancelled, 'cancelled');
+        $this->transition($cancelled, 'cancelled', ['cancellation_reason' => 'Внутренняя причина отказа']);
         $this->assertDatabaseCount('order_notifications', 4);
         Mail::assertSent(OrderStatusChanged::class, 4);
         foreach (OrderNotification::query()->get() as $notification) {
@@ -50,6 +50,11 @@ class OrderEventNotificationsTest extends TestCase
             $this->assertSame('buyer@example.test', $notification->recipient);
             (new SendOrderNotification($notification->id))->handle();
             $this->assertArrayNotHasKey('payload', $notification->toArray());
+            $this->assertStringNotContainsString('Внутренняя причина отказа', json_encode($notification->payload, JSON_UNESCAPED_UNICODE));
+            if ($notification->type === 'order_cancelled') {
+                $mail = new OrderStatusChanged($notification->type, $notification->payload, $cancelled->customerUrl());
+                $this->assertStringNotContainsString('Внутренняя причина отказа', $mail->render());
+            }
         }
         Mail::assertSent(OrderStatusChanged::class, 4);
         Mail::assertSent(OrderStatusChanged::class, function (OrderStatusChanged $mail) use ($order) {
@@ -171,7 +176,7 @@ class OrderEventNotificationsTest extends TestCase
         $proposal->forceFill(['accepted_at' => null, 'delivery_address' => 'Ещё не согласованный адрес', 'payment_terms' => 'Ещё не согласованная оплата']);
         $proposal->save();
         $this->transition($order, 'confirmed');
-        $this->transition($order, 'cancelled');
+        $this->transition($order, 'cancelled', ['cancellation_reason' => 'Внутренняя причина отказа']);
         Mail::assertSent(OrderStatusChanged::class, 2);
         foreach (OrderNotification::query()->get() as $notification) {
             $this->assertSame(1, $notification->payload['terms_version']);

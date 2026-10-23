@@ -12,7 +12,11 @@
     </ol>
     <div class="form-actions processing-actions">
         @foreach ($record->availableActions() as $value => $label)
-            <form method="POST" action="{{ $updateUrl }}" @if($value === 'cancelled') onsubmit="return confirm('Подтвердить отмену?')" @endif>
+            @if ($value === 'cancelled')
+                <details class="processing-cancellation" @if($errors->has('cancellation_reason')) open @endif>
+                    <summary class="text-link">{{ $label }}</summary>
+            @endif
+            <form method="POST" action="{{ $updateUrl }}">
                 @csrf @method('PUT')
                 <input type="hidden" name="expected_status" value="{{ $record->status }}">
                 @if ($record instanceof \App\Models\Order)
@@ -21,8 +25,15 @@
                         <input type="hidden" name="fulfillment_confirmed" value="1">
                     @endif
                 @endif
+                @if ($value === 'cancelled')
+                    <label class="field"><span>Причина отмены · только для сотрудников</span><textarea name="cancellation_reason" rows="2" maxlength="2000" required placeholder="Например: покупатель отказался или товар недоступен">{{ old('cancellation_reason') }}</textarea></label>
+                    @error('cancellation_reason')<p class="field__error">{{ $message }}</p>@enderror
+                @endif
                 <button type="submit" name="status" value="{{ $value }}" class="button {{ $value === 'cancelled' ? 'button--danger' : 'button--primary button--inline' }}">{{ $record instanceof \App\Models\Order && $value === \App\Models\Order::STATUS_COMPLETED ? 'Заказ получен / установка завершена' : $label }}</button>
             </form>
+            @if ($value === 'cancelled')
+                </details>
+            @endif
         @endforeach
         @if ($record->isClosed() && auth()->user()->canReopenOrders())
             <form method="POST" action="{{ $updateUrl }}" onsubmit="return confirm('Вернуть запись в работу?')">
@@ -57,4 +68,11 @@
     </details>
     @endunless
     @error('assignee_id')<p class="field__error">{{ $message }}</p>@enderror
+    <form method="POST" action="{{ $updateUrl }}" class="processing-comment">
+        @csrf @method('PUT')
+        <label class="field"><span>Внутренний комментарий</span><textarea name="internal_comment" rows="3" maxlength="2000" required placeholder="Итоги разговора, договорённости или заметка для коллег">{{ old('internal_comment') }}</textarea></label>
+        <p class="admin-content__lead">Виден только сотрудникам. Сохранится в истории с вашим именем и временем.</p>
+        @error('internal_comment')<p class="field__error">{{ $message }}</p>@enderror
+        <button type="submit" class="button button--secondary button--inline">Добавить комментарий</button>
+    </form>
 </section>
