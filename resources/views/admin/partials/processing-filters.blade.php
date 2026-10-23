@@ -15,6 +15,12 @@
             <option value="{{ $manager->id }}" @selected((string) request('assignee_id') === (string) $manager->id)>{{ $manager->name }}</option>
         @endforeach
     </select></label>
+    <label class="field"><span>Первый ответ</span><select name="response">
+        <option value="">Все заявки</option>
+        @foreach (['waiting' => 'Без первого ответа', 'overdue' => 'Просроченные', 'answered' => 'Контакт состоялся'] as $value => $label)
+            <option value="{{ $value }}" @selected(request('response') === $value)>{{ $label }}</option>
+        @endforeach
+    </select></label>
     <label class="checkbox processing-filters__mine"><input type="checkbox" name="mine" value="1" @checked(request()->boolean('mine'))> Только мои</label>
     @if ($showArchiveFilter ?? false)
         <label class="checkbox processing-filters__mine"><input type="checkbox" name="archived" value="1" @checked(request()->boolean('archived'))> Архив заявок</label>

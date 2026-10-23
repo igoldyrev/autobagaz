@@ -17,7 +17,7 @@
                     <tr class="admin-table__linked-row">
                         <td data-label="Номер"><a class="admin-table__row-link" href="{{ route('admin.orders.show', $order) }}" aria-label="Открыть заказ {{ $order->number }}"></a><strong>{{ $order->number }}</strong></td>
                         <td data-label="Дата"><time datetime="{{ $order->created_at->toIso8601String() }}">{{ $order->created_at->timezone(config('app.display_timezone'))->format('d.m.Y') }}<small>{{ $order->created_at->timezone(config('app.display_timezone'))->format('H:i') }}</small></time></td>
-                        <td data-label="Статус"><span class="status processing-status processing-status--{{ $order->status }}">{{ $order->statusLabel() }}</span></td>
+                        <td data-label="Статус"><span class="status processing-status processing-status--{{ $order->status }}">{{ $order->statusLabel() }}</span><small>@include('admin.partials.response-status', ['responseRecord' => $order, 'compact' => true])</small></td>
                         <td data-label="Ответственный">{{ $order->assignee?->name ?? 'Не назначен' }}</td>
                         <td data-label="Клиент"><strong>{{ $order->customer_name }}</strong><br><a href="tel:{{ $order->phone }}">{{ $order->phone }}</a><br><a href="mailto:{{ $order->email }}">{{ $order->email }}</a></td>
                         <td data-label="Автомобиль">{{ $order->vehicle_snapshot['label'] ?? 'Не указан' }}</td>
@@ -25,7 +25,7 @@
                         <td data-label="Сумма"><strong>{{ number_format((float) $order->total, 0, ',', ' ') }} ₽</strong></td>
                     </tr>
                 @empty
-                    <tr><td colspan="8" class="empty-state">{{ request()->filled('search') || request()->filled('status') || request()->filled('assignee_id') || request()->boolean('mine') ? 'По выбранным условиям заказы не найдены.' : 'Заказов пока нет.' }}</td></tr>
+                    <tr><td colspan="8" class="empty-state">{{ request()->filled('search') || request()->filled('status') || request()->filled('assignee_id') || request()->boolean('mine') || request()->filled('response') ? 'По выбранным условиям заказы не найдены.' : 'Заказов пока нет.' }}</td></tr>
                 @endforelse
                 </tbody>
             </table></div>

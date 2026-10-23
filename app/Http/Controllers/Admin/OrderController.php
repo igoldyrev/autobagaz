@@ -11,13 +11,14 @@ use App\Services\OrderTerms;
 use App\Services\OrderWorkflow;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class OrderController extends Controller
 {
     public function index(Request $request): View
     {
-        $filters = $request->validate(['search' => ['nullable', 'string', 'max:120']]);
+        $filters = $request->validate(['search' => ['nullable', 'string', 'max:120'], 'response' => ['nullable', Rule::in(['waiting', 'overdue', 'answered'])]]);
         $search = trim($filters['search'] ?? '');
         $pattern = '%'.str_replace(['!', '%', '_'], ['!!', '!%', '!_'], mb_strtolower($search)).'%';
         $phoneDigits = preg_match('/^[+0-9()\s-]+$/', $search) ? preg_replace('/\D/', '', $search) : '';
@@ -27,6 +28,7 @@ class OrderController extends Controller
         }
 
         $orders = Order::query()->with('assignee', 'acceptedTermsVersion')
+            ->responseState($filters['response'] ?? null)
             ->when($request->filled('status'), fn ($query) => $query->where('status', $request->input('status')))
             ->when($request->boolean('mine'), fn ($query) => $query->where('assignee_id', $request->user()->id))
             ->when(! $request->boolean('mine') && $request->filled('assignee_id'), fn ($query) => $query->where('assignee_id', $request->input('assignee_id')))

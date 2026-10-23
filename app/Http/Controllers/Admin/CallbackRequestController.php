@@ -8,13 +8,16 @@ use App\Models\CallbackRequest;
 use App\Services\OrderWorkflow;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class CallbackRequestController extends Controller
 {
     public function index(Request $request): View
     {
+        $filters = $request->validate(['response' => ['nullable', Rule::in(['waiting', 'overdue', 'answered'])]]);
         $callbackRequests = CallbackRequest::query()->with('assignee')
+            ->responseState($filters['response'] ?? null)
             ->when($request->boolean('archived'), fn ($query) => $query->whereNotNull('archived_at'), fn ($query) => $query->whereNull('archived_at'))
             ->when($request->filled('status'), fn ($query) => $query->where('status', $request->input('status')))
             ->when($request->boolean('mine'), fn ($query) => $query->where('assignee_id', $request->user()->id))

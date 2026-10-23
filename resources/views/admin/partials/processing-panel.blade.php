@@ -3,6 +3,9 @@
         <span class="status processing-status processing-status--{{ $record->status }}">{{ $record->statusLabel() }}</span>
         <span>Ответственный: <strong>{{ $record->assignee?->name ?? 'Не назначен' }}</strong></span>
     </div>
+    <div class="processing-response">
+        @include('admin.partials.response-status', ['responseRecord' => $record, 'compact' => false])
+    </div>
     @if ($record instanceof \App\Models\Order)<p>{{ $record->statusDescription() }}</p>@endif
     <ol class="processing-steps" aria-label="Этапы обработки">
         @foreach (($record instanceof \App\Models\Order ? $record->processingSteps() : $record::statusLabels()) as $value => $label)
@@ -71,8 +74,15 @@
     <form method="POST" action="{{ $updateUrl }}" class="processing-comment">
         @csrf @method('PUT')
         <label class="field"><span>Внутренний комментарий</span><textarea name="internal_comment" rows="3" maxlength="2000" required placeholder="Итоги разговора, договорённости или заметка для коллег">{{ old('internal_comment') }}</textarea></label>
-        <p class="admin-content__lead">Виден только сотрудникам. Сохранится в истории с вашим именем и временем.</p>
+        <p class="admin-content__lead">Виден только сотрудникам. Для первого ответа опишите результат и нажмите «Связался с покупателем». Попытка без ответа срок не останавливает.</p>
         @error('internal_comment')<p class="field__error">{{ $message }}</p>@enderror
-        <button type="submit" class="button button--secondary button--inline">Добавить комментарий</button>
+        <div class="form-actions processing-actions">
+            <button type="submit" class="button button--secondary button--inline">Добавить комментарий</button>
+            @if (! $record->isClosed() && ! $record->first_response_at)
+                <button type="submit" name="contact_result" value="reached" class="button button--primary button--inline">Связался с покупателем</button>
+                <button type="submit" name="contact_result" value="not_reached" class="button button--secondary button--inline">Не удалось связаться</button>
+            @endif
+        </div>
+        @error('contact_result')<p class="field__error">{{ $message }}</p>@enderror
     </form>
 </section>

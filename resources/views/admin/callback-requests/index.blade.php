@@ -16,12 +16,12 @@
                 @forelse ($callbackRequests as $callbackRequest)
                     <tr class="admin-table__linked-row">
                         <td data-label="Дата"><a class="admin-table__row-link" href="{{ route('admin.callback-requests.show', $callbackRequest) }}" aria-label="Открыть заявку №{{ $callbackRequest->id }}: {{ $callbackRequest->name }}"></a><time datetime="{{ $callbackRequest->created_at->toIso8601String() }}">{{ $callbackRequest->created_at->timezone(config('app.display_timezone'))->format('d.m.Y') }}<small>{{ $callbackRequest->created_at->timezone(config('app.display_timezone'))->format('H:i') }}</small></time></td>
-                        <td data-label="Статус"><span class="status processing-status processing-status--{{ $callbackRequest->status }}">{{ $callbackRequest->statusLabel() }}</span></td>
+                        <td data-label="Статус"><span class="status processing-status processing-status--{{ $callbackRequest->status }}">{{ $callbackRequest->statusLabel() }}</span><small>@include('admin.partials.response-status', ['responseRecord' => $callbackRequest, 'compact' => true])</small></td>
                         <td data-label="Ответственный">{{ $callbackRequest->assignee?->name ?? 'Не назначен' }}</td>
                         <td data-label="Клиент"><strong>{{ $callbackRequest->name }}</strong>@if ($callbackRequest->phone)<br><a href="tel:{{ $callbackRequest->phone }}">{{ $callbackRequest->phone }}</a>@endif</td>
                     </tr>
                 @empty
-                    <tr><td colspan="4" class="empty-state">Заявок пока нет.</td></tr>
+                    <tr><td colspan="4" class="empty-state">{{ request()->filled('response') ? 'По выбранным условиям заявки не найдены.' : 'Заявок пока нет.' }}</td></tr>
                 @endforelse
                 </tbody>
             </table></div>

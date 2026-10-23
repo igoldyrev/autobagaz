@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasProcessingWorkflow;
+use App\Models\Concerns\HasResponseTracking;
 use Illuminate\Database\Eloquent\Model;
 
 class CallbackRequest extends Model
 {
-    use HasProcessingWorkflow;
+    use HasProcessingWorkflow, HasResponseTracking;
 
     public const STATUS_NEW = 'new';
 

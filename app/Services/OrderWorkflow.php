@@ -70,6 +70,9 @@ class OrderWorkflow
                     $data['assignee_id'] = $actor->id;
                 }
                 $locked->status = $target;
+                if (! $locked->first_response_at) {
+                    $locked->response_stopped_at = $locked->isClosed() ? now() : null;
+                }
                 $changes[] = 'Статус: «'.$previousLabel.'» → «'.$locked->statusLabel().'»';
                 if ($target === 'cancelled') {
                     $changes[] = 'Причина отмены: '.trim($data['cancellation_reason']);
@@ -87,6 +90,26 @@ class OrderWorkflow
                 if ((int) $locked->assignee_id !== $assignee->id) {
                     $changes[] = 'Ответственный: «'.($locked->assignee?->name ?? 'Не назначен').'» → «'.$assignee->name.'»';
                     $locked->assignee_id = $assignee->id;
+                }
+            }
+
+            if (isset($data['contact_result'])) {
+                if ($locked->isClosed() || ! in_array($data['contact_result'], ['reached', 'not_reached'], true)) {
+                    throw ValidationException::withMessages(['contact_result' => 'Фиксация контакта недоступна.']);
+                }
+                if (trim($data['internal_comment'] ?? '') === '') {
+                    throw ValidationException::withMessages(['internal_comment' => 'Кратко опишите результат контакта.']);
+                }
+                if ($data['contact_result'] === 'reached') {
+                    if ($locked->first_response_at) {
+                        throw ValidationException::withMessages(['contact_result' => 'Первый контакт уже зафиксирован. Обновите страницу.']);
+                    }
+                    $locked->first_response_at = now();
+                    $locked->first_response_by = $actor->id;
+                    $locked->first_response_by_name = $actor->name;
+                    $changes[] = 'Первый контакт с покупателем состоялся';
+                } else {
+                    $changes[] = 'Попытка связаться с покупателем: контакт не состоялся';
                 }
             }
 

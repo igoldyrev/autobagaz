@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasProcessingWorkflow;
+use App\Models\Concerns\HasResponseTracking;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Order extends Model
 {
-    use HasProcessingWorkflow;
+    use HasProcessingWorkflow, HasResponseTracking;
 
     public const STATUS_NEW = 'new';
 

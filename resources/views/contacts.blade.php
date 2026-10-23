@@ -19,7 +19,12 @@
             <section class="contacts-card">
                 <h2 class="contacts-card__title">Магазин «Автобагаж»</h2>
                 <address class="contacts-card__address">г. Пермь, ул. Дзержинского, 15</address>
-                <p class="contacts-card__hours">Пн–Пт: 10:00–19:00<br>Сб–Вс: 10:00–18:00</p>
+                <p class="contacts-card__hours">
+                    @foreach (config('orders.response_time.schedule') as $hours)
+                        {{ $hours['label'] }}: {{ $hours['opens'] }}–{{ $hours['closes'] }}
+                        @unless ($loop->last)<br>@endunless
+                    @endforeach
+                </p>
                 <div class="contacts-card__actions">
                     <a class="contacts-card__action contacts-card__action--primary" href="tel:+73422889929"><i class="fa fa-phone" aria-hidden="true"></i> Позвонить</a>
                     <a class="contacts-card__action" href="mailto:autobagaz@yandex.ru"><i class="fa fa-envelope" aria-hidden="true"></i> Написать</a>

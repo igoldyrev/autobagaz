@@ -396,6 +396,11 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 .processing-filters .processing-filters__mine { align-self: flex-end; min-height: 44px; white-space: nowrap; cursor: pointer; }
 .processing-filters > .button { min-height: 44px; }
 .processing-panel, .order-details, .processing-history { margin-top: 24px; padding: 24px; }
+.response-state { display: block; margin-top: 6px; color: #626b76; font-size: 12px; line-height: 1.4; white-space: normal; overflow-wrap: anywhere; }
+.response-state--late { color: #a22222; font-weight: 700; }
+.processing-response { margin-top: 18px; padding: 12px 16px; border-radius: 9px; background: #f6f8fa; }
+.processing-response .response-state { font-size: 14px; }
+.processing-response p { margin: 8px 0 0; color: #626b76; font-size: 13px; }
 .processing-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
 .processing-status { white-space: nowrap; }
 .processing-status--new { color: #855a06; background: #fff4d6; }

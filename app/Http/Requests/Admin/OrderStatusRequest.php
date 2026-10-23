@@ -17,6 +17,8 @@ class OrderStatusRequest extends FormRequest
     {
         return [
             'internal_comment.required_without_all' => 'Введите внутренний комментарий.',
+            'internal_comment.required_with' => 'Кратко опишите результат контакта.',
+            'contact_result.in' => 'Выберите результат контакта.',
             'internal_comment.max' => 'Комментарий не должен превышать 2000 символов.',
             'cancellation_reason.required_if' => 'Укажите причину отмены.',
             'cancellation_reason.max' => 'Причина отмены не должна превышать 2000 символов.',
@@ -26,13 +28,14 @@ class OrderStatusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'status' => ['required_without_all:assignee_id,internal_comment', Rule::in(array_keys(Order::statusLabels()))],
+            'status' => ['required_without_all:assignee_id,internal_comment,contact_result', Rule::in(array_keys(Order::statusLabels()))],
             'expected_status' => ['required_with:status', Rule::in(array_keys(Order::statusLabels()))],
             'expected_terms_version' => ['sometimes', 'integer', 'min:0'],
             'fulfillment_confirmed' => ['sometimes', 'accepted'],
-            'internal_comment' => ['required_without_all:status,assignee_id', 'nullable', 'string', 'max:2000'],
+            'contact_result' => ['sometimes', Rule::in(['reached', 'not_reached'])],
+            'internal_comment' => ['required_without_all:status,assignee_id', 'required_with:contact_result', 'nullable', 'string', 'max:2000'],
             'cancellation_reason' => ['required_if:status,cancelled', 'nullable', 'string', 'max:2000'],
-            'assignee_id' => ['required_without_all:status,internal_comment', 'integer', 'exists:users,id'],
+            'assignee_id' => ['required_without_all:status,internal_comment,contact_result', 'integer', 'exists:users,id'],
         ];
     }
 }
