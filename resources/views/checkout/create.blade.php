@@ -74,7 +74,6 @@
                     <label for="website">Сайт</label>
                     <input id="website" name="website" tabindex="-1" autocomplete="off">
                 </div>
-                @include('checkout._request_notice')
                 <x-personal-data-consent id="checkout-consent" />
                 <button class="button button__buy" type="submit" @disabled($snapshot === [])>{{ $changes ? 'Подтвердить изменения и оформить заказ' : 'Оформить заказ' }}</button>
             </div>

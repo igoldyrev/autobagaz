@@ -211,7 +211,7 @@ class OrderCheckoutTest extends TestCase
         Mail::fake();
         $product = $this->product();
         $this->post(route('cart.store', $product));
-        foreach (['cart.index', 'checkout.create', 'delivery-payment'] as $route) {
+        foreach (['cart.index', 'delivery-payment'] as $route) {
             $this->get(route($route))->assertOk()
                 ->assertSee('Отправка заявки не резервирует товар.')
                 ->assertSee('Наличие и сроки поставки подтверждает менеджер.')
@@ -222,6 +222,12 @@ class OrderCheckoutTest extends TestCase
                 ->assertSee('вернём деньги за него')
                 ->assertSee('Доставку оплачивает покупатель.');
         }
+        $this->get(route('checkout.create'))->assertOk()
+            ->assertSee($product->name)
+            ->assertDontSee('Предусмотрена 100% предоплата')
+            ->assertDontSee('Если товар невозможно привезти')
+            ->assertDontSee('Доступные товары можно получить отдельно')
+            ->assertDontSee('Онлайн-оплата пока недоступна:');
         $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))->assertRedirect();
         $order = Order::query()->sole();
         $this->get(route('checkout.success', $order))->assertOk()
