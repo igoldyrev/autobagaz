@@ -214,19 +214,23 @@ class OrderCheckoutTest extends TestCase
         foreach (['cart.index', 'checkout.create', 'delivery-payment'] as $route) {
             $this->get(route($route))->assertOk()
                 ->assertSee('Отправка заявки не резервирует товар.')
-                ->assertSee('Наличие, стоимость и сроки поставки подтверждает менеджер.')
-                ->assertSee('Условия и способ оплаты уточнит менеджер.')
-                ->assertSee('получение всех товаров вместе или доступной части отдельно');
+                ->assertSee('Наличие и сроки поставки подтверждает менеджер.')
+                ->assertSee('Онлайн-оплата пока недоступна:')
+                ->assertSee('Доступные товары можно получить отдельно, не дожидаясь остальных')
+                ->assertSee('Предусмотрена 100% предоплата всех товаров')
+                ->assertSee('Менеджер перезвонит после оформления и оплаты')
+                ->assertSee('вернём деньги за него')
+                ->assertSee('Доставку оплачивает покупатель.');
         }
         $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))->assertRedirect();
         $order = Order::query()->sole();
         $this->get(route('checkout.success', $order))->assertOk()
             ->assertSee('Отправка заявки не резервирует товар.')
-            ->assertSee('Условия и способ оплаты уточнит менеджер.');
+            ->assertSee('Онлайн-оплата пока недоступна:');
         $email = (new OrderConfirmation($order))->render();
         $this->assertStringContainsString('Отправка заявки не резервирует товар.', $email);
-        $this->assertStringContainsString('Наличие, стоимость и сроки поставки подтверждает менеджер.', $email);
-        $this->assertStringContainsString('Условия и способ оплаты уточнит менеджер.', $email);
+        $this->assertStringContainsString('Наличие и сроки поставки подтверждает менеджер.', $email);
+        $this->assertStringContainsString('Онлайн-оплата пока недоступна:', $email);
     }
 
     public function test_cart_shows_recently_viewed_products(): void
