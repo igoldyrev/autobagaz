@@ -20,8 +20,8 @@ class OrderTerms
             if ($locked->status !== $data['expected_status'] || $latest !== (int) $data['expected_version']) {
                 throw ValidationException::withMessages(['terms' => 'Заказ или условия уже изменены. Обновите страницу.']);
             }
-            if ($locked->isClosed()) {
-                throw ValidationException::withMessages(['terms' => 'Нельзя изменять условия закрытого заказа.']);
+            if (! $locked->canEditTerms()) {
+                throw ValidationException::withMessages(['terms' => 'Условия недоступны для изменения на этом этапе. До отправки заказ можно вернуть к согласованию.']);
             }
 
             $originalItems = $locked->items()->orderBy('id')->get();
@@ -118,7 +118,7 @@ class OrderTerms
         DB::transaction(function () use ($order, $version) {
             $locked = Order::query()->lockForUpdate()->findOrFail($order->id);
             $latest = $locked->termsVersions()->first();
-            if ($locked->isClosed() || ! $latest || $latest->version !== $version) {
+            if (! $locked->canEditTerms() || ! $latest || $latest->version !== $version) {
                 throw ValidationException::withMessages(['version' => 'Условия изменились или согласование недоступно. Проверьте актуальные условия заказа.'])
                     ->redirectTo($locked->customerUrl());
             }

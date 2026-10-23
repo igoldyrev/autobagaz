@@ -4,11 +4,14 @@
 
 @section('body')
     <div class="admin-shell"><div>@include('admin.partials.header')</div>
-        <main class="admin-content">
+        <main class="admin-content admin-order-page">
             @include('admin.partials.flash')
-            <div class="page-heading"><div><p class="eyebrow">Заказ</p><h1>{{ $order->number }}</h1><p class="admin-content__lead">{{ $order->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</p></div></div>
-            <a class="button button--secondary button--inline" href="{{ route('admin.orders.index') }}">← К списку заказов</a>
-            @include('admin.partials.processing-panel', ['record' => $order, 'assigneeExpanded' => true, 'updateUrl' => route('admin.orders.update', $order)])
+            <div class="page-heading"><div><p class="eyebrow">Заказ</p><h1>{{ $order->number }}</h1></div></div>
+            <div class="order-page-meta">
+                <p class="admin-content__lead">{{ $order->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</p>
+                <a class="button button--secondary button--inline" href="{{ route('admin.orders.index') }}">← К списку заказов</a>
+            </div>
+            @include('admin.partials.processing-panel', ['record' => $order, 'updateUrl' => route('admin.orders.update', $order)])
             <div class="admin-card order-details">
                 <h2>Клиент</h2><p>{{ $order->customer_name }} · <a href="tel:{{ $order->phone }}">{{ $order->phone }}</a> · <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p>
                 <h2>Автомобиль</h2>
@@ -33,18 +36,9 @@
                     @endforeach
                 </tbody></table></div>
                 <p class="processing-total"><strong>Сумма исходной заявки: {{ number_format((float) $order->total, 2, ',', ' ') }} ₽</strong></p>
+                <p class="order-customer-link"><a href="{{ $order->customerUrl() }}">Открыть страницу покупателя</a><br><span>Передайте эту ссылку покупателю, если нужно согласовать замену или новые условия.</span></p>
             </div>
-            <section class="admin-card">
-                <h2>Условия при оформлении</h2>
-                @if ($order->checkout_terms)
-                    <p>Версия {{ $order->checkout_terms['version'] }}</p>
-                    @foreach ($order->checkout_terms['notices'] as $notice)<p>{{ $notice }}</p>@endforeach
-                @else
-                    <p>Текст условий при оформлении этого заказа не был сохранён. Текущие условия сайта не подставляются задним числом.</p>
-                @endif
-            </section>
             @include('admin.orders._terms')
-            @include('admin.partials.personal-data-consent', ['record' => $order])
             @include('admin.partials.processing-history')
         </main>
     </div>

@@ -400,6 +400,9 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 .processing-status--new { color: #855a06; background: #fff4d6; }
 .processing-status--in_progress { color: #2158a0; background: #eaf2ff; }
 .processing-status--confirmed { color: #6541a0; background: #f1eaff; }
+.processing-status--awaiting_supply { color: #855a06; background: #fff4d6; }
+.processing-status--ready { color: #216846; background: #e7f5ed; }
+.processing-status--shipped { color: #2158a0; background: #eaf2ff; }
 .processing-status--completed { color: #216846; background: #e7f5ed; }
 .processing-status--cancelled { color: #a22222; background: #fceaea; }
 .processing-steps { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 24px 0; list-style: none; counter-reset: processing-step; }
@@ -429,3 +432,68 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 
 .processing-filters input[type="checkbox"] { flex: 0 0 16px; width: 16px; height: 16px; margin: 0; padding: 0; }
 .order-details p, .processing-history p { min-height: 0; }
+
+/* Компактная корректировка заказа. */
+.order-page-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.order-page-meta .admin-content__lead { margin: 0; }
+.order-page-meta .button { flex-shrink: 0; }
+.order-customer-link { margin-top: 18px; }
+.order-customer-link span { color: #69707a; font-size: 13px; }
+.order-change-editor { margin-top: 24px; padding: 24px; }
+.order-change-editor p { min-height: 0; }
+.order-change-editor > p { max-width: 850px; color: #59616b; line-height: 1.5; }
+.order-change-editor h3 { margin-top: 22px; color: #334155; font-size: 16px; }
+.order-change-item { min-width: 0; margin: 16px 0; padding: 14px; border: 1px solid #d7dce2; border-radius: 8px; }
+.order-change-item--existing { border-left: 4px solid #7d8997; background: #f7f8fa; }
+.order-change-item--additional { border-left: 4px solid #3977ad; background: #f2f7fc; }
+.order-change-item legend { max-width: 100%; padding: 0 6px; font-size: 13px; font-weight: 700; overflow-wrap: anywhere; }
+.order-change-item__fields { display: grid; grid-template-columns: 120px 155px minmax(0, 1fr); gap: 12px; align-items: start; }
+.order-change-editor .field { display: flex; flex-direction: column; align-items: stretch; gap: 6px; min-width: 0; margin-bottom: 0; }
+.order-change-editor .field > span { min-height: 20px; color: #39424e; font-size: 13px; font-weight: 600; line-height: 20px; }
+.admin-order-page .field input, .admin-order-page .field select { box-sizing: border-box; width: 100%; height: 40px; padding: 8px 12px; border: 1px solid #cbd2dc; border-radius: 8px; background: #fff; color: #283341; font-family: inherit; font-size: 14px; line-height: 22px; transition: border-color .15s, box-shadow .15s; }
+.admin-order-page .field input:hover, .admin-order-page .field select:hover { border-color: #a7b2c0; }
+.admin-order-page .field input:focus, .admin-order-page .field select:focus, .admin-order-page .field textarea:focus { outline: none; border-color: #df4b1f; box-shadow: 0 0 0 3px rgb(223 75 31 / 12%); }
+.order-change-editor .field textarea { box-sizing: border-box; width: 100%; min-height: 80px; padding: 10px 12px; border: 1px solid #cbd2dc; border-radius: 8px; color: #283341; font-family: inherit; font-size: 14px; line-height: 1.5; }
+.order-change-editor .form-grid { gap: 16px; margin: 12px 0 20px; align-items: start; }
+.order-change-editor form > .field { margin-top: 18px; }
+.order-change-editor .processing-assignee { align-items: end; padding: 16px; border: 1px solid #e1e5eb; border-radius: 10px; background: #f8fafc; }
+.order-change-editor .processing-assignee .field { max-width: 520px; }
+.order-change-editor .processing-assignee .button { min-height: 40px; padding: 8px 18px; }
+.order-change-editor .field input::placeholder, .order-change-editor .field textarea::placeholder { color: #8a94a1; }
+.order-change-editor .field__hint { display: block; font-size: 12px; line-height: 1.4; }
+@media (max-width: 640px) {
+    .order-change-editor { padding: 18px; }
+    .order-change-item__fields { grid-template-columns: 1fr 1fr; }
+    .order-change-item__fields > .field:last-child { grid-column: 1 / -1; }
+}
+
+/* Единый формат списков заказов и обратных звонков. */
+.admin-content.processing-table-page { width: min(100% - 48px, 1600px); }
+.processing-table { table-layout: fixed; }
+.processing-table th, .processing-table td { padding: 14px 10px; overflow-wrap: anywhere; font-size: 13px; line-height: 1.5; }
+.processing-table th { font-size: 11px; letter-spacing: .02em; }
+.processing-table .processing-status { display: inline-block; box-sizing: border-box; max-width: 100%; white-space: normal; }
+.processing-table time { font-size: 12px; }
+.processing-table time small { display: block; color: #7a8490; font-size: 12px; }
+.processing-table--orders .processing-table__number { width: 9%; }
+.processing-table--orders .processing-table__date { width: 8%; }
+.processing-table--orders .processing-table__status { width: 14%; }
+.processing-table--orders .processing-table__assignee { width: 10%; }
+.processing-table--orders .processing-table__customer { width: 23%; }
+.processing-table--orders .processing-table__vehicle { width: 17%; }
+.processing-table--orders .processing-table__delivery { width: 9%; }
+.processing-table--orders .processing-table__amount { width: 10%; }
+.processing-table--callbacks .processing-table__date { width: 12%; }
+.processing-table--callbacks .processing-table__status { width: 18%; }
+.processing-table--callbacks .processing-table__assignee { width: 20%; }
+.processing-table--callbacks .processing-table__customer { width: 50%; }
+@media (max-width: 960px) {
+    .admin-content.processing-table-page { width: calc(100% - 32px); }
+    .processing-table-wrap { overflow: hidden; border: 0; border-radius: 0; background: transparent; }
+    .processing-table, .processing-table tbody { display: block; }
+    .processing-table colgroup, .processing-table thead { display: none; }
+    .processing-table tbody tr { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin-bottom: 14px; padding: 10px; border: 1px solid #e0e2e5; border-radius: 12px; background: #fff; }
+    .processing-table td { min-width: 0; padding: 8px; border: 0; }
+    .processing-table td[data-label]::before { display: block; margin-bottom: 4px; color: #7a8490; font-size: 11px; font-weight: 600; content: attr(data-label); }
+    .processing-table td[colspan] { grid-column: 1 / -1; }
+}

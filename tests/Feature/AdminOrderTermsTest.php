@@ -13,6 +13,20 @@ class AdminOrderTermsTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_order_card_has_only_the_compact_change_form_and_customer_link_after_items(): void
+    {
+        $order = $this->order();
+        $response = $this->actingAs($this->manager())->get(route('admin.orders.show', $order))->assertOk()
+            ->assertDontSee('Условия при оформлении')
+            ->assertDontSee('Предложения и согласованные условия')
+            ->assertDontSee('Согласие на обработку данных')
+            ->assertSeeInOrder(['Исходная заявка: товары', 'Сумма исходной заявки', 'Открыть страницу покупателя', 'Замена товаров и изменение условий'])
+            ->assertSee($order->customerUrl(), false)
+            ->assertSee('Если нужно заказать у поставщика')
+            ->assertSee('order-change-item--existing', false);
+        $this->assertSame(1, substr_count($response->getContent(), 'Открыть страницу покупателя'));
+    }
+
     public function test_proposal_saves_an_independent_snapshot_and_calculates_money_without_changing_the_request(): void
     {
         $order = $this->order();
@@ -44,8 +58,9 @@ class AdminOrderTermsTest extends TestCase
         $this->assertSame($originalItem, $order->items()->first()->getAttributes());
         $this->assertDatabaseHas('admin_activity_logs', ['subject_type' => 'order', 'subject_id' => $order->id, 'user_id' => $manager->id]);
         $this->get(route('admin.orders.show', $order))->assertOk()
-            ->assertSee('Предложение менеджера')->assertSee('120,20 ₽')
-            ->assertSee('Согласие покупателя на условия пока не зафиксировано')
+            ->assertSee('Замена товаров и изменение условий')
+            ->assertDontSee('Предложения и согласованные условия')
+            ->assertDontSee('Согласие покупателя на условия пока не зафиксировано')
             ->assertSee('Сохранено предложение условий №1');
     }
 
@@ -76,7 +91,7 @@ class AdminOrderTermsTest extends TestCase
         $this->assertSame('200.30', $unknown->goods_total);
         $this->assertNull($unknown->delivery_cost);
         $this->assertNull($unknown->total);
-        $this->get(route('admin.orders.show', $order))->assertSee('Пока не рассчитана')
+        $this->get($order->customerUrl())->assertSee('Пока не рассчитана')
             ->assertSee('Будет определён после расчёта доставки');
 
         $data['expected_version'] = 1;
@@ -165,7 +180,7 @@ class AdminOrderTermsTest extends TestCase
             $order->update(['status' => $status]);
             $this->post($this->url($order), array_replace($data, ['expected_status' => $status]))
                 ->assertSessionHasErrors('terms');
-            $this->get(route('admin.orders.show', $order))->assertDontSee('Сохранить предложение');
+            $this->get(route('admin.orders.show', $order))->assertDontSee('Сохранить изменения для согласования');
         }
         $order->update(['status' => 'confirmed']);
         $this->post($this->url($order), $data)->assertSessionHasErrors('terms');
@@ -207,17 +222,17 @@ class AdminOrderTermsTest extends TestCase
             ->assertSessionDoesntHaveErrors();
         $this->assertSame($before, $accepted->fresh()->getAttributes());
         $this->assertNull($order->termsVersions()->first()->accepted_at);
-        $this->get(route('admin.orders.show', $order))->assertSee('Действующие согласованные условия: версия № 1');
+        $this->get($order->customerUrl())->assertSee('Согласованные условия № 1');
     }
 
     public function test_original_policy_is_rendered_from_the_saved_snapshot_and_legacy_orders_are_marked(): void
     {
         $order = $this->order();
         $this->actingAs($this->manager())->get(route('admin.orders.show', $order))
-            ->assertSee('Текст условий при оформлении этого заказа не был сохранён');
+            ->assertDontSee('Условия при оформлении');
         $order->update(['checkout_terms' => ['version' => 'old-policy', 'notices' => ['Исходный порядок оплаты этого заказа']]]);
-        $this->get(route('admin.orders.show', $order))->assertSee('old-policy')
-            ->assertSee('Исходный порядок оплаты этого заказа');
+        $this->get(route('admin.orders.show', $order))->assertDontSee('old-policy')
+            ->assertDontSee('Исходный порядок оплаты этого заказа');
         $email = (new OrderConfirmation($order))->render();
         $this->assertStringContainsString('Исходный порядок оплаты этого заказа', $email);
         $this->assertStringNotContainsString('Предусмотрена 100% предоплата всех товаров', $email);

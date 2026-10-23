@@ -17,7 +17,7 @@ class OrderController extends Controller
 {
     public function index(Request $request): View
     {
-        $orders = Order::query()->with('assignee')
+        $orders = Order::query()->with('assignee', 'acceptedTermsVersion')
             ->when($request->filled('status'), fn ($query) => $query->where('status', $request->input('status')))
             ->when($request->boolean('mine'), fn ($query) => $query->where('assignee_id', $request->user()->id))
             ->when(! $request->boolean('mine') && $request->filled('assignee_id'), fn ($query) => $query->where('assignee_id', $request->input('assignee_id')))
@@ -47,8 +47,6 @@ class OrderController extends Controller
             'managers' => app(OrderWorkflow::class)->managers(),
             'history' => app(OrderWorkflow::class)->history($order),
             'latestTerms' => $order->termsVersions()->first(),
-            'acceptedTerms' => $order->termsVersions()->whereNotNull('accepted_at')->first(),
-            'termsVersions' => $order->termsVersions()->paginate(10, ['*'], 'terms_page')->withQueryString(),
         ]);
     }
 
@@ -56,7 +54,7 @@ class OrderController extends Controller
     {
         app(OrderTerms::class)->propose($order, $request->user(), $request->validated());
 
-        return to_route('admin.orders.show', $order)->with('success', 'Предложение условий сохранено. Согласие покупателя ещё не получено.');
+        return to_route('admin.orders.show', $order)->with('success', 'Изменения сохранены. Передайте покупателю ссылку на заказ для подтверждения.');
     }
 
     public function update(OrderStatusRequest $request, Order $order): RedirectResponse

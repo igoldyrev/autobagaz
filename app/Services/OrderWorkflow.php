@@ -19,6 +19,16 @@ class OrderWorkflow
             ->filter(fn (User $user) => $user->hasPermission(User::PERMISSION_ORDERS));
     }
 
+    public function defaultAssigneeId(): ?int
+    {
+        $id = config('orders.default_assignee_id');
+        $candidates = User::query()->where('is_admin', true)
+            ->when($id, fn ($query) => $query->whereKey($id), fn ($query) => $query->where('name', config('orders.default_assignee_name')))
+            ->get()->filter(fn (User $user) => $user->hasPermission(User::PERMISSION_ORDERS));
+
+        return $candidates->count() === 1 ? $candidates->first()->id : null;
+    }
+
     public function history(Order|CallbackRequest $record): LengthAwarePaginator
     {
         return AdminActivityLog::query()->where('subject_type', $record instanceof Order ? 'order' : 'callback_request')
@@ -43,11 +53,23 @@ class OrderWorkflow
                 if (! array_key_exists($target, $locked->availableActions()) && ! $reopen) {
                     throw ValidationException::withMessages(['status' => 'Этот переход статуса недоступен.']);
                 }
-                $changes[] = 'Статус: «'.$locked->statusLabel().'» → «'.$locked::statusLabels()[$target].'»';
-                if ($target === 'in_progress' && ($locked->status === 'new' || ! $locked->assignee_id)) {
+                if ($locked instanceof Order && in_array($target, [Order::STATUS_READY, Order::STATUS_SHIPPED, Order::STATUS_COMPLETED], true)) {
+                    if (($locked->latestTermsVersion?->version ?? 0) !== (int) ($data['expected_terms_version'] ?? 0)) {
+                        throw ValidationException::withMessages(['expected_terms_version' => 'Условия заказа изменились. Обновите страницу перед продолжением обработки.']);
+                    }
+                    if ($target === Order::STATUS_COMPLETED && ! ($data['fulfillment_confirmed'] ?? false)) {
+                        throw ValidationException::withMessages(['fulfillment_confirmed' => 'Подтвердите получение всего заказа покупателем или завершение установки в магазине.']);
+                    }
+                }
+                $previousLabel = $locked->statusLabel();
+                if ($target === 'in_progress' && ! $locked->assignee_id) {
                     $data['assignee_id'] = $actor->id;
                 }
                 $locked->status = $target;
+                $changes[] = 'Статус: «'.$previousLabel.'» → «'.$locked->statusLabel().'»';
+                if ($locked instanceof Order && $target === Order::STATUS_COMPLETED) {
+                    $changes[] = 'Менеджер подтвердил получение всего заказа покупателем или завершение установки в магазине';
+                }
             }
 
             if (array_key_exists('assignee_id', $data)) {

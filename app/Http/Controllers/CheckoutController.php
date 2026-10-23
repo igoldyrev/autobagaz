@@ -9,6 +9,7 @@ use App\Models\VehicleConfiguration;
 use App\Services\CartService;
 use App\Services\OrderNotifications;
 use App\Services\OrderTerms;
+use App\Services\OrderWorkflow;
 use App\Support\OrderCheckoutTerms;
 use App\Support\PersonalDataConsent;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -92,6 +93,7 @@ class CheckoutController extends Controller
                 $order = Order::query()->create([
                     ...$request->safe()->except(['website', 'checkout_snapshot', 'personal_data_consent', 'consent_version']),
                     ...PersonalDataConsent::attributes(),
+                    'assignee_id' => app(OrderWorkflow::class)->defaultAssigneeId(),
                     'total' => number_format(array_sum(array_map(fn (array $item) => $item['price'] * $item['quantity'], $snapshot)) / 100, 2, '.', ''),
                     'vehicle_snapshot' => $this->vehicleSnapshot($request),
                     'checkout_terms' => OrderCheckoutTerms::snapshot(),

@@ -7,6 +7,23 @@
     <section class="checkout-success checkout-order ym-hide-content">
         <h1 class="title title-h1">Заказ № {{ $order->number }}</h1>
         <p>Этап обработки: <strong>{{ $order->statusLabel() }}</strong></p>
+        <p>{{ $order->statusDescription() }}</p>
+        @unless ($order->isClosed())
+            <ol class="order-processing-steps" aria-label="Этапы заказа" role="list">
+                @foreach ($order->processingSteps() as $value => $label)
+                    <li @if($order->status === $value) aria-current="step" @endif>
+                        @unless ($loop->first)<span class="order-processing-steps__arrow" aria-hidden="true">→</span>@endunless
+                        <span class="order-processing-steps__label">{{ match ($value) {
+                            \App\Models\Order::STATUS_NEW => 'Принят',
+                            \App\Models\Order::STATUS_CONFIRMED => 'Подтверждён',
+                            \App\Models\Order::STATUS_AWAITING_SUPPLY => 'Поставка',
+                            \App\Models\Order::STATUS_READY => 'Готов',
+                            default => $label,
+                        } }}</span>
+                    </li>
+                @endforeach
+            </ol>
+        @endunless
         @if (session('success'))<p role="status">{{ session('success') }}</p>@endif
         @if ($errors->any())
             <div role="alert"><ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>
@@ -21,7 +38,7 @@
             <p>Проверьте состав, стоимость, сроки, получение и порядок оплаты.</p>
             @if ($acceptedTerms)<p>До вашего подтверждения новых условий сохраняется согласованная версия № {{ $acceptedTerms->version }}.</p>@endif
             @include('orders._terms-details', ['terms' => $latestTerms])
-            @unless ($order->isClosed())
+            @if ($order->canEditTerms())
                 @if ($latestTerms->delivery_cost === null)<p>Стоимость доставки ещё не рассчитана. Её согласуют отдельно; в этой версии вы подтверждаете стоимость товаров и остальные указанные условия.</p>@endif
                 <form method="POST" action="{{ route('checkout.terms.accept', ['order' => $order->access_token]) }}">
                     @csrf
@@ -29,9 +46,9 @@
                     <label><input type="checkbox" name="accept_terms" value="1" required> Я согласен с условиями версии № {{ $latestTerms->version }}, включая состав, цены, сроки, получение и порядок оплаты.</label>
                     <button type="submit" class="button button__buy">Подтвердить условия</button>
                 </form>
-            @endunless
+            @endif
         @elseif (! $latestTerms)
-            <p>Мы получили вашу заявку. Менеджер свяжется с вами и предложит условия.</p>
+            <p>Состав и условия заказа указаны в исходной заявке ниже.</p>
         @endif
         @if ($order->isClosed())<p>Согласование условий этого заказа завершено.</p>@endif
         <details @if(! $latestTerms) open @endif>

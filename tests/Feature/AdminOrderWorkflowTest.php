@@ -6,12 +6,32 @@ use App\Models\AdminActivityLog;
 use App\Models\CallbackRequest;
 use App\Models\Order;
 use App\Models\User;
+use App\Services\OrderWorkflow;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class AdminOrderWorkflowTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function test_default_assignee_must_be_unique_and_have_order_permission(): void
+    {
+        config(['orders.default_assignee_id' => null]);
+        User::factory()->create(['name' => 'Максим', 'is_admin' => false]);
+        User::factory()->create(['name' => 'Максим', 'is_admin' => true, 'role' => User::ROLE_CONTENT_MANAGER]);
+        $workflow = app(OrderWorkflow::class);
+        $this->assertNull($workflow->defaultAssigneeId());
+        $maxim = $this->manager();
+        $maxim->update(['name' => 'Максим']);
+        $this->assertSame($maxim->id, $workflow->defaultAssigneeId());
+        $duplicate = $this->manager();
+        $duplicate->update(['name' => 'Максим']);
+        $this->assertNull($workflow->defaultAssigneeId());
+        config(['orders.default_assignee_id' => $maxim->id]);
+        $this->assertSame($maxim->id, $workflow->defaultAssigneeId());
+        $maxim->update(['permissions' => []]);
+        $this->assertNull($workflow->defaultAssigneeId());
+    }
 
     public function test_claim_assigns_current_manager_and_records_history_for_both_types(): void
     {
@@ -52,8 +72,16 @@ class AdminOrderWorkflowTest extends TestCase
             if ($record instanceof Order) {
                 $this->put($this->url($record), ['status' => 'completed', 'expected_status' => 'in_progress'])->assertSessionHasErrors('status');
                 $this->put($this->url($record), ['status' => 'confirmed', 'expected_status' => 'in_progress'])->assertSessionDoesntHaveErrors();
+                $terms = $record->termsVersions()->make([
+                    'version' => 1, 'created_by' => $manager->id, 'created_by_name' => $manager->name,
+                    'items' => [], 'delivery_method' => 'pickup', 'delivery_cost' => '0.00',
+                    'delivery_terms' => 'В магазине', 'payment_method' => 'cash', 'payment_terms' => 'В магазине',
+                    'goods_total' => '1000.00', 'total' => '1000.00',
+                ]);
+                $terms->forceFill(['accepted_at' => now()])->save();
+                $this->put($this->url($record), ['status' => 'ready', 'expected_status' => 'confirmed', 'expected_terms_version' => 1])->assertSessionDoesntHaveErrors();
             }
-            $this->put($this->url($record), ['status' => 'completed', 'expected_status' => $record->fresh()->status])->assertSessionDoesntHaveErrors();
+            $this->put($this->url($record), ['status' => 'completed', 'expected_status' => $record->fresh()->status, 'expected_terms_version' => 1, 'fulfillment_confirmed' => '1'])->assertSessionDoesntHaveErrors();
             $this->put($this->url($record), ['status' => 'in_progress', 'expected_status' => 'completed'])->assertSessionHasErrors('status');
             $this->get($this->url($record, 'show'))->assertOk()->assertDontSee('Вернуть в работу');
             $admin = User::factory()->create(['is_admin' => true, 'role' => User::ROLE_ADMINISTRATOR]);
@@ -68,7 +96,7 @@ class AdminOrderWorkflowTest extends TestCase
     {
         $manager = $this->manager();
         foreach ($this->records() as $record) {
-            $statuses = $record instanceof Order ? ['new', 'in_progress', 'confirmed'] : ['new', 'in_progress'];
+            $statuses = $record instanceof Order ? ['new', 'in_progress', 'confirmed', 'awaiting_supply', 'ready'] : ['new', 'in_progress'];
             foreach ($statuses as $status) {
                 $record->update(['status' => $status]);
                 $this->actingAs($manager)->put($this->url($record), ['status' => 'cancelled', 'expected_status' => $status])->assertSessionDoesntHaveErrors();
@@ -129,7 +157,7 @@ class AdminOrderWorkflowTest extends TestCase
             foreach (array_keys($record::statusLabels()) as $status) {
                 $record->update(['status' => $status]);
                 $response = $this->actingAs($manager)->get($this->url($record, 'show'))->assertOk();
-                foreach (['in_progress', 'confirmed', 'completed', 'cancelled'] as $target) {
+                foreach (['in_progress', 'confirmed', 'awaiting_supply', 'ready', 'shipped', 'completed', 'cancelled'] as $target) {
                     $button = 'name="status" value="'.$target.'"';
                     if (array_key_exists($target, $record->availableActions())) {
                         $response->assertSee($button, false);

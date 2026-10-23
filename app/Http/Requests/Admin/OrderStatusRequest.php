@@ -18,6 +18,8 @@ class OrderStatusRequest extends FormRequest
         return [
             'status' => ['required_without:assignee_id', Rule::in(array_keys(Order::statusLabels()))],
             'expected_status' => ['required_with:status', Rule::in(array_keys(Order::statusLabels()))],
+            'expected_terms_version' => ['sometimes', 'integer', 'min:0'],
+            'fulfillment_confirmed' => ['sometimes', 'accepted'],
             'assignee_id' => ['required_without:status', 'integer', 'exists:users,id'],
         ];
     }

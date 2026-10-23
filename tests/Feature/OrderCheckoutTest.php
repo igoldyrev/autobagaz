@@ -37,6 +37,31 @@ class OrderCheckoutTest extends TestCase
 
     private string $checkoutSnapshot = '';
 
+    public function test_new_orders_and_callbacks_are_assigned_to_maxim_and_claiming_preserves_the_assignment(): void
+    {
+        Mail::fake();
+        config(['orders.default_assignee_id' => null]);
+        $maxim = User::factory()->create(['name' => 'Максим', 'is_admin' => true, 'role' => User::ROLE_ADMINISTRATOR]);
+        $other = User::factory()->create(['is_admin' => true, 'role' => User::ROLE_ADMINISTRATOR]);
+        $this->post(route('cart.store', $this->product()));
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()) + ['assignee_id' => $other->id])
+            ->assertSessionDoesntHaveErrors()->assertRedirect(route('checkout.thanks'));
+        $order = Order::query()->sole();
+        $this->assertSame($maxim->id, $order->assignee_id);
+        $this->post(route('callback.store'), [
+            'name' => 'Покупатель', 'phone' => '+79000000000',
+            'personal_data_consent' => '1', 'consent_version' => PersonalDataConsent::VERSION,
+        ])->assertSessionDoesntHaveErrors()->assertRedirect();
+        $callback = CallbackRequest::query()->sole();
+        $this->assertSame($maxim->id, $callback->assignee_id);
+        foreach ([$order, $callback] as $record) {
+            $route = $record instanceof Order ? 'admin.orders.update' : 'admin.callback-requests.update';
+            $this->actingAs($other)->put(route($route, $record), ['status' => 'in_progress', 'expected_status' => 'new'])
+                ->assertSessionDoesntHaveErrors();
+            $this->assertSame($maxim->id, $record->fresh()->assignee_id);
+        }
+    }
+
     public function test_customer_can_add_product_to_cart_and_place_delivery_order(): void
     {
         Mail::fake();
