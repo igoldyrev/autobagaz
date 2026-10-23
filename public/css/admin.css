@@ -170,6 +170,11 @@ a { color: inherit; }
 .admin-table th, .admin-table td { padding: 13px 16px; border-bottom: 1px solid #eceef0; text-align: left; vertical-align: middle; }
 .admin-table th { color: #686f79; background: #f8f8f9; font-size: 12px; letter-spacing: .035em; text-transform: uppercase; }
 .admin-table tbody tr:last-child td { border-bottom: 0; }
+.admin-table__linked-row { position: relative; }
+.admin-table__linked-row:hover, .admin-table__linked-row:focus-within { background: #fff4ee; }
+.admin-table__row-link { position: absolute; z-index: 1; inset: 0; }
+.admin-table__row-link:focus-visible { outline: 2px solid #df4b1f; outline-offset: -2px; }
+.admin-table__linked-row a:not(.admin-table__row-link) { position: relative; z-index: 2; }
 .admin-table code { padding: 3px 6px; border-radius: 5px; background: #f1f2f4; font-size: 12px; }
 .fitment-preview-table { table-layout: fixed; }
 .fitment-preview-table th, .fitment-preview-table td { width: 33.333%; overflow-wrap: anywhere; }

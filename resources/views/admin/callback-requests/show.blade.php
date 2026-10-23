@@ -8,7 +8,7 @@
         <main class="admin-content">
             @include('admin.partials.flash')
             <div class="page-heading"><div><p class="eyebrow">Обратный звонок №{{ $callbackRequest->id }}</p><h1>{{ $callbackRequest->name }}</h1><p class="admin-content__lead">{{ $callbackRequest->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</p></div></div>
-            <a class="text-link" href="{{ route('admin.callback-requests.index', $callbackRequest->archived_at ? ['archived' => 1] : []) }}">← К списку заявок</a>
+            <a class="button button--secondary button--inline" href="{{ route('admin.callback-requests.index', $callbackRequest->archived_at ? ['archived' => 1] : []) }}">← К списку заявок</a>
             @if ($callbackRequest->archived_at)
                 <p class="admin-content__lead">В архиве с {{ $callbackRequest->archived_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}. @if ($callbackRequest->anonymized_at) Контактные данные удалены {{ $callbackRequest->anonymized_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}. @else Контактные данные ожидают удаления. @endif</p>
             @endif
