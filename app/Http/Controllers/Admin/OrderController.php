@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\OrderStatusRequest;
 use App\Http\Requests\Admin\OrderTermsRequest;
 use App\Models\Order;
+use App\Models\Product;
 use App\Services\OrderTerms;
 use App\Services\OrderWorkflow;
 use Illuminate\Http\RedirectResponse;
@@ -27,9 +28,21 @@ class OrderController extends Controller
         return view('admin.orders.index', ['orders' => $orders, 'managers' => app(OrderWorkflow::class)->managers()]);
     }
 
-    public function show(Order $order): View
+    public function show(Request $request, Order $order): View
     {
+        $filters = $request->validate(['product_search' => ['nullable', 'string', 'max:120']]);
+        $search = trim($filters['product_search'] ?? '');
+        $products = $search === '' ? collect() : Product::query()->active()
+            ->where('name', 'like', '%'.$search.'%')->orderBy('name')->limit(20)->get(['id', 'name', 'price']);
+        $oldProductIds = collect(array_keys((array) $request->old('additional_items', [])))
+            ->filter(fn ($id) => filter_var($id, FILTER_VALIDATE_INT) !== false && (int) $id > 0)->take(100)->all();
+        if ($oldProductIds !== []) {
+            $products = $products->merge(Product::query()->whereIn('id', $oldProductIds)->get(['id', 'name', 'price']))->unique('id');
+        }
+
         return view('admin.orders.show', [
+            'additionalProducts' => $products,
+            'productSearch' => $search,
             'order' => $order->load('items.product', 'assignee'),
             'managers' => app(OrderWorkflow::class)->managers(),
             'history' => app(OrderWorkflow::class)->history($order),

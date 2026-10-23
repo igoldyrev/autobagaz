@@ -96,14 +96,14 @@ class AdminOrderTermsTest extends TestCase
         $this->assertNull($unknown->fresh()->total);
     }
 
-    public function test_invalid_quantities_foreign_positions_and_forged_prices_are_rejected(): void
+    public function test_invalid_quantities_foreign_positions_and_forged_names_are_rejected(): void
     {
         $order = $this->order();
         $foreign = $this->order('AB-002');
         $data = $this->data($order);
         $id = $order->items->first()->id;
         $this->actingAs($this->manager());
-        foreach ([-1, 0, 3, '1.5'] as $quantity) {
+        foreach ([-1, 0, 101, '1.5'] as $quantity) {
             $invalid = $data;
             $invalid['items'][$id]['quantity'] = $quantity;
             $this->post($this->url($order), $invalid)->assertSessionHasErrors();
@@ -112,7 +112,7 @@ class AdminOrderTermsTest extends TestCase
         $invalid['items'] = [$foreign->items->first()->id => $data['items'][$id]];
         $this->post($this->url($order), $invalid)->assertSessionHasErrors('items');
         $invalid = $data;
-        $invalid['items'][$id]['unit_price'] = '0.01';
+        $invalid['items'][$id]['product_name'] = 'Подменённое имя';
         $this->post($this->url($order), $invalid)->assertSessionHasErrors();
         $invalid = $data;
         $invalid['items'][$id]['supply_terms'] = '';
@@ -200,7 +200,6 @@ class AdminOrderTermsTest extends TestCase
         $order = $this->order();
         $data = $this->data($order);
         $this->actingAs($this->manager())->post($this->url($order), $data)->assertSessionDoesntHaveErrors();
-        // Acceptance will be written by the buyer workflow in the next step.
         $accepted = $order->termsVersions()->sole();
         $accepted->forceFill(['accepted_at' => now()])->save();
         $before = $accepted->getAttributes();
@@ -245,7 +244,7 @@ class AdminOrderTermsTest extends TestCase
     private function data(Order $order): array
     {
         return [
-            'expected_version' => 0, 'expected_status' => $order->status,
+            'expected_version' => 0, 'expected_status' => $order->status, 'change_reason' => 'Первичное предложение условий',
             'items' => [$order->items->first()->id => ['quantity' => 2, 'supply_terms' => 'До 29.10.2026']],
             'delivery_method' => 'delivery', 'delivery_address' => 'Пермь, ул. Пример, 2',
             'delivery_terms' => 'Доставка до 30.10.2026, одной отправкой', 'delivery_cost' => '20.05',

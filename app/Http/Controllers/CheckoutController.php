@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AcceptOrderTermsRequest;
 use App\Http\Requests\CheckoutOrderRequest;
 use App\Models\Order;
 use App\Models\VehicleConfiguration;
 use App\Services\CartService;
 use App\Services\OrderNotifications;
+use App\Services\OrderTerms;
 use App\Support\OrderCheckoutTerms;
 use App\Support\PersonalDataConsent;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -163,10 +165,25 @@ class CheckoutController extends Controller
 
     public function success(Order $order): Response
     {
-        return response()->view('checkout.success', compact('order'))
+        $order->load('items');
+
+        return response()->view('checkout.success', [
+            'order' => $order,
+            'latestTerms' => $order->termsVersions()->first(),
+            'acceptedTerms' => $order->termsVersions()->whereNotNull('accepted_at')->first(),
+        ])
             ->header('Cache-Control', 'private, no-store')
             ->header('Referrer-Policy', 'no-referrer')
             ->header('X-Robots-Tag', 'noindex, nofollow');
+    }
+
+    public function acceptTerms(AcceptOrderTermsRequest $request, Order $order): RedirectResponse
+    {
+        app(OrderTerms::class)->accept($order, (int) $request->validated('version'));
+
+        return redirect()->to($order->customerUrl())->with('success', 'Вы подтвердили предложенные условия заказа.')
+            ->header('Cache-Control', 'private, no-store')
+            ->header('Referrer-Policy', 'no-referrer');
     }
 
     /** @return array<string, int|string|null>|null */

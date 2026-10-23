@@ -8,7 +8,7 @@
 @endphp
 
 {{-- Секретная ссылка на заказ не должна передаваться в аналитику. --}}
-@if ($counterId > 0 && ! request()->routeIs('checkout.success'))
+@if ($counterId > 0 && ! request()->routeIs('checkout.success', 'checkout.terms.accept'))
     <script type="application/json" id="metrika-config">@json(['counterId' => $counterId, 'goal' => $goalName, 'params' => $goalParams])</script>
     <script src="{{ asset('js/analytics.js') }}?v={{ filemtime(public_path('js/analytics.js')) }}" defer></script>
 @endif

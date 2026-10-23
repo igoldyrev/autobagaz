@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class OrderTermsVersion extends Model
 {
-    protected $guarded = ['id', 'accepted_at'];
+    protected $guarded = ['id', 'accepted_at', 'accepted_via'];
 
     protected function casts(): array
     {
-        return ['items' => 'array', 'goods_total' => 'decimal:2', 'delivery_cost' => 'decimal:2', 'total' => 'decimal:2', 'accepted_at' => 'datetime', 'version' => 'integer'];
+        return ['items' => 'array', 'goods_total' => 'decimal:2', 'delivery_cost' => 'decimal:2', 'total' => 'decimal:2', 'accepted_at' => 'datetime', 'version' => 'integer', 'baseline_version' => 'integer', 'goods_difference' => 'decimal:2', 'delivery_difference' => 'decimal:2', 'total_difference' => 'decimal:2'];
     }
 
     public function order(): BelongsTo

@@ -670,3 +670,14 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
     .body-type-summary > img { height: 140px; }
     .body-type-summary dl > div { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* Защищённая карточка заказа и согласование условий. */
+.checkout-order { text-align: left; }
+.checkout-order h2, .checkout-order details, .checkout-order form { margin-top: 24px; }
+.order-terms-table-wrap { overflow-x: auto; }
+.checkout-order .order-terms-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+.checkout-order .order-terms-table th, .checkout-order .order-terms-table td { padding: 10px; border-bottom: 1px solid #d8ded8; text-align: left; vertical-align: top; }
+.checkout-order dt { margin-top: 10px; font-weight: 700; }
+.checkout-order dd { margin: 4px 0 12px; white-space: pre-line; }
+.checkout-order summary { cursor: pointer; font-weight: 700; }
+.checkout-order form label { display: block; line-height: 1.5; }

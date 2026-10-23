@@ -189,6 +189,7 @@ Route::get('/checkout', [CheckoutController::class, 'create'])->block(10, 10)->n
 Route::post('/checkout', [CheckoutController::class, 'store'])->middleware('throttle:10,1')->block(10, 10)->name('checkout.store');
 Route::get('/checkout/thanks', [CheckoutController::class, 'thanks'])->block(10, 10)->name('checkout.thanks');
 Route::get('/checkout/open-order', [CheckoutController::class, 'openOrder'])->name('checkout.open-order');
+Route::post('/checkout/{order:access_token}/terms/accept', [CheckoutController::class, 'acceptTerms'])->where('order', '[a-f0-9]{64}')->middleware('throttle:10,1')->name('checkout.terms.accept');
 Route::get('/checkout/{order:access_token}/success', [CheckoutController::class, 'success'])->where('order', '[a-f0-9]{64}')->name('checkout.success');
 Route::get('/autobox', AutoBoxController::class)->name('catalog.auto-boxes.index');
 Route::get('/velokrepleniya', BikeRackController::class)->name('catalog.bike-racks.index');
