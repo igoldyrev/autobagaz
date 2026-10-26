@@ -4,10 +4,10 @@
 @section('meta_description', 'Контакты магазина Автобагаж в Перми: адрес, режим работы, телефоны, электронная почта и реквизиты.')
 
 @section('content')
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-        <span class="breadcrumbs__text">Контакты</span>
-    </nav>
+    <x-breadcrumbs :items="[
+        ['name' => 'Главная страница', 'url' => route('home')],
+        ['name' => 'Контакты'],
+    ]" />
 
     <section class="contacts-page">
         <header class="contacts-page__header">

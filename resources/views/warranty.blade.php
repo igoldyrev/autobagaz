@@ -4,10 +4,10 @@
 @section('meta_description', 'Информация о гарантии на товары магазина Автобагаж в Перми.')
 
 @section('content')
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-        <span class="breadcrumbs__text">Гарантия</span>
-    </nav>
+    <x-breadcrumbs :items="[
+        ['name' => 'Главная страница', 'url' => route('home')],
+        ['name' => 'Гарантия'],
+    ]" />
 
     <article class="information-page">
         <header class="information-page__header">

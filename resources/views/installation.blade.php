@@ -5,10 +5,10 @@
 
 @section('content')
     <section class="installation-page">
-        <nav class="breadcrumbs" aria-label="Хлебные крошки">
-            <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-            <span class="breadcrumbs__text">Установка</span>
-        </nav>
+        <x-breadcrumbs :items="[
+            ['name' => 'Главная страница', 'url' => route('home')],
+            ['name' => 'Установка'],
+        ]" />
 
         <header class="installation-page__header">
             <p class="installation-page__eyebrow">Автобагаж · Пермь</p>

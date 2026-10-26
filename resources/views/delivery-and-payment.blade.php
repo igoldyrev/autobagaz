@@ -4,10 +4,10 @@
 @section('meta_description', 'Условия доставки, самовывоза и оплаты заказов в магазине Автобагаж в Перми.')
 
 @section('content')
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-        <span class="breadcrumbs__text">Доставка и оплата</span>
-    </nav>
+    <x-breadcrumbs :items="[
+        ['name' => 'Главная страница', 'url' => route('home')],
+        ['name' => 'Доставка и оплата'],
+    ]" />
 
     <article class="information-page">
         <header class="information-page__header">

@@ -4,10 +4,10 @@
 @section('meta_description', $section->meta_description ?: $section->description)
 
 @section('content')
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-        <span class="breadcrumbs__text">{{ $section->name }}</span>
-    </nav>
+    <x-breadcrumbs :items="[
+        ['name' => 'Главная страница', 'url' => route('home')],
+        ['name' => $section->name],
+    ]" />
 
     <h1 class="title title-h1">{{ $section->name }}</h1>
 

@@ -5,16 +5,6 @@
         ['title' => 'Акции', 'url' => route('promotions.index')],
         ['title' => 'Контакты', 'url' => route('contacts')],
     ];
-    $siteCategories = [
-        'Рейлинги',
-        'Браслеты противоскольжения',
-        'Фаркопы',
-        'Багажные системы Inno',
-        'Такелажная продукция',
-        'Экспедиционные багажники',
-        'Авточехлы',
-        'Автомобильные пороги',
-    ];
     $isCatalogPage = request()->routeIs(
         'catalog.autobagazhniki.*',
         'catalog.auto-boxes.*',
@@ -34,7 +24,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-        <meta name="robots" content="@yield('robots', 'index,follow')">
+        <x-seo />
+        <x-structured-data :product="$product ?? null" />
         <meta name="description" content="@yield('meta_description', 'Каталог автомобильных багажников по маркам автомобилей.')">
 
         <title>@yield('title', 'Автобагажники') | autobagaz.ru</title>
@@ -110,9 +101,6 @@
                             <a href="{{ route('catalog.auto-boxes.index') }}" class="left-nav__link {{ request()->routeIs('catalog.auto-boxes.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.auto-boxes.*')) aria-current="page" @endif>Автомобильные боксы</a>
                             <a href="{{ route('catalog.bike-racks.index') }}" class="left-nav__link {{ request()->routeIs('catalog.bike-racks.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.bike-racks.*')) aria-current="page" @endif>Велокрепления</a>
                             <a href="{{ route('catalog.ski-racks.index') }}" class="left-nav__link {{ request()->routeIs('catalog.ski-racks.*') ? 'left-nav__link--active' : '' }}" @if (request()->routeIs('catalog.ski-racks.*')) aria-current="page" @endif>Крепления для лыж и сноубордов</a>
-                            @foreach ($siteCategories as $category)
-                                <a href="#" class="left-nav__link" data-placeholder aria-disabled="true">{{ $category }}</a>
-                            @endforeach
                         </nav>
                     </details>
                 </aside>

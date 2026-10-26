@@ -4,10 +4,10 @@
 @section('meta_description', 'Прокат автобоксов, багажников, велокреплений и другого багажного оборудования в Перми.')
 
 @section('content')
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-        <span class="breadcrumbs__text">Прокат багажников и боксов в Перми</span>
-    </nav>
+    <x-breadcrumbs :items="[
+        ['name' => 'Главная страница', 'url' => route('home')],
+        ['name' => 'Прокат багажников и боксов в Перми'],
+    ]" />
 
     <h1 class="title title-h1">Прокат багажников и боксов в Перми</h1>
 

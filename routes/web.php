@@ -43,11 +43,15 @@ use App\Http\Controllers\Internal\AdminMonitoringController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\RoofRackCategoryController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\SkiRackController;
 use App\Http\Controllers\VehicleFitmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
+Route::get('/robots.txt', [SeoController::class, 'robots'])->name('seo.robots');
+Route::get('/sitemap.xml', [SeoController::class, 'index'])->name('seo.sitemap');
+Route::get('/sitemaps/{page}.xml', [SeoController::class, 'page'])->where('page', '[1-9][0-9]{0,5}')->name('seo.sitemap.page');
 Route::view('/prokat', 'rental')->name('rental');
 Route::get('/ustanovka', InstallationController::class)->name('installation');
 Route::get('/akcii', PromotionController::class)->name('promotions.index');

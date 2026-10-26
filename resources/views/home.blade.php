@@ -4,14 +4,6 @@
         ['title' => 'Автомобильные боксы', 'image' => '/content/index/img/catalog/2_autobox.jpg', 'alt' => 'Автомобильные боксы', 'url' => route('catalog.auto-boxes.index')],
         ['title' => 'Велокрепления', 'image' => '/content/index/img/catalog/3_velokreplenya.jpg', 'alt' => 'Велокрепления', 'url' => route('catalog.bike-racks.index')],
         ['title' => 'Крепления для лыж и сноубордов', 'image' => '/content/index/img/catalog/4_lyzh_kreplenya.jpg', 'alt' => 'Крепления для лыж и сноубордов', 'url' => route('catalog.ski-racks.index')],
-        ['title' => 'Рейлинги', 'image' => '/content/index/img/catalog/6_reelings.jpg', 'alt' => 'Рейлинги'],
-        ['title' => 'Браслеты противоскольжения', 'image' => '/content/index/img/catalog/7_braslet.jpg', 'alt' => 'Браслеты противоскольжения'],
-        ['title' => 'Фаркопы', 'image' => '/content/index/img/catalog/8_farkops.jpg', 'alt' => 'Фаркопы'],
-        ['title' => 'Багажные системы Inno', 'image' => '/content/index/img/catalog/9_inno.jpg', 'alt' => 'Багажные системы Inno'],
-        ['title' => 'Такелажная продукция', 'image' => '/content/index/img/catalog/10_textil.JPG', 'alt' => 'Такелажная продукция'],
-        ['title' => 'Экспедиционные багажники', 'image' => '/content/index/img/catalog/11_expidition.JPG', 'alt' => 'Экспедиционные багажники'],
-        ['title' => 'Авточехлы', 'image' => '/content/covers/img/Cayman_Black_Red_Face.jpg', 'alt' => 'Авточехлы'],
-        ['title' => 'Автомобильные пороги', 'image' => '/content/index/img/catalog/12_porogi.jpg', 'alt' => 'Автомобильные пороги'],
     ];
 
     $brands = [
@@ -38,7 +30,6 @@
         ['title' => 'Акции', 'url' => route('promotions.index')],
         ['title' => 'Контакты', 'url' => route('contacts')],
     ];
-    $categories = array_column($catalog, 'title');
 @endphp
 
 <!DOCTYPE html>
@@ -46,7 +37,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-        <meta name="robots" content="index,follow">
+        <x-seo />
+        <x-structured-data />
         <meta name="description" content="Продажа и прокат багажников и автобоксов, креплений и багажных систем в Перми.">
         <meta name="keywords" content="автобагажники, автобоксы, багажник на крышу, велокрепления, рейлинги, Пермь">
         <meta property="place:location:latitude" content="58.03593904782619">
@@ -124,12 +116,11 @@
                 <details class="catalog-sidebar__section" data-catalog-sidebar-section open>
                     <summary>☰ Категории</summary>
                     <nav class="catalog-sidebar__categories" aria-label="Категории каталога">
-                        @foreach ($categories as $category)
+                        @foreach ($catalog as $category)
                             <a
-                                href="{{ $category === 'Автобагажники' ? route('catalog.autobagazhniki.index') : ($category === 'Автомобильные боксы' ? route('catalog.auto-boxes.index') : ($category === 'Велокрепления' ? route('catalog.bike-racks.index') : ($category === 'Крепления для лыж и сноубордов' ? route('catalog.ski-racks.index') : '#'))) }}"
+                                href="{{ $category['url'] }}"
                                 class="left-nav__link"
-                                @if (! in_array($category, ['Автобагажники', 'Автомобильные боксы', 'Велокрепления', 'Крепления для лыж и сноубордов'], true)) data-placeholder aria-disabled="true" @endif
-                            >{{ $category }}</a>
+                            >{{ $category['title'] }}</a>
                         @endforeach
                     </nav>
                 </details>

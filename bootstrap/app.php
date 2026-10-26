@@ -7,6 +7,7 @@ use App\Http\Middleware\EnsureUserIsSuperAdmin;
 use App\Http\Middleware\RecordAdminActivity;
 use App\Http\Middleware\RecordServerErrors;
 use App\Http\Middleware\ResolveVehicleConfiguration;
+use App\Http\Middleware\SetRobotsHeader;
 use App\Http\Middleware\TrackAdminPresence;
 use App\Services\TelegramSiteErrors;
 use Illuminate\Foundation\Application;
@@ -23,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->prepend(RecordServerErrors::class);
+        $middleware->append(SetRobotsHeader::class);
         $middleware->encryptCookies(except: ['autobagaz_cookie_notice', 'autobagaz_analytics_consent']);
         $middleware->web(append: [ResolveVehicleConfiguration::class]);
 

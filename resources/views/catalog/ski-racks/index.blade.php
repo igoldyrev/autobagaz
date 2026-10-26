@@ -2,7 +2,10 @@
 @section('title',$section->meta_title ?: $section->name)
 @section('meta_description',$section->meta_description ?: $section->description)
 @section('content')
-<nav class="breadcrumbs" aria-label="Хлебные крошки"><a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594; <span class="breadcrumbs__text">{{ $section->name }}</span></nav><h1 class="title title-h1">{{ $section->name }}</h1>
+<x-breadcrumbs :items="[
+    ['name' => 'Главная страница', 'url' => route('home')],
+    ['name' => $section->name],
+]" /><h1 class="title title-h1">{{ $section->name }}</h1>
 @if($unfilteredProductCount>0)<div class="catalog-products-results--section">@include('catalog.ski-racks._filters',['horizontal'=>true])<div class="catalog-products-results">@include('catalog.products._toolbar')@if($products->isNotEmpty())@include('catalog.products._grid',['products'=>$products])@include('catalog.products._pagination',['paginator'=>$products])@else<div class="records-placeholder records-placeholder--list"><p>По выбранным параметрам товаров не найдено.</p></div>@endif</div></div>@else<div class="records-placeholder records-placeholder--list"><p>В этом разделе пока нет товаров.</p></div>@endif
 <section class="catalog-selection-guide" aria-labelledby="ski-racks-selection-guide-title">
     <h2 class="title title-h3" id="ski-racks-selection-guide-title">Как выбрать крепление для лыж и сноубордов</h2>

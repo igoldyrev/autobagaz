@@ -4,10 +4,10 @@
 @section('meta_description', 'Подберите автобагажники и аксессуары по марке, модели и кузову автомобиля.')
 
 @section('content')
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-        <span class="breadcrumbs__text">Подбор по автомобилю</span>
-    </nav>
+    <x-breadcrumbs :items="[
+        ['name' => 'Главная страница', 'url' => route('home')],
+        ['name' => 'Подбор по автомобилю'],
+    ]" />
 
     @include('catalog.vehicle-fitment._picker', ['hero' => true])
 

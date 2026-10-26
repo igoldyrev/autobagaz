@@ -4,10 +4,10 @@
 @section('meta_description', $product->meta_description ?: str($product->description)->stripTags()->limit(155))
 
 @section('content')
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-        <span class="breadcrumbs__text">{{ $product->name }}</span>
-    </nav>
+    <x-breadcrumbs :items="[
+        ['name' => 'Главная страница', 'url' => route('home')],
+        ['name' => $product->name],
+    ]" />
 
     <h1 class="title title-h1 product-page__title">{{ $product->name }}</h1>
 
@@ -157,7 +157,7 @@
                 </div>
             </dl>
 
-            <p class="product-page__price">{{ number_format((float) $product->price, 0, ',', ' ') }} ₽</p>
+            <p class="product-page__price">{{ number_format((float) $product->price, (float) $product->price == (int) $product->price ? 0 : 2, ',', ' ') }} ₽</p>
             <form method="POST" action="{{ route('cart.store', $product) }}" class="product-page__buy">
                 @csrf
                 <button class="button button__buy" type="submit">В корзину</button>

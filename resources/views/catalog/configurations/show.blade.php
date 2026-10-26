@@ -11,14 +11,14 @@
 @section('meta_description', $pageTitle)
 
 @section('content')
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-        <a class="breadcrumbs__link" href="{{ route('catalog.autobagazhniki.index') }}">{{ $rootCategory->name }}</a>&#8594;
-        <a class="breadcrumbs__link" href="{{ route('catalog.autobagazhniki.show', $currentCategory->slug) }}">{{ $currentCategory->name }}</a>&#8594;
-        <a class="breadcrumbs__link" href="{{ route('catalog.autobagazhniki.model.show', [$currentCategory->slug, $currentModel->slug]) }}">{{ $currentModel->name }}</a>&#8594;
-        <a class="breadcrumbs__link" href="{{ route('catalog.autobagazhniki.generation.show', [$currentCategory->slug, $currentModel->slug, $currentGeneration->slug]) }}">{{ $generationTitle }}</a>&#8594;
-        <span class="breadcrumbs__text">{{ $currentConfiguration->display_name }}</span>
-    </nav>
+    <x-breadcrumbs :items="[
+        ['name' => 'Главная страница', 'url' => route('home')],
+        ['name' => $rootCategory->name, 'url' => route('catalog.autobagazhniki.index')],
+        ['name' => $currentCategory->name, 'url' => route('catalog.autobagazhniki.show', $currentCategory->slug)],
+        ['name' => $currentModel->name, 'url' => route('catalog.autobagazhniki.model.show', [$currentCategory->slug, $currentModel->slug])],
+        ['name' => $generationTitle, 'url' => route('catalog.autobagazhniki.generation.show', [$currentCategory->slug, $currentModel->slug, $currentGeneration->slug])],
+        ['name' => $currentConfiguration->display_name],
+    ]" />
 
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
 

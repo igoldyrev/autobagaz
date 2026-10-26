@@ -8,12 +8,12 @@
 @section('meta_description', $currentModel->meta_description ?: $pageTitle)
 
 @section('content')
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">Главная страница</a>&#8594;
-        <a class="breadcrumbs__link" href="{{ route('catalog.autobagazhniki.index') }}">{{ $rootCategory->name }}</a>&#8594;
-        <a class="breadcrumbs__link" href="{{ route('catalog.autobagazhniki.show', $currentCategory->slug) }}">{{ $currentCategory->name }}</a>&#8594;
-        <span class="breadcrumbs__text">{{ $currentModel->name }}</span>
-    </nav>
+    <x-breadcrumbs :items="[
+        ['name' => 'Главная страница', 'url' => route('home')],
+        ['name' => $rootCategory->name, 'url' => route('catalog.autobagazhniki.index')],
+        ['name' => $currentCategory->name, 'url' => route('catalog.autobagazhniki.show', $currentCategory->slug)],
+        ['name' => $currentModel->name],
+    ]" />
 
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
 
