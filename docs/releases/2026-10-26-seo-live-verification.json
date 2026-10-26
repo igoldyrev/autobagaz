@@ -1,0 +1,1500 @@
+{
+  "checked_on": "2026-10-26",
+  "base_url": "https://new.autobagaz.ru",
+  "urls": [
+    {
+      "path": "/",
+      "decision": "preserve_200",
+      "status": 200,
+      "expected": 200,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "canonical": [
+        "https://autobagaz.ru/"
+      ]
+    },
+    {
+      "path": "/autobagazhnik/reelings",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobagazhniki/na-reylingi",
+      "target_status": 200,
+      "target_title": "Багажники на рейлинги",
+      "canonical": [
+        "https://autobagaz.ru/autobagazhniki/na-reylingi"
+      ]
+    },
+    {
+      "path": "/autobagazhnik/shtatnye",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobagazhniki/v-shtatnoe-mesto",
+      "target_status": 200,
+      "target_title": "Багажники в штатное место",
+      "canonical": [
+        "https://autobagaz.ru/autobagazhniki/v-shtatnoe-mesto"
+      ]
+    },
+    {
+      "path": "/autobagazhnik/smooth",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/autobagazhnik/vodostok",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/autobagazhniki",
+      "decision": "preserve_200",
+      "status": 200,
+      "expected": 200,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "canonical": [
+        "https://autobagaz.ru/autobagazhniki"
+      ]
+    },
+    {
+      "path": "/autobox",
+      "decision": "preserve_200",
+      "status": 200,
+      "expected": 200,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/autobox/atlant",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=1",
+      "target_status": 200,
+      "target_title": "Автомобильные боксы",
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/autobox/bonus",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=8",
+      "target_status": 200,
+      "target_title": "Автомобильные боксы",
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/autobox/inmax",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=5",
+      "target_status": 200,
+      "target_title": "Автомобильные боксы",
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/autobox/lux",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=4",
+      "target_status": 200,
+      "target_title": "Автомобильные боксы",
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/autobox/nobu",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=9",
+      "target_status": 200,
+      "target_title": "Автомобильные боксы",
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/autobox/terradrive",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=6",
+      "target_status": 200,
+      "target_title": "Автомобильные боксы",
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/autobox/turino",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=3",
+      "target_status": 200,
+      "target_title": "Автомобильные боксы",
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/autobox/vetlan",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=10",
+      "target_status": 200,
+      "target_title": "Автомобильные боксы",
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/autobox/yuago",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=2",
+      "target_status": 200,
+      "target_title": "Автомобильные боксы",
+      "canonical": [
+        "https://autobagaz.ru/autobox"
+      ]
+    },
+    {
+      "path": "/braslets",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/reelings",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/reelingsatlant",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/reelingsduster",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/reelingseuro",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/reelingsfavorit",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/reelingskrepysh",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/reelingslux",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/reelingsmontblanc",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/s1",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/s2",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/s3",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/shtatnye",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/smooth",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/smoothatlant",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/smoothd1",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/smoothlux",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/smoothmontblanc",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/statnyeatlant",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/statnyec15",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/statnyelux",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/vf1",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/vf2",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/vk1",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/vk2",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/vk3",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/vk4",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/vodostok",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/buy/vodostokatlant",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/contacts",
+      "decision": "preserve_200",
+      "status": 200,
+      "expected": 200,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "canonical": [
+        "https://autobagaz.ru/contacts"
+      ]
+    },
+    {
+      "path": "/covers",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/covers/cayman",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/covers/oregon",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/covers/trend",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/buxanka",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/chevrolet",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/duster",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/gazel",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/greatwall",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/hunter",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/isuzu",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/jeep",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/kia",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/landrover",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/mitsubishi",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/nissan",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/niva",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/patriot",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/ssangyong",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/stairs",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/toyota",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/expidition/universal",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/farkops",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/gallery",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/guestbook",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/inno",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/inno/inno-basic",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/inno/inno-boxes",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/inno/new-shadow",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/inno/roofbox",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/kreplenya-dlya-lyzh-shoubord",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/krepleniya-dlya-lyzh-i-snoubordov",
+      "target_status": 200,
+      "target_title": "Крепления для лыж и сноубордов",
+      "canonical": [
+        "https://autobagaz.ru/krepleniya-dlya-lyzh-i-snoubordov"
+      ]
+    },
+    {
+      "path": "/news",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/news/autumn_start",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/news/braslety",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/news/cenopad",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/news/help_select",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/news/koffer",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/news/postuplenya_avtoboksov",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/news/reelings_xray",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/news/rozygryzh_montblanc",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/news/zapret",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/partners",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/podbor",
+      "decision": "news_decision_deferred",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/porogi",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat",
+      "decision": "preserve_200",
+      "status": 200,
+      "expected": 200,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "canonical": [
+        "https://autobagaz.ru/prokat"
+      ]
+    },
+    {
+      "path": "/prokat/reelings",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/reelingsatlant",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/reelingsduster",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/reelingseuro",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/reelingsfavorit",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/reelingskrepysh",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/reelingslux",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/reelingsmontblanc",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/shtatnye",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/smooth",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/smoothatlant",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/smoothd1",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/smoothlux",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/smoothmontblanc",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/statnyeatlant",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/statnyec15",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/statnyelux",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/vf1",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/vf2",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/vk1",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/vk2",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/vk3",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/vk4",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/vodostok",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/prokat/vodostokatlant",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/4x4",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/astra",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/ceed",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/chevi-l",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/chevi-m",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/chevrolet",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/creta",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/cx5-1",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/cx5-2",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/datsun",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/freelander2",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/granta-e",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/granta-kalina-sedan",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/granta-liftback",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/hyundai",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/i30",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/kalina-universal",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/kalina-xetchbek",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/kaptur",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/kia",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/l4x4",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/lada",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/landrover",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/largus",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/logan",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/mazda",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/mi-do",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/new-ceed",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/new-logan",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/new-sandero",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/on-do",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/opel",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/prado150",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/rav4-3",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/rav4-4",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/renault",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/sandero",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/solaris",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/three",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/toyota",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/reelings/xray",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/sertificates",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/sitemap",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/special-offers",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/akcii",
+      "target_status": 200,
+      "target_title": "Акции",
+      "canonical": [
+        "https://autobagaz.ru/akcii"
+      ]
+    },
+    {
+      "path": "/takelazh",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/takelazh/dynamic_strops",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/takelazh/textil_strops",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/user-agreement",
+      "decision": "no_equivalent_404",
+      "status": 404,
+      "expected": 404,
+      "robots": "noindex, nofollow",
+      "ok": true
+    },
+    {
+      "path": "/velokreplenya",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/velokrepleniya",
+      "target_status": 200,
+      "target_title": "Велокрепления",
+      "canonical": [
+        "https://autobagaz.ru/velokrepleniya"
+      ]
+    },
+    {
+      "path": "/velokreplenya/farkop",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/velokrepleniya?mounting_type%5B0%5D=%D0%9D%D0%B0%20%D1%84%D0%B0%D1%80%D0%BA%D0%BE%D0%BF",
+      "target_status": 200,
+      "target_title": "Велокрепления",
+      "canonical": [
+        "https://autobagaz.ru/velokrepleniya"
+      ]
+    },
+    {
+      "path": "/velokreplenya/krysha",
+      "decision": "redirect_301",
+      "status": 301,
+      "expected": 301,
+      "robots": "noindex, nofollow",
+      "ok": true,
+      "location": "https://new.autobagaz.ru/velokrepleniya?mounting_type%5B0%5D=%D0%9D%D0%B0%20%D0%BA%D1%80%D1%8B%D1%88%D1%83",
+      "target_status": 200,
+      "target_title": "Велокрепления",
+      "canonical": [
+        "https://autobagaz.ru/velokrepleniya"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "path": "/products/bagaznik-na-krysu-inter-integra",
+      "status": 200,
+      "robots": "noindex, nofollow",
+      "canonical": [
+        "https://autobagaz.ru/products/bagaznik-na-krysu-inter-integra"
+      ],
+      "schema_types": [
+        "AutoPartsStore",
+        "Product",
+        "BreadcrumbList"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/products/bagaznik-na-gladkuiu-krysu-d-1",
+      "status": 200,
+      "robots": "noindex, nofollow",
+      "canonical": [
+        "https://autobagaz.ru/products/bagaznik-na-gladkuiu-krysu-d-1"
+      ],
+      "schema_types": [
+        "AutoPartsStore",
+        "Product",
+        "BreadcrumbList"
+      ],
+      "ok": true
+    }
+  ],
+  "failed": []
+}

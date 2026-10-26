@@ -1,0 +1,1715 @@
+{
+    "checked_on": "2026-10-26",
+    "source_host": "https://autobagaz.ru",
+    "target_host_after_cutover": "https://autobagaz.ru",
+    "verification_host": "https://new.autobagaz.ru",
+    "source_pages": [
+        "/",
+        "/autobagazhniki",
+        "/autobox",
+        "/autobox/vetlan",
+        "/velokreplenya",
+        "/velokreplenya/krysha",
+        "/velokreplenya/farkop",
+        "/podbor",
+        "/autobagazhnik/reelings",
+        "/autobagazhnik/shtatnye",
+        "/autobagazhnik/smooth",
+        "/autobagazhnik/vodostok"
+    ],
+    "summary": {
+        "preserve_200": 5,
+        "redirect_301": 16,
+        "no_equivalent_404": 137,
+        "news_decision_deferred": 11
+    },
+    "urls": [
+        {
+            "path": "/",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "preserve_200",
+            "target_route": "home"
+        },
+        {
+            "path": "/autobagazhnik/reelings",
+            "sources": [
+                "sitemap.xml",
+                "/autobagazhniki",
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.autobagazhniki.show",
+            "parameters": {
+                "category": "na-reylingi"
+            }
+        },
+        {
+            "path": "/autobagazhnik/shtatnye",
+            "sources": [
+                "sitemap.xml",
+                "/autobagazhniki",
+                "/autobagazhnik/shtatnye"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.autobagazhniki.show",
+            "parameters": {
+                "category": "v-shtatnoe-mesto"
+            }
+        },
+        {
+            "path": "/autobagazhnik/smooth",
+            "sources": [
+                "sitemap.xml",
+                "/autobagazhniki",
+                "/autobagazhnik/smooth"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/autobagazhnik/vodostok",
+            "sources": [
+                "sitemap.xml",
+                "/autobagazhniki",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/autobagazhniki",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "preserve_200",
+            "target_route": "catalog.autobagazhniki.index"
+        },
+        {
+            "path": "/autobox",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "preserve_200",
+            "target_route": "catalog.auto-boxes.index"
+        },
+        {
+            "path": "/autobox/atlant",
+            "sources": [
+                "sitemap.xml",
+                "/autobox",
+                "/autobox/vetlan"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.auto-boxes.index",
+            "parameters": [],
+            "manufacturer_name": "Atlant"
+        },
+        {
+            "path": "/autobox/bonus",
+            "sources": [
+                "sitemap.xml",
+                "/autobox",
+                "/autobox/vetlan"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.auto-boxes.index",
+            "parameters": [],
+            "manufacturer_name": "Koffer Bonus"
+        },
+        {
+            "path": "/autobox/inmax",
+            "sources": [
+                "sitemap.xml",
+                "/autobox",
+                "/autobox/vetlan"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.auto-boxes.index",
+            "parameters": [],
+            "manufacturer_name": "Inmax"
+        },
+        {
+            "path": "/autobox/lux",
+            "sources": [
+                "sitemap.xml",
+                "/autobox",
+                "/autobox/vetlan"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.auto-boxes.index",
+            "parameters": [],
+            "manufacturer_name": "Lux"
+        },
+        {
+            "path": "/autobox/nobu",
+            "sources": [
+                "/autobox",
+                "/autobox/vetlan"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.auto-boxes.index",
+            "parameters": [],
+            "manufacturer_name": "Nobu"
+        },
+        {
+            "path": "/autobox/terradrive",
+            "sources": [
+                "sitemap.xml",
+                "/autobox",
+                "/autobox/vetlan"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.auto-boxes.index",
+            "parameters": [],
+            "manufacturer_name": "Terra Drive"
+        },
+        {
+            "path": "/autobox/turino",
+            "sources": [
+                "sitemap.xml",
+                "/autobox",
+                "/autobox/vetlan"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.auto-boxes.index",
+            "parameters": [],
+            "manufacturer_name": "Turino"
+        },
+        {
+            "path": "/autobox/vetlan",
+            "sources": [
+                "sitemap.xml",
+                "/autobox/vetlan"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.auto-boxes.index",
+            "parameters": [],
+            "manufacturer_name": "VetlaN"
+        },
+        {
+            "path": "/autobox/yuago",
+            "sources": [
+                "sitemap.xml",
+                "/autobox",
+                "/autobox/vetlan"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.auto-boxes.index",
+            "parameters": [],
+            "manufacturer_name": "Yuago"
+        },
+        {
+            "path": "/braslets",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/reelings",
+            "sources": [
+                "/autobagazhniki"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/reelingsatlant",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/reelingsduster",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/reelingseuro",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/reelingsfavorit",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/reelingskrepysh",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/reelingslux",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/reelingsmontblanc",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/s1",
+            "sources": [
+                "/"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/s2",
+            "sources": [
+                "/"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/s3",
+            "sources": [
+                "/"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/shtatnye",
+            "sources": [
+                "/autobagazhniki"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/smooth",
+            "sources": [
+                "/autobagazhniki"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/smoothatlant",
+            "sources": [
+                "/autobagazhnik/smooth"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/smoothd1",
+            "sources": [
+                "/autobagazhnik/smooth"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/smoothlux",
+            "sources": [
+                "/autobagazhnik/smooth"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/smoothmontblanc",
+            "sources": [
+                "/autobagazhnik/smooth"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/statnyeatlant",
+            "sources": [
+                "/autobagazhnik/shtatnye"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/statnyec15",
+            "sources": [
+                "/autobagazhnik/shtatnye"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/statnyelux",
+            "sources": [
+                "/autobagazhnik/shtatnye"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/vf1",
+            "sources": [
+                "/velokreplenya/farkop"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/vf2",
+            "sources": [
+                "/velokreplenya/farkop"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/vk1",
+            "sources": [
+                "/velokreplenya/krysha"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/vk2",
+            "sources": [
+                "/velokreplenya/krysha"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/vk3",
+            "sources": [
+                "/velokreplenya/krysha"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/vk4",
+            "sources": [
+                "/velokreplenya/krysha"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/vodostok",
+            "sources": [
+                "/autobagazhniki"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/buy/vodostokatlant",
+            "sources": [
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/contacts",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "preserve_200",
+            "target_route": "contacts"
+        },
+        {
+            "path": "/covers",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/covers/cayman",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/covers/oregon",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/covers/trend",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/buxanka",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/chevrolet",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/duster",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/gazel",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/greatwall",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/hunter",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/isuzu",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/jeep",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/kia",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/landrover",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/mitsubishi",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/nissan",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/niva",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/patriot",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/ssangyong",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/stairs",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/toyota",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/expidition/universal",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/farkops",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/gallery",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/guestbook",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/inno",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/inno/inno-basic",
+            "sources": [
+                "sitemap.xml",
+                "/autobagazhniki"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/inno/inno-boxes",
+            "sources": [
+                "sitemap.xml",
+                "/autobox",
+                "/autobox/vetlan"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/inno/new-shadow",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/inno/roofbox",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/kreplenya-dlya-lyzh-shoubord",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.ski-racks.index",
+            "parameters": []
+        },
+        {
+            "path": "/news",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/news/autumn_start",
+            "sources": [
+                "/"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/news/braslety",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/news/cenopad",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/news/help_select",
+            "sources": [
+                "/"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/news/koffer",
+            "sources": [
+                "/"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/news/postuplenya_avtoboksov",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/news/reelings_xray",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/news/rozygryzh_montblanc",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/news/zapret",
+            "sources": [
+                "/"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/partners",
+            "sources": [
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/podbor",
+            "sources": [
+                "sitemap.xml",
+                "/podbor"
+            ],
+            "decision": "news_decision_deferred",
+            "note": "Решение о переносе новостей и статьи отложено пользователем. До переноса возвращается 404."
+        },
+        {
+            "path": "/porogi",
+            "sources": [
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "preserve_200",
+            "target_route": "rental"
+        },
+        {
+            "path": "/prokat/reelings",
+            "sources": [
+                "/autobagazhniki"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/reelingsatlant",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/reelingsduster",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/reelingseuro",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/reelingsfavorit",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/reelingskrepysh",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/reelingslux",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/reelingsmontblanc",
+            "sources": [
+                "/autobagazhnik/reelings"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/shtatnye",
+            "sources": [
+                "/autobagazhniki"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/smooth",
+            "sources": [
+                "/autobagazhniki"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/smoothatlant",
+            "sources": [
+                "/autobagazhnik/smooth"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/smoothd1",
+            "sources": [
+                "/autobagazhnik/smooth"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/smoothlux",
+            "sources": [
+                "/autobagazhnik/smooth"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/smoothmontblanc",
+            "sources": [
+                "/autobagazhnik/smooth"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/statnyeatlant",
+            "sources": [
+                "/autobagazhnik/shtatnye"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/statnyec15",
+            "sources": [
+                "/autobagazhnik/shtatnye"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/statnyelux",
+            "sources": [
+                "/autobagazhnik/shtatnye"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/vf1",
+            "sources": [
+                "/velokreplenya/farkop"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/vf2",
+            "sources": [
+                "/velokreplenya/farkop"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/vk1",
+            "sources": [
+                "/velokreplenya/krysha"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/vk2",
+            "sources": [
+                "/velokreplenya/krysha"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/vk3",
+            "sources": [
+                "/velokreplenya/krysha"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/vk4",
+            "sources": [
+                "/velokreplenya/krysha"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/vodostok",
+            "sources": [
+                "/autobagazhniki"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/prokat/vodostokatlant",
+            "sources": [
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/4x4",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/astra",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/ceed",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/chevi-l",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/chevi-m",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/chevrolet",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/creta",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/cx5-1",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/cx5-2",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/datsun",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/freelander2",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/granta-e",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/granta-kalina-sedan",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/granta-liftback",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/hyundai",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/i30",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/kalina-universal",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/kalina-xetchbek",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/kaptur",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/kia",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/l4x4",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/lada",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/landrover",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/largus",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/logan",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/mazda",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/mi-do",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/new-ceed",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/new-logan",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/new-sandero",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/on-do",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/opel",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/prado150",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/rav4-3",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/rav4-4",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/renault",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/sandero",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/solaris",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/three",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/toyota",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/reelings/xray",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/sertificates",
+            "sources": [
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/sitemap",
+            "sources": [
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/special-offers",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "redirect_301",
+            "target_route": "promotions.index",
+            "parameters": []
+        },
+        {
+            "path": "/takelazh",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/takelazh/dynamic_strops",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/takelazh/textil_strops",
+            "sources": [
+                "sitemap.xml"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/user-agreement",
+            "sources": [
+                "/autobagazhniki",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "no_equivalent_404",
+            "note": "В новой версии нет подтверждённой эквивалентной страницы. Сохраняется 404; перенос раздела или контента требует отдельного решения."
+        },
+        {
+            "path": "/velokreplenya",
+            "sources": [
+                "sitemap.xml",
+                "/",
+                "/autobagazhniki",
+                "/autobox",
+                "/autobox/vetlan",
+                "/velokreplenya",
+                "/velokreplenya/krysha",
+                "/velokreplenya/farkop",
+                "/podbor",
+                "/autobagazhnik/reelings",
+                "/autobagazhnik/shtatnye",
+                "/autobagazhnik/smooth",
+                "/autobagazhnik/vodostok"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.bike-racks.index",
+            "parameters": []
+        },
+        {
+            "path": "/velokreplenya/farkop",
+            "sources": [
+                "sitemap.xml",
+                "/velokreplenya",
+                "/velokreplenya/farkop"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.bike-racks.index",
+            "parameters": {
+                "mounting_type": [
+                    "На фаркоп"
+                ]
+            }
+        },
+        {
+            "path": "/velokreplenya/krysha",
+            "sources": [
+                "sitemap.xml",
+                "/velokreplenya",
+                "/velokreplenya/krysha"
+            ],
+            "decision": "redirect_301",
+            "target_route": "catalog.bike-racks.index",
+            "parameters": {
+                "mounting_type": [
+                    "На крышу"
+                ]
+            }
+        }
+    ]
+}

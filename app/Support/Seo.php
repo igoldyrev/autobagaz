@@ -26,7 +26,15 @@ class Seo
 
     public function robots(Request $request): string
     {
-        if (! $this->indexingEnabled($request) || ! $request->routeIs(...self::PUBLIC_ROUTES)) {
+        if (! $this->indexingEnabled($request)) {
+            return 'noindex,nofollow';
+        }
+
+        if ($request->routeIs('legacy.redirect.*', 'seo.*')) {
+            return 'index,follow';
+        }
+
+        if (! $request->routeIs(...self::PUBLIC_ROUTES)) {
             return 'noindex,nofollow';
         }
 

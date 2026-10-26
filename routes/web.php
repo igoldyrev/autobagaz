@@ -40,6 +40,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InstallationController;
 use App\Http\Controllers\Internal\AdminMonitoringController;
+use App\Http\Controllers\LegacyRedirectController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\RoofRackCategoryController;
@@ -52,6 +53,9 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/robots.txt', [SeoController::class, 'robots'])->name('seo.robots');
 Route::get('/sitemap.xml', [SeoController::class, 'index'])->name('seo.sitemap');
 Route::get('/sitemaps/{page}.xml', [SeoController::class, 'page'])->where('page', '[1-9][0-9]{0,5}')->name('seo.sitemap.page');
+foreach (array_keys(config('legacy_urls')) as $index => $legacyPath) {
+    Route::get($legacyPath, LegacyRedirectController::class)->name('legacy.redirect.'.$index);
+}
 Route::view('/prokat', 'rental')->name('rental');
 Route::get('/ustanovka', InstallationController::class)->name('installation');
 Route::get('/akcii', PromotionController::class)->name('promotions.index');
