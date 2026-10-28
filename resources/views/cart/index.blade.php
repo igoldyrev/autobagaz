@@ -22,6 +22,7 @@
                     @method('PATCH')
                     <label for="quantity-{{ $item['product']->id }}">Количество</label>
                     <input id="quantity-{{ $item['product']->id }}" name="quantity" type="number" min="1" max="100" value="{{ $item['quantity'] }}" data-cart-quantity>
+                    <noscript><button type="submit">Обновить</button></noscript>
                 </form>
                 <strong data-cart-line-total>{{ number_format($item['total'], 0, ',', ' ') }} ₽</strong>
                 <form method="POST" action="{{ route('cart.destroy', $item['product']) }}">
@@ -91,7 +92,7 @@
             @endif
             <div class="cart-page__total">
                 <strong>Товары и услуги: <span data-cart-total>{{ number_format($total, 0, ',', ' ') }} ₽</span></strong>
-                <a class="button button__buy" href="{{ route('checkout.create') }}">Оформить заказ</a>
+                <a class="button button__buy" href="{{ route('checkout.create') }}" data-cart-checkout>Оформить заказ</a>
             </div>
             <p class="order-note">Доставка, если потребуется, рассчитывается отдельно.</p>
             @include('checkout._request_notice')

@@ -36,7 +36,7 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <x-seo />
         <x-structured-data />
         <meta name="description" content="Продажа и прокат багажников и автобоксов, креплений и багажных систем в Перми.">
@@ -56,6 +56,7 @@
         <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
         <link rel="stylesheet" href="{{ asset('css/admin-toolbar.css') }}">
         <x-metrika />
+        <x-storefront-noscript />
     </head>
     <body>
         <x-metrika-noscript />

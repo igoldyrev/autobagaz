@@ -37,6 +37,22 @@ class LegacyRedirectTest extends TestCase
             ->assertStatus(301)->assertHeader('X-Robots-Tag', 'noindex, nofollow');
     }
 
+    public function test_all_previously_unmapped_and_deferred_urls_redirect_home_on_the_test_domain(): void
+    {
+        $inventory = json_decode(file_get_contents(base_path('docs/releases/2026-10-26-url-mapping.json')), true, flags: JSON_THROW_ON_ERROR);
+        $paths = array_column(array_filter($inventory['urls'], fn ($entry) => in_array($entry['decision'], ['no_equivalent_404', 'news_decision_deferred'], true)), 'path');
+        $this->assertCount(148, $paths);
+
+        foreach ($paths as $path) {
+            $this->get('https://new.autobagaz.ru'.$path.'?redirect=https://untrusted.example')
+                ->assertStatus(301)
+                ->assertRedirect('https://new.autobagaz.ru')
+                ->assertHeader('X-Robots-Tag', 'noindex, nofollow');
+        }
+
+        $this->get('https://new.autobagaz.ru')->assertOk();
+    }
+
     public function test_manufacturer_filter_is_resolved_from_data_and_inactive_manufacturers_return_404(): void
     {
         $manufacturer = AutoBoxManufacturer::query()->create(['name' => 'SEO migration manufacturer', 'is_active' => true]);
@@ -50,7 +66,7 @@ class LegacyRedirectTest extends TestCase
     {
         CatalogCategory::query()->where('slug', 'na-reylingi')->update(['is_active' => false]);
         $this->get('/autobagazhnik/reelings')->assertNotFound();
-        foreach (['/reelings', '/podbor', '/autobox/unknown-manufacturer', '/velokreplenya/unknown-mount', '/buy/s1'] as $path) {
+        foreach (['/unknown-old-page', '/news/unknown-article', '/autobox/unknown-manufacturer', '/velokreplenya/unknown-mount', '/buy/unknown-product'] as $path) {
             $this->get($path)->assertNotFound()->assertHeaderMissing('Location');
         }
     }

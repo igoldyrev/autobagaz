@@ -59,6 +59,9 @@
         <button class="vehicle-picker__submit" type="submit" data-vehicle-submit @disabled(! $pickerVehicle)>Показать подходящие товары</button>
     </div>
     <p class="vehicle-picker__status" data-vehicle-status aria-live="polite"></p>
+    <noscript>
+        <p>Для подбора без JavaScript <a href="{{ route('catalog.autobagazhniki.index') }}">выберите марку и модель автомобиля в каталоге</a> или <a href="{{ route('contacts') }}">обратитесь к менеджеру</a>.</p>
+    </noscript>
 </form>
 
 @once

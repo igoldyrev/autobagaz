@@ -54,7 +54,7 @@
                     <label><input name="delivery_method" type="radio" value="delivery" @checked(old('delivery_method') === 'delivery')><span>Доставка</span></label>
                     @error('delivery_method')<p class="field__error">{{ $message }}</p>@enderror
                 </fieldset>
-                <div class="field" data-delivery-address @if (old('delivery_method', 'pickup') !== 'delivery') hidden @endif>
+                <div class="field" data-delivery-address>
                     <label for="delivery_address">Адрес доставки</label>
                     <input id="delivery_address" name="delivery_address" value="{{ old('delivery_address') }}" autocomplete="street-address">
                     @error('delivery_address')<p class="field__error">{{ $message }}</p>@enderror
@@ -62,7 +62,7 @@
                 @if ($installationService)
                     <div class="checkout-form__installation-note" aria-live="polite">
                         @include('checkout._installation_notice')
-                        <p class="order-note" data-delivery-info="delivery" @if (old('delivery_method', 'pickup') !== 'delivery') hidden @endif>Вы выбрали доставку и установку в магазине. Для установки потребуется отдельный визит — менеджер согласует порядок получения товара и время записи.</p>
+                        <p class="order-note" data-delivery-info="delivery" @if (old('delivery_method', 'pickup') !== 'delivery') hidden @endif>При доставке и установке в магазине потребуется отдельный визит — менеджер согласует порядок получения товара и время записи.</p>
                     </div>
                 @endif
                 <div class="field">

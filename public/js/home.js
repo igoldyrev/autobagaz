@@ -101,15 +101,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.querySelector('[data-callback-overlay]');
     const openButtons = document.querySelectorAll('[data-callback-open]');
     const closeButton = document.querySelector('[data-callback-close]');
+    let modalTrigger;
+
+    modal?.setAttribute('role', 'dialog');
+    modal?.setAttribute('aria-modal', 'true');
+    modal?.setAttribute('aria-hidden', String(! modal.classList.contains('is-open')));
 
     const closeModal = () => {
+        if (! modal?.classList.contains('is-open')) return;
+
         modal?.classList.remove('is-open');
         modal?.setAttribute('aria-hidden', 'true');
         overlay?.classList.remove('is-open');
         document.body.classList.remove('callback-widget-open');
+        modalTrigger?.focus();
     };
 
     openButtons.forEach((openButton) => openButton.addEventListener('click', () => {
+        modalTrigger = openButton;
         const goal = openButton.dataset.metrikaGoal;
         if (goal) reachMetrikaGoal(goal);
 
@@ -125,6 +134,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target === overlay) closeModal();
     });
     document.addEventListener('keydown', (event) => {
+        if (event.key === 'Tab' && modal?.classList.contains('is-open')) {
+            const controls = [...modal.querySelectorAll('a[href], button, input, select, textarea, [tabindex]')]
+                .filter((element) => ! element.disabled && element.tabIndex >= 0 && element.getClientRects().length > 0 && ! element.closest('[aria-hidden="true"]'));
+            const first = controls[0];
+            const last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last?.focus();
+            } else if (! event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first?.focus();
+            }
+        }
         if (event.key === 'Escape') {
             closeModal();
             closeMobileMenu({ restoreFocus: true });

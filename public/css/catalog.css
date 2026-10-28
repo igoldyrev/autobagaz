@@ -347,7 +347,7 @@
 .catalog-selection-guide__options div { padding: 14px; border-radius: 4px; background: #fff; }
 .catalog-selection-guide__options dt { margin-bottom: 5px; color: #0a2a0a; font-weight: 700; }
 .catalog-selection-guide__options dd { margin: 0; color: #4c564d; font-size: 14px; line-height: 1.45; }
-.catalog-selection-guide__action { margin-bottom: 0; }
+.catalog-selection-guide__action { box-sizing: border-box; max-width: 100%; margin-bottom: 0; }
 .catalog-pagination { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin: 4px 0 36px; }
 .catalog-pagination__item { display: inline-grid; min-width: 38px; min-height: 38px; box-sizing: border-box; place-items: center; padding: 7px 10px; border: 1px solid #cbd2cb; border-radius: 4px; color: #315f32; background: #fff; text-decoration: none; }
 a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { border-color: #367347; background: #eef5ee; }
@@ -501,7 +501,7 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
 .product-gallery__thumbnail:hover, .product-gallery__thumbnail:focus-visible, .product-gallery__thumbnail--active { border-color: #31852f; box-shadow: 0 0 0 2px rgb(49 133 47 / 14%); }
 .product-gallery__thumbnail img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
 .product-gallery__empty { display: grid; min-height: 430px; place-items: center; border: 1px solid #d8ded8; border-radius: 5px; color: #7b827c; background: #fafafa; }
-.roof-rack-characteristics { width: 100%; margin-top: 24px; border: 1px solid #d8ded8; border-collapse: collapse; background: #fff; }
+.roof-rack-characteristics { width: 100%; margin-top: 24px; border: 1px solid #d8ded8; border-collapse: collapse; table-layout: fixed; overflow-wrap: anywhere; background: #fff; }
 .roof-rack-characteristics caption { padding: 0 0 12px; color: #0a2a0a; font-family: "Roboto Slab", serif; font-size: 20px; font-weight: 700; text-align: left; }
 .roof-rack-characteristics th, .roof-rack-characteristics td { padding: 12px 14px; border-bottom: 1px solid #e1e5e1; text-align: left; vertical-align: top; }
 .roof-rack-characteristics tr:last-child th, .roof-rack-characteristics tr:last-child td { border-bottom: 0; }
@@ -563,7 +563,7 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
 .cart-roof-rack-cross-sell h2 { margin: 0 0 8px; color: #174d27; font-family: "Roboto Slab", serif; font-size: 20px; }
 .cart-roof-rack-cross-sell p { margin: 8px 0 0; color: #4e574f; line-height: 1.5; }
 .cart-roof-rack-cross-sell form { margin-top: 14px; }
-.cart-roof-rack-cross-sell .button { width: auto; min-width: 190px; white-space: nowrap; }
+.cart-roof-rack-cross-sell .button { box-sizing: border-box; width: auto; max-width: 100%; min-width: 0; height: auto; padding: 10px 14px; line-height: 1.4; white-space: normal; text-align: center; }
 .cart-roof-rack-cross-sell__vehicle { color: #172019 !important; font-weight: 700; }
 .cart-roof-rack-cross-sell__total { color: #172019 !important; font-size: 18px; font-weight: 800; }
 .cart-installation-kit-confirmation { margin-top: 24px; padding: 20px; border: 1px solid #a8d4b3; border-left: 4px solid #18703c; border-radius: 7px; background: #f1faf3; }

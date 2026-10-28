@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const totalElement = document.querySelector('[data-cart-total]');
     const cartCountElement = document.querySelector('.header__cart-count');
+    const checkoutLink = document.querySelector('[data-cart-checkout]');
+    const updates = [];
+    let saving = Promise.resolve(true);
 
     const updateAvailability = (item, quantity) => {
         const available = Math.min(quantity, Math.max(0, Number(item.dataset.stock)));
@@ -29,42 +32,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-cart-quantity-form]').forEach((form) => {
         let timer;
+        let dirty = false;
         const input = form.querySelector('[data-cart-quantity]');
 
-        form.addEventListener('submit', (event) => event.preventDefault());
+        const save = () => {
+            clearTimeout(timer);
+            if (!dirty) return saving;
+
+            dirty = false;
+            const body = new FormData(form);
+            saving = saving.then(async (previousSuccess) => {
+                if (!previousSuccess) return false;
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                            Accept: 'application/json',
+                            'X-CSRF-TOKEN': form.querySelector('[name="_token"]').value,
+                        },
+                        body,
+                    });
+
+                    if (!response.ok) throw new Error('Cart update failed');
+
+                    const cart = await response.json();
+                    const item = form.closest('[data-cart-item]');
+                    item.dataset.stock = cart.stock;
+                    const currentQuantity = Number(input.value);
+                    if (Number.isInteger(currentQuantity) && currentQuantity >= 1 && currentQuantity <= 100) {
+                        updateAvailability(item, currentQuantity);
+                    }
+                    totalElement.textContent = formatPrice(cart.cart_total);
+                    cartCountElement.textContent = cart.cart_count;
+                    return true;
+                } catch {
+                    window.location.reload();
+                    return false;
+                }
+            });
+            return saving;
+        };
+
+        updates.push({ input, save });
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            save();
+        });
         input.addEventListener('input', () => {
+            clearTimeout(timer);
             const quantity = Number(input.value);
             if (!Number.isInteger(quantity) || quantity < 1 || quantity > 100) {
                 return;
             }
 
             recalculate();
-            clearTimeout(timer);
-            timer = setTimeout(async () => {
-                const response = await fetch(form.action, {
-                    method: 'PATCH',
-                    headers: {
-                        Accept: 'application/json',
-                        'X-CSRF-TOKEN': form.querySelector('[name="_token"]').value,
-                    },
-                    body: new FormData(form),
-                });
-
-                if (!response.ok) {
-                    window.location.reload();
-                    return;
-                }
-
-                const cart = await response.json();
-                const item = form.closest('[data-cart-item]');
-                item.dataset.stock = cart.stock;
-                const currentQuantity = Number(input.value);
-                if (Number.isInteger(currentQuantity) && currentQuantity >= 1 && currentQuantity <= 100) {
-                    updateAvailability(item, currentQuantity);
-                }
-                totalElement.textContent = formatPrice(cart.cart_total);
-                cartCountElement.textContent = cart.cart_count;
-            }, 350);
+            dirty = true;
+            timer = setTimeout(save, 350);
         });
+    });
+
+    let leaving = false;
+    checkoutLink?.addEventListener('click', async (event) => {
+        event.preventDefault();
+        if (leaving || updates.some(({ input }) => !input.reportValidity())) return;
+
+        leaving = true;
+        const saves = updates.map(({ save }) => save());
+        updates.forEach(({ input }) => { input.disabled = true; });
+        if ((await Promise.all(saves)).every(Boolean)) {
+            window.location.assign(checkoutLink.href);
+        }
+    });
+
+    window.addEventListener('pageshow', () => {
+        leaving = false;
+        updates.forEach(({ input }) => { input.disabled = false; });
     });
 });

@@ -53,6 +53,7 @@ class VehicleCatalogService
             ->with([
                 'productType',
                 'roofRack',
+                'autoBox',
                 'fitments' => fn ($query) => $query->active()->wherePivot('status', 'active'),
                 'fitments.configurations' => fn ($query) => $query->whereKey($configuration->id),
             ])
@@ -63,7 +64,7 @@ class VehicleCatalogService
         $autoBoxIds = Product::query()
             ->active()
             ->whereHas('autoBox')
-            ->with(['productType', 'autoBox'])
+            ->with(['productType', 'autoBox', 'roofRack'])
             ->get()
             ->filter(fn (Product $autoBox): bool => $this->compatibility
                 ->check($autoBox, $context)

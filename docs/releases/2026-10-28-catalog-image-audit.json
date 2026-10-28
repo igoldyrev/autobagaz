@@ -1,0 +1,561 @@
+{
+  "images": {
+    "total": 307,
+    "missing": [],
+    "broken": [],
+    "over_500KB_or_2400px": [
+      {
+        "path": "storage/products/4/RnBUBO1Kojfl84mXQuOc5ODDtLwUpSr6Hh2VtzFB.jpg",
+        "width": 1252,
+        "height": 642,
+        "bytes": 632821
+      },
+      {
+        "path": "storage/products/15/9Y2Wadt9t9v3wU6VAEAqUHB1WfkK7bUU3teMdAJy.jpg",
+        "width": 3961,
+        "height": 2288,
+        "bytes": 1586411
+      },
+      {
+        "path": "storage/products/22/VNVevqMYDzJRcKwv2AmycqvYFNheykeKAkn3Nfsh.jpg",
+        "width": 5000,
+        "height": 3332,
+        "bytes": 296374
+      },
+      {
+        "path": "storage/products/22/qc0Et8k7IqrkvnVsiE3TlrOnCEGIz3rYnSbi3duP.jpg",
+        "width": 5000,
+        "height": 3332,
+        "bytes": 212075
+      },
+      {
+        "path": "storage/products/22/Zask6JRhndPbqsXirGbDplHFEHb3UU3dqKk1jdxc.jpg",
+        "width": 5000,
+        "height": 3333,
+        "bytes": 304821
+      },
+      {
+        "path": "storage/products/23/UgEJus1eLRyUxMEfTwhg7VpHR7SY7STVclt4PwTh.jpg",
+        "width": 4500,
+        "height": 2999,
+        "bytes": 257136
+      },
+      {
+        "path": "storage/products/23/iR8BCIEvKcwSLztJFN8rpiGTicWSld54wadMpDIQ.jpg",
+        "width": 4500,
+        "height": 2999,
+        "bytes": 275556
+      },
+      {
+        "path": "storage/products/23/CSqVwBElOdNCX2t3VFjtfdOFpWDRwaYddWUhFJ1B.jpg",
+        "width": 4500,
+        "height": 2999,
+        "bytes": 267438
+      },
+      {
+        "path": "storage/products/23/MGlSPXkazCx7ITvPUSP8T2nU0p2SwBzbFSj5MPpw.jpg",
+        "width": 1921,
+        "height": 1921,
+        "bytes": 1800616
+      },
+      {
+        "path": "storage/products/23/eqc7F4yIj0ZdmSqTUESJ6eZ5Ngd4FwNXdHieaGVg.jpg",
+        "width": 3974,
+        "height": 2650,
+        "bytes": 246004
+      },
+      {
+        "path": "storage/products/23/GJAlpA2UiYJy791VnMjCPJNFiTDEkHxaj1qHUtqs.jpg",
+        "width": 1280,
+        "height": 749,
+        "bytes": 548002
+      },
+      {
+        "path": "storage/products/24/3OzTplPIh2hYaLQp8jmKVZGFMU1lEHhxZXoWTrHz.jpg",
+        "width": 4500,
+        "height": 3004,
+        "bytes": 266956
+      },
+      {
+        "path": "storage/products/24/ivcFsqQDDlgc1CzRtqNutH7ksMyz69pRFdlDTVpE.jpg",
+        "width": 4500,
+        "height": 3004,
+        "bytes": 254852
+      },
+      {
+        "path": "storage/products/24/KKE2vzwxbuxppoT0iPapN7Z7p4jqlSfRrH858zP9.jpg",
+        "width": 4500,
+        "height": 3004,
+        "bytes": 286791
+      },
+      {
+        "path": "storage/products/24/oQF6qRH0T1WQPiyyTDrNoeHYiYaGhsXEPsIz54mF.jpg",
+        "width": 1921,
+        "height": 1921,
+        "bytes": 1800616
+      },
+      {
+        "path": "storage/products/28/dOCQDCK1ZOSu2KgW5QPfcVOxXHZT7JOR1mT2j9XI.jpg",
+        "width": 1280,
+        "height": 763,
+        "bytes": 517537
+      },
+      {
+        "path": "storage/products/31/VJaM1BDpr9ZfWmuMG9TyAWQM3cUcKCXT5FjtQzc5.jpg",
+        "width": 5184,
+        "height": 3888,
+        "bytes": 870256
+      },
+      {
+        "path": "storage/products/31/96nGyVo9SOffv9RW1C1q7nWbRHa7CzfbXzeFoOxb.png",
+        "width": 768,
+        "height": 509,
+        "bytes": 884507
+      },
+      {
+        "path": "storage/products/31/FdN4Sb27FZRYbW6p8tVnx06ZvXm1JXInqon53QTU.png",
+        "width": 768,
+        "height": 514,
+        "bytes": 748442
+      },
+      {
+        "path": "storage/products/32/jdDHn9w8XZ9V2vyIncjjG72TXMr8xJSVpxDqZAla.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 278739
+      },
+      {
+        "path": "storage/products/33/KlL56NXLI2h1bBQWIffw08OCt4eo20vH5OGA3WvS.jpg",
+        "width": 5184,
+        "height": 3888,
+        "bytes": 805544
+      },
+      {
+        "path": "storage/products/33/rQgaVbc2cS404rMgGolePQmSbzl5SKRYgbihYl1k.jpg",
+        "width": 4032,
+        "height": 3024,
+        "bytes": 527567
+      },
+      {
+        "path": "storage/products/33/hWV7H1lLiYbS4arNaPA1ZgmlNCT6UbyeJy38Ud1f.jpg",
+        "width": 4032,
+        "height": 3024,
+        "bytes": 599384
+      },
+      {
+        "path": "storage/products/3/TZwVoSfzuslisFXfW2kZ6TKn7JU6cqTjNvNHorqo.jpg",
+        "width": 1800,
+        "height": 1800,
+        "bytes": 1064814
+      },
+      {
+        "path": "storage/products/36/CBVXTBOS7c1IThPpqBMbyfGGYhB1U0dGp8Dsyx1o.jpg",
+        "width": 6632,
+        "height": 4421,
+        "bytes": 1301923
+      },
+      {
+        "path": "storage/products/36/ZojRJ3vj02aqxHO1oDsnj4yHIqNVyBiNfJVBNvWG.jpg",
+        "width": 5664,
+        "height": 3776,
+        "bytes": 3555418
+      },
+      {
+        "path": "storage/products/37/3sShXar5celW0CXc5tAGsmhYJ6m8FvEQObyajen1.jpg",
+        "width": 6632,
+        "height": 4421,
+        "bytes": 1176570
+      },
+      {
+        "path": "storage/products/37/xc7q9CPA2bauxE4sLfqEydqAaddJrDRQ84DN2qGA.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 1893006
+      },
+      {
+        "path": "storage/products/37/c7sxTjcvvD8cEDtI4fTaIV8dVseyKV7ezNymbKIW.jpg",
+        "width": 5664,
+        "height": 3776,
+        "bytes": 3436971
+      },
+      {
+        "path": "storage/products/36/X0eF9JrS5a8AkOMP2iknHL5THDis7TvpdODPTEu9.jpg",
+        "width": 6273,
+        "height": 4182,
+        "bytes": 533381
+      },
+      {
+        "path": "storage/products/36/9dJ5So1Y9qeGmg3bLu82vMyeMXMUW1Zb2M6aBHgc.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 638275
+      },
+      {
+        "path": "storage/products/36/rEzlJyxgX63JbwEiOUgMRw2Kft19OGOnueAjjc9m.jpg",
+        "width": 5926,
+        "height": 3951,
+        "bytes": 358881
+      },
+      {
+        "path": "storage/products/41/6cTWaZqYKvasMsRxJdj4X0Gm0CYNxiW1ChmImDAI.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 1391601
+      },
+      {
+        "path": "storage/products/41/0kariNTS8zctNsttkKtudv6EF6RJA9AQEuUUyF2y.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 1609017
+      },
+      {
+        "path": "storage/products/41/BYgX6VGCS8ed30sh7aOCwJVP7o9aIYkcJ6DCKLOr.jpg",
+        "width": 5664,
+        "height": 3776,
+        "bytes": 3441487
+      },
+      {
+        "path": "storage/products/55/T0mEUMKcXMQnh6yRVZbhKEp7yqeMH6hM3Z17RdQV.png",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 2109900
+      },
+      {
+        "path": "storage/products/55/Oa3Ldh9257P85B4m6OkXdzRYfIxNkI3TSc88YC6S.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 4317195
+      },
+      {
+        "path": "storage/products/55/GpImEeQ5AwMT7yqxPf1YNZcgsyVIn2PJqFlEXYae.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 5933188
+      },
+      {
+        "path": "storage/products/58/BGgufbizHAnO1qoDdle3cOAA7rZbQlxhlFJ7ooYO.jpg",
+        "width": 5760,
+        "height": 3852,
+        "bytes": 518140
+      },
+      {
+        "path": "storage/products/58/PwbgxkLmyiEWJZ7gojqkrtdC5WmIgWu8Hm3ovxrs.png",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 1115713
+      },
+      {
+        "path": "storage/products/58/AWc8CVy3Tj929D23VcGqAqyqJGK3AOly12pAPZaG.png",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 587931
+      },
+      {
+        "path": "storage/products/59/2yDqLkLej0CvrLOMgefGBrJrp3fDFoRDDZegazyc.jpg",
+        "width": 5760,
+        "height": 3843,
+        "bytes": 518743
+      },
+      {
+        "path": "storage/products/59/uFuvJlI3M5yZaNDpDGtyh5rB9sAxmunKx1MRQNFE.png",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 1107860
+      },
+      {
+        "path": "storage/products/59/cxjwrhNHJ62xqk70fcJkSOhwnTPeQWWBpRoZThlC.png",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 572571
+      },
+      {
+        "path": "storage/products/61/65D5GHkevh6SumEwD74JIiJXiaXStMEcAl6hRvw3.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 489074
+      },
+      {
+        "path": "storage/products/61/LnfjizjG4KGf92zpsElRxOLesGX22lfjKaPg64xJ.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 179679
+      },
+      {
+        "path": "storage/products/61/M8zA2QnLmSM5opL3J7jsyDOO6hgByU5eiESk5AEL.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 310343
+      },
+      {
+        "path": "storage/products/61/XqOgluDQubgHeEgNP7cAdP3ShZodI9nM5VUwB3Ge.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 651105
+      },
+      {
+        "path": "storage/products/62/t7Z74KkYrwBnMYgTmVWf7S6dkAPUder0xpbetBGO.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 452361
+      },
+      {
+        "path": "storage/products/62/v4H7uzIVHtnJWLvI9S8e8MiQcapEXRYZaHWNIK68.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 160252
+      },
+      {
+        "path": "storage/products/62/CyeRWl9J4vuXetzjVkhvbP3eqfFeZ6RkWnjpdPO2.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 749112
+      },
+      {
+        "path": "storage/products/62/JuOGIQMFH1d8s2yCsGV6PELalk0yID6iWBO0gjf9.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 515347
+      },
+      {
+        "path": "storage/products/63/XuAoOodz7EUpG3OVAzi8KIsUW6CO9Jc7JWWYqNZc.png",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 2080401
+      },
+      {
+        "path": "storage/products/63/KtbzWihMXstjp2OZKmrclYAy4rEh3HvaBgrepnBS.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 563825
+      },
+      {
+        "path": "storage/products/63/40kN9ZKVU4ftNwaODydvn5vjtiOUXyiyoC89EEzZ.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 821358
+      },
+      {
+        "path": "storage/products/63/NjIO7X9d9V1TkenzV6MovPlCRziqPH7xqVEKpqRb.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 184881
+      },
+      {
+        "path": "storage/products/63/B9jjnfJnDz80o633YcKdoBiZ7mVjjPAfwCxbh8cp.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 360225
+      },
+      {
+        "path": "storage/products/64/hAhbiavb49FN76p7ynLp9Qc9s2MMaKzLrlRgy2TN.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 493486
+      },
+      {
+        "path": "storage/products/64/T7xfej10m0hYV95QN0Zprnn83JiywO3b6JX3E9iC.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 635342
+      },
+      {
+        "path": "storage/products/64/v8StBZhplXhpgvEp0i1gLLHgUUhoILeKDC92FVq6.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 165208
+      },
+      {
+        "path": "storage/products/64/dXTahjzachglbnFbxvK4nddZd5MiXcQpMCmgpchq.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 337860
+      },
+      {
+        "path": "storage/products/65/3XNmYda2uwZfi2YI40Tz80uVUVTZp919CcuYY7fP.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 476931
+      },
+      {
+        "path": "storage/products/65/PAbhnBkrpvE8rkfxwEjcNsDQEkZvsD4lYGopHeRn.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 653634
+      },
+      {
+        "path": "storage/products/65/s5BlcRmXjj2mQ5bCjvHm4DgOA4p2TKnif1WR60ZL.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 161264
+      },
+      {
+        "path": "storage/products/65/2X0mnAF5dkKBi9Y44xQ20cujS9sUywLiCBCyGVyL.png",
+        "width": 5000,
+        "height": 3000,
+        "bytes": 500037
+      },
+      {
+        "path": "storage/products/74/QDAsMC8nzoLP93Aw0hNaXHa5ugdboljKUVjX8vaz.jpg",
+        "width": 1748,
+        "height": 1240,
+        "bytes": 605321
+      },
+      {
+        "path": "storage/products/74/8am1NR30H7hFXpKpKlkVIRINuwFJjZozkRXRJAwm.jpg",
+        "width": 2560,
+        "height": 1920,
+        "bytes": 620185
+      },
+      {
+        "path": "storage/products/76/mlopjU1yJX8VtLkaKmmYBg96djR7fPiNtj9ZVbCc.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 468427
+      },
+      {
+        "path": "storage/products/76/mQM2IJVK8vE2a4R4aCgLhGAKqSyaDzXatfAsSZ8i.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 456511
+      },
+      {
+        "path": "storage/products/76/FsozTjKwBn3FC687Y72fV6NcxrYKpyqsN7QbyfYf.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 699562
+      },
+      {
+        "path": "storage/products/76/Yw1XJpaFAmtQXhScfiFDMMlsAACYKZ6Q0Ph302d2.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 623703
+      },
+      {
+        "path": "storage/products/77/LkaVgohKmn0dEHKh098fwT1B3k15A8QZOsGtVmUU.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 624412
+      },
+      {
+        "path": "storage/products/77/7CUF8aLFPKVjPreTPYr8bSlXf31fOpeuJBcl23GB.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 590010
+      },
+      {
+        "path": "storage/products/77/qWaf5AWZSxqI9OH9r7PE8cKe3PLbfjh7rUandSYi.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 1442297
+      },
+      {
+        "path": "storage/products/77/jhB95ZPq7PRubtfobQMTRI0dlC8z03vna7QFMQMe.jpg",
+        "width": 6720,
+        "height": 4480,
+        "bytes": 1036952
+      },
+      {
+        "path": "storage/products/78/bD4RLtkhhQYjxFkbJ0jDbRbzccMQsPQl60NfKbul.jpg",
+        "width": 5760,
+        "height": 3844,
+        "bytes": 511935
+      },
+      {
+        "path": "storage/products/78/G4QMPR5BuFYt9s2QPqdjhTn6cMdYM0mLeEz2E0ox.png",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 1778267
+      },
+      {
+        "path": "storage/products/79/3Sd1JFvMRSKAQ7zsaQcZSBoXgIerkVSdRumvllKh.jpg",
+        "width": 5760,
+        "height": 3843,
+        "bytes": 484499
+      }
+    ],
+    "under_400px": [
+      {
+        "path": "storage/products/10/TKJL2FNhMc5MSqoGNpw7OeGCOL3C5m6Z37sQpo6R.jpg",
+        "width": 300,
+        "height": 300
+      },
+      {
+        "path": "storage/products/24/rRoMQDINSw4lbGGgCNk3Ai1JQMaLYKMhQIqBJST9.jpg",
+        "width": 362,
+        "height": 213
+      },
+      {
+        "path": "storage/products/10/9EC4bCCb9SnYkHDeUjkNH1IZnZ6310T5GXPjPyP8.jpg",
+        "width": 320,
+        "height": 240
+      },
+      {
+        "path": "storage/products/7/esMuH26TUL9HRqISJZYrXIyuZaZB7EESoCWQk6p7.jpg",
+        "width": 325,
+        "height": 141
+      },
+      {
+        "path": "storage/products/6/UaU2vrTWoAyQaYkwEHyNspNwhJLIFouLLPeR1jvB.jpg",
+        "width": 278,
+        "height": 228
+      }
+    ],
+    "total_bytes": 98406644,
+    "max_bytes": 5933188
+  },
+  "compatibility": {
+    "active_roof_racks_without_active_fitments": [
+      [
+        0
+      ]
+    ],
+    "configurations_without_active_fitments": [
+      [
+        535
+      ]
+    ],
+    "active_groups_without_configurations": [
+      [
+        0
+      ]
+    ],
+    "active_groups_without_products": [
+      [
+        1
+      ]
+    ],
+    "needs_review_groups": [
+      [
+        0
+      ]
+    ],
+    "configuration_verification_statuses": [
+      [
+        "draft",
+        1
+      ],
+      [
+        "needs_review",
+        1508
+      ],
+      [
+        "verified",
+        50
+      ]
+    ],
+    "uncovered_by_roof_type": [
+      [
+        "not specified",
+        484
+      ],
+      [
+        "Гладкая крыша",
+        14
+      ],
+      [
+        "Т-профиль",
+        37
+      ]
+    ]
+  }
+}

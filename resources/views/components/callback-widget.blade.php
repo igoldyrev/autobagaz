@@ -5,7 +5,7 @@
 @endif
 
 <div class="callback-widget__overlay {{ $hasErrors ? 'is-open' : '' }}" data-callback-overlay></div>
-<section class="callback-widget {{ $hasErrors ? 'is-open' : '' }}" data-callback-modal role="dialog" aria-modal="true" aria-labelledby="callback-title" aria-hidden="{{ $hasErrors ? 'false' : 'true' }}">
+<section class="callback-widget {{ $hasErrors ? 'is-open' : '' }}" data-callback-modal aria-labelledby="callback-title">
     <button class="callback-widget__close" type="button" data-callback-close aria-label="Закрыть">×</button>
     <h2 class="callback-widget__title" id="callback-title">Заказать обратный звонок</h2>
     <p class="callback-widget__lead">Оставьте контакты — менеджер перезвонит вам в ближайшее время.</p>

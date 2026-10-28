@@ -182,6 +182,31 @@ class OrderCheckoutTest extends TestCase
             ->assertSee($service->name);
     }
 
+    public function test_native_forms_allow_quantity_update_and_delivery_checkout_without_javascript(): void
+    {
+        Mail::fake();
+        $product = $this->product();
+        $this->post(route('cart.store', $product))->assertRedirect(route('cart.index'));
+        $this->get(route('cart.index'))->assertOk()
+            ->assertSee('<noscript><button type="submit">Обновить</button></noscript>', false);
+        $this->post(route('cart.update', $product), ['_method' => 'PATCH', 'quantity' => 3])
+            ->assertRedirect(route('cart.index'));
+        $this->assertSame([strval($product->id) => 3], session('cart.items'));
+
+        $response = $this->get(route('checkout.create'))->assertOk();
+        $this->checkoutSnapshot = $response->viewData('checkoutSnapshot');
+        $this->assertMatchesRegularExpression('/<div class="field" data-delivery-address>/', $response->getContent());
+        $data = array_replace($this->checkoutData($response->viewData('checkoutToken')), ['delivery_method' => 'delivery']);
+        $this->post(route('checkout.store'), $data)->assertSessionHasErrors('delivery_address');
+        $this->assertDatabaseCount('orders', 0);
+        $this->post(route('checkout.store'), $data + ['delivery_address' => 'Тестовый адрес, 1'])
+            ->assertSessionDoesntHaveErrors()->assertRedirect();
+        $order = Order::query()->sole();
+        $this->assertSame('delivery', $order->delivery_method);
+        $this->assertSame(3, $order->items->sole()->quantity);
+        $this->assertSame('30000.00', $order->total);
+    }
+
     public function test_cart_quantity_can_be_updated_without_page_redirect(): void
     {
         $product = $this->product();

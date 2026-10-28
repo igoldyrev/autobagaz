@@ -39,6 +39,13 @@
                             </button>
                         @endforeach
                     </div>
+                    <noscript>
+                        <p>Фотографии товара:
+                            @foreach ($product->images as $image)
+                                <a href="{{ asset($image->path) }}">Фото {{ $loop->iteration }}</a>
+                            @endforeach
+                        </p>
+                    </noscript>
                 @endif
             @else
                 <div class="product-gallery__empty">Нет фотографий</div>
