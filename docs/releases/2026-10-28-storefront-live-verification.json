@@ -1,0 +1,1138 @@
+{
+  "base": "https://new.autobagaz.ru",
+  "urls_checked": 169,
+  "home_redirects": 148,
+  "section_redirects": 16,
+  "preserved_pages": 5,
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "location": null,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/autobagazhnik/reelings",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobagazhniki/na-reylingi",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobagazhnik/shtatnye",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobagazhniki/v-shtatnoe-mesto",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobagazhnik/smooth",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/autobagazhnik/vodostok",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/autobagazhniki",
+      "status": 200,
+      "location": null,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/autobox",
+      "status": 200,
+      "location": null,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/autobox/atlant",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=1",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobox/bonus",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=8",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobox/inmax",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=5",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobox/lux",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=4",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobox/nobu",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=9",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobox/terradrive",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=6",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobox/turino",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=3",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobox/vetlan",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=10",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/autobox/yuago",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/autobox?manufacturer%5B0%5D=2",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/braslets",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/reelings",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/reelingsatlant",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/reelingsduster",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/reelingseuro",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/reelingsfavorit",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/reelingskrepysh",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/reelingslux",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/reelingsmontblanc",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/s1",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/s2",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/s3",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/shtatnye",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/smooth",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/smoothatlant",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/smoothd1",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/smoothlux",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/smoothmontblanc",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/statnyeatlant",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/statnyec15",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/statnyelux",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/vf1",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/vf2",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/vk1",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/vk2",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/vk3",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/vk4",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/vodostok",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/buy/vodostokatlant",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/contacts",
+      "status": 200,
+      "location": null,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/covers",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/covers/cayman",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/covers/oregon",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/covers/trend",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/buxanka",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/chevrolet",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/duster",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/gazel",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/greatwall",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/hunter",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/isuzu",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/jeep",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/kia",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/landrover",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/mitsubishi",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/nissan",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/niva",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/patriot",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/ssangyong",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/stairs",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/toyota",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/expidition/universal",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/farkops",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/gallery",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/guestbook",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/inno",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/inno/inno-basic",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/inno/inno-boxes",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/inno/new-shadow",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/inno/roofbox",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/kreplenya-dlya-lyzh-shoubord",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/krepleniya-dlya-lyzh-i-snoubordov",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/news",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/news/autumn_start",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/news/braslety",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/news/cenopad",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/news/help_select",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/news/koffer",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/news/postuplenya_avtoboksov",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/news/reelings_xray",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/news/rozygryzh_montblanc",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/news/zapret",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/partners",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/podbor",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/porogi",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat",
+      "status": 200,
+      "location": null,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/reelings",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/reelingsatlant",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/reelingsduster",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/reelingseuro",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/reelingsfavorit",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/reelingskrepysh",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/reelingslux",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/reelingsmontblanc",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/shtatnye",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/smooth",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/smoothatlant",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/smoothd1",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/smoothlux",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/smoothmontblanc",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/statnyeatlant",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/statnyec15",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/statnyelux",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/vf1",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/vf2",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/vk1",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/vk2",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/vk3",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/vk4",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/vodostok",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/prokat/vodostokatlant",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/4x4",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/astra",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/ceed",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/chevi-l",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/chevi-m",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/chevrolet",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/creta",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/cx5-1",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/cx5-2",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/datsun",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/freelander2",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/granta-e",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/granta-kalina-sedan",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/granta-liftback",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/hyundai",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/i30",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/kalina-universal",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/kalina-xetchbek",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/kaptur",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/kia",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/l4x4",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/lada",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/landrover",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/largus",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/logan",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/mazda",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/mi-do",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/new-ceed",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/new-logan",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/new-sandero",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/on-do",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/opel",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/prado150",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/rav4-3",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/rav4-4",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/renault",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/sandero",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/solaris",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/three",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/toyota",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/reelings/xray",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/sertificates",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/sitemap",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/special-offers",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/akcii",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/takelazh",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/takelazh/dynamic_strops",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/takelazh/textil_strops",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/user-agreement",
+      "status": 301,
+      "location": "https://new.autobagaz.ru",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/velokreplenya",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/velokrepleniya",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/velokreplenya/farkop",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/velokrepleniya?mounting_type%5B0%5D=%D0%9D%D0%B0%20%D1%84%D0%B0%D1%80%D0%BA%D0%BE%D0%BF",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    },
+    {
+      "path": "/velokreplenya/krysha",
+      "status": 301,
+      "location": "https://new.autobagaz.ru/velokrepleniya?mounting_type%5B0%5D=%D0%9D%D0%B0%20%D0%BA%D1%80%D1%8B%D1%88%D1%83",
+      "robots": "noindex, nofollow",
+      "target_status": 200
+    }
+  ],
+  "assets": [
+    {
+      "path": "public/js/cart.js",
+      "sha256_matches": true
+    },
+    {
+      "path": "public/js/home.js",
+      "sha256_matches": true
+    },
+    {
+      "path": "public/css/catalog.css",
+      "sha256_matches": true
+    },
+    {
+      "path": "public/css/home.css",
+      "sha256_matches": true
+    }
+  ],
+  "cart": {
+    "quantity": 7,
+    "checkout_quantity_matches": true,
+    "removed_after_check": true,
+    "order_created": false
+  },
+  "release_runner_status": 404,
+  "checked_on": "2026-10-28",
+  "application_commit": "361cac69",
+  "deployed_files": [
+    {
+      "path": "app/Services/VehicleCatalogService.php",
+      "sha256": "1f7b17cad52016d3fc4b51a209ea7652accda51ea463df43ba88a42196e26c6b",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "config/legacy_urls.php",
+      "sha256": "9ca49fbd420542fda4204b2465245d5e2ed05f04d09eca5c8174478e4686b3d2",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "public/css/catalog.css",
+      "sha256": "d8c8249424b9e00994fc58d2372023b8fbe76c927a6cd9466defcbff8264bdc0",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "public/css/home.css",
+      "sha256": "c44713629c31ef3c4835b5821459501c2730a30dd8be9c274e910a535984d998",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "public/js/cart.js",
+      "sha256": "d5e21a1158515aa10042c1a74378f3e9f285a6eccfd800fff657d28135e04a0d",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "public/js/home.js",
+      "sha256": "e71c7aee5205791c7cd3a9985a9720812f40dcfe0337b051ca46e85704119bcc",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "resources/views/cart/index.blade.php",
+      "sha256": "318a6812dd6ac043f048c6253d083149628f090aa36d16e8eab4139889da963e",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "resources/views/catalog/products/show.blade.php",
+      "sha256": "37ffd7a0231295691ea14fc2fcc05dafeebec0ed7fef14504a53f5e34ce66720",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "resources/views/catalog/vehicle-fitment/_picker.blade.php",
+      "sha256": "4ca9d13f00d15380dfe507187d2fc7487c13c605ef7cfaacf44b72b5faeb4ceb",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "resources/views/checkout/create.blade.php",
+      "sha256": "7070809508ca0af6437db26d3b245087e96818d62a4d7f85a8038fdbb25e2d0b",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "resources/views/components/callback-widget.blade.php",
+      "sha256": "56ab799410aad92b2f172c5d08b71d896801c7d32359cd227c38e766a414cf22",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "resources/views/components/storefront-noscript.blade.php",
+      "sha256": "b307efdb4d20bd2bd71f773593b1801c2bc750d5726156080922260635d068d9",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "resources/views/home.blade.php",
+      "sha256": "17ad3b2c33aef5783b5ed343133559b8ec600b42bd6e04f7f4f571d76f969f2a",
+      "matches_remote_and_manifest": true
+    },
+    {
+      "path": "resources/views/layouts/catalog.blade.php",
+      "sha256": "0f8659337c4bbceba7209117a8aa1654fc422b8fd6f40bbc7eb5f4afed263de0",
+      "matches_remote_and_manifest": true
+    }
+  ]
+}
