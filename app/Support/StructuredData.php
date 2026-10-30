@@ -48,7 +48,7 @@ class StructuredData
                 'url' => $url,
                 'price' => $product->price,
                 'priceCurrency' => 'RUB',
-                'availability' => 'https://schema.org/'.($product->stock > 0 ? 'InStock' : 'OutOfStock'),
+                'availability' => 'https://schema.org/'.($product->available_stock > 0 ? 'InStock' : 'OutOfStock'),
                 'seller' => ['@id' => $this->seo->url().'#organization'],
             ],
         ];

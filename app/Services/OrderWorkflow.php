@@ -66,6 +66,13 @@ class OrderWorkflow
                     throw ValidationException::withMessages(['cancellation_reason' => 'Укажите причину отмены.']);
                 }
                 $previousLabel = $locked->statusLabel();
+                if ($locked instanceof Order) {
+                    if ($target === Order::STATUS_CANCELLED) {
+                        app(OrderReservations::class)->release($locked, 'Отмена заказа');
+                    } elseif (in_array($target, [Order::STATUS_SHIPPED, Order::STATUS_COMPLETED], true)) {
+                        app(OrderReservations::class)->consume($locked);
+                    }
+                }
                 if ($target === 'in_progress' && ! $locked->assignee_id) {
                     $data['assignee_id'] = $actor->id;
                 }

@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\OrderStatusRequest;
 use App\Http\Requests\Admin\OrderTermsRequest;
 use App\Models\Order;
 use App\Models\Product;
+use App\Services\OrderReservations;
 use App\Services\OrderTerms;
 use App\Services\OrderWorkflow;
 use Illuminate\Http\RedirectResponse;
@@ -27,7 +28,7 @@ class OrderController extends Controller
             $phoneDigits = substr($phoneDigits, 1);
         }
 
-        $orders = Order::query()->with('assignee', 'acceptedTermsVersion')
+        $orders = Order::query()->with('assignee', 'acceptedTermsVersion', 'reservations')
             ->responseState($filters['response'] ?? null)
             ->when($request->filled('status'), fn ($query) => $query->where('status', $request->input('status')))
             ->when($request->boolean('mine'), fn ($query) => $query->where('assignee_id', $request->user()->id))
@@ -69,10 +70,11 @@ class OrderController extends Controller
         return view('admin.orders.show', [
             'additionalProducts' => $products,
             'productSearch' => $search,
-            'order' => $order->load('items.product', 'assignee'),
+            'order' => $order->load('items.product', 'assignee', 'reservations.product'),
             'managers' => app(OrderWorkflow::class)->managers(),
             'history' => app(OrderWorkflow::class)->history($order),
             'latestTerms' => $order->termsVersions()->first(),
+            'acceptedTerms' => $order->acceptedTermsVersion,
         ]);
     }
 
@@ -88,5 +90,24 @@ class OrderController extends Controller
         app(OrderWorkflow::class)->update($order, $request->user(), $request->validated());
 
         return to_route('admin.orders.show', $order)->with('success', 'Заказ обновлён.');
+    }
+
+    public function reserve(Request $request, Order $order): RedirectResponse
+    {
+        app(OrderReservations::class)->reserveArrived($order, $request->user());
+
+        return back()->with('success', 'Резерв поступивших товаров проверен.');
+    }
+
+    public function receiveReturn(Request $request, Order $order): RedirectResponse
+    {
+        $data = $request->validate([
+            'product_id' => ['required', 'integer'], 'quantity' => ['required', 'integer', 'min:1', 'max:4294967295'],
+            'reason' => ['required', 'string', 'max:1000'], 'received' => ['required', 'accepted'],
+            'expected_returned' => ['required', 'integer', 'min:0'],
+        ]);
+        app(OrderReservations::class)->receiveReturn($order, $request->user(), (int) $data['product_id'], (int) $data['quantity'], $data['reason'], (int) $data['expected_returned']);
+
+        return back()->with('success', 'Фактический возврат принят, физический остаток увеличен.');
     }
 }

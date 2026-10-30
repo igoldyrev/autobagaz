@@ -14,7 +14,7 @@
         @endif
 
         @forelse ($items as $item)
-            <article class="cart-item" data-cart-item data-unit-price="{{ $item['product']->price }}" data-stock="{{ $item['product']->stock }}">
+            <article class="cart-item" data-cart-item data-unit-price="{{ $item['product']->price }}" data-stock="{{ $item['product']->available_stock }}">
                 <a href="{{ route('products.show', $item['product']) }}">{{ $item['product']->name }}</a>
                 <span>{{ number_format((float) $item['product']->price, 0, ',', ' ') }} ₽</span>
                 <form method="POST" action="{{ route('cart.update', $item['product']) }}" class="cart-item__quantity" data-cart-quantity-form>
@@ -31,7 +31,7 @@
                     <button class="cart-item__remove" type="submit">Удалить</button>
                 </form>
                 <p class="cart-item__availability" aria-live="polite">
-                    @include('checkout._availability', ['quantity' => $item['quantity'], 'stock' => $item['product']->stock])
+                    @include('checkout._availability', ['quantity' => $item['quantity'], 'stock' => $item['product']->available_stock])
                 </p>
                 @if ($item['product']->bikeRack?->mounting_type === 'На фаркоп')
                     <p class="cart-item__installation-condition">Для установки необходим совместимый фаркоп</p>

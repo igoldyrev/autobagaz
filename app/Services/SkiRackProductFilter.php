@@ -19,7 +19,7 @@ class SkiRackProductFilter
     {
         $q->when($f['price_from'] !== null, fn ($q) => $q->where('price', '>=', $f['price_from']))->when($f['price_to'] !== null, fn ($q) => $q->where('price', '<=', $f['price_to']));
         if (count($f['availability']) === 1) {
-            $f['availability'][0] === 'in_stock' ? $q->where('stock', '>', 0) : $q->where('stock', 0);
+            $f['availability'][0] === 'in_stock' ? $q->whereAvailable(true) : $q->whereAvailable(false);
         }$q->whereHas('skiRack', fn ($q) => $q->when($f['manufacturers'] !== [], fn ($q) => $q->whereIn('manufacturer_id', $f['manufacturers']))->when($f['ski_pairs'] !== [], fn ($q) => $q->whereIn('ski_pairs_capacity', $f['ski_pairs']))->when($f['snowboards'] !== [], fn ($q) => $q->whereIn('snowboard_capacity', $f['snowboards'])));
 
         return $q;

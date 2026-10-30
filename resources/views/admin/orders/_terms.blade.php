@@ -1,6 +1,6 @@
 @if ($order->canEditTerms())
-<section class="admin-card order-change-editor">
-    <h2>Замена товаров и изменение условий</h2>
+<details class="admin-card order-change-editor" @if ($productSearch !== '' || $errors->any()) open @endif>
+    <summary>Замена товаров и изменение условий</summary>
     <p>Используйте этот блок, если товара нет в наличии и нужна замена, либо нужно изменить количество, цену, доставку или оплату. Если заказ выполняется на исходных условиях, заполнять этот блок не нужно.</p>
     <p>Сначала согласуйте изменения с покупателем. После сохранения отправьте ему ссылку на заказ для подтверждения. До подтверждения изменения не считаются согласованными.</p>
     <form method="GET" action="{{ route('admin.orders.show', $order) }}" class="processing-assignee">
@@ -69,5 +69,5 @@
         </div>
         <button type="submit" class="button button--primary">Сохранить изменения для согласования</button>
     </form>
-</section>
+</details>
 @endif

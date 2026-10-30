@@ -16,6 +16,8 @@ Schedule::call(fn () => AdminActivityLog::query()->olderThanRetentionPeriod()->d
 
 Schedule::command('orders:dispatch-notifications')->everyMinute()->withoutOverlapping();
 
+Schedule::command('orders:expire-reservations')->everyMinute()->withoutOverlapping();
+
 Schedule::command('telegram:monitor-notifications')->everyFiveMinutes()->withoutOverlapping();
 
 Schedule::call(fn () => app(MonitoringHeartbeats::class)->succeed('scheduler'))

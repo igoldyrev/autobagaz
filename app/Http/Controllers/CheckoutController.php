@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\VehicleConfiguration;
 use App\Services\CartService;
 use App\Services\OrderNotifications;
+use App\Services\OrderReservations;
 use App\Services\OrderTerms;
 use App\Services\OrderWorkflow;
 use App\Support\OrderCheckoutTerms;
@@ -100,10 +101,11 @@ class CheckoutController extends Controller
                 ]);
                 $order->update(['number' => sprintf('AB-%06d', $order->id)]);
                 $order->items()->createMany($items->all());
+                app(OrderReservations::class)->create($order);
                 $notifications->recordOrder($order);
 
                 return $order->load('items');
-            });
+            }, 3);
         } catch (UniqueConstraintViolationException $exception) {
             // A concurrent submission may have committed this checkout first.
             $existingOrder = Order::query()->where('checkout_token', $checkoutToken)->first();
@@ -167,7 +169,7 @@ class CheckoutController extends Controller
 
     public function success(Order $order): Response
     {
-        $order->load('items');
+        $order->load('items', 'reservations.product');
 
         return response()->view('checkout.success', [
             'order' => $order,

@@ -132,6 +132,9 @@ class StockFileService
                     }
                 }
                 unset($values);
+                if (array_key_exists('stock', $updates)) {
+                    app(OrderReservations::class)->assertPhysicalStock($product, $updates['stock']);
+                }
                 // Conditional UPDATE also protects against writers that do not take an explicit row lock.
                 if ($updates && $query->update($updates) !== 1) {
                     $this->fail('Остатки или цены изменились во время применения. Загрузите файл заново. Ничего не применено.');

@@ -151,6 +151,8 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
     Route::middleware('permission:orders.manage')->group(function () {
         Route::get('orders', [AdminOrderController::class, 'index'])->name('orders.index');
         Route::get('orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
+        Route::post('orders/{order}/reserve', [AdminOrderController::class, 'reserve'])->name('orders.reserve');
+        Route::post('orders/{order}/returns', [AdminOrderController::class, 'receiveReturn'])->name('orders.returns');
         Route::post('orders/{order}/terms', [AdminOrderController::class, 'storeTerms'])->name('orders.terms.store');
         Route::put('orders/{order}', [AdminOrderController::class, 'update'])->name('orders.update');
         Route::get('callback-requests', [AdminCallbackRequestController::class, 'index'])->name('callback-requests.index');

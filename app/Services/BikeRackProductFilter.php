@@ -33,7 +33,7 @@ class BikeRackProductFilter
             ->when($filters['price_to'] !== null, fn (Builder $query) => $query->where('price', '<=', $filters['price_to']));
 
         if (count($filters['availability']) === 1) {
-            $filters['availability'][0] === 'in_stock' ? $query->where('stock', '>', 0) : $query->where('stock', 0);
+            $filters['availability'][0] === 'in_stock' ? $query->whereAvailable(true) : $query->whereAvailable(false);
         }
 
         $query->whereHas('bikeRack', function (Builder $query) use ($filters): void {

@@ -12,6 +12,7 @@ class MonitoringHeartbeats
         'scheduler' => 180,
         'dispatch_notifications' => 180,
         'notification_monitor' => 900,
+        'expire_reservations' => 180,
     ];
 
     public function succeed(string $task): void

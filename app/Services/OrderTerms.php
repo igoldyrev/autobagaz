@@ -75,6 +75,18 @@ class OrderTerms
                 throw ValidationException::withMessages(['items' => 'В предложении должна остаться хотя бы одна позиция. Для отказа отмените заказ.']);
             }
 
+            if ($locked->reservation_started_at && $locked->payment_status === 'paid') {
+                $before = collect(app(OrderReservations::class)->items($locked))->map(fn ($item) => [
+                    'product_id' => $item['product_id'], 'quantity' => (int) $item['quantity'], 'unit_price' => $item['unit_price'] ?? null,
+                ])->values()->all();
+                $after = collect($items)->map(fn ($item) => [
+                    'product_id' => $item['product_id'], 'quantity' => (int) $item['quantity'], 'unit_price' => $item['unit_price'],
+                ])->values()->all();
+                if ($before !== $after) {
+                    throw ValidationException::withMessages(['items' => 'Изменение состава или цен оплаченного заказа требует отдельной сверки оплаты и возвратов. Сроки поставки и получение можно согласовать отдельно.']);
+                }
+            }
+
             $deliveryCost = isset($data['delivery_cost']) ? $this->cents($data['delivery_cost']) : null;
             if ($data['delivery_method'] === 'pickup') {
                 if ($deliveryCost !== null && $deliveryCost !== 0) {
@@ -126,6 +138,8 @@ class OrderTerms
                 return;
             }
             $latest->forceFill(['accepted_at' => now(), 'accepted_via' => 'customer_link'])->save();
+            $locked->unsetRelation('acceptedTermsVersion');
+            app(OrderReservations::class)->allocate($locked);
             AdminActivityLog::query()->create([
                 'user_id' => null, 'user_name' => 'Покупатель', 'action' => AdminActivityLog::ACTION_UPDATED,
                 'subject_type' => 'order', 'subject_id' => $locked->id, 'subject_name' => $locked->number,

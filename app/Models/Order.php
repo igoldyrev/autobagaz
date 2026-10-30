@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Concerns\HasProcessingWorkflow;
 use App\Models\Concerns\HasResponseTracking;
+use App\Services\OrderReservations;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -47,7 +48,47 @@ class Order extends Model
 
     protected function casts(): array
     {
-        return ['consent_accepted_at' => 'datetime', 'total' => 'decimal:2', 'vehicle_snapshot' => 'array', 'checkout_terms' => 'array'];
+        return ['consent_accepted_at' => 'datetime', 'total' => 'decimal:2', 'vehicle_snapshot' => 'array', 'checkout_terms' => 'array', 'reservation_started_at' => 'datetime', 'reservation_expires_at' => 'datetime', 'paid_at' => 'datetime', 'paid_amount' => 'decimal:2'];
+    }
+
+    public function reservations(): HasMany
+    {
+        return $this->hasMany(OrderReservation::class);
+    }
+
+    public function paymentLabel(): string
+    {
+        return ['unpaid' => 'Не оплачен', 'paid' => 'Оплачен', 'refunded' => 'Оплата возвращена'][$this->payment_status] ?? $this->payment_status;
+    }
+
+    public function reservationLabel(): string
+    {
+        if (! $this->reservation_started_at) {
+            return 'Резерв не создавался';
+        }
+        $rows = $this->reservations;
+        if ($rows->contains('state', 'paid')) {
+            return 'Оплачен, резерв сохранён';
+        }
+        if ($rows->contains(fn ($row) => $row->state === 'active' && $row->expires_at->isFuture())) {
+            return 'Резерв до '.$this->reservation_expires_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i:s');
+        }
+        if ($rows->contains('state', 'consumed')) {
+            return 'Товары списаны при выдаче / отправке';
+        }
+        if ($rows->contains('state', 'returned')) {
+            return 'Товары возвращены на склад';
+        }
+        if ($rows->contains('state', 'released')) {
+            return 'Резерв освобождён';
+        }
+
+        return $rows->isEmpty() ? 'Под заказ — без складского резерва' : 'Срок резерва истёк';
+    }
+
+    public function canCollect(): bool
+    {
+        return app(OrderReservations::class)->canCollect($this);
     }
 
     public function items(): HasMany
@@ -123,7 +164,7 @@ class Order extends Model
         $cancel = [self::STATUS_CANCELLED => $this->cancelActionLabel()];
         $back = [self::STATUS_IN_PROGRESS => 'Вернуть к согласованию'];
 
-        return match ($this->status) {
+        $actions = match ($this->status) {
             self::STATUS_NEW => [self::STATUS_IN_PROGRESS => $this->assignee_id ? 'Начать обработку' : 'Взять в работу'] + $cancel,
             self::STATUS_IN_PROGRESS => $this->processingActions() + $cancel,
             self::STATUS_CONFIRMED => [self::STATUS_AWAITING_SUPPLY => 'Ожидать поставку']
@@ -135,6 +176,12 @@ class Order extends Model
             self::STATUS_SHIPPED => $agreed ? [self::STATUS_COMPLETED => 'Завершить заказ'] : [],
             default => [],
         };
+
+        if ($this->reservation_started_at && $this->canCollect() && $this->effectiveDeliveryMethod() === 'pickup' && ! $this->isClosed()) {
+            $actions = [self::STATUS_COMPLETED => 'Выдать оплаченный заказ'] + $actions;
+        }
+
+        return $actions;
     }
 
     public function processingSteps(): array
@@ -151,6 +198,12 @@ class Order extends Model
 
     public function statusDescription(): string
     {
+        if ($this->canCollect()) {
+            return $this->effectiveDeliveryMethod() === 'pickup'
+                ? 'Оплата подтверждена. Товары в наличии, ожидать подтверждения менеджера для самовывоза не нужно.'
+                : 'Оплата подтверждена. Товары зарезервированы, менеджер оформляет отправку.';
+        }
+
         return match ($this->status) {
             self::STATUS_NEW => 'Заявка получена и ожидает обработки менеджером.',
             self::STATUS_IN_PROGRESS => 'Менеджер проверяет товары и согласует условия заказа.',

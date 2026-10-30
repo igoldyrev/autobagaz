@@ -2,15 +2,64 @@
 
 namespace App\Models;
 
+use App\Services\OrderReservations;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
+    public function save(array $options = [])
+    {
+        if ($this->exists && $this->isDirty('stock') && DB::transactionLevel() === 0) {
+            return DB::transaction(fn () => parent::save($options));
+        }
+
+        return parent::save($options);
+    }
+
+    protected static function booted(): void
+    {
+        static::saving(function (Product $product): void {
+            if ($product->exists && $product->isDirty('stock')) {
+                app(OrderReservations::class)->assertPhysicalStock($product, (int) $product->stock);
+            }
+        });
+    }
+
+    public function reservations(): HasMany
+    {
+        return $this->hasMany(OrderReservation::class);
+    }
+
+    public function getAvailableStockAttribute(): int
+    {
+        $reserved = array_key_exists('reserved_stock', $this->attributes)
+            ? $this->attributes['reserved_stock']
+            : $this->reservations()->live()->sum('quantity');
+
+        return max(0, $this->stock - (int) $reserved);
+    }
+
+    public function scopeWithAvailability(Builder $query): Builder
+    {
+        return $query->withSum(['reservations as reserved_stock' => fn ($q) => $q->live()], 'quantity');
+    }
+
+    public static function availableStockSql(): string
+    {
+        return "(products.stock - COALESCE((SELECT SUM(r.quantity) FROM order_reservations r WHERE r.product_id = products.id AND (r.state = 'paid' OR (r.state = 'active' AND r.expires_at > ?))), 0))";
+    }
+
+    public function scopeWhereAvailable(Builder $query, bool $available): Builder
+    {
+        return $query->whereRaw(self::availableStockSql().($available ? ' > 0' : ' <= 0'), [now()]);
+    }
+
     public const BADGES = [
         'hit' => 'Хит',
         'new' => 'Новинка',

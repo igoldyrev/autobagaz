@@ -23,7 +23,7 @@ class HomeController extends Controller
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
         $homeProducts = collect();
         $sales = Schema::hasColumns('products', ['old_price', 'is_on_sale', 'promotion_starts_at', 'promotion_ends_at'])
-            ? Product::query()
+            ? Product::query()->withAvailability()
                 ->active()
                 ->onSale()
                 ->with('images')
@@ -40,7 +40,7 @@ class HomeController extends Controller
                 ...$summary['auto_box_ids'],
             ], 0, 4);
 
-            $homeProducts = Product::query()
+            $homeProducts = Product::query()->withAvailability()
                 ->whereKey($productIds)
                 ->with(['images', 'autoBox'])
                 ->orderBy('name')

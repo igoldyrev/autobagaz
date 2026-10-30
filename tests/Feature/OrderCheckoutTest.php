@@ -227,7 +227,8 @@ class OrderCheckoutTest extends TestCase
     {
         $product = $this->product();
         foreach ([0, -2, 3, 5, 8] as $stock) {
-            $product->update(['stock' => $stock]);
+            // Simulate old/corrupt negative data to verify defensive rendering; normal stock writes reject it.
+            DB::table('products')->where('id', $product->id)->update(['stock' => $stock]);
             $this->post(route('cart.store', $product));
             $this->patch(route('cart.update', $product), ['quantity' => 5])->assertRedirect();
             $available = min(5, max(0, $stock));
@@ -265,8 +266,8 @@ class OrderCheckoutTest extends TestCase
         $this->post(route('cart.store', $product));
         foreach (['cart.index', 'delivery-payment'] as $route) {
             $this->get(route($route))->assertOk()
-                ->assertSee('Отправка заявки не резервирует товар.')
-                ->assertSee('Наличие и сроки поставки подтверждает менеджер.')
+                ->assertSee('После оформления доступные товары резервируются на 15 минут.')
+                ->assertSee('Продление невозможно.')
                 ->assertSee('Онлайн-оплата пока недоступна:')
                 ->assertSee('Доступные товары можно получить отдельно, не дожидаясь остальных')
                 ->assertSee('Предусмотрена 100% предоплата всех товаров')
@@ -283,11 +284,11 @@ class OrderCheckoutTest extends TestCase
         $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))->assertRedirect();
         $order = Order::query()->sole();
         $this->get($order->customerUrl())->assertOk()
-            ->assertSee('Отправка заявки не резервирует товар.')
+            ->assertSee('После оформления доступные товары резервируются на 15 минут.')
             ->assertSee('Онлайн-оплата пока недоступна:');
         $email = (new OrderConfirmation($order))->render();
-        $this->assertStringContainsString('Отправка заявки не резервирует товар.', $email);
-        $this->assertStringContainsString('Наличие и сроки поставки подтверждает менеджер.', $email);
+        $this->assertStringContainsString('После оформления доступные товары резервируются на 15 минут.', $email);
+        $this->assertStringContainsString('Продление невозможно.', $email);
         $this->assertStringContainsString('Онлайн-оплата пока недоступна:', $email);
     }
 

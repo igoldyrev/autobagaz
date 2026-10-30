@@ -21,6 +21,7 @@
                     <p role="alert">В заказе не осталось доступных товаров. <a href="{{ route('cart.index') }}">Вернуться в корзину</a></p>
                 @endif
                 <h2>Ваш заказ</h2>
+                <p class="order-note">После оформления доступные товары резервируются на 15 минут без продления. После подтверждения оплаты действующий резерв сохраняется до выдачи.</p>
                 @foreach ($snapshot as $item)
                     <p><span>{{ $item['name'] }} × {{ $item['quantity'] }} ({{ number_format($item['price'] / 100, 2, ',', ' ') }} ₽ за единицу)@if ($item['product_id'] !== null) — @include('checkout._availability', ['quantity' => $item['quantity'], 'stock' => $item['stock']])@endif</span><strong>{{ number_format($item['price'] * $item['quantity'] / 100, 2, ',', ' ') }} ₽</strong></p>
                 @endforeach

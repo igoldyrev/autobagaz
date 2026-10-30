@@ -40,8 +40,8 @@ class AutoBoxProductFilter
 
         if (count($filters['availability']) === 1) {
             $filters['availability'][0] === 'in_stock'
-                ? $query->where('stock', '>', 0)
-                : $query->where('stock', 0);
+                ? $query->whereAvailable(true)
+                : $query->whereAvailable(false);
         }
 
         $query->whereHas('autoBox', function (Builder $query) use ($filters): void {

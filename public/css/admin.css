@@ -452,6 +452,28 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 .order-page-meta .button { flex-shrink: 0; }
 .order-customer-link { margin-top: 18px; }
 .order-customer-link span { color: #69707a; font-size: 13px; }
+.order-overview__meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-bottom: 18px; border-bottom: 1px solid #e1e5eb; }
+.order-overview__meta h2, .order-overview__meta h3 { margin: 0; color: #39424e; font-size: 15px; }
+.order-overview__meta p { margin: 8px 0; font-size: 14px; }
+.order-overview__meta dl { font-size: 13px; }
+.order-overview .order-reservation { margin-top: 20px; }
+.order-overview .order-reservation__summary { display: grid; grid-template-columns: minmax(120px, 1fr) minmax(0, 2fr); gap: 20px; padding: 16px; border: 1px solid #e0e7e1; border-radius: 10px; background: #f7faf7; }
+.order-overview .order-reservation__summary p { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 0; }
+.order-overview .order-reservation__label { color: #69756d; font-size: 12px; }
+.order-overview .order-reservation__payment { padding: 4px 12px; border-radius: 20px; background: #fff0d5; color: #805500; font-size: 13px; }
+.order-overview [data-payment-status="paid"] .order-reservation__payment { background: #e2f1e6; color: #275d35; }
+.order-overview [data-payment-status="refunded"] .order-reservation__payment { background: #e8ece9; color: #526056; }
+.order-overview .order-reservation__state { font-size: 14px; }
+.order-overview .order-terms-table-wrap { margin-top: 18px; overflow-x: auto; }
+.order-overview .order-customer-items { min-width: 620px; }
+.order-overview .order-customer-items small { display: block; margin-top: 6px; color: #69756d; line-height: 1.5; }
+.order-overview .order-customer-items .order-item-change { color: #805500; }
+.order-overview .order-customer-total { text-align: right; color: #283341; }
+.order-overview > details { margin-top: 16px; }
+.order-change-editor > summary { cursor: pointer; font-size: 18px; font-weight: 700; color: #283341; }
+@media (max-width: 760px) {
+    .order-overview__meta, .order-overview .order-reservation__summary { grid-template-columns: 1fr; gap: 16px; }
+}
 .order-change-editor { margin-top: 24px; padding: 24px; }
 .order-change-editor p { min-height: 0; }
 .order-change-editor > p { max-width: 850px; color: #59616b; line-height: 1.5; }
@@ -488,6 +510,7 @@ a.product-section-card:hover { border-color: #df4b1f; box-shadow: 0 14px 34px rg
 .processing-table .processing-status { display: inline-block; box-sizing: border-box; max-width: 100%; white-space: normal; }
 .processing-table time { font-size: 12px; }
 .processing-table time small { display: block; color: #7a8490; font-size: 12px; }
+.processing-table--orders td[data-label="Статус"] > small { display: block; margin-top: 4px; }
 .processing-table--orders .processing-table__number { width: 9%; }
 .processing-table--orders .processing-table__date { width: 8%; }
 .processing-table--orders .processing-table__status { width: 14%; }

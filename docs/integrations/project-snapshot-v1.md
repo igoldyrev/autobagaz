@@ -143,6 +143,8 @@ Accept: application/json
 `scheduled_tasks` содержит `state` (`ok` или `degraded`) и объект `tasks`:
 
 - `scheduler` — отметка задачи Scheduler каждую минуту, порог 180 секунд;
+- `expire_reservations` — успешное завершение `orders:expire-reservations`
+  каждую минуту, порог 180 секунд;
 - `dispatch_notifications` — успешное завершение `orders:dispatch-notifications`,
   порог 180 секунд; при оставшихся ожидающих записях отметка не обновляется;
 - `notification_monitor` — успешное завершение `telegram:monitor-notifications`,

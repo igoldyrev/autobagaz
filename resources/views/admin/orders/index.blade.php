@@ -7,7 +7,7 @@
         @include('admin.partials.header')
         <main class="admin-content admin-content--wide processing-table-page">
             @include('admin.partials.flash')
-            <div class="page-heading"><div><p class="eyebrow">Продажи</p><h1>Заказы</h1><p class="admin-content__lead">Новые заказы требуют подтверждения менеджером.</p></div></div>
+            <div class="page-heading"><div><p class="eyebrow">Продажи</p><h1>Заказы</h1><p class="admin-content__lead">Оплата, резерв и этап выполнения учитываются отдельно.</p></div></div>
             @include('admin.partials.processing-filters', ['statusLabels' => App\Models\Order::statusLabels(), 'indexUrl' => route('admin.orders.index'), 'showOrderSearch' => true])
             <div class="table-wrap processing-table-wrap"><table class="admin-table processing-table processing-table--orders">
                 <colgroup><col class="processing-table__number"><col class="processing-table__date"><col class="processing-table__status"><col class="processing-table__assignee"><col class="processing-table__customer"><col class="processing-table__vehicle"><col class="processing-table__delivery"><col class="processing-table__amount"></colgroup>
@@ -17,7 +17,7 @@
                     <tr class="admin-table__linked-row">
                         <td data-label="Номер"><a class="admin-table__row-link" href="{{ route('admin.orders.show', $order) }}" aria-label="Открыть заказ {{ $order->number }}"></a><strong>{{ $order->number }}</strong></td>
                         <td data-label="Дата"><time datetime="{{ $order->created_at->toIso8601String() }}">{{ $order->created_at->timezone(config('app.display_timezone'))->format('d.m.Y') }}<small>{{ $order->created_at->timezone(config('app.display_timezone'))->format('H:i') }}</small></time></td>
-                        <td data-label="Статус"><span class="status processing-status processing-status--{{ $order->status }}">{{ $order->statusLabel() }}</span><small>@include('admin.partials.response-status', ['responseRecord' => $order, 'compact' => true])</small></td>
+                        <td data-label="Статус"><span class="status processing-status processing-status--{{ $order->status }}">{{ $order->statusLabel() }}</span>@if ($order->reservation_started_at)<small>{{ $order->paymentLabel() }}</small><small>{{ $order->reservationLabel() }}</small>@endif<small>@include('admin.partials.response-status', ['responseRecord' => $order, 'compact' => true])</small></td>
                         <td data-label="Ответственный">{{ $order->assignee?->name ?? 'Не назначен' }}</td>
                         <td data-label="Клиент"><strong>{{ $order->customer_name }}</strong><br><a href="tel:{{ $order->phone }}">{{ $order->phone }}</a><br><a href="mailto:{{ $order->email }}">{{ $order->email }}</a></td>
                         <td data-label="Автомобиль">{{ $order->vehicle_snapshot['label'] ?? 'Не указан' }}</td>

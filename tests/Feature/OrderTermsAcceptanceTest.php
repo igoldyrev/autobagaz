@@ -22,10 +22,12 @@ class OrderTermsAcceptanceTest extends TestCase
         $this->assertGuest();
         $before = $order->fresh()->getAttributes();
 
-        $this->get($order->customerUrl())->assertOk()->assertSee('Исходный товар')
+        $page = $this->get($order->customerUrl())->assertOk()->assertSee('Исходный товар')
             ->assertSee('Предложение менеджера № 1')->assertSee('Проверить сроки поставки')
             ->assertSee('Подтвердить условия')->assertDontSee('metrika-config', false)
             ->assertDontSee($terms->created_by_name);
+        $this->assertSame(1, substr_count($page->getContent(), '<table'));
+        $page->assertSee('Предлагается:')->assertDontSee('Исходная заявка');
         $this->post($this->acceptUrl($order), ['version' => 1, 'accept_terms' => '1'])
             ->assertRedirect($order->customerUrl())->assertSessionDoesntHaveErrors();
 

@@ -158,8 +158,8 @@
                 </div>
                 <div>
                     <dt>Наличие</dt>
-                    <dd class="{{ $product->stock > 0 ? 'product-characteristics__available' : 'product-characteristics__to-order' }}">
-                        {{ $product->stock > 0 ? $product->stock.' шт.' : 'Под заказ' }}
+                    <dd class="{{ $product->available_stock > 0 ? 'product-characteristics__available' : 'product-characteristics__to-order' }}">
+                        {{ $product->available_stock > 0 ? $product->available_stock.' шт.' : 'Под заказ' }}
                     </dd>
                 </div>
             </dl>

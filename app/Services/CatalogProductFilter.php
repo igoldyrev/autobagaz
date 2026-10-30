@@ -42,8 +42,8 @@ class CatalogProductFilter
 
         if (count($filters['availability']) === 1) {
             $filters['availability'][0] === 'in_stock'
-                ? $query->where('stock', '>', 0)
-                : $query->where('stock', 0);
+                ? $query->whereAvailable(true)
+                : $query->whereAvailable(false);
         }
 
         if ($filters['load_capacities'] !== [] || $filters['bar_types'] !== [] || $filters['bar_lengths'] !== []) {

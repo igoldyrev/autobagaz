@@ -48,7 +48,7 @@ class CartService
             return collect();
         }
 
-        $products = Product::query()->active()->whereIn('id', array_keys($items))->get()->keyBy('id');
+        $products = Product::query()->withAvailability()->active()->whereIn('id', array_keys($items))->get()->keyBy('id');
         $validItems = [];
 
         $contents = collect($items)->map(function (int $quantity, string $productId) use ($products, &$validItems) {
@@ -95,7 +95,7 @@ class CartService
                 'name' => $product->name,
                 'price' => $this->priceInKopecks($product->price),
                 'quantity' => $quantities[$product->id],
-                'stock' => $product->stock,
+                'stock' => $product->available_stock,
                 'product_id' => $product->id,
             ];
         }

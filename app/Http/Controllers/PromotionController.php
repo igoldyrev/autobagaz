@@ -11,14 +11,14 @@ class PromotionController extends Controller
     public function __invoke(): View
     {
         $products = Schema::hasColumns('products', ['old_price', 'is_on_sale', 'promotion_starts_at', 'promotion_ends_at'])
-            ? Product::query()
+            ? Product::query()->withAvailability()
                 ->active()
                 ->onSale()
                 ->with(['images', 'autoBox'])
                 ->orderByDesc('catalog_priority')
                 ->orderByDesc('promotion_starts_at')
                 ->paginate(24)
-            : Product::query()->whereRaw('1 = 0')->paginate(24);
+            : Product::query()->withAvailability()->whereRaw('1 = 0')->paginate(24);
 
         return view('promotions.index', compact('products'));
     }

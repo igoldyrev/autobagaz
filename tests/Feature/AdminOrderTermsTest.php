@@ -20,11 +20,13 @@ class AdminOrderTermsTest extends TestCase
             ->assertDontSee('Условия при оформлении')
             ->assertDontSee('Предложения и согласованные условия')
             ->assertDontSee('Согласие на обработку данных')
-            ->assertSeeInOrder(['Исходная заявка: товары', 'Сумма исходной заявки', 'Открыть страницу покупателя', 'Замена товаров и изменение условий'])
+            ->assertDontSee('Исходная заявка: товары')
+            ->assertSeeInOrder(['Клиент', 'Товар или услуга', 'Товары и услуги:', 'Открыть страницу покупателя', 'Замена товаров и изменение условий'])
             ->assertSee($order->customerUrl(), false)
             ->assertSee('Если нужно заказать у поставщика')
             ->assertSee('order-change-item--existing', false);
         $this->assertSame(1, substr_count($response->getContent(), 'Открыть страницу покупателя'));
+        $this->assertSame(1, substr_count($response->getContent(), '<table'));
     }
 
     public function test_proposal_saves_an_independent_snapshot_and_calculates_money_without_changing_the_request(): void

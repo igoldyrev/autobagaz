@@ -85,7 +85,7 @@
                     @endif
                     <span class="product-card__old-price">{{ number_format((float) $product->old_price, 0, ',', ' ') }} ₽</span>
                 @endif
-                <span class="product-card__stock">{{ $product->stock > 0 ? 'В наличии: '.$product->stock.' шт.' : 'Под заказ' }}</span>
+                <span class="product-card__stock">{{ $product->available_stock > 0 ? 'В наличии: '.$product->available_stock.' шт.' : 'Под заказ' }}</span>
                 <form method="POST" action="{{ route('cart.store', $product) }}" class="product-card__cart-form">
                     @csrf
                     <button class="button button__buy product-card__buy" type="submit">В корзину</button>
