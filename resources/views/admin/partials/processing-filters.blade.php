@@ -1,6 +1,6 @@
 <form method="GET" class="toolbar processing-filters">
     @if ($showOrderSearch ?? false)
-        <label class="field processing-filters__search"><span>Поиск заказа</span><input type="search" name="search" value="{{ request('search') }}" maxlength="120" placeholder="Номер, телефон или email"></label>
+        <label class="field processing-filters__search"><span>{{ $searchLabel ?? 'Поиск заказа' }}</span><input type="search" name="search" value="{{ request('search') }}" maxlength="120" placeholder="{{ $searchPlaceholder ?? 'Номер, телефон или email' }}"></label>
         @error('search')<p class="field__error">{{ $message }}</p>@enderror
     @endif
     <label class="field"><span>Статус</span><select name="status">
@@ -24,6 +24,9 @@
     <label class="checkbox processing-filters__mine"><input type="checkbox" name="mine" value="1" @checked(request()->boolean('mine'))> Только мои</label>
     @if ($showArchiveFilter ?? false)
         <label class="checkbox processing-filters__mine"><input type="checkbox" name="archived" value="1" @checked(request()->boolean('archived'))> Архив заявок</label>
+    @endif
+    @if ($showOverdueReturnFilter ?? false)
+        <label class="checkbox processing-filters__mine"><input type="checkbox" name="overdue" value="1" @checked(request()->boolean('overdue'))> Просрочен возврат</label>
     @endif
     <button type="submit" class="button button--secondary button--inline">Показать</button>
     <a class="button button--secondary button--inline" href="{{ $indexUrl }}">Сбросить</a>

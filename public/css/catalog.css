@@ -717,3 +717,18 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
     .order-processing-steps__label { display: inline; padding: 0; border: 0; border-radius: 0; background: none; font-size: 14px; white-space: normal; }
     .order-processing-steps [aria-current="step"] .order-processing-steps__label { background: none; }
 }
+
+/* Rental page follows checkout form styling. */
+.rental-text { white-space: pre-line; }
+.rental-table-wrap { overflow-x: auto; margin-bottom: 20px; }
+.rental-request { margin-top: 30px; padding: 22px; border: 1px solid #d8ded8; border-radius: 6px; background: #fff; }
+.rental-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.rental-form .field { display: grid; gap: 7px; min-width: 0; font-size: 16px; }
+.rental-form .field--wide { grid-column: 1 / -1; }
+.rental-form .field input, .rental-form textarea, .rental-form select { box-sizing: border-box; width: 100%; min-width: 0; padding: 10px; border: 1px solid #c8d0c8; border-radius: 4px; background: #fff; font: inherit; }
+.rental-form .field input:focus, .rental-form textarea:focus, .rental-form select:focus { outline: 2px solid #367347; outline-offset: 2px; }
+.rental-form .personal-data-consent input { width: auto; }
+.rental-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 600px) { .rental-form { grid-template-columns: minmax(0, 1fr); } .rental-request { padding: 16px; } }
+
+.rental-request__success { margin-bottom: 20px; scroll-margin-top: 20px; }

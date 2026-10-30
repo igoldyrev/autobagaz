@@ -60,6 +60,8 @@
         $items[] = ['label' => 'Пользователи', 'url' => route('admin.users.index')];
     } elseif (str_starts_with($routeName, 'admin.orders.')) {
         $items[] = ['label' => 'Заказы', 'url' => route('admin.orders.index')];
+    } elseif (str_starts_with($routeName, 'admin.rental-requests.')) {
+        $items[] = ['label' => 'Заявки на прокат', 'url' => route('admin.rental-requests.index')];
     } elseif ($routeName === 'admin.activity.index') {
         $items[] = ['label' => 'Пользователи', 'url' => route('admin.users.index')];
         $items[] = ['label' => 'Журнал действий', 'url' => null];

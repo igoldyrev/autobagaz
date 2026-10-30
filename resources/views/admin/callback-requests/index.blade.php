@@ -8,6 +8,7 @@
         <main class="admin-content admin-content--wide processing-table-page">
             @include('admin.partials.flash')
             <div class="page-heading"><div><p class="eyebrow">Продажи</p><h1>Обратные звонки</h1><p class="admin-content__lead">Заявки из формы обратного звонка на сайте.</p></div></div>
+            @include('admin.callback-requests._help')
             @include('admin.partials.processing-filters', ['statusLabels' => App\Models\CallbackRequest::statusLabels(), 'indexUrl' => route('admin.callback-requests.index'), 'showArchiveFilter' => true])
             <div class="table-wrap processing-table-wrap"><table class="admin-table processing-table processing-table--callbacks">
                 <colgroup><col class="processing-table__date"><col class="processing-table__status"><col class="processing-table__assignee"><col class="processing-table__customer"></colgroup>

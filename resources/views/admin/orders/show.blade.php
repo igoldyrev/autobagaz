@@ -11,6 +11,7 @@
                 <p class="admin-content__lead">{{ $order->created_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i') }}</p>
                 <a class="button button--secondary button--inline" href="{{ route('admin.orders.index') }}">← К списку заказов</a>
             </div>
+            @include('admin.orders._help')
             @include('admin.partials.processing-panel', ['record' => $order, 'updateUrl' => route('admin.orders.update', $order)])
             <div class="admin-card order-details order-overview">
                 <div class="order-overview__meta">

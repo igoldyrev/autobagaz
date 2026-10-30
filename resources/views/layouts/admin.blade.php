@@ -6,7 +6,7 @@
         <meta name="robots" content="noindex,nofollow">
         <title>@yield('title', 'Панель управления') — Автобагаж</title>
         <link rel="icon" href="{{ asset('favicon.ico') }}">
-        <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v={{ filemtime(public_path('css/admin.css')) }}">
     </head>
     <body>
         @yield('body')

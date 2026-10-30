@@ -8,6 +8,7 @@
         <main class="admin-content admin-content--wide processing-table-page">
             @include('admin.partials.flash')
             <div class="page-heading"><div><p class="eyebrow">Продажи</p><h1>Заказы</h1><p class="admin-content__lead">Оплата, резерв и этап выполнения учитываются отдельно.</p></div></div>
+            @include('admin.orders._help')
             @include('admin.partials.processing-filters', ['statusLabels' => App\Models\Order::statusLabels(), 'indexUrl' => route('admin.orders.index'), 'showOrderSearch' => true])
             <div class="table-wrap processing-table-wrap"><table class="admin-table processing-table processing-table--orders">
                 <colgroup><col class="processing-table__number"><col class="processing-table__date"><col class="processing-table__status"><col class="processing-table__assignee"><col class="processing-table__customer"><col class="processing-table__vehicle"><col class="processing-table__delivery"><col class="processing-table__amount"></colgroup>

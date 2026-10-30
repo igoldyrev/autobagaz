@@ -27,6 +27,8 @@ class AdminActivityController extends Controller
         'fitment' => 'Группы применяемости',
         'compatibility_override' => 'Ручные исключения',
         'user' => 'Пользователи и профиль',
+        'rental_request' => 'Заявки на прокат',
+        'rental_service' => 'Услуга проката',
     ];
 
     public function __invoke(Request $request): View

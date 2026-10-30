@@ -18,6 +18,8 @@ use App\Http\Controllers\Admin\ProductPageInformationController;
 use App\Http\Controllers\Admin\ProductSectionController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProfileSecurityController;
+use App\Http\Controllers\Admin\RentalRequestController;
+use App\Http\Controllers\Admin\RentalServiceController;
 use App\Http\Controllers\Admin\RoofRackManufacturerController;
 use App\Http\Controllers\Admin\RoofRackProductController;
 use App\Http\Controllers\Admin\SkiRackManufacturerController;
@@ -44,6 +46,7 @@ use App\Http\Controllers\Internal\AdminMonitoringController;
 use App\Http\Controllers\LegacyRedirectController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\RentalController;
 use App\Http\Controllers\RoofRackCategoryController;
 use App\Http\Controllers\SeoController;
 use App\Http\Controllers\SkiRackController;
@@ -57,7 +60,9 @@ Route::get('/sitemaps/{page}.xml', [SeoController::class, 'page'])->where('page'
 foreach (array_keys(config('legacy_urls')) as $index => $legacyPath) {
     Route::get($legacyPath, LegacyRedirectController::class)->name('legacy.redirect.'.$index);
 }
-Route::view('/prokat', 'rental')->name('rental');
+Route::get('/prokat', [RentalController::class, 'index'])->name('rental');
+Route::get('/prokat/documents/{kind}', [RentalController::class, 'document'])->name('rental.document');
+Route::post('/prokat', [RentalController::class, 'store'])->middleware('throttle:10,1')->block(10, 10)->name('rental.store');
 Route::get('/ustanovka', InstallationController::class)->name('installation');
 Route::get('/akcii', PromotionController::class)->name('promotions.index');
 Route::view('/contacts', 'contacts')->name('contacts');
@@ -106,6 +111,8 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
         Route::get('products', ProductSectionController::class)->name('products.index');
         Route::get('products/information', [ProductPageInformationController::class, 'edit'])->name('products.information.edit');
         Route::put('products/information', [ProductPageInformationController::class, 'update'])->name('products.information.update');
+        Route::get('products/rental-service', [RentalServiceController::class, 'edit'])->name('products.rental-service.edit');
+        Route::put('products/rental-service', [RentalServiceController::class, 'update'])->name('products.rental-service.update');
         Route::get('products/installation-service', [InstallationServiceController::class, 'edit'])->name('products.installation-service.edit');
         Route::put('products/installation-service', [InstallationServiceController::class, 'update'])->name('products.installation-service.update');
         Route::prefix('products/autobox')->name('products.auto-boxes.')->group(function () {
@@ -155,6 +162,9 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
         Route::post('orders/{order}/returns', [AdminOrderController::class, 'receiveReturn'])->name('orders.returns');
         Route::post('orders/{order}/terms', [AdminOrderController::class, 'storeTerms'])->name('orders.terms.store');
         Route::put('orders/{order}', [AdminOrderController::class, 'update'])->name('orders.update');
+        Route::get('rental-requests', [RentalRequestController::class, 'index'])->name('rental-requests.index');
+        Route::get('rental-requests/{rentalRequest}', [RentalRequestController::class, 'show'])->name('rental-requests.show');
+        Route::put('rental-requests/{rentalRequest}', [RentalRequestController::class, 'update'])->name('rental-requests.update');
         Route::get('callback-requests', [AdminCallbackRequestController::class, 'index'])->name('callback-requests.index');
         Route::get('callback-requests/{callbackRequest}', [AdminCallbackRequestController::class, 'show'])->name('callback-requests.show');
         Route::put('callback-requests/{callbackRequest}', [AdminCallbackRequestController::class, 'update'])->name('callback-requests.update');
