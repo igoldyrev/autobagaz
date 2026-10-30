@@ -6,6 +6,7 @@
     @if (auth()->user()->hasPermission(App\Models\User::PERMISSION_PRODUCTS) || auth()->user()->hasPermission(App\Models\User::PERMISSION_CATEGORIES))
         <div class="admin-section-nav__group" role="group" aria-label="Каталог">
             @if (auth()->user()->hasPermission(App\Models\User::PERMISSION_PRODUCTS))
+                <a href="{{ route('admin.stock.index') }}" @if (request()->routeIs('admin.stock.*')) aria-current="page" @endif>Остатки</a>
                 <a href="{{ route('admin.products.index') }}" @if (request()->routeIs('admin.products.*')) aria-current="page" @endif>Товары</a>
             @endif
             @if (auth()->user()->hasPermission(App\Models\User::PERMISSION_CATEGORIES))

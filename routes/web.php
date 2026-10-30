@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\RoofRackManufacturerController;
 use App\Http\Controllers\Admin\RoofRackProductController;
 use App\Http\Controllers\Admin\SkiRackManufacturerController;
 use App\Http\Controllers\Admin\SkiRackProductController;
+use App\Http\Controllers\Admin\StockController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserSessionController;
 use App\Http\Controllers\Admin\VehicleBodyStyleController;
@@ -97,6 +98,11 @@ Route::middleware(['auth', 'auth.session', 'admin', 'admin.presence', 'admin.act
     });
 
     Route::middleware('permission:products.manage')->group(function () {
+        Route::get('stock', [StockController::class, 'index'])->name('stock.index');
+        Route::post('stock/export', [StockController::class, 'export'])->name('stock.export');
+        Route::post('stock/import', [StockController::class, 'preview'])->name('stock.preview');
+        Route::get('stock/import/{import}', [StockController::class, 'show'])->name('stock.show');
+        Route::post('stock/import/{import}/apply', [StockController::class, 'apply'])->name('stock.apply');
         Route::get('products', ProductSectionController::class)->name('products.index');
         Route::get('products/information', [ProductPageInformationController::class, 'edit'])->name('products.information.edit');
         Route::put('products/information', [ProductPageInformationController::class, 'update'])->name('products.information.update');

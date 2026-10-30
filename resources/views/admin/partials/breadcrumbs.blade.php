@@ -2,7 +2,12 @@
     $routeName = request()->route()?->getName() ?? '';
     $items = [['label' => 'Главная', 'url' => route('admin.dashboard')]];
 
-    if (str_starts_with($routeName, 'admin.products.')) {
+    if (str_starts_with($routeName, 'admin.stock.')) {
+        $items[] = ['label' => 'Остатки', 'url' => route('admin.stock.index')];
+        if (str_ends_with($routeName, '.show')) {
+            $items[] = ['label' => 'Импорт', 'url' => null];
+        }
+    } elseif (str_starts_with($routeName, 'admin.products.')) {
         $items[] = ['label' => 'Товары', 'url' => route('admin.products.index')];
 
         $productSections = [
