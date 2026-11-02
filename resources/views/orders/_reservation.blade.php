@@ -12,7 +12,9 @@
             <p class="order-reservation__deadline">Срок неоплаченного резерва: до <time datetime="{{ $order->reservation_expires_at->toIso8601String() }}">{{ $order->reservation_expires_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i:s') }}</time>.</p>
         @endif
         @if ($order->canCollect())
-            <p>{{ $order->effectiveDeliveryMethod() === 'pickup' ? 'Заказ оплачен, все товары зарезервированы. Можно приезжать за заказом в магазин.' : 'Заказ оплачен, все товары зарезервированы. Передачу в доставку оформляет менеджер.' }}</p>
+            <p>{{ $order->effectiveDeliveryMethod() === 'pickup' ? 'Заказ оплачен, все оставшиеся товары зарезервированы. Можно приезжать за заказом в магазин.' : 'Заказ оплачен, все оставшиеся товары зарезервированы. Передачу в доставку оформляет менеджер.' }}</p>
+        @elseif ($order->canFulfillPart())
+            <p>Часть товаров доступна для получения. Выдачу или отправку по частям согласуйте с менеджером.</p>
         @elseif ($order->payment_status === 'paid' && ! $order->isClosed() && $order->status !== \App\Models\Order::STATUS_SHIPPED)
             <p>Оплата получена. Полный складской резерв пока не подтверждён либо новые условия ожидают согласования. Перед получением свяжитесь с менеджером.</p>
         @endif
@@ -26,22 +28,26 @@
         @endphp
         <div class="order-terms-table-wrap table-wrap">
             <table class="order-terms-table admin-table">
-                <thead><tr><th>Товар</th><th>Заказано, шт.</th><th>В резерве, шт.</th><th>Состояние</th><th>Возвращено, шт.</th></tr></thead>
+                <thead><tr><th>Товар</th><th>Заказано, шт.</th><th>В резерве, шт.</th><th>Выдано / отправлено, шт.</th><th>Осталось передать, шт.</th><th>Состояние</th><th>Возвращено, шт.</th></tr></thead>
                 <tbody>
                 @foreach (app(\App\Services\OrderReservations::class)->items($order) as $reservedItem)
                     @continue($reservedItem['product_id'] === null || $reservedItem['quantity'] === 0)
                     @php
                         $reservation = $reservationRows->get($reservedItem['product_id']);
                         $liveQuantity = $reservation && ($reservation->state === 'paid' || ($reservation->state === 'active' && $reservation->expires_at->isFuture())) ? $reservation->quantity : 0;
-                        $hasSupply = $hasSupply || ($liveQuantity < $reservedItem['quantity'] && ! in_array($reservation?->state, ['consumed', 'returned'], true));
+                        $fulfilledQuantity = $reservation?->fulfilled_quantity ?? 0;
+                        $remainingQuantity = max(0, $reservedItem['quantity'] - $fulfilledQuantity);
+                        $hasSupply = $hasSupply || ($liveQuantity < $remainingQuantity);
                     @endphp
                     <tr>
                         <td>{{ $reservedItem['product_name'] }}</td>
                         <td>{{ $reservedItem['quantity'] }}</td>
                         <td>{{ $liveQuantity }}</td>
+                        <td>{{ $fulfilledQuantity }}</td>
+                        <td>{{ $remainingQuantity }}</td>
                         <td>{{ $reservation?->stateLabel() ?? 'Под заказ, без складского резерва' }}
-                            @if ($liveQuantity > 0 && $liveQuantity < $reservedItem['quantity'])
-                                <br>Остальные {{ $reservedItem['quantity'] - $liveQuantity }} шт. — под заказ, сроки согласует менеджер.
+                            @if ($liveQuantity > 0 && $liveQuantity < $remainingQuantity)
+                                <br>Остальные {{ $remainingQuantity - $liveQuantity }} шт. — под заказ, сроки согласует менеджер.
                             @endif
                         </td>
                         <td>{{ $reservation?->returned_quantity ?? 0 }}</td>

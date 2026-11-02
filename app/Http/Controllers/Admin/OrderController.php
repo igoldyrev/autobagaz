@@ -99,6 +99,21 @@ class OrderController extends Controller
         return back()->with('success', 'Резерв поступивших товаров проверен.');
     }
 
+    public function fulfill(Request $request, Order $order): RedirectResponse
+    {
+        $data = $request->validate([
+            'expected_status' => ['required', Rule::in(array_keys(Order::statusLabels()))],
+            'expected_terms_version' => ['required', 'integer', 'min:0'],
+            'expected_fulfillment_version' => ['required', 'integer', 'min:0'],
+            'quantities' => ['required', 'array', 'max:100'],
+            'quantities.*' => ['required', 'integer', 'min:0', 'max:4294967295'],
+            'fulfilled' => ['required', 'accepted'],
+        ]);
+        app(OrderReservations::class)->fulfillPart($order, $request->user(), $data);
+
+        return back()->with('success', 'Передача товаров учтена. Резерв оставшегося количества сохранён.');
+    }
+
     public function receiveReturn(Request $request, Order $order): RedirectResponse
     {
         $data = $request->validate([

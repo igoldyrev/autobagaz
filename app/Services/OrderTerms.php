@@ -75,7 +75,7 @@ class OrderTerms
                 throw ValidationException::withMessages(['items' => 'В предложении должна остаться хотя бы одна позиция. Для отказа отмените заказ.']);
             }
 
-            if ($locked->reservation_started_at && $locked->payment_status === 'paid') {
+            if ($locked->reservation_started_at && ($locked->payment_status === 'paid' || $locked->reservations()->where('fulfilled_quantity', '>', 0)->exists())) {
                 $before = collect(app(OrderReservations::class)->items($locked))->map(fn ($item) => [
                     'product_id' => $item['product_id'], 'quantity' => (int) $item['quantity'], 'unit_price' => $item['unit_price'] ?? null,
                 ])->values()->all();

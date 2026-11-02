@@ -27,7 +27,9 @@
                 $proposedQuantity = (int) ($proposed['quantity'] ?? 0);
                 $reservation = $reservationRows->get($displayItem['product_id']);
                 $liveQuantity = $reservation && ($reservation->state === 'paid' || ($reservation->state === 'active' && $reservation->expires_at->isFuture())) ? $reservation->quantity : 0;
-                $hasSupply = $hasSupply || ($displayItem['product_id'] !== null && $currentQuantity > $liveQuantity && ! in_array($reservation?->state, ['consumed', 'returned'], true));
+                $fulfilledQuantity = $reservation?->fulfilled_quantity ?? 0;
+                $remainingQuantity = max(0, $currentQuantity - $fulfilledQuantity);
+                $hasSupply = $hasSupply || ($displayItem['product_id'] !== null && $remainingQuantity > $liveQuantity);
             @endphp
             @continue($currentQuantity === 0 && $proposedQuantity === 0)
             <tr>
@@ -50,7 +52,9 @@
                         @elseif ($order->reservation_started_at)
                             {{ $reservation?->stateLabel() ?? 'Под заказ' }}
                             @if ($liveQuantity > 0)<small>В резерве: {{ $liveQuantity }} шт.</small>@endif
-                            @if ($liveQuantity > 0 && $liveQuantity < $currentQuantity)<small>Остальные {{ $currentQuantity - $liveQuantity }} шт. — под заказ, сроки согласует менеджер.</small>@endif
+                            @if ($fulfilledQuantity > 0)<small>Выдано / отправлено: {{ $fulfilledQuantity }} шт.</small><small>Осталось передать: {{ $remainingQuantity }} шт.</small>@endif
+                            @if ($liveQuantity > 0 && $liveQuantity < $remainingQuantity)<small>Остальные {{ $remainingQuantity - $liveQuantity }} шт. — под заказ, сроки согласует менеджер.</small>@endif
+                            @if ($liveQuantity === 0 && $remainingQuantity > 0 && $fulfilledQuantity > 0)<small>Под заказ: {{ $remainingQuantity }} шт. Сроки согласует менеджер.</small>@endif
                             @if ($reservation?->returned_quantity)<small>Возвращено: {{ $reservation->returned_quantity }} шт.</small>@endif
                         @else
                             {{ $current['supply_terms'] ?? 'Наличие уточнит менеджер' }}

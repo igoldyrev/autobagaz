@@ -12,7 +12,7 @@ class OrderReservation extends Model
 
     protected function casts(): array
     {
-        return ['quantity' => 'integer', 'returned_quantity' => 'integer', 'expires_at' => 'datetime', 'released_at' => 'datetime'];
+        return ['quantity' => 'integer', 'fulfilled_quantity' => 'integer', 'returned_quantity' => 'integer', 'expires_at' => 'datetime', 'released_at' => 'datetime'];
     }
 
     public function scopeLive(Builder $query): Builder

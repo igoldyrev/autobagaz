@@ -171,6 +171,35 @@ class MySqlOrderReservationConcurrencyTest extends TestCase
         $this->assertGreaterThanOrEqual(0, $product->fresh()->available_stock);
     }
 
+    public static function partialIssueRaces(): array
+    {
+        return [['partial', false], ['issue', false], ['issue', true]];
+    }
+
+    #[DataProvider('partialIssueRaces')]
+    public function test_partial_issue_is_serialized_with_repeated_or_whole_issue(string $contender, bool $wholeFirst): void
+    {
+        $product = $this->product();
+        $product->update(['stock' => 5]);
+        $order = $this->order($product);
+        $order->items()->update(['quantity' => 5, 'total' => 500]);
+        $order->update(['total' => 500]);
+        app(OrderReservations::class)->create($order);
+        app(OrderPayments::class)->confirm($order, 'yookassa', 'setup', '500.00');
+        $order->update(['status' => 'in_progress']);
+        $user = User::factory()->create(['is_admin' => true]);
+        $operations = [['partial', $order->id], [$contender, $order->id]];
+        if ($wholeFirst) {
+            $operations = array_reverse($operations);
+        }
+        $this->assertSame(['ok', 'validation'], $this->race(...$operations, lockTable: 'orders', extra: ['user' => $user->id, 'product' => $product->id, 'expected_status' => 'in_progress']));
+        $this->assertSame($wholeFirst ? 0 : 4, $product->fresh()->stock);
+        $this->assertSame(0, $product->fresh()->available_stock);
+        $this->assertSame($wholeFirst ? 0 : 4, $order->reservations()->sole()->quantity);
+        $this->assertSame($wholeFirst ? 5 : 1, $order->reservations()->sole()->fulfilled_quantity);
+        $this->assertSame(1, $order->fresh()->fulfillment_version);
+    }
+
     private function race(array $holder, array $contender, string $lockTable = 'products', array $extra = []): array
     {
         $a = $this->worker($holder, 'holder', $lockTable, $extra);

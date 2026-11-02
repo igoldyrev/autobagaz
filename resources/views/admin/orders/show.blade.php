@@ -50,15 +50,16 @@
                         <button class="button button--secondary" type="submit">Зарезервировать поступившие товары</button>
                     </form>
                 @endif
+                @include('admin.orders._fulfillment')
                 @foreach ($order->reservations as $reservation)
-                    @if (in_array($reservation->state, ['consumed', 'returned'], true) && $reservation->returned_quantity < $reservation->quantity)
+                    @if ($reservation->returned_quantity < $reservation->fulfilled_quantity)
                         <details>
-                            <summary>Принять возврат: {{ $reservation->product?->name }} (до {{ $reservation->quantity - $reservation->returned_quantity }} шт.)</summary>
+                            <summary>Принять возврат: {{ $reservation->product?->name }} (до {{ $reservation->fulfilled_quantity - $reservation->returned_quantity }} шт.)</summary>
                             <form method="POST" action="{{ route('admin.orders.returns', $order) }}">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $reservation->product_id }}">
                                 <input type="hidden" name="expected_returned" value="{{ $reservation->returned_quantity }}">
-                                <label class="field">Количество<input type="number" name="quantity" min="1" max="{{ $reservation->quantity - $reservation->returned_quantity }}" value="1" required></label>
+                                <label class="field">Количество<input type="number" name="quantity" min="1" max="{{ $reservation->fulfilled_quantity - $reservation->returned_quantity }}" value="1" required></label>
                                 <label class="field">Причина<textarea name="reason" maxlength="1000" required></textarea></label>
                                 <label><input type="checkbox" name="received" value="1" required> Товар фактически принят в магазин и пригоден к продаже</label>
                                 <p>Увеличит физический остаток. Возврат денег учитывается отдельно.</p>

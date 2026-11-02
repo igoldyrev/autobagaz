@@ -66,9 +66,15 @@ try {
         case 'import':
             app(StockFileService::class)->apply(StockFileImport::findOrFail($id), User::findOrFail($input['user']), []);
             break;
+        case 'partial':
+            app(OrderReservations::class)->fulfillPart(Order::findOrFail($id), User::findOrFail($input['user']), [
+                'expected_status' => $input['expected_status'] ?? 'new', 'expected_terms_version' => 0, 'expected_fulfillment_version' => 0,
+                'quantities' => [$input['product'] => 1], 'fulfilled' => true,
+            ]);
+            break;
         case 'issue':
             app(OrderWorkflow::class)->update(Order::findOrFail($id), User::findOrFail($input['user']), [
-                'status' => 'completed', 'expected_status' => 'new', 'expected_terms_version' => 0, 'fulfillment_confirmed' => true,
+                'status' => 'completed', 'expected_status' => $input['expected_status'] ?? 'new', 'expected_terms_version' => 0, 'fulfillment_confirmed' => true,
             ]);
             break;
         case 'checkout':

@@ -305,7 +305,7 @@ class OrderReservationTest extends TestCase
     private function transition(Order $order, User $manager, string $status, array $extra = []): TestResponse
     {
         return $this->actingAs($manager)->put(route('admin.orders.update', $order), [
-            'status' => $status, 'expected_status' => $order->fresh()->status, 'expected_terms_version' => 0, 'fulfillment_confirmed' => '1', ...$extra,
+            'status' => $status, 'expected_status' => $order->fresh()->status, 'expected_terms_version' => 0, 'expected_fulfillment_version' => $order->fresh()->fulfillment_version, 'fulfillment_confirmed' => '1', ...$extra,
         ]);
     }
 }

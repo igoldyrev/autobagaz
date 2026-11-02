@@ -23,6 +23,7 @@
                 @csrf @method('PUT')
                 <input type="hidden" name="expected_status" value="{{ $record->status }}">
                 @if ($record instanceof \App\Models\Order)
+                    <input type="hidden" name="expected_fulfillment_version" value="{{ $record->fulfillment_version }}">
                     <input type="hidden" name="expected_terms_version" value="{{ $record->latestTermsVersion?->version ?? 0 }}">
                     @if ($value === \App\Models\Order::STATUS_COMPLETED)
                         <input type="hidden" name="fulfillment_confirmed" value="1">

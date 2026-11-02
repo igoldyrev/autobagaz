@@ -48,7 +48,7 @@ class Order extends Model
 
     protected function casts(): array
     {
-        return ['consent_accepted_at' => 'datetime', 'total' => 'decimal:2', 'vehicle_snapshot' => 'array', 'checkout_terms' => 'array', 'reservation_started_at' => 'datetime', 'reservation_expires_at' => 'datetime', 'paid_at' => 'datetime', 'paid_amount' => 'decimal:2'];
+        return ['fulfillment_version' => 'integer', 'consent_accepted_at' => 'datetime', 'total' => 'decimal:2', 'vehicle_snapshot' => 'array', 'checkout_terms' => 'array', 'reservation_started_at' => 'datetime', 'reservation_expires_at' => 'datetime', 'paid_at' => 'datetime', 'paid_amount' => 'decimal:2'];
     }
 
     public function reservations(): HasMany
@@ -67,6 +67,9 @@ class Order extends Model
             return 'Резерв не создавался';
         }
         $rows = $this->reservations;
+        if ($rows->sum('fulfilled_quantity') > 0 && $rows->contains('state', 'paid')) {
+            return 'Частично выдан / отправлен, резерв остатка сохранён';
+        }
         if ($rows->contains('state', 'paid')) {
             return 'Оплачен, резерв сохранён';
         }
@@ -89,6 +92,11 @@ class Order extends Model
     public function canCollect(): bool
     {
         return app(OrderReservations::class)->canCollect($this);
+    }
+
+    public function canFulfillPart(): bool
+    {
+        return app(OrderReservations::class)->canFulfillPart($this);
     }
 
     public function items(): HasMany
@@ -198,6 +206,9 @@ class Order extends Model
 
     public function statusDescription(): string
     {
+        if (! $this->isClosed() && $this->status !== self::STATUS_SHIPPED && $this->reservations->sum('fulfilled_quantity') > 0) {
+            return 'Часть товаров уже выдана / отправлена. Оставшиеся количества указаны в составе заказа; получение следующих частей согласуйте с менеджером.';
+        }
         if ($this->canCollect()) {
             return $this->effectiveDeliveryMethod() === 'pickup'
                 ? 'Оплата подтверждена. Товары в наличии, ожидать подтверждения менеджера для самовывоза не нужно.'

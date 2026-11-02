@@ -55,6 +55,9 @@ class OrderWorkflow
                     throw ValidationException::withMessages(['status' => 'Этот переход статуса недоступен.']);
                 }
                 if ($locked instanceof Order && in_array($target, [Order::STATUS_READY, Order::STATUS_SHIPPED, Order::STATUS_COMPLETED], true)) {
+                    if ($locked->fulfillment_version !== (int) ($data['expected_fulfillment_version'] ?? 0)) {
+                        throw ValidationException::withMessages(['reservation' => 'Выданное количество изменилось. Обновите страницу.']);
+                    }
                     if (($locked->latestTermsVersion?->version ?? 0) !== (int) ($data['expected_terms_version'] ?? 0)) {
                         throw ValidationException::withMessages(['expected_terms_version' => 'Условия заказа изменились. Обновите страницу перед продолжением обработки.']);
                     }
