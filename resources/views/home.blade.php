@@ -188,7 +188,7 @@
                         <div class="sales__item">
                             <a href="{{ route('products.show', $sale) }}">
                                 @if ($sale->images->first())
-                                    <img class="sales__img" src="{{ asset($sale->images->first()->path) }}" alt="{{ $sale->images->first()->alt ?: $sale->name }}" loading="lazy">
+                                    <x-product-image class="sales__img" :image="$sale->images->first()" :alt="$sale->images->first()->alt ?: $sale->name" sizes="(max-width: 480px) calc(100vw - 60px), 280px" loading="lazy" decoding="async" />
                                 @else
                                     <span class="sales__img sales__img--placeholder">Нет фото</span>
                                 @endif

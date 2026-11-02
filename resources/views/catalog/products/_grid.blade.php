@@ -45,7 +45,7 @@
                     </span>
                 @endif
                 @if ($product->images->first())
-                    <img class="product-card__image" src="{{ asset($product->images->first()->path) }}" alt="{{ $product->images->first()->alt ?: $product->name }}" loading="lazy">
+                    <x-product-image class="product-card__image" :image="$product->images->first()" :alt="$product->images->first()->alt ?: $product->name" sizes="(max-width: 480px) calc(100vw - 60px), 260px" loading="lazy" decoding="async" />
                 @else
                     <span class="product-card__no-image">Нет фото</span>
                 @endif

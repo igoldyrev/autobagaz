@@ -16,13 +16,17 @@
             @if ($product->images->isNotEmpty())
                 @php($mainImage = $product->images->first())
                 <div class="product-gallery__main">
-                    <img
+                    <x-product-image
                         id="product-main-image"
-                        src="{{ asset($mainImage->path) }}"
-                        alt="{{ $mainImage->alt ?: $product->name }}"
-                    >
+                        :image="$mainImage"
+                        :size="960"
+                        :alt="$mainImage->alt ?: $product->name"
+                        sizes="(max-width: 720px) calc(100vw - 75px), 500px"
+                        fetchpriority="high"
+                    />
                 </div>
 
+                <p><a id="product-original-link" href="{{ asset($mainImage->path) }}" target="_blank" rel="noopener">Открыть фото в полном размере</a></p>
                 @if ($product->images->count() > 1)
                     <div class="product-gallery__thumbnails" aria-label="Выбор фотографии">
                         @foreach ($product->images as $image)
@@ -30,12 +34,16 @@
                                 class="product-gallery__thumbnail {{ $loop->first ? 'product-gallery__thumbnail--active' : '' }}"
                                 type="button"
                                 data-product-thumbnail
-                                data-image-src="{{ asset($image->path) }}"
+                                data-image-src="{{ asset($image->displayPath(960)) }}"
+                                data-image-original="{{ asset($image->path) }}"
+                                data-image-srcset="{{ $image->srcset() }}"
+                                data-image-width="{{ $image->variant(960)['width'] ?? '' }}"
+                                data-image-height="{{ $image->variant(960)['height'] ?? '' }}"
                                 data-image-alt="{{ $image->alt ?: $product->name }}"
                                 aria-label="Показать фотографию {{ $loop->iteration }}"
                                 aria-pressed="{{ $loop->first ? 'true' : 'false' }}"
                             >
-                                <img src="{{ asset($image->path) }}" alt="" loading="lazy">
+                                <x-product-image :image="$image" :size="160" alt="" sizes="80px" loading="lazy" decoding="async" />
                             </button>
                         @endforeach
                     </div>
@@ -304,7 +312,7 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/product-gallery.js') }}" defer></script>
+    <script src="{{ asset('js/product-gallery.js') }}?v={{ filemtime(public_path('js/product-gallery.js')) }}" defer></script>
     <script src="{{ asset('js/product-information-tabs.js') }}" defer></script>
     <script src="{{ asset('js/installation-kit.js') }}" defer></script>
 @endpush
