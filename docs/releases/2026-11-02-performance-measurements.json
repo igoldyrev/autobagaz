@@ -1,0 +1,191 @@
+{
+  "source_commit": "ccdd4bae",
+  "site": "https://new.autobagaz.ru",
+  "database": "MariaDB 10.11.19",
+  "sql_method": "Laravel HTTP Kernel on Jino, actual MySQL data, isolated array cache, first request cold and two warm requests per route; fingerprints use prepared bindings; no bindings exported",
+  "sql": [
+    {
+      "case": "roof-racks",
+      "uri": "/autobagazhniki?vehicle_configuration_id=clear",
+      "cold_sql_count": 16,
+      "cold_application_ms": 100.01,
+      "warm_sql_count": 16,
+      "warm_median_application_ms": 58.83,
+      "warm_extra_duplicate_queries": 0,
+      "warm_reservation_sum_queries": 0
+    },
+    {
+      "case": "auto-boxes",
+      "uri": "/autobox?vehicle_configuration_id=clear",
+      "cold_sql_count": 13,
+      "cold_application_ms": 54.74,
+      "warm_sql_count": 13,
+      "warm_median_application_ms": 36.41,
+      "warm_extra_duplicate_queries": 0,
+      "warm_reservation_sum_queries": 0
+    },
+    {
+      "case": "fitment-1",
+      "uri": "/podbor-avto?vehicle_configuration_id=1",
+      "cold_sql_count": 156,
+      "cold_application_ms": 254.47,
+      "warm_sql_count": 100,
+      "warm_median_application_ms": 104.98,
+      "warm_extra_duplicate_queries": 35,
+      "warm_reservation_sum_queries": 70
+    },
+    {
+      "case": "fitment-7",
+      "uri": "/podbor-avto?vehicle_configuration_id=7",
+      "cold_sql_count": 210,
+      "cold_application_ms": 270,
+      "warm_sql_count": 154,
+      "warm_median_application_ms": 149.74,
+      "warm_extra_duplicate_queries": 48,
+      "warm_reservation_sum_queries": 92
+    },
+    {
+      "case": "boxes-7",
+      "uri": "/autobox?vehicle_configuration_id=7",
+      "cold_sql_count": 90,
+      "cold_application_ms": 149.18,
+      "warm_sql_count": 34,
+      "warm_median_application_ms": 59.33,
+      "warm_extra_duplicate_queries": 0,
+      "warm_reservation_sum_queries": 0
+    },
+    {
+      "case": "racks-7",
+      "uri": "/autobagazhniki?vehicle_configuration_id=7",
+      "cold_sql_count": 78,
+      "cold_application_ms": 142.05,
+      "warm_sql_count": 22,
+      "warm_median_application_ms": 50.82,
+      "warm_extra_duplicate_queries": 2,
+      "warm_reservation_sum_queries": 0
+    }
+  ],
+  "network_method": "Browser at 1280x720 through a loopback-only read-only reverse proxy of live production HTML and assets; shared response-body limit 200000 bytes/s and 150 ms extra delay per response; no browser cache; two constrained runs and one unlimited control per route; this is a controlled proxy measurement, not native browser network emulation or a real phone",
+  "network": [
+    {
+      "case": "racks",
+      "fast": {
+        "ttfb_ms": 447.6,
+        "lcp_ms": 1496,
+        "load_ms": 9128.9,
+        "resource_count": 119,
+        "resource_encoded_bytes": 1457051
+      },
+      "slow_median": {
+        "ttfb_ms": 1517.05,
+        "lcp_ms": 2716.0,
+        "load_ms": 16332.9,
+        "cls": 0.01
+      },
+      "slow_range": {
+        "lcp_ms": [
+          2712,
+          2720
+        ],
+        "load_ms": [
+          15534.5,
+          17131.3
+        ]
+      },
+      "all_visible_images_loaded": true,
+      "overflow": false
+    },
+    {
+      "case": "fitment",
+      "fast": {
+        "ttfb_ms": 536.2,
+        "lcp_ms": 1508,
+        "load_ms": 3642.4,
+        "resource_count": 36,
+        "resource_encoded_bytes": 427041
+      },
+      "slow_median": {
+        "ttfb_ms": 1319.95,
+        "lcp_ms": 2618.0,
+        "load_ms": 6182.8,
+        "cls": 0.04
+      },
+      "slow_range": {
+        "lcp_ms": [
+          2252,
+          2984
+        ],
+        "load_ms": [
+          5688.6,
+          6677
+        ]
+      },
+      "all_visible_images_loaded": true,
+      "overflow": false
+    },
+    {
+      "case": "product",
+      "fast": {
+        "ttfb_ms": 654.4,
+        "lcp_ms": 1488,
+        "load_ms": 2676.1,
+        "resource_count": 25,
+        "resource_encoded_bytes": 352438
+      },
+      "slow_median": {
+        "ttfb_ms": 908.4,
+        "lcp_ms": 2114.0,
+        "load_ms": 4592.85,
+        "cls": 0.0
+      },
+      "slow_range": {
+        "lcp_ms": [
+          2084,
+          2144
+        ],
+        "load_ms": [
+          4555.5,
+          4630.2
+        ]
+      },
+      "all_visible_images_loaded": true,
+      "overflow": false
+    }
+  ],
+  "direct_http_headers_median_ms": {
+    "roof-racks": 820.09,
+    "auto-boxes": 511.56,
+    "fitment-7": 727.52,
+    "product": 806.18
+  },
+  "catalog_resource_groups": {
+    "brand_logos": {
+      "count": 87,
+      "bytes": 1058260
+    },
+    "fonts": {
+      "count": 8,
+      "bytes": 258408
+    },
+    "product_images": {
+      "count": 12,
+      "bytes": 46634
+    }
+  },
+  "email_checks": {
+    "events": [
+      "order_manager_confirmed",
+      "order_cancelled",
+      "order_ready",
+      "order_shipped"
+    ],
+    "smtp_accepted": 4,
+    "recipient_confirmed_inbox": 4,
+    "queued_at_local": "2026-11-02 19:43:16",
+    "sent_at_local": [
+      "2026-11-02 19:44:03",
+      "2026-11-02 19:44:04"
+    ],
+    "test_records_removed": true
+  }
+}
