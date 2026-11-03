@@ -1,0 +1,724 @@
+{
+  "date": "2026-11-03",
+  "site": "https://new.autobagaz.ru",
+  "commit": "0add1377",
+  "backup": "20261103T131026Z-0692c8a8",
+  "maintenance_enabled": "2026-11-03T13:16:08+00:00",
+  "maintenance_disabled": "2026-11-03T13:17:37+00:00",
+  "uploaded_files": 88,
+  "deleted_files": 0,
+  "manifest_files": 3114,
+  "manifest_hash_mismatches": [],
+  "profiles": {
+    "before": {
+      "fitment-1": {
+        "uri": "/podbor-avto?vehicle_configuration_id=1",
+        "database": "10.11.19-MariaDB-cll-lve-log",
+        "samples": [
+          {
+            "sample": 0,
+            "cache": "isolated_cold",
+            "status": 200,
+            "application_ms": 283.32,
+            "sql_count": 156,
+            "select_count": 156,
+            "sql_ms": 80.53,
+            "duplicate_extra_queries": 37,
+            "selected_configuration": 1,
+            "html_bytes": 121899
+          },
+          {
+            "sample": 1,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 108.96,
+            "sql_count": 100,
+            "select_count": 100,
+            "sql_ms": 21.29,
+            "duplicate_extra_queries": 35,
+            "selected_configuration": 1,
+            "html_bytes": 121899
+          },
+          {
+            "sample": 2,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 117.84,
+            "sql_count": 100,
+            "select_count": 100,
+            "sql_ms": 26.11,
+            "duplicate_extra_queries": 35,
+            "selected_configuration": 1,
+            "html_bytes": 121899
+          }
+        ]
+      },
+      "fitment-7": {
+        "uri": "/podbor-avto?vehicle_configuration_id=7",
+        "database": "10.11.19-MariaDB-cll-lve-log",
+        "samples": [
+          {
+            "sample": 0,
+            "cache": "isolated_cold",
+            "status": 200,
+            "application_ms": 311.46,
+            "sql_count": 210,
+            "select_count": 210,
+            "sql_ms": 104.01,
+            "duplicate_extra_queries": 51,
+            "selected_configuration": 7,
+            "html_bytes": 162513
+          },
+          {
+            "sample": 1,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 143.18,
+            "sql_count": 154,
+            "select_count": 154,
+            "sql_ms": 30.12,
+            "duplicate_extra_queries": 48,
+            "selected_configuration": 7,
+            "html_bytes": 162513
+          },
+          {
+            "sample": 2,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 147.72,
+            "sql_count": 154,
+            "select_count": 154,
+            "sql_ms": 29.23,
+            "duplicate_extra_queries": 48,
+            "selected_configuration": 7,
+            "html_bytes": 162513
+          }
+        ]
+      },
+      "roof-racks": {
+        "uri": "/autobagazhniki?vehicle_configuration_id=clear",
+        "database": "10.11.19-MariaDB-cll-lve-log",
+        "samples": [
+          {
+            "sample": 0,
+            "cache": "isolated_cold",
+            "status": 200,
+            "application_ms": 88.4,
+            "sql_count": 16,
+            "select_count": 16,
+            "sql_ms": 17.78,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": null,
+            "html_bytes": 125667
+          },
+          {
+            "sample": 1,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 51.96,
+            "sql_count": 16,
+            "select_count": 16,
+            "sql_ms": 4.6,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": null,
+            "html_bytes": 125667
+          },
+          {
+            "sample": 2,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 64.44,
+            "sql_count": 16,
+            "select_count": 16,
+            "sql_ms": 4.58,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": null,
+            "html_bytes": 125667
+          }
+        ]
+      }
+    },
+    "after": {
+      "fitment-1": {
+        "uri": "/podbor-avto?vehicle_configuration_id=1",
+        "database": "10.11.19-MariaDB-cll-lve-log",
+        "samples": [
+          {
+            "sample": 0,
+            "cache": "isolated_cold",
+            "status": 200,
+            "application_ms": 190.24,
+            "stock_sum_queries": 0,
+            "override_queries": 1,
+            "sql_count": 43,
+            "select_count": 43,
+            "sql_ms": 25.79,
+            "duplicate_extra_queries": 2,
+            "selected_configuration": 1,
+            "html_bytes": 121943
+          },
+          {
+            "sample": 1,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 70.84,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 30,
+            "select_count": 30,
+            "sql_ms": 8.67,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": 1,
+            "html_bytes": 121943
+          },
+          {
+            "sample": 2,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 69.24,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 30,
+            "select_count": 30,
+            "sql_ms": 7.86,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": 1,
+            "html_bytes": 121943
+          }
+        ]
+      },
+      "fitment-7": {
+        "uri": "/podbor-avto?vehicle_configuration_id=7",
+        "database": "10.11.19-MariaDB-cll-lve-log",
+        "samples": [
+          {
+            "sample": 0,
+            "cache": "isolated_cold",
+            "status": 200,
+            "application_ms": 160.63,
+            "stock_sum_queries": 0,
+            "override_queries": 1,
+            "sql_count": 75,
+            "select_count": 75,
+            "sql_ms": 30.18,
+            "duplicate_extra_queries": 5,
+            "selected_configuration": 7,
+            "html_bytes": 162557
+          },
+          {
+            "sample": 1,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 108.34,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 62,
+            "select_count": 62,
+            "sql_ms": 13.34,
+            "duplicate_extra_queries": 2,
+            "selected_configuration": 7,
+            "html_bytes": 162557
+          },
+          {
+            "sample": 2,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 111.99,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 62,
+            "select_count": 62,
+            "sql_ms": 14.52,
+            "duplicate_extra_queries": 2,
+            "selected_configuration": 7,
+            "html_bytes": 162557
+          }
+        ]
+      },
+      "roof-racks": {
+        "uri": "/autobagazhniki?vehicle_configuration_id=clear",
+        "database": "10.11.19-MariaDB-cll-lve-log",
+        "samples": [
+          {
+            "sample": 0,
+            "cache": "isolated_cold",
+            "status": 200,
+            "application_ms": 86.33,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 16,
+            "select_count": 16,
+            "sql_ms": 14.46,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": null,
+            "html_bytes": 183950
+          },
+          {
+            "sample": 1,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 54.57,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 16,
+            "select_count": 16,
+            "sql_ms": 5.01,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": null,
+            "html_bytes": 183950
+          },
+          {
+            "sample": 2,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 53.52,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 16,
+            "select_count": 16,
+            "sql_ms": 4.25,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": null,
+            "html_bytes": 183950
+          }
+        ]
+      },
+      "auto-boxes": {
+        "uri": "/autobox?vehicle_configuration_id=clear",
+        "database": "10.11.19-MariaDB-cll-lve-log",
+        "samples": [
+          {
+            "sample": 0,
+            "cache": "isolated_cold",
+            "status": 200,
+            "application_ms": 54.04,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 13,
+            "select_count": 13,
+            "sql_ms": 11.06,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": null,
+            "html_bytes": 58902
+          },
+          {
+            "sample": 1,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 32.66,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 13,
+            "select_count": 13,
+            "sql_ms": 3.59,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": null,
+            "html_bytes": 58902
+          },
+          {
+            "sample": 2,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 32.2,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 13,
+            "select_count": 13,
+            "sql_ms": 3.6,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": null,
+            "html_bytes": 58902
+          }
+        ]
+      },
+      "boxes-7": {
+        "uri": "/autobox?vehicle_configuration_id=7",
+        "database": "10.11.19-MariaDB-cll-lve-log",
+        "samples": [
+          {
+            "sample": 0,
+            "cache": "isolated_cold",
+            "status": 200,
+            "application_ms": 104.23,
+            "stock_sum_queries": 0,
+            "override_queries": 1,
+            "sql_count": 47,
+            "select_count": 47,
+            "sql_ms": 18.14,
+            "duplicate_extra_queries": 3,
+            "selected_configuration": 7,
+            "html_bytes": 71790
+          },
+          {
+            "sample": 1,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 66.67,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 34,
+            "select_count": 34,
+            "sql_ms": 9.12,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": 7,
+            "html_bytes": 71790
+          },
+          {
+            "sample": 2,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 57.2,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 34,
+            "select_count": 34,
+            "sql_ms": 8.48,
+            "duplicate_extra_queries": 0,
+            "selected_configuration": 7,
+            "html_bytes": 71790
+          }
+        ]
+      },
+      "racks-7": {
+        "uri": "/autobagazhniki?vehicle_configuration_id=7",
+        "database": "10.11.19-MariaDB-cll-lve-log",
+        "samples": [
+          {
+            "sample": 0,
+            "cache": "isolated_cold",
+            "status": 200,
+            "application_ms": 103.75,
+            "stock_sum_queries": 0,
+            "override_queries": 1,
+            "sql_count": 35,
+            "select_count": 35,
+            "sql_ms": 14.15,
+            "duplicate_extra_queries": 3,
+            "selected_configuration": 7,
+            "html_bytes": 183228
+          },
+          {
+            "sample": 1,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 54.6,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 22,
+            "select_count": 22,
+            "sql_ms": 5.48,
+            "duplicate_extra_queries": 2,
+            "selected_configuration": 7,
+            "html_bytes": 183228
+          },
+          {
+            "sample": 2,
+            "cache": "isolated_warm",
+            "status": 200,
+            "application_ms": 52.06,
+            "stock_sum_queries": 0,
+            "override_queries": 0,
+            "sql_count": 22,
+            "select_count": 22,
+            "sql_ms": 5.16,
+            "duplicate_extra_queries": 2,
+            "selected_configuration": 7,
+            "html_bytes": 183228
+          }
+        ]
+      }
+    }
+  },
+  "network_model": {
+    "channel_bytes_per_second": 200000,
+    "response_latency_ms": 150,
+    "viewport": [
+      1280,
+      720
+    ],
+    "browser_cache": "no-store",
+    "notes": "Local proxy of live HTTPS resources; two catalog runs before and after; timings include variable upstream latency and proxy overhead; not field visitor data",
+    "runs": {
+      "before-racks-slow-1": {
+        "run": "before-racks-slow-1",
+        "profile": "1.6Mbps-150ms",
+        "path": "/autobagazhniki?__audit_run=before-racks-slow-1",
+        "ttfb_ms": 1478.3999999985099,
+        "fcp_ms": 2812,
+        "lcp_ms": 2872,
+        "dom_ms": 3290.7999999970198,
+        "load_ms": 15306.20000000298,
+        "cls": 0.014161147822557642,
+        "resource_count": 118,
+        "resource_encoded_bytes": 1456119,
+        "visible_images": 13,
+        "visible_images_pending": 0,
+        "overflow": false,
+        "viewport": [
+          1280,
+          720
+        ],
+        "logo_requests": 87,
+        "logo_encoded_bytes": 1058260
+      },
+      "before-racks-slow-2": {
+        "run": "before-racks-slow-2",
+        "profile": "1.6Mbps-150ms",
+        "path": "/autobagazhniki?__audit_run=before-racks-slow-2",
+        "ttfb_ms": 632,
+        "fcp_ms": 1836,
+        "lcp_ms": 1836,
+        "dom_ms": 2365.3000000044703,
+        "load_ms": 14521.5,
+        "cls": 0.0031303103630553083,
+        "resource_count": 118,
+        "resource_encoded_bytes": 1456119,
+        "visible_images": 13,
+        "visible_images_pending": 0,
+        "overflow": false,
+        "viewport": [
+          1280,
+          720
+        ],
+        "logo_requests": 87,
+        "logo_encoded_bytes": 1058260
+      },
+      "after-racks-slow-1": {
+        "run": "after-racks-slow-1",
+        "profile": "1.6Mbps-150ms",
+        "path": "/autobagazhniki?vehicle_configuration_id=clear&__audit_run=after-racks-slow-1",
+        "ttfb_ms": 692.3999999985099,
+        "fcp_ms": 2248,
+        "lcp_ms": 2300,
+        "dom_ms": 2718.7999999970198,
+        "load_ms": 6311.29999999702,
+        "cls": 0.014200408883466603,
+        "resource_count": 42,
+        "resource_encoded_bytes": 435154,
+        "visible_images": 13,
+        "visible_images_pending": 0,
+        "overflow": false,
+        "viewport": [
+          1280,
+          720
+        ],
+        "logo_requests": 12,
+        "logo_encoded_bytes": 54328
+      },
+      "after-racks-slow-2": {
+        "run": "after-racks-slow-2",
+        "profile": "1.6Mbps-150ms",
+        "path": "/autobagazhniki?vehicle_configuration_id=clear&__audit_run=after-racks-slow-2",
+        "ttfb_ms": 906.7000000029802,
+        "fcp_ms": 2352,
+        "lcp_ms": 2368,
+        "dom_ms": 2834.3000000044703,
+        "load_ms": 6385.39999999851,
+        "cls": 0.014200408883466603,
+        "resource_count": 42,
+        "resource_encoded_bytes": 435154,
+        "visible_images": 13,
+        "visible_images_pending": 0,
+        "overflow": false,
+        "viewport": [
+          1280,
+          720
+        ],
+        "logo_requests": 12,
+        "logo_encoded_bytes": 54328
+      },
+      "before-fitment-slow-1": {
+        "run": "before-fitment-slow-1",
+        "profile": "1.6Mbps-150ms",
+        "path": "/podbor-avto?vehicle_configuration_id=7&__audit_run=before-fitment-slow-1",
+        "ttfb_ms": 680.3000000044703,
+        "fcp_ms": 1868,
+        "lcp_ms": 1916,
+        "dom_ms": 2326.2000000029802,
+        "load_ms": 5328.30000000447,
+        "cls": 0.0037690540056056067,
+        "resource_count": 36,
+        "resource_encoded_bytes": 427041,
+        "visible_images": 1,
+        "visible_images_pending": 0,
+        "overflow": false,
+        "viewport": [
+          1280,
+          720
+        ],
+        "logo_requests": 0,
+        "logo_encoded_bytes": 0
+      },
+      "after-fitment-slow-2": {
+        "run": "after-fitment-slow-2",
+        "profile": "1.6Mbps-150ms",
+        "path": "/podbor-avto?vehicle_configuration_id=7&__audit_run=after-fitment-slow-2",
+        "ttfb_ms": 686.2999999970198,
+        "fcp_ms": 1832,
+        "lcp_ms": 1832,
+        "dom_ms": 2275.7999999970198,
+        "load_ms": 5377.10000000149,
+        "cls": 0.0017241851488565838,
+        "resource_count": 36,
+        "resource_encoded_bytes": 427102,
+        "visible_images": 1,
+        "visible_images_pending": 0,
+        "overflow": false,
+        "viewport": [
+          1280,
+          720
+        ],
+        "logo_requests": 0,
+        "logo_encoded_bytes": 0
+      }
+    }
+  },
+  "direct_http": {
+    "before": [
+      {
+        "path": "/autobagazhniki",
+        "ttfb_ms": [
+          1344.42,
+          592.98,
+          498.71
+        ],
+        "median_ms": 592.98
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "ttfb_ms": [
+          703.82,
+          564.93,
+          607.37
+        ],
+        "median_ms": 607.37
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "ttfb_ms": [
+          675.53,
+          1857.11,
+          611.1
+        ],
+        "median_ms": 675.53
+      }
+    ],
+    "after": [
+      {
+        "path": "/autobagazhniki",
+        "ttfb_ms": [
+          497.94,
+          480.18,
+          484.18
+        ],
+        "median_ms": 484.18
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "ttfb_ms": [
+          691.87,
+          539.05,
+          716.37
+        ],
+        "median_ms": 691.87
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "ttfb_ms": [
+          589.95,
+          585.13,
+          758.39
+        ],
+        "median_ms": 589.95
+      }
+    ]
+  },
+  "public_images": {
+    "unique_files": 88,
+    "variants": 81,
+    "all_http_200_and_hashes_match": true,
+    "bytes": 386403
+  },
+  "http_smoke": [
+    {
+      "path": "/",
+      "status": 200,
+      "final_path": "/"
+    },
+    {
+      "path": "/autobagazhniki",
+      "status": 200,
+      "final_path": "/autobagazhniki"
+    },
+    {
+      "path": "/autobox",
+      "status": 200,
+      "final_path": "/autobox"
+    },
+    {
+      "path": "/podbor-avto?vehicle_configuration_id=1",
+      "status": 200,
+      "final_path": "/podbor-avto"
+    },
+    {
+      "path": "/podbor-avto?vehicle_configuration_id=7",
+      "status": 200,
+      "final_path": "/podbor-avto"
+    },
+    {
+      "path": "/prokat",
+      "status": 200,
+      "final_path": "/prokat"
+    },
+    {
+      "path": "/admin/login",
+      "status": 200,
+      "final_path": "/admin/login"
+    },
+    {
+      "path": "/cart",
+      "status": 200,
+      "final_path": "/cart"
+    },
+    {
+      "path": "/admin/stock",
+      "status": 200,
+      "final_path": "/admin/login"
+    },
+    {
+      "path": "/admin/rental-requests",
+      "status": 200,
+      "final_path": "/admin/login"
+    }
+  ],
+  "business_state_unchanged": {
+    "orders": true,
+    "products": true,
+    "images": true,
+    "reservations": true,
+    "stock_sha256": true,
+    "availability_sha256": true,
+    "fitment_summaries": true
+  },
+  "after_counts": {
+    "orders": 8,
+    "products": 79,
+    "images": 307,
+    "reservations": 0,
+    "jobs": 0,
+    "failed_jobs": 0
+  },
+  "tests": {
+    "php": {
+      "passed": 424,
+      "skipped_opt_in_mysql": 12,
+      "assertions": 17299
+    },
+    "javascript": {
+      "passed": 32
+    }
+  },
+  "final_verified_at": "2026-11-03T13:22:34+00:00",
+  "final_heartbeats_state": "ok",
+  "temporary_public_handlers_remaining": 0
+}
