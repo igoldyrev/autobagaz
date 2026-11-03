@@ -1,0 +1,25 @@
+[Unit]
+Description=External availability and collector monitor
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+DynamicUser=yes
+StateDirectory=autobagaz-monitor
+StateDirectoryMode=0700
+LoadCredential=config.json:/etc/autobagaz-monitor/config.json
+ExecStart=/usr/bin/python3 -B /opt/autobagaz-monitor/monitor.py --config ${CREDENTIALS_DIRECTORY}/config.json
+TimeoutStartSec=300
+UMask=0077
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+CapabilityBoundingSet=

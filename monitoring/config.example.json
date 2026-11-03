@@ -1,0 +1,18 @@
+{
+  "telegram_bot_token": "REPLACE_ON_SERVER",
+  "telegram_chat_ids": ["REPLACE_WITH_CHAT_ID"],
+  "targets": [
+    {
+      "id": "autobagaz",
+      "name": "Автобагаж",
+      "url": "https://new.autobagaz.ru/"
+    },
+    {
+      "id": "igoldyrev",
+      "name": "igoldyrev.ru и сборщик",
+      "url": "https://igoldyrev.ru/",
+      "heartbeat_url": "https://igoldyrev.ru/internal/monitoring/collector-heartbeat",
+      "token": "REPLACE_ON_SERVER"
+    }
+  ]
+}

@@ -67,3 +67,6 @@ Read-only снимок состояния проекта доступен по �
 `GET /internal/monitoring/project-snapshot`. Версионированный контракт, параметры
 запроса и правила совместимости описаны в
 [`docs/integrations/project-snapshot-v1.md`](docs/integrations/project-snapshot-v1.md).
+
+Независимая проверка доступности сайтов и свежести сборщика с VPS Aeza:
+[`monitoring/README.md`](monitoring/README.md).
