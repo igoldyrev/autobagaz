@@ -50,6 +50,11 @@
             @foreach ($categories as $category)
                 @php
                     $usesPlaceholder = str_ends_with($category->image_path, 'category-background.webp');
+                    $imagePath = $category->image_path;
+                    $thumbnailPath = 'images/catalog/autobagazhniki/brands/thumbnails/'.pathinfo($imagePath, PATHINFO_FILENAME).'.webp';
+                    if (dirname($imagePath) === 'images/catalog/autobagazhniki/brands' && is_file(public_path($thumbnailPath))) {
+                        $imagePath = $thumbnailPath;
+                    }
                 @endphp
                 <a
                     class="catalog-category {{ $usesPlaceholder ? 'catalog-category--placeholder' : 'catalog-category--image' }}"
@@ -59,12 +64,23 @@
                 >
                     <img
                         class="catalog-category__image {{ $usesPlaceholder ? '' : 'catalog-category__image--provided' }}"
-                        src="{{ asset($category->image_path) }}"
+                        src="data:image/gif;base64,R0lGODlhAQABAIEAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAgEAAEEBAA7"
+                        data-brand-src="{{ asset($imagePath) }}"
                         alt="{{ $category->image_alt ?: $category->name }}"
                         width="720"
                         height="480"
                         loading="lazy"
                     >
+                    <noscript>
+                        <img
+                            class="catalog-category__image {{ $usesPlaceholder ? '' : 'catalog-category__image--provided' }}"
+                            src="{{ asset($imagePath) }}"
+                            alt="{{ $category->image_alt ?: $category->name }}"
+                            width="720"
+                            height="480"
+                            loading="lazy"
+                        >
+                    </noscript>
                     @if ($usesPlaceholder)
                         <span class="catalog-category__overlay" aria-hidden="true"></span>
                     @endif

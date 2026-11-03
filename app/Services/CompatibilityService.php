@@ -15,12 +15,34 @@ class CompatibilityService
 {
     public function check(Product $product, CompatibilityContext $context): CompatibilityResult
     {
+        return $this->checkWithOverrides($product, $context);
+    }
+
+    /**
+     * @param  Collection<int, Product>  $products
+     * @return Collection<int, CompatibilityResult>
+     */
+    public function checkMany(Collection $products, CompatibilityContext $context): Collection
+    {
+        $overrides = $this->overrideQuery($context->vehicleConfiguration)
+            ->whereIn('base_product_id', $products->pluck('id')->all())
+            ->whereNull('accessory_product_id')
+            ->get()
+            ->groupBy('base_product_id');
+
+        return $products->mapWithKeys(fn (Product $product): array => [
+            $product->id => $this->checkWithOverrides($product, $context, $overrides->get($product->id, collect())),
+        ]);
+    }
+
+    private function checkWithOverrides(Product $product, CompatibilityContext $context, ?Collection $overrides = null): CompatibilityResult
+    {
         $product->loadMissing(['productType', 'roofRack', 'autoBox']);
         $strategy = $product->productType?->compatibility_strategy
             ?? ($product->roofRack ? 'vehicle_fitment' : 'universal');
 
         return match ($strategy) {
-            'vehicle_fitment' => $this->checkVehicleFitment($product, $context->vehicleConfiguration),
+            'vehicle_fitment' => $this->checkVehicleFitment($product, $context->vehicleConfiguration, $overrides),
             'technical' => $context->baseProduct
                 ? $this->checkTechnicalPair($product, $context->baseProduct, $context->vehicleConfiguration)
                 : $this->checkAgainstAvailableBases($product, $context->vehicleConfiguration),
@@ -29,10 +51,13 @@ class CompatibilityService
         };
     }
 
-    private function checkVehicleFitment(Product $baseProduct, VehicleConfiguration $vehicle): CompatibilityResult
+    private function checkVehicleFitment(Product $baseProduct, VehicleConfiguration $vehicle, ?Collection $overrides = null): CompatibilityResult
     {
         $fitments = $this->matchingFitments($baseProduct, $vehicle);
-        $override = $this->override($baseProduct, null, $vehicle, $fitments->modelKeys());
+        $override = $overrides === null
+            ? $this->override($baseProduct, null, $vehicle, $fitments->modelKeys())
+            : $overrides->first(fn (CompatibilityOverride $override): bool => $override->fitment_id === null
+                || in_array($override->fitment_id, $fitments->modelKeys()));
         if ($override) {
             return $this->overrideResult($override, $baseProduct->id);
         }
@@ -224,21 +249,26 @@ class CompatibilityService
     /** @param array<int> $fitmentIds */
     private function override(Product $base, ?Product $accessory, VehicleConfiguration $vehicle, array $fitmentIds): ?CompatibilityOverride
     {
-        return CompatibilityOverride::query()->effective()
+        return $this->overrideQuery($vehicle)
             ->where('base_product_id', $base->id)
             ->when($accessory, fn (Builder $query) => $query->where('accessory_product_id', $accessory->id), fn (Builder $query) => $query->whereNull('accessory_product_id'))
-            ->where(fn (Builder $query) => $query->whereNull('vehicle_configuration_id')->orWhere('vehicle_configuration_id', $vehicle->id))
             ->where(function (Builder $query) use ($fitmentIds): void {
                 $query->whereNull('fitment_id');
                 if ($fitmentIds !== []) {
                     $query->orWhereIn('fitment_id', $fitmentIds);
                 }
             })
+            ->first();
+    }
+
+    private function overrideQuery(VehicleConfiguration $vehicle): Builder
+    {
+        return CompatibilityOverride::query()->effective()
+            ->where(fn (Builder $query) => $query->whereNull('vehicle_configuration_id')->orWhere('vehicle_configuration_id', $vehicle->id))
             ->orderByRaw('vehicle_configuration_id IS NOT NULL DESC')
             ->orderByRaw('fitment_id IS NOT NULL DESC')
             ->orderByDesc('priority')
-            ->orderByDesc('id')
-            ->first();
+            ->orderByDesc('id');
     }
 
     private function overrideResult(CompatibilityOverride $override, ?int $baseProductId = null): CompatibilityResult

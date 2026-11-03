@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Http\Middleware\ResolveVehicleConfiguration;
 use App\Models\Fitment;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductPageInformation;
 use App\Models\ProductType;
@@ -17,6 +18,7 @@ use App\Models\VehicleRoofType;
 use App\Services\RoofRackRecommendationService;
 use App\Services\VehicleCatalogService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 
@@ -66,6 +68,53 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertSee('Подходит для '.$configuration->vehicle_label)
             ->assertSee($rack->name)
             ->assertSee('Все подходящие товары');
+    }
+
+    public function test_picker_batches_current_availability_for_all_product_types_even_with_cached_summary(): void
+    {
+        $this->freezeTime();
+        $configuration = $this->configuration();
+        $rack = $this->roofRack('Reserved rack', 'reserved-picker-rack', 80, 25);
+        $products = [
+            'baseProducts' => $rack,
+            'dependentProducts' => $this->autoBox('Reserved box', 'reserved-picker-box', 20, 90, 40, 550, 900),
+            'bikeRackProducts' => $this->bikeRack('Reserved bike rack', 'reserved-picker-bike'),
+            'skiRackProducts' => $this->skiRack('Reserved ski rack', 'reserved-picker-ski'),
+        ];
+        $fitment = Fitment::query()->create(['code' => 'RESERVED-PICKER', 'name' => 'Reserved picker', 'is_active' => true]);
+        $fitment->configurations()->attach($configuration);
+        $fitment->products()->attach($rack, ['status' => 'active']);
+        foreach ($products as $product) {
+            $product->update(['stock' => 5]);
+        }
+        foreach (['active', 'paid', 'expired', 'released'] as $state) {
+            $order = Order::query()->create([
+                'number' => 'PICKER-'.$state, 'customer_name' => 'Test', 'phone' => '+79990000000',
+                'delivery_method' => 'pickup', 'status' => 'new', 'total' => 0,
+            ]);
+            foreach ($products as $product) {
+                $order->reservations()->create([
+                    'product_id' => $product->id, 'quantity' => 1, 'state' => $state,
+                    'expires_at' => $state === 'active' ? now()->addMinute() : now()->subMinute(),
+                ]);
+            }
+        }
+        $url = route('catalog.vehicle-fitment.index', ['vehicle_configuration_id' => $configuration->id]);
+        foreach ([3, 4] as $expectedStock) {
+            DB::enableQueryLog();
+            DB::flushQueryLog();
+            $response = $this->get($url)->assertOk();
+            $queries = DB::getQueryLog();
+            DB::disableQueryLog();
+            foreach ($products as $viewKey => $product) {
+                $loaded = $response->viewData($viewKey)->firstWhere('id', $product->id);
+                $this->assertNotNull($loaded);
+                $this->assertSame($expectedStock, $loaded->available_stock);
+            }
+            $this->assertCount(0, array_filter($queries, fn ($query) => str_starts_with(strtolower($query['query']), 'select sum(')
+                && str_contains($query['query'], 'order_reservations')));
+            $this->travel(2)->minutes();
+        }
     }
 
     public function test_picker_returns_models_and_new_configurations(): void

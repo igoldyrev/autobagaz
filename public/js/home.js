@@ -202,6 +202,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     ? card.dataset.brandName.includes(query)
                     : !toggle || expanded || index < limit;
                 card.hidden = !visible;
+                if (visible) {
+                    const image = card.querySelector('[data-brand-src]');
+                    if (image) {
+                        image.src = image.dataset.brandSrc;
+                        image.removeAttribute('data-brand-src');
+                    }
+                }
                 matches += Number(visible);
             });
 

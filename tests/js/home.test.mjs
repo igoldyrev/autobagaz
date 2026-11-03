@@ -74,3 +74,70 @@ test('callback dialog keeps keyboard focus inside and Escape restores its opener
     assert.equal(page.document.activeElement, page.trigger);
     assert.equal(page.key('Tab'), false);
 });
+
+function brandPicker(mobile = false) {
+    const media = { matches: mobile, addEventListener(type, callback) { this[type] = callback; } };
+    const control = () => ({
+        value: '', hidden: false, attributes: {},
+        addEventListener(type, callback) { this[type] = callback; },
+        setAttribute(name, value) { this.attributes[name] = value; },
+    });
+    const search = control();
+    const toggle = control();
+    const empty = control();
+    const cards = Array.from({ length: 20 }, (_, index) => {
+        const image = {
+            dataset: { brandSrc: `/logos/${index}.webp` },
+            src: 'placeholder', deferred: true,
+            removeAttribute() { this.deferred = false; },
+        };
+        return {
+            hidden: false, dataset: { brandName: `марка ${index}` }, image,
+            querySelector() { return image.deferred ? image : null; },
+        };
+    });
+    const picker = {
+        querySelector: (selector) => ({ '[data-brand-search]': search, '[data-brand-toggle]': toggle, '[data-brand-empty]': empty })[selector],
+        querySelectorAll: () => cards,
+        scrollIntoView() {},
+    };
+    const document = {
+        addEventListener(type, callback) { if (type === 'DOMContentLoaded') callback(); },
+        querySelector: () => null,
+        querySelectorAll: (selector) => selector === '[data-brand-picker]' ? [picker] : [],
+    };
+    vm.runInNewContext(script, { document, window: { matchMedia: () => media } });
+    return { cards, search, toggle, empty, media };
+}
+
+test('brand picker loads only visible logos and loads a previously hidden search result', () => {
+    const page = brandPicker();
+    assert.equal(page.cards.filter(card => !card.hidden).length, 12);
+    assert.equal(page.cards.filter(card => card.image.src !== 'placeholder').length, 12);
+    page.search.value = 'МАРКА 19';
+    page.search.input();
+    assert.equal(page.cards.filter(card => !card.hidden).length, 1);
+    assert.equal(page.cards[19].image.src, '/logos/19.webp');
+    assert.equal(page.cards[18].image.src, 'placeholder');
+    assert.equal(page.empty.hidden, true);
+    assert.equal(page.toggle.hidden, true);
+    page.search.value = 'нет такой марки';
+    page.search.input();
+    assert.equal(page.empty.hidden, false);
+});
+
+test('brand picker reveals logos on expand and respects mobile and desktop limits', () => {
+    const page = brandPicker(true);
+    assert.equal(page.cards.filter(card => !card.hidden).length, 4);
+    assert.equal(page.cards.filter(card => card.image.src !== 'placeholder').length, 4);
+    page.media.matches = false;
+    page.media.change();
+    assert.equal(page.cards.filter(card => card.image.src !== 'placeholder').length, 12);
+    page.toggle.click();
+    assert.equal(page.cards.filter(card => !card.hidden).length, 20);
+    assert.equal(page.cards.filter(card => card.image.src !== 'placeholder').length, 20);
+    assert.equal(page.toggle.attributes['aria-expanded'], 'true');
+    page.toggle.click();
+    assert.equal(page.cards.filter(card => !card.hidden).length, 12);
+    assert.equal(page.toggle.attributes['aria-expanded'], 'false');
+});

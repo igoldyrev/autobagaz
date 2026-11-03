@@ -7,5 +7,6 @@
         .product-information-tabs__controls { display: none; }
         .product-information-tabs__panel[hidden] { display: block !important; }
         .checkout-form [data-delivery-info][hidden] { display: block !important; }
+        [data-brand-src] { display: none; }
     </style>
 </noscript>

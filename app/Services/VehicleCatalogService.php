@@ -57,8 +57,10 @@ class VehicleCatalogService
                 'fitments' => fn ($query) => $query->active()->wherePivot('status', 'active'),
                 'fitments.configurations' => fn ($query) => $query->whereKey($configuration->id),
             ])
-            ->get()
-            ->filter(fn (Product $product): bool => $this->compatibility->check($product, $context)->status === CompatibilityResult::COMPATIBLE)
+            ->get();
+        $roofRackResults = $this->compatibility->checkMany($roofRacks, $context);
+        $roofRacks = $roofRacks
+            ->filter(fn (Product $product): bool => $roofRackResults[$product->id]->status === CompatibilityResult::COMPATIBLE)
             ->values();
 
         $autoBoxIds = Product::query()

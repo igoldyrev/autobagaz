@@ -12,6 +12,7 @@ use App\Models\VehicleConfiguration;
 use App\Models\VehicleMake;
 use App\Services\CompatibilityService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class CompatibilityServiceTest extends TestCase
@@ -84,6 +85,77 @@ class CompatibilityServiceTest extends TestCase
 
         $this->assertSame(CompatibilityResult::COMPATIBLE, $result->status);
         $this->assertNull($result->matchedBaseProductId);
+    }
+
+    public function test_batch_checks_preserve_override_scopes_precedence_and_validity(): void
+    {
+        $this->freezeTime();
+        [$vehicle, $base, $box, $fitment] = $this->compatibleContext();
+        [$otherVehicle, $otherBase, , $otherFitment] = $this->compatibleContext();
+        $products = Product::query()->whereKey([$base->id, $otherBase->id])
+            ->with(['productType', 'roofRack', 'autoBox', 'fitments.configurations'])->get();
+        $context = new CompatibilityContext($vehicle);
+        $service = app(CompatibilityService::class);
+        $defaults = [
+            'base_product_id' => $base->id, 'status' => 'incompatible',
+            'reason' => 'Batch override', 'priority' => 10, 'is_active' => true,
+        ];
+        $rows = [
+            ['priority' => 999],
+            ['fitment_id' => $fitment->id],
+            ['vehicle_configuration_id' => $vehicle->id, 'priority' => 0],
+            ['vehicle_configuration_id' => $vehicle->id, 'fitment_id' => $fitment->id, 'priority' => 0],
+            ['vehicle_configuration_id' => $vehicle->id, 'fitment_id' => $fitment->id, 'priority' => 20],
+            ['vehicle_configuration_id' => $vehicle->id, 'fitment_id' => $fitment->id, 'priority' => 20, 'status' => 'compatible', 'valid_from' => now(), 'valid_to' => now()],
+        ];
+        foreach ($rows as $attributes) {
+            $expected = CompatibilityOverride::query()->create(array_replace($defaults, $attributes));
+            $result = $service->checkMany($products, $context);
+            $this->assertEquals($service->check($base, $context), $result[$base->id]);
+            $this->assertSame($expected->id, $result[$base->id]->appliedOverrideId);
+            $this->assertSame($expected->status, $result[$base->id]->status);
+            $this->assertSame(CompatibilityResult::INCOMPATIBLE, $result[$otherBase->id]->status);
+            $this->assertNull($result[$otherBase->id]->appliedOverrideId);
+        }
+
+        foreach ([
+            ['is_active' => false],
+            ['valid_from' => now()->addSecond()],
+            ['valid_to' => now()->subSecond()],
+            ['vehicle_configuration_id' => $otherVehicle->id],
+            ['fitment_id' => $otherFitment->id],
+            ['accessory_product_id' => $box->id],
+        ] as $attributes) {
+            CompatibilityOverride::query()->create(array_replace($defaults, [
+                'priority' => 1000, 'vehicle_configuration_id' => $vehicle->id,
+                'fitment_id' => $fitment->id,
+            ], $attributes));
+        }
+        DB::enableQueryLog();
+        DB::flushQueryLog();
+        $results = $service->checkMany($products, $context);
+        $queries = DB::getQueryLog();
+        DB::disableQueryLog();
+        $this->assertCount(1, $queries);
+        $this->assertEquals($service->check($base, $context), $results[$base->id]);
+        $this->assertSame($expected->id, $results[$base->id]->appliedOverrideId);
+        $this->assertNull($results[$otherBase->id]->appliedOverrideId);
+    }
+
+    public function test_batch_checks_apply_general_override_without_a_matching_fitment(): void
+    {
+        [$vehicle, $base] = $this->compatibleContext();
+        $base->fitments()->detach();
+        $override = CompatibilityOverride::query()->create([
+            'base_product_id' => $base->id, 'status' => 'compatible',
+            'reason' => 'Manually confirmed', 'is_active' => true,
+        ]);
+        $context = new CompatibilityContext($vehicle);
+        $service = app(CompatibilityService::class);
+        $result = $service->checkMany(collect([$base]), $context)[$base->id];
+        $this->assertSame($override->id, $result->appliedOverrideId);
+        $this->assertEquals($service->check($base, $context), $result);
+        $this->assertTrue($service->checkMany(collect(), $context)->isEmpty());
     }
 
     /** @return array{VehicleConfiguration, Product, Product, Fitment} */

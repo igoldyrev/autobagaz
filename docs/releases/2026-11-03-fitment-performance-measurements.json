@@ -1,0 +1,362 @@
+{
+  "date": "2026-11-03",
+  "scope": "Local isolated databases; no production deployment or hosting measurements",
+  "baseline_commit": "9c2e246b",
+  "database_source": "Local SQLite snapshot copied on 2026-11-03; source file last modified 2026-10-30; pending migrations applied only to isolated copy",
+  "sqlite": {
+    "before": [
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 0,
+        "status": 200,
+        "sql": 156,
+        "stock_queries": 70,
+        "override_queries": 44,
+        "ms": 200.3
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 1,
+        "status": 200,
+        "sql": 100,
+        "stock_queries": 70,
+        "override_queries": 0,
+        "ms": 59.85
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 2,
+        "status": 200,
+        "sql": 100,
+        "stock_queries": 70,
+        "override_queries": 0,
+        "ms": 60.98
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 0,
+        "status": 200,
+        "sql": 210,
+        "stock_queries": 92,
+        "override_queries": 44,
+        "ms": 116.73
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 1,
+        "status": 200,
+        "sql": 154,
+        "stock_queries": 92,
+        "override_queries": 0,
+        "ms": 83.67
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 2,
+        "status": 200,
+        "sql": 154,
+        "stock_queries": 92,
+        "override_queries": 0,
+        "ms": 88.75
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 0,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 36.42
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 1,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 29.59
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 2,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 29.23
+      }
+    ],
+    "after": [
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 0,
+        "status": 200,
+        "sql": 43,
+        "stock_queries": 0,
+        "override_queries": 1,
+        "ms": 159.73
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 1,
+        "status": 200,
+        "sql": 30,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 47.69
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 2,
+        "status": 200,
+        "sql": 30,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 46.95
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 0,
+        "status": 200,
+        "sql": 75,
+        "stock_queries": 0,
+        "override_queries": 1,
+        "ms": 91.41
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 1,
+        "status": 200,
+        "sql": 62,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 68.32
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 2,
+        "status": 200,
+        "sql": 62,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 76.08
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 0,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 48.92
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 1,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 51.43
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 2,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 43.56
+      }
+    ]
+  },
+  "mysql_8_4_6": {
+    "before": [
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 0,
+        "status": 200,
+        "sql": 156,
+        "stock_queries": 70,
+        "override_queries": 44,
+        "ms": 250.13
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 1,
+        "status": 200,
+        "sql": 100,
+        "stock_queries": 70,
+        "override_queries": 0,
+        "ms": 105.25
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 2,
+        "status": 200,
+        "sql": 100,
+        "stock_queries": 70,
+        "override_queries": 0,
+        "ms": 95.34
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 0,
+        "status": 200,
+        "sql": 210,
+        "stock_queries": 92,
+        "override_queries": 44,
+        "ms": 205.94
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 1,
+        "status": 200,
+        "sql": 154,
+        "stock_queries": 92,
+        "override_queries": 0,
+        "ms": 145.06
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 2,
+        "status": 200,
+        "sql": 154,
+        "stock_queries": 92,
+        "override_queries": 0,
+        "ms": 142.12
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 0,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 41.57
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 1,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 47.15
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 2,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 39.57
+      }
+    ],
+    "after": [
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 0,
+        "status": 200,
+        "sql": 43,
+        "stock_queries": 0,
+        "override_queries": 1,
+        "ms": 139.18
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 1,
+        "status": 200,
+        "sql": 30,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 55.77
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=1",
+        "sample": 2,
+        "status": 200,
+        "sql": 30,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 66.07
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 0,
+        "status": 200,
+        "sql": 75,
+        "stock_queries": 0,
+        "override_queries": 1,
+        "ms": 125.36
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 1,
+        "status": 200,
+        "sql": 62,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 94.07
+      },
+      {
+        "path": "/podbor-avto?vehicle_configuration_id=7",
+        "sample": 2,
+        "status": 200,
+        "sql": 62,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 85.39
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 0,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 42.59
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 1,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 48.5
+      },
+      {
+        "path": "/autobagazhniki",
+        "sample": 2,
+        "status": 200,
+        "sql": 16,
+        "stock_queries": 0,
+        "override_queries": 0,
+        "ms": 62.45
+      }
+    ]
+  },
+  "images": {
+    "cards": 89,
+    "original_all_bytes": 1092448,
+    "optimized_all_bytes": 403497,
+    "desktop_initial_bytes": 54328,
+    "mobile_initial_bytes": 16398
+  },
+  "tests": {
+    "sqlite": {
+      "passed": 61,
+      "assertions": 3664
+    },
+    "mysql_8_4_6": {
+      "passed": 61,
+      "assertions": 3664
+    },
+    "javascript": {
+      "passed": 32
+    }
+  }
+}

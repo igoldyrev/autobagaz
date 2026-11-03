@@ -56,6 +56,20 @@ class RoofRackCategoryTest extends TestCase
         $this->assertSame(90, substr_count($response->getContent(), 'data-category-card'));
     }
 
+    public function test_brand_logos_use_small_variants_and_keep_noscript_fallback(): void
+    {
+        $audi = VehicleMake::query()->where('slug', 'audi')->firstOrFail();
+        $response = $this->get(route('catalog.autobagazhniki.index'))->assertOk();
+        $thumbnail = 'images/catalog/autobagazhniki/brands/thumbnails/'.pathinfo($audi->image_path, PATHINFO_FILENAME).'.webp';
+        $response->assertSee('data-brand-src="'.asset($thumbnail).'"', escape: false)
+            ->assertSee('<noscript>', escape: false);
+        $this->assertMatchesRegularExpression('/<noscript>\s*<img\b[^>]*\bsrc="'.preg_quote(asset($thumbnail), '/').'"/', $response->getContent());
+
+        $audi->update(['image_path' => 'images/custom-audi.png']);
+        $this->get(route('catalog.autobagazhniki.index'))->assertOk()
+            ->assertSee('data-brand-src="'.asset('images/custom-audi.png').'"', escape: false);
+    }
+
     public function test_vehicle_makes_are_alphabetical_regardless_of_pivot_sort_order(): void
     {
         $root = CatalogCategory::query()->where('slug', 'autobagazhniki')->firstOrFail();

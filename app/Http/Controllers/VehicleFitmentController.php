@@ -40,21 +40,25 @@ class VehicleFitmentController extends Controller
             $bikeRackIds = $summary['bike_rack_ids'];
             $skiRackIds = $summary['ski_rack_ids'];
             $baseProducts = Product::query()
+                ->withAvailability()
                 ->whereKey($roofRackIds)
                 ->with(['images', 'roofRack.manufacturer', 'autoBox'])
                 ->orderBy('name')
                 ->get();
             $dependentProducts = Product::query()
+                ->withAvailability()
                 ->whereKey($autoBoxIds)
                 ->with(['images', 'autoBox.manufacturer', 'categories'])
                 ->orderBy('name')
                 ->get();
             $bikeRackProducts = Product::query()
+                ->withAvailability()
                 ->whereKey($bikeRackIds)
                 ->with(['images', 'bikeRack.manufacturer', 'autoBox'])
                 ->orderBy('name')
                 ->get();
             $skiRackProducts = Product::query()
+                ->withAvailability()
                 ->whereKey($skiRackIds)
                 ->with(['images', 'skiRack.manufacturer', 'autoBox'])
                 ->orderBy('name')
