@@ -10,14 +10,19 @@ use App\Services\OrderNotifications;
 use App\Services\OrderNotificationStatus;
 use App\Services\TelegramNotifications;
 use App\Services\TelegramSiteErrors;
+use Carbon\CarbonImmutable;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\Factory;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Facades\Route;
+use PDOException;
 use RuntimeException;
+use Symfony\Component\Mailer\Exception\TransportException;
 use Tests\TestCase;
 
 class TelegramNotificationsTest extends TestCase
@@ -141,7 +146,9 @@ class TelegramNotificationsTest extends TestCase
         $this->artisan('telegram:monitor-notifications')->assertSuccessful();
         Http::assertSentCount(1);
         Http::assertSent(fn ($request) => str_contains($request['text'], 'ошибка сайта')
-            && str_contains($request['text'], RuntimeException::class)
+            && str_contains($request['text'], 'Причина пока не определена')
+            && str_contains($request['text'], 'Код ошибки: SITE-')
+            && ! str_contains($request['text'], RuntimeException::class)
             && ! str_contains($request['text'], 'private exception message'));
         $this->artisan('telegram:monitor-notifications')->assertSuccessful();
         Http::assertSentCount(1);
@@ -157,14 +164,14 @@ class TelegramNotificationsTest extends TestCase
         $errors->record($exception);
         $errors->sendPending(app(TelegramNotifications::class));
         Http::assertSentCount(1);
-        Http::assertSent(fn ($request) => str_contains($request['text'], 'Повторений: 2'));
+        Http::assertSent(fn ($request) => str_contains($request['text'], 'Зафиксировано: 2'));
         $errors->record($exception);
         $errors->sendPending(app(TelegramNotifications::class));
         Http::assertSentCount(1);
         $this->travel(61)->minutes();
         $errors->sendPending(app(TelegramNotifications::class));
         Http::assertSentCount(2);
-        Http::assertSent(fn ($request) => str_contains($request['text'], 'Повторений: 3'));
+        Http::assertSent(fn ($request) => str_contains($request['text'], 'Зафиксировано: 3'));
         $this->travel(61)->minutes();
         $errors->sendPending(app(TelegramNotifications::class));
         Http::assertSentCount(2);
@@ -227,7 +234,7 @@ class TelegramNotificationsTest extends TestCase
         $this->artisan('telegram:monitor-notifications')->assertSuccessful();
         Http::assertSentCount(1);
         Http::assertSent(fn ($request) => str_contains($request['text'], 'HTTP: 500')
-            && str_contains($request['text'], RuntimeException::class));
+            && str_contains($request['text'], 'Код ошибки: SITE-'));
     }
 
     public function test_client_errors_and_successful_pages_do_not_generate_alerts(): void
@@ -241,6 +248,76 @@ class TelegramNotificationsTest extends TestCase
         $this->assertSame(0, app(TelegramSiteErrors::class)->snapshot()['occurrences']);
         $this->artisan('telegram:monitor-notifications')->assertSuccessful();
         Http::assertNothingSent();
+    }
+
+    public function test_readable_error_has_safe_checkout_context_local_time_and_searchable_log_code(): void
+    {
+        $this->travelTo(CarbonImmutable::parse('2026-11-03T14:15:00Z'));
+        config(['app.display_timezone' => 'Asia/Yekaterinburg']);
+        Log::spy();
+        Http::fake(['api.telegram.org/*' => Http::response(['ok' => true, 'result' => []])]);
+        Route::post('/checkout', fn () => throw new RuntimeException('secret-password customer@example.test'));
+        $this->post('/checkout?token=secret-token')->assertStatus(500);
+        $this->artisan('telegram:monitor-notifications')->assertSuccessful();
+        Http::assertSentCount(1);
+        $text = Http::recorded()->first()[0]['text'];
+        $this->assertStringContainsString('🔴 Автобагаж: ошибка при оформлении заказа', $text);
+        $this->assertStringContainsString('Причина пока не определена', $text);
+        $this->assertStringContainsString('Страница: POST /checkout', $text);
+        $this->assertStringContainsString('HTTP: 500', $text);
+        $this->assertStringContainsString('Зафиксировано: 1', $text);
+        $this->assertStringContainsString('Последний случай: 03.11.2026 19:15:00 (Asia/Yekaterinburg)', $text);
+        $this->assertMatchesRegularExpression('/Код ошибки: (SITE-[A-F0-9]{12})/', $text);
+        preg_match('/Код ошибки: (SITE-[A-F0-9]{12})/', $text, $matches);
+        Log::shouldHaveReceived('error')->withArgs(fn ($message, $context) => $message === 'Site error recorded.'
+            && $context['site_error_code'] === $matches[1]
+            && $context['exception_class'] === RuntimeException::class)->once();
+        foreach (['secret-password', 'customer@example.test', 'secret-token', RuntimeException::class, base_path(), 'Файл:'] as $private) {
+            $this->assertStringNotContainsString($private, $text);
+        }
+    }
+
+    public function test_known_error_categories_describe_only_confirmed_facts_without_exception_text(): void
+    {
+        Http::fake(['api.telegram.org/*' => Http::response(['ok' => true, 'result' => []])]);
+        $errors = app(TelegramSiteErrors::class);
+        $cases = [
+            [new QueryException('private-db', 'select private-data', ['customer@example.test'], new PDOException('secret-password')),
+                'Не удалось выполнить операцию с базой данных.'],
+            [new TransportException('secret-password'), 'Не удалось передать письмо почтовому серверу.'],
+            [new ConnectionException('secret-token'), 'Не удалось выполнить запрос к внешнему сервису.'],
+        ];
+        foreach ($cases as [$exception, $description]) {
+            $errors->record($exception);
+            $errors->sendPending(app(TelegramNotifications::class));
+            Http::assertSent(fn ($request) => str_contains($request['text'], $description)
+                && str_contains($request['text'], 'Что проверить:')
+                && str_contains($request['text'], 'Код ошибки: SITE-'));
+        }
+        Http::assertSentCount(3);
+        foreach (Http::recorded() as [$request]) {
+            foreach (['private-db', 'private-data', 'customer@example.test', 'secret-password', 'secret-token'] as $private) {
+                $this->assertStringNotContainsString($private, $request['text']);
+            }
+        }
+    }
+
+    public function test_http_error_without_exception_has_a_searchable_log_record_and_never_claims_recovery(): void
+    {
+        Log::spy();
+        Http::fake(['api.telegram.org/*' => Http::response(['ok' => true, 'result' => []])]);
+        Route::get('/test-monitor/log-code', fn () => response('private-body', 503));
+        $this->get('/test-monitor/log-code')->assertStatus(503);
+        $this->artisan('telegram:monitor-notifications')->assertSuccessful();
+        $text = Http::recorded()->first()[0]['text'];
+        preg_match('/Код ошибки: (SITE-[A-F0-9]{12})/', $text, $matches);
+        $this->assertNotEmpty($matches);
+        Log::shouldHaveReceived('error')->withArgs(fn ($message, $context) => $message === 'Site error recorded.'
+            && $context['site_error_code'] === $matches[1] && $context['http_status'] === 503)->once();
+        $this->travel(61)->minutes();
+        $this->artisan('telegram:monitor-notifications')->assertSuccessful();
+        Http::assertSentCount(1);
+        $this->assertStringNotContainsString('private-body', $text);
     }
 
     public function test_proxy_is_applied_only_to_telegram_requests(): void
