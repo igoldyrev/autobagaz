@@ -24,12 +24,15 @@ class CompatibilityPreviewController extends Controller
             $data = $request->validate([
                 'vehicle_configuration_id' => ['required', 'integer', Rule::exists('vehicle_configurations', 'id')],
                 'product_id' => ['required', 'integer', Rule::exists('products', 'id')],
-                'base_product_id' => ['nullable', 'integer', Rule::exists('products', 'id')],
+                'base_product_id' => ['nullable', 'integer', Rule::exists('roof_rack_products', 'product_id')],
             ]);
             $selectedVehicle = VehicleConfiguration::query()->findOrFail($data['vehicle_configuration_id']);
             $selectedProduct = Product::query()->findOrFail($data['product_id']);
             $selectedBase = filled($data['base_product_id'] ?? null) ? Product::query()->findOrFail($data['base_product_id']) : null;
-            $result = $compatibility->check($selectedProduct, new CompatibilityContext($selectedVehicle, $selectedBase));
+            $productToCheck = $selectedProduct->autoBox ? $selectedBase : $selectedProduct;
+            if ($productToCheck) {
+                $result = $compatibility->check($productToCheck, new CompatibilityContext($selectedVehicle));
+            }
         }
 
         return view('admin.compatibility-preview.index', [

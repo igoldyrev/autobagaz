@@ -48,7 +48,7 @@ class AdminCompatibilityOverrideTest extends TestCase
         ]))
             ->assertOk()
             ->assertSee('Как пользоваться проверкой')
-            ->assertSee('Базовый багажник для проверки автобокса не требуется.')
+            ->assertSee('Для проверки автобокса выберите базовый багажник.')
             ->assertSee('Результат: Совместимо')
             ->assertSee('обязательные условия установки выполнены')
             ->assertSee('Объяснение проверки')

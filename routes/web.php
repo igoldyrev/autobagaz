@@ -207,6 +207,7 @@ Route::post('/products/{product}/crossbars', [ProductController::class, 'updateC
 Route::post('/callback', [CallbackRequestController::class, 'store'])->middleware('throttle:10,1')->name('callback.store');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/crossbars', [CartController::class, 'updateCrossbars'])->name('cart.crossbars.update');
+Route::post('/cart/confirm-compatibility', [CartController::class, 'confirmCompatibility'])->block(10, 10)->name('cart.confirm-compatibility');
 Route::post('/cart/kit/{product}/{roofRack}', [CartController::class, 'storeKit'])->middleware('throttle:30,1')->name('cart.store-kit');
 Route::post('/cart/{product}', [CartController::class, 'store'])->middleware('throttle:30,1')->name('cart.store');
 Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');

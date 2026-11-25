@@ -2,8 +2,11 @@
 
 namespace App\Services;
 
+use App\Compatibility\CompatibilityContext;
+use App\Compatibility\CompatibilityResult;
 use App\Models\InstallationService;
 use App\Models\Product;
+use App\Models\VehicleConfiguration;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 
@@ -12,6 +15,10 @@ class CartService
     private const SESSION_KEY = 'cart.items';
 
     private const INSTALLATION_SERVICE_SESSION_KEY = 'cart.installation_service';
+
+    private const COMPATIBILITY_CONFIRMATION_SESSION_KEY = 'cart.compatibility_confirmation';
+
+    public function __construct(private readonly CompatibilityService $compatibility) {}
 
     public function add(Product $product, int $quantity = 1): void
     {
@@ -71,6 +78,55 @@ class CartService
         }
 
         return $contents;
+    }
+
+    /** @return list<int> */
+    public function incompatibleRoofRackIds(?VehicleConfiguration $vehicle): array
+    {
+        $items = $this->rawItems();
+        if (! $vehicle || $items === []) {
+            return [];
+        }
+
+        $roofRacks = Product::query()->active()
+            ->whereKey(array_keys($items))
+            ->whereHas('roofRack')
+            ->with(['productType', 'roofRack', 'autoBox', 'fitments.configurations' => fn ($query) => $query->whereKey($vehicle->id)])
+            ->orderBy('id')
+            ->get();
+
+        return $this->compatibility->checkMany($roofRacks, new CompatibilityContext($vehicle))
+            ->filter(fn (CompatibilityResult $result): bool => $result->status === CompatibilityResult::INCOMPATIBLE)
+            ->keys()->all();
+    }
+
+    public function pendingCompatibilityConfirmation(?VehicleConfiguration $vehicle, ?array $incompatibleIds = null): ?string
+    {
+        $incompatibleIds ??= $this->incompatibleRoofRackIds($vehicle);
+        $confirmation = $this->compatibilityConfirmation($vehicle, $incompatibleIds);
+
+        return Session::get(self::COMPATIBILITY_CONFIRMATION_SESSION_KEY) === $confirmation ? null : $confirmation;
+    }
+
+    public function confirmCompatibility(?VehicleConfiguration $vehicle, string $confirmation): bool
+    {
+        $expected = $this->compatibilityConfirmation($vehicle, $this->incompatibleRoofRackIds($vehicle));
+        if ($expected === null || ! hash_equals($expected, $confirmation)) {
+            return false;
+        }
+
+        Session::put(self::COMPATIBILITY_CONFIRMATION_SESSION_KEY, $expected);
+
+        return true;
+    }
+
+    private function compatibilityConfirmation(?VehicleConfiguration $vehicle, array $incompatibleIds): ?string
+    {
+        if (! $vehicle || $incompatibleIds === []) {
+            return null;
+        }
+
+        return hash('sha256', $vehicle->id.':'.implode(',', $incompatibleIds));
     }
 
     /**
@@ -208,7 +264,7 @@ class CartService
 
     public function clear(): void
     {
-        Session::forget(self::SESSION_KEY);
+        Session::forget([self::SESSION_KEY, self::COMPATIBILITY_CONFIRMATION_SESSION_KEY]);
         $this->removeInstallationService();
     }
 

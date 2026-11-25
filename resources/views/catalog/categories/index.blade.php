@@ -10,16 +10,13 @@
     ]" />
 
     <h1 class="title title-h1">
-        {{ $selectedVehicle
+        {{ $selectedVehicle && ! $showAllRoofRacks
             ? 'Багажники для '.$selectedVehicle->labelForYear($selectedVehicleYear)
             : 'Багажники на крышу автомобиля' }}
     </h1>
 
     @if ($selectedVehicle)
-        <section class="vehicle-filter-notice">
-            Показаны товары, совместимость которых подтверждена для выбранной конфигурации.
-            <a href="{{ route('catalog.vehicle-fitment.index') }}">Изменить автомобиль</a>
-        </section>
+        @include('catalog.products._roof_rack_vehicle_notice')
 
         @if ($unfilteredProductCount > 0)
             <div class="catalog-products-results--section" id="roof-rack-products">
@@ -28,8 +25,8 @@
                 @include('catalog.products._pagination', ['paginator' => $products])
             </div>
         @else
-            <div class="records-placeholder records-placeholder--list">
-                <p>Для выбранного автомобиля подтверждённо совместимые багажники пока не добавлены.</p>
+            <div class="records-placeholder records-placeholder--list" id="roof-rack-products">
+                <p>{{ $showAllRoofRacks ? 'В этом разделе пока нет товаров.' : 'Для выбранного автомобиля подтверждённо совместимые багажники пока не добавлены.' }}</p>
             </div>
         @endif
 

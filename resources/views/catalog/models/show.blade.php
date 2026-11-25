@@ -16,6 +16,7 @@
     ]" />
 
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
+    @include('catalog.products._roof_rack_vehicle_notice')
 
     @if ($generations->isNotEmpty())
         <section aria-label="Поколения {{ $currentModel->name }}">

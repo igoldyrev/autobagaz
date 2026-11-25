@@ -288,6 +288,10 @@
 .cart-item__remove { border: 0; color: #a62424; background: none; cursor: pointer; text-decoration: underline; }
 .cart-page__empty { text-align: center; color: #687069; }
 .cart-page__total { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 24px; font-size: 22px; }
+.cart-compatibility-confirmation { font-size: 14px; }
+.cart-compatibility-confirmation p { margin: 0 0 8px; }
+.cart-compatibility-confirmation .button, .vehicle-filter-notice .button { display: inline-block; width: auto; max-width: 100%; height: auto; padding: 8px 12px; line-height: 1.4; white-space: normal; }
+.vehicle-filter-notice .button { margin: 8px 12px 0 0; }
 .cart-recently-viewed { margin-top: 52px; padding-top: 34px; border-top: 1px solid #d8ded8; }
 .cart-recently-viewed .title { text-align: left; }
 .checkout-form { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(320px, 1fr); gap: 32px; align-items: start; }
@@ -530,6 +534,9 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
 .product-vehicle-compatibility__label { margin: 0 0 3px; color: #687069; font-size: 14px; }
 .product-vehicle-compatibility__vehicle { display: block; color: #172019; font-size: 17px; line-height: 1.35; }
 .product-vehicle-compatibility__status { display: flex; gap: 8px; align-items: baseline; margin: 15px 0 0; font-size: 16px; font-weight: 800; }
+.product-vehicle-compatibility__rack { display: grid; gap: 3px; margin: 12px 0 0; padding-top: 10px; border-top: 1px solid #cbdccf; color: #4e574f; font-size: 14px; line-height: 1.45; }
+.product-vehicle-compatibility__rack a { justify-self: start; color: #174d27; font-size: 16px; font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; overflow-wrap: anywhere; }
+.product-vehicle-compatibility__rack a:hover { text-decoration-thickness: 2px; }
 .product-vehicle-compatibility--compatible { border-color: #a8d4b3; background: #f1faf3; }
 .product-vehicle-compatibility--compatible .product-vehicle-compatibility__status { color: #18703c; }
 .product-vehicle-compatibility--incompatible { border-color: #e2b5b5; background: #fff5f5; }
@@ -566,10 +573,6 @@ a.catalog-pagination__item:hover, a.catalog-pagination__item:focus-visible { bor
 .cart-roof-rack-cross-sell .button { box-sizing: border-box; width: auto; max-width: 100%; min-width: 0; height: auto; padding: 10px 14px; line-height: 1.4; white-space: normal; text-align: center; }
 .cart-roof-rack-cross-sell__vehicle { color: #172019 !important; font-weight: 700; }
 .cart-roof-rack-cross-sell__total { color: #172019 !important; font-size: 18px; font-weight: 800; }
-.cart-installation-kit-confirmation { margin-top: 24px; padding: 20px; border: 1px solid #a8d4b3; border-left: 4px solid #18703c; border-radius: 7px; background: #f1faf3; }
-.cart-installation-kit-confirmation h2 { margin: 0 0 8px; color: #17663a; font-family: "Roboto Slab", serif; font-size: 20px; }
-.cart-installation-kit-confirmation p { margin: 0; color: #244c31; line-height: 1.5; }
-.cart-installation-kit-confirmation a { color: #17663a; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 .product-compatible-vehicles { margin-top: 16px; border: 1px solid #d8ded8; border-radius: 7px; background: #fff; }
 .product-compatible-vehicles summary { display: flex; justify-content: space-between; gap: 16px; padding: 16px 18px; color: #172019; cursor: pointer; font-weight: 800; }
 .product-compatible-vehicles__action { color: #276b3a; font-size: 13px; font-weight: 700; white-space: nowrap; }

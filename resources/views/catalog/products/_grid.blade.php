@@ -62,6 +62,12 @@
                     <span class="product-card__compatibility product-card__compatibility--conditional">Для установки необходим совместимый фаркоп</span>
                 @elseif ($usesOwnCrossbars)
                     <span class="product-card__compatibility product-card__compatibility--conditional">Совместимость с вашими поперечинами пока не подтверждена</span>
+                @elseif ($selectedVehicle && isset($roofRackCompatibility[$product->id]) && $roofRackCompatibility[$product->id]->status !== \App\Compatibility\CompatibilityResult::COMPATIBLE)
+                    <span class="product-card__compatibility product-card__compatibility--conditional">
+                        {{ $roofRackCompatibility[$product->id]->status === \App\Compatibility\CompatibilityResult::INCOMPATIBLE
+                            ? 'Не подходит для выбранного автомобиля'
+                            : 'Совместимость пока не подтверждена' }}
+                    </span>
                 @elseif ($selectedVehicle)
                     <span class="product-card__compatibility">
                         <span aria-hidden="true">✓</span>

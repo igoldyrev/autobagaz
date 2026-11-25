@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalElement = document.querySelector('[data-cart-total]');
     const cartCountElement = document.querySelector('.header__cart-count');
     const checkoutLink = document.querySelector('[data-cart-checkout]');
+    const confirmationForm = document.querySelector('[data-cart-confirm-compatibility]');
     const updates = [];
     let saving = Promise.resolve(true);
 
@@ -93,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let leaving = false;
-    checkoutLink?.addEventListener('click', async (event) => {
+    const continueToCheckout = async (event, proceed) => {
         event.preventDefault();
         if (leaving || updates.some(({ input }) => !input.reportValidity())) return;
 
@@ -101,8 +102,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const saves = updates.map(({ save }) => save());
         updates.forEach(({ input }) => { input.disabled = true; });
         if ((await Promise.all(saves)).every(Boolean)) {
-            window.location.assign(checkoutLink.href);
+            proceed();
         }
+    };
+
+    checkoutLink?.addEventListener('click', (event) => {
+        continueToCheckout(event, () => window.location.assign(checkoutLink.href));
+    });
+    confirmationForm?.addEventListener('submit', (event) => {
+        continueToCheckout(event, () => confirmationForm.submit());
     });
 
     window.addEventListener('pageshow', () => {

@@ -27,6 +27,9 @@ class FitmentController extends Controller
 {
     public function index(Request $request): View
     {
+        $configuration = $request->filled('vehicle_configuration_id')
+            ? VehicleConfiguration::query()->with('generation.vehicleModel.make')->findOrFail($request->integer('vehicle_configuration_id'))
+            : null;
         $fitments = Fitment::query()
             ->with('manufacturer')
             ->withCount(['configurations', 'products'])
@@ -39,7 +42,7 @@ class FitmentController extends Controller
             ->when($request->string('quality')->value() === 'no_configurations', fn (Builder $query) => $query->active()->doesntHave('configurations'))
             ->orderBy('name')->paginate(30)->withQueryString();
 
-        return view('admin.fitments.index', compact('fitments'));
+        return view('admin.fitments.index', compact('fitments', 'configuration'));
     }
 
     public function create(): View
@@ -123,14 +126,19 @@ class FitmentController extends Controller
     public function configurations(Request $request, Fitment $fitment): View
     {
         $query = VehicleConfiguration::query()->with(['bodyStyle', 'roofType', 'generation.vehicleModel.make']);
-        $this->applyConfigurationFilters($query, $request);
+        $configurationId = $request->integer('vehicle_configuration_id') ?: null;
+        if ($configurationId) {
+            $query->whereKey($configurationId);
+        } else {
+            $this->applyConfigurationFilters($query, $request);
+        }
         $configurations = $query->orderBy('display_name')->paginate(100)->withQueryString();
         $selectedConfigurations = $fitment->configurations()->get()->keyBy('id');
         $selectedIds = $selectedConfigurations->keys()->map(fn ($id): int => (int) $id)->all();
 
         return view('admin.fitments.configurations', [
-            ...$this->configurationFilterData($request),
-            ...compact('fitment', 'configurations', 'selectedIds', 'selectedConfigurations'),
+            ...($configurationId ? [] : $this->configurationFilterData($request)),
+            ...compact('fitment', 'configurations', 'selectedIds', 'selectedConfigurations', 'configurationId'),
         ]);
     }
 

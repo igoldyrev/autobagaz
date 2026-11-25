@@ -14,18 +14,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const options = Array.from(select.options);
+        const searchByYear = searchInput.hasAttribute('data-select-search-by-year');
 
         const filterOptions = () => {
             const query = normalize(searchInput.value);
+            const terms = query.split(/\s+/);
             let visibleCount = 0;
+
+            const matchesOption = (option, groupLabel = '') => {
+                const label = normalize(option.textContent);
+                if (!searchByYear) {
+                    return groupLabel.includes(query) || label.includes(query);
+                }
+
+                const name = normalize(option.dataset.vehicleName ?? '');
+                const from = Number(option.dataset.yearFrom);
+                const to = Number(option.dataset.yearTo);
+                return terms.every((term) => {
+                    if (/^\d{4}$/.test(term) && (from || to) && !name.includes(term)) {
+                        const year = Number(term);
+                        return (!from || year >= from) && (!to || year <= to);
+                    }
+
+                    return name.includes(term) || label.includes(term) || groupLabel.includes(term);
+                });
+            };
 
             Array.from(select.children).forEach((child) => {
                 if (child.tagName === 'OPTGROUP') {
-                    const groupMatches = normalize(child.label).includes(query);
+                    const groupLabel = normalize(child.label);
                     let visibleInGroup = 0;
 
                     Array.from(child.children).forEach((option) => {
-                        const matches = query === '' || groupMatches || normalize(option.textContent).includes(query);
+                        const matches = matchesOption(option, groupLabel);
                         option.hidden = !matches;
                         option.disabled = !matches;
 
@@ -41,7 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if (child.tagName === 'OPTION') {
-                    const matches = query === '' || normalize(child.textContent).includes(query);
+                    if (searchByYear && child.value === '') {
+                        return;
+                    }
+                    const matches = matchesOption(child);
                     child.hidden = !matches;
                     child.disabled = !matches;
 
@@ -50,6 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
+
+            if (searchByYear && select.selectedOptions[0]?.disabled) {
+                select.value = '';
+            }
 
             if (result) {
                 result.textContent = query === ''

@@ -41,6 +41,9 @@
         }
     }
     $resetQuery = array_intersect_key(request()->query(), array_flip(['vehicle_configuration_id', 'vehicle_year']));
+    if ($showAllRoofRacks ?? false) {
+        $resetQuery['show_all'] = 1;
+    }
     $resetUrl = url()->current().($resetQuery ? '?'.http_build_query($resetQuery) : '');
     $count = method_exists($products, 'total') ? $products->total() : $products->count();
 @endphp

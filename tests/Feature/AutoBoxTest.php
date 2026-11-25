@@ -201,7 +201,7 @@ class AutoBoxTest extends TestCase
             ->assertSee('<option value="Черный глянец"', escape: false)
             ->assertSee('<option value="Черный карбон"', escape: false)
             ->assertSee('<option value="Черный матовый"', escape: false)
-            ->assertSee('Автобоксы имеют универсальную совместимость и не проверяются по автомобилю или багажнику.')
+            ->assertSee('Для установки автобокса нужны подходящие поперечины.')
             ->assertDontSee('name="clamp_width_min_mm"', escape: false)
             ->assertSee('name="manufacturer_id"', escape: false)
             ->assertSee('Terra Drive')

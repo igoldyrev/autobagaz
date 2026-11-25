@@ -24,6 +24,7 @@ class CartController extends Controller
         $ownsCrossbars = $roofRackRecommendations->ownsCrossbars();
         $hasRoofRack = $products->contains(fn (Product $product): bool => $product->roofRack !== null);
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
+        $incompatibleRoofRackIds = $cart->incompatibleRoofRackIds($selectedVehicle);
         $recommendedRoofRack = $selectedVehicle && $accessory && ! $hasRoofRack && ! $ownsCrossbars
             ? $roofRackRecommendations->recommend($accessory, $selectedVehicle)
             : null;
@@ -38,8 +39,20 @@ class CartController extends Controller
             'roofRackAccessories' => $roofRackAccessories,
             'ownsCrossbars' => $ownsCrossbars,
             'recommendedRoofRack' => $recommendedRoofRack,
-            'hasInstallationKit' => $accessory !== null && $hasRoofRack,
+            'hasRackAndAccessory' => $accessory !== null && $hasRoofRack,
+            'incompatibleRoofRackIds' => $incompatibleRoofRackIds,
+            'pendingCompatibilityConfirmation' => $cart->pendingCompatibilityConfirmation($selectedVehicle, $incompatibleRoofRackIds),
         ]);
+    }
+
+    public function confirmCompatibility(Request $request, CartService $cart): RedirectResponse
+    {
+        $data = $request->validate(['confirmation' => ['required', 'string', 'size:64']]);
+        if (! $cart->confirmCompatibility($request->attributes->get('vehicleConfiguration'), $data['confirmation'])) {
+            return to_route('cart.index')->with('error', 'Условия проверки изменились. Проверьте совместимость товаров в корзине.');
+        }
+
+        return to_route('checkout.create');
     }
 
     public function updateCrossbars(Request $request, RoofRackRecommendationService $recommendations): RedirectResponse

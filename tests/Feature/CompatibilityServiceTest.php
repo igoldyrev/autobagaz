@@ -8,6 +8,7 @@ use App\Models\CompatibilityOverride;
 use App\Models\Fitment;
 use App\Models\Product;
 use App\Models\ProductType;
+use App\Models\User;
 use App\Models\VehicleConfiguration;
 use App\Models\VehicleMake;
 use App\Services\CompatibilityService;
@@ -85,6 +86,74 @@ class CompatibilityServiceTest extends TestCase
 
         $this->assertSame(CompatibilityResult::COMPATIBLE, $result->status);
         $this->assertNull($result->matchedBaseProductId);
+    }
+
+    public function test_admin_preview_rejects_a_rack_that_does_not_fit_the_car(): void
+    {
+        [$vehicle, $base, $box] = $this->compatibleContext();
+        $base->fitments()->detach();
+        $this->actingAs(User::factory()->create(['is_admin' => true]));
+
+        $this->get(route('admin.compatibility.preview', [
+            'vehicle_configuration_id' => $vehicle->id,
+            'product_id' => $box->id,
+            'base_product_id' => $base->id,
+        ]))
+            ->assertOk()
+            ->assertSeeText('Результат: Несовместимо')
+            ->assertSeeText('Выбранный багажник не подходит для этой конфигурации автомобиля.')
+            ->assertDontSeeText('обязательные условия установки выполнены');
+
+        $this->get(route('admin.compatibility.preview', [
+            'vehicle_configuration_id' => $vehicle->id,
+            'product_id' => $base->id,
+        ]))
+            ->assertOk()
+            ->assertSeeText('Результат: Несовместимо');
+    }
+
+    public function test_admin_preview_confirms_an_auto_box_with_a_rack_that_fits_the_car(): void
+    {
+        [$vehicle, $base, $box, $fitment] = $this->compatibleContext();
+        $base->roofRack()->update(['bar_width_mm' => null, 'bar_height_mm' => null]);
+        $fitment->configurations()->updateExistingPivot($vehicle->id, [
+            'crossbar_spacing_min_mm' => null, 'crossbar_spacing_max_mm' => null,
+        ]);
+
+        $this->actingAs(User::factory()->create(['is_admin' => true]))->get(route('admin.compatibility.preview', [
+            'vehicle_configuration_id' => $vehicle->id,
+            'product_id' => $box->id,
+            'base_product_id' => $base->id,
+        ]))
+            ->assertOk()
+            ->assertSeeText('Результат: Совместимо')
+            ->assertSeeText("Проверяемый комплект: {$box->name} + {$base->name}")
+            ->assertSeeText('Выбранный багажник подходит автомобилю.')
+            ->assertDontSeeText('Нужно заполнить');
+    }
+
+    public function test_admin_preview_asks_for_a_rack_before_confirming_box_compatibility(): void
+    {
+        [$vehicle, , $box] = $this->compatibleContext();
+        $vehicle->generation->update(['year_from' => 2016, 'year_to' => 2022]);
+        $this->actingAs(User::factory()->create(['is_admin' => true]));
+
+        $this->get(route('admin.compatibility.preview', [
+            'vehicle_configuration_id' => $vehicle->id,
+            'product_id' => $box->id,
+        ]))
+            ->assertOk()
+            ->assertSee('data-select-search="vehicle_configuration_id" data-select-search-by-year', escape: false)
+            ->assertSee('data-year-from="2016"', escape: false)
+            ->assertSee('data-year-to="2022"', escape: false)
+            ->assertSeeText('Для подтверждения совместимости выберите багажник')
+            ->assertDontSeeText('Результат: Совместимо');
+
+        $this->get(route('admin.compatibility.preview', [
+            'vehicle_configuration_id' => $vehicle->id,
+            'product_id' => $box->id,
+            'base_product_id' => $box->id,
+        ]))->assertRedirect()->assertSessionHasErrors('base_product_id');
     }
 
     public function test_batch_checks_preserve_override_scopes_precedence_and_validity(): void

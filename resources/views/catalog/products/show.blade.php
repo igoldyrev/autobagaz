@@ -200,9 +200,6 @@
                         <span aria-hidden="true">●</span>
                         @if ($compatibilityResult->status === App\Compatibility\CompatibilityResult::COMPATIBLE)
                             Подходит для вашей {{ $selectedVehicleLabel }}
-                            @if ($product->autoBox && $recommendedRoofRack)
-                                с багажником <a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a>
-                            @endif
                         @elseif ($compatibilityResult->status === App\Compatibility\CompatibilityResult::INCOMPATIBLE)
                             Не подходит для выбранного автомобиля
                         @else
@@ -210,7 +207,10 @@
                         @endif
                     </p>
                     @if ($product->autoBox && $recommendedRoofRack)
-                        <p>Для установки необходимы поперечины указанного багажника.</p>
+                        <p class="product-vehicle-compatibility__rack">
+                            <span>Для установки нужны поперечины этого багажника</span>
+                            <a href="{{ route('products.show', $recommendedRoofRack) }}">{{ $recommendedRoofRack->name }}</a>
+                        </p>
                     @endif
                     @if ($compatibilityResult->status !== App\Compatibility\CompatibilityResult::COMPATIBLE)
                         <a class="button button__buy product-vehicle-compatibility__button product-roof-rack-cross-sell__button" href="{{ $alternativesUrl }}">Показать подходящие аналоги</a>

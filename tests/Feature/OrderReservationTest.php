@@ -23,6 +23,30 @@ class OrderReservationTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_admin_orders_show_payment_and_reservation_even_without_a_reservation(): void
+    {
+        $this->freezeTime();
+        $unreserved = Order::query()->create([
+            'number' => 'NO-RESERVATION', 'customer_name' => 'Покупатель', 'phone' => '+79000000000',
+            'delivery_method' => 'pickup', 'total' => 100,
+        ]);
+        $reserved = $this->order($this->product(1));
+        $deadline = $reserved->reservation_expires_at->timezone(config('app.display_timezone'))->format('d.m.Y H:i:s');
+        $this->actingAs(User::factory()->create(['is_admin' => true]));
+
+        $this->get(route('admin.orders.index', ['search' => $unreserved->number]))->assertOk()
+            ->assertSeeText('Не оплачен')
+            ->assertSeeText('Резерв не создавался');
+        $this->get(route('admin.orders.index', ['search' => $reserved->number]))->assertOk()
+            ->assertSeeText('Не оплачен')
+            ->assertSeeText('Резерв до '.$deadline);
+
+        $this->pay($reserved);
+        $this->get(route('admin.orders.index', ['search' => $reserved->number]))->assertOk()
+            ->assertSee('<small>Оплачен</small>', escape: false)
+            ->assertSeeText('Оплачен, резерв сохранён');
+    }
+
     public function test_last_unit_can_only_be_reserved_once_and_retries_do_not_extend_the_deadline(): void
     {
         $this->freezeTime();

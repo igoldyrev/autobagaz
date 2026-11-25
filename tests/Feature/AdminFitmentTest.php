@@ -16,6 +16,52 @@ class AdminFitmentTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_quality_report_filters_and_opens_groups_with_the_selected_configuration(): void
+    {
+        [$make, $model, $generation, $configuration] = $this->configuration();
+        $otherModel = $make->models()->create(['name' => 'Other Model', 'slug' => 'other-model']);
+        $otherGeneration = $otherModel->generations()->create(['name' => 'Other Generation', 'slug' => 'other-generation']);
+        $otherConfiguration = $otherGeneration->configurations()->create(['display_name' => 'Another configuration']);
+        for ($index = 1; $index <= 30; $index++) {
+            $generation->configurations()->create(['display_name' => 'Additional configuration '.$index]);
+        }
+        $fitment = Fitment::query()->create([
+            'code' => 'QUALITY-GROUP', 'name' => 'Quality group', 'verification_status' => 'verified', 'is_active' => true,
+        ]);
+        $this->actingAs(User::factory()->create(['is_admin' => true]));
+
+        $makeReport = $this->get(route('admin.vehicles.configurations.quality', ['make_id' => $make->id]))
+            ->assertOk()->viewData('configurations');
+        $this->assertSame(32, $makeReport->total());
+        $report = $this->get(route('admin.vehicles.configurations.quality', ['make_id' => $make->id, 'model_id' => $model->id]))
+            ->assertOk()
+            ->assertSeeText('Открыть группы применяемости')
+            ->assertDontSeeText($otherConfiguration->display_name)
+            ->viewData('configurations');
+        $this->assertSame(31, $report->total());
+
+        $groupsUrl = route('admin.fitments.index', ['vehicle_configuration_id' => $configuration->id]);
+        $this->get($report->nextPageUrl())->assertOk()->assertSee($groupsUrl)
+            ->assertSeeText($configuration->display_name);
+
+        $focusUrl = route('admin.fitments.configurations', [$fitment, 'vehicle_configuration_id' => $configuration->id]);
+        $this->get($groupsUrl.'&search=QUALITY-GROUP')->assertOk()
+            ->assertSeeText('Выбранная конфигурация:')
+            ->assertSeeText($configuration->display_name)
+            ->assertSee($focusUrl);
+        $this->get($focusUrl)->assertOk()->assertSeeText($configuration->display_name)
+            ->assertDontSeeText($otherConfiguration->display_name)
+            ->assertSee('value="'.$configuration->id.'" checked', escape: false);
+
+        $this->from($focusUrl)->post(route('admin.fitments.configurations.update', $fitment), [
+            'action' => 'add', 'configuration_ids' => [$configuration->id],
+        ])->assertRedirect($focusUrl);
+
+        $this->get(route('admin.vehicles.configurations.quality', ['model_id' => $model->id]))
+            ->assertOk()->assertDontSeeText($configuration->display_name)
+            ->assertViewHas('configurations', fn ($configurations) => $configurations->total() === 30);
+    }
+
     public function test_administrator_can_manage_fitment_configurations_and_preview(): void
     {
         $admin = User::factory()->create(['is_admin' => true]);

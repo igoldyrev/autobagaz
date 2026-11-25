@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Compatibility\CompatibilityContext;
 use App\Models\CatalogCategory;
 use App\Models\Product;
 use App\Models\VehicleMake;
 use App\Services\CatalogProductFilter;
+use App\Services\CompatibilityService;
 use App\Services\VehicleCatalogService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
@@ -16,7 +18,7 @@ use Illuminate\View\View;
 
 class RoofRackCategoryController extends Controller
 {
-    public function index(Request $request, CatalogProductFilter $productFilter): View
+    public function index(Request $request, CatalogProductFilter $productFilter, CompatibilityService $compatibility): View
     {
         $rootCategory = $this->rootCategory();
         $specialCategories = $rootCategory->children()
@@ -31,15 +33,26 @@ class RoofRackCategoryController extends Controller
         $categories = $specialCategories->concat($vehicleMakes)->values();
 
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
+        $showAllRoofRacks = $selectedVehicle && $request->boolean('show_all');
         [$products, $filterOptions, $filters, $unfilteredProductCount] = $this->filteredProducts(
             $request,
             Product::query()->active()->whereHas('roofRack'),
             $productFilter,
             perPage: 12,
+            showAllRoofRacks: $showAllRoofRacks,
         );
+
+        $roofRackCompatibility = null;
+        if ($showAllRoofRacks) {
+            $pageProducts = $products->getCollection()->loadMissing([
+                'productType', 'fitments.configurations' => fn ($query) => $query->whereKey($selectedVehicle->id),
+            ]);
+            $roofRackCompatibility = $compatibility->checkMany($pageProducts, new CompatibilityContext($selectedVehicle));
+        }
 
         return view('catalog.categories.index', compact(
             'rootCategory', 'categories', 'selectedVehicle', 'products', 'filterOptions', 'filters', 'unfilteredProductCount',
+            'showAllRoofRacks', 'roofRackCompatibility',
         ));
     }
 
@@ -244,10 +257,10 @@ class RoofRackCategoryController extends Controller
     }
 
     /** @return array{0: Collection|LengthAwarePaginator, 1: array<string, mixed>, 2: array<string, mixed>, 3: int} */
-    private function filteredProducts(Request $request, Builder $query, CatalogProductFilter $productFilter, ?int $perPage = null): array
+    private function filteredProducts(Request $request, Builder $query, CatalogProductFilter $productFilter, ?int $perPage = null, bool $showAllRoofRacks = false): array
     {
         $selectedVehicle = $request->attributes->get('vehicleConfiguration');
-        if ($selectedVehicle) {
+        if ($selectedVehicle && ! $showAllRoofRacks) {
             $query->whereKey(app(VehicleCatalogService::class)->compatibleRoofRackIds($selectedVehicle));
         }
 

@@ -33,6 +33,9 @@ class CheckoutController extends Controller
         if ($snapshot === [] && ! $previous && ! $request->old('checkout_snapshot')) {
             return to_route('cart.index')->with('error', 'Добавьте товар в корзину, чтобы оформить заказ.');
         }
+        if ($cart->pendingCompatibilityConfirmation($request->attributes->get('vehicleConfiguration'))) {
+            return $this->redirectForCompatibilityConfirmation();
+        }
 
         $checkoutToken = $request->session()->get(CheckoutOrderRequest::TOKEN_SESSION_KEY);
         if (! $checkoutToken || Order::query()->where('checkout_token', $checkoutToken)->exists()) {
@@ -78,6 +81,9 @@ class CheckoutController extends Controller
                 $existingOrder = Order::query()->where('checkout_token', $request->validated('checkout_token'))->first();
                 if ($existingOrder) {
                     return $this->redirectToThanks($request, $existingOrder);
+                }
+                if ($cart->pendingCompatibilityConfirmation($request->attributes->get('vehicleConfiguration'))) {
+                    return $this->redirectForCompatibilityConfirmation();
                 }
                 if ($snapshot !== $confirmed || $snapshot === []) {
                     return $snapshot;
@@ -165,6 +171,11 @@ class CheckoutController extends Controller
         $request->session()->put('checkout.completed_order_id', $order->id);
 
         return to_route('checkout.thanks');
+    }
+
+    private function redirectForCompatibilityConfirmation(): RedirectResponse
+    {
+        return to_route('cart.index')->with('error', 'Подтвердите в корзине покупку багажника для другого автомобиля.');
     }
 
     public function success(Order $order): Response

@@ -21,6 +21,7 @@
     ]" />
 
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
+    @include('catalog.products._roof_rack_vehicle_notice')
 
     <section class="body-type-summary" aria-label="Выбранная конфигурация">
         @if ($currentGeneration->image_path)

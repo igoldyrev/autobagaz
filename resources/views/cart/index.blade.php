@@ -36,6 +36,12 @@
                 @if ($item['product']->bikeRack?->mounting_type === 'На фаркоп')
                     <p class="cart-item__installation-condition">Для установки необходим совместимый фаркоп</p>
                 @endif
+                @if (in_array($item['product']->id, $incompatibleRoofRackIds, true))
+                    <p class="cart-item__installation-condition">
+                        <strong>Не подходит для выбранного автомобиля.</strong>
+                        {{ $selectedVehicle->labelForYear($selectedVehicleYear) }} · {{ $selectedVehicle->display_name }}
+                    </p>
+                @endif
             </article>
         @empty
             <p class="cart-page__empty">В корзине пока нет товаров.</p>
@@ -65,11 +71,13 @@
                     @endforeach
                     @include('catalog.products._crossbar_preference', ['crossbarPreferenceAction' => route('cart.crossbars.update')])
                 </section>
-            @elseif ($hasInstallationKit)
-                <section class="cart-installation-kit-confirmation" aria-labelledby="cart-installation-kit-confirmation-title">
-                    <h2 id="cart-installation-kit-confirmation-title">Полный комплект для установки собран</h2>
-                    <p>В корзине есть товар «<a href="{{ route('products.show', $roofRackAccessory) }}">{{ $roofRackAccessory->name }}</a>» и багажник на крышу.</p>
-                </section>
+            @elseif ($hasRackAndAccessory)
+                @if ($incompatibleRoofRackIds === [])
+                    <section class="cart-roof-rack-cross-sell" aria-labelledby="cart-installation-kit-title">
+                        <h2 id="cart-installation-kit-title">Багажник и аксессуар в корзине</h2>
+                        <p>Перед покупкой сверьте требования к установке товара «<a href="{{ route('products.show', $roofRackAccessory) }}">{{ $roofRackAccessory->name }}</a>» с параметрами поперечин.</p>
+                    </section>
+                @endif
             @elseif ($recommendedRoofRack)
                 <section class="cart-roof-rack-cross-sell" aria-labelledby="cart-roof-rack-cross-sell-title">
                     <h2 id="cart-roof-rack-cross-sell-title">Всё необходимое для установки</h2>
@@ -92,7 +100,16 @@
             @endif
             <div class="cart-page__total">
                 <strong>Товары и услуги: <span data-cart-total>{{ number_format($total, 0, ',', ' ') }} ₽</span></strong>
-                <a class="button button__buy" href="{{ route('checkout.create') }}" data-cart-checkout>Оформить заказ</a>
+                @if ($pendingCompatibilityConfirmation)
+                    <form class="cart-compatibility-confirmation" method="POST" action="{{ route('cart.confirm-compatibility') }}" data-cart-confirm-compatibility>
+                        @csrf
+                        <input type="hidden" name="confirmation" value="{{ $pendingCompatibilityConfirmation }}">
+                        <p>Если багажник предназначен для другого автомобиля, подтвердите покупку.</p>
+                        <button class="button button__buy" type="submit">Подтверждаю покупку и перехожу к оформлению</button>
+                    </form>
+                @else
+                    <a class="button button__buy" href="{{ route('checkout.create') }}" data-cart-checkout>Оформить заказ</a>
+                @endif
             </div>
             <p class="order-note">Доставка, если потребуется, рассчитывается отдельно.</p>
             @include('checkout._request_notice')
@@ -108,5 +125,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/cart.js') }}" defer></script>
+    <script src="{{ asset('js/cart.js') }}?v={{ filemtime(public_path('js/cart.js')) }}" defer></script>
 @endpush

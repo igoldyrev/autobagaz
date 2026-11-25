@@ -182,6 +182,47 @@ class OrderCheckoutTest extends TestCase
             ->assertSee($service->name);
     }
 
+    public function test_incompatible_roof_rack_requires_confirmation_for_the_selected_vehicle(): void
+    {
+        Mail::fake();
+        $vehicle = $this->vehicle();
+        $rack = $this->product();
+        $rack->roofRack()->create();
+        $this->post(route('cart.store', $rack))->assertRedirect(route('cart.index'));
+        $checkout = $this->checkoutData($this->checkoutToken());
+
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $vehicle->id);
+        $cart = $this->get(route('cart.index'))
+            ->assertOk()
+            ->assertSeeText('Не подходит для выбранного автомобиля.')
+            ->assertSeeText('Подтверждаю покупку и перехожу к оформлению')
+            ->assertDontSee('data-cart-checkout', escape: false);
+        $confirmation = $cart->viewData('pendingCompatibilityConfirmation');
+
+        $this->get(route('checkout.create'))->assertRedirect(route('cart.index'));
+        $this->post(route('checkout.store'), $checkout)->assertRedirect(route('cart.index'));
+        $this->assertDatabaseCount('orders', 0);
+
+        $otherVehicle = $vehicle->generation->configurations()->create([
+            'slug' => 'checkout-other-roof', 'display_name' => 'Другая крыша', 'is_active' => true,
+        ]);
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $otherVehicle->id)
+            ->post(route('cart.confirm-compatibility'), ['confirmation' => $confirmation])
+            ->assertRedirect(route('cart.index'));
+
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $vehicle->id)
+            ->post(route('cart.confirm-compatibility'), ['confirmation' => $confirmation])
+            ->assertRedirect(route('checkout.create'));
+        $this->get(route('cart.index'))
+            ->assertSeeText('Не подходит для выбранного автомобиля.')
+            ->assertSeeText('Оформить заказ');
+
+        $this->post(route('checkout.store'), $this->checkoutData($this->checkoutToken()))
+            ->assertRedirect(route('checkout.thanks'));
+        $this->assertSame($rack->id, Order::query()->sole()->items()->sole()->product_id);
+        $this->assertNull(session('cart.compatibility_confirmation'));
+    }
+
     public function test_native_forms_allow_quantity_update_and_delivery_checkout_without_javascript(): void
     {
         Mail::fake();

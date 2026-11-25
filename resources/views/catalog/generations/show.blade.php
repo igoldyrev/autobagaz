@@ -20,6 +20,7 @@
     ]" />
 
     <h1 class="title title-h1">{{ $pageTitle }}</h1>
+    @include('catalog.products._roof_rack_vehicle_notice')
 
     @if ($configurations->isNotEmpty())
         <section aria-label="Конфигурации {{ $currentModel->name }} {{ $generationTitle }}">

@@ -264,7 +264,20 @@ class VehicleFitmentPickerTest extends TestCase
             ->assertSee('catalog-filters--horizontal', escape: false)
             ->assertSeeInOrder(['Фильтры товаров', $rack->name])
             ->assertSee($rack->name)
+            ->assertSeeText('Показать все багажники')
             ->assertDontSee($unrelatedRack->name);
+
+        $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
+            ->get(route('catalog.autobagazhniki.index', ['show_all' => 1, 'price_from' => 500]))
+            ->assertOk()
+            ->assertViewHas('selectedVehicle', fn ($vehicle) => $vehicle->is($configuration))
+            ->assertSeeText('Показать только подходящие')
+            ->assertSee('name="show_all" value="1"', escape: false)
+            ->assertSee($rack->name)
+            ->assertSee($unrelatedRack->name)
+            ->assertSeeText('Не подходит для выбранного автомобиля')
+            ->assertSeeText('Подходит для вашей '.$configuration->vehicle_label)
+            ->assertDontSee($box->name);
 
         $this->get(route('catalog.auto-boxes.index', ['vehicle_configuration_id' => $configuration->id]))
             ->assertOk()
@@ -331,7 +344,7 @@ class VehicleFitmentPickerTest extends TestCase
         $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id)
             ->get(route('cart.index'))
             ->assertOk()
-            ->assertSee('Полный комплект для установки собран')
+            ->assertSee('Багажник и аксессуар в корзине')
             ->assertDontSee('Подобрать совместимый багажник');
     }
 
@@ -480,10 +493,14 @@ class VehicleFitmentPickerTest extends TestCase
         $box = $this->autoBox('Бокс с условием', 'conditional-box', 60, 100, 35, 500, 800);
         $this->withCookie(ResolveVehicleConfiguration::COOKIE_NAME, (string) $configuration->id);
 
-        foreach ([route('products.show', $box), route('catalog.auto-boxes.index')] as $url) {
+        $installationNotes = [
+            route('products.show', $box) => 'Для установки нужны поперечины этого багажника',
+            route('catalog.auto-boxes.index') => 'Для установки необходимы поперечины указанного багажника.',
+        ];
+        foreach ($installationNotes as $url => $note) {
             $this->get($url)->assertOk()
                 ->assertSee('href="'.route('products.show', $rack).'">'.$rack->name.'</a>', false)
-                ->assertSee('Для установки необходимы поперечины указанного багажника.');
+                ->assertSee($note);
         }
 
         $this->post(route('cart.store', $box));
